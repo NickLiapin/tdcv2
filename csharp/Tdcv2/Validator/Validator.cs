@@ -3307,6 +3307,7 @@ public sealed class Validator
         }
 
         UniqOnComposed(open, name, gens);
+        UniqDraw(open, name, gens);
         UniqDropsGenAttrs(open, name, gens);
         UniqWithDistinct(open, name);
         RowLinkOrder(gens, genNodes);
@@ -8495,7 +8496,77 @@ public sealed class Validator
         }
     }
 
-    private void UniqUnsupported(TDCParser.OpenCloseElementContext open, string? name, string why)
+    /// <summary>The way out for a <c>uniq="true"</c> value that has no list to draw from.</summary>
+    private const string CounterHint =
+        "A counter never repeats, so build the value around one instead of asking for uniq=: "
+        + "<sequence name=\"Email\"><data>user</data><gen type=\"increment\"/><data>"
+        + "@example.test</data></sequence>. Or draw from something that lists its values \u2014 a "
+        + "text list, a value-list pack, a file column, a plain integer range, a regex.";
+
+    /// <summary>
+    /// <c>uniq="true"</c> where the value IS drawn, from something with no list to draw from.
+    /// </summary>
+    /// <remarks>
+    /// <c>check</c> called these valid and the run refused them, so a tool that validates and then
+    /// runs learnt only at the second step. The commonest is the first thing anybody asks of test
+    /// data: a unique email over <c>common.internet.email</c>, a pack that composes each address.
+    /// The reason is asked of the same function the run asks. Judged only where the run takes
+    /// that path — exactly one drawn (unnamed) part; a compound's fields are rearranged instead.
+    /// </remarks>
+    private void UniqDraw(
+        TDCParser.OpenCloseElementContext open,
+        string? name,
+        IReadOnlyList<IReadOnlyDictionary<string, string>> gens)
+    {
+        string? uniq = Attributes(open.attr()).GetValueOrDefault("uniq");
+        if (uniq is null || !string.Equals(uniq.Trim(), "true", StringComparison.OrdinalIgnoreCase))
+        {
+            return;
+        }
+
+        var drawn = gens.Where(g => !g.ContainsKey("name")).ToList();
+        if (drawn.Count != 1)
+        {
+            return;
+        }
+
+        IReadOnlyDictionary<string, string> gen = drawn[0];
+        var spec = new Model.Gen(gen.GetValueOrDefault("type", ""), gen);
+        string? reason = Engine.UniqSimple.Unsupported(spec);
+        if (reason is null && spec.Type == "template")
+        {
+            string path = gen.GetValueOrDefault("value", "").Trim();
+            string local = gen.GetValueOrDefault("local", "").Trim();
+            string genLocale = local.Length == 0 ? _locale : local;
+            bool generator = Engine.UniqSimple.IsGeneratorTemplate(path)
+                || (_packs is not null
+                    && _packs.Exists(path, genLocale)
+                    && _packs.Load(path, genLocale).IsGenerator);
+            if (generator)
+            {
+                reason = $"template \"{path}\" is a generator \u2014 it composes each value when "
+                    + "asked instead of listing them, so there are no values to draw without "
+                    + "replacement";
+            }
+        }
+
+        if (reason is not null)
+        {
+            UniqUnsupported(open, name, reason, CounterHint);
+        }
+    }
+
+    private void UniqUnsupported(TDCParser.OpenCloseElementContext open, string? name, string why) =>
+        UniqUnsupported(
+            open,
+            name,
+            why,
+            "Put uniq= on the sequences this one reads, or wrap them in <uniq>…</uniq> so their "
+                + "combination is unique across records. When the parts have fixed widths, a "
+                + "unique combination means a unique result.");
+
+    private void UniqUnsupported(
+        TDCParser.OpenCloseElementContext open, string? name, string why, string hint)
     {
         string? uniq = Attributes(open.attr()).GetValueOrDefault("uniq");
         if (uniq is null || !string.Equals(uniq.Trim(), "true", StringComparison.OrdinalIgnoreCase))
@@ -8507,9 +8578,7 @@ public sealed class Validator
         Error(
             "TDC218",
             $"uniq=\"true\" is not allowed on <sequence name=\"{name ?? "?"}\">: {why}",
-            "Put uniq= on the sequences this one reads, or wrap them in <uniq>…</uniq> so their "
-                + "combination is unique across records. When the parts have fixed widths, a "
-                + "unique combination means a unique result.",
+            hint,
             line, column);
     }
 

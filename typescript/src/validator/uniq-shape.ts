@@ -20,6 +20,9 @@ import type {
   SelfClosingElementContext,
 } from '../generated/TDCParser.js';
 import { extractAttrs } from '../processor/walk.js';
+import { uniqUnsupportedReason } from '../sequence/uniq-simple.js';
+
+import { BUILTIN_TEMPLATE_PARAMS } from './unknown-attrs.js';
 
 /** The `uniq` attribute node when it is declared `true`, else nothing. */
 function declaredUniq(seqEl: OpenCloseElementContext): AttrContext | undefined {
@@ -41,6 +44,9 @@ export function checkUniqUnsupported(
   name: string | undefined,
   why: string,
   diagnostics: Diagnostic[],
+  hint: string = 'Put uniq= on the sequences this one reads, or wrap them in <uniq>…</uniq> so ' +
+    'their combination is unique across records. When the parts have fixed widths, a unique ' +
+    'combination means a unique result.',
 ): void {
   const attr = declaredUniq(seqEl);
   if (attr === undefined) return;
@@ -49,12 +55,79 @@ export function checkUniqUnsupported(
     source: 'validator',
     ...attrValueRange(attr),
     message: `uniq="true" is not allowed on <sequence name="${name ?? '?'}">: ${why}`,
-    hint:
-      'Put uniq= on the sequences this one reads, or wrap them in <uniq>…</uniq> so their ' +
-      'combination is unique across records. When the parts have fixed widths, a unique ' +
-      'combination means a unique result.',
+    hint,
     code: 'TDC218',
   });
+}
+
+/** What `checkUniqDraw` needs to resolve a template address the way the run does. */
+export interface UniqDrawCtx {
+  readonly locale: string;
+  readonly packGenerators?: ReadonlySet<string> | undefined;
+}
+
+/** The way out for a value that has no list to draw from. */
+const COUNTER_HINT =
+  'A counter never repeats, so build the value around one instead of asking for uniq=: ' +
+  '<sequence name="Email"><data>user</data><gen type="increment"/><data>@example.test</data>' +
+  '</sequence>. Or draw from something that lists its values — a text list, a value-list ' +
+  'pack, a file column, a plain integer range, a regex.';
+
+/**
+ * `uniq="true"` where the value IS drawn, but from something that has no list
+ * of values to draw without replacement.
+ *
+ * `check` called these valid and the run then refused them, so a tool that
+ * built its work around `check` — validate, then run — learnt only at the
+ * second step. The most common one is the first thing anybody asks of test
+ * data: a unique email, `common.internet.email` + `uniq="true"`, where the pack
+ * is a generator that composes each address.
+ *
+ * The reason is asked of the same function the run asks, so the two cannot
+ * disagree about which draws can be unique. Only the shapes that take that
+ * path are judged — exactly one drawn (unnamed) part, with or without literals
+ * and fields beside it, as measured. A compound's `uniq` rearranges its named
+ * fields instead and works over any of them.
+ */
+export function checkUniqDraw(
+  seqEl: OpenCloseElementContext,
+  name: string | undefined,
+  gens: readonly (OpenCloseElementContext | SelfClosingElementContext)[],
+  ctx: UniqDrawCtx,
+  diagnostics: Diagnostic[],
+): void {
+  if (declaredUniq(seqEl) === undefined) return;
+  // The unnamed gens are the drawn value; named ones are fields beside it. None
+  // drawn: a compound, whose fields are rearranged. Two or more: TDC220's.
+  const drawn = gens.filter((g) => extractAttrs(g.attr())['name'] === undefined);
+  const [gen] = drawn;
+  if (gen === undefined || drawn.length !== 1) return;
+  const attrs = extractAttrs(gen.attr());
+  const type = attrs['type'] ?? '';
+  const reason = uniqUnsupportedReason({ type, attrs });
+  if (reason !== undefined) {
+    checkUniqUnsupported(seqEl, name, reason, diagnostics, COUNTER_HINT);
+    return;
+  }
+  if (type !== 'template') return;
+  const path = (attrs['value'] ?? '').trim();
+  const locale = (attrs['local'] ?? '').trim() || ctx.locale;
+  // The two builtin paths compute a date; a pack generator composes its value.
+  // Neither is a list. A path the run cannot resolve at all is TDC071's.
+  const generators = ctx.packGenerators ?? new Set<string>();
+  const generator =
+    BUILTIN_TEMPLATE_PARAMS.has(path) ||
+    generators.has(path) ||
+    generators.has(`${locale}.${path}`);
+  if (!generator) return;
+  checkUniqUnsupported(
+    seqEl,
+    name,
+    `template "${path}" is a generator — it composes each value when asked instead of listing ` +
+      'them, so there are no values to draw without replacement',
+    diagnostics,
+    COUNTER_HINT,
+  );
 }
 
 /**

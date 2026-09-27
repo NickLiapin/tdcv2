@@ -211,6 +211,12 @@ struct Validator {
 /// The locales that ship this path, sorted — what the refusal offers instead of guessing.
 /// "The `en` pack ships it" was true and narrow: a path may live in eighty-six locales, and
 /// naming one told a reader to write local="en" when the locale they wanted was there all along.
+/// The way out for a `uniq="true"` value that has no list to draw from.
+const COUNTER_HINT: &str = "A counter never repeats, so build the value around one instead of \
+     asking for uniq=: <sequence name=\"Email\"><data>user</data><gen type=\"increment\"/><data>\
+     @example.test</data></sequence>. Or draw from something that lists its values \u{2014} a \
+     text list, a value-list pack, a file column, a plain integer range, a regex.";
+
 fn locales_having(packs: &crate::packs::DataPacks, path: &str) -> Vec<String> {
     let mut found: std::collections::BTreeSet<String> = std::collections::BTreeSet::new();
     for address in packs.address_list() {
@@ -2273,6 +2279,7 @@ impl Validator {
         }
 
         self.uniq_on_composed(open, name, &gens);
+        self.uniq_draw(open, name, &gens);
         self.uniq_drops_gen_attrs(open, name, &gens);
         self.uniq_with_distinct(open, name);
         self.row_link_order(&gens);
@@ -2614,6 +2621,17 @@ impl Validator {
     }
 
     fn uniq_unsupported(&mut self, open: &Element, name: Option<&str>, why: &str) {
+        self.uniq_unsupported_with(
+            open,
+            name,
+            why,
+            "Put uniq= on the sequences this one reads, or wrap them in <uniq>…</uniq> so their \
+             combination is unique across records. When the parts have fixed widths, a unique \
+             combination means a unique result.",
+        );
+    }
+
+    fn uniq_unsupported_with(&mut self, open: &Element, name: Option<&str>, why: &str, hint: &str) {
         let declared = open.attr("uniq").map(|a| a.value()).unwrap_or("");
         if !declared.trim().eq_ignore_ascii_case("true") {
             return;
@@ -2624,11 +2642,59 @@ impl Validator {
                 "uniq=\"true\" is not allowed on <sequence name=\"{}\">: {why}",
                 name.unwrap_or("?")
             ),
-            "Put uniq= on the sequences this one reads, or wrap them in <uniq>…</uniq> so their \
-             combination is unique across records. When the parts have fixed widths, a unique \
-             combination means a unique result.",
+            hint,
             open.at("uniq"),
         );
+    }
+
+    /// `uniq="true"` where the value IS drawn, from something with no list to
+    /// draw from.
+    ///
+    /// `check` called these valid and the run refused them, so a tool that
+    /// validates and then runs learnt only at the second step. The commonest is
+    /// the first thing anybody asks of test data: a unique email over
+    /// `common.internet.email`, a pack that composes each address. The reason
+    /// is asked of the same function the run asks. Judged only where the run
+    /// takes that path — exactly one drawn (unnamed) part; a compound's fields
+    /// are rearranged instead.
+    fn uniq_draw(&mut self, open: &Element, name: Option<&str>, gens: &[&Element]) {
+        let declared = open.attr("uniq").map(|a| a.value()).unwrap_or("");
+        if !declared.trim().eq_ignore_ascii_case("true") {
+            return;
+        }
+        let drawn: Vec<&&Element> = gens.iter().filter(|g| g.attr("name").is_none()).collect();
+        let [gen] = drawn.as_slice() else {
+            return;
+        };
+        let attrs = gen.attr_map();
+        let spec = crate::model::config::Gen::new(
+            attrs.get("type").cloned().unwrap_or_default(),
+            attrs.clone(),
+        );
+        let mut reason = crate::engine::uniq_simple::unsupported(&spec);
+        if reason.is_none() && spec.gen_type == "template" {
+            let path = attrs.get("value").map(|v| v.trim()).unwrap_or("");
+            let locale = attrs
+                .get("local")
+                .map(|l| l.trim())
+                .filter(|l| !l.is_empty())
+                .map_or_else(|| self.locale.clone(), str::to_string);
+            let generator = crate::engine::uniq_simple::is_generator_template(path)
+                || self.packs.as_ref().is_some_and(|packs| {
+                    packs.exists(path, &locale)
+                        && packs.load(path, &locale).is_ok_and(|e| e.is_generator())
+                });
+            if generator {
+                reason = Some(format!(
+                    "template \"{path}\" is a generator \u{2014} it composes each value when \
+                     asked instead of listing them, so there are no values to draw without \
+                     replacement"
+                ));
+            }
+        }
+        if let Some(why) = reason {
+            self.uniq_unsupported_with(open, name, &why, COUNTER_HINT);
+        }
     }
 
     fn check_sequence_data_attrs(&mut self, open: &Element) {

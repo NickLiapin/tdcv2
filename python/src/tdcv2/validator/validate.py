@@ -18,6 +18,7 @@ import dataclasses
 import math
 import re
 from pathlib import Path
+from types import SimpleNamespace
 from urllib.parse import urlparse
 
 from ..date import calendar
@@ -61,6 +62,7 @@ from ..output import column_type
 from ..packs import DataPacks
 from ..parser import paired_data
 from ..pattern import curve
+from ..sequence import uniq_simple
 from ..stats import dist_params
 from ..stats import distribution as dist
 from . import checks
@@ -326,6 +328,15 @@ POOL_MAX_MEMBERS = 1_000_000
 # name in the language, so writing any of them on a <gen> passed in silence
 # while the reference refused it — a config that ran differently depending on
 # which implementation you happened to use.
+#: The way out for a `uniq="true"` value that has no list to draw from.
+_COUNTER_HINT = (
+    "A counter never repeats, so build the value around one instead of asking for uniq=: "
+    '<sequence name="Email"><data>user</data><gen type="increment"/><data>@example.test</data>'
+    "</sequence>. Or draw from something that lists its values — a text list, a value-list "
+    "pack, a file column, a plain integer range, a regex."
+)
+
+
 def _did_you_mean(name: str) -> str:
     """The `help:` line for a near name, or "" when nothing was near enough."""
     return f'did you mean "{name}"?' if name else ""
@@ -2339,9 +2350,7 @@ class _Validator:
                 fallback = _at_attrs(
                     self_closing.attr(), "each", _line(self_closing), _column(self_closing)
                 )
-                line, column = _at_attrs(
-                    self_closing.attr(), "that", fallback[0], fallback[1]
-                )
+                line, column = _at_attrs(self_closing.attr(), "that", fallback[0], fallback[1])
                 self._error(
                     "TDC265",
                     "<assert> has no condition — that= or each= is required",
@@ -2739,6 +2748,7 @@ class _Validator:
             return
 
         self._uniq_on_composed(open_el, label, gens, gen_nodes)
+        self._uniq_draw(open_el, label, gens)
         self._uniq_drops_gen_attrs(open_el, label, gens, gen_nodes)
         self._uniq_with_distinct(open_el, label)
         self._row_link_order(gens, gen_nodes)
@@ -3020,7 +3030,40 @@ class _Validator:
             column,
         )
 
-    def _uniq_unsupported(self, open_el, label: str, why: str) -> None:
+    def _uniq_draw(self, open_el, label: str, gens) -> None:
+        """`uniq="true"` where the value IS drawn, from something with no list to draw from.
+
+        `check` called these valid and the run refused them, so a tool that validates and then
+        runs learnt only at the second step. The commonest is the first thing anybody asks of test
+        data: a unique email over `common.internet.email`, a pack that composes each address. The
+        reason is asked of the same function the run asks. Judged only where the run takes that
+        path -- exactly one drawn (unnamed) part; a compound's fields are rearranged instead.
+        """
+        if (_attrs(open_el.attr()).get("uniq") or "").strip().lower() != "true":
+            return
+        drawn = [g for g in gens if "name" not in g]
+        if len(drawn) != 1:
+            return
+        gen = drawn[0]
+        spec = SimpleNamespace(type=gen.get("type", ""), attrs=gen)
+        reason = uniq_simple.unsupported(spec)
+        if reason is None and spec.type == "template":
+            path = gen.get("value", "").strip()
+            locale = gen.get("local", "").strip() or self.locale
+            generator = uniq_simple.is_generator_template(path) or (
+                self.packs is not None
+                and self.packs.exists(path, locale)
+                and self.packs.load(path, locale).is_generator
+            )
+            if generator:
+                reason = (
+                    f'template "{path}" is a generator — it composes each value when asked '
+                    "instead of listing them, so there are no values to draw without replacement"
+                )
+        if reason is not None:
+            self._uniq_unsupported(open_el, label, reason, _COUNTER_HINT)
+
+    def _uniq_unsupported(self, open_el, label: str, why: str, hint: str | None = None) -> None:
         """`uniq="true"` where the value is not DRAWN, so there is no pool to take from.
 
         Uniqueness is a property of a draw — without replacement on a simple sequence,
@@ -3036,7 +3079,8 @@ class _Validator:
         self._error(
             "TDC218",
             f'uniq="true" is not allowed on <sequence name="{label}">: {why}',
-            "Put uniq= on the sequences this one reads, or wrap them in <uniq>…</uniq> so "
+            hint
+            or "Put uniq= on the sequences this one reads, or wrap them in <uniq>…</uniq> so "
             "their combination is unique across records. When the parts have fixed widths, "
             "a unique combination means a unique result.",
             line,

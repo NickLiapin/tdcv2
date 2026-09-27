@@ -28,6 +28,7 @@ import { Readable } from 'node:stream';
 import { loadConfig } from '../config/config.js';
 import {
   type PackRegistry,
+  generatorPacks,
   packParameterNames,
   packParameterWidths,
   scanPacks,
@@ -231,6 +232,7 @@ export class TDC {
       packUnusable: unusablePacks(this.packs),
       packParams: packParameterNames(this.packs),
       packParamWidths: packParameterWidths(this.packs),
+      packGenerators: generatorPacks(this.packs),
       // `--count` decides how many rows there will be, so the warnings that are
       // arithmetic over the count have to be about that number and not the one
       // in <env>.

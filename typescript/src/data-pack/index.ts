@@ -21,6 +21,7 @@ export {
   bundledPacks,
   type PackEntry,
   type PackRegistry,
+  generatorPacks,
   packParameterNames,
   packParameterWidths,
   type ScanResult,

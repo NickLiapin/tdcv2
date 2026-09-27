@@ -952,6 +952,19 @@ export function packParameterNames(packs: PackRegistry): ReadonlyMap<string, Rea
 }
 
 /**
+ * The addresses that name a GENERATOR rather than a value list.
+ *
+ * A generator composes each value when it is asked, so there is no list of
+ * values to draw from without replacement — `uniq="true"` over one is refused
+ * by the run, and the validator reads this set to refuse it in `check` first.
+ */
+export function generatorPacks(packs: PackRegistry): ReadonlySet<string> {
+  const out = new Set<string>();
+  for (const [address, entry] of packs) if (entry.generator !== undefined) out.add(address);
+  return out;
+}
+
+/**
  * Address → the widths its parameters always produce, where that is provable.
  *
  * Only composed packs have parameters, and only some of their sequences have a

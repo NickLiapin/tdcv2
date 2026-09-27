@@ -2978,6 +2978,7 @@ public final class Validator {
     }
 
     uniqOnComposed(open, name, gens);
+    uniqDraw(open, name, gens);
     uniqDropsGenAttrs(open, name, gens);
     uniqWithDistinct(open, name);
     rowLinkOrder(gens, genNodes);
@@ -4264,8 +4265,70 @@ public final class Validator {
         pos[0], pos[1]);
   }
 
+  /** The way out for a {@code uniq="true"} value that has no list to draw from. */
+  private static final String COUNTER_HINT =
+      "A counter never repeats, so build the value around one instead of asking for uniq=: "
+          + "<sequence name=\"Email\"><data>user</data><gen type=\"increment\"/><data>"
+          + "@example.test</data></sequence>. Or draw from something that lists its values \u2014"
+          + " a text list, a value-list pack, a file column, a plain integer range, a regex.";
+
+  /**
+   * {@code uniq="true"} where the value IS drawn, from something with no list to draw from.
+   *
+   * <p>{@code check} called these valid and the run refused them, so a tool that validates and
+   * then runs learnt only at the second step. The commonest is the first thing anybody asks of
+   * test data: a unique email over {@code common.internet.email}, a pack that composes each
+   * address. The reason is asked of the same function the run asks. Judged only where the run
+   * takes that path — exactly one drawn (unnamed) part; a compound's fields are rearranged
+   * instead.
+   */
+  private void uniqDraw(
+      TDCParser.OpenCloseElementContext open, String name, List<Map<String, String>> gens) {
+    String uniq = attributes(open.attr()).get("uniq");
+    if (uniq == null || !"true".equals(uniq.trim().toLowerCase(java.util.Locale.ROOT))) {
+      return;
+    }
+    List<Map<String, String>> drawn = gens.stream().filter(g -> !g.containsKey("name")).toList();
+    if (drawn.size() != 1) {
+      return;
+    }
+    Map<String, String> gen = drawn.get(0);
+    io.github.nickliapin.tdc.model.Config.Gen spec =
+        new io.github.nickliapin.tdc.model.Config.Gen(gen.getOrDefault("type", ""), gen);
+    String reason = io.github.nickliapin.tdc.engine.UniqSimple.unsupported(spec);
+    if (reason == null && "template".equals(spec.type())) {
+      String path = gen.getOrDefault("value", "").trim();
+      String local = gen.getOrDefault("local", "").trim();
+      String genLocale = local.isEmpty() ? locale : local;
+      boolean generator =
+          io.github.nickliapin.tdc.engine.UniqSimple.isGeneratorTemplate(path)
+              || (packs != null
+                  && packs.exists(path, genLocale)
+                  && packs.load(path, genLocale).isGenerator());
+      if (generator) {
+        reason =
+            "template \"" + path + "\" is a generator \u2014 it composes each value when asked "
+                + "instead of listing them, so there are no values to draw without replacement";
+      }
+    }
+    if (reason != null) {
+      uniqUnsupported(open, name, reason, COUNTER_HINT);
+    }
+  }
+
   private void uniqUnsupported(
       TDCParser.OpenCloseElementContext open, String name, String why) {
+    uniqUnsupported(
+        open,
+        name,
+        why,
+        "Put uniq= on the sequences this one reads, or wrap them in <uniq>…</uniq> so their "
+            + "combination is unique across records. When the parts have fixed widths, a unique "
+            + "combination means a unique result.");
+  }
+
+  private void uniqUnsupported(
+      TDCParser.OpenCloseElementContext open, String name, String why, String hint) {
     Map<String, String> attrs = attributes(open.attr());
     String uniq = attrs.get("uniq");
     if (uniq == null || !"true".equals(uniq.trim().toLowerCase(java.util.Locale.ROOT))) {
@@ -4275,9 +4338,7 @@ public final class Validator {
     error("TDC218",
         "uniq=\"true\" is not allowed on <sequence name=\"" + (name == null ? "?" : name)
             + "\">: " + why,
-        "Put uniq= on the sequences this one reads, or wrap them in <uniq>…</uniq> so their "
-            + "combination is unique across records. When the parts have fixed widths, a unique "
-            + "combination means a unique result.",
+        hint,
         pos[0], pos[1]);
   }
 

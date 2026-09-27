@@ -400,7 +400,7 @@ const DISTRIBUTION_PARAMS: ReadonlySet<string> = new Set([
  * to be. Their parameter sets are small and closed, so checking them carries
  * no risk of a false error.
  */
-const BUILTIN_TEMPLATE_PARAMS: ReadonlyMap<string, ReadonlySet<string>> = new Map([
+export const BUILTIN_TEMPLATE_PARAMS: ReadonlyMap<string, ReadonlySet<string>> = new Map([
   ['person.b_day', new Set(['oldest', 'youngest', 'format', 'precision'])],
   ['date.range', new Set(['range', 'format', 'precision'])],
 ]);

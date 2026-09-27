@@ -315,6 +315,31 @@ internal static class UniqSimple
         return Math.Max(100_000L, 20 * wait);
     }
 
+    /// <summary>
+    /// Why this gen cannot take the without-replacement path, or <c>null</c> when it can.
+    /// </summary>
+    /// <remarks>
+    /// The validator asks this before the run and the run refuses on the same answer, so
+    /// <c>check</c> and a run cannot disagree about which draws can be unique. A template is
+    /// judged later, by its pack: whether the address names a list is a question for the
+    /// registry.
+    /// </remarks>
+    internal static string? Unsupported(Gen gen)
+    {
+        bool supported = gen.Type switch
+        {
+            "increment" or "decrement" or "regex" or "advanced_regex" or "template" => true,
+            "number" => PlainIntRange(gen) is not null,
+            "text" => (gen.Attr("percent") ?? "").Trim().Length == 0,
+            "file" => (gen.Attr("row") ?? "").Trim().Length == 0,
+            _ => false,
+        };
+        return supported ? null : UnsupportedReason(gen);
+    }
+
+    /// <summary>A builtin template that computes a date rather than listing values.</summary>
+    internal static bool IsGeneratorTemplate(string path) => path is "person.b_day" or "date.range";
+
     /// <summary>Why this gen cannot take the without-replacement path, for the refusal.</summary>
     private static string UnsupportedReason(Gen gen) =>
         gen.Type == "number"
@@ -358,7 +383,7 @@ internal static class UniqSimple
         if (gen.Type == "template")
         {
             string path = gen.Attr("value") ?? "";
-            if (path is "person.b_day" or "date.range")
+            if (IsGeneratorTemplate(path))
             {
                 throw NotAList(name, path);
             }

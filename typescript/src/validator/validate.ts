@@ -101,6 +101,7 @@ import {
 } from './members.js';
 import { checkUniqMemory } from './uniq-memory.js';
 import {
+  checkUniqDraw,
   checkUniqDropsAttrs,
   checkUniqOnComposed,
   checkUniqUnsupported,
@@ -148,6 +149,12 @@ export interface ValidationOptions {
    */
   readonly packParamWidths?: PackParamWidths | undefined;
   /**
+   * The pack addresses that name a generator rather than a value list. A
+   * `uniq="true"` draw needs a list, so the run refuses one over a generator;
+   * this lets `check` refuse it first. Absent → that check stays silent.
+   */
+  readonly packGenerators?: ReadonlySet<string> | undefined;
+  /**
    * The row count the run will ACTUALLY use, when `--count` overrides the one
    * in `<env>`.
    *
@@ -189,6 +196,7 @@ export function validate(tree: DocumentContext, options: ValidationOptions = {})
     options.packParams,
     options.packParamWidths,
     options.count,
+    options.packGenerators,
   );
 
   checkOneEnvOneBlock(tdc, diags);
@@ -434,6 +442,8 @@ class Ctx {
     public readonly packParamWidths: PackParamWidths | undefined,
     /** `--count`, when the caller has one. See `ValidationOptions.count`. */
     public readonly countOverride?: number | undefined,
+    /** See `ValidationOptions.packGenerators`. */
+    public readonly packGenerators?: ReadonlySet<string> | undefined,
   ) {}
 
   public known(name: string): boolean {
@@ -780,6 +790,7 @@ function checkSequenceBody(seqEl: OpenCloseElementContext, ctx: Ctx): void {
   } else {
     checkSequenceDataAttrs(seqEl, ctx.diagnostics);
     checkUniqOnComposed(seqEl, name, gens, ctx.diagnostics);
+    checkUniqDraw(seqEl, name, gens, ctx, ctx.diagnostics);
     checkUniqDropsAttrs(seqEl, name, gens, hasDataLiteral(seqEl), ctx.diagnostics);
     checkUniqWithDistinct(seqEl, name, collectSequenceGens(seqEl).distinctGroups, ctx.diagnostics);
     checkRowLinkOrder(gens, ctx.diagnostics);

@@ -230,6 +230,30 @@ def _stall_limit(space: int, produced: int) -> int:
     return max(100_000, 20 * (-(-space // remaining)))
 
 
+def unsupported(gen) -> str | None:
+    """Why this gen cannot take the without-replacement path, or ``None`` when it can.
+
+    The validator asks this before the run and the run refuses on the same answer, so ``check``
+    and a run cannot disagree about which draws can be unique. A template is judged later, by its
+    pack: whether the address names a list is a question for the registry.
+    """
+    kind = gen.type
+    if kind in ("increment", "decrement", "regex", "advanced_regex", "template"):
+        return None
+    if kind == "number":
+        return None if _plain_int_range(gen) is not None else unsupported_reason(gen)
+    if kind == "text" and not gen.attrs.get("percent", "").strip():
+        return None
+    if kind == "file" and not gen.attrs.get("row", "").strip():
+        return None
+    return unsupported_reason(gen)
+
+
+def is_generator_template(path: str) -> bool:
+    """A builtin template that computes a date rather than listing values."""
+    return path in _GENERATOR_TEMPLATES
+
+
 def unsupported_reason(gen) -> str:
     """Why this gen cannot take the without-replacement path, for the refusal."""
     if gen.type == "number":

@@ -265,6 +265,30 @@ public final class UniqSimple {
     return Math.max(100_000L, 20 * wait);
   }
 
+  /**
+   * Why this gen cannot take the without-replacement path, or {@code null} when it can.
+   *
+   * <p>The validator asks this before the run and the run refuses on the same answer, so {@code
+   * check} and a run cannot disagree about which draws can be unique. A template is judged later,
+   * by its pack: whether the address names a list is a question for the registry.
+   */
+  public static String unsupported(Config.Gen gen) {
+    boolean supported =
+        switch (gen.type()) {
+          case "increment", "decrement", "regex", "advanced_regex", "template" -> true;
+          case "number" -> plainIntRange(gen) != null;
+          case "text" -> gen.attr("percent", "").trim().isEmpty();
+          case "file" -> gen.attr("row", "").trim().isEmpty();
+          default -> false;
+        };
+    return supported ? null : unsupportedReason(gen);
+  }
+
+  /** A builtin template that computes a date rather than listing values. */
+  public static boolean isGeneratorTemplate(String path) {
+    return "person.b_day".equals(path) || "date.range".equals(path);
+  }
+
   /** Why this gen cannot take the without-replacement path, for the refusal. */
   static String unsupportedReason(Config.Gen gen) {
     if ("number".equals(gen.type())) {
@@ -307,7 +331,7 @@ public final class UniqSimple {
       }
       case "template" -> {
         String path = gen.attr("value", "");
-        if ("person.b_day".equals(path) || "date.range".equals(path)) {
+        if (isGeneratorTemplate(path)) {
           throw notAList(name, path);
         }
         // `local=` on the <gen> picks the pack here too -- a unique draw over a German

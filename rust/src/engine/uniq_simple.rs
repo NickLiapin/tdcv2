@@ -287,6 +287,28 @@ fn stall_limit(space: u64, produced: u64) -> u64 {
     (20 * wait).max(100_000)
 }
 
+/// Why this gen cannot take the without-replacement path, or `None` when it can.
+///
+/// The validator asks this before the run and the run refuses on the same
+/// answer, so `check` and a run cannot disagree about which draws can be
+/// unique. A template is judged later, by its pack: whether the address names
+/// a list is a question for the registry.
+pub(crate) fn unsupported(gen: &Gen) -> Option<String> {
+    let supported = match gen.gen_type.as_str() {
+        "increment" | "decrement" | "regex" | "advanced_regex" | "template" => true,
+        "number" => plain_int_range(gen).is_some(),
+        "text" => gen.attr_or("percent", "").trim().is_empty(),
+        "file" => gen.attr_or("row", "").trim().is_empty(),
+        _ => false,
+    };
+    (!supported).then(|| unsupported_reason(gen))
+}
+
+/// A builtin template that computes a date rather than listing values.
+pub(crate) fn is_generator_template(path: &str) -> bool {
+    path == "person.b_day" || path == "date.range"
+}
+
 /// Why this gen cannot take the without-replacement path, for the refusal.
 fn unsupported_reason(gen: &Gen) -> String {
     if gen.gen_type == "number" {
@@ -333,7 +355,7 @@ fn pool_of(name: &str, gen: &Gen, env: &Env) -> EngineResult<Pool> {
     }
     if gen.gen_type == "template" {
         let path = gen.attr_or("value", "");
-        if path == "person.b_day" || path == "date.range" {
+        if is_generator_template(path) {
             return not_a_list(name, path);
         }
         let locale = match gen.attr("local").map(str::trim).filter(|l| !l.is_empty()) {

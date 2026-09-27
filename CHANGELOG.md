@@ -199,6 +199,17 @@ compute`. A number is what the running total reads as one — digits, an optiona
 you mean "…"?` — the near name last and labelled, so a reader that took the hint as the
   second field still does. Pinned in `cli.json` for all five.
 
+- **`check` refuses a `uniq="true"` draw that the run would refuse (`TDC218`).** A unique
+  value is drawn without replacement, which needs every possible value listed up front; the run
+  refused a draw from anything else, and `check` had called the config valid. The commonest is
+  the first thing anybody asks of test data — a unique email over `common.internet.email`, a
+  pack that composes each address — and the same held for a builtin date template, a date
+  range, a `timeseries`, a text list with `percent=` and a number that is not a plain integer
+  range. `check` now asks the run's own question, so the two cannot disagree, and the hint
+  shows the way out: build the value around a counter. A compound's fields and an env-level
+  `<uniq>` group, which rearrange instead of drawing, are untouched. Pinned in
+  `diagnostics/uniq-draw.json`; reported by the agent building the MCP server.
+
 ### Changed
 
 - **A plain `formula` or a date offset may carry `if=`.** `TDC295` refused both, together with

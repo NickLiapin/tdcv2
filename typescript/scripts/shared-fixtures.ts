@@ -15,7 +15,12 @@ import { readdirSync, readFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { bundledPacks, packParameterNames, packParameterWidths } from '../src/data-pack/load.js';
+import {
+  bundledPacks,
+  generatorPacks,
+  packParameterNames,
+  packParameterWidths,
+} from '../src/data-pack/load.js';
 import { TDC, type TdcOptions } from '../src/index.js';
 import { parse } from '../src/parser/index.js';
 import { validate } from '../src/validator/index.js';
@@ -105,6 +110,7 @@ const PACKS = bundledPacks();
 const PACK_ADDRESSES = [...PACKS.keys()];
 const PACK_PARAMS = packParameterNames(PACKS);
 const PACK_PARAM_WIDTHS = packParameterWidths(PACKS);
+const PACK_GENERATORS = generatorPacks(PACKS);
 
 /**
  * Parse and validate, returning `severity code line:column` per diagnostic, in report order.
@@ -127,6 +133,7 @@ export function diagnoseCase(source: string, dataPath?: string): string[] {
     packAddresses: PACK_ADDRESSES,
     packParams: PACK_PARAMS,
     packParamWidths: PACK_PARAM_WIDTHS,
+    packGenerators: PACK_GENERATORS,
     // A case may need a real file on disk — TDC062 is about a CSV column that is not in the
     // header, and there is no way to say that without a header to be absent from.
     ...(dataPath ? { dataSources: { baseDir: join(DIAGNOSTICS_DIR, dataPath) } } : {}),

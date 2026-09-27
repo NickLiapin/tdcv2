@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "a-unique-email-over-a-generator-pack",
+      "description": "common.internet.email composes each address, so there is no list to draw from without replacement; check called it valid and the run refused",
+      "config": "<tdc><env count=\"20\" seed=\"v\" local=\"en\"><sequence name=\"X\" uniq=\"true\"><gen type=\"template\" value=\"common.internet.email\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "demonstrates": "TDC218",
+      "expected": ["error TDC218 1:66"]
+    },
+    {
+      "name": "a-generator-pack-behind-a-literal",
+      "description": "one drawn part beside a literal takes the same draw, and is refused the same way",
+      "config": "<tdc><env count=\"20\" seed=\"v\" local=\"en\"><sequence name=\"X\" uniq=\"true\"><data>id-</data><gen type=\"template\" value=\"common.internet.email\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "demonstrates": "TDC218",
+      "expected": ["error TDC218 1:66"]
+    },
+    {
+      "name": "a-generator-pack-beside-a-named-field",
+      "description": "one drawn part beside a field: the run still draws that part without replacement",
+      "config": "<tdc><env count=\"20\" seed=\"v\" local=\"en\"><sequence name=\"X\" uniq=\"true\"><gen type=\"template\" value=\"common.internet.email\"/><gen name=\"f\" type=\"number\" value=\"1..9\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "demonstrates": "TDC218",
+      "expected": ["error TDC218 1:66"]
+    },
+    {
+      "name": "a-builtin-date-template",
+      "description": "person.b_day computes a date; it is not a list either",
+      "config": "<tdc><env count=\"20\" seed=\"v\" local=\"en\"><sequence name=\"X\" uniq=\"true\"><gen type=\"template\" value=\"person.b_day\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "demonstrates": "TDC218",
+      "expected": ["error TDC218 1:66"]
+    },
+    {
+      "name": "a-date-range",
+      "description": "a date range has no list of values to draw from without replacement",
+      "config": "<tdc><env count=\"20\" seed=\"v\" local=\"en\"><sequence name=\"X\" uniq=\"true\"><gen type=\"date\" value=\"2020-01-01..2020-12-31\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "demonstrates": "TDC218",
+      "expected": ["error TDC218 1:66"]
+    },
+    {
+      "name": "a-timeseries",
+      "description": "a series is computed, not listed",
+      "config": "<tdc><env count=\"20\" seed=\"v\" local=\"en\"><sequence name=\"X\" uniq=\"true\"><gen type=\"timeseries\" base=\"10\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "demonstrates": "TDC218",
+      "expected": ["error TDC218 1:66"]
+    },
+    {
+      "name": "a-text-list-with-percent",
+      "description": "percent= fixes how many rows each value fills, which a unique draw cannot keep",
+      "config": "<tdc><env count=\"20\" seed=\"v\" local=\"en\"><sequence name=\"X\" uniq=\"true\"><gen type=\"text\" value=\"a,b,c\" percent=\"50,30,20\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "demonstrates": "TDC218",
+      "expected": ["error TDC218 1:66"]
+    },
+    {
+      "name": "a-number-with-decimals",
+      "description": "only a plain integer range can be drawn without replacement",
+      "config": "<tdc><env count=\"20\" seed=\"v\" local=\"en\"><sequence name=\"X\" uniq=\"true\"><gen type=\"number\" value=\"1..100\" decimals=\"2\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "demonstrates": "TDC218",
+      "expected": ["error TDC218 1:66"]
+    },
+    {
+      "name": "a-number-from-a-distribution",
+      "description": "a distribution is not a range of listed integers",
+      "config": "<tdc><env count=\"20\" seed=\"v\" local=\"en\"><sequence name=\"X\" uniq=\"true\"><gen type=\"number\" distribution=\"normal\" mean=\"5\" sd=\"1\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "demonstrates": "TDC218",
+      "expected": ["error TDC218 1:66"]
+    },
+    {
+      "name": "a-value-list-pack-is-drawn-uniquely",
+      "demonstrates": "",
+      "description": "person.lastName is a list: uniq draws from it without replacement, and check stays quiet",
+      "config": "<tdc><env count=\"20\" seed=\"v\" local=\"en\"><sequence name=\"X\" uniq=\"true\"><gen type=\"template\" value=\"person.lastName\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "a-compound-over-a-generator-pack-is-rearranged",
+      "demonstrates": "",
+      "description": "named fields are rearranged, not redrawn, so a generator field is fine",
+      "config": "<tdc><env count=\"20\" seed=\"v\" local=\"en\"><sequence name=\"X\" uniq=\"true\"><gen name=\"e\" type=\"template\" value=\"common.internet.email\"/><gen name=\"n\" type=\"number\" value=\"1..9\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "a-uniq-group-over-a-generator-pack",
+      "demonstrates": "",
+      "description": "an env-level <uniq> group rearranges finished columns, whatever made them",
+      "config": "<tdc><env count=\"20\" seed=\"v\" local=\"en\"><uniq><sequence name=\"X\"><gen type=\"template\" value=\"common.internet.email\"/></sequence><sequence name=\"Y\"><gen type=\"number\" value=\"1..9\"/></sequence></uniq></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "a-regex-is-drawn-uniquely",
+      "demonstrates": "",
+      "description": "a pattern has a countable space and takes the unique draw",
+      "config": "<tdc><env count=\"20\" seed=\"v\" local=\"en\"><sequence name=\"X\" uniq=\"true\"><gen type=\"regex\" value=\"[A-Z]{3}[0-9]{3}\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": []
+    }
+  ]
+}
