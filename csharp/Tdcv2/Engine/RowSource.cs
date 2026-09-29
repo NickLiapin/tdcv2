@@ -26,7 +26,12 @@ public interface IRowSource
     /// included. An expression reads a name that is not one as its own literal text, so a per-row
     /// assertion checked against this source has to be able to tell the two apart.
     /// </summary>
-    bool Has(string column);
+    /// <remarks>
+    /// A default, so that a source written outside this library keeps compiling now that the
+    /// interface asks: it answers from <see cref="SequenceNames"/>, which leaves the built-ins
+    /// out. The engines' own sources give the full answer.
+    /// </remarks>
+    bool Has(string column) => SequenceNames.Contains(column);
 
     /// <summary>The whole run as text — what the config's <c>&lt;data&gt;</c> block produces.</summary>
     string Text();

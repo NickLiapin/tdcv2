@@ -26,8 +26,14 @@ public interface RowSource {
    * Whether {@code column} is a column of this run, built-ins such as {@code _count} included.
    * An expression reads a name that is not one as its own literal text, so a per-row assertion
    * checked against this source has to be able to tell the two apart.
+   *
+   * <p>A default, so that a source written outside this library keeps compiling now that the
+   * interface asks: it answers from {@link #sequenceNames()}, which leaves the built-ins out. The
+   * engines' own sources give the full answer.
    */
-  boolean has(String column);
+  default boolean has(String column) {
+    return sequenceNames().contains(column);
+  }
 
   /** The whole run as text — what the config's {@code <data>} block produces. */
   String text();
