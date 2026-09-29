@@ -249,6 +249,7 @@ const docDrift = [];
 const portDrift = [];
 const crashes = [];
 let agreed = 0;
+let needsPage = 0;
 
 for (const [n, ex] of examples.entries()) {
   const file = join(dir, `example-${String(n)}.tdc`);
@@ -258,6 +259,21 @@ for (const [n, ex] of examples.entries()) {
   for (const impl of chosen) results.set(impl.id, run(impl, file));
 
   const where = `${ex.name}:${String(ex.line)}`;
+
+  // A bare fragment the audit completed itself — see `wrapFragment` — that NO
+  // implementation can run needed something its page keeps in the prose: a
+  // sibling column, a file, or the point of the example, a pattern shown in
+  // order to be refused. The reference's own checker counts such a fragment as
+  // not self-contained rather than failing; this audit reported all five
+  // refusing it, alike, as five crashes. A fragment only SOME can run is still
+  // reported below: that is the ports disagreeing.
+  if (
+    ex.wrapped &&
+    chosen.every((impl) => results.get(impl.id).crashed !== undefined)
+  ) {
+    needsPage++;
+    continue;
+  }
 
   for (const impl of chosen) {
     const r = results.get(impl.id);
@@ -308,6 +324,9 @@ console.log(
 );
 console.log(
   `  ${String(docDrift.length)} DOC drift  — all agree, page is stale`,
+);
+console.log(
+  `  ${String(needsPage)} fragments that need their page — no implementation can run them alone`,
 );
 console.log(`  ${String(crashes.length)} runs failed outright`);
 console.log("=".repeat(72));
