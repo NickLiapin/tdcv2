@@ -38,10 +38,13 @@ jobs:
   verify:
     name: Install from the registries and run
     # A publish that failed has nothing to verify, and saying so loudly would be
-    # a second alarm for one fire.
+    # a second alarm for one fire. Neither does one started by hand: that is the
+    # dry run, which uploads nothing. Before 0.3.3 its success fired this job
+    # anyway, and it waited 30 minutes for a version no registry would ever get.
     if: >
       github.event_name == 'workflow_dispatch' ||
-      github.event.workflow_run.conclusion == 'success'
+      (github.event.workflow_run.conclusion == 'success' &&
+       github.event.workflow_run.event == 'push')
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
