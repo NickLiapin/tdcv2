@@ -11,7 +11,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
-## [0.3.3] — 2026-09-28
+## [0.3.3] — 2026-09-29
 
 ### Added
 
@@ -25,7 +25,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   exception types, and every class declared outside it escaped as an unhandled exception — a
   stack trace and exit code 134 where the other four print one line and exit 1. Measured on a
   `formula` inside a `<case>` (which now simply works — see the
-  [engine changelog](../CHANGELOG.md#033--2026-09-28)), a date offset measured from a number, a
+  [engine changelog](../CHANGELOG.md#033--2026-09-29)), a date offset measured from a number, a
   running total over text, and every runtime refusal of `<compute>` (`<to_number>`,
   `<encode>`). The command line now catches any error, as the reference does, and the engine's
   own refusals — `ComputeError` among them — are `InvalidOperationException`s. Pinned in
@@ -34,7 +34,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Changed
 
 - The engine changes shared by all five implementations — see the
-  [engine changelog](../CHANGELOG.md#033--2026-09-28).
+  [engine changelog](../CHANGELOG.md#033--2026-09-29).
 
 ## [0.3.2] — 2026-09-22
 

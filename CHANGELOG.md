@@ -15,7 +15,7 @@ page — is tracked in that implementation's own changelog:
 
 ## [Unreleased]
 
-## [0.3.3] — 2026-09-28
+## [0.3.3] — 2026-09-29
 
 ### Added
 

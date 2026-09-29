@@ -20,7 +20,7 @@ the next build, and nothing else is edited.
 
 ## [Unreleased]
 
-## [0.3.3] — 2026-09-28
+## [0.3.3] — 2026-09-29
 
 ### Added
 
@@ -42,7 +42,7 @@ the next build, and nothing else is edited.
 ### Changed
 
 - The engine changes shared by all five implementations — see the
-  [engine changelog](../CHANGELOG.md#033--2026-09-28).
+  [engine changelog](../CHANGELOG.md#033--2026-09-29).
 
 ## [0.3.2] — 2026-09-22
 
