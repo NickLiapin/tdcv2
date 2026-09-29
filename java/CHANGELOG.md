@@ -20,6 +20,30 @@ the next build, and nothing else is edited.
 
 ## [Unreleased]
 
+## [0.3.3] — 2026-09-28
+
+### Added
+
+- **`RowSource.has(column)`** — whether a column belongs to the run, built-ins such as `_count`
+  included; the per-row assertion check needs it to tell a column from a bare word. A default
+  method, so a source implemented outside the library keeps compiling.
+
+### Fixed
+
+- **`tdcv2 pack` reaches the registry through a proxy, and says why it could not.**
+  `HttpClient` reads no proxy variable, so behind a proxy `pack list` and `pack add` went straight
+  for the registry and failed with `cannot reach … (null)` — the exception carried no message at
+  all. The command now follows `HTTPS_PROXY`, `NO_PROXY` and the rest by the rule all five share,
+  sends a user and password written in the proxy address when the proxy asks for them, and names
+  what failed: `connection refused by 127.0.0.1:9`, `cannot resolve registry.example`. Sending
+  credentials through an HTTPS tunnel needs the JDK's `jdk.http.auth.tunneling.disabledSchemes`
+  cleared; it is cleared only when a proxy variable carries credentials and nothing had set it.
+
+### Changed
+
+- The engine changes shared by all five implementations — see the
+  [engine changelog](../CHANGELOG.md#033--2026-09-28).
+
 ## [0.3.2] — 2026-09-22
 
 ### Changed

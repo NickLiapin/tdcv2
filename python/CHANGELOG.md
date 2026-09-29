@@ -11,6 +11,8 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [0.3.3] — 2026-09-28
+
 ### Fixed
 
 - **`tdcv2` printed a Python traceback instead of a one-line refusal.** A date offset measured
@@ -19,6 +21,11 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   `tdcv2: …` on one line. Both error classes are `ValueError`s now, and the command line catches
   any error the way the reference does, so the next class declared in the wrong place cannot slip
   through the same way. Pinned in `cli.json` with the exact one-line stderr.
+
+### Changed
+
+- The engine changes shared by all five implementations — see the
+  [engine changelog](../CHANGELOG.md#033--2026-09-28).
 
 ## [0.3.2] — 2026-09-22
 

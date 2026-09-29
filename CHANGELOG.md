@@ -15,6 +15,8 @@ page — is tracked in that implementation's own changelog:
 
 ## [Unreleased]
 
+## [0.3.3] — 2026-09-28
+
 ### Added
 
 <!-- covers: uniq over an advanced_regex pattern -->
@@ -133,20 +135,26 @@ page — is tracked in that implementation's own changelog:
     (`TDC295`). A pool reference, which publishes a whole member, is refused in every place but a
     sequence of its own (`TDC268`).
 
-  Pinned five ways: twelve rendering cases in `fixtures/cross-language/cases/branch-derived.json`
+  Pinned five ways: fifteen rendering cases in `fixtures/cross-language/cases/branch-derived.json`
   under `mode="memory"` (so the in-memory engine is held to them too, with engines 2 and 3 in
-  `engines.json`), including a `<default>`, a multi-key case, a nested `<switch>` and an `if=`
-  branch whose other rows would divide by zero; and ten new placement diagnostics.
+  `engines.json`), including a `<default>`, a multi-key case, a nested `<switch>`, a fallback
+  branch and an `if=` branch whose other rows would divide by zero; and thirty placement
+  diagnostics — every place a derived type or a pool reference can stand, in
+  `diagnostics/derived-place.json`, `derived-columns.json` and `pool.json`.
 
 - **A statistic over a column of words is refused instead of printing `NaN`.** `op="mean"`,
   `median` and `stddev` over text parsed each cell as a double and wrote `NaN` on every row with
   exit 0 — in four of the five; Python refused in its runtime's own words ("could not convert
   string to float"). `sum`, `min` and `max` already refused through the running total, in that
   total's words. Every op but `count` now refuses the same way, in the statistic's own words:
-  `stat ("S"): column "T" holds "abc", which is not a number, so op="mean" has nothing to
-compute`. A number is what the running total reads as one — digits, an optional sign and
-  fraction — so `1e3` is refused by `mean` exactly as it always was by `sum`. Pinned in
-  `cli.json`.
+
+  ```text
+  stat ("S"): column "T" holds "abc", which is not a number, so op="mean" has nothing to compute
+  ```
+
+  A number is what the running total reads as one — digits, an optional sign and fraction — so
+  `1e3` is refused by `mean` exactly as it always was by `sum`; `count` still counts any cell.
+  Pinned in `cli.json` (`mean` and `sum`) and `cases/stat.json` (`count`).
 
 - **A run that fails no longer destroys the file it was writing to.** With `-o out.csv`, a
   failed run truncated an existing `out.csv` to nothing in four of the five and deleted it in
@@ -157,7 +165,9 @@ compute`. A number is what the running total reads as one — digits, an optiona
   holds for Parquet, which one implementation already did this way, and for the parallel
   writers. A symbolic link stays a link (its target is written), and a destination that cannot
   be replaced by a rename — `-o /dev/stdout`, a device — is written in place as before. Pinned in
-  `cli.json` by two cases and a new `absent` key the five harnesses now read.
+  `cli.json` for text, Parquet and a parallel `--jobs` run, with a new `absent` key the five
+  harnesses now read; the edges a config cannot reach — a link stays a link, a failure halfway
+  through a write takes its partial file with it — by unit tests in all five.
 
 - **A misspelled attribute on a `<compute>` tag is refused (`TDC015`), as it is on `<gen>`.**
   Nothing checked these names, and one letter changed the output without a word:
@@ -195,9 +205,15 @@ compute`. A number is what the running total reads as one — digits, an optiona
 - **`check --brief` names the column the full report names, and keeps "did you mean".** The
   brief line printed the column counted from 0 while the full report counted from 1, so the
   two forms of one diagnostic disagreed by one; and it dropped the near name, the part that
-  fixes a typo on the first try. The line is now `CODE line:col message :: hint :: help: did
-you mean "…"?` — the near name last and labelled, so a reader that took the hint as the
-  second field still does. Pinned in `cli.json` for all five.
+  fixes a typo on the first try. The line is now
+
+  ```text
+  CODE line:col message :: hint :: help: did you mean "…"?
+  ```
+
+  — the near name last and labelled, so a reader that took the hint as the second field still
+  does. A program that read the column and added one itself must stop adding it. Pinned in
+  `cli.json` for all five.
 
 - **`check` refuses a `uniq="true"` draw that the run would refuse (`TDC218`).** A unique
   value is drawn without replacement, which needs every possible value listed up front; the run

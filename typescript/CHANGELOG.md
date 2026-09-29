@@ -11,6 +11,8 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [0.3.3] — 2026-09-28
+
 ### Added
 
 - **`packRoots()` — the folders a run reads packs from.** `scanPacks([bundledPacksDir()])`
@@ -38,6 +40,11 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   included. Off a terminal it now says once `tdcv2: downloading fr (128 KB)…`, as the other
   four implementations always did, and keeps the live line for a terminal. Pinned in the
   shared CLI fixture; reported by the agent building the MCP server.
+
+### Changed
+
+- The engine changes shared by all five implementations — see the
+  [engine changelog](../CHANGELOG.md#033--2026-09-28).
 
 ## [0.3.2] — 2026-09-22
 
