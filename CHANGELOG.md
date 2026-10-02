@@ -15,6 +15,17 @@ page — is tracked in that implementation's own changelog:
 
 ## [Unreleased]
 
+### Added
+
+- **`tdcv2 init --no-examples` writes the config and nothing else, in all five.** A project
+  `init` also leaves three runnable examples in `tdcv2-examples/`, which is right for a person who
+  typed `init` and wrong for a caller that runs it on their behalf — an AI agent that needs a pack
+  store halfway through "200 customers from France" left a folder in the user's project that
+  nobody asked for. With the flag, the project holds `tdcv2.config.json` and `tdcv2-packs/` and
+  nothing more. `tdcv2 init --help` lists the flag, so a caller can find out from the help whether
+  the engine in front of it has one, and leave it off for an older engine that would refuse it.
+  Pinned in `cli.json`: the help line, and a run that must leave no `tdcv2-examples/` behind.
+
 ## [0.3.3] — 2026-09-29
 
 ### Added

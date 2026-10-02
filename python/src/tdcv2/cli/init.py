@@ -26,6 +26,7 @@ USAGE = """Usage: tdcv2 init [options]
   -f, --force           Overwrite an existing config
   --locale <loc>        Default locale for the config (default: en)
   --data-path <dir>     Folder for downloaded packs
+  --no-examples         Write the config only, no tdcv2-examples/ folder
 """
 
 
@@ -104,6 +105,7 @@ class Flags:
     yes: bool = False
     locale: str | None = None
     pack_store: str | None = None
+    examples: bool = True
 
 
 def parse_flags(argv: list[str]) -> Flags:
@@ -117,6 +119,8 @@ def parse_flags(argv: list[str]) -> Flags:
             out["force"] = True
         elif arg in ("-y", "--yes"):
             out["yes"] = True
+        elif arg == "--no-examples":
+            out["examples"] = False
         elif arg.startswith("--locale="):
             out["locale"] = arg[len("--locale=") :]
         elif arg.startswith("--data-path="):
@@ -195,8 +199,12 @@ def run_init(argv: list[str], cwd: Path | None = None) -> int:
         return 2
 
     # Examples land beside the config, which for a global init is the user's home —
-    # not what anyone wants. A project init is the one that gets them.
-    examples = [] if plan.is_global else write_examples(Path(plan.path).parent)
+    # not what anyone wants. A project init is the one that gets them, unless it was
+    # run on someone's behalf: an agent setting up a pack store mid-task must not leave
+    # a folder nobody asked for.
+    examples = (
+        [] if plan.is_global or not flags.examples else write_examples(Path(plan.path).parent)
+    )
 
     tail = (
         f"  examples   → {', '.join(examples)}\n"

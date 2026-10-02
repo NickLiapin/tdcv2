@@ -86,7 +86,7 @@ banderas para que nada se quede esperando una respuesta.
 Un `init` de **proyecto** además escribe tres ejemplos ejecutables en una carpeta nueva
 `tdcv2-examples/` — conviene saberlo antes de correrlo dentro de un repositorio existente.
 [`--global`](#--global---g--una-sola-configuración-para-todos-los-proyectos) no escribe
-ninguno.
+ninguno, y [`--no-examples`](#--no-examples--solo-la-configuración) tampoco.
 
 ```bash
 tdcv2 init            # pregunta y luego escribe
@@ -168,8 +168,7 @@ para empezar de cero.
 `tdcv2 init (la configuración ya existe)`
 
 ```
-Config already exists: /path/to/project/tdcv2.config.json
-Nothing written. Re-run with --force to overwrite.
+tdcv2: config already exists at "/path/to/project/tdcv2.config.json" — pass --force to overwrite, or edit it directly
 ```
 
 ### `--locale <loc>` — elegir el locale por omisión
@@ -190,6 +189,27 @@ junto a su código fuente.
 
 ```bash
 tdcv2 init --yes --data-path ../shared-tdc-packs
+```
+
+### `--no-examples` — solo la configuración
+
+Escribe la configuración y crea la carpeta de paquetes, pero no deja `tdcv2-examples/`.
+Sirve cuando `init` se ejecuta en nombre de otra persona — un script, o un agente de IA
+que necesita un almacén de paquetes a mitad de una tarea — y una carpeta de ejemplos
+sería una carpeta que nadie pidió.
+
+```bash
+tdcv2 init --yes --no-examples
+```
+
+`tdcv2 init --yes --no-examples`
+
+```
+Wrote project config: /path/to/project/tdcv2.config.json
+  data packs → /path/to/project/tdcv2-packs
+  locale     → en
+
+Next: run `tdcv2 pack` to download data packs into that folder.
 ```
 
 ## El archivo `tdcv2.config.json`

@@ -31,6 +31,7 @@ const USAGE = `Usage: tdcv2 init [options]
   -f, --force           Overwrite an existing config
   --locale <loc>        Default locale for the config (default: en)
   --data-path <dir>     Folder for downloaded packs
+  --no-examples         Write the config only, no tdcv2-examples/ folder
 `;
 
 export interface InitPlan {
@@ -139,12 +140,25 @@ interface InitFlags {
   readonly locale: string | undefined;
   readonly packStore: string | undefined;
   readonly yes: boolean;
+  readonly examples: boolean;
+}
+
+/**
+ * The value after a flag that takes one. Running off the end used to leave the
+ * option `undefined`, which then meant "the default": `init --locale` wrote an
+ * `en` config without a word, where the other four refuse the line.
+ */
+function flagValue(argv: readonly string[], i: number, flag: string): string {
+  const value = argv[i];
+  if (value === undefined) throw new InitError(`missing value for ${flag}`);
+  return value;
 }
 
 function parseInitFlags(argv: readonly string[]): InitFlags {
   let global = false;
   let force = false;
   let yes = false;
+  let examples = true;
   let locale: string | undefined;
   let packStore: string | undefined;
   for (let i = 0; i < argv.length; i++) {
@@ -152,13 +166,14 @@ function parseInitFlags(argv: readonly string[]): InitFlags {
     if (a === '--global' || a === '-g') global = true;
     else if (a === '--force' || a === '-f') force = true;
     else if (a === '--yes' || a === '-y') yes = true;
-    else if (a === '--locale') locale = argv[++i];
+    else if (a === '--no-examples') examples = false;
+    else if (a === '--locale') locale = flagValue(argv, ++i, a);
     else if (a?.startsWith('--locale=')) locale = a.slice('--locale='.length);
-    else if (a === '--data-path') packStore = argv[++i];
+    else if (a === '--data-path') packStore = flagValue(argv, ++i, a);
     else if (a?.startsWith('--data-path=')) packStore = a.slice('--data-path='.length);
     else throw new InitError(`unknown option for init: ${String(a)}`);
   }
-  return { global, force, locale, packStore, yes };
+  return { global, force, locale, packStore, yes, examples };
 }
 
 /** Run `tdcv2 init`. Returns a process exit code. */
@@ -206,8 +221,10 @@ export async function runInit(argv: readonly string[], ctx: InitContext): Promis
   }
 
   // Examples land beside the config, which for a global init is the user's
-  // home — not what anyone wants. A project init is the one that gets them.
-  const examples = plan.global ? [] : writeExamples(dirname(plan.path));
+  // home — not what anyone wants. A project init is the one that gets them,
+  // unless it was run on someone's behalf: an agent setting up a pack store
+  // mid-task must not leave a folder nobody asked for.
+  const examples = plan.global || !flags.examples ? [] : writeExamples(dirname(plan.path));
 
   process.stdout.write(
     `Wrote ${plan.global ? 'global' : 'project'} config: ${plan.path}\n` +

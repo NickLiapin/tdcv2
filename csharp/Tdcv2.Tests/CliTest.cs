@@ -161,8 +161,11 @@ public class CliTest
             {
                 foreach (JsonElement missing in absent.EnumerateArray())
                 {
+                    // A folder as well as a file: File.Exists answers false for a
+                    // directory, so a case naming one passed here whatever was there.
+                    string path = Path.Combine(dir, missing.GetString()!);
                     Assert.False(
-                        File.Exists(Path.Combine(dir, missing.GetString()!)),
+                        File.Exists(path) || Directory.Exists(path),
                         $"{missing.GetString()} must not exist");
                 }
             }

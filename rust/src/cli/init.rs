@@ -24,6 +24,7 @@ const USAGE: &str = "Usage: tdcv2 init [options]
   -f, --force           Overwrite an existing config
   --locale <loc>        Default locale for the config (default: en)
   --data-path <dir>     Folder for downloaded packs
+  --no-examples         Write the config only, no tdcv2-examples/ folder
 ";
 
 /// A command line `init` cannot obey, or a file it cannot write.
@@ -51,6 +52,8 @@ pub struct Flags {
     pub yes: bool,
     pub locale: Option<String>,
     pub pack_store: Option<String>,
+    /// Negative so that `Default` means what a bare `init` does: write them.
+    pub no_examples: bool,
 }
 
 /// Where the config goes: the project's own folder, or the per-user location.
@@ -153,6 +156,7 @@ pub fn parse_flags(argv: &[String]) -> Result<Flags, InitError> {
             "-g" | "--global" => flags.is_global = true,
             "-f" | "--force" => flags.force = true,
             "-y" | "--yes" => flags.yes = true,
+            "--no-examples" => flags.no_examples = true,
             "--locale" | "--data-path" => {
                 i += 1;
                 let Some(value) = argv.get(i) else {
@@ -241,8 +245,10 @@ pub fn run(
     writeln!(stdout, "  locale     → {}", plan.locale)?;
 
     // Examples land beside the config, which for a global init is the user's home
-    // — not what anyone wants. A project init is the one that gets them.
-    let examples = if plan.is_global {
+    // — not what anyone wants. A project init is the one that gets them, unless it
+    // was run on someone's behalf: an agent setting up a pack store mid-task must not
+    // leave a folder nobody asked for.
+    let examples = if plan.is_global || flags.no_examples {
         Vec::new()
     } else {
         write_examples(Path::new(&plan.path).parent().unwrap_or(Path::new(".")))

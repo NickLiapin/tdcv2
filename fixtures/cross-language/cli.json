@@ -403,6 +403,45 @@
       "stderrContains": ["unknown option for init"]
     },
     {
+      "name": "init --help names --no-examples",
+      "command": "init",
+      "argv": ["--help"],
+      "exit": 0,
+      "stdoutContains": ["--no-examples"],
+      "note": "Callers find out whether an engine has the flag by reading this help, and leave it off for an older one that would refuse it — so the line itself is part of the contract."
+    },
+    {
+      "name": "init --no-examples writes the config and nothing else",
+      "command": "init",
+      "argv": ["--yes", "--no-examples"],
+      "exit": 0,
+      "wrote": {
+        "tdcv2.config.json": "{\n  \"packStore\": \"./tdcv2-packs\",\n  \"locale\": \"en\"\n}\n"
+      },
+      "absent": ["tdcv2-examples"],
+      "stdoutContains": [
+        "Next: run `tdcv2 pack` to download data packs into that folder."
+      ],
+      "note": "An agent that needs a pack store mid-task runs init on the user's behalf; the examples are for a person who typed init, and a folder nobody asked for is the wrong thing to leave in their project."
+    },
+    {
+      "name": "init --locale with no value is refused",
+      "command": "init",
+      "argv": ["--yes", "--locale"],
+      "exit": 2,
+      "stderrContains": ["missing value for --locale"],
+      "absent": ["tdcv2.config.json"],
+      "note": "The reference read past the end of the line and took the default: it wrote an `en` config without a word, where the other four refused."
+    },
+    {
+      "name": "init --data-path with no value is refused",
+      "command": "init",
+      "argv": ["--yes", "--data-path"],
+      "exit": 2,
+      "stderrContains": ["missing value for --data-path"],
+      "absent": ["tdcv2.config.json"]
+    },
+    {
       "name": "pack --help prints usage and exits 0",
       "command": "pack",
       "argv": ["--help"],

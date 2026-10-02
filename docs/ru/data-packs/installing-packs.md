@@ -81,7 +81,8 @@ tdcv2: no pack store configured — run `tdcv2 init` first
 
 **Проектный** `init` вдобавок кладёт три готовых примера в новую папку `tdcv2-examples/` —
 это стоит знать до запуска внутри существующего репозитория.
-[`--global`](#--global---g--один-конфиг-на-все-проекты) не пишет ни одного.
+[`--global`](#--global---g--один-конфиг-на-все-проекты) не пишет ни одного, как и
+[`--no-examples`](#--no-examples--только-конфиг).
 
 ```bash
 tdcv2 init            # спросит и запишет
@@ -163,8 +164,7 @@ Wrote global config: /Users/you/.config/tdcv2/config.json
 `tdcv2 init (конфиг уже существует)`
 
 ```
-Config already exists: /path/to/project/tdcv2.config.json
-Nothing written. Re-run with --force to overwrite.
+tdcv2: config already exists at "/path/to/project/tdcv2.config.json" — pass --force to overwrite, or edit it directly
 ```
 
 ### `--locale <loc>` — выбрать локаль по умолчанию
@@ -183,6 +183,26 @@ tdcv2 init --yes --locale ru
 
 ```bash
 tdcv2 init --yes --data-path ../shared-tdc-packs
+```
+
+### `--no-examples` — только конфиг
+
+Пишет конфиг и создаёт папку пакетов, но не кладёт `tdcv2-examples/`. Нужен, когда `init`
+запускают за человека — скрипт или ИИ-агент, которому посреди задачи понадобилось хранилище
+пакетов, — и папка с примерами оказалась бы папкой, о которой никто не просил.
+
+```bash
+tdcv2 init --yes --no-examples
+```
+
+`tdcv2 init --yes --no-examples`
+
+```
+Wrote project config: /path/to/project/tdcv2.config.json
+  data packs → /path/to/project/tdcv2-packs
+  locale     → en
+
+Next: run `tdcv2 pack` to download data packs into that folder.
 ```
 
 ## Файл `tdcv2.config.json`

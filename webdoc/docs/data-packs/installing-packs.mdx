@@ -74,7 +74,8 @@ on a prompt.
 
 A **project** init also writes three runnable examples into a new `tdcv2-examples/`
 folder — worth knowing before running it inside an existing repository.
-[`--global`](#--global---g--one-config-for-every-project) writes none.
+[`--global`](#--global---g--one-config-for-every-project) writes none, and neither
+does [`--no-examples`](#--no-examples--the-config-and-nothing-else).
 
 ```bash
 tdcv2 init            # ask, then write
@@ -148,8 +149,7 @@ By default, `init` refuses to clobber a config that already exists. Pass `--forc
 you deliberately want to reset it — to change the pack folder, say, or to start clean.
 
 <Terminal title="tdcv2 init (config already exists)">
-{`Config already exists: /path/to/project/tdcv2.config.json
-Nothing written. Re-run with --force to overwrite.`}
+{`tdcv2: config already exists at "/path/to/project/tdcv2.config.json" — pass --force to overwrite, or edit it directly`}
 </Terminal>
 
 ### `--locale <loc>` — pick the default locale
@@ -169,6 +169,24 @@ or at a path outside the repo when you don't want packs living next to your sour
 ```bash
 tdcv2 init --yes --data-path ../shared-tdc-packs
 ```
+
+### `--no-examples` — the config and nothing else
+
+Writes the config and creates the pack folder, and leaves out `tdcv2-examples/`. Use it
+when `init` runs on someone else's behalf — a script, or an AI agent that needs a pack
+store halfway through a task — and a folder of examples would be one nobody asked for.
+
+```bash
+tdcv2 init --yes --no-examples
+```
+
+<Terminal title="tdcv2 init --yes --no-examples">
+{`Wrote project config: /path/to/project/tdcv2.config.json
+  data packs → /path/to/project/tdcv2-packs
+  locale     → en
+
+Next: run \`tdcv2 pack\` to download data packs into that folder.`}
+</Terminal>
 
 ## The `tdcv2.config.json` file
 

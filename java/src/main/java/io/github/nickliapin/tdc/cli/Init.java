@@ -36,6 +36,7 @@ public final class Init {
         -f, --force           Overwrite an existing config
         --locale <loc>        Default locale for the config (default: en)
         --data-path <dir>     Folder for downloaded packs
+        --no-examples         Write the config only, no tdcv2-examples/ folder
       """;
 
   /** A command line {@code init} cannot obey. */
@@ -126,12 +127,18 @@ public final class Init {
 
   /** What the flags said. */
   public record Flags(
-      boolean isGlobal, boolean force, boolean yes, String locale, String packStore) {}
+      boolean isGlobal,
+      boolean force,
+      boolean yes,
+      String locale,
+      String packStore,
+      boolean examples) {}
 
   public static Flags parseFlags(List<String> argv) {
     boolean isGlobal = false;
     boolean force = false;
     boolean yes = false;
+    boolean examples = true;
     String locale = null;
     String packStore = null;
 
@@ -143,6 +150,8 @@ public final class Init {
         force = true;
       } else if (arg.equals("-y") || arg.equals("--yes")) {
         yes = true;
+      } else if (arg.equals("--no-examples")) {
+        examples = false;
       } else if (arg.startsWith("--locale=")) {
         locale = arg.substring("--locale=".length());
       } else if (arg.startsWith("--data-path=")) {
@@ -161,7 +170,7 @@ public final class Init {
         throw new InitException("unknown option for init: " + arg);
       }
     }
-    return new Flags(isGlobal, force, yes, locale, packStore);
+    return new Flags(isGlobal, force, yes, locale, packStore, examples);
   }
 
   public static Plan planFromFlags(Flags flags, Path cwd) {
@@ -213,9 +222,13 @@ public final class Init {
     System.out.println("  locale     → " + plan.locale());
 
     // Examples land beside the config, which for a global init is the user's home —
-    // not what anyone wants. A project init is the one that gets them.
+    // not what anyone wants. A project init is the one that gets them, unless it was
+    // run on someone's behalf: an agent setting up a pack store mid-task must not leave
+    // a folder nobody asked for.
     List<String> examples =
-        plan.isGlobal() ? List.<String>of() : writeExamples(plan.path().getParent());
+        plan.isGlobal() || !flags.examples()
+            ? List.<String>of()
+            : writeExamples(plan.path().getParent());
 
     if (examples.isEmpty()) {
       System.out.println();

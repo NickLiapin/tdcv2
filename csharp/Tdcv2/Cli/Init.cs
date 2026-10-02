@@ -26,6 +26,7 @@ public static class Init
   -f, --force           Overwrite an existing config
   --locale <loc>        Default locale for the config (default: en)
   --data-path <dir>     Folder for downloaded packs
+  --no-examples         Write the config only, no tdcv2-examples/ folder
 ";
 
     /// <summary>A command line <c>init</c> cannot obey.</summary>
@@ -117,13 +118,14 @@ public static class Init
 
     /// <summary>What the flags said.</summary>
     public sealed record Flags(
-        bool IsGlobal, bool Force, bool Yes, string? Locale, string? PackStore);
+        bool IsGlobal, bool Force, bool Yes, string? Locale, string? PackStore, bool Examples);
 
     public static Flags ParseFlags(IReadOnlyList<string> argv)
     {
         bool isGlobal = false;
         bool force = false;
         bool yes = false;
+        bool examples = true;
         string? locale = null;
         string? packStore = null;
 
@@ -141,6 +143,10 @@ public static class Init
             else if (arg is "-y" or "--yes")
             {
                 yes = true;
+            }
+            else if (arg == "--no-examples")
+            {
+                examples = false;
             }
             else if (arg.StartsWith("--locale=", StringComparison.Ordinal))
             {
@@ -173,7 +179,7 @@ public static class Init
             }
         }
 
-        return new Flags(isGlobal, force, yes, locale, packStore);
+        return new Flags(isGlobal, force, yes, locale, packStore, examples);
     }
 
     public static Plan PlanFromFlags(Flags flags, string cwd)
@@ -237,8 +243,10 @@ public static class Init
         stdout.Write($"  locale     → {plan.Locale}\n");
 
         // Examples land beside the config, which for a global init is the user's home —
-        // not what anyone wants. A project init is the one that gets them.
-        List<string> examples = plan.IsGlobal
+        // not what anyone wants. A project init is the one that gets them, unless it was
+        // run on someone's behalf: an agent setting up a pack store mid-task must not
+        // leave a folder nobody asked for.
+        List<string> examples = plan.IsGlobal || !flags.Examples
             ? new List<string>()
             : WriteExamples(System.IO.Path.GetDirectoryName(plan.Path) ?? ".");
 
