@@ -29,6 +29,8 @@ export function checkEnvSeed(envEl: OpenCloseElementContext, diagnostics: Diagno
     hint:
       'Add seed="…" — any text will do — and this config gives the same bytes on every run, ' +
       'in all five implementations. Leave it out only when fresh data each time is the point.',
-    code: NO_SEED_CODE,
+    // Written out rather than NO_SEED_CODE: the engine-surface scan finds codes by
+    // their literal `code:`, and the docs, fixture and changelog gates read that list.
+    code: 'TDC309',
   });
 }
