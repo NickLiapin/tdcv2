@@ -142,7 +142,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@inquirer/prompts": "^8.5.2",
+    "@inquirer/prompts": "^8.7.3",
     "antlr4ng": "^3.0.16",
     "fflate": "^0.8.3",
     "jsep": "^1.4.0"
