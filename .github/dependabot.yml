@@ -1,0 +1,124 @@
+# Dependabot: one grouped pull request per folder, on a schedule, instead of a pile of alerts.
+#
+# Without this file Dependabot only reacted: an advisory appeared, an alert appeared, and a
+# pull request for one package appeared if one could be made. Eighteen alerts accumulated
+# that way on 2026-10-16, almost all in the documentation site's build tools. Grouping turns
+# a week of them into one pull request per folder that CI checks as a whole.
+#
+# Two rules hold everywhere below:
+#
+# - The ANTLR runtimes are never updated by a bot. Each is tied to the version of the tool
+#   that generated the parser checked into that language (4.13.2 for Java and Python,
+#   4.13.1 for .NET, antlr4ng for TypeScript), and the five parsers have to read the same
+#   grammar the same way. A runtime moved alone breaks that silently. They move together,
+#   by hand, with the parsers regenerated.
+# - Major versions are not proposed. A new major of Docusaurus, xunit or @types/vscode is a
+#   migration, and a pull request that cannot pass is noise. Minor and patch only; a security
+#   fix that only exists in a new major is still raised as an alert.
+#
+# Rust is absent on purpose: the crate has no dependencies to update.
+
+version: 2
+updates:
+  # The documentation site — Docusaurus and the ~1,500 packages under it. The source of
+  # nearly every alert so far; none of it ships in any of the five packages.
+  - package-ecosystem: npm
+    directory: /webdoc
+    schedule:
+      interval: weekly
+      day: monday
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+    groups:
+      docs-site:
+        applies-to: version-updates
+        patterns: ["*"]
+      docs-site-security:
+        applies-to: security-updates
+        patterns: ["*"]
+
+  # The workspace root: the TypeScript package's dependencies and the tools that build and
+  # test it. Runtime and development are grouped apart, so a change to what npm users
+  # install is never hidden inside a bump of a linter.
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    ignore:
+      - dependency-name: "antlr4ng"
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+    groups:
+      typescript-runtime:
+        applies-to: version-updates
+        dependency-type: production
+        patterns: ["*"]
+      typescript-tooling:
+        applies-to: version-updates
+        dependency-type: development
+        patterns: ["*"]
+      typescript-security:
+        applies-to: security-updates
+        patterns: ["*"]
+
+  # The VS Code extension. Not published anywhere yet, so monthly is enough.
+  - package-ecosystem: npm
+    directory: /editor/vscode
+    schedule:
+      interval: monthly
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+    groups:
+      vscode-extension:
+        patterns: ["*"]
+
+  - package-ecosystem: pip
+    directory: /python
+    schedule:
+      interval: monthly
+    ignore:
+      - dependency-name: "antlr4-python3-runtime"
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+    groups:
+      python:
+        patterns: ["*"]
+
+  - package-ecosystem: gradle
+    directory: /java
+    schedule:
+      interval: monthly
+    ignore:
+      - dependency-name: "org.antlr:*"
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+    groups:
+      java:
+        patterns: ["*"]
+
+  - package-ecosystem: nuget
+    directory: /csharp
+    schedule:
+      interval: monthly
+    ignore:
+      - dependency-name: "Antlr4.Runtime.Standard"
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+    groups:
+      csharp:
+        patterns: ["*"]
+
+  # The actions the workflows run. Majors included here: an action's major is usually a
+  # runtime bump, and CI on the pull request shows whether it still works. The publish
+  # workflow's file name is what Trusted Publishing is keyed to — an update edits its
+  # contents, never its name.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      actions:
+        patterns: ["*"]
