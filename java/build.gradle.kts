@@ -47,8 +47,8 @@ dependencies {
     api("org.antlr:antlr4-runtime:4.13.2")
 
     // Test-only. Jackson reads the shared cross-language vectors, which are JSON.
-    testImplementation("org.junit.jupiter:junit-jupiter:5.10.2")
-    testImplementation("com.fasterxml.jackson.core:jackson-databind:2.17.1")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.14.4")
+    testImplementation("com.fasterxml.jackson.core:jackson-databind:2.22.3")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
