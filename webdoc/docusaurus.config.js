@@ -105,6 +105,12 @@ const config = {
             label: 'Docs',
           },
           {
+            type: 'doc',
+            docId: 'whats-new',
+            position: 'left',
+            label: "What's new",
+          },
+          {
             type: 'localeDropdown',
             position: 'right',
           },

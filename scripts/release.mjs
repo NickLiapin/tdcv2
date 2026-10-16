@@ -168,6 +168,30 @@ function packageChangelogs(version) {
 // ── 3. every NAME the engine gained is mentioned ─────────────────────────────
 
 /**
+ * The docs site's "What's new" page — the changelog a reader of the site sees, in their
+ * own language — has an entry for this version in all three languages.
+ *
+ * It is written by hand at release time, from the engine's changelog: only what a reader
+ * can see, each item linking to where the docs explain it now. Required here because a
+ * page nobody is made to update is a page that stops at the release it was added in.
+ */
+function whatsNewCovers(version) {
+  const files = [
+    'webdoc/docs/whats-new.mdx',
+    'webdoc/i18n/ru/docusaurus-plugin-content-docs/current/whats-new.mdx',
+    'webdoc/i18n/es/docusaurus-plugin-content-docs/current/whats-new.mdx',
+  ];
+  const escaped = version.replace(/\./g, '\\.');
+  const heading = new RegExp(`^## .*\\b${escaped}\\b`, 'm');
+  const missing = files.filter((file) => !heading.test(read(file)));
+  if (missing.length > 0) {
+    fail(`no "## … ${version}" entry on the What's new page in: ${missing.join(', ')}`);
+  } else {
+    ok(`What's new has a ${version} entry in all ${String(files.length)} languages`);
+  }
+}
+
+/**
  * Ask the engine what it has that it did not have at the last tag, and require
  * the changelog to mention each one.
  *
@@ -505,6 +529,7 @@ const version = versions();
 if (version) {
   const section = changelogSection(version);
   packageChangelogs(version);
+  whatsNewCovers(version);
   if (section) await changelogCoversTheSurface(section, lastTag);
   treeIsReleasable(version);
   centralBudget();

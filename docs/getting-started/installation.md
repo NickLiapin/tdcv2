@@ -4,7 +4,7 @@
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/getting-started/installation)**
 
-← Previous: [Introduction](../intro.md#top) · **[Contents](../README.md#top)** · Next: [Quick API — one value at a time](./quick-api.md#top) →
+← Previous: [What's new](../whats-new.md#top) · **[Contents](../README.md#top)** · Next: [Quick API — one value at a time](./quick-api.md#top) →
 
 ---
 
@@ -398,6 +398,6 @@ full workflow (the config file, pack shadowing, removing packs) is covered in
 
 ---
 
-← Previous: [Introduction](../intro.md#top) · **[Contents](../README.md#top)** · Next: [Quick API — one value at a time](./quick-api.md#top) →
+← Previous: [What's new](../whats-new.md#top) · **[Contents](../README.md#top)** · Next: [Quick API — one value at a time](./quick-api.md#top) →
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/getting-started/installation)**

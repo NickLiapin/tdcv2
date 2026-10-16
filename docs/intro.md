@@ -4,7 +4,7 @@
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/intro)**
 
-**[Contents](./README.md#top)** · Next: [Installation](./getting-started/installation.md#top) →
+**[Contents](./README.md#top)** · Next: [What's new](./whats-new.md#top) →
 
 ---
 
@@ -360,6 +360,6 @@ nothing else installed; the other 95 languages and
 
 ---
 
-**[Contents](./README.md#top)** · Next: [Installation](./getting-started/installation.md#top) →
+**[Contents](./README.md#top)** · Next: [What's new](./whats-new.md#top) →
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/intro)**

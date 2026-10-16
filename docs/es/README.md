@@ -9,6 +9,7 @@
 ---
 
 - [Introducción](./intro.md#top)
+- [Novedades](./whats-new.md#top)
 
 ## Primeros pasos
 

@@ -4,7 +4,7 @@
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/intro)**
 
-**[Contenido](./README.md#top)** · Siguiente: [Instalación](./getting-started/installation.md#top) →
+**[Contenido](./README.md#top)** · Siguiente: [Novedades](./whats-new.md#top) →
 
 ---
 
@@ -371,6 +371,6 @@ instalar nada más; los otros diez idiomas y noventa y tantos paquetes de país 
 
 ---
 
-**[Contenido](./README.md#top)** · Siguiente: [Instalación](./getting-started/installation.md#top) →
+**[Contenido](./README.md#top)** · Siguiente: [Novedades](./whats-new.md#top) →
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/intro)**

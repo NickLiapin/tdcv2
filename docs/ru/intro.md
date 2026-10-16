@@ -4,7 +4,7 @@
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/intro)**
 
-**[Оглавление](./README.md#top)** · Вперёд: [Установка](./getting-started/installation.md#top) →
+**[Оглавление](./README.md#top)** · Вперёд: [Что нового](./whats-new.md#top) →
 
 ---
 
@@ -359,6 +359,6 @@ for (const user of users) {
 
 ---
 
-**[Оглавление](./README.md#top)** · Вперёд: [Установка](./getting-started/installation.md#top) →
+**[Оглавление](./README.md#top)** · Вперёд: [Что нового](./whats-new.md#top) →
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/intro)**

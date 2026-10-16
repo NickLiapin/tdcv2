@@ -4,7 +4,7 @@
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/getting-started/installation)**
 
-← Anterior: [Introducción](../intro.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Quick API — un valor a la vez](./quick-api.md#top) →
+← Anterior: [Novedades](../whats-new.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Quick API — un valor a la vez](./quick-api.md#top) →
 
 ---
 
@@ -396,6 +396,6 @@ de configuración, el ocultamiento entre paquetes, cómo quitarlos) está en
 
 ---
 
-← Anterior: [Introducción](../intro.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Quick API — un valor a la vez](./quick-api.md#top) →
+← Anterior: [Novedades](../whats-new.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Quick API — un valor a la vez](./quick-api.md#top) →
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/getting-started/installation)**

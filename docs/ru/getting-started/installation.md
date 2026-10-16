@@ -4,7 +4,7 @@
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/getting-started/installation)**
 
-← Назад: [Введение](../intro.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Quick API — по одному значению](./quick-api.md#top) →
+← Назад: [Что нового](../whats-new.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Quick API — по одному значению](./quick-api.md#top) →
 
 ---
 
@@ -385,6 +385,6 @@ routing numbers, phone format, license plates.
 
 ---
 
-← Назад: [Введение](../intro.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Quick API — по одному значению](./quick-api.md#top) →
+← Назад: [Что нового](../whats-new.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Quick API — по одному значению](./quick-api.md#top) →
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/getting-started/installation)**
