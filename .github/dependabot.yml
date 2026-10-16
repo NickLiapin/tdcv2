@@ -11,7 +11,9 @@
 #   that generated the parser checked into that language (4.13.2 for Java and Python,
 #   4.13.1 for .NET, antlr4ng for TypeScript), and the five parsers have to read the same
 #   grammar the same way. A runtime moved alone breaks that silently. They move together,
-#   by hand, with the parsers regenerated.
+#   by hand, with the parsers regenerated. jsep (the TypeScript expression parser) and fflate
+#   (the Parquet compressor) are held back for the same reason: the other four implement
+#   what they do, so a new version can move TypeScript away from them.
 # - Major versions are not proposed. A new major of Docusaurus, xunit or @types/vscode is a
 #   migration, and a pull request that cannot pass is noise. Minor and patch only; a security
 #   fix that only exists in a new major is still raised as an alert.
@@ -48,6 +50,8 @@ updates:
       day: monday
     ignore:
       - dependency-name: "antlr4ng"
+      - dependency-name: "jsep"
+      - dependency-name: "fflate"
       - dependency-name: "*"
         update-types: ["version-update:semver-major"]
     groups:
@@ -63,12 +67,15 @@ updates:
         applies-to: security-updates
         patterns: ["*"]
 
-  # The VS Code extension. Not published anywhere yet, so monthly is enough.
+  # The VS Code extension. Not published anywhere yet, so monthly is enough. @types/vscode
+  # describes the oldest editor the extension promises to run in (`engines.vscode`), and
+  # packaging refuses a newer one, so it moves with that promise and never on its own.
   - package-ecosystem: npm
     directory: /editor/vscode
     schedule:
       interval: monthly
     ignore:
+      - dependency-name: "@types/vscode"
       - dependency-name: "*"
         update-types: ["version-update:semver-major"]
     groups:
