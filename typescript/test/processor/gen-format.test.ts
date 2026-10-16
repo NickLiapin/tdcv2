@@ -11,8 +11,6 @@ function config(genTag: string, count = 6): string {
 
 describe('<gen> case attribute', () => {
   it('lowercases via streaming (toString) and memory (toArray)', () => {
-    const c = config('<gen type="text" value="Moscow,Berlin"/>' /* baseline */);
-    void c;
     const lc = config('<gen type="text" value="Moscow,Berlin" case="lower"/>');
     const stream = new TDC({ configString: lc, now: NOW }).toString().trim().split('\n');
     for (const v of stream) expect(['moscow', 'berlin']).toContain(v);

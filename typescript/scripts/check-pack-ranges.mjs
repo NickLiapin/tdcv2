@@ -36,7 +36,7 @@ function expand(branch, cap = 50_000) {
       if (j < 0) return undefined;
       chars = [];
       const cls = branch.slice(i + 1, j);
-      for (let k = 0; k < cls.length; ) {
+      for (let k = 0; k < cls.length;) {
         if (cls[k + 1] === '-' && k + 2 < cls.length) {
           for (let x = cls.charCodeAt(k); x <= cls.charCodeAt(k + 2); x++) {
             chars.push(String.fromCharCode(x));

@@ -41,7 +41,7 @@ export function formatDateTime(
   // Whether a day-of-month token has already been rendered. `MMMM` reads it to
   // choose between the two month forms — see `renderToken`.
   let afterDay = false;
-  for (let i = 0; i < expanded.length; ) {
+  for (let i = 0; i < expanded.length;) {
     const ch = expanded[i];
     if (ch === '[') {
       const end = expanded.indexOf(']', i + 1);
@@ -77,7 +77,7 @@ function expandNamed(
   formats: Readonly<Record<'L' | 'LL' | 'LLL' | 'LLLL', string>>,
 ): string {
   let out = '';
-  for (let i = 0; i < format.length; ) {
+  for (let i = 0; i < format.length;) {
     if (format[i] === '[') {
       const end = format.indexOf(']', i + 1);
       if (end < 0) {
@@ -115,7 +115,7 @@ export function validateDateFormat(format: string): void {
   // Same walk the formatter does, so what is refused here is exactly what would have been
   // printed as literal text there. A near-miss token used to pass validation and then
   // print itself: `hh:mm A` gave `hh:00 A`, `YYY` gave `24Y`, and the run said nothing.
-  for (let i = 0; i < format.length; ) {
+  for (let i = 0; i < format.length;) {
     if (format[i] === '[') {
       const end = format.indexOf(']', i + 1);
       if (end < 0) throw new DateRuntimeError(`date format: unterminated literal "${format}"`);
@@ -158,7 +158,7 @@ export function validateDateFormat(format: string): void {
  */
 export function minutesWithoutClock(format: string): string | undefined {
   let minutes: string | undefined;
-  for (let i = 0; i < format.length; ) {
+  for (let i = 0; i < format.length;) {
     if (format[i] === '[') {
       const end = format.indexOf(']', i + 1);
       if (end < 0) return undefined;

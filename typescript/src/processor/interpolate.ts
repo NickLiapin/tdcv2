@@ -123,8 +123,7 @@ interface Filter {
 
 /** A compiled template piece: a literal chunk, or a `${{ref}}` reference. */
 type Segment =
-  | string
-  | { readonly name: string; readonly filters: readonly Filter[]; readonly orig: string };
+  string | { readonly name: string; readonly filters: readonly Filter[]; readonly orig: string };
 
 /** Apply the interpolation filter chain (mask, case, slice/replace/trim/group). */
 function applyFilters(value: string, filters: readonly Filter[]): string {
