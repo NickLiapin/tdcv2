@@ -11,6 +11,8 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [0.3.4] — 2026-10-16
+
 ### Fixed
 
 - **`tdcv2 init --locale` with no value wrote an `en` config without a word.** The flag parser
@@ -18,6 +20,11 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   default; `--data-path` did the same with the pack folder. The other four refuse the line, and so
   does this one now: `missing value for --locale`, exit 2, nothing written. Pinned in `cli.json`
   for both flags.
+
+### Changed
+
+- The engine changes shared by all five implementations — see the
+  [engine changelog](../CHANGELOG.md#034--2026-10-16).
 
 ## [0.3.3] — 2026-09-29
 

@@ -11,6 +11,21 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [0.3.4] — 2026-10-16
+
+### Fixed
+
+- **`check` listed an `<env>`'s complaints in a different order from the other four.** A share
+  too small for one row (`TDC251`) was reported before a malformed `inject=` (`TDC021`); the
+  reference reports the attribute first. Nothing was wrong in either list, but the five promise
+  the same report in the same order, and a tool reading it should not have to sort. The order is
+  the reference's now, which is also where the new `TDC309` (no `seed=`) takes its place.
+
+### Changed
+
+- The engine changes shared by all five implementations — see the
+  [engine changelog](../CHANGELOG.md#034--2026-10-16).
+
 ## [0.3.3] — 2026-09-29
 
 ### Changed

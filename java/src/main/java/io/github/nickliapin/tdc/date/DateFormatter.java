@@ -107,8 +107,8 @@ public final class DateFormatter {
   /**
    * The minutes token of a format that has no other clock in it, or {@code null}.
    *
-   * <p>{@code mm} is minutes, and every other date library spells the month that way — {@code
-   * %m}, {@code yyyy-mm-dd}. A format with minutes and neither an hour nor a second beside them
+   * <p>{@code mm} is minutes, while {@code %m} and a hand-written {@code yyyy-mm-dd} mean the
+   * month, so the lowercase month is an easy habit to bring in. A format with minutes and neither an hour nor a second beside them
    * is almost always the month written in lowercase, and a date drawn without a time then prints
    * month {@code 00} on every row while the run says nothing. A clock part anywhere in the
    * format, a named one included, means the minutes were meant. Walked the way {@link

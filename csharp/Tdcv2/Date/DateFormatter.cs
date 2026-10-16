@@ -114,8 +114,8 @@ public static class DateFormatter
 
     /// <summary>The minutes token of a format that has no other clock in it, or <c>null</c>.</summary>
     /// <remarks>
-    /// <c>mm</c> is minutes, and every other date library spells the month that way — <c>%m</c>,
-    /// <c>yyyy-mm-dd</c>. A format with minutes and neither an hour nor a second beside them is
+    /// <c>mm</c> is minutes, while <c>%m</c> and a hand-written <c>yyyy-mm-dd</c> mean the month,
+    /// so the lowercase month is an easy habit to bring in. A format with minutes and neither an hour nor a second beside them is
     /// almost always the month written in lowercase, and a date drawn without a time then prints
     /// month <c>00</c> on every row while the run says nothing. A clock part anywhere in the
     /// format, a named one included, means the minutes were meant. Walked the way

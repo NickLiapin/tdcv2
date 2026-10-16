@@ -725,8 +725,8 @@ Todos los tokens sobre un mismo instante fijo — **martes 5 de marzo de 2024,
 > `DD of MM` sigue dando `05 of 03`. Ponga entre corchetes lo que quiera conservar literal,
 > que es la regla [de abajo](#texto-literal-entre-corchetes) de todos modos.
 >
-> **`mm` son minutos; el mes es `MM`.** La mayoría de las otras bibliotecas escriben el mes en
-> minúsculas, así que `YYYY-mm-DD` es un desliz fácil — y en una fecha sin hora imprime
+> **`mm` son minutos; el mes es `MM`.** `%m` y un `yyyy-mm-dd` escrito a mano significan el
+> mes, así que `YYYY-mm-DD` es un desliz fácil — y en una fecha sin hora imprime
 > `2025-00-24` en cada fila. Un formato con minutos y sin hora ni segundos al lado recibe una
 > advertencia; `HH:mm` y `mm:ss` no se tocan:
 >

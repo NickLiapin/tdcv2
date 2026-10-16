@@ -15,6 +15,8 @@ page — is tracked in that implementation's own changelog:
 
 ## [Unreleased]
 
+## [0.3.4] — 2026-10-16
+
 ### Added
 
 - **`tdcv2 init --no-examples` writes the config and nothing else, in all five.** A project
@@ -35,8 +37,9 @@ page — is tracked in that implementation's own changelog:
     it drew; `check` and the editor now say it before anything is run. A run given `--seed` (or
     the library's `seed` option) drops the warning, since that seed fixes the file, and a plain
     run leaves it out in favour of its own line, which carries the seed to repeat it with.
-  - **`TDC310` — `mm` in a date format with no hour.** `mm` is minutes, and every other date
-    library spells the month that way: `format="YYYY-mm-DD"` printed `2025-00-24` on every row.
+  - **`TDC310` — `mm` in a date format with no hour.** `mm` is minutes, while `%m` and a
+    hand-written `yyyy-mm-dd` mean the month: `format="YYYY-mm-DD"` printed `2025-00-24` on
+    every row.
     A format with minutes and neither an hour nor a second beside them is now named, with `MM`
     as the fix; `HH:mm` and `mm:ss` are left alone, and so is a bracketed `[mm]`.
   - **`TDC311` — an XML entity inside `<data>`.** TDC expands no entities, so
