@@ -82,12 +82,12 @@ pub fn check_format(format: &str) -> EngineResult<()> {
 
 /// The minutes token of a format that has no other clock in it, or `None`.
 ///
-/// `mm` is minutes, while `%m` and a hand-written `yyyy-mm-dd` mean the month, so the
-/// lowercase month is an easy habit to bring in. A format with minutes and neither an hour nor a second beside them is
-/// almost always the month written in lowercase, and a date drawn without a time then
-/// prints month `00` on every row while the run says nothing. A clock part anywhere in
-/// the format, a named one included, means the minutes were meant. Walked the way
-/// `check_format` walks, so a bracketed literal is never read as a token.
+/// `mm` is minutes, while `%m` and a hand-written `yyyy-mm-dd` mean the month, so the lowercase
+/// month is an easy habit to bring in. A format with minutes and neither an hour nor a second
+/// beside them almost always means the month, and a date drawn without a time then prints month
+/// `00` on every row while the run says nothing. A clock part anywhere in the format, a named one
+/// included, means the minutes were meant. Walked the way `check_format` walks, so a bracketed
+/// literal is never read as a token.
 pub fn minutes_without_clock(format: &str) -> Option<&'static str> {
     // Hours and seconds: the company that makes a minutes token mean minutes.
     const CLOCK_TOKENS: [&str; 5] = ["HH", "H", "ss", "s", "SSS"];
