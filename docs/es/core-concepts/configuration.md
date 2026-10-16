@@ -233,8 +233,10 @@ en [Determinismo y proporciones](determinism.md#top).
 Fija el generador de números aleatorios para que la configuración sea **reproducible**: la
 misma semilla y la misma configuración siempre producen exactamente los mismos registros. Se
 usa siempre que un conjunto de datos deba ser estable: una prueba de snapshot, una fixture
-compartida, la reproducción de un bug. Si se omite, cada ejecución es nueva y se pierde la
-posibilidad de reproducir una salida concreta.
+compartida, la reproducción de un bug. Si se omite, cada ejecución es nueva: el run imprime
+la semilla que sacó, y solo `--seed` con ese valor devuelve el mismo archivo. `check` lo
+señala en un `<env>` sin `seed=` con la advertencia `TDC309`, porque una configuración sin
+semilla que se entrega a otra persona no le dará los datos que usted vio.
 
 ```xml
 <env count="3" seed="demo" local="en">

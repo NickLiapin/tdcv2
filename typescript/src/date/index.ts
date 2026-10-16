@@ -26,7 +26,7 @@ export {
   toEpochMillis,
   utcWeekday,
 } from './calendar.js';
-export { formatDateTime, validateDateFormat } from './format.js';
+export { formatDateTime, minutesWithoutClock, validateDateFormat } from './format.js';
 export {
   DATE_LOCALE_NAMES,
   isKnownDateLocale,

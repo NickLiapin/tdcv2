@@ -711,6 +711,15 @@ unpadded pairs differ visibly:
 > Ordinary words are untouched, because their letters are not token letters: `DD of MM`
 > still gives `05 of 03`. Bracket anything you want kept verbatim, which is the rule
 > [below](#literal-text-with-brackets) anyway.
+>
+> **`mm` is minutes; the month is `MM`.** Most other libraries spell the month in lowercase,
+> so `YYYY-mm-DD` is an easy slip — and on a date without a time it prints `2025-00-24` on
+> every row. A format with minutes and no hour or second beside them gets a warning that
+> says so; `HH:mm` and `mm:ss` are left alone:
+>
+> ```
+> warning[TDC310]: "mm" in format="YYYY-mm-DD" is minutes, and nothing else here is a time of day
+> ```
 
 Month and weekday names, and the four `L` forms, follow the locale — see
 [below](#locale-aware-formats-l-and-ll). Everything else is the same in every

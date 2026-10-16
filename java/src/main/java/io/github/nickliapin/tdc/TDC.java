@@ -357,11 +357,17 @@ public final class TDC {
     // `--count` decides how many rows there will be, so the warnings that are arithmetic over
     // the count have to be about that number and not the one in <env>.
     List<Diagnostic> problems =
-        Validator.validate(
-            parsed.tree(),
-            configDir,
-            packs,
-            options.count == null ? null : Long.valueOf(options.count.longValue()));
+        new ArrayList<>(
+            Validator.validate(
+                parsed.tree(),
+                configDir,
+                packs,
+                options.count == null ? null : Long.valueOf(options.count.longValue())));
+    // A seed given from outside — `--seed`, or the `seed` option — fixes the file after all, so
+    // the config's missing one is no longer news.
+    if (options.seed != null) {
+      problems.removeIf(d -> Validator.NO_SEED_CODE.equals(d.code()));
+    }
     if (Diagnostic.hasErrors(problems)) {
       throw new TdcDiagnosticException(problems, source);
     }

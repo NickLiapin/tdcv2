@@ -100,6 +100,80 @@ public static class DateFormatter
         }
     }
 
+    /// <summary>Hours and seconds: the company that makes a minutes token mean minutes.</summary>
+    private static readonly HashSet<string> ClockTokens = new(StringComparer.Ordinal)
+    {
+        "HH", "H", "ss", "s", "SSS",
+    };
+
+    /// <summary>The named formats that print no time of day.</summary>
+    private static readonly HashSet<string> DateOnlyNamed = new(StringComparer.Ordinal)
+    {
+        "L", "LL", "ISO",
+    };
+
+    /// <summary>The minutes token of a format that has no other clock in it, or <c>null</c>.</summary>
+    /// <remarks>
+    /// <c>mm</c> is minutes, and every other date library spells the month that way — <c>%m</c>,
+    /// <c>yyyy-mm-dd</c>. A format with minutes and neither an hour nor a second beside them is
+    /// almost always the month written in lowercase, and a date drawn without a time then prints
+    /// month <c>00</c> on every row while the run says nothing. A clock part anywhere in the
+    /// format, a named one included, means the minutes were meant. Walked the way
+    /// <see cref="CheckFormat"/> walks, so a bracketed literal is never read as a token.
+    /// </remarks>
+    public static string? MinutesWithoutClock(string format)
+    {
+        string? minutes = null;
+        int i = 0;
+        while (i < format.Length)
+        {
+            if (format[i] == '[')
+            {
+                int end = format.IndexOf(']', i + 1);
+                if (end < 0)
+                {
+                    return null;
+                }
+
+                i = end + 1;
+                continue;
+            }
+
+            string? named = Match(NamedFormats, format, i);
+            if (named is not null)
+            {
+                if (!DateOnlyNamed.Contains(named))
+                {
+                    return null;
+                }
+
+                i += named.Length;
+                continue;
+            }
+
+            string? token = Match(Tokens, format, i);
+            if (token is not null)
+            {
+                if (ClockTokens.Contains(token))
+                {
+                    return null;
+                }
+
+                if (minutes is null && token is "mm" or "m")
+                {
+                    minutes = token;
+                }
+
+                i += token.Length;
+                continue;
+            }
+
+            i += 1;
+        }
+
+        return minutes;
+    }
+
     public static string Format(PlainDateTime value, string? format, string? localeName)
     {
         DateLocale locale = Locale(localeName);

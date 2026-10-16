@@ -169,7 +169,8 @@ armar JSON, CSV, SQL o cualquier formato construido con esos caracteres:
 Dos cosas que hay que saber sobre el texto crudo:
 
 - **Las entidades XML no se expanden.** `&lt;` se queda como el literal `&lt;`, **no** se
-  convierte en `<`. Escriba directamente el carácter que realmente quiere.
+  convierte en `<`. Escriba directamente el carácter que realmente quiere — `check` advierte
+  de una entidad en `<data>` (`TDC311`), por si llegó ahí por costumbre.
 - **En el diseño, `<data>` vive dentro de un `<line>`** —las líneas del bloque o las de
   una fixture— y en ningún otro sitio. Aquí lleva dos atributos opcionales:
   [`if`](#texto-condicional-con-if) (suprimir esta pieza según una condición) y

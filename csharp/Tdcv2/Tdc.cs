@@ -324,7 +324,13 @@ public sealed class Tdc
         // even when every value either of them produces is right.
         // `--count` decides how many rows there will be, so the warnings that are arithmetic
         // over the count have to be about that number and not the one in <env>.
-        Diagnostics = Validator.Validate(parsed.Tree, _baseDir, _packs, options.Count);
+        IReadOnlyList<Diagnostic> found =
+            Validator.Validate(parsed.Tree, _baseDir, _packs, options.Count);
+        // A seed given from outside — `--seed`, or the SeedValue option — fixes the file after
+        // all, so the config's missing one is no longer news.
+        Diagnostics = options.SeedValue is null
+            ? found
+            : found.Where(d => d.Code != Validator.NoSeedCode).ToList();
         if (Diagnostic.HasErrors(Diagnostics))
         {
             throw new TdcDiagnosticException(Diagnostics, Source);

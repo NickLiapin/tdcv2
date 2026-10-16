@@ -119,6 +119,8 @@ import { checkAllUnknownAttrs, checkUnknownAttrs } from './unknown-attrs.js';
 import { checkAttrInterpolation } from './interpolation.js';
 import { FIXTURE_TAGS, checkFixture } from './fixture.js';
 import { checkData } from './data-element.js';
+import { checkDataEntities } from './data-entities.js';
+import { checkEnvSeed } from './env-seed.js';
 import { isCaseTransform } from '../format/transforms.js';
 import { checkDocumentVersion } from './version.js';
 import type { PackParams, PackParamWidths } from './pack-params.js';
@@ -294,6 +296,10 @@ export function validate(tree: DocumentContext, options: ValidationOptions = {})
     ctx.declaredSequences,
     ctx.poolReferences,
   );
+
+  // Last, over the whole document in order: an entity prints the same wherever
+  // a <data> stands, so the pass does not care where that is.
+  checkDataEntities(tdc, diags);
 
   return { diagnostics: diags };
 }
@@ -534,6 +540,8 @@ function checkEnv(envEl: OpenCloseElementContext, ctx: Ctx): void {
       });
     }
   }
+
+  checkEnvSeed(envEl, ctx.diagnostics);
 
   // Pools first, and only their shape: a reference may stand above the pool it
   // names, and complaining about an unknown field in that case would report a

@@ -12,7 +12,6 @@ import {
   toEpochMillis,
   STEP_SYNTAX,
   WEEKDAY_NAMES,
-  validateDateFormat,
 } from '../date/index.js';
 import {
   type Diagnostic,
@@ -29,6 +28,7 @@ import type {
 import { parsePrecision } from '../generators/date.js';
 import { fixesWeekday, parseStep, parseWeekdays } from '../date/index.js';
 import { extractAttrs } from '../processor/walk.js';
+import { checkDateFormatAttr } from './date-format-attr.js';
 import { checkGenDateOffset } from './date-offset.js';
 
 export function checkGenDate(
@@ -164,21 +164,7 @@ function validateDateValue(value: string): void {
 
 function checkDateCommonAttrs(attrs: readonly AttrContext[], diagnostics: Diagnostic[]): void {
   const attrMap = extractAttrs(attrs);
-  const formatAttr = findAttr(attrs, 'format');
-  if (formatAttr && attrMap['format'] !== undefined) {
-    try {
-      validateDateFormat(attrMap['format']);
-    } catch (err) {
-      diagnostics.push({
-        severity: 'error',
-        source: 'validator',
-        ...attrValueRange(formatAttr),
-        message: err instanceof Error ? err.message : String(err),
-        hint: 'Use Moment-like tokens such as YYYY-MM-DD, DD.MM.YYYY, L, LL, or bracket literals [text].',
-        code: 'TDC152',
-      });
-    }
-  }
+  checkDateFormatAttr(attrs, diagnostics);
 
   const localAttr = findAttr(attrs, 'local');
   const local = attrMap['local'];

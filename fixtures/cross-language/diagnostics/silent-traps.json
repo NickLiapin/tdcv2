@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "no-seed",
+      "demonstrates": "TDC309",
+      "description": "an <env> with no seed= draws a different file on every run",
+      "config": "<tdc><env count=\"3\"><sequence name=\"A\"><gen type=\"number\" value=\"1..1000\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "expected": ["warning TDC309 1:6"]
+    },
+    {
+      "name": "an-empty-seed-is-a-seed",
+      "demonstrates": "",
+      "description": "seed=\"\" is a seed like any other — the empty text — and fixes the file",
+      "config": "<tdc><env count=\"3\" seed=\"\"><sequence name=\"A\"><gen type=\"text\" value=\"x\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "minutes-for-month",
+      "demonstrates": "TDC310",
+      "description": "\"mm\" is minutes; with no hour beside it, every date prints month 00",
+      "config": "<tdc><env count=\"3\" seed=\"s\"><sequence name=\"A\"><gen type=\"date\" from=\"2025-01-01\" to=\"2025-12-31\" format=\"YYYY-mm-DD\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "expected": ["warning TDC310 1:107"]
+    },
+    {
+      "name": "one-m-for-month",
+      "demonstrates": "TDC310",
+      "description": "\"m\" is minutes too, and is read the same way",
+      "config": "<tdc><env count=\"3\" seed=\"s\"><sequence name=\"A\"><gen type=\"date\" from=\"2025-01-01\" to=\"2025-12-31\" format=\"D.m.YYYY\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "expected": ["warning TDC310 1:107"]
+    },
+    {
+      "name": "minutes-beside-an-hour",
+      "demonstrates": "",
+      "description": "with HH in the format the minutes are meant",
+      "config": "<tdc><env count=\"3\" seed=\"s\"><sequence name=\"A\"><gen type=\"date\" from=\"2025-01-01\" to=\"2025-12-31\" format=\"YYYY-MM-DD HH:mm\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "minutes-beside-seconds",
+      "demonstrates": "",
+      "description": "mm:ss is a clock reading without an hour, and meant",
+      "config": "<tdc><env count=\"3\" seed=\"s\"><sequence name=\"A\"><gen type=\"date\" from=\"2025-01-01\" to=\"2025-12-31\" format=\"mm:ss\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "minutes-in-a-literal",
+      "demonstrates": "",
+      "description": "[mm] is literal text, not a token",
+      "config": "<tdc><env count=\"3\" seed=\"s\"><sequence name=\"A\"><gen type=\"date\" from=\"2025-01-01\" to=\"2025-12-31\" format=\"YYYY-MM-DD [mm]\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "minutes-beside-a-named-clock",
+      "demonstrates": "",
+      "description": "LLL carries a time of day of its own",
+      "config": "<tdc><env count=\"3\" seed=\"s\"><sequence name=\"A\"><gen type=\"date\" from=\"2025-01-01\" to=\"2025-12-31\" format=\"LLL mm\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "minutes-beside-a-named-date",
+      "demonstrates": "TDC310",
+      "description": "ISO is a date with no time, so the minutes beside it are still a month",
+      "config": "<tdc><env count=\"3\" seed=\"s\"><sequence name=\"A\"><gen type=\"date\" from=\"2025-01-01\" to=\"2025-12-31\" format=\"ISO mm\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "expected": ["warning TDC310 1:107"]
+    },
+    {
+      "name": "minutes-on-a-birth-date",
+      "demonstrates": "TDC310",
+      "description": "a birth-date template prints through format= the same way",
+      "config": "<tdc><env count=\"3\" seed=\"s\"><sequence name=\"A\"><gen type=\"template\" value=\"person.b_day\" format=\"DD-mm-YYYY\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "expected": ["warning TDC310 1:98"]
+    },
+    {
+      "name": "minutes-on-a-date-offset",
+      "demonstrates": "TDC310",
+      "description": "a date measured from another prints through format= the same way",
+      "config": "<tdc><env count=\"3\" seed=\"s\"><sequence name=\"A\"><gen type=\"date\" from=\"2025-01-01\" to=\"2025-12-31\"/></sequence><sequence name=\"B\"><gen type=\"date\" of=\"A\" plus=\"1d\" format=\"YYYY-mm-DD\"/></sequence></env><block><line><data>${{B}}</data></line></block></tdc>",
+      "expected": ["warning TDC310 1:172"]
+    },
+    {
+      "name": "a-date-offset-format-is-checked",
+      "demonstrates": "TDC152",
+      "description": "format= on an offset went unchecked: YYY printed 25Y on every row",
+      "config": "<tdc><env count=\"3\" seed=\"s\"><sequence name=\"A\"><gen type=\"date\" from=\"2025-01-01\" to=\"2025-12-31\"/></sequence><sequence name=\"B\"><gen type=\"date\" of=\"A\" plus=\"1d\" format=\"YYY\"/></sequence></env><block><line><data>${{B}}</data></line></block></tdc>",
+      "expected": ["error TDC152 1:172"]
+    },
+    {
+      "name": "an-entity-in-a-line",
+      "demonstrates": "TDC311",
+      "description": "&quot; reaches the output as six characters, and the JSON breaks",
+      "config": "<tdc><env count=\"3\" seed=\"s\"><sequence name=\"A\"><gen type=\"text\" value=\"x\"/></sequence></env><block><line><data>{&quot;a&quot;: &quot;${{A}}&quot;}</data></line></block></tdc>",
+      "expected": ["warning TDC311 1:106"]
+    },
+    {
+      "name": "a-numeric-entity",
+      "demonstrates": "TDC311",
+      "description": "a numeric reference is printed as written too",
+      "config": "<tdc><env count=\"3\" seed=\"s\"><sequence name=\"A\"><gen type=\"text\" value=\"x\"/></sequence></env><block><line><data>&#34;${{A}}&#x22;</data></line></block></tdc>",
+      "expected": ["warning TDC311 1:106"]
+    },
+    {
+      "name": "an-entity-in-a-composed-sequence",
+      "demonstrates": "TDC311",
+      "description": "a literal piece of a composed value prints the same way",
+      "config": "<tdc><env count=\"3\" seed=\"s\"><sequence name=\"A\"><data>&lt;</data><gen type=\"text\" value=\"x\"/><data>&gt;</data></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "expected": ["warning TDC311 1:48", "warning TDC311 1:93"]
+    },
+    {
+      "name": "an-entity-in-a-fixture",
+      "demonstrates": "TDC311",
+      "description": "a fixture line prints the same way as a block line",
+      "config": "<tdc><env count=\"3\" seed=\"s\"><sequence name=\"A\"><gen type=\"text\" value=\"x\"/></sequence><before_block><line><data>&amp;[</data></line></before_block></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "expected": ["warning TDC311 1:107"]
+    },
+    {
+      "name": "a-bare-ampersand",
+      "demonstrates": "",
+      "description": "an & that starts no entity is just a character",
+      "config": "<tdc><env count=\"3\" seed=\"s\"><sequence name=\"A\"><gen type=\"text\" value=\"x\"/></sequence></env><block><line><data>Tom & Jerry; A&B; &amp ${{A}}</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "report-order",
+      "demonstrates": "TDC309",
+      "description": "all three in one file: the seed first, the format where it stands, the entity last",
+      "config": "<tdc><env count=\"3\"><sequence name=\"A\"><gen type=\"date\" from=\"2025-01-01\" to=\"2025-12-31\" format=\"YYYY-mm-DD\"/></sequence></env><block><line><data>&quot;${{A}}&quot;</data></line></block></tdc>",
+      "expected": [
+        "warning TDC309 1:6",
+        "warning TDC310 1:98",
+        "warning TDC311 1:141"
+      ]
+    }
+  ]
+}

@@ -178,7 +178,8 @@ CSV, SQL, or any other format built out of those characters:
 Two things to know about the raw text:
 
 - **XML entities are not expanded.** `&lt;` stays the literal `&lt;`; it does **not**
-  turn into `<`. Just write the character you actually want.
+  turn into `<`. Just write the character you actually want — `check` warns about an
+  entity in `<data>` (`TDC311`), in case it got there out of habit.
 - **In the layout, `<data>` lives inside a `<line>`** — either the block's lines or a
   fixture's — and nowhere else. Here it takes two optional attributes:
   [`if`](#conditional-text-with-if) (suppress this piece on a condition) and

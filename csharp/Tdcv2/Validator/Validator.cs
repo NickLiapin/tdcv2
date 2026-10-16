@@ -938,6 +938,63 @@ public sealed class Validator
             _diagnostics.InsertRange(at + dataShift, found);
             dataShift += found.Count;
         }
+
+        // Last, over the whole document in order: an entity prints the same wherever a <data>
+        // stands, so the pass does not care where that is.
+        CheckDataEntities(tdc);
+    }
+
+    /// <summary>The code a run takes back; <c>check</c> and an editor are where it is shown.</summary>
+    public const string NoSeedCode = "TDC309";
+
+    private static readonly System.Text.RegularExpressions.Regex Entity = new(
+        "&(?:quot|lt|gt|amp|apos|#[0-9]+|#[xX][0-9a-fA-F]+);",
+        System.Text.RegularExpressions.RegexOptions.CultureInvariant);
+
+    /// <summary>
+    /// An XML entity inside <c>&lt;data&gt;</c>: printed as written, because TDC expands none.
+    /// </summary>
+    /// <remarks>
+    /// <c>&lt;data&gt;</c> holds raw text — quotes, angle brackets and ampersands all go in as they
+    /// are — so an entity there is almost always the XML habit of the person writing it, and the
+    /// output is not the JSON it was meant to be. A warning and not an error: a config that writes
+    /// HTML may want <c>&amp;amp;</c> in its output and get exactly that. Only XML's own five and
+    /// numeric references are looked for — the ones that habit produces. One warning per
+    /// <c>&lt;data&gt;</c>, in document order, wherever it stands.
+    /// </remarks>
+    private void CheckDataEntities(Antlr4.Runtime.Tree.IParseTree node)
+    {
+        if (node is TDCParser.DataElementContext data)
+        {
+            string text = data is TDCParser.DataWithBodyContext body
+                ? PairedData.Restore(body.dataContent().GetText())
+                : "";
+            var found = new List<string>();
+            foreach (System.Text.RegularExpressions.Match m in Entity.Matches(text))
+            {
+                if (!found.Contains(m.Value))
+                {
+                    found.Add(m.Value);
+                }
+            }
+
+            if (found.Count > 0)
+            {
+                Warn(
+                    "TDC311",
+                    string.Join(", ", found)
+                    + " in <data> reaches the output as written — TDC expands no entities",
+                    "Write the character itself — <data> takes \" < > & ' as they are, so &quot; is "
+                    + "just \". If the entity is what the output should hold — HTML, say — leave it "
+                    + "and ignore this.",
+                    data.Start.Line, data.Start.Column);
+            }
+        }
+
+        for (int i = 0; i < node.ChildCount; i++)
+        {
+            CheckDataEntities(node.GetChild(i));
+        }
     }
 
     /// <summary>
@@ -1524,6 +1581,19 @@ public sealed class Validator
                     + "`%` has text on both sides.",
                     line, column);
             }
+        }
+
+        // No seed=: a file that will not come out the same twice. A warning, because fresh data
+        // every run is sometimes the point; a run with a seed from outside, or one that prints the
+        // seed it drew, takes it back (see Tdc and the command line).
+        if (!envAttrs.ContainsKey("seed"))
+        {
+            Warn(
+                NoSeedCode, "<env> has no seed=, so every run draws a different file",
+                "Add seed=\"…\" — any text will do — and this config gives the same bytes on every "
+                + "run, in all five implementations. Leave it out only when fresh data each time is "
+                + "the point.",
+                env.name.Line, env.name.Column);
         }
 
         // A share below one whole row: its own pass, because the denominator of a <mix> in a
@@ -5860,25 +5930,60 @@ public sealed class Validator
     /// Also reached from the pack templates <c>date.range</c> and <c>person.b_day</c>, which are
     /// dates wearing a different address and would otherwise skip these checks entirely.
     /// </remarks>
+    /// <summary>
+    /// The <c>format=</c> of a date column, checked the same way wherever a date is printed.
+    /// </summary>
+    /// <remarks>
+    /// A drawn date and a date measured from another (<c>of=</c>/<c>plus=</c>) both print through
+    /// <c>format=</c>, and only the drawn one used to have it checked: <c>format="YYY"</c> on an
+    /// offset printed <c>25Y</c> on every row and <c>check</c> called the file valid.
+    /// </remarks>
+    private void CheckDateFormat(
+        TDCParser.SelfClosingElementContext gen, IReadOnlyDictionary<string, string> attrs)
+    {
+        if (!attrs.TryGetValue("format", out string? format))
+        {
+            return;
+        }
+
+        (int line, int column) = At(gen, "format");
+        try
+        {
+            DateFormatter.CheckFormat(format);
+        }
+        catch (ArgumentException e)
+        {
+            Error(
+                "TDC152", e.Message,
+                "Use Moment-like tokens such as YYYY-MM-DD, DD.MM.YYYY, L, LL, or bracket "
+                + "literals [text].",
+                line, column);
+            return;
+        }
+
+        string? minutes = DateFormatter.MinutesWithoutClock(format);
+        if (minutes is null)
+        {
+            return;
+        }
+
+        _diagnostics.Add(
+            Diagnostic.Warning(
+                "TDC310",
+                $"\"{minutes}\" in format=\"{format}\" is minutes, and nothing else here is a time "
+                + "of day",
+                "A date without a time prints minutes as 00 on every row. The month is \"MM\" (or "
+                + "\"M\"); if the minutes are meant, put the hour beside them — HH:mm.",
+                line, column) with
+            {
+                Suggestion = $"did you mean \"{minutes.ToUpperInvariant()}\" (the month)?",
+            });
+    }
+
     private void CheckDateCommonAttrs(
         TDCParser.SelfClosingElementContext gen, IReadOnlyDictionary<string, string> attrs)
     {
-        if (attrs.TryGetValue("format", out string? format))
-        {
-            try
-            {
-                DateFormatter.CheckFormat(format);
-            }
-            catch (ArgumentException e)
-            {
-                (int line, int column) = At(gen, "format");
-                Error(
-                    "TDC152", e.Message,
-                    "Use Moment-like tokens such as YYYY-MM-DD, DD.MM.YYYY, L, LL, or bracket "
-                    + "literals [text].",
-                    line, column);
-            }
-        }
+        CheckDateFormat(gen, attrs);
 
         if (attrs.TryGetValue("precision", out string? precision))
         {
@@ -6464,6 +6569,10 @@ public sealed class Validator
                     : "Declared above: " + string.Join(", ", _declaredOrder) + ".",
                 line, column, Diagnostic.ClosestMatch(of, _declaredOrder));
         }
+
+        // An offset prints through format= exactly as a drawn date does, and went unchecked:
+        // format="YYY" printed 25Y on every row of a file `check` passed.
+        CheckDateFormat(gen, attrs);
     }
 
     private void CheckAccumulate(

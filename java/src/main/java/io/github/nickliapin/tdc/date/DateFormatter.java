@@ -2,6 +2,7 @@ package io.github.nickliapin.tdc.date;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * The Moment-style formatting subset TDC uses.
@@ -95,6 +96,58 @@ public final class DateFormatter {
       }
       i += 1;
     }
+  }
+
+  /** Hours and seconds: the company that makes a minutes token mean minutes. */
+  private static final Set<String> CLOCK_TOKENS = Set.of("HH", "H", "ss", "s", "SSS");
+
+  /** The named formats that print no time of day. */
+  private static final Set<String> DATE_ONLY_NAMED = Set.of("L", "LL", "ISO");
+
+  /**
+   * The minutes token of a format that has no other clock in it, or {@code null}.
+   *
+   * <p>{@code mm} is minutes, and every other date library spells the month that way — {@code
+   * %m}, {@code yyyy-mm-dd}. A format with minutes and neither an hour nor a second beside them
+   * is almost always the month written in lowercase, and a date drawn without a time then prints
+   * month {@code 00} on every row while the run says nothing. A clock part anywhere in the
+   * format, a named one included, means the minutes were meant. Walked the way {@link
+   * #checkFormat} walks, so a bracketed literal is never read as a token.
+   */
+  public static String minutesWithoutClock(String format) {
+    String minutes = null;
+    int i = 0;
+    while (i < format.length()) {
+      if (format.charAt(i) == '[') {
+        int end = format.indexOf(']', i + 1);
+        if (end < 0) {
+          return null;
+        }
+        i = end + 1;
+        continue;
+      }
+      String named = match(NAMED_FORMATS, format, i);
+      if (named != null) {
+        if (!DATE_ONLY_NAMED.contains(named)) {
+          return null;
+        }
+        i += named.length();
+        continue;
+      }
+      String token = match(TOKENS, format, i);
+      if (token != null) {
+        if (CLOCK_TOKENS.contains(token)) {
+          return null;
+        }
+        if (minutes == null && (token.equals("mm") || token.equals("m"))) {
+          minutes = token;
+        }
+        i += token.length();
+        continue;
+      }
+      i += 1;
+    }
+    return minutes;
   }
 
   public static String format(PlainDateTime value, String format, String localeName) {

@@ -26,6 +26,37 @@ page — is tracked in that implementation's own changelog:
   the engine in front of it has one, and leave it off for an older engine that would refuse it.
   Pinned in `cli.json`: the help line, and a run that must leave no `tdcv2-examples/` behind.
 
+- **`check` warns about three configs that ran clean and came out wrong, in all five.** Each one
+  passed `check`, ran without a word, and produced data that was not what the config's author
+  meant — found by the agent building the MCP server, which watches models write configs and
+  saw all three habits:
+  - **`TDC309` — an `<env>` with no `seed=`.** Two runs, two different files, so a config handed
+    to somebody else does not give them the data its author saw. A run already printed the seed
+    it drew; `check` and the editor now say it before anything is run. A run given `--seed` (or
+    the library's `seed` option) drops the warning, since that seed fixes the file, and a plain
+    run leaves it out in favour of its own line, which carries the seed to repeat it with.
+  - **`TDC310` — `mm` in a date format with no hour.** `mm` is minutes, and every other date
+    library spells the month that way: `format="YYYY-mm-DD"` printed `2025-00-24` on every row.
+    A format with minutes and neither an hour nor a second beside them is now named, with `MM`
+    as the fix; `HH:mm` and `mm:ss` are left alone, and so is a bracketed `[mm]`.
+  - **`TDC311` — an XML entity inside `<data>`.** TDC expands no entities, so
+    `{&quot;a&quot;: 1}` reached the output exactly so and was not JSON. `<data>` takes `"`, `<`,
+    `>` and `&` as they are; the warning names the entities it found. A warning rather than an
+    error, because a config writing HTML may want `&amp;` in its output.
+
+  All three are warnings: `check` still exits 0. Pinned in
+  `fixtures/cross-language/diagnostics/silent-traps.json` — eighteen cases, the shapes that must
+  stay quiet among them — and in `cli.json` for what `check`, a run and a run with `--seed`
+  print.
+
+### Fixed
+
+- **`format=` on a date measured from another was never checked, in all five.** A date drawn
+  with `from=`/`to=` had its format validated, and a date placed with `of=`/`plus=` prints
+  through the same `format=` and had nothing: `format="YYY"` printed `25Y` on every row while
+  `check` called the file valid. It gets the same check now — `TDC152` for a token that is not
+  one, and the new `TDC310` beside it.
+
 ## [0.3.3] — 2026-09-29
 
 ### Added

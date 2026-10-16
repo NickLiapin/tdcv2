@@ -229,7 +229,9 @@ layouts are the exception, and [Determinism & proportions](determinism.md#top) e
 Pins the random number generator so a config is **reproducible**: the same seed and the
 same config always produce exactly the same records. Use it whenever a dataset has to be
 stable: a snapshot test, a shared fixture, a bug report. Leave it out and every run is
-different, and you lose any way to get a particular output back.
+different: a run then prints the seed it drew, and only `--seed` with that value gets the
+same file back. `check` points this out on an `<env>` with no `seed=` — warning `TDC309` —
+because a config handed to someone else without one will not give them the data you saw.
 
 ```xml
 <env count="3" seed="demo" local="en">

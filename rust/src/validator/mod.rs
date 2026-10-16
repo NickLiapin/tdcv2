@@ -43,6 +43,10 @@ use crate::parser::lexer::Pos;
 /// The document versions this runtime understands.
 const SUPPORTED_VERSION: &str = "0.1.0";
 
+/// The code a run takes back: a seed given from outside fixes the file, and a run
+/// without one prints the seed it drew. `check` and an editor are where it is shown.
+pub const NO_SEED_CODE: &str = "TDC309";
+
 pub fn validate(document: &Document) -> Vec<Diagnostic> {
     validate_with(document, None)
 }
@@ -483,6 +487,40 @@ impl Validator {
             }
             data_shift += count;
         }
+
+        // Last, over the whole document in order: an entity prints the same
+        // wherever a <data> stands, so the pass does not care where that is.
+        self.check_data_entities(tdc);
+    }
+
+    /// An XML entity inside `<data>`: printed as written, because TDC expands none.
+    ///
+    /// `<data>` holds raw text — `"`, `<`, `>` and `&` all go in as they are — so an
+    /// entity there is almost always the XML habit of the person writing it, and
+    /// `{&quot;a` is not JSON. A warning and not an error: a config that writes HTML
+    /// may want `&amp;` in its output and get exactly that. Only XML's own five and
+    /// numeric references are looked for — the ones that habit produces. One warning
+    /// per `<data>`, in document order, wherever it stands.
+    fn check_data_entities(&mut self, element: &Element) {
+        if element.kind == Kind::Data {
+            let found = entities_in(&element.text);
+            if !found.is_empty() {
+                self.warn(
+                    "TDC311",
+                    format!(
+                        "{} in <data> reaches the output as written — TDC expands no entities",
+                        found.join(", ")
+                    ),
+                    "Write the character itself — <data> takes \" < > & ' as they are, so \
+                     &quot; is just \". If the entity is what the output should hold — HTML, \
+                     say — leave it and ignore this.",
+                    element.pos,
+                );
+            }
+        }
+        for child in &element.children {
+            self.check_data_entities(child);
+        }
     }
 
     /// `<tdc>` holds `<env>` and `<block>`, and a self-closing spelling of either
@@ -864,10 +902,6 @@ impl Validator {
             self.env_count = n;
         }
 
-        // A share below one whole row: its own pass, because the denominator of a
-        // <mix> in a switch branch belongs to the switch and not to the walk below.
-        self.check_small_shares(env);
-
         if let Some(inject) = env.attr_value("inject").map(str::to_string) {
             // The renderer splits on `(.+)%(.+)`, so the pattern needs a `%` with
             // something on BOTH sides. Counting the `%` alone let "%%" and "%x"
@@ -925,6 +959,29 @@ impl Validator {
                 );
             }
         }
+
+        // No seed=: a file that will not come out the same twice. A warning,
+        // because fresh data every run is sometimes the point; a run with a seed
+        // from outside, or one that prints the seed it drew, takes it back (see
+        // `Tdc` and the command line). Placed after inject= and before the shares,
+        // the order the reference reports them in.
+        if env.attr("seed").is_none() {
+            self.warn(
+                NO_SEED_CODE,
+                "<env> has no seed=, so every run draws a different file".to_string(),
+                "Add seed=\"…\" — any text will do — and this config gives the same bytes on \
+                 every run, in all five implementations. Leave it out only when fresh data \
+                 each time is the point.",
+                Pos {
+                    line: env.pos.line,
+                    column: env.pos.column + 1,
+                },
+            );
+        }
+
+        // A share below one whole row: its own pass, because the denominator of a
+        // <mix> in a switch branch belongs to the switch and not to the walk below.
+        self.check_small_shares(env);
 
         self.check_children(env, "env", &tables::ENV_CHILDREN);
         // ENV_GROUP_CHILDREN was written down when the unknown-child holes were
@@ -3233,6 +3290,10 @@ impl Validator {
                 &crate::errors::closest_match(&of, &self.declared_order),
             );
         }
+
+        // An offset prints through format= exactly as a drawn date does, and went
+        // unchecked: format="YYY" printed 25Y on every row of a file `check` passed.
+        self.check_date_format(gen, attrs);
     }
 
     /// `${{Name}}` written into an attribute that does not read it.
@@ -5195,6 +5256,47 @@ impl Validator {
         }
     }
 
+    /// The `format=` of a date column, checked the same way wherever a date is printed.
+    ///
+    /// A drawn date and a date measured from another (`of=`/`plus=`) both print
+    /// through `format=`, and only the drawn one used to have it checked:
+    /// `format="YYY"` on an offset printed `25Y` on every row and `check` called the
+    /// file valid.
+    fn check_date_format(&mut self, gen: &Element, attrs: &Attrs) {
+        let Some(format) = attrs.get("format") else {
+            return;
+        };
+        if let Err(e) = date::format::check_format(format) {
+            self.error(
+                "TDC152",
+                e.message().to_string(),
+                "Use Moment-like tokens such as YYYY-MM-DD, DD.MM.YYYY, L, LL, or bracket \
+                 literals [text].",
+                gen.at("format"),
+            );
+            return;
+        }
+        let Some(minutes) = date::format::minutes_without_clock(format) else {
+            return;
+        };
+        self.diagnostics.push(
+            Diagnostic::warning(
+                "TDC310",
+                format!(
+                    "\"{minutes}\" in format=\"{format}\" is minutes, and nothing else here is a \
+                     time of day"
+                ),
+                "A date without a time prints minutes as 00 on every row. The month is \"MM\" \
+                 (or \"M\"); if the minutes are meant, put the hour beside them — HH:mm.",
+                gen.at("format"),
+            )
+            .suggesting(format!(
+                "did you mean \"{}\" (the month)?",
+                minutes.to_uppercase()
+            )),
+        );
+    }
+
     /// The attributes every date-shaped generator shares: how it is formatted,
     /// and how precise it is.
     ///
@@ -5202,17 +5304,7 @@ impl Validator {
     /// which are dates wearing a different address and would otherwise skip these
     /// checks entirely.
     fn check_date_common_attrs(&mut self, gen: &Element, attrs: &Attrs) {
-        if let Some(format) = attrs.get("format") {
-            if let Err(e) = date::format::check_format(format) {
-                self.error(
-                    "TDC152",
-                    e.message().to_string(),
-                    "Use Moment-like tokens such as YYYY-MM-DD, DD.MM.YYYY, L, LL, or bracket \
-                     literals [text].",
-                    gen.at("format"),
-                );
-            }
-        }
+        self.check_date_format(gen, attrs);
         if let Some(precision) = attrs.get("precision") {
             if let Err(e) = date::gen::parse_precision(Some(precision), date::gen::Precision::Day) {
                 self.error("TDC154", e.message().to_string(), "", gen.at("precision"));
@@ -7869,4 +7961,54 @@ fn all_numbers(entries: &[String]) -> bool {
     entries
         .iter()
         .all(|piece| piece.parse::<f64>().map(f64::is_finite).unwrap_or(false))
+}
+
+/// The XML entities in a `<data>` body, each once, in the order they first appear.
+///
+/// What `&(quot|lt|gt|amp|apos|#[0-9]+|#[xX][0-9a-fA-F]+);` finds in the other four,
+/// scanned by hand because this crate takes no regex dependency: XML's five names and
+/// numeric references, the ones an XML habit produces.
+fn entities_in(text: &str) -> Vec<String> {
+    let bytes = text.as_bytes();
+    let mut found: Vec<String> = Vec::new();
+    let mut i = 0;
+    while i < bytes.len() {
+        if bytes[i] == b'&' {
+            if let Some(len) = entity_len(&bytes[i..]) {
+                let entity = &text[i..i + len];
+                if !found.iter().any(|f| f == entity) {
+                    found.push(entity.to_string());
+                }
+                i += len;
+                continue;
+            }
+        }
+        i += 1;
+    }
+    found
+}
+
+/// The length of the entity `s` starts with (`s[0]` is the `&`), or `None` for none.
+fn entity_len(s: &[u8]) -> Option<usize> {
+    for name in ["quot;", "lt;", "gt;", "amp;", "apos;"] {
+        if s[1..].starts_with(name.as_bytes()) {
+            return Some(1 + name.len());
+        }
+    }
+    if s.get(1) != Some(&b'#') {
+        return None;
+    }
+    let hex = matches!(s.get(2), Some(b'x' | b'X')) && s.get(3).is_some_and(u8::is_ascii_hexdigit);
+    let start = if hex { 3 } else { 2 };
+    let mut end = start;
+    while s.get(end).is_some_and(|b| {
+        if hex {
+            b.is_ascii_hexdigit()
+        } else {
+            b.is_ascii_digit()
+        }
+    }) {
+        end += 1;
+    }
+    (end > start && s.get(end) == Some(&b';')).then_some(end + 1)
 }

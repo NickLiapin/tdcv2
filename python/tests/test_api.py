@@ -118,7 +118,7 @@ def test_a_config_the_reference_refuses_is_refused_here_too() -> None:
 
 def test_a_warning_is_reported_rather_than_raised() -> None:
     tdc = TDC(
-        config_string='<tdc><env count="1"><sequence name="A"><gen type="text" value="x"/>'
+        config_string='<tdc><env count="1" seed="1"><sequence name="A"><gen type="text" value="x"/>'
         "</sequence>"
         '<switch name="S" on="A"><map>nocolon</map></switch>'
         "</env><block><line><data>${{S}}</data></line></block></tdc>",

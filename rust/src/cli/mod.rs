@@ -325,14 +325,14 @@ fn generate(
     let plan = match Tdc::plan(built) {
         Ok(plan) => plan,
         Err(e) => {
-            report_error(stderr, &e, input, false)?;
+            report_run_error(stderr, &e, input)?;
             return Ok(1);
         }
     };
 
     report(
         stderr,
-        plan.diagnostics(),
+        &for_the_run(plan.diagnostics()),
         input,
         Some(plan.source()),
         false,
@@ -407,7 +407,7 @@ fn generate(
     let data = match plan.build() {
         Ok(data) => data,
         Err(e) => {
-            report_error(stderr, &e, input, false)?;
+            report_run_error(stderr, &e, input)?;
             return Ok(1);
         }
     };
@@ -550,6 +550,40 @@ fn format(argv: &[String], stdout: &mut dyn Write, stderr: &mut dyn Write) -> st
     }
     note(stderr, &format!("formatted {file}"))?;
     Ok(0)
+}
+
+/// What a run prints of the validator's report: all of it but the missing seed.
+///
+/// A run that succeeds says which seed it drew, in words that also say how to draw
+/// it again, and a run that fails wrote nothing to reproduce — so TDC309 would only
+/// repeat the one or distract from the other. `check` prints it.
+fn for_the_run(problems: &[Diagnostic]) -> Vec<Diagnostic> {
+    problems
+        .iter()
+        .filter(|d| d.code != crate::validator::NO_SEED_CODE)
+        .cloned()
+        .collect()
+}
+
+/// A run's refusal: `report_error` without the missing seed — see `for_the_run`.
+fn report_run_error(
+    stderr: &mut dyn Write,
+    error: &TdcError,
+    filename: &str,
+) -> std::io::Result<()> {
+    match error {
+        TdcError::Refused {
+            diagnostics,
+            source,
+        } => report(
+            stderr,
+            &for_the_run(diagnostics),
+            filename,
+            Some(source),
+            false,
+        ),
+        other => fail(stderr, &other.to_string(), false),
+    }
 }
 
 /// A refusal, in the same block a warning would get. Anything else is one line —

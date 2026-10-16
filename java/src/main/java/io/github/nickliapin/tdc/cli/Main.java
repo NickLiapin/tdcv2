@@ -202,7 +202,7 @@ public final class Main {
       }
       return code;
     } catch (TdcDiagnosticException e) {
-      report(e.diagnostics(), options.input(), e.source());
+      report(forTheRun(e.diagnostics()), options.input(), e.source());
       return 1;
     } catch (RuntimeException e) {
       fail(e.getMessage(), false);
@@ -315,7 +315,7 @@ public final class Main {
    * wrong", with our own file names as the evidence.
    */
   private static int produce(TDC data, Args.Options options) {
-    report(data.diagnostics(), options.input(), data.source());
+    report(forTheRun(data.diagnostics()), options.input(), data.source());
 
     // A run with no seed anywhere gets a random one. Print it, or the output cannot be reproduced —
     // which is the one promise the whole library is built to keep.
@@ -481,6 +481,19 @@ public final class Main {
   }
 
   /** Diagnostics to stderr, so they stay out of a piped or redirected run's data. */
+  /**
+   * What a run prints of the validator's report: all of it but the missing seed.
+   *
+   * <p>A run that succeeds says which seed it drew, in words that also say how to draw it again,
+   * and a run that fails wrote nothing to reproduce — so TDC309 would only repeat the one or
+   * distract from the other. {@code check} prints it.
+   */
+  private static List<Diagnostic> forTheRun(List<Diagnostic> problems) {
+    return problems.stream()
+        .filter(d -> !io.github.nickliapin.tdc.validator.Validator.NO_SEED_CODE.equals(d.code()))
+        .toList();
+  }
+
   private static void report(List<Diagnostic> problems, String filename, String source) {
     report(problems, filename, source, false);
   }

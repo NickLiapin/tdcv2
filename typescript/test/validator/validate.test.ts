@@ -95,7 +95,7 @@ describe('validator — <env> checks', () => {
 
 describe('validator — <sequence> checks', () => {
   const wrap = (seq: string) =>
-    `<tdc><env>${seq}</env><block><line><data>x</data></line></block></tdc>`;
+    `<tdc><env seed="1">${seq}</env><block><line><data>x</data></line></block></tdc>`;
 
   it('flags a <sequence> missing name', () => {
     const r = run(wrap('<sequence><gen type="text" value="a,b"/></sequence>'));

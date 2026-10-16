@@ -933,6 +933,53 @@ public final class Validator {
       }
       dataShift += found.size();
     }
+
+    // Last, over the whole document in order: an entity prints the same wherever a <data>
+    // stands, so the pass does not care where that is.
+    checkDataEntities(tdc);
+  }
+
+  /** The code a run takes back — see {@link #checkEnv}; {@code check} is where it is shown. */
+  public static final String NO_SEED_CODE = "TDC309";
+
+  private static final java.util.regex.Pattern ENTITY =
+      java.util.regex.Pattern.compile("&(?:quot|lt|gt|amp|apos|#[0-9]+|#[xX][0-9a-fA-F]+);");
+
+  /**
+   * An XML entity inside {@code <data>}: printed as written, because TDC expands none.
+   *
+   * <p>{@code <data>} holds raw text — {@code "}, {@code <}, {@code >} and {@code &} all go in as
+   * they are — so an entity there is almost always the XML habit of the person writing it, and
+   * {@code {&quot;a} is not JSON. A warning and not an error: a config that writes HTML may want
+   * {@code &amp;} in its output and get exactly that. Only XML's own five and numeric references
+   * are looked for — the ones that habit produces. One warning per {@code <data>}, in document
+   * order, wherever it stands.
+   */
+  private void checkDataEntities(ParseTree node) {
+    if (node instanceof TDCParser.DataElementContext data) {
+      String text = data instanceof TDCParser.DataWithBodyContext body
+          ? PairedData.restore(body.dataContent().getText())
+          : "";
+      List<String> found = new ArrayList<>();
+      java.util.regex.Matcher m = ENTITY.matcher(text);
+      while (m.find()) {
+        if (!found.contains(m.group())) {
+          found.add(m.group());
+        }
+      }
+      if (!found.isEmpty()) {
+        warn("TDC311",
+            String.join(", ", found)
+                + " in <data> reaches the output as written — TDC expands no entities",
+            "Write the character itself — <data> takes \" < > & ' as they are, so &quot; is just "
+                + "\". If the entity is what the output should hold — HTML, say — leave it and "
+                + "ignore this.",
+            data.getStart().getLine(), data.getStart().getCharPositionInLine());
+      }
+    }
+    for (int i = 0; i < node.getChildCount(); i++) {
+      checkDataEntities(node.getChild(i));
+    }
   }
 
   /**
@@ -1369,6 +1416,17 @@ public final class Validator {
                 + "has text on both sides.",
             at(env, "inject")[0], at(env, "inject")[1]);
       }
+    }
+
+    // No seed=: a file that will not come out the same twice. A warning, because fresh data
+    // every run is sometimes the point; a run with a seed from outside, or one that prints the
+    // seed it drew, takes it back (see TDC and the command line).
+    if (!envAttrs.containsKey("seed")) {
+      warn(NO_SEED_CODE, "<env> has no seed=, so every run draws a different file",
+          "Add seed=\"…\" — any text will do — and this config gives the same bytes on every run, "
+              + "in all five implementations. Leave it out only when fresh data each time is the "
+              + "point.",
+          env.name.getLine(), env.name.getCharPositionInLine());
     }
 
     // A share below one whole row: its own pass, because the denominator of a <mix> in a
@@ -4865,6 +4923,10 @@ public final class Validator {
               : "Declared above: " + String.join(", ", declaredOrder) + ".",
           at(gen, "of")[0], at(gen, "of")[1], Diagnostic.closestMatch(of, declaredOrder));
     }
+
+    // An offset prints through format= exactly as a drawn date does, and went unchecked:
+    // format="YYY" printed 25Y on every row of a file `check` passed.
+    checkDateFormat(gen, attrs);
   }
 
   /**
@@ -5461,19 +5523,43 @@ public final class Validator {
    * <p>Also reached from the pack templates {@code date.range} and {@code person.b_day}, which
    * are dates wearing a different address and would otherwise skip these checks entirely.
    */
+  private void checkDateFormat(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs) {
+    // A drawn date and a date measured from another (of=/plus=) both print through format=, and
+    // only the drawn one used to have it checked: format="YYY" on an offset printed 25Y on every
+    // row and `check` called the file valid.
+    String format = attrs.get("format");
+    if (format == null) {
+      return;
+    }
+    int[] at = at(gen, "format");
+    try {
+      io.github.nickliapin.tdc.date.DateFormatter.checkFormat(format);
+    } catch (RuntimeException e) {
+      error("TDC152", e.getMessage(),
+          "Use Moment-like tokens such as YYYY-MM-DD, DD.MM.YYYY, L, LL, or bracket "
+              + "literals [text].",
+          at[0], at[1]);
+      return;
+    }
+    String minutes = io.github.nickliapin.tdc.date.DateFormatter.minutesWithoutClock(format);
+    if (minutes == null) {
+      return;
+    }
+    diagnostics.add(
+        Diagnostic.warning("TDC310",
+                "\"" + minutes + "\" in format=\"" + format
+                    + "\" is minutes, and nothing else here is a time of day",
+                "A date without a time prints minutes as 00 on every row. The month is \"MM\" (or "
+                    + "\"M\"); if the minutes are meant, put the hour beside them — HH:mm.",
+                at[0], at[1])
+            .suggesting("did you mean \"" + minutes.toUpperCase(java.util.Locale.ROOT)
+                + "\" (the month)?"));
+  }
+
   private void checkDateCommonAttrs(
       TDCParser.SelfClosingElementContext gen, Map<String, String> attrs) {
-    String format = attrs.get("format");
-    if (format != null) {
-      try {
-        io.github.nickliapin.tdc.date.DateFormatter.checkFormat(format);
-      } catch (RuntimeException e) {
-        error("TDC152", e.getMessage(),
-            "Use Moment-like tokens such as YYYY-MM-DD, DD.MM.YYYY, L, LL, or bracket "
-                + "literals [text].",
-            at(gen, "format")[0], at(gen, "format")[1]);
-      }
-    }
+    checkDateFormat(gen, attrs);
     if (attrs.get("precision") != null) {
       try {
         io.github.nickliapin.tdc.date.DateGen.precision(

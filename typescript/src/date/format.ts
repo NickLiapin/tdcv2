@@ -146,6 +146,50 @@ export function validateDateFormat(format: string): void {
 }
 
 /**
+ * The minutes token of a format that has no other clock in it, or `undefined`.
+ *
+ * `mm` is minutes, and every other date library spells the month that way —
+ * `%m`, `yyyy-mm-dd`. A format with minutes and neither an hour nor a second
+ * beside them is almost always the month written in lowercase, and a date drawn
+ * without a time then prints month `00` on every row while the run says nothing.
+ * A clock part anywhere in the format, a named one included, means the minutes
+ * were meant. Walked the way {@link validateDateFormat} walks, so a bracketed
+ * literal is never read as a token.
+ */
+export function minutesWithoutClock(format: string): string | undefined {
+  let minutes: string | undefined;
+  for (let i = 0; i < format.length; ) {
+    if (format[i] === '[') {
+      const end = format.indexOf(']', i + 1);
+      if (end < 0) return undefined;
+      i = end + 1;
+      continue;
+    }
+    const named = NAMED_FORMATS.find((candidate) => format.startsWith(candidate, i));
+    if (named !== undefined) {
+      if (!DATE_ONLY_NAMED.has(named)) return undefined;
+      i += named.length;
+      continue;
+    }
+    const token = TOKENS.find((candidate) => format.startsWith(candidate, i));
+    if (token !== undefined) {
+      if (CLOCK_TOKENS.has(token)) return undefined;
+      if (token === 'mm' || token === 'm') minutes ??= token;
+      i += token.length;
+      continue;
+    }
+    i += 1;
+  }
+  return minutes;
+}
+
+/** Hours and seconds: the company that makes a minutes token mean minutes. */
+const CLOCK_TOKENS: ReadonlySet<string> = new Set(['HH', 'H', 'ss', 's', 'SSS']);
+
+/** The named formats that print no time of day. */
+const DATE_ONLY_NAMED: ReadonlySet<string> = new Set(['L', 'LL', 'ISO']);
+
+/**
  * The named formats, longest first — the order the scanner has to try them in.
  *
  * `LLLL` before `LLL` before `LL` before `L`, and `ISO_TIME` before `ISO`, or a longer

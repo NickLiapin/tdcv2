@@ -147,6 +147,50 @@ def check_format(fmt: str) -> None:
         i += 1
 
 
+def minutes_without_clock(fmt: str) -> str | None:
+    """The minutes token of a format that has no other clock in it, or ``None``.
+
+    ``mm`` is minutes, and every other date library spells the month that way — ``%m``,
+    ``yyyy-mm-dd``. A format with minutes and neither an hour nor a second beside them is
+    almost always the month written in lowercase, and a date drawn without a time then
+    prints month ``00`` on every row while the run says nothing. A clock part anywhere in
+    the format, a named one included, means the minutes were meant. Walked the way
+    ``check_format`` walks, so a bracketed literal is never read as a token.
+    """
+    minutes: str | None = None
+    i = 0
+    while i < len(fmt):
+        if fmt[i] == "[":
+            end = fmt.find("]", i + 1)
+            if end < 0:
+                return None
+            i = end + 1
+            continue
+        named = next((n for n in NAMED_FORMATS if fmt.startswith(n, i)), None)
+        if named is not None:
+            if named not in _DATE_ONLY_NAMED:
+                return None
+            i += len(named)
+            continue
+        token = next((tk for tk in TOKENS if fmt.startswith(tk, i)), None)
+        if token is not None:
+            if token in _CLOCK_TOKENS:
+                return None
+            if token in ("mm", "m") and minutes is None:
+                minutes = token
+            i += len(token)
+            continue
+        i += 1
+    return minutes
+
+
+# Hours and seconds: the company that makes a minutes token mean minutes.
+_CLOCK_TOKENS = frozenset(("HH", "H", "ss", "s", "SSS"))
+
+# The named formats that print no time of day.
+_DATE_ONLY_NAMED = frozenset(("L", "LL", "ISO"))
+
+
 # The named formats, longest first — the order they have to be tried in. `LLLL` before
 # `LLL` before `LL` before `L`, and `ISO_TIME` before `ISO`, or a longer name is read as a
 # shorter one followed by letters nobody asked for.

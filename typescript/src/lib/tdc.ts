@@ -49,6 +49,7 @@ import {
   specsUseHttp,
 } from '../processor/render.js';
 import { extractEnvUniqGroups, extractSequenceSpecs } from '../sequence/index.js';
+import { NO_SEED_CODE } from '../validator/env-seed.js';
 import { validate } from '../validator/index.js';
 
 import {
@@ -238,7 +239,11 @@ export class TDC {
       // in <env>.
       ...(effective.count !== undefined ? { count: effective.count } : {}),
     });
-    const combined: Diagnostic[] = [...packScan.diagnostics, ...validation.diagnostics];
+    // A seed given from outside — `--seed`, or the `seed` option — fixes the
+    // file after all, so the config's missing one is no longer news.
+    const combined: Diagnostic[] = [...packScan.diagnostics, ...validation.diagnostics].filter(
+      (d) => effective.seed === undefined || d.code !== NO_SEED_CODE,
+    );
     if (hasErrors(combined)) {
       throw new TdcDiagnosticError(combined, source);
     }

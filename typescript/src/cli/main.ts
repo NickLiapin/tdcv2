@@ -32,6 +32,7 @@ import { formatTdc } from '../formatter/index.js';
 import { writeAtomically } from '../lib/atomic-write.js';
 import { TDC, WRITE_BATCH_BYTES } from '../lib/tdc.js';
 import { parse } from '../parser/index.js';
+import { NO_SEED_CODE } from '../validator/env-seed.js';
 
 import { parallelBlockReason, resolveJobCount, runParallel } from './parallel.js';
 import { parquetJobLimit, runParquetParallel } from './parquet-parallel.js';
@@ -524,10 +525,11 @@ export async function main(argv: readonly string[]): Promise<number> {
     const tdc = new TDC(opts);
     // Surface non-fatal diagnostics (warnings) to stderr so the user
     // sees them before the output is written.
-    if (tdc.diagnostics.length > 0) {
+    const warnings = forTheRun(tdc.diagnostics);
+    if (warnings.length > 0) {
       const useColors = process.stderr.isTTY;
       process.stderr.write(
-        formatDiagnostics(tdc.diagnostics, tdc.source, {
+        formatDiagnostics(warnings, tdc.source, {
           filename: inputFile,
           colors: useColors,
         }) + '\n',
@@ -653,7 +655,7 @@ export async function main(argv: readonly string[]): Promise<number> {
     if (err instanceof TdcDiagnosticError) {
       const useColors = process.stderr.isTTY;
       process.stderr.write(
-        formatDiagnostics(err.diagnostics, err.source, {
+        formatDiagnostics(forTheRun(err.diagnostics), err.source, {
           filename: inputFile,
           colors: useColors,
         }) + '\n',
@@ -663,6 +665,17 @@ export async function main(argv: readonly string[]): Promise<number> {
     process.stderr.write(`tdcv2: ${err instanceof Error ? err.message : String(err)}\n`);
     return 1;
   }
+}
+
+/**
+ * What a run prints of the validator's report: all of it but the missing seed.
+ *
+ * A run that succeeds says which seed it drew, in words that also say how to
+ * draw it again, and a run that fails wrote nothing to reproduce — so TDC309
+ * would only repeat the one or distract from the other. `check` prints it.
+ */
+function forTheRun(diagnostics: readonly Diagnostic[]): readonly Diagnostic[] {
+  return diagnostics.filter((d) => d.code !== NO_SEED_CODE);
 }
 
 /**

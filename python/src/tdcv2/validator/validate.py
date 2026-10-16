@@ -21,6 +21,8 @@ from pathlib import Path
 from types import SimpleNamespace
 from urllib.parse import urlparse
 
+from antlr4 import ParserRuleContext
+
 from ..date import calendar
 from ..date import formatter as date_formatter
 from ..date import gen as date_gen
@@ -61,6 +63,7 @@ from ..lib import numbers
 from ..output import column_type
 from ..packs import DataPacks
 from ..parser import paired_data
+from ..parser.generated.TDCParser import TDCParser
 from ..pattern import curve
 from ..sequence import uniq_simple
 from ..stats import dist_params
@@ -1211,6 +1214,41 @@ class _Validator:
                 self.diagnostics.insert(at_index + shift + offset, diagnostic)
             shift += len(found)
 
+        # Last, over the whole document in order: an entity prints the same wherever a <data>
+        # stands, so the pass does not care where that is.
+        self._check_data_entities(tdc)
+
+    def _check_data_entities(self, node) -> None:
+        """An XML entity inside ``<data>``: printed as written, because TDC expands none.
+
+        ``<data>`` holds raw text — ``"``, ``<``, ``>`` and ``&`` all go in as they are — so an
+        entity there is almost always the XML habit of the person writing it, and ``{&quot;a``
+        is not JSON. A warning and not an error: a config that writes HTML may want ``&amp;``
+        in its output and get exactly that. Only XML's own five and numeric references are
+        looked for — the ones that habit produces. One warning per ``<data>``, in document
+        order, wherever it stands.
+        """
+        if isinstance(node, TDCParser.DataElementContext):
+            text = _data_text(node) if isinstance(node, TDCParser.DataWithBodyContext) else ""
+            found: list[str] = []
+            for m in _ENTITY.finditer(text):
+                if m.group(0) not in found:
+                    found.append(m.group(0))
+            if found:
+                self._warn(
+                    "TDC311",
+                    f"{', '.join(found)} in <data> reaches the output as written — TDC expands "
+                    "no entities",
+                    "Write the character itself — <data> takes \" < > & ' as they are, so &quot; "
+                    'is just ". If the entity is what the output should hold — HTML, say — leave '
+                    "it and ignore this.",
+                    _line(node),
+                    _column(node),
+                )
+        for child in node.getChildren():
+            if isinstance(child, ParserRuleContext):
+                self._check_data_entities(child)
+
     # ── document ────────────────────────────────────────────────────────────────────────────
 
     def _check_tdc_children(self, tdc) -> None:
@@ -1580,6 +1618,20 @@ class _Validator:
                     line,
                     column,
                 )
+
+        # No seed=: a file that will not come out the same twice. A warning, because fresh data
+        # every run is sometimes the point; a run with a seed from outside, or one that prints
+        # the seed it drew, takes it back (see `TDC` and the command line).
+        if "seed" not in env_attrs:
+            self._warn(
+                NO_SEED_CODE,
+                "<env> has no seed=, so every run draws a different file",
+                'Add seed="…" — any text will do — and this config gives the same bytes on every '
+                "run, in all five implementations. Leave it out only when fresh data each time is "
+                "the point.",
+                env.name.line,
+                env.name.column,
+            )
 
         # A share below one whole row: its own pass, because the denominator of a <mix> in a
         # switch branch belongs to the switch and not to the walk that follows.
@@ -4935,26 +4987,49 @@ class _Validator:
             return
         date_parse.date_time(value)
 
+    def _check_date_format(self, gen, attrs: dict[str, str]) -> None:
+        """The ``format=`` of a date column, checked the same way wherever a date is printed.
+
+        A drawn date and a date measured from another (``of=``/``plus=``) both print through
+        ``format=``, and only the drawn one used to have it checked: ``format="YYY"`` on an
+        offset printed ``25Y`` on every row and ``check`` called the file valid.
+        """
+        fmt = attrs.get("format")
+        if fmt is None:
+            return
+        line, column = _at(gen, "format")
+        try:
+            date_formatter.check_format(fmt)
+        except ValueError as e:
+            self._error(
+                "TDC152",
+                str(e),
+                "Use Moment-like tokens such as YYYY-MM-DD, DD.MM.YYYY, L, LL, or bracket "
+                "literals [text].",
+                line,
+                column,
+            )
+            return
+        minutes = date_formatter.minutes_without_clock(fmt)
+        if minutes is None:
+            return
+        self._warn(
+            "TDC310",
+            f'"{minutes}" in format="{fmt}" is minutes, and nothing else here is a time of day',
+            'A date without a time prints minutes as 00 on every row. The month is "MM" (or '
+            '"M"); if the minutes are meant, put the hour beside them — HH:mm.',
+            line,
+            column,
+            f'did you mean "{minutes.upper()}" (the month)?',
+        )
+
     def _check_date_common(self, gen, attrs: dict[str, str]) -> None:
         """The attributes every date-shaped generator shares: its format and its precision.
 
         Also reached from the pack templates ``date.range`` and ``person.b_day``, which are dates
         wearing a different address and would otherwise skip these checks entirely.
         """
-        fmt = attrs.get("format")
-        if fmt is not None:
-            try:
-                date_formatter.check_format(fmt)
-            except ValueError as e:
-                line, column = _at(gen, "format")
-                self._error(
-                    "TDC152",
-                    str(e),
-                    "Use Moment-like tokens such as YYYY-MM-DD, DD.MM.YYYY, L, LL, or bracket "
-                    "literals [text].",
-                    line,
-                    column,
-                )
+        self._check_date_format(gen, attrs)
         if attrs.get("precision") is not None:
             try:
                 date_gen.parse_precision(attrs["precision"], Precision.DAY)
@@ -5600,6 +5675,10 @@ class _Validator:
                 at_column,
                 _did_you_mean(closest_match(of, self.declared_order)),
             )
+
+        # An offset prints through format= exactly as a drawn date does, and went unchecked:
+        # format="YYY" printed 25Y on every row of a file `check` passed.
+        self._check_date_format(gen, attrs)
 
     def _check_weight(self, gen, attrs: dict[str, str], type_: str | None) -> None:
         weight = attrs.get("weight")
@@ -7010,6 +7089,13 @@ def _member_pool_ref(node) -> str | None:
 def _has_body(data) -> bool:
     content = getattr(data, "dataContent", None)
     return callable(content) and content() is not None
+
+
+_ENTITY = re.compile(r"&(?:quot|lt|gt|amp|apos|#[0-9]+|#[xX][0-9a-fA-F]+);")
+
+# The code a run takes back: a seed given from outside fixes the file, and a run without one
+# prints the seed it drew. `check` and an editor are where it is shown.
+NO_SEED_CODE = "TDC309"
 
 
 def _data_text(data) -> str:

@@ -80,6 +80,53 @@ pub fn check_format(format: &str) -> EngineResult<()> {
     Ok(())
 }
 
+/// The minutes token of a format that has no other clock in it, or `None`.
+///
+/// `mm` is minutes, and every other date library spells the month that way — `%m`,
+/// `yyyy-mm-dd`. A format with minutes and neither an hour nor a second beside them is
+/// almost always the month written in lowercase, and a date drawn without a time then
+/// prints month `00` on every row while the run says nothing. A clock part anywhere in
+/// the format, a named one included, means the minutes were meant. Walked the way
+/// `check_format` walks, so a bracketed literal is never read as a token.
+pub fn minutes_without_clock(format: &str) -> Option<&'static str> {
+    // Hours and seconds: the company that makes a minutes token mean minutes.
+    const CLOCK_TOKENS: [&str; 5] = ["HH", "H", "ss", "s", "SSS"];
+    // The named formats that print no time of day.
+    const DATE_ONLY_NAMED: [&str; 3] = ["L", "LL", "ISO"];
+    let chars: Vec<char> = format.chars().collect();
+    let mut minutes: Option<&'static str> = None;
+    let mut i = 0;
+    while i < chars.len() {
+        if chars[i] == '[' {
+            match chars[i + 1..].iter().position(|c| *c == ']') {
+                Some(end) => i += end + 2,
+                None => return None,
+            }
+            continue;
+        }
+        let rest: String = chars[i..].iter().collect();
+        if let Some(name) = NAMED_FORMATS.iter().find(|n| rest.starts_with(**n)) {
+            if !DATE_ONLY_NAMED.contains(name) {
+                return None;
+            }
+            i += name.chars().count();
+            continue;
+        }
+        if let Some(token) = TOKENS.iter().find(|tk| rest.starts_with(**tk)) {
+            if CLOCK_TOKENS.contains(token) {
+                return None;
+            }
+            if minutes.is_none() && (*token == "mm" || *token == "m") {
+                minutes = Some(token);
+            }
+            i += token.chars().count();
+            continue;
+        }
+        i += 1;
+    }
+    minutes
+}
+
 pub fn format(value: PlainDateTime, pattern: Option<&str>, locale_name: Option<&str>) -> String {
     let locale = locales::resolve(locale_name);
     let expanded = expand(pattern.unwrap_or("L"), locale);

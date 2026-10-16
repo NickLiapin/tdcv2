@@ -188,7 +188,7 @@ def _generate(options: Options) -> int:
             on_progress=status.report if status is not None else None,
         )
     except TdcError as e:
-        _report(e.diagnostics, options.input, e.source)
+        _report(_for_the_run(e.diagnostics), options.input, e.source)
         return 1
     except (OSError, ValueError, RuntimeError) as e:
         # RuntimeError covers the engines' refusals (an infeasible uniq, a
@@ -206,7 +206,7 @@ def _generate(options: Options) -> int:
             status.finish()
         return code
     except TdcError as e:
-        _report(e.diagnostics, options.input, e.source)
+        _report(_for_the_run(e.diagnostics), options.input, e.source)
         return 1
     except (OSError, ValueError, RuntimeError) as e:
         # The same channel, for everything after the config is built. It used to guard only the
@@ -330,9 +330,21 @@ class _StatusFile:
         )
 
 
+def _for_the_run(diagnostics):
+    """What a run prints of the validator's report: all of it but the missing seed.
+
+    A run that succeeds says which seed it drew, in words that also say how to draw it again,
+    and a run that fails wrote nothing to reproduce — so TDC309 would only repeat the one or
+    distract from the other. `check` prints it.
+    """
+    from ..validator import NO_SEED_CODE  # loaded by now: the config was validated to get here
+
+    return [d for d in diagnostics if d.code != NO_SEED_CODE]
+
+
 def _produce(data: TDC, options: Options) -> int:
     """Everything after the config is built: report, seed note, preflight, write."""
-    _report(data.diagnostics, options.input, data.source)
+    _report(_for_the_run(data.diagnostics), options.input, data.source)
 
     # A run with no seed anywhere gets a random one. Print it, or the output cannot be reproduced —
     # which is the one promise the whole library is built to keep.

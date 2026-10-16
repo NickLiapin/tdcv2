@@ -426,7 +426,7 @@ impl Tdc {
         // right.
         // `--count` decides how many rows there will be, so the warnings that are
         // arithmetic over the count have to be about that number and not <env>'s.
-        let diagnostics = validator::validate_counted(
+        let mut diagnostics = validator::validate_counted(
             &parsed.tree,
             Some(DataPacks::for_project(
                 search_from.as_deref(),
@@ -435,6 +435,11 @@ impl Tdc {
             base_dir.as_deref(),
             options.count.map(|n| n as i64),
         );
+        // A seed given from outside — `--seed`, or the `seed` option — fixes the
+        // file after all, so the config's missing one is no longer news.
+        if options.seed.is_some() {
+            diagnostics.retain(|d| d.code != validator::NO_SEED_CODE);
+        }
         if has_errors(&diagnostics) {
             return Err(TdcError::Refused {
                 diagnostics,

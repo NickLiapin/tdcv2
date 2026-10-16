@@ -289,6 +289,10 @@ Las advertencias no hacen fallar la comprobación — se imprimen y el código d
 siendo `0`, porque una advertencia describe algo que funciona pero probablemente no es lo
 que usted quería. Solo un error sale con `1`.
 
+Una advertencia se ve solo aquí y en el editor: `TDC309`, un `<env>` sin `seed=`. Un run dice
+lo mismo a su manera — imprime la semilla que sacó, que es lo que hace falta para obtener ese
+archivo de nuevo — y a un run con `--seed` no hay nada que advertirle.
+
 `--brief` es la única bandera que acepta `check`. Imprime una línea por diagnóstico —
 código, posición, mensaje, pista y, al final, el nombre real más cercano cuando lo hay —
 sin el extracto del fuente, para editores, CI y cualquier otra cosa que lea la salida en

@@ -39,7 +39,7 @@ from .output.atomic import open_atomically
 from .packs import DataPacks, project_config
 from .parser import config_builder, facade
 from .sequence import assertions
-from .validator import validate
+from .validator import NO_SEED_CODE, validate
 
 # A materialized cell, roughly: a short string plus the slot holding it.
 BYTES_PER_CELL = 40
@@ -262,6 +262,10 @@ class TDC:
         # `--count` decides how many rows there will be, so the warnings that are
         # arithmetic over the count have to be about that number and not <env>'s.
         problems = validate(parsed.tree, config_dir, self._packs, count)
+        # A seed given from outside — `--seed`, or the `seed` argument — fixes the file after
+        # all, so the config's missing one is no longer news.
+        if seed is not None:
+            problems = [p for p in problems if p.code != NO_SEED_CODE]
         if has_errors(problems):
             raise TdcError(summarize(problems), problems, source)
         self._diagnostics = problems

@@ -5,7 +5,7 @@ import { parse } from '../../src/parser/index.js';
 import { validate } from '../../src/validator/index.js';
 
 function diags(gen: string): Diagnostic[] {
-  const src = `<tdc><env count="2"><sequence name="s">${gen}</sequence></env><block><line><data>_</data></line></block></tdc>`;
+  const src = `<tdc><env count="2" seed="1"><sequence name="s">${gen}</sequence></env><block><line><data>_</data></line></block></tdc>`;
   return [...validate(parse(src).tree).diagnostics];
 }
 const codes = (d: Diagnostic[]): string[] => d.map((x) => x.code ?? '');
@@ -47,7 +47,7 @@ describe('validator — case/order attributes', () => {
 
 describe('validator — interpolation filters', () => {
   function dataDiags(dataText: string): string[] {
-    const src = `<tdc><env count="2"><sequence name="C"><gen type="text" value="a"/></sequence></env><block><line><data>${dataText}</data></line></block></tdc>`;
+    const src = `<tdc><env count="2" seed="1"><sequence name="C"><gen type="text" value="a"/></sequence></env><block><line><data>${dataText}</data></line></block></tdc>`;
     return validate(parse(src).tree).diagnostics.map((d) => d.code ?? '');
   }
 

@@ -207,7 +207,7 @@ See https://github.com/NickLiapin/tdcv2 for the DSL reference.
         }
         catch (TdcDiagnosticException e)
         {
-            Report(stderr, e.Diagnostics, options.Input, e.Source);
+            Report(stderr, ForTheRun(e.Diagnostics), options.Input, e.Source);
             return 1;
         }
         // Every other exception, as the reference does: its message on one line, exit 1. This used
@@ -337,6 +337,15 @@ See https://github.com/NickLiapin/tdcv2 for the DSL reference.
                 : value.ToString(System.Globalization.CultureInfo.InvariantCulture);
     }
 
+    /// <summary>What a run prints of the validator's report: all of it but the missing seed.</summary>
+    /// <remarks>
+    /// A run that succeeds says which seed it drew, in words that also say how to draw it again,
+    /// and a run that fails wrote nothing to reproduce — so TDC309 would only repeat the one or
+    /// distract from the other. <c>check</c> prints it.
+    /// </remarks>
+    private static IReadOnlyList<Diagnostic> ForTheRun(IReadOnlyList<Diagnostic> problems) =>
+        problems.Where(d => d.Code != Validation.Validator.NoSeedCode).ToList();
+
     /// <summary>Everything after the config is built: report, seed note, preflight, write.</summary>
     /// <remarks>
     /// Split out so it sits INSIDE the caller's try rather than between two of them. It used to
@@ -348,7 +357,7 @@ See https://github.com/NickLiapin/tdcv2 for the DSL reference.
     private static int Produce(
         Tdc data, Args.Options options, TextWriter stdout, TextWriter stderr)
     {
-        Report(stderr, data.Diagnostics, options.Input, data.Source);
+        Report(stderr, ForTheRun(data.Diagnostics), options.Input, data.Source);
 
         // A run with no seed anywhere gets a random one. Print it, or the output cannot be
         // reproduced — which is the one promise the whole library is built to keep.

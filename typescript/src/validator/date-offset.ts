@@ -18,6 +18,8 @@ import { attrValueRange, closestMatch, formatCandidates, nodeRange } from '../er
 import { extractAttrs } from '../processor/walk.js';
 import { OFFSET_SYNTAX, parseOffset } from '../date/calendar.js';
 
+import { checkDateFormatAttr } from './date-format-attr.js';
+
 /**
  * Attributes that place a date generator's OWN draw, and so say nothing once
  * `of=` has placed it relative to another column.
@@ -126,4 +128,8 @@ export function checkGenDateOffset(
       code: 'TDC240',
     });
   }
+
+  // An offset prints through format= exactly as a drawn date does, and went
+  // unchecked: format="YYY" printed 25Y on every row of a file `check` passed.
+  checkDateFormatAttr(gen.attr(), diagnostics);
 }
