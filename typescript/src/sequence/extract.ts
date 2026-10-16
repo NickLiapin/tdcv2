@@ -269,8 +269,6 @@ function composedItems(node: OpenCloseElementContext): SequenceItem[] | undefine
   /** Unnamed gens — the ones that both draw and compose. */
   let unnamed = 0;
   let named = 0;
-  /** Unnamed literals, which compose without drawing. */
-  let unnamedParts = 0;
   /** Any `<data>` at all, named or not: its presence alone means this reading. */
   let data = 0;
   /** `<gen>`s of either kind. A body with none is not a sequence. */
@@ -291,7 +289,6 @@ function composedItems(node: OpenCloseElementContext): SequenceItem[] | undefine
         }
         if (text.length > 0) {
           items.push({ kind: 'text', text });
-          unnamedParts++;
           data++;
         }
         continue;
@@ -311,7 +308,6 @@ function composedItems(node: OpenCloseElementContext): SequenceItem[] | undefine
       } else {
         items.push({ kind: 'gen', gen: toGenSpec(attrs) });
         unnamed++;
-        unnamedParts++;
       }
     }
   };
@@ -323,7 +319,6 @@ function composedItems(node: OpenCloseElementContext): SequenceItem[] | undefine
   // One unnamed gen and nothing else is the classic simple sequence; a body of
   // nothing but named <gen>s is the classic compound. Both keep their paths.
   if (data === 0 && (unnamed === 0 || (unnamed === 1 && named === 0))) return undefined;
-  void unnamedParts;
   return items;
 }
 

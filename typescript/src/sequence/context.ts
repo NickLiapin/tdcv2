@@ -127,8 +127,7 @@ export interface SequenceBuildContext {
    * measures from; the top-level offset reads the registry directly.
    */
   readonly instantsOf?:
-    | ((name: string) => ((row: number) => number | undefined) | undefined)
-    | undefined;
+    ((name: string) => ((row: number) => number | undefined) | undefined) | undefined;
   /**
    * The ABSOLUTE rows this build will actually keep, when it builds more than it
    * keeps.

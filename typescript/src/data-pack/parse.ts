@@ -65,7 +65,6 @@ export function parsePackFile(content: string): ParsedPackFile {
 
   // Consume the header block until the closing fence.
   const header: Record<string, string> = {};
-  const headerStart = i;
   let closed = false;
   let j = i + 1;
   for (; j < lines.length; j++) {
@@ -95,7 +94,6 @@ export function parsePackFile(content: string): ParsedPackFile {
   }
 
   const bodyStartLine = j + 2; // 1-based line after the closing fence
-  void headerStart;
   return {
     hasHeader: true,
     header,
