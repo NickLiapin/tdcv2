@@ -438,6 +438,7 @@ fn date_offset_column(
         prng,
         locale,
         wants_instant.contains(&spec.name),
+        columns,
     )?;
     columns.insert(spec.name.clone(), values);
     if let Some(kept) = own {
@@ -2671,6 +2672,13 @@ fn expression_reads(config: &Config, name: &str) -> bool {
         // through this registry too.
         if date_offset::is_offset(&gen.gen_type, &gen.attrs)
             && date_offset::source_of(&gen.attrs) == name
+        {
+            return true;
+        }
+        // And `plus="Dur m"` reads its distance column the same way.
+        if date_offset::is_offset(&gen.gen_type, &gen.attrs)
+            && crate::date::calendar::parse_column_offset(gen.attrs.get("plus").map(String::as_str))
+                .is_some_and(|by| by.column == name)
         {
             return true;
         }

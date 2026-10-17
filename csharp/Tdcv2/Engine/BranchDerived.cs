@@ -77,7 +77,10 @@ internal static class BranchDerived
         var stamps = new long?[count];
         string of = DateOffset.SourceOf(gen.Attrs);
         DateStep.OffsetResult parsed = DateStep.ParseOffset(gen.Attrs.GetValueOrDefault("plus"));
-        if (Has(of) && parsed.Offset is { } offset)
+        DateStep.ColumnOffset? byColumn =
+            parsed.Ok ? null : DateStep.ParseColumnOffset(gen.Attrs.GetValueOrDefault("plus"));
+        bool readable = byColumn is null ? parsed.Ok : Has(byColumn.Column);
+        if (Has(of) && readable)
         {
             string format = (gen.Attrs.GetValueOrDefault("format") ?? string.Empty).Trim();
             if (format.Length == 0)
@@ -108,8 +111,26 @@ internal static class BranchDerived
                     continue;
                 }
 
-                Sfc32 draw = stream is null ? prng : PerRow.RowGenerator(stream, row);
-                PlainDateTime landed = DateStep.ApplyOffset(start, offset, DateOffset.DrawSteps(offset, draw));
+                PlainDateTime landed;
+                if (byColumn is not null)
+                {
+                    string? cell = ctx.SiblingAt?.Invoke(byColumn.Column, row);
+                    if (DateOffset.StepsFromColumn(column, byColumn, cell, row) is not { } steps)
+                    {
+                        continue;
+                    }
+
+                    landed = DateStep.AddStep(start, byColumn.Unit, steps);
+                }
+                else if (parsed.Offset is { } offset)
+                {
+                    Sfc32 draw = stream is null ? prng : PerRow.RowGenerator(stream, row);
+                    landed = DateStep.ApplyOffset(start, offset, DateOffset.DrawSteps(offset, draw));
+                }
+                else
+                {
+                    continue;
+                }
                 stamps[i] = Calendar.ToEpochMillis(landed);
                 output[i] = DateFormatter.Format(landed, format, ctx.Locale);
             }

@@ -6613,6 +6613,41 @@ public sealed class Validator
         }
     }
 
+    /// <summary>
+    /// <c>plus="Dur m"</c> reads a column, and the same two rules hold for it as for <c>of=</c>.
+    /// </summary>
+    /// <remarks>
+    /// It has to exist ABOVE this one, since the offset is built in declaration order, and it has to
+    /// hold one number per row rather than a <c>repeat=</c> list. Both are TDC240, as for <c>of=</c>.
+    /// </remarks>
+    private void CheckDistanceColumn(TDCParser.SelfClosingElementContext gen, string column, string plus)
+    {
+        (int line, int at) = At(gen, "plus");
+        if (_repeatingNames.Contains(column))
+        {
+            Error(
+                "TDC240",
+                $"plus=\"{plus}\" reads \"{column}\", which repeats — each cell holds a LIST of numbers",
+                "A distance is one number per row. Drop repeat= on that column, or read another one.",
+                line, at);
+            return;
+        }
+
+        if (_declaredOrder.Contains(column, StringComparer.Ordinal))
+        {
+            return;
+        }
+
+        string hint = "plus= with a name reads how far from that column, row by row, so the column "
+            + "has to come first. A number is read as itself: plus=\"20m\"."
+            + (_declaredOrder.Count == 0 ? "" : " Declared above: " + string.Join(", ", _declaredOrder) + ".");
+        ErrorNear(
+            "TDC240",
+            $"plus=\"{plus}\" reads \"{column}\", which is not a sequence declared above this one",
+            hint,
+            line, at, Diagnostic.ClosestMatch(column, _declaredOrder));
+    }
+
     /// <summary>Everything a date offset needs said, and nothing that contradicts it.</summary>
     /// <remarks>
     /// <c>of=</c> is what turns a date generator from a DRAW into an OFFSET, and the two are
@@ -6641,7 +6676,12 @@ public sealed class Validator
         else
         {
             DateStep.OffsetResult parsed = DateStep.ParseOffset(plus);
-            if (!parsed.Ok)
+            DateStep.ColumnOffset? byColumn = parsed.Ok ? null : DateStep.ParseColumnOffset(plus);
+            if (byColumn is not null)
+            {
+                CheckDistanceColumn(gen, byColumn.Column, plus);
+            }
+            else if (!parsed.Ok)
             {
                 (int line, int column) = At(gen, "plus");
                 bool order = parsed.Why == DateStep.OffsetReason.Order;
@@ -6653,7 +6693,8 @@ public sealed class Validator
                     order
                         ? "Write the smaller number first. To measure BACKWARDS, make both "
                           + "negative: plus=\"-10..-3d\"."
-                        : $"One of: {DateStep.OffsetSyntax}. A bare number means days.",
+                        : $"One of: {DateStep.OffsetSyntax}. A bare number, or a bare column name, "
+                          + "means days.",
                     line, column);
             }
         }

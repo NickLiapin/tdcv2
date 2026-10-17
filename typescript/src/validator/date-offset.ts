@@ -16,7 +16,7 @@ import type { Diagnostic } from '../errors/index.js';
 import type { OpenCloseElementContext, SelfClosingElementContext } from '../generated/TDCParser.js';
 import { attrValueRange, closestMatch, formatCandidates, nodeRange } from '../errors/index.js';
 import { extractAttrs } from '../processor/walk.js';
-import { OFFSET_SYNTAX, parseOffset } from '../date/calendar.js';
+import { OFFSET_SYNTAX, parseColumnOffset, parseOffset } from '../date/calendar.js';
 
 import { checkDateFormatAttr } from './date-format-attr.js';
 
@@ -62,7 +62,17 @@ export function checkGenDateOffset(
     });
   } else {
     const parsed = parseOffset(plus);
-    if (!parsed.ok) {
+    const byColumn = parsed.ok ? undefined : parseColumnOffset(plus);
+    if (byColumn)
+      checkDistanceColumn(
+        byColumn.column,
+        plus,
+        declaredAbove,
+        repeating,
+        rangeOf('plus'),
+        diagnostics,
+      );
+    else if (!parsed.ok) {
       diagnostics.push({
         severity: 'error',
         source: 'validator',
@@ -75,7 +85,7 @@ export function checkGenDateOffset(
           parsed.reason === 'order'
             ? 'Write the smaller number first. To measure BACKWARDS, make both negative: ' +
               'plus="-10..-3d".'
-            : `One of: ${OFFSET_SYNTAX}. A bare number means days.`,
+            : `One of: ${OFFSET_SYNTAX}. A bare number, or a bare column name, means days.`,
         code: 'TDC264',
       });
     }
@@ -132,4 +142,46 @@ export function checkGenDateOffset(
   // An offset prints through format= exactly as a drawn date does, and went
   // unchecked: format="YYY" printed 25Y on every row of a file `check` passed.
   checkDateFormatAttr(gen.attr(), diagnostics);
+}
+
+/**
+ * `plus="Dur m"` reads a column, and the same two rules hold for it as for `of=`: it has to
+ * exist ABOVE this one, since the offset is built in declaration order, and it has to hold one
+ * number per row rather than a `repeat=` list. Both are TDC240, as they are for `of=`.
+ */
+function checkDistanceColumn(
+  column: string,
+  plus: string,
+  declaredAbove: readonly string[],
+  repeating: readonly string[],
+  range: ReturnType<typeof nodeRange>,
+  diagnostics: Diagnostic[],
+): void {
+  if (repeating.includes(column)) {
+    diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...range,
+      message: `plus="${plus}" reads "${column}", which repeats — each cell holds a LIST of numbers`,
+      hint: 'A distance is one number per row. Drop repeat= on that column, or read another one.',
+      code: 'TDC240',
+    });
+    return;
+  }
+  if (declaredAbove.includes(column)) return;
+  const suggestion = closestMatch(column, [...declaredAbove]);
+  diagnostics.push({
+    severity: 'error',
+    source: 'validator',
+    ...range,
+    message: `plus="${plus}" reads "${column}", which is not a sequence declared above this one`,
+    ...(suggestion ? { suggestion: `did you mean "${suggestion}"?` } : {}),
+    hint:
+      'plus= with a name reads how far from that column, row by row, so the column has to come ' +
+      `first. A number is read as itself: plus="20m".` +
+      (declaredAbove.length === 0
+        ? ''
+        : ` Declared above: ${formatCandidates([...declaredAbove])}.`),
+    code: 'TDC240',
+  });
 }

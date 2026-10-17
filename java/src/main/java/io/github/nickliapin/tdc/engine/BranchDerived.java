@@ -80,8 +80,13 @@ final class BranchDerived {
     Long[] stamps = new Long[count];
     String source = DateOffset.sourceOf(gen.attrs());
     DateStep.OffsetResult parsed = DateStep.parseOffset(gen.attrs().get("plus"));
-    if (siblings != null && siblings.has().test(source) && parsed.ok()) {
-      DateStep.OffsetSpec offset = parsed.offset();
+    DateStep.ColumnOffset byColumn =
+        parsed.ok() ? null : DateStep.parseColumnOffset(gen.attrs().get("plus"));
+    boolean readable =
+        siblings != null
+            && siblings.has().test(source)
+            && (byColumn == null ? parsed.ok() : siblings.has().test(byColumn.column()));
+    if (readable) {
       String format = gen.attr("format", "").trim();
       format = format.isEmpty() ? "L" : format;
       Long[] kept =
@@ -100,9 +105,20 @@ final class BranchDerived {
         if (start == null) {
           continue;
         }
-        Prng.Sfc32 draw = stream == null ? prng : PerRow.rowGenerator(stream, row);
-        PlainDateTime landed =
-            DateStep.applyOffset(start, offset, DateOffset.drawSteps(offset, draw));
+        PlainDateTime landed;
+        if (byColumn != null) {
+          Long steps =
+              DateOffset.stepsFromColumn(
+                  column, byColumn, siblings.at().apply(byColumn.column(), row), row);
+          if (steps == null) {
+            continue;
+          }
+          landed = DateStep.addStep(start, byColumn.unit(), steps);
+        } else {
+          DateStep.OffsetSpec offset = parsed.offset();
+          Prng.Sfc32 draw = stream == null ? prng : PerRow.rowGenerator(stream, row);
+          landed = DateStep.applyOffset(start, offset, DateOffset.drawSteps(offset, draw));
+        }
         stamps[i] = Calendar.toEpochMillis(landed);
         out.set(i, DateFormatter.format(landed, format, locale));
       }

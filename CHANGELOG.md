@@ -35,6 +35,15 @@ page — is tracked in that implementation's own changelog:
   writes an array of trimmed strings, `[]` when empty. Written by hand in every implementation,
   because their JSON libraries disagree about what to escape. `json:` with nothing after the
   colon is `TDC273`.
+- **`plus=` reads the distance from a column — in all five.** `<gen type="date" of="Start"
+plus="Length m">` ends each appointment its own length after its start: the name is read row
+  by row, in the unit after it (`s`, `m`, `h`, `d`, `w`, `mo`, `y`; a bare name means days, as a
+  bare number does), a leading minus measures backwards, and a pool reference's field works
+  (`Room.turnover m`). It replaces the three formulas and a `<switch>` the hospital report needed
+  for the end of an appointment (C9). The column must be declared above and hold one number per
+  row (`TDC240`); an empty cell leaves the date empty; a cell that is not a whole number stops
+  the run with the row named, since rounding `1.5` hours would put a wrong time in a cell that
+  looks right. Nothing is drawn, so no other column moves.
 - **`TDC312` (warning): `| json` on a list without its separator, or with another one.** Both
   print a file that parses — the whole list as one string, or a one-element array — so the
   mistake would surface only in whatever reads it. Checked for a sequence, a pool field, and the

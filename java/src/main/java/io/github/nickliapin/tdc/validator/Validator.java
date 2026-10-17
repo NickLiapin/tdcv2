@@ -4995,7 +4995,10 @@ public final class Validator {
           line(gen), column(gen));
     } else {
       DateStep.OffsetResult parsed = DateStep.parseOffset(plus);
-      if (!parsed.ok()) {
+      DateStep.ColumnOffset byColumn = parsed.ok() ? null : DateStep.parseColumnOffset(plus);
+      if (byColumn != null) {
+        checkDistanceColumn(gen, byColumn.column(), plus);
+      } else if (!parsed.ok()) {
         boolean order = parsed.why() == DateStep.OffsetReason.ORDER;
         error("TDC264",
             order
@@ -5004,7 +5007,8 @@ public final class Validator {
             order
                 ? "Write the smaller number first. To measure BACKWARDS, make both negative: "
                     + "plus=\"-10..-3d\"."
-                : "One of: " + DateStep.OFFSET_SYNTAX + ". A bare number means days.",
+                : "One of: " + DateStep.OFFSET_SYNTAX
+                    + ". A bare number, or a bare column name, means days.",
             at(gen, "plus")[0], at(gen, "plus")[1]);
       }
     }
@@ -5049,6 +5053,35 @@ public final class Validator {
     // An offset prints through format= exactly as a drawn date does, and went unchecked:
     // format="YYY" printed 25Y on every row of a file `check` passed.
     checkDateFormat(gen, attrs);
+  }
+
+  /**
+   * {@code plus="Dur m"} reads a column, and the same two rules hold for it as for {@code of=}: it
+   * has to exist ABOVE this one, since the offset is built in declaration order, and it has to
+   * hold one number per row rather than a {@code repeat=} list. Both are TDC240, as for {@code of=}.
+   */
+  private void checkDistanceColumn(
+      TDCParser.SelfClosingElementContext gen, String column, String plus) {
+    int[] where = at(gen, "plus");
+    if (repeatingNames.contains(column)) {
+      error("TDC240",
+          "plus=\"" + plus + "\" reads \"" + column + "\", which repeats — each cell holds a LIST "
+              + "of numbers",
+          "A distance is one number per row. Drop repeat= on that column, or read another one.",
+          where[0], where[1]);
+      return;
+    }
+    if (declaredOrder.contains(column)) {
+      return;
+    }
+    String hint = "plus= with a name reads how far from that column, row by row, so the column "
+        + "has to come first. A number is read as itself: plus=\"20m\"."
+        + (declaredOrder.isEmpty() ? "" : " Declared above: " + String.join(", ", declaredOrder)
+            + ".");
+    errorNear("TDC240",
+        "plus=\"" + plus + "\" reads \"" + column + "\", which is not a sequence declared above "
+            + "this one",
+        hint, where[0], where[1], Diagnostic.closestMatch(column, declaredOrder));
   }
 
   /**

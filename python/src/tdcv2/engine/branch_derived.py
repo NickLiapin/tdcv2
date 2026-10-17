@@ -16,7 +16,7 @@ from __future__ import annotations
 from collections.abc import Iterable
 from dataclasses import replace
 
-from ..date.calendar import apply_offset, parse_offset
+from ..date.calendar import add_step, apply_offset, parse_column_offset, parse_offset
 from ..date.formatter import format_date_time
 from ..date.plain import to_epoch_millis
 from ..expr.evaluate import as_value
@@ -80,9 +80,11 @@ def _date_offset(gen, count: int, run, instants_out: list[int | None] | None) ->
     stamps: list[int | None] = [None] * count
     source = date_offset_gen.source_of(gen.attrs)
     parsed = parse_offset(gen.attrs.get("plus"))
+    by_column = None if parsed.ok else parse_column_offset(gen.attrs.get("plus"))
     known = run.has_column is not None and run.has_column(source)
-    if known and parsed.ok and parsed.offset is not None:
-        offset = parsed.offset
+    if by_column is not None:
+        known = known and run.has_column is not None and run.has_column(by_column.column)
+    if known and (parsed.offset is not None or by_column is not None):
         fmt = (gen.attrs.get("format") or "").strip() or "L"
         instants = run.instants_of(source) if run.instants_of else None
         column = (run.stream_id or "").split("#")[0]
@@ -97,8 +99,18 @@ def _date_offset(gen, count: int, run, instants_out: list[int | None] | None) ->
             start = date_offset_gen.start_of_row(column, gen.attrs, instants, row, text)
             if start is None:
                 continue
-            draw = seekable.generator(keyed[0], keyed[1], row) if keyed else run.prng
-            landed = apply_offset(start, offset, date_offset_gen.draw_steps(offset, draw))
+            if by_column is not None:
+                cell = run.value_at(by_column.column, row) if run.value_at else None
+                steps = date_offset_gen.steps_from_column(column, by_column, cell, row)
+                if steps is None:
+                    continue
+                landed = add_step(start, by_column.unit, steps)
+            elif parsed.offset is not None:
+                draw = seekable.generator(keyed[0], keyed[1], row) if keyed else run.prng
+                offset = parsed.offset
+                landed = apply_offset(start, offset, date_offset_gen.draw_steps(offset, draw))
+            else:
+                continue
             stamps[i] = to_epoch_millis(landed)
             out[i] = format_date_time(landed, fmt, run.config.locale)
     if instants_out is not None:

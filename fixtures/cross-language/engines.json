@@ -958,6 +958,23 @@
         ]
       }
     },
+    "branch-derived/a-date-offset-reading-its-distance-in-a-switch-case": {
+      "engine2": {
+        "refused": "a date measured from another column (\"End\") reads that column as the row is built, and the streaming path has no way to do that yet; the in-memory engine handles it (run without a forced streaming engine)"
+      },
+      "engine3": {
+        "lines": [
+          "visit 15:14 10 15:24",
+          "visit 15:30 10 15:40",
+          "call 14:14 20 -",
+          "visit 13:03 40 13:43",
+          "visit 14:41 20 15:01",
+          "call 15:17 20 -",
+          "call 14:29 40 -",
+          "call 12:17 40 -"
+        ]
+      }
+    },
     "comparisons/strict-equality-matches-the-number-written-beside-it": {
       "engine2": {
         "lines": ["0: is0 not1", "1: is1", "2: not1", "3: not1"]
@@ -1422,6 +1439,36 @@
           "2026-01-30/2026-02-02",
           "2026-01-16/2026-01-19",
           "2026-01-19/2026-01-23"
+        ]
+      }
+    },
+    "date-offset/date-offset-plus-reads-the-distance-from-a-column": {
+      "engine2": {
+        "refused": "a date measured from another column (\"End\") reads that column as the row is built, and the streaming path has no way to do that yet; the in-memory engine handles it (run without a forced streaming engine)"
+      },
+      "engine3": {
+        "lines": [
+          "2026-03-02 15:35 prep 15:05 end 16:05 free 16:15 bill 2026-03-03 (30m, 1d)",
+          "2026-03-02 11:26 prep 11:11 end 11:41 free 11:56 bill 2026-03-04 (15m, 2d)",
+          "2026-03-02 11:35 prep 10:50 end 12:20 free 12:25 bill 2026-03-05 (45m, 3d)",
+          "2026-03-02 13:32 prep 12:32 end 14:32 free 14:42 bill 2026-03-04 (60m, 2d)",
+          "2026-03-02 12:53 prep 11:53 end 13:53 free 14:08 bill 2026-03-03 (60m, 1d)",
+          "2026-03-02 14:38 prep 14:08 end 15:08 free 15:18 bill 2026-03-04 (30m, 2d)"
+        ]
+      }
+    },
+    "date-offset/date-offset-plus-column-with-an-empty-cell": {
+      "engine2": {
+        "refused": "a date measured from another column (\"Due\") reads that column as the row is built, and the streaming path has no way to do that yet; the in-memory engine handles it (run without a forced streaming engine)"
+      },
+      "engine3": {
+        "lines": [
+          "2026-03-29 +2 = 2026-03-31",
+          "2026-03-19 +9 = 2026-03-28",
+          "2026-03-18 +2 = 2026-03-20",
+          "2026-03-15 + = ",
+          "2026-03-17 + = ",
+          "2026-03-09 + = "
         ]
       }
     },

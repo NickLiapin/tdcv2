@@ -58,7 +58,8 @@
     "misspelledPercent": "<tdc>\n  <env count=\"3\" seed=\"demo\">\n    <sequence name=\"Status\"><gen type=\"text\" value=\"ok,fail\" persent=\"90,10\"/></sequence>\n  </env>\n  <block><line><data>${{Status}}</data></line></block>\n</tdc>\n",
     "uniqColumn": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"Code\" uniq=\"true\"><gen type=\"number\" value=\"1..9\"/></sequence></env><block><line><data>${{Code}}</data></line></block></tdc>",
     "runningOnEngine3": "<tdc><env count=\"4\" seed=\"s\" local=\"en\" engine=\"3\"><sequence name=\"N\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"R\"><gen type=\"running\" of=\"N\" accumulate=\"sum\"/></sequence></env><block><line><data>${{N}} ${{R}}</data></line></block></tdc>",
-    "runningBig": "<tdc><env count=\"120000\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"R\"><gen type=\"running\" of=\"N\" accumulate=\"sum\"/></sequence></env><block><line><data>${{N}} ${{R}}</data></line></block></tdc>"
+    "runningBig": "<tdc><env count=\"120000\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"R\"><gen type=\"running\" of=\"N\" accumulate=\"sum\"/></sequence></env><block><line><data>${{N}} ${{R}}</data></line></block></tdc>",
+    "offsetDistanceFraction": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"Start\"><gen type=\"date\" from=\"2026-03-02\" to=\"2026-03-09\"/></sequence><sequence name=\"Hrs\"><gen type=\"text\" value=\"1.5\"/></sequence><sequence name=\"End\"><gen type=\"date\" of=\"Start\" plus=\"Hrs h\"/></sequence></env><block><line><data>${{End}}</data></line></block></tdc>"
   },
   "cases": [
     {
@@ -1868,6 +1869,16 @@
       "argv": ["{dir}/ok.tdc", "-o", "/dev/null"],
       "exit": 0,
       "stdout": ""
+    },
+    {
+      "name": "a date offset reading a distance that is not a whole number is one line naming the row",
+      "note": "A fraction is refused rather than rounded: 1.5 hours is ninety minutes, and landing on one or two hours would put a wrong time in a column that looks right. Exact stderr, as for the offset from a column that is not a date.",
+      "files": {
+        "bad.tdc": "@offsetDistanceFraction"
+      },
+      "argv": ["{dir}/bad.tdc"],
+      "exit": 1,
+      "stderr": "tdcv2: date offset (\"End\"): \"1.5\" in column \"Hrs\" on row 1 is not a whole number. plus= reads the distance from that column, so it has to hold one — 15, -3, 120; for a fraction of an hour, count in minutes.\n"
     }
   ],
   "gaps": {

@@ -103,7 +103,7 @@ export const ATTR_DOCS: Record<string, string> = {
   reset:
     'On `running`: a column whose change restarts the total. A new customer, a new month, a new order.',
   op: 'On `stat`: which statistic — `sum`, `mean`, `median`, `min`, `max`, `count` or `stddev`.',
-  plus: 'On `<gen type="date" of="…">`: how far from that column — `7d`, `3..10d`, `1..3mo`, `-10..-3d`. A bare number means days.',
+  plus: 'On `<gen type="date" of="…">`: how far from that column — `7d`, `3..10d`, `1..3mo`, `-10..-3d`, or a column holding the number and a unit: `Dur m`, `-Lead d`. A bare number, or a bare name, means days.',
   expr: 'On `formula`: the arithmetic this column is, written the way an `if=` condition is.',
   filter: 'On `pool`: which members of the pool this row may draw from.',
 

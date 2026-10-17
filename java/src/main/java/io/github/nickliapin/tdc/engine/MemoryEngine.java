@@ -892,7 +892,8 @@ public final class MemoryEngine {
                   count,
                   prng,
                   config.locale(),
-                  wantsInstant.contains(spec.name()));
+                  wantsInstant.contains(spec.name()),
+                  columns);
           columns.put(spec.name(), built.values());
           if (built.instants() != null) {
             instants.put(spec.name(), built.instants());

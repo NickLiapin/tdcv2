@@ -454,6 +454,7 @@ independientes tiran a la basura.
 | `1..3mo`     | de uno a tres meses, por el calendario                            |
 | `-10..-3d`   | de tres a diez días **antes** de la fuente                        |
 | `45`         | un número a secas significa días                                  |
+| `Length m`   | el número de la columna `Length`, en minutos, el de cada fila     |
 
 Las unidades son las que [`step`](#step--cuánto-avanza-cada-fila) ya usa:
 `s`, `m`, `h`, `d`, `w`, `mo`, `y` — y como allí, `m` es el minuto y `mo` el mes.
@@ -481,6 +482,42 @@ darse la vuelta en silencio.
 Meses y años avanzan por el calendario y no por un número fijo de días, así que
 `2026-01-31` más un mes es `2026-02-28` — el mismo ajuste que hace
 [`step`](#un-paso-de-calendario-conserva-el-día-del-mes).
+
+### Una distancia leída de otra columna
+
+El fin de una cita es su inicio más **su propia** duración, y la duración es de cada fila: un
+literal es la misma distancia en todas, y un rango se sortea, no se lee. Escriba el nombre de
+una columna y una unidad, y la distancia se lee de esa columna, fila por fila:
+
+```xml
+<sequence name="Start">
+  <gen type="date" from="2026-03-02T08:00" to="2026-03-02T17:00" format="HH:mm"/>
+</sequence>
+<sequence name="Length"><gen type="text" value="15,30,45,60"/></sequence>
+<sequence name="End">
+  <gen type="date" of="Start" plus="Length m" format="HH:mm"/>
+</sequence>
+```
+
+<Terminal title="./run appointments.tdc (4 filas)">
+{`09:26–10:11  (45 min)
+09:45–10:45  (60 min)
+15:37–15:52  (15 min)
+11:39–12:09  (30 min)`}
+</Terminal>
+
+Un signo menos al principio cuenta hacia atrás — `plus="-Length m"` da la hora de empezar a
+prepararse — y un nombre a secas significa días, como un número a secas. Un campo de una
+referencia a un [pool](../pools/overview.mdx) es una columna como cualquier otra:
+`plus="Room.turnover m"`. La columna tiene que estar declarada más arriba, igual que para `of`,
+y guardar un número por fila (`TDC240`). No se sortea nada, así que no mueve ninguna otra
+columna.
+
+Cada celda tiene que ser un número entero. Una fila con la celda vacía — una que
+[`missing`](../guides/missing-data.mdx) dejó en blanco — se queda sin fecha, igual que una fila
+sin fecha de origen. Una fracción detiene el run nombrando la fila: `1.5` horas son noventa
+minutos, y redondear a una o dos horas pondría una hora equivocada en una celda que parece
+correcta. Cuente en la unidad más pequeña.
 
 ### El desplazamiento lee el valor, no el texto impreso
 

@@ -217,7 +217,10 @@ class OffsetSpec:
 
 
 #: What a ``plus=`` may say, for a diagnostic to quote.
-OFFSET_SYNTAX = "7d, 3..10d, 1..3mo, -5..-1d — units s, m, h, d, w, mo, y"
+OFFSET_SYNTAX = (
+    "7d, 3..10d, 1..3mo, -5..-1d, or a column holding the number: Dur m — "
+    "units s, m, h, d, w, mo, y"
+)
 
 _OFFSET = re.compile(r"^(-?\d+)(?:\.\.(-?\d+))?(mo|[smhdwy])?$")
 
@@ -255,13 +258,50 @@ def parse_offset(raw: str | None) -> OffsetResult:
     if lo > hi:
         return OffsetResult(None, "order")
 
-    name = unit_name or "d"
+    unit = _offset_unit(unit_name or "d")
+    if unit is None:
+        return OffsetResult(None, "syntax")
+    return OffsetResult(OffsetSpec(lo, hi, unit), None)
+
+
+def _offset_unit(name: str) -> StepSpec | None:
+    """One step of a ``plus=`` unit — ``s``, ``m``, ``h``, ``d``, ``w``, ``mo``, ``y`` — or None."""
     fixed = _FIXED_UNIT_MS.get(name)
     months = _CALENDAR_UNIT_MONTHS.get(name)
     unit = StepSpec(0, months or 0) if fixed is None else StepSpec(fixed, 0)
-    if unit.ms == 0 and unit.months == 0:
-        return OffsetResult(None, "syntax")
-    return OffsetResult(OffsetSpec(lo, hi, unit), None)
+    return None if unit.ms == 0 and unit.months == 0 else unit
+
+
+@dataclass(frozen=True, slots=True)
+class ColumnOffset:
+    """``plus="Dur m"``: the distance read from a column, row by row, in one unit."""
+
+    column: str
+    #: ``-1`` for ``plus="-Lead d"``, which measures backwards.
+    sign: int
+    unit: StepSpec
+
+
+# ASCII classes and no IGNORECASE, so the five implementations' regex engines read it alike.
+_COLUMN_OFFSET = re.compile(r"^(-?)([A-Za-z_][A-Za-z0-9_.]*)(?: +([Mm][Oo]|[SsMmHhDdWwYy]))?$")
+
+
+def parse_column_offset(raw: str | None) -> ColumnOffset | None:
+    """``plus="Dur m"``, ``plus="-Lead d"``, ``plus="Shift.hours h"`` — how far, from a column.
+
+    The end of an appointment is its start plus ITS OWN length, and a length that differs per row
+    could not be said: a literal is the same distance on every row, and a range is drawn, not
+    read. A name followed by a unit reads the distance from that column instead. A bare name means
+    days, as a bare number does. None when ``raw`` is not this shape — it may still be a literal,
+    which :func:`parse_offset` reads first.
+    """
+    shape = _COLUMN_OFFSET.match((raw or "").strip())
+    if shape is None:
+        return None
+    unit = _offset_unit((shape.group(3) or "d").lower())
+    if unit is None:
+        return None
+    return ColumnOffset(shape.group(2), -1 if shape.group(1) == "-" else 1, unit)
 
 
 def apply_offset(start: PlainDateTime, offset: OffsetSpec, n: int) -> PlainDateTime:

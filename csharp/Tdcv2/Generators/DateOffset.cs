@@ -51,13 +51,21 @@ public static class DateOffset
         int count,
         Sfc32 prng,
         string? locale,
-        bool keepInstants)
+        bool keepInstants,
+        IReadOnlyDictionary<string, string[]> columns)
     {
         var values = new string[count];
         DateStep.OffsetResult parsed = DateStep.ParseOffset(attrs.GetValueOrDefault("plus"));
-        if (parsed.Offset is not { } offset)
+        DateStep.ColumnOffset? byColumn =
+            parsed.Ok ? null : DateStep.ParseColumnOffset(attrs.GetValueOrDefault("plus"));
+        string[]? distance = byColumn is not null && columns.TryGetValue(byColumn.Column, out string[]? found)
+            ? found
+            : null;
+
+        // A bad plus=, or a column nobody declared, is a diagnostic, not a crash.
+        if ((!parsed.Ok && byColumn is null) || (byColumn is not null && distance is null))
         {
-            return (values, null); // a bad plus= is a diagnostic, not a crash
+            return (values, null);
         }
 
         string format = (attrs.GetValueOrDefault("format") ?? string.Empty).Trim();
@@ -84,7 +92,26 @@ public static class DateOffset
                 continue;
             }
 
-            PlainDateTime landed = DateStep.ApplyOffset(from, offset, DrawSteps(offset, prng));
+            PlainDateTime landed;
+            if (byColumn is not null && distance is not null)
+            {
+                long? steps = StepsFromColumn(name, byColumn, i < distance.Length ? distance[i] : null, i);
+                if (steps is not { } n)
+                {
+                    continue;
+                }
+
+                landed = DateStep.AddStep(from, byColumn.Unit, n);
+            }
+            else if (parsed.Offset is { } offset)
+            {
+                landed = DateStep.ApplyOffset(from, offset, DrawSteps(offset, prng));
+            }
+            else
+            {
+                continue;
+            }
+
             if (own is not null)
             {
                 own[i] = Calendar.ToEpochMillis(landed);
@@ -94,6 +121,44 @@ public static class DateOffset
         }
 
         return (values, own);
+    }
+
+    /// <summary>The largest whole number every implementation reads exactly — JavaScript's safe integer.</summary>
+    private const long MaxSafe = 9_007_199_254_740_991L;
+
+    private static readonly System.Text.RegularExpressions.Regex Whole =
+        new("^-?[0-9]+$", System.Text.RegularExpressions.RegexOptions.CultureInvariant);
+
+    /// <summary>
+    /// How many steps row <c>i</c> moves when <c>plus=</c> names a column, or null when its cell is
+    /// empty — <c>missing=</c> blanked it, or a parent filter left the row without one — and the
+    /// date stays empty with it, as it does when the date it is measured from is missing.
+    /// </summary>
+    /// <remarks>
+    /// Only a whole number is a distance. A decimal is refused rather than rounded: <c>1.5</c> hours
+    /// is ninety minutes, and silently landing on one or two hours would put a wrong time in a
+    /// column that looks right. No draw is taken, so adding such a column moves no other value.
+    /// </remarks>
+    public static long? StepsFromColumn(string name, DateStep.ColumnOffset offset, string? cell, int i)
+    {
+        string text = (cell ?? string.Empty).Trim();
+        if (text.Length == 0)
+        {
+            return null;
+        }
+
+        if (Whole.IsMatch(text)
+            && long.TryParse(text, System.Globalization.NumberStyles.AllowLeadingSign, System.Globalization.CultureInfo.InvariantCulture, out long n)
+            && n >= -MaxSafe && n <= MaxSafe)
+        {
+            return offset.Sign * n;
+        }
+
+        throw new DateOffsetException(
+            $"date offset (\"{name}\"): \"{text}\" in column \"{offset.Column}\" on row {i + 1} is not a "
+            + "whole number. plus= reads the distance from that column, so it has to hold one — 15, -3, "
+            + "120; for a fraction of an hour, count in minutes.",
+            null);
     }
 
     /// <summary>The date row <c>i</c> is measured FROM, or null when the row has none.</summary>
@@ -167,7 +232,7 @@ public static class DateOffset
 /// <summary>A source column an offset cannot read.</summary>
 internal sealed class DateOffsetException : InvalidOperationException
 {
-    public DateOffsetException(string message, Exception inner)
+    public DateOffsetException(string message, Exception? inner)
         : base(message, inner)
     {
     }

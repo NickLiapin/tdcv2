@@ -717,6 +717,7 @@ def _build_columns(
                     run.prng,
                     config.locale,
                     name in wants_instant,
+                    columns,
                 )
                 columns[name] = values
                 if own is not None:

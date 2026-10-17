@@ -5671,7 +5671,10 @@ class _Validator:
             )
         else:
             parsed = calendar.parse_offset(plus)
-            if not parsed.ok:
+            by_column = None if parsed.ok else calendar.parse_column_offset(plus)
+            if by_column is not None:
+                self._check_distance_column(gen, by_column.column, plus)
+            elif not parsed.ok:
                 at_line, at_column = _at(gen, "plus")
                 if parsed.reason == "order":
                     message = (
@@ -5683,7 +5686,10 @@ class _Validator:
                     )
                 else:
                     message = f'plus="{plus}" is not an offset'
-                    hint = f"One of: {calendar.OFFSET_SYNTAX}. A bare number means days."
+                    hint = (
+                        f"One of: {calendar.OFFSET_SYNTAX}. A bare number, or a bare column "
+                        "name, means days."
+                    )
                 self._error("TDC264", message, hint, at_line, at_column)
 
         for name in self._DRAW_ATTRS:
@@ -5737,6 +5743,41 @@ class _Validator:
         # An offset prints through format= exactly as a drawn date does, and went unchecked:
         # format="YYY" printed 25Y on every row of a file `check` passed.
         self._check_date_format(gen, attrs)
+
+    def _check_distance_column(self, gen, column: str, plus: str) -> None:
+        """``plus="Dur m"`` reads a column, and the same two rules hold for it as for ``of=``.
+
+        It has to exist ABOVE this one, since the offset is built in declaration order, and it has
+        to hold one number per row rather than a ``repeat=`` list. Both are TDC240, as for ``of=``.
+        """
+        at_line, at_column = _at(gen, "plus")
+        if column in self.repeating_names:
+            self._error(
+                "TDC240",
+                f'plus="{plus}" reads "{column}", which repeats — each cell holds a LIST of '
+                "numbers",
+                "A distance is one number per row. Drop repeat= on that column, or read another "
+                "one.",
+                at_line,
+                at_column,
+            )
+            return
+        if column in self.declared_order:
+            return
+        hint = (
+            "plus= with a name reads how far from that column, row by row, so the column has to "
+            'come first. A number is read as itself: plus="20m".'
+        )
+        if self.declared_order:
+            hint += " Declared above: " + ", ".join(self.declared_order) + "."
+        self._error(
+            "TDC240",
+            f'plus="{plus}" reads "{column}", which is not a sequence declared above this one',
+            hint,
+            at_line,
+            at_column,
+            _did_you_mean(closest_match(column, self.declared_order)),
+        )
 
     def _check_weight(self, gen, attrs: dict[str, str], type_: str | None) -> None:
         weight = attrs.get("weight")

@@ -287,7 +287,46 @@ public final class DateStep {
 
   /** What a {@code plus=} may say, for a diagnostic to quote. */
   public static final String OFFSET_SYNTAX =
-      "7d, 3..10d, 1..3mo, -5..-1d — units s, m, h, d, w, mo, y";
+      "7d, 3..10d, 1..3mo, -5..-1d, or a column holding the number: Dur m — "
+          + "units s, m, h, d, w, mo, y";
+
+  /**
+   * {@code plus="Dur m"}: the distance read from a column, row by row, in one unit.
+   *
+   * @param sign {@code -1} for {@code plus="-Lead d"}, which measures backwards
+   */
+  public record ColumnOffset(String column, long sign, Spec unit) {}
+
+  /** ASCII classes and no CASE_INSENSITIVE, so the five implementations' regex engines agree. */
+  private static final java.util.regex.Pattern COLUMN_OFFSET =
+      java.util.regex.Pattern.compile(
+          "^(-?)([A-Za-z_][A-Za-z0-9_.]*)(?: +([Mm][Oo]|[SsMmHhDdWwYy]))?$");
+
+  /**
+   * {@code plus="Dur m"}, {@code plus="-Lead d"}, {@code plus="Shift.hours h"} — how far, from a
+   * column.
+   *
+   * <p>The end of an appointment is its start plus ITS OWN length, and a length that differs per
+   * row could not be said: a literal is the same distance on every row, and a range is drawn, not
+   * read. A name followed by a unit reads the distance from that column instead. A bare name means
+   * days, as a bare number does. Null when {@code raw} is not this shape — it may still be a
+   * literal, which {@link #parseOffset} reads first.
+   */
+  public static ColumnOffset parseColumnOffset(String raw) {
+    java.util.regex.Matcher shape = COLUMN_OFFSET.matcher(raw == null ? "" : raw.trim());
+    if (!shape.matches()) {
+      return null;
+    }
+    String unitName =
+        shape.group(3) == null ? "d" : shape.group(3).toLowerCase(java.util.Locale.ROOT);
+    long fixed = fixedUnitMs(unitName);
+    long calendar = calendarUnitMonths(unitName);
+    if (fixed < 0 && calendar < 0) {
+      return null;
+    }
+    Spec unit = fixed >= 0 ? new Spec(fixed, 0) : new Spec(0, calendar);
+    return new ColumnOffset(shape.group(2), "-".equals(shape.group(1)) ? -1 : 1, unit);
+  }
 
   /**
    * {@code plus="3..10d"}, {@code plus="7d"}, {@code plus="-5..-1d"}, {@code plus="1..3mo"}.

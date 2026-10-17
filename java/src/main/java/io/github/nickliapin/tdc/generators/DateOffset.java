@@ -70,13 +70,17 @@ public final class DateOffset {
       int count,
       Prng.Sfc32 prng,
       String locale,
-      boolean keepInstants) {
+      boolean keepInstants,
+      Map<String, String[]> columns) {
     String[] values = new String[count];
     DateStep.OffsetResult parsed = DateStep.parseOffset(attrs.get("plus"));
-    if (!parsed.ok()) {
-      return new Column(values, null); // a bad plus= is a diagnostic, not a crash
+    DateStep.ColumnOffset byColumn =
+        parsed.ok() ? null : DateStep.parseColumnOffset(attrs.get("plus"));
+    String[] distance = byColumn == null ? null : columns.get(byColumn.column());
+    // A bad plus=, or a column nobody declared, is a diagnostic, not a crash.
+    if ((!parsed.ok() && byColumn == null) || (byColumn != null && distance == null)) {
+      return new Column(values, null);
     }
-    DateStep.OffsetSpec offset = parsed.offset();
 
     String format = attrs.get("format");
     format = format == null || format.trim().isEmpty() ? "L" : format.trim();
@@ -93,13 +97,65 @@ public final class DateOffset {
       if (start == null) {
         continue;
       }
-      PlainDateTime landed = DateStep.applyOffset(start, offset, drawSteps(offset, prng));
+      PlainDateTime landed;
+      if (byColumn != null) {
+        Long steps = stepsFromColumn(name, byColumn, i < distance.length ? distance[i] : null, i);
+        if (steps == null) {
+          continue;
+        }
+        landed = DateStep.addStep(start, byColumn.unit(), steps);
+      } else {
+        DateStep.OffsetSpec offset = parsed.offset();
+        landed = DateStep.applyOffset(start, offset, drawSteps(offset, prng));
+      }
       if (own != null) {
         own[i] = Calendar.toEpochMillis(landed);
       }
       values[i] = DateFormatter.format(landed, format, locale);
     }
     return new Column(values, own);
+  }
+
+  /** The largest whole number every implementation reads exactly — JavaScript's safe integer. */
+  private static final long MAX_SAFE = 9_007_199_254_740_991L;
+
+  private static final java.util.regex.Pattern WHOLE = java.util.regex.Pattern.compile("-?[0-9]+");
+
+  /**
+   * How many steps row {@code i} moves when {@code plus=} names a column, or null when its cell is
+   * empty — {@code missing=} blanked it, or a parent filter left the row without one — and the date
+   * stays empty with it, as it does when the date it is measured from is missing.
+   *
+   * <p>Only a whole number is a distance. A decimal is refused rather than rounded: {@code 1.5}
+   * hours is ninety minutes, and silently landing on one or two hours would put a wrong time in a
+   * column that looks right. No draw is taken, so adding such a column moves no other value.
+   */
+  public static Long stepsFromColumn(
+      String name, DateStep.ColumnOffset offset, String cell, int i) {
+    String text = cell == null ? "" : cell.trim();
+    if (text.isEmpty()) {
+      return null;
+    }
+    Long n = null;
+    if (WHOLE.matcher(text).matches()) {
+      try {
+        long parsed = Long.parseLong(text);
+        if (parsed >= -MAX_SAFE && parsed <= MAX_SAFE) {
+          n = parsed;
+        }
+      } catch (NumberFormatException tooLong) {
+        n = null;
+      }
+    }
+    if (n == null) {
+      throw new DateOffsetException(
+          "date offset (\"" + name + "\"): \"" + text + "\" in column \"" + offset.column()
+              + "\" on row " + (i + 1) + " is not a whole number. plus= reads the distance from "
+              + "that column, so it has to hold one — 15, -3, 120; for a fraction of an hour, "
+              + "count in minutes.",
+          null);
+    }
+    return offset.sign() * n;
   }
 
   /**

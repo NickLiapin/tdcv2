@@ -72,11 +72,7 @@
       "name": "a-source-cell-with-no-date-measures-nothing",
       "description": "missing=\"1.0\" blanks every source cell, so there is no date to measure from and the derived column is empty too. The alternative an implementation might reach for — measuring from whatever text the missing token left behind, or from the epoch — puts a confident-looking date in a row whose source says nothing at all.",
       "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\" mode=\"memory\"><sequence name=\"Seen\"><gen type=\"date\" from=\"2026-01-01\" to=\"2026-03-01\" format=\"YYYY-MM-DD\" missing=\"1.0\"/></sequence><sequence name=\"Follow\"><gen type=\"date\" of=\"Seen\" plus=\"7d\" format=\"YYYY-MM-DD\"/></sequence></env><block><line><data>[${{Seen}}][${{Follow}}]</data></line></block></tdc>",
-      "expected": [
-        "[][]",
-        "[][]",
-        "[][]"
-      ]
+      "expected": ["[][]", "[][]", "[][]"]
     },
     {
       "name": "an-offset-with-no-mode-goes-where-it-must",
@@ -86,6 +82,32 @@
         "2026-01-30/2026-02-02",
         "2026-01-16/2026-01-19",
         "2026-01-19/2026-01-23"
+      ]
+    },
+    {
+      "name": "date-offset-plus-reads-the-distance-from-a-column",
+      "description": "plus=\"Dur m\" reads how far from the column Dur, row by row, in minutes: the end of an appointment is its start plus its own length. A leading minus measures backwards, a bare name means days, and a pool reference's field is a column like any other. No draw is taken.",
+      "config": "<tdc><env count=\"6\" seed=\"plus-col\" local=\"en\" mode=\"memory\"><pool name=\"Rooms\" count=\"3\"><sequence name=\"turnover\"><gen type=\"text\" value=\"5,10,15\"/></sequence></pool><sequence name=\"Start\"><gen type=\"date\" from=\"2026-03-02T08:00\" to=\"2026-03-02T17:00\" format=\"YYYY-MM-DD HH:mm\"/></sequence><sequence name=\"Dur\"><gen type=\"text\" value=\"15,30,45,60\"/></sequence><sequence name=\"Room\"><gen type=\"pool\" value=\"Rooms\"/></sequence><sequence name=\"End\"><gen type=\"date\" of=\"Start\" plus=\"Dur m\" format=\"HH:mm\"/></sequence><sequence name=\"Free\"><gen type=\"date\" of=\"End\" plus=\"Room.turnover m\" format=\"HH:mm\"/></sequence><sequence name=\"Prep\"><gen type=\"date\" of=\"Start\" plus=\"-Dur m\" format=\"HH:mm\"/></sequence><sequence name=\"Days\"><gen type=\"number\" value=\"1..3\"/></sequence><sequence name=\"Bill\"><gen type=\"date\" of=\"Start\" plus=\"Days\" format=\"YYYY-MM-DD\"/></sequence></env><block><line><data>${{Start}} prep ${{Prep}} end ${{End}} free ${{Free}} bill ${{Bill}} (${{Dur}}m, ${{Days}}d)</data></line></block></tdc>",
+      "expected": [
+        "2026-03-02 15:35 prep 15:05 end 16:05 free 16:15 bill 2026-03-03 (30m, 1d)",
+        "2026-03-02 11:26 prep 11:11 end 11:41 free 11:56 bill 2026-03-04 (15m, 2d)",
+        "2026-03-02 11:35 prep 10:50 end 12:20 free 12:25 bill 2026-03-05 (45m, 3d)",
+        "2026-03-02 13:32 prep 12:32 end 14:32 free 14:42 bill 2026-03-04 (60m, 2d)",
+        "2026-03-02 12:53 prep 11:53 end 13:53 free 14:08 bill 2026-03-03 (60m, 1d)",
+        "2026-03-02 14:38 prep 14:08 end 15:08 free 15:18 bill 2026-03-04 (30m, 2d)"
+      ]
+    },
+    {
+      "name": "date-offset-plus-column-with-an-empty-cell",
+      "description": "A row whose distance column is empty — missing= blanked it — has no distance, so its date stays empty, as it does when the date it is measured from is missing.",
+      "config": "<tdc><env count=\"6\" seed=\"plus-empty\" local=\"en\" mode=\"memory\"><sequence name=\"Start\"><gen type=\"date\" from=\"2026-03-02\" to=\"2026-03-30\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"Lag\"><gen type=\"number\" value=\"1..9\" missing=\"0.5\"/></sequence><sequence name=\"Due\"><gen type=\"date\" of=\"Start\" plus=\"Lag d\" format=\"YYYY-MM-DD\"/></sequence></env><block><line><data>${{Start}} +${{Lag}} = ${{Due}}</data></line></block></tdc>",
+      "expected": [
+        "2026-03-29 +2 = 2026-03-31",
+        "2026-03-19 +9 = 2026-03-28",
+        "2026-03-18 +2 = 2026-03-20",
+        "2026-03-15 + = ",
+        "2026-03-17 + = ",
+        "2026-03-09 + = "
       ]
     }
   ]

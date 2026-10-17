@@ -15,8 +15,17 @@ declared ABOVE it.
 
 from __future__ import annotations
 
+import re
+
 from ..date import parse as date_parse
-from ..date.calendar import OffsetSpec, apply_offset, parse_offset
+from ..date.calendar import (
+    ColumnOffset,
+    OffsetSpec,
+    add_step,
+    apply_offset,
+    parse_column_offset,
+    parse_offset,
+)
 from ..date.formatter import format_date_time
 from ..date.plain import PlainDateTime, from_epoch_millis, to_epoch_millis
 from ..prng.prng import Sfc32
@@ -45,6 +54,7 @@ def build(
     prng: Sfc32,
     locale: str,
     keep_instants: bool,
+    columns: dict | None = None,
 ) -> tuple[list[str | None], list[int | None] | None]:
     """The offset column, and its own instants when a third column measures from it.
 
@@ -57,9 +67,12 @@ def build(
     the config said should have none.
     """
     parsed = parse_offset(attrs.get("plus"))
-    if not parsed.ok or parsed.offset is None:
-        return ([None] * count, None)  # a bad plus= is a diagnostic, not a crash
-    offset: OffsetSpec = parsed.offset
+    by_column = None if parsed.ok else parse_column_offset(attrs.get("plus"))
+    distance = None if by_column is None else (columns or {}).get(by_column.column)
+    # A bad plus=, or a column nobody declared, is a diagnostic, not a crash.
+    unreadable = by_column is not None and distance is None
+    if (parsed.offset is None and by_column is None) or unreadable:
+        return ([None] * count, None)
 
     fmt = (attrs.get("format") or "").strip() or "L"
     values: list[str | None] = [None] * count
@@ -74,7 +87,16 @@ def build(
         start = start_of_row(name, attrs, instants, i, text)
         if start is None:
             continue
-        landed = apply_offset(start, offset, draw_steps(offset, prng))
+        if by_column is not None and distance is not None:
+            cell = distance[i] if i < len(distance) else None
+            steps = steps_from_column(name, by_column, cell, i)
+            if steps is None:
+                continue
+            landed = add_step(start, by_column.unit, steps)
+        elif parsed.offset is not None:
+            landed = apply_offset(start, parsed.offset, draw_steps(parsed.offset, prng))
+        else:
+            continue
         if own is not None:
             own[i] = to_epoch_millis(landed)
         values[i] = format_date_time(landed, fmt, locale)
@@ -116,6 +138,33 @@ def start_of_row(
             "works; one read from a file or a pack has only its text, and only the ISO form "
             "(YYYY-MM-DD) means the same thing in every locale."
         ) from error
+
+
+#: The largest whole number every implementation reads exactly — JavaScript's safe integer.
+_MAX_SAFE = 9007199254740991
+_WHOLE = re.compile(r"-?[0-9]+")
+
+
+def steps_from_column(name: str, offset: ColumnOffset, cell: str | None, i: int) -> int | None:
+    """How many steps row ``i`` moves when ``plus=`` names a column, or None when its cell is
+    empty — ``missing=`` blanked it, or a parent filter left the row without one — and the date
+    stays empty with it, as it does when the date it is measured from is missing.
+
+    Only a whole number is a distance. A decimal is refused rather than rounded: ``1.5`` hours is
+    ninety minutes, and silently landing on one or two hours would put a wrong time in a column
+    that looks right. No draw is taken, so adding such a column moves no other value.
+    """
+    text = (cell or "").strip()
+    if text == "":
+        return None
+    n = int(text) if _WHOLE.fullmatch(text) else None
+    if n is None or abs(n) > _MAX_SAFE:
+        raise DateOffsetError(
+            f'date offset ("{name}"): "{text}" in column "{offset.column}" on row {i + 1} is not '
+            "a whole number. plus= reads the distance from that column, so it has to hold one — "
+            "15, -3, 120; for a fraction of an hour, count in minutes."
+        )
+    return offset.sign * n
 
 
 def draw_steps(offset: OffsetSpec, prng: Sfc32) -> int:

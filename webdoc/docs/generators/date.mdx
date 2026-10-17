@@ -446,6 +446,7 @@ away.
 | `1..3mo`   | one to three months, by the calendar                   |
 | `-10..-3d` | three to ten days **before** the source                |
 | `45`       | a bare number means days                               |
+| `Length m` | the number in the column `Length`, in minutes, per row |
 
 The units are the ones [`step`](#step--how-far-each-row-moves) already uses:
 `s`, `m`, `h`, `d`, `w`, `mo`, `y` — and as there, `m` is the minute and `mo` is
@@ -473,6 +474,41 @@ make both bounds negative — `plus="-10..-3d"` is three to ten days earlier.
 Months and years move by the calendar rather than by a fixed number of days, so
 `2026-01-31` plus one month is `2026-02-28` — the same clamping
 [`step`](#a-calendar-step-keeps-the-day-of-the-month) does.
+
+### A distance read from another column
+
+The end of an appointment is its start plus **its own** length, and the length belongs to the
+row: a literal is the same distance everywhere, and a range is drawn rather than read. Write a
+column name and a unit, and the distance is read from that column, row by row:
+
+```xml
+<sequence name="Start">
+  <gen type="date" from="2026-03-02T08:00" to="2026-03-02T17:00" format="HH:mm"/>
+</sequence>
+<sequence name="Length"><gen type="text" value="15,30,45,60"/></sequence>
+<sequence name="End">
+  <gen type="date" of="Start" plus="Length m" format="HH:mm"/>
+</sequence>
+```
+
+<Terminal title="./run appointments.tdc (4 rows)">
+{`09:26–10:11  (45 min)
+09:45–10:45  (60 min)
+15:37–15:52  (15 min)
+11:39–12:09  (30 min)`}
+</Terminal>
+
+A leading minus measures backwards — `plus="-Length m"` is the time to start preparing — and a
+bare name means days, as a bare number does. A field of a [pool](../pools/overview.mdx)
+reference is a column like any other: `plus="Room.turnover m"`. The column has to be declared
+above this one, as `of` does, and hold one number per row (`TDC240`). Nothing is drawn, so
+adding it moves no other column.
+
+Each cell has to be a whole number. A row whose cell is empty — one that
+[`missing`](../guides/missing-data.mdx) blanked — gets no date, as a row with no source date
+does. A fraction stops the run with the row named: `1.5` hours is ninety minutes, and rounding
+it to one or two hours would put a wrong time in a cell that looks right. Count in the smaller
+unit instead.
 
 ### The offset reads the value, not the printed text
 

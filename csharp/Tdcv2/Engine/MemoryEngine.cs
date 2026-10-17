@@ -1036,7 +1036,8 @@ public static class MemoryEngine
                         count,
                         prng,
                         ctx.Locale,
-                        wantsInstant.Contains(spec.Name));
+                        wantsInstant.Contains(spec.Name),
+                        columns);
                     columns[spec.Name] = offsetValues;
                     if (own is not null)
                     {

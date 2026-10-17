@@ -244,6 +244,21 @@
         "22.08.2026 1 -",
         "30.06.2026 2 2026-07-02"
       ]
+    },
+    {
+      "name": "a-date-offset-reading-its-distance-in-a-switch-case",
+      "description": "The same column offset inside a <switch> branch: the branch reads the distance column on its own rows, and only there.",
+      "config": "<tdc><env count=\"8\" seed=\"br-plus\" local=\"en\" mode=\"memory\"><sequence name=\"Kind\"><gen type=\"text\" value=\"visit,call\"/></sequence><sequence name=\"Start\"><gen type=\"date\" from=\"2026-03-02T08:00\" to=\"2026-03-02T17:00\" format=\"HH:mm\"/></sequence><sequence name=\"Dur\"><gen type=\"text\" value=\"10,20,40\"/></sequence><switch name=\"End\" on=\"Kind\"><case is=\"visit\"><gen type=\"date\" of=\"Start\" plus=\"Dur m\" format=\"HH:mm\"/></case><case is=\"call\"><data>-</data></case></switch></env><block><line><data>${{Kind}} ${{Start}} ${{Dur}} ${{End}}</data></line></block></tdc>",
+      "expected": [
+        "visit 15:14 10 15:24",
+        "visit 15:30 10 15:40",
+        "call 14:14 20 -",
+        "visit 13:03 40 13:43",
+        "visit 14:41 20 15:01",
+        "call 15:17 20 -",
+        "call 14:29 40 -",
+        "call 12:17 40 -"
+      ]
     }
   ]
 }

@@ -260,7 +260,8 @@ pub enum OffsetError {
 }
 
 /// What a `plus=` may say, for a diagnostic to quote.
-pub const OFFSET_SYNTAX: &str = "7d, 3..10d, 1..3mo, -5..-1d — units s, m, h, d, w, mo, y";
+pub const OFFSET_SYNTAX: &str =
+    "7d, 3..10d, 1..3mo, -5..-1d, or a column holding the number: Dur m — units s, m, h, d, w, mo, y";
 
 /// `plus="3..10d"`, `plus="7d"`, `plus="-5..-1d"`, `plus="1..3mo"`.
 ///
@@ -310,6 +311,59 @@ fn parse_bound(text: &str) -> Result<i64, OffsetError> {
         return Err(OffsetError::Syntax);
     }
     text.parse::<i64>().map_err(|_| OffsetError::Syntax)
+}
+
+/// `plus="Dur m"`: the distance read from a column, row by row, in one unit.
+#[derive(Clone, Debug, PartialEq, Eq)]
+pub struct ColumnOffset {
+    pub column: String,
+    /// `-1` for `plus="-Lead d"`, which measures backwards.
+    pub sign: i64,
+    pub unit: StepSpec,
+}
+
+/// `plus="Dur m"`, `plus="-Lead d"`, `plus="Shift.hours h"` — how far, from a column.
+///
+/// The end of an appointment is its start plus ITS OWN length, and a length that
+/// differs per row could not be said: a literal is the same distance on every row,
+/// and a range is drawn, not read. A name followed by a unit reads the distance
+/// from that column instead. A bare name means days, as a bare number does.
+/// `None` when `raw` is not this shape — it may still be a literal, which
+/// [`parse_offset`] reads first. The shape is the reference's
+/// `^(-?)([A-Za-z_][A-Za-z0-9_.]*)(?: +([Mm][Oo]|[SsMmHhDdWwYy]))?$`.
+pub fn parse_column_offset(raw: Option<&str>) -> Option<ColumnOffset> {
+    let value = raw.unwrap_or("").trim();
+    let (sign, rest) = match value.strip_prefix('-') {
+        Some(rest) => (-1, rest),
+        None => (1, value),
+    };
+    let (column, unit_name) = match rest.find(' ') {
+        Some(at) => (&rest[..at], rest[at..].trim_start_matches(' ')),
+        None => (rest, "d"),
+    };
+    let mut chars = column.chars();
+    let first_ok = chars
+        .next()
+        .is_some_and(|c| c.is_ascii_alphabetic() || c == '_');
+    if !first_ok || !chars.all(|c| c.is_ascii_alphanumeric() || c == '_' || c == '.') {
+        return None;
+    }
+    let unit_name = unit_name.to_ascii_lowercase();
+    if unit_name != "mo" && !(unit_name.len() == 1 && "smhdwy".contains(unit_name.as_str())) {
+        return None;
+    }
+    let unit = match fixed_unit_ms(&unit_name) {
+        Some(ms) => StepSpec { ms, months: 0 },
+        None => StepSpec {
+            ms: 0,
+            months: calendar_unit_months(&unit_name)?,
+        },
+    };
+    Some(ColumnOffset {
+        column: column.to_string(),
+        sign,
+        unit,
+    })
 }
 
 /// The source date moved by `n` steps of the offset's unit.

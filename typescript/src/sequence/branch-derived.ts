@@ -15,13 +15,19 @@
  * TDC268). They never reach this file.
  */
 
-import { applyOffset, parseOffset, toEpochMillis } from '../date/calendar.js';
+import {
+  addStep,
+  applyOffset,
+  parseColumnOffset,
+  parseOffset,
+  toEpochMillis,
+} from '../date/calendar.js';
 import { formatDateTime } from '../date/index.js';
 import { evaluateValueInScope } from '../expr/index.js';
 import { seekableGen } from '../prng/seekable.js';
 
 import type { SequenceBuildContext } from './context.js';
-import { drawSteps, startOfRow } from './date-offset.js';
+import { drawSteps, startOfRow, stepsFromColumn } from './date-offset.js';
 import { columnScope, formulaDecimals, renderFormulaValue } from './formula.js';
 import type { ColumnsRead } from './formula.js';
 import { absoluteRow } from './per-row.js';
@@ -102,9 +108,10 @@ function branchDateOffset(
   const out = new Array<string>(count).fill('');
   const of = (gen.attrs['of'] ?? '').trim();
   const parsed = parseOffset(gen.attrs['plus']);
+  const byColumn = parsed.ok ? undefined : parseColumnOffset(gen.attrs['plus']);
   // An unknown column or a bad plus= is a diagnostic, not a crash.
-  if (ctx.hasColumn?.(of) !== true || !parsed.ok) return out;
-  const offset = parsed.offset;
+  if (ctx.hasColumn?.(of) !== true || (!parsed.ok && !byColumn)) return out;
+  if (byColumn && !ctx.hasColumn(byColumn.column)) return out;
   const format = (gen.attrs['format'] ?? '').trim() || 'L';
   const instantAt = ctx.instantsOf?.(of);
   const column = (ctx.streamId ?? '').split('#')[0] ?? '';
@@ -115,11 +122,19 @@ function branchDateOffset(
     if (from === undefined || from.trim() === '') continue;
     const start = startOfRow(column, of, instantAt, row, from);
     if (!start) continue;
-    const draw =
-      ctx.seed !== undefined && ctx.streamId !== undefined
-        ? seekableGen(ctx.seed, ctx.streamId, row)
-        : prng;
-    const landed = applyOffset(start, offset, drawSteps(offset, draw));
+    let landed;
+    if (byColumn) {
+      const cell = ctx.valueAt?.(byColumn.column, row);
+      const steps = stepsFromColumn(column, byColumn, cell, row);
+      if (steps === undefined) continue;
+      landed = addStep(start, byColumn.unit, steps);
+    } else if (parsed.ok) {
+      const draw =
+        ctx.seed !== undefined && ctx.streamId !== undefined
+          ? seekableGen(ctx.seed, ctx.streamId, row)
+          : prng;
+      landed = applyOffset(start, parsed.offset, drawSteps(parsed.offset, draw));
+    } else continue;
     if (instantsOut) instantsOut[i] = toEpochMillis(landed);
     out[i] = formatDateTime(landed, format, locale);
   }

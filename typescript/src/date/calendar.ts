@@ -309,7 +309,8 @@ export interface OffsetSpec {
 }
 
 /** What a `plus=` may say, for a diagnostic to quote. */
-export const OFFSET_SYNTAX = '7d, 3..10d, 1..3mo, -5..-1d — units s, m, h, d, w, mo, y';
+export const OFFSET_SYNTAX =
+  '7d, 3..10d, 1..3mo, -5..-1d, or a column holding the number: Dur m — units s, m, h, d, w, mo, y';
 
 export type OffsetResult =
   | { readonly ok: true; readonly offset: OffsetSpec }
@@ -335,13 +336,47 @@ export function parseOffset(raw: string | undefined): OffsetResult {
     return { ok: false, reason: 'syntax' };
   if (lo > hi) return { ok: false, reason: 'order' };
 
-  const name = unitName ?? 'd';
+  const unit = offsetUnit(unitName ?? 'd');
+  if (!unit) return { ok: false, reason: 'syntax' };
+  return { ok: true, offset: { lo, hi, unit } };
+}
+
+/** One step of a `plus=` unit — `s`, `m`, `h`, `d`, `w`, `mo`, `y` — or undefined. */
+function offsetUnit(name: string): StepSpec | undefined {
   const fixed = FIXED_UNIT_MS[name];
   const months = CALENDAR_UNIT_MONTHS[name];
   const unit: StepSpec =
     fixed === undefined ? { ms: 0, months: months ?? 0 } : { ms: fixed, months: 0 };
-  if (unit.ms === 0 && unit.months === 0) return { ok: false, reason: 'syntax' };
-  return { ok: true, offset: { lo, hi, unit } };
+  return unit.ms === 0 && unit.months === 0 ? undefined : unit;
+}
+
+/** `plus="Dur m"`: the distance read from a column, row by row, in one unit. */
+export interface ColumnOffset {
+  readonly column: string;
+  /** `-1` for `plus="-Lead d"`, which measures backwards. */
+  readonly sign: 1 | -1;
+  readonly unit: StepSpec;
+}
+
+/**
+ * `plus="Dur m"`, `plus="-Lead d"`, `plus="Shift.hours h"` — how far, from another column.
+ *
+ * The end of an appointment is its start plus ITS OWN length, and a length that differs per
+ * row could not be said: a literal is the same distance on every row, and a range is drawn,
+ * not read. A name followed by a unit reads the distance from that column instead. A bare
+ * name means days, as a bare number does. `undefined` when `raw` is not this shape — it may
+ * still be a literal, which `parseOffset` reads first.
+ */
+export function parseColumnOffset(raw: string | undefined): ColumnOffset | undefined {
+  // ASCII classes and no `i` flag, so the five implementations' regex engines read it alike.
+  const shape = /^(-?)([A-Za-z_][A-Za-z0-9_.]*)(?: +([Mm][Oo]|[SsMmHhDdWwYy]))?$/.exec(
+    (raw ?? '').trim(),
+  );
+  if (!shape) return undefined;
+  const [, minus, column, unitName] = shape;
+  const unit = offsetUnit((unitName ?? 'd').toLowerCase());
+  if (!unit || column === undefined) return undefined;
+  return { column, sign: minus === '-' ? -1 : 1, unit };
 }
 
 /** The source date moved by `n` steps of the offset's unit. */

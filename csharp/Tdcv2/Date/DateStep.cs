@@ -345,7 +345,50 @@ public static class DateStep
     }
 
     /// <summary>What a <c>plus=</c> may say, for a diagnostic to quote.</summary>
-    public const string OffsetSyntax = "7d, 3..10d, 1..3mo, -5..-1d — units s, m, h, d, w, mo, y";
+    public const string OffsetSyntax =
+        "7d, 3..10d, 1..3mo, -5..-1d, or a column holding the number: Dur m — units s, m, h, d, w, mo, y";
+
+    /// <summary><c>plus="Dur m"</c>: the distance read from a column, row by row, in one unit.</summary>
+    /// <param name="Column">The column the distance is read from.</param>
+    /// <param name="Sign"><c>-1</c> for <c>plus="-Lead d"</c>, which measures backwards.</param>
+    /// <param name="Unit">One step of the unit.</param>
+    public sealed record ColumnOffset(string Column, long Sign, Spec Unit);
+
+    /// <summary>ASCII classes and no IgnoreCase, so the five implementations' regex engines agree.</summary>
+    private static readonly System.Text.RegularExpressions.Regex ColumnOffsetShape = new(
+        "^(-?)([A-Za-z_][A-Za-z0-9_.]*)(?: +([Mm][Oo]|[SsMmHhDdWwYy]))?$",
+        System.Text.RegularExpressions.RegexOptions.CultureInvariant);
+
+    /// <summary>
+    /// <c>plus="Dur m"</c>, <c>plus="-Lead d"</c>, <c>plus="Shift.hours h"</c> — how far, from a
+    /// column.
+    /// </summary>
+    /// <remarks>
+    /// The end of an appointment is its start plus ITS OWN length, and a length that differs per row
+    /// could not be said: a literal is the same distance on every row, and a range is drawn, not
+    /// read. A name followed by a unit reads the distance from that column instead. A bare name
+    /// means days, as a bare number does. Null when <c>raw</c> is not this shape — it may still be a
+    /// literal, which <see cref="ParseOffset"/> reads first.
+    /// </remarks>
+    public static ColumnOffset? ParseColumnOffset(string? raw)
+    {
+        System.Text.RegularExpressions.Match shape = ColumnOffsetShape.Match((raw ?? string.Empty).Trim());
+        if (!shape.Success)
+        {
+            return null;
+        }
+
+        string unitName = shape.Groups[3].Success ? shape.Groups[3].Value.ToLowerInvariant() : "d";
+        long fixedMs = FixedUnitMs(unitName);
+        long calendarMonths = CalendarUnitMonths(unitName);
+        if (fixedMs < 0 && calendarMonths < 0)
+        {
+            return null;
+        }
+
+        Spec unit = fixedMs >= 0 ? new Spec(fixedMs, 0) : new Spec(0, calendarMonths);
+        return new ColumnOffset(shape.Groups[2].Value, shape.Groups[1].Value == "-" ? -1 : 1, unit);
+    }
 
     /// <summary><c>plus="3..10d"</c>, <c>plus="7d"</c>, <c>plus="-5..-1d"</c>, <c>plus="1..3mo"</c>.</summary>
     /// <remarks>

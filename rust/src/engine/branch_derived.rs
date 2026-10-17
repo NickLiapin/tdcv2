@@ -15,7 +15,7 @@ use std::collections::BTreeSet;
 use super::memory::Env;
 use super::per_row::{self, Stream};
 use super::EngineResult;
-use crate::date::calendar::{apply_offset, parse_offset};
+use crate::date::calendar::{add_step, apply_offset, parse_column_offset, parse_offset};
 use crate::date::{format, to_epoch_millis};
 use crate::generators::{date_offset, formula};
 use crate::model::{Case, CasePart, Config, Gen, Source, Switch};
@@ -71,8 +71,17 @@ pub fn values(
     // row gets does not depend on which other rows the branch holds.
     let mut stamps: Vec<Option<i64>> = vec![None; count];
     let source = date_offset::source_of(&gen.attrs).to_string();
-    let parsed = parse_offset(gen.attrs.get("plus").map(String::as_str));
-    if let (true, Ok(offset)) = (env.has_sibling(&source), parsed) {
+    let plus = gen.attrs.get("plus").map(String::as_str);
+    let parsed = parse_offset(plus);
+    let by_column = if parsed.is_ok() {
+        None
+    } else {
+        parse_column_offset(plus)
+    };
+    let readable = by_column
+        .as_ref()
+        .is_none_or(|by| env.has_sibling(&by.column));
+    if env.has_sibling(&source) && readable && (parsed.is_ok() || by_column.is_some()) {
         let fmt = gen.attrs.get("format").map(|s| s.trim()).unwrap_or("");
         let fmt = if fmt.is_empty() { "L" } else { fmt };
         let kept_instants = env.sibling_instants(&source);
@@ -95,11 +104,27 @@ pub fn values(
             else {
                 continue;
             };
-            let steps = match stream {
-                Some(s) => date_offset::draw_steps(offset, &mut per_row::row_generator(s, row)),
-                None => date_offset::draw_steps(offset, prng),
+            let landed = match (&by_column, parsed) {
+                (Some(by), _) => {
+                    let cell = env.sibling_at(&by.column, row);
+                    let Some(steps) =
+                        date_offset::steps_from_column(&column, by, cell.as_deref(), row)?
+                    else {
+                        continue;
+                    };
+                    add_step(start, by.unit, steps)
+                }
+                (None, Ok(offset)) => {
+                    let steps = match stream {
+                        Some(s) => {
+                            date_offset::draw_steps(offset, &mut per_row::row_generator(s, row))
+                        }
+                        None => date_offset::draw_steps(offset, prng),
+                    };
+                    apply_offset(start, offset, steps)
+                }
+                (None, Err(_)) => continue,
             };
-            let landed = apply_offset(start, offset, steps);
             stamps[i] = Some(to_epoch_millis(landed));
             out[i] = format::format(landed, Some(fmt), env.config.locale.as_deref());
         }

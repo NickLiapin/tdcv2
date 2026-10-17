@@ -3328,8 +3328,17 @@ impl Validator {
                 gen.pos,
             );
         } else {
+            let by_column = calendar::parse_offset(Some(&plus))
+                .is_err()
+                .then(|| calendar::parse_column_offset(Some(&plus)))
+                .flatten();
             match calendar::parse_offset(Some(&plus)) {
                 Ok(_) => {}
+                Err(_) if by_column.is_some() => {
+                    if let Some(by) = &by_column {
+                        self.check_distance_column(gen, &by.column, &plus);
+                    }
+                }
                 Err(calendar::OffsetError::Order) => self.error(
                     "TDC264",
                     format!(
@@ -3343,7 +3352,7 @@ impl Validator {
                     "TDC264",
                     format!("plus=\"{plus}\" is not an offset"),
                     &format!(
-                        "One of: {}. A bare number means days.",
+                        "One of: {}. A bare number, or a bare column name, means days.",
                         calendar::OFFSET_SYNTAX
                     ),
                     gen.at("plus"),
@@ -3408,6 +3417,46 @@ impl Validator {
         // An offset prints through format= exactly as a drawn date does, and went
         // unchecked: format="YYY" printed 25Y on every row of a file `check` passed.
         self.check_date_format(gen, attrs);
+    }
+
+    /// `plus="Dur m"` reads a column, and the same two rules hold for it as for
+    /// `of=`: it has to exist ABOVE this one, since the offset is built in
+    /// declaration order, and it has to hold one number per row rather than a
+    /// `repeat=` list. Both are TDC240, as they are for `of=`.
+    fn check_distance_column(&mut self, gen: &Element, column: &str, plus: &str) {
+        if self.repeating_names.contains(column) {
+            self.error(
+                "TDC240",
+                format!(
+                    "plus=\"{plus}\" reads \"{column}\", which repeats — each cell holds a LIST of numbers"
+                ),
+                "A distance is one number per row. Drop repeat= on that column, or read another \
+                 one.",
+                gen.at("plus"),
+            );
+            return;
+        }
+        if self.declared_order.iter().any(|n| n == column) {
+            return;
+        }
+        let mut hint = "plus= with a name reads how far from that column, row by row, so the \
+                        column has to come first. A number is read as itself: plus=\"20m\"."
+            .to_string();
+        if !self.declared_order.is_empty() {
+            hint.push_str(&format!(
+                " Declared above: {}.",
+                self.declared_order.join(", ")
+            ));
+        }
+        self.error_near(
+            "TDC240",
+            format!(
+                "plus=\"{plus}\" reads \"{column}\", which is not a sequence declared above this one"
+            ),
+            &hint,
+            gen.at("plus"),
+            &crate::errors::closest_match(column, &self.declared_order),
+        );
     }
 
     /// `${{Name}}` written into an attribute that does not read it.

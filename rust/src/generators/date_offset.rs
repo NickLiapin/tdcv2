@@ -15,7 +15,9 @@
 
 use std::collections::BTreeMap;
 
-use crate::date::calendar::{apply_offset, parse_offset, OffsetSpec};
+use crate::date::calendar::{
+    add_step, apply_offset, parse_column_offset, parse_offset, ColumnOffset, OffsetSpec,
+};
 use crate::date::{format, from_epoch_millis, parse, to_epoch_millis, PlainDateTime};
 use crate::engine::{invalid, EngineResult};
 use crate::prng::Sfc32;
@@ -53,11 +55,20 @@ pub fn build(
     prng: &mut Sfc32,
     locale: Option<&str>,
     keep_instants: bool,
+    columns: &BTreeMap<String, Vec<Option<String>>>,
 ) -> EngineResult<OffsetColumn> {
-    let Ok(offset) = parse_offset(attrs.get("plus").map(String::as_str)) else {
-        // A bad plus= is a diagnostic, not a crash.
-        return Ok((vec![None; count], None));
+    let plus = attrs.get("plus").map(String::as_str);
+    let parsed = parse_offset(plus);
+    let by_column = if parsed.is_ok() {
+        None
+    } else {
+        parse_column_offset(plus)
     };
+    let distance = by_column.as_ref().and_then(|c| columns.get(&c.column));
+    // A bad plus=, or a column nobody declared, is a diagnostic, not a crash.
+    if (parsed.is_err() && by_column.is_none()) || (by_column.is_some() && distance.is_none()) {
+        return Ok((vec![None; count], None));
+    }
 
     let fmt = attrs.get("format").map(|s| s.trim()).unwrap_or("");
     let fmt = if fmt.is_empty() { "L" } else { fmt };
@@ -77,7 +88,17 @@ pub fn build(
         let Some(start) = start_of_row(name, attrs, instants, i, text)? else {
             continue;
         };
-        let landed = apply_offset(start, offset, draw_steps(offset, prng));
+        let landed = match (&by_column, distance, parsed) {
+            (Some(by), Some(distance), _) => {
+                let cell = distance.get(i).and_then(Option::as_deref);
+                let Some(steps) = steps_from_column(name, by, cell, i)? else {
+                    continue;
+                };
+                add_step(start, by.unit, steps)
+            }
+            (_, _, Ok(offset)) => apply_offset(start, offset, draw_steps(offset, prng)),
+            _ => continue,
+        };
         if let Some(sink) = own.as_mut() {
             sink[i] = Some(to_epoch_millis(landed));
         }
@@ -120,6 +141,46 @@ pub fn start_of_row(
              one read from a file or a pack has only its text, and only the ISO form \
              (YYYY-MM-DD) means the same thing in every locale.",
             source_of(attrs)
+        )),
+    }
+}
+
+/// The largest whole number every implementation reads exactly — JavaScript's safe integer.
+const MAX_SAFE: u64 = 9_007_199_254_740_991;
+
+/// How many steps row `i` moves when `plus=` names a column, or `None` when its
+/// cell is empty — `missing=` blanked it, or a parent filter left the row without
+/// one — and the date stays empty with it, as it does when the date it is
+/// measured from is missing.
+///
+/// Only a whole number is a distance. A decimal is refused rather than rounded:
+/// `1.5` hours is ninety minutes, and silently landing on one or two hours would
+/// put a wrong time in a column that looks right. No draw is taken, so adding
+/// such a column moves no other value.
+pub fn steps_from_column(
+    name: &str,
+    offset: &ColumnOffset,
+    cell: Option<&str>,
+    i: usize,
+) -> EngineResult<Option<i64>> {
+    let text = cell.unwrap_or("").trim();
+    if text.is_empty() {
+        return Ok(None);
+    }
+    let digits = text.strip_prefix('-').unwrap_or(text);
+    let whole = !digits.is_empty() && digits.bytes().all(|b| b.is_ascii_digit());
+    match whole
+        .then(|| text.parse::<i64>().ok())
+        .flatten()
+        .filter(|n| n.unsigned_abs() <= MAX_SAFE)
+    {
+        Some(n) => Ok(Some(offset.sign * n)),
+        None => invalid(&format!(
+            "date offset (\"{name}\"): \"{text}\" in column \"{}\" on row {} is not a whole \
+             number. plus= reads the distance from that column, so it has to hold one — 15, -3, \
+             120; for a fraction of an hour, count in minutes.",
+            offset.column,
+            i + 1
         )),
     }
 }

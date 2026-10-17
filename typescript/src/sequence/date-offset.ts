@@ -30,8 +30,15 @@
 
 import { formatDateTime, parseDateTimeStrict } from '../date/index.js';
 import type { PlainDateTime } from '../date/index.js';
-import { applyOffset, fromEpochMillis, parseOffset, toEpochMillis } from '../date/calendar.js';
-import type { OffsetSpec } from '../date/calendar.js';
+import {
+  addStep,
+  applyOffset,
+  fromEpochMillis,
+  parseColumnOffset,
+  parseOffset,
+  toEpochMillis,
+} from '../date/calendar.js';
+import type { ColumnOffset, OffsetSpec } from '../date/calendar.js';
 import { sequenceInstantAt, sequenceValueAt } from './types.js';
 import type { Sequence, SequenceSpec } from './types.js';
 
@@ -74,8 +81,11 @@ export function registerDateOffset(
 
   const attrs = spec.gen?.attrs ?? {};
   const parsed = parseOffset(attrs['plus']);
-  if (!parsed.ok) return; // a bad plus= is a diagnostic, not a crash
-  const offset: OffsetSpec = parsed.offset;
+  const byColumn = parsed.ok ? undefined : parseColumnOffset(attrs['plus']);
+  // A bad plus=, or a column nobody declared, is a diagnostic, not a crash.
+  if (!parsed.ok && !byColumn) return;
+  const distance = byColumn ? registry[byColumn.column] : undefined;
+  if (byColumn && !distance) return;
 
   const format = (attrs['format'] ?? '').trim() || 'L';
   const values = new Array<string | undefined>(count);
@@ -99,8 +109,17 @@ export function registerDateOffset(
       values[i] = undefined;
       continue;
     }
-    const steps = drawSteps(offset, prng);
-    const landed = applyOffset(start, offset, steps);
+    let landed: PlainDateTime;
+    if (byColumn && distance) {
+      const steps = stepsFromColumn(spec.name, byColumn, sequenceValueAt(distance, i), i);
+      if (steps === undefined) {
+        values[i] = undefined;
+        continue;
+      }
+      landed = addStep(start, byColumn.unit, steps);
+    } else if (parsed.ok) {
+      landed = applyOffset(start, parsed.offset, drawSteps(parsed.offset, prng));
+    } else continue;
     if (instants) instants[i] = toEpochMillis(landed);
     values[i] = formatDateTime(landed, format, locale);
   }
@@ -157,6 +176,34 @@ export function startOfRow(
 /** Row `i`'s instant, when `source` kept them — the first reading `startOfRow` tries. */
 export function instantReader(source: Sequence): ((row: number) => number | undefined) | undefined {
   return source.instants ? (row) => sequenceInstantAt(source, row) : undefined;
+}
+
+/**
+ * How many steps row `i` moves when `plus=` names a column, or `undefined` when its cell is
+ * empty — `missing=` blanked it, or a parent filter left the row without one — and the date
+ * stays empty with it, as it does when the date it is measured from is missing.
+ *
+ * Only a whole number is a distance. A decimal is refused rather than rounded: `1.5` hours is
+ * ninety minutes, and silently landing on one or two hours would put a wrong time in a column
+ * that looks right. No draw is taken, so adding such a column moves no other value.
+ */
+export function stepsFromColumn(
+  column: string,
+  offset: ColumnOffset,
+  cell: string | undefined,
+  i: number,
+): number | undefined {
+  const text = (cell ?? '').trim();
+  if (text === '') return undefined;
+  const n = /^-?[0-9]+$/.test(text) ? Number(text) : Number.NaN;
+  if (!Number.isSafeInteger(n)) {
+    throw new DateOffsetError(
+      `date offset ("${column}"): "${text}" in column "${offset.column}" on row ${String(i + 1)} is ` +
+        'not a whole number. plus= reads the distance from that column, so it has to hold ' +
+        'one — 15, -3, 120; for a fraction of an hour, count in minutes.',
+    );
+  }
+  return offset.sign * n;
 }
 
 /**

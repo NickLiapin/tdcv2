@@ -49,6 +49,34 @@
       "description": "of= names a column that repeats, so each cell holds a list of dates rather than one date",
       "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"A\"><gen type=\"date\" from=\"2020-01-01\" to=\"2020-12-31\" repeat=\"2\" separator=\"|\"/></sequence><sequence name=\"B\"><gen type=\"date\" of=\"A\" plus=\"3d\"/></sequence></env><block><line><data>${{B}}</data></line></block></tdc>",
       "expected": ["error TDC240 1:176"]
+    },
+    {
+      "name": "plus-reads-a-column-declared-below",
+      "demonstrates": "TDC240",
+      "description": "plus=\"Dur m\" reads Dur row by row while the offset is built, so Dur has to be declared above it, as of= does.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"Start\"><gen type=\"date\" from=\"2026-03-02\" to=\"2026-03-09\"/></sequence><sequence name=\"End\"><gen type=\"date\" of=\"Start\" plus=\"Dur m\"/></sequence><sequence name=\"Dur\"><gen type=\"number\" value=\"10..60\"/></sequence></env><block><line><data>${{End}}</data></line></block></tdc>",
+      "expected": ["error TDC240 1:181"]
+    },
+    {
+      "name": "plus-reads-a-column-that-repeats",
+      "demonstrates": "TDC240",
+      "description": "A repeat= column holds a list in each cell, and a distance is one number.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"Start\"><gen type=\"date\" from=\"2026-03-02\" to=\"2026-03-09\"/></sequence><sequence name=\"Gaps\"><gen type=\"number\" value=\"1..5\" repeat=\"1..2\"/></sequence><sequence name=\"End\"><gen type=\"date\" of=\"Start\" plus=\"Gaps d\"/></sequence></env><block><line><data>${{End}}</data></line></block></tdc>",
+      "expected": ["error TDC240 1:261"]
+    },
+    {
+      "name": "plus-names-a-column-with-an-unknown-unit",
+      "demonstrates": "TDC264",
+      "description": "min is not a unit: the units are s, m, h, d, w, mo, y.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"Start\"><gen type=\"date\" from=\"2026-03-02\" to=\"2026-03-09\"/></sequence><sequence name=\"Dur\"><gen type=\"number\" value=\"10..60\"/></sequence><sequence name=\"End\"><gen type=\"date\" of=\"Start\" plus=\"Dur min\"/></sequence></env><block><line><data>${{End}}</data></line></block></tdc>",
+      "expected": ["error TDC264 1:248"]
+    },
+    {
+      "name": "plus-reads-a-column-of-whole-numbers",
+      "demonstrates": "",
+      "description": "A distance column declared above and holding one number per row is accepted, a leading minus and a pool reference's field included.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><pool name=\"R\" count=\"2\"><sequence name=\"gap\"><gen type=\"number\" value=\"1..5\"/></sequence></pool><sequence name=\"Ref\"><gen type=\"pool\" value=\"R\"/></sequence><sequence name=\"Start\"><gen type=\"date\" from=\"2026-03-02\" to=\"2026-03-09\"/></sequence><sequence name=\"Dur\"><gen type=\"number\" value=\"10..60\"/></sequence><sequence name=\"End\"><gen type=\"date\" of=\"Start\" plus=\"-Dur h\"/></sequence><sequence name=\"Next\"><gen type=\"date\" of=\"Start\" plus=\"Ref.gap w\"/></sequence></env><block><line><data>${{End}} ${{Next}}</data></line></block></tdc>",
+      "expected": []
     }
   ]
 }
