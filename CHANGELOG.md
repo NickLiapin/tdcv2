@@ -42,6 +42,17 @@ page — is tracked in that implementation's own changelog:
   one to three links deep in `each=` and `if=`, a typo at the end and in the middle) and in
   `cases/nested-paths.json`, where an `if=` and an `<assert>` read the three-link path at run time.
 
+- **A `repeat` over a plain pack was drawn element by element on the in-memory engine of the
+  TypeScript and Python implementations, and a `distinct` one inside a pool refused to run.** A
+  plain list — a pack such as `medical.allergy` or a file without `weight=` — is laid out in equal
+  shares on engines 2 and 3, and the Rust, Java and C# in-memory engines did the same. The
+  TypeScript and Python in-memory engines drew each element instead, so `repeat="2"` over a plain
+  pack printed different lists on engine 1 than on engines 2 and 3 of the same implementation. In
+  a pool, where the build is not narrowed to one row first, a `distinct` repeat of a plain pack
+  was refused as asking for more values than exist. Both now lay a plain list out like the other
+  three. Pinned in `cases/generators.json` (a repeat over a plain pack on engine 1 equals engines
+  2 and 3) and `cases/pool.json` (a `distinct` repeat of a plain pack inside a pool).
+
 ## [0.3.4] — 2026-10-16
 
 ### Added

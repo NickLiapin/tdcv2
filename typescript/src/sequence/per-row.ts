@@ -24,7 +24,7 @@ import { loadWeightedValues, weightColumnOf } from '../generators/weighted.js';
 import type { PackEntry } from '../data-pack/load.js';
 
 import type { SequenceBuildContext } from './context.js';
-import { weightedTemplatePack } from './stream-weighted.js';
+import { plainListOf, weightedTemplatePack } from './stream-weighted.js';
 import type { GenSpec } from './types.js';
 
 /**
@@ -248,6 +248,16 @@ export function listedValues(
   }
   const pack = weightedTemplatePack(gen, ctx.packs, gen.attrs['local'] ?? locale);
   if (pack) return pack;
+  // A PLAIN pack or a PLAIN file list is laid out like a plain text list, in
+  // equal shares — the streaming engine's `plainListOf`, so a repeat over one
+  // lands on the same values on every engine. This engine drew each element
+  // instead: a repeat over a plain pack disagreed with engines 2 and 3 of the
+  // reference itself, and inside a pool, where nothing narrowed the build to one
+  // row first, a `distinct` repeat of `medical.allergy` refused to run at all.
+  if ((gen.attrs['row'] ?? '').trim() === '') {
+    const plain = plainListOf(gen, ctx.packs, locale, undefined, ctx.dataSources);
+    if (plain) return { values: plain, percents: plain.map(() => 100 / plain.length) };
+  }
   if (gen.type !== 'text') return undefined;
   const values = (gen.attrs['value'] ?? '').split(',').map((v) => v.trim());
   const percentAttr = gen.attrs['percent'];

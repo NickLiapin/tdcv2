@@ -117,6 +117,18 @@
         "Dunn|Chase",
         "Brooks|Ellis"
       ]
+    },
+    {
+      "name": "a-distinct-template-list-inside-a-pool",
+      "description": "A pool member's repeated template of a plain pack with distinct=\"true\". A plain pack is a list, laid out in equal shares like a text list — the streaming engine's road. The reference's in-memory engine drew each element instead, and in a pool, where no per-row path had narrowed the build to one row, every retry drew the same allergy and the run refused. Rust, Java and C# already laid it out; Python had copied the reference.",
+      "config": "<tdc><env count=\"5\" seed=\"r6\" local=\"en\"><pool name=\"Pats\" count=\"20\"><sequence name=\"pid\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"allg\"><gen type=\"template\" value=\"medical.allergy\" repeat=\"1..3\" separator=\"; \" distinct=\"true\"/></sequence></pool><sequence name=\"P\"><gen type=\"pool\" value=\"Pats\" filter=\"pid == _count\"/></sequence></env><block><line><data>${{P.pid}}: ${{P.allg}}</data></line></block></tdc>",
+      "expected": [
+        "1: Shellfish; Wheat; Pollen",
+        "2: Pollen; Sulfa Drugs; Shellfish",
+        "3: Shellfish; Soy",
+        "4: Peanuts; Penicillin; Iodine",
+        "5: Wheat"
+      ]
     }
   ]
 }

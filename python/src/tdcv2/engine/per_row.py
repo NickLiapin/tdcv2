@@ -219,6 +219,27 @@ def _plain_pack_values(gen: Gen, run: _Run) -> list[str] | None:
     return list(entry.values)
 
 
+def _plain_list_values(gen: Gen, run: _Run) -> list[str] | None:
+    """A plain pack's or a plain file's value list — no weights, no rows, no quantile — or None."""
+    if gen.type == "template":
+        return _plain_pack_values(gen, run)
+    attrs = gen.attrs
+    if (
+        gen.type == "file"
+        and attrs.get("weight") is None
+        and not (attrs.get("row") or "").strip()
+        and (attrs.get("read") or "").strip() != "quantile"
+        and attrs.get("order") != "sequential"
+    ):
+        try:
+            values = file_gen.load(attrs, run.base_dir, run.packs.data_roots)
+        except Exception:
+            # Unreadable is the per-row path's to report, when a row first touches it.
+            return None
+        return values or None
+    return None
+
+
 def _pack_needs_whole_column(gen: Gen, run: _Run) -> bool:
     from . import router
 
@@ -253,6 +274,12 @@ def listed_values(gen: Gen, run: _Run) -> tuple[list[str], list[float]] | None:
     pack = weighted_template_pack(gen, run)
     if pack is not None:
         return pack
+    # A PLAIN pack or a PLAIN file list is laid out like a plain text list, in equal shares — the
+    # streaming engine's road, so a repeat over one lands on the same values on every engine. This
+    # engine drew each element instead, and disagreed with engines 2 and 3 of the reference.
+    plain = _plain_list_values(gen, run)
+    if plain is not None:
+        return (plain, [100.0 / len(plain)] * len(plain))
     if gen.type != "text":
         return None
     values = [v.strip() for v in (attrs.get("value") or "").split(",")]

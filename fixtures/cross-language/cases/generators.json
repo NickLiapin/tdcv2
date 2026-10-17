@@ -621,6 +621,17 @@
         "CD-CD-second",
         "AB-AB-first"
       ]
+    },
+    {
+      "name": "a-repeat-over-a-plain-pack-is-laid-out-on-every-engine",
+      "description": "A repeat over a plain pack, on the in-memory engine: laid out over the column in equal shares, the same values engines 2 and 3 give. Engine 1 drew each element on its own and disagreed with them; no case had a repeat over a pack.",
+      "config": "<tdc><env count=\"4\" seed=\"r6\" local=\"en\" engine=\"1\"><sequence name=\"allg\"><gen type=\"template\" value=\"medical.allergy\" repeat=\"2\" separator=\"; \"/></sequence></env><block><line><data>${{allg}}</data></line></block></tdc>",
+      "expected": [
+        "Milk; Sesame",
+        "Soy; Latex",
+        "Pollen; Eggs",
+        "Dust Mites; Tree Nuts"
+      ]
     }
   ]
 }

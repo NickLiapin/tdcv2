@@ -3367,6 +3367,24 @@
         ]
       }
     },
+    "generators/a-repeat-over-a-plain-pack-is-laid-out-on-every-engine": {
+      "engine2": {
+        "lines": [
+          "Milk; Sesame",
+          "Soy; Latex",
+          "Pollen; Eggs",
+          "Dust Mites; Tree Nuts"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "Milk; Sesame",
+          "Soy; Latex",
+          "Pollen; Eggs",
+          "Dust Mites; Tree Nuts"
+        ]
+      }
+    },
     "group-readers/a-pool-lookup-reads-the-rearranged-uniq-member": {
       "engine2": {
         "lines": [
@@ -5215,6 +5233,26 @@
           "Chase|Dunn",
           "Dunn|Chase",
           "Brooks|Ellis"
+        ]
+      }
+    },
+    "pool/a-distinct-template-list-inside-a-pool": {
+      "engine2": {
+        "lines": [
+          "1: Shellfish; Wheat; Pollen",
+          "2: Pollen; Sulfa Drugs; Shellfish",
+          "3: Shellfish; Soy",
+          "4: Peanuts; Penicillin; Iodine",
+          "5: Wheat"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "1: Shellfish; Wheat; Pollen",
+          "2: Pollen; Sulfa Drugs; Shellfish",
+          "3: Shellfish; Soy",
+          "4: Peanuts; Penicillin; Iodine",
+          "5: Wheat"
         ]
       }
     },
