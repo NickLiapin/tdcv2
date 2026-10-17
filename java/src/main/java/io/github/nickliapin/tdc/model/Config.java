@@ -213,11 +213,23 @@ public final class Config {
    * @param ifExpr the {@code if} attribute, or {@code null}. A line whose condition is false is
    *     dropped whole — and it is dropped before the delimiters are placed, so the line above it
    *     does not keep a separator pointing at nothing.
+   * @param items non-null for a {@code <group>}: the lines and groups it holds, printed together —
+   *     once per element with {@code each}, or all or none by {@code if}. A group has no {@code
+   *     <data>} parts of its own.
    */
-  public record Line(List<DataPart> parts, String ifExpr, String each) {
+  public record Line(List<DataPart> parts, String ifExpr, String each, List<Line> items) {
+
+    public Line(List<DataPart> parts, String ifExpr, String each) {
+      this(parts, ifExpr, each, null);
+    }
 
     public Line(List<DataPart> parts, String ifExpr) {
-      this(parts, ifExpr, null);
+      this(parts, ifExpr, null, null);
+    }
+
+    /** True for a {@code <group>}. */
+    public boolean isGroup() {
+      return items != null;
     }
   }
 

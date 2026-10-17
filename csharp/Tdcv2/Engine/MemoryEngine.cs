@@ -212,7 +212,8 @@ public static class MemoryEngine
             foreach (Line line in config.Block)
             {
                 // An each= line asks its if= of every element instead, with the element in scope.
-                if (line.IfExpr is null || line.Each is not null || Condition(line.IfExpr, columns, row))
+                // A <group> decides its own if= as a whole.
+                if (line.IfExpr is null || line.Each is not null || line.IsGroup || Condition(line.IfExpr, columns, row))
                 {
                     active.Add(line);
                 }
@@ -4709,13 +4710,16 @@ public static class MemoryEngine
         Line line, IReadOnlyDictionary<string, string[]> columns, int row, string? inject,
         EachSources each)
     {
+        PoolTable? Pool(string name) => each.Pools.TryGetValue(name, out PoolTable? table) ? table : null;
+        if (line.IsGroup)
+        {
+            return Each.RenderGroup(line, row, inject, each.Info, Pool, new RowLookup(columns, row));
+        }
+
         string? listName = line.Each?.Trim();
         if (!string.IsNullOrEmpty(listName))
         {
-            return Each.Render(
-                line, listName, row, inject, each.Info,
-                each.Pools.TryGetValue(listName, out PoolTable? table) ? table : null,
-                new RowLookup(columns, row));
+            return Each.Render(line, listName, row, inject, each.Info, Pool, new RowLookup(columns, row));
         }
 
         var text = new StringBuilder();

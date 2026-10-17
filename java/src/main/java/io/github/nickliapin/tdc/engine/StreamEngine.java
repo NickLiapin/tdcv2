@@ -2415,8 +2415,12 @@ public final class StreamEngine {
 
         List<Config.Line> active = new ArrayList<>();
         for (Config.Line line : config.block()) {
-          // An each= line asks its if= of every element instead, with the element in scope.
-          if (line.ifExpr() == null || line.each() != null || condition(line.ifExpr(), row)) {
+          // An each= line asks its if= of every element instead, with the element in scope, and
+          // a <group> decides its own if= as a whole.
+          if (line.ifExpr() == null
+              || line.each() != null
+              || line.isGroup()
+              || condition(line.ifExpr(), row)) {
             active.add(line);
           }
         }
@@ -2480,10 +2484,12 @@ public final class StreamEngine {
 
   private List<String> renderLine(
       Config.Line line, int row, Map<String, Repeat.Spec> eachInfo) {
+    if (line.isGroup()) {
+      return Each.renderGroup(line, row, config.inject(), eachInfo, poolTables::get, lookup(row));
+    }
     String listName = trimToNull(line.each());
     if (listName != null) {
-      return Each.render(
-          line, listName, row, config.inject(), eachInfo, poolTables.get(listName), lookup(row));
+      return Each.render(line, listName, row, config.inject(), eachInfo, poolTables::get, lookup(row));
     }
     StringBuilder text = new StringBuilder();
     for (Config.DataPart part : line.parts()) {

@@ -18,21 +18,29 @@ internal static class JsonLists
 {
     private static readonly Regex InterpRef = new(@"\$\{\{([^}]*)\}\}", RegexOptions.Compiled);
 
-    /// <summary>The names a <c>&lt;line each="…"&gt;</c> walks — a pool among them is read by being printed.</summary>
+    /// <summary>
+    /// The names a <c>&lt;line each="…"&gt;</c> or <c>&lt;group each="…"&gt;</c> walks, at any
+    /// depth — a pool among them is read by being printed.
+    /// </summary>
     internal static HashSet<string> EachPools(TDCParser.OpenCloseElementContext? block)
     {
         var result = new HashSet<string>(StringComparer.Ordinal);
-        foreach (TDCParser.OpenCloseElementContext line in Children(block))
+        foreach (TDCParser.OpenCloseElementContext item in Children(block))
         {
-            if (line.name.Text != "line")
+            if (item.name.Text is not ("line" or "group"))
             {
                 continue;
             }
 
-            string each = Attributes(line.attr()).GetValueOrDefault("each", string.Empty).Trim();
+            string each = Attributes(item.attr()).GetValueOrDefault("each", string.Empty).Trim();
             if (each.Length > 0)
             {
                 result.Add(each);
+            }
+
+            if (item.name.Text == "group")
+            {
+                result.UnionWith(EachPools(item));
             }
         }
 
@@ -85,9 +93,9 @@ internal static class JsonLists
     }
 
     /// <summary><c>(message, hint)</c> per <c>${{List | json}}</c> not splitting on the list's separator.</summary>
-    /// <param name="walked">The list an <c>each</c> line walks: there its name is the current ELEMENT.</param>
+    /// <param name="walked">The lists an <c>each</c> line and its groups walk: there a name is the ELEMENT.</param>
     internal static List<(string Message, string Hint)> Check(
-        string text, IReadOnlyDictionary<string, string> lists, string walked)
+        string text, IReadOnlyDictionary<string, string> lists, IReadOnlyCollection<string> walked)
     {
         var result = new List<(string Message, string Hint)>();
         if (lists.Count == 0)
@@ -99,7 +107,7 @@ internal static class JsonLists
         {
             string[] pieces = m.Groups[1].Value.Split('|');
             string name = pieces[0].Trim();
-            if (!lists.TryGetValue(name, out string? separator) || name == walked)
+            if (!lists.TryGetValue(name, out string? separator) || walked.Contains(name))
             {
                 continue;
             }

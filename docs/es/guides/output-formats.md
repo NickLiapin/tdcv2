@@ -517,6 +517,49 @@ que imprime el documento. `count="1"` imprime el documento una vez; un pool es e
 todas las filas, así que con más filas las mismas tablas se repetirían. Veinte tablas son
 veinte pools y veinte líneas con `each`; no hace falta ninguna otra construcción.
 
+### Registros dentro de registros
+
+Cuando cada registro guarda una lista de registros propios — un departamento y sus médicos —,
+imprímalo con [`<group each="…">`](../constructs/relational-tables.md#varias-líneas-por-elemento-group):
+el grupo repite varias líneas por departamento, y un grupo dentro de él recorre los médicos y se
+queda con los del departamento que se está imprimiendo.
+
+```xml
+<block>
+    <line><data>[</data></line>
+    <group each="Depts">
+        <line><data>  {"name": ${{Depts.name | json}}, "doctors": [</data></line>
+        <group each="Doctors" if="Doctors.dept.id == Depts.id">
+            <line><data>    {"name": ${{Doctors.last | json}},</data></line>
+            <line><data>     "languages": ${{Doctors.languages | json:;}}}</data><data if="!Doctors._last">,</data></line>
+        </group>
+        <line><data>  ]}</data><data if="!Depts._last">,</data></line>
+    </group>
+    <line><data>]</data></line>
+</block>
+```
+
+`./run nested.tdc`
+
+```
+[
+  {"name": "Cardiology", "doctors": [
+    {"name": "Williams",
+     "languages": ["English", "Polish"]}
+  ]},
+  {"name": "Neurology", "doctors": [
+    {"name": "Smith",
+     "languages": ["English"]},
+    {"name": "Johnson",
+     "languages": ["English"]}
+  ]}
+]
+```
+
+`Doctors._last` cuenta los médicos de un departamento y vuelve a empezar en el siguiente, así que
+cada arreglo interior se cierra sin una coma colgando, y `Depts._last` hace lo mismo con el
+exterior.
+
 ## SQL
 
 Para SQL uno emite sentencias que una base de datos ejecuta directamente — TDC no se

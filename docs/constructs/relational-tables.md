@@ -233,6 +233,86 @@ record. `Doctors._last` falls on `Smith`, the last record printed, and the array
 without a trailing comma. [Output formats → JSON](../guides/output-formats.md#json) builds
 a whole document out of two pools this way.
 
+## Several lines per element: `<group>`
+
+`each` on a `<line>` repeats **one** line. When an element needs several — a department, then
+its doctors, then a closing bracket — wrap the lines in a `<group>`. `<group each="…">` prints
+everything inside it once per element, in order, with that element in scope for every line:
+
+```xml
+<block>
+    <line><data>[</data></line>
+    <group each="Depts">
+        <line><data>  {"name": ${{Depts.name | json}}, "doctors": [</data></line>
+        <group each="Doctors" if="Doctors.dept.id == Depts.id">
+            <line><data>    {"name": ${{Doctors.last | json}},</data></line>
+            <line><data>     "languages": ${{Doctors.languages | json:;}}}</data><data if="!Doctors._last">,</data></line>
+        </group>
+        <line><data>  ]}</data><data if="!Depts._last">,</data></line>
+    </group>
+    <line><data>]</data></line>
+</block>
+```
+
+The `Depts` and `Doctors` pools are the ones from
+[Output formats → Two tables in one document](../guides/output-formats.md#two-tables-in-one-document).
+
+`./run nested.tdc`
+
+```
+[
+  {"name": "Cardiology", "doctors": [
+    {"name": "Williams",
+     "languages": ["English", "Polish"]}
+  ]},
+  {"name": "Neurology", "doctors": [
+    {"name": "Smith",
+     "languages": ["English"]},
+    {"name": "Johnson",
+     "languages": ["English"]}
+  ]}
+]
+```
+
+The outer group prints three lines for each department. Inside it, `${{Depts.name}}` is the
+department being printed, so the inner group, which walks all the doctors, keeps the ones whose
+`dept.id` matches. Each level counts its own positions: `Doctors._last` is the last doctor printed
+**in this department** and starts over in the next one, and `Depts._last` is the last department.
+That is why every comma lands where JSON needs it. A group can hold lines and other groups, as
+deep as the document goes.
+
+Without `each`, a group's `if=` keeps or drops all of its lines at once — one condition instead of
+the same one copied onto every line:
+
+```xml
+<block>
+    <line><data>#${{Id}} ${{Kind}}</data></line>
+    <group if="Kind == visit">
+        <line><data>  room ${{Room}}</data></line>
+        <line><data>  check-in at the front desk</data></line>
+    </group>
+</block>
+```
+
+`./run contacts.tdc`
+
+```
+#1 call
+#2 visit
+  room 122
+  check-in at the front desk
+#3 visit
+  room 116
+  check-in at the front desk
+#4 call
+```
+
+A line inside a group keeps its own `if=` and may walk a list of its own with `each`. A group's
+`if=` can read the element it walks but not its positions, which count the elements that `if=`
+keeps (`TDC215`). A typed column — `<data name="…">` — cannot sit anywhere inside a group
+(`TDC209`): the group prints its lines several times or not at all, and a column has one cell per
+record.
+
 ## A lifecycle, not just a list
 
 A record's rows do not have to be a bag of unrelated values. They can be a **history**:
@@ -344,8 +424,8 @@ The same shape covers anything with a fixed vocabulary of steps: a support ticke
 | :----------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------- | :------- |
 | `each` on a sequence with **no** [`repeat`](../reference/attributes.md#top) | there's nothing to iterate over                                                                             | `TDC207` |
 | `each` on a name that is neither a sequence nor a pool                   | nothing by that name exists, so the line would print nothing at all                                         | `TDC206` |
-| `<data name="…">` inside an `each` line                                  | a named `<data>` is a **column** for Parquet, and Parquet collects columns per record, not per iterated row | `TDC209` |
-| `Orders._last` in the `if=` of the same `each` line                      | the positions count the lines that `if=` lets through, so they cannot decide which lines those are          | `TDC215` |
+| `<data name="…">` inside an `each` line or a `<group>`                   | a named `<data>` is a **column** for Parquet, and Parquet collects columns per record, not per iterated row | `TDC209` |
+| `Orders._last` in the `if=` of the same `each` line or group              | the positions count the lines that `if=` lets through, so they cannot decide which lines those are          | `TDC215` |
 
 `./run broken.tdc  (each on a non-list)`
 

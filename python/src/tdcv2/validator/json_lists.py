@@ -27,10 +27,10 @@ def _writable(separator: str) -> bool:
     return bool(separator.strip()) and "|" not in separator and "}" not in separator
 
 
-def check(text: str, lists: dict[str, str], walked: str | None = None) -> list[tuple[str, str]]:
+def check(text: str, lists: dict[str, str], walked=()) -> list[tuple[str, str]]:
     """``(message, hint)`` per ``${{List | json}}`` not splitting on the list's separator.
 
-    ``walked`` is the list an ``each`` line walks: there its name is the current ELEMENT.
+    ``walked`` are the lists an ``each`` line and its groups walk: there a name is the ELEMENT.
     """
     out: list[tuple[str, str]] = []
     if not lists:
@@ -39,7 +39,7 @@ def check(text: str, lists: dict[str, str], walked: str | None = None) -> list[t
         raw_name, *pieces = m.group(1).split("|")
         name = raw_name.strip()
         separator = lists.get(name)
-        if separator is None or name == walked:
+        if separator is None or name in walked:
             continue
         for piece in pieces:
             colon = piece.find(":")

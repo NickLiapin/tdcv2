@@ -25,6 +25,7 @@ Every tag in the TDC DSL, and where each one is covered in depth.
 | :------------------------------------------------------- | :------------------------------------------------- | :------------------------------------------------------------ |
 | `<block>`                                                | The layout of one output record                    | [Output & formatting](../core-concepts/output-formatting.mdx) |
 | `<line>`                                                 | One line inside a record                           | [Output & formatting](../core-concepts/output-formatting.mdx) |
+| `<group>`                                                | Several lines as one unit: printed once per element with `each`, kept or dropped together with `if`. Inside `<compute>`, `<group>` is the digit-grouping tag instead | [Relational tables](../constructs/relational-tables.mdx#several-lines-per-element-group) |
 | `<data>`                                                 | Inside a `<line>`: literal text with interpolation | [Output & formatting](../core-concepts/output-formatting.mdx) |
 | `<before>` / `<after>`                                   | Text before / after the whole run                  | [Output & formatting](../core-concepts/output-formatting.mdx) |
 | `<before_block>` / `<after_block>` / `<delimiter_block>` | Text around / between records                      | [Output & formatting](../core-concepts/output-formatting.mdx) |

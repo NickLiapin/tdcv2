@@ -850,12 +850,7 @@ export function* streamFromPrepared(
   const rowAsserts = prepared.perRowAsserts;
   const state = createRenderState(env.count);
 
-  const lines = contentElements(blockEl.content())
-    .map((el) => {
-      const k = elementKind(el);
-      return k?.kind === 'open' && elementName(k.node) === 'line' ? k.node : null;
-    })
-    .filter((l): l is OpenCloseElementContext => l !== null);
+  const items = outputItems(blockEl.content());
 
   // Range support (parallel CLI): render only [start, end). Clamp to the
   // dataset so an out-of-range request is a no-op rather than an error.
@@ -902,7 +897,6 @@ export function* streamFromPrepared(
     // byte-exact output contract.
     const fx = fixtureCtx(i);
     let card = renderFixture(env.beforeBlock, fx);
-    const activeLines = lines.filter((line) => lineIfPasses(line, registry, i));
     // The OUTPUT lines, not the <line> ELEMENTS. One `<line each="Items">`
     // produces as many output lines as the list has elements, and the three
     // per-line fixtures are documented as wrapping "the lines of a record" — so
@@ -910,10 +904,9 @@ export function* streamFromPrepared(
     // `<delimiter_line>` between the repetitions of an each= line therefore did
     // nothing at all: no comma between the members of an array, in silence.
     const output: string[] = [];
-    for (const line of activeLines) {
+    for (const item of items) {
       output.push(
-        ...renderLine({
-          line,
+        ...renderItem(item, {
           eachInfo,
           pools,
           prng,
@@ -1096,14 +1089,62 @@ function parseEngineId(raw: string): EngineId {
 function renderFixture(el: OpenCloseElementContext | undefined, ctx: RenderContext): string {
   if (!el) return '';
   let out = '';
-  for (const child of contentElements(el.content())) {
-    const k = elementKind(child);
-    if (k?.kind === 'open' && elementName(k.node) === 'line') {
-      // A fixture line is one output line, and renderLine hands back the LINES.
-      out += renderLine({ ...ctx, line: k.node }).join('');
-    }
+  for (const item of outputItems(el.content())) {
+    // A fixture line is one output line, and renderLine hands back the LINES. Its `if=` was never
+    // read here, and is still not: a fixture group is the new way to make fixture lines conditional.
+    out += (
+      elementName(item) === 'group' ? renderGroup(item, ctx) : renderLine({ ...ctx, line: item })
+    ).join('');
   }
   return out;
+}
+
+/** The `<line>`s and `<group>`s of a `<block>`, a fixture or a group, in order. */
+function outputItems(content: ContentContext | null): OpenCloseElementContext[] {
+  const out: OpenCloseElementContext[] = [];
+  for (const el of contentElements(content)) {
+    const k = elementKind(el);
+    if (k?.kind !== 'open') continue;
+    const name = elementName(k.node);
+    if (name === 'line' || name === 'group') out.push(k.node);
+  }
+  return out;
+}
+
+/** One `<line>` or `<group>` of a block: the output lines it prints on this row. */
+function renderItem(item: OpenCloseElementContext, ctx: RenderContext): string[] {
+  if (elementName(item) === 'group') return renderGroup(item, ctx);
+  if (!lineIfPasses(item, ctx.registry, ctx.iteration)) return [];
+  return renderLine({ ...ctx, line: item });
+}
+
+/**
+ * `<group>` — several lines printed as one unit.
+ *
+ * With `each=` the lines inside print once per element of a list or record of a pool, in order,
+ * with that element in scope for every one of them — which is what a record of SEVERAL lines needs,
+ * and what a nested document needs: a department, then its doctors, then its closing bracket, for
+ * each department in turn. An inner `each` sees the outer element, so `Doctors.dept.id == Depts.id`
+ * picks the doctors of the department being printed. The positions count as on a line: over the
+ * elements the group's `if=` keeps.
+ *
+ * Without `each=`, `if=` decides the whole group once, in the scope around it — one condition for
+ * many lines instead of the same one copied onto each.
+ */
+function renderGroup(group: OpenCloseElementContext, ctx: RenderContext): string[] {
+  const attrs = elementAttrs(group);
+  const name = (attrs['each'] ?? '').trim();
+  const expr = attrs['if'];
+  const keep = (registry: SequenceRegistry): boolean =>
+    !expr || evaluateIf(expr, registry, ctx.iteration);
+  const scopes =
+    name === ''
+      ? [ctx.registry].filter(keep)
+      : eachRegistries(name, ctx.registry, ctx.iteration, ctx.eachInfo, ctx.pools, keep);
+  const items = outputItems(group.content());
+  return scopes.flatMap((registry) =>
+    items.flatMap((item) => renderItem(item, { ...ctx, registry })),
+  );
 }
 
 /**

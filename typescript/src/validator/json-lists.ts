@@ -94,7 +94,7 @@ function writable(separator: string): boolean {
 /**
  * TDC312 for each `${{List | json}}` in one `<data>` that does not split on the list's separator.
  *
- * `walked` is the list an `each` line walks: there its name is the current ELEMENT, not the list.
+ * `walked` are the lists an `each` line and its groups walk: there a name is the current ELEMENT.
  */
 export function checkJsonLists(
   text: string,
@@ -102,14 +102,14 @@ export function checkJsonLists(
   inject: string,
   lists: ReadonlyMap<string, string>,
   diagnostics: Diagnostic[],
-  walked?: string,
+  walked: readonly string[] = [],
 ): void {
   if (inject !== '${{%}}' || lists.size === 0) return;
   for (const m of text.matchAll(INTERP_REF)) {
     const [rawName, ...pieces] = (m[1] ?? '').split('|');
     const name = (rawName ?? '').trim();
     const separator = lists.get(name);
-    if (separator === undefined || name === walked) continue;
+    if (separator === undefined || walked.includes(name)) continue;
     for (const piece of pieces) {
       const colon = piece.indexOf(':');
       if ((colon < 0 ? piece : piece.slice(0, colon)).trim() !== 'json') continue;

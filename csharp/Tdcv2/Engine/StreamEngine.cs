@@ -2671,7 +2671,8 @@ public sealed class StreamEngine
             foreach (Line line in _config.Block)
             {
                 // An each= line asks its if= of every element instead, with the element in scope.
-                if (line.IfExpr is null || line.Each is not null || Condition(line.IfExpr, row))
+                // A <group> decides its own if= as a whole.
+                if (line.IfExpr is null || line.Each is not null || line.IsGroup || Condition(line.IfExpr, row))
                 {
                     active.Add(line);
                 }
@@ -2744,13 +2745,16 @@ public sealed class StreamEngine
     private IReadOnlyList<string> RenderLine(
         Line line, int row, IReadOnlyDictionary<string, Repeat.Spec> eachInfo)
     {
+        PoolTable? Pool(string name) => _poolTables.TryGetValue(name, out PoolTable? table) ? table : null;
+        if (line.IsGroup)
+        {
+            return Each.RenderGroup(line, row, _config.Inject, eachInfo, Pool, new StreamLookup(this, row));
+        }
+
         string? listName = TrimToNull(line.Each);
         if (listName is not null)
         {
-            return Each.Render(
-                line, listName, row, _config.Inject, eachInfo,
-                _poolTables.TryGetValue(listName, out PoolTable? table) ? table : null,
-                new StreamLookup(this, row));
+            return Each.Render(line, listName, row, _config.Inject, eachInfo, Pool, new StreamLookup(this, row));
         }
 
         var text = new StringBuilder();

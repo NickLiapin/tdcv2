@@ -70,6 +70,7 @@ export const CLOSED_TAG_ATTRIBUTES: ReadonlyMap<string, ReadonlySet<string>> = n
   ['env', new Set(['count', 'seed', 'local', 'inject', 'mode', 'engine', 'comment'])],
   ['sequence', new Set(['name', 'parent', 'uniq', 'comment'])],
   ['line', new Set(['if', 'each', 'comment'])],
+  ['group', new Set(['if', 'each', 'comment'])],
   ['tdc', new Set(['version', 'v', 'regex_max_length', 'comment'])],
   ['mix', new Set(['name', 'percent', 'parent', 'flag', 'comment'])],
   // `percent` is NOT here: a <switch> picks its case from `on=`, and <case>
@@ -890,7 +891,11 @@ export function checkUnknownAttrs(
  * nobody thought to hook would keep its silence — which is the very failure
  * being fixed.
  */
-export function checkAllUnknownAttrs(root: ElementContext[], diagnostics: Diagnostic[]): void {
+export function checkAllUnknownAttrs(
+  root: ElementContext[],
+  diagnostics: Diagnostic[],
+  insideCompute = false,
+): void {
   for (const el of root) {
     const k = elementKind(el);
     if (!k) continue;
@@ -904,8 +909,13 @@ export function checkAllUnknownAttrs(root: ElementContext[], diagnostics: Diagno
       continue;
     }
     const tag = elementName(k.node);
+    // `<group>` is two tags: lines repeated together in the output, and digits grouped inside a
+    // `<compute>`, whose `size=`/`sep=` the compute check reads. Only the first is listed here.
+    const compute = insideCompute || tag === 'compute';
     if (tag === 'gen') checkGenAttrs(k.node.attr(), diagnostics);
-    else checkUnknownAttrs(tag, k.node.attr(), diagnostics);
-    if (k.kind === 'open') checkAllUnknownAttrs(contentElements(k.node.content()), diagnostics);
+    else if (!(compute && tag === 'group')) checkUnknownAttrs(tag, k.node.attr(), diagnostics);
+    if (k.kind === 'open') {
+      checkAllUnknownAttrs(contentElements(k.node.content()), diagnostics, compute);
+    }
   }
 }

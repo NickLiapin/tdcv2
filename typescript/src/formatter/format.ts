@@ -50,6 +50,7 @@ const BLOCK_TAGS = new Set([
   'tdc',
   'env',
   'block',
+  'group',
   'sequence',
   'mix',
   'switch',

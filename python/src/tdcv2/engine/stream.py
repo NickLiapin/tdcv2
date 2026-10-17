@@ -39,7 +39,7 @@ from ..generators import file as file_gen
 from ..generators import formula as formula_gen
 from ..generators import repeat as repeat_gen
 from ..lib import numbers
-from ..model.config import Case, Config, Gen, Line, SequenceSpec
+from ..model.config import Case, Config, Gen, Group, Line, SequenceSpec
 from ..packs import DataPacks
 from ..pattern import gen as patterns
 from ..prng import permute, seekable
@@ -249,11 +249,15 @@ class StreamEngine:
             )
             self._emit(emit, fx.before_block, row, each_info)
 
-            # An each= line asks its if= of every element instead, with the element in scope.
+            # An each= line asks its if= of every element instead, with the element in scope,
+            # and a <group> decides its own if= as a whole.
             active = [
                 line
                 for line in self.config.block
-                if line.if_expr is None or line.each or self._condition(line.if_expr, row)
+                if line.if_expr is None
+                or line.each
+                or isinstance(line, Group)
+                or self._condition(line.if_expr, row)
             ]
             # The OUTPUT lines, not the <line> ELEMENTS — see the note in the in-memory
             # engine. The two must agree byte for byte, so they count the same thing.
@@ -1984,6 +1988,17 @@ class StreamEngine:
                 emit(text)
 
     def _render_line(self, line: Line, row: int, each_info) -> list[str]:
+        if isinstance(line, Group):
+            lines = each.render_group(
+                line,
+                row,
+                self.config.inject,
+                each_info,
+                self.pool_tables,
+                self._lookup(row),
+                lambda name: name in self.columns,
+            )
+            return lines
         list_name = _trim_to_none(line.each) if line.each else None
         if list_name is not None:
             return each.render(

@@ -58,8 +58,9 @@ def schema_of(config: Config) -> list[writer.Column]:
 
 def _plan(config: Config) -> _Plan:
     declared: list[columns_lib.Declared] = []
+    # A typed column never sits inside a <group> (TDC209), so only the block's own lines hold one.
     for line in config.block:
-        for part in line.parts:
+        for part in getattr(line, "parts", ()):
             name = None if part.name is None else part.name.strip()
             if not name:
                 continue  # decorative text, not a column

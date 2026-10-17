@@ -5981,10 +5981,14 @@ impl Validator {
     /// A fixture holds text and `<line>`s. Anything else was ignored in silence
     /// unless it happened to be a generator inside a `<line>`.
     fn check_fixture_children(&mut self, fixture: &Element) {
-        let f = fixture.clone();
         let tag = fixture.name.clone();
+        self.check_fixture_items(fixture, &tag);
+    }
+
+    /// The lines of a fixture, or of a `<group>` inside one — the same rules at every depth.
+    fn check_fixture_items(&mut self, container: &Element, tag: &str) {
         // A `<data>` written straight into a fixture is not an unknown child -- the tag is known and the placement is what is wrong. The renderer only ever walks <line> children, so the text was dropped without a word. Named rather than rendered: a bare <data> would have to invent whether it ends the line, and <line><data> already says.
-        for child in &f.children {
+        for child in &container.children {
             if child.name == "data" {
                 self.error(
                     "TDC131",
@@ -5998,13 +6002,41 @@ impl Validator {
             }
         }
         // `data` PASSES here — it has its own complaint above — but is never offered as an
-        // allowed child, because it is not one.
-        let allowed: Vec<&str> = tables::FIXTURE_CHILDREN
+        // allowed child, because it is not one. A construct this language knows is in the wrong
+        // place (TDC013, with where it belongs); a tag nobody has heard of is a typo (TDC131).
+        // This used to call a misplaced <gen> an unknown child, as TypeScript did; Python, Java
+        // and C# always said TDC013.
+        let bad: Vec<(String, Pos)> = container
+            .children
             .iter()
-            .copied()
-            .chain(std::iter::once("data"))
+            .filter(|c| {
+                !tables::FIXTURE_CHILDREN.contains(&c.name.as_str())
+                    && c.name != "data"
+                    && c.name != "comment"
+            })
+            .map(|c| (c.name.clone(), c.pos))
             .collect();
-        self.check_contained_shown(&f, &tag, "TDC131", &allowed, &tables::FIXTURE_CHILDREN);
+        for (name, pos) in bad {
+            match tables::PLACEMENT_HINTS.iter().find(|(k, _)| *k == name) {
+                Some((_, hint)) => {
+                    let names = sorted(&tables::FIXTURE_CHILDREN);
+                    let refs: Vec<&str> = names.iter().map(String::as_str).collect();
+                    self.error(
+                        "TDC013",
+                        format!("<{name}> is not allowed directly inside <{tag}>"),
+                        &format!("{hint} Allowed inside <{tag}>: {}.", candidates(&refs)),
+                        pos,
+                    );
+                }
+                None => self.unknown_child(tag, &name, "TDC131", &tables::FIXTURE_CHILDREN, pos),
+            }
+        }
+        for child in &container.children {
+            if child.kind == Kind::OpenClose && child.name == "group" {
+                self.check_closed_tag_attrs("group", child);
+                self.check_fixture_items(child, tag);
+            }
+        }
     }
 
     fn check_case_gen(&mut self, gen: &Element) {
@@ -6212,18 +6244,73 @@ impl Validator {
     // ── block ────────────────────────────────────────────────────────────────
 
     fn check_block(&mut self, block: &Element) {
+        self.check_items(block, "block", &OutputScope::default());
+    }
+
+    /// The `<line>`s and `<group>`s of a block or a group; anything else is misplaced.
+    fn check_items(&mut self, container: &Element, parent: &str, scope: &OutputScope) {
         // These two were missed when the other containers were closed: an invented
         // tag in either passed in silence while the same tag one level up did not.
         // The brief report put the implementations side by side and the gap showed.
-        let b = block.clone();
-        self.check_contained(&b, "block", "TDC013", &tables::BLOCK_CHILDREN);
-        for child in &block.children {
+        let c = container.clone();
+        self.check_contained(&c, parent, "TDC013", &tables::BLOCK_CHILDREN);
+        for child in &container.children {
             if child.kind == Kind::OpenClose && child.name == "line" {
                 let l = child.clone();
                 self.check_contained(&l, "line", "TDC013", &tables::LINE_CHILDREN);
-                self.check_line(child);
+                self.check_line(child, scope);
+            } else if child.kind == Kind::OpenClose && child.name == "group" {
+                self.check_group(child, scope);
             }
         }
+    }
+
+    /// `<group each="…" if="…">` — several lines as one unit.
+    ///
+    /// Its `each=` is checked as a line's is (TDC206, TDC207). Its `if=` reads the scope around
+    /// it and the element it walks, but not its own positions, which count the elements that
+    /// `if=` keeps. And no typed column may sit anywhere inside: a group repeats its lines or
+    /// drops them as a whole, and a column has one cell per record either way (TDC209).
+    fn check_group(&mut self, group: &Element, scope: &OutputScope) {
+        self.check_closed_tag_attrs("group", group);
+        let each = group.attr_value("each").map(str::to_string);
+        let each_name = each.as_deref().map(str::trim).unwrap_or("").to_string();
+        if each.is_some() {
+            self.check_each_attr(group, &each_name);
+        }
+        if let Some(condition) = group.attr_value("if").map(str::to_string) {
+            self.check_if_expression(&condition, group.at("if"));
+            let mut published = scope.names.clone();
+            published.extend(self.each_names(&each_name, true));
+            self.defer_line_expression(
+                condition,
+                group.at("if"),
+                scope.each || each.is_some(),
+                published,
+            );
+        }
+        if let Some(column) = first_named_data(group) {
+            self.error(
+                "TDC209",
+                format!("a named <data name=\"{column}\"> cannot sit inside a <group>"),
+                "A group prints its lines several times or drops them all, and a typed column \
+                 has one cell per record either way. Keep typed columns on lines outside the \
+                 group.",
+                group.pos,
+            );
+        }
+        let mut names = scope.names.clone();
+        names.extend(self.each_names(&each_name, false));
+        let mut walked = scope.walked.clone();
+        if !each_name.is_empty() {
+            walked.push(each_name.clone());
+        }
+        let inner = OutputScope {
+            names,
+            walked,
+            each: scope.each || each.is_some(),
+        };
+        self.check_items(group, "group", &inner);
     }
 
     /// A `<line>` holds text, and only text.
@@ -6232,17 +6319,23 @@ impl Validator {
     /// generator placed here would produce a value nothing else could reference,
     /// and a construct like a switch would be building a column in the middle of
     /// a layout.
-    fn check_line(&mut self, line: &Element) {
+    fn check_line(&mut self, line: &Element, scope: &OutputScope) {
         self.check_closed_tag_attrs("line", line);
 
         // `_item` and `_item_id` exist only while a line walks a list, and both
         // the line's own condition and every <data> inside it may name them.
         let each = line.attr_value("each").map(str::to_string);
         let each_name = each.as_deref().map(str::trim).unwrap_or("").to_string();
-        let walks_a_list = each.is_some();
+        let walks_a_list = each.is_some() || scope.each;
         // What a walked pool or list publishes: every <data> may read the positions, and the
         // line's own if= may not, because the positions count the lines that if= lets through.
-        let line_names = self.each_names(&each_name, false);
+        // The groups around the line add what THEY walk.
+        let mut line_names = scope.names.clone();
+        line_names.extend(self.each_names(&each_name, false));
+        let mut walked = scope.walked.clone();
+        if !each_name.is_empty() {
+            walked.push(each_name.clone());
+        }
         let mut line_condition = line.attr_value("if").map(str::to_string);
 
         // `if=` sits on the <line> as well as on each <data> inside it, and an
@@ -6250,63 +6343,13 @@ impl Validator {
         // never renders.
         if let Some(condition) = line.attr_value("if").map(str::to_string) {
             self.check_if_expression(&condition, line.at("if"));
-            let published = self.each_names(&each_name, true);
+            let mut published = scope.names.clone();
+            published.extend(self.each_names(&each_name, true));
             self.defer_line_expression(condition.clone(), line.at("if"), walks_a_list, published);
         }
 
         if each.is_some() {
-            if each_name.is_empty() {
-                self.error(
-                    "TDC206",
-                    "each=\"\" names no sequence".to_string(),
-                    "Point it at a repeating sequence, <line each=\"Orders\">, or at a pool, \
-                     <line each=\"Doctors\">.",
-                    line.at("each"),
-                );
-            } else if !self.declared_names.contains(&each_name)
-                && !self.pool_fields.contains_key(&each_name)
-            {
-                // Nothing by that name: the line would print nothing at all, and an empty
-                // child table is the quietest way a config can be wrong.
-                self.error(
-                    "TDC206",
-                    format!("each=\"{each_name}\" — no sequence or pool with that name"),
-                    "The name must match a repeating <sequence name=\"…\"> declared in <env>, \
-                     or a <pool name=\"…\">.",
-                    line.at("each"),
-                );
-            } else if self.declared_names.contains(&each_name)
-                && !self.repeating_names.contains(&each_name)
-            {
-                // Walking a scalar would emit one line and look like it worked,
-                // which is the kind of near-miss that survives review.
-                self.error(
-                    "TDC207",
-                    format!("each=\"{each_name}\" — that sequence holds one value, not a list"),
-                    "Add repeat= to its <gen>, e.g. <gen … repeat=\"1..5\"/>, or drop each=.",
-                    line.at("each"),
-                );
-            } else {
-                // A typed column is collected once per record, and an each= line emits
-                // several — a list's elements or a pool's records alike. The two cannot both
-                // be true, so the column would silently take whichever came last.
-                let named = line.children.iter().find_map(|child| {
-                    (child.kind == Kind::Data)
-                        .then(|| child.attr_value("name"))
-                        .flatten()
-                        .filter(|n| !n.trim().is_empty())
-                        .map(str::to_string)
-                });
-                if let Some(column) = named {
-                    self.error(
-                        "TDC209",
-                        format!("a named <data name=\"{column}\"> cannot sit inside an each= line"),
-                        "Typed columns are collected once per card. For columnar output keep the \
-                         list as a list column (type=\"[]…\"); each= is for text and SQL.",
-                        line.at("each"),
-                    );
-                }
-            }
+            self.check_each_attr(line, &each_name);
         }
 
         for child in &line.children {
@@ -6353,7 +6396,7 @@ impl Validator {
                 // pieces can share a line, and pointing at the line would name
                 // the wrong one whenever they do.
                 let text = child.text.clone();
-                for (message, hint) in json_lists(&text, &self.list_separators, &each_name) {
+                for (message, hint) in json_lists(&text, &self.list_separators, &walked) {
                     self.warn("TDC312", message, &hint, child.pos);
                 }
                 self.line_names = line_names.clone();
@@ -6443,6 +6486,63 @@ impl Validator {
     /// records. The line's own `if=` gets the fields without the positions, which count the
     /// lines that `if=` lets through and so cannot be what decides them. `_item` and `_item_id`
     /// are not here: the `each` flag of a deferred condition already admits them.
+    /// `each=` on a line or a group: it has to name a list or a pool.
+    fn check_each_attr(&mut self, element: &Element, each_name: &str) {
+        let each_name = each_name.to_string();
+        if each_name.is_empty() {
+            self.error(
+                "TDC206",
+                "each=\"\" names no sequence".to_string(),
+                "Point it at a repeating sequence, <line each=\"Orders\">, or at a pool, \
+                 <line each=\"Doctors\">.",
+                element.at("each"),
+            );
+        } else if !self.declared_names.contains(&each_name)
+            && !self.pool_fields.contains_key(&each_name)
+        {
+            // Nothing by that name: the line would print nothing at all, and an empty
+            // child table is the quietest way a config can be wrong.
+            self.error(
+                "TDC206",
+                format!("each=\"{each_name}\" — no sequence or pool with that name"),
+                "The name must match a repeating <sequence name=\"…\"> declared in <env>, \
+                 or a <pool name=\"…\">.",
+                element.at("each"),
+            );
+        } else if self.declared_names.contains(&each_name)
+            && !self.repeating_names.contains(&each_name)
+        {
+            // Walking a scalar would emit one line and look like it worked,
+            // which is the kind of near-miss that survives review.
+            self.error(
+                "TDC207",
+                format!("each=\"{each_name}\" — that sequence holds one value, not a list"),
+                "Add repeat= to its <gen>, e.g. <gen … repeat=\"1..5\"/>, or drop each=.",
+                element.at("each"),
+            );
+        } else {
+            // A typed column is collected once per record, and an each= line emits
+            // several — a list's elements or a pool's records alike. The two cannot both
+            // be true, so the column would silently take whichever came last.
+            let named = element.children.iter().find_map(|child| {
+                (child.kind == Kind::Data)
+                    .then(|| child.attr_value("name"))
+                    .flatten()
+                    .filter(|n| !n.trim().is_empty())
+                    .map(str::to_string)
+            });
+            if let Some(column) = named {
+                self.error(
+                    "TDC209",
+                    format!("a named <data name=\"{column}\"> cannot sit inside an each= line"),
+                    "Typed columns are collected once per card. For columnar output keep the \
+                     list as a list column (type=\"[]…\"); each= is for text and SQL.",
+                    element.at("each"),
+                );
+            }
+        }
+    }
+
     fn each_names(&self, each_name: &str, for_if: bool) -> BTreeSet<String> {
         let mut names = BTreeSet::new();
         if each_name.is_empty() {
@@ -7453,18 +7553,54 @@ fn xml_entity(expression: &str) -> Option<(&'static str, &'static str)> {
 }
 
 /// The names a `<line each="…">` walks — a pool among them is read by being printed.
+/// The names a `<line each="…">` or `<group each="…">` walks, at any depth — a pool among them is
+/// read by being printed.
 fn each_pools(block: Option<&Element>) -> BTreeSet<String> {
     let mut out = BTreeSet::new();
-    for line in block.map(|b| b.children.as_slice()).unwrap_or_default() {
-        if line.kind != Kind::OpenClose || line.name != "line" {
+    for item in block.map(|b| b.children.as_slice()).unwrap_or_default() {
+        if item.kind != Kind::OpenClose || (item.name != "line" && item.name != "group") {
             continue;
         }
-        let each = line.attr_value("each").unwrap_or("").trim();
+        let each = item.attr_value("each").unwrap_or("").trim();
         if !each.is_empty() {
             out.insert(each.to_string());
         }
+        if item.name == "group" {
+            out.extend(each_pools(Some(item)));
+        }
     }
     out
+}
+
+/// What the groups around a line publish: names, the lists they walk, and whether any walks.
+///
+/// A `<group each="Depts">` puts its element in scope for every line inside it, nested groups
+/// included, so `${{Depts.name}}` and `if="Doctors.dept.id == Depts.id"` are names there.
+#[derive(Default)]
+struct OutputScope {
+    names: BTreeSet<String>,
+    walked: Vec<String>,
+    each: bool,
+}
+
+/// The first `<data name="…">` anywhere inside, or `None`.
+fn first_named_data(container: &Element) -> Option<String> {
+    for child in &container.children {
+        if child.kind == Kind::Data {
+            if let Some(name) = child
+                .attr_value("name")
+                .map(str::trim)
+                .filter(|n| !n.is_empty())
+            {
+                return Some(name.to_string());
+            }
+        } else if child.kind == Kind::OpenClose {
+            if let Some(found) = first_named_data(child) {
+                return Some(found);
+            }
+        }
+    }
+    None
 }
 
 /// Every list a `${{…}}` can name, by the path it is named with, and its separator.
@@ -7550,8 +7686,12 @@ fn json_writable(separator: &str) -> bool {
 /// A `repeat=` column is a LIST joined into one cell, and `| json` reads text: without its
 /// argument it prints the whole cell as one string, and with another separator a one-element
 /// array. Both produce a file that parses, so the mistake would surface only in its reader.
-/// `walked` is the list an `each` line walks: there its name is the current ELEMENT.
-fn json_lists(text: &str, lists: &BTreeMap<String, String>, walked: &str) -> Vec<(String, String)> {
+/// `walked` are the lists an `each` line and its groups walk: there a name is the ELEMENT.
+fn json_lists(
+    text: &str,
+    lists: &BTreeMap<String, String>,
+    walked: &[String],
+) -> Vec<(String, String)> {
     let mut out = Vec::new();
     if lists.is_empty() {
         return out;
@@ -7562,7 +7702,7 @@ fn json_lists(text: &str, lists: &BTreeMap<String, String>, walked: &str) -> Vec
         let Some(separator) = lists.get(&name) else {
             continue;
         };
-        if name == walked {
+        if walked.contains(&name) {
             continue;
         }
         for piece in pieces {

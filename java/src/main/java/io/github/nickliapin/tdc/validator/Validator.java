@@ -90,6 +90,7 @@ public final class Validator {
           Map.entry("env", Set.of("count", "seed", "local", "inject", "mode", "engine", "comment")),
           Map.entry("sequence", Set.of("name", "parent", "uniq", "comment")),
           Map.entry("line", Set.of("if", "each", "comment")),
+          Map.entry("group", Set.of("if", "each", "comment")),
           Map.entry("tdc", Set.of("version", "v", "regex_max_length", "comment")),
           Map.entry("mix", Set.of("name", "percent", "parent", "flag", "comment")),
           // `percent` is NOT here: a <switch> picks its case from `on=`, and <case>
@@ -318,6 +319,8 @@ public final class Validator {
           "map", "A <map> belongs inside a <switch>.",
           "default", "A <default> belongs inside a <switch>.",
           "line", "A <line> belongs inside a <block> (or a before/after fixture).",
+          "group",
+          "A <group> belongs inside a <block> or a fixture, around the <line>s it repeats.",
           "sequence", "A <sequence> belongs directly inside <env>.",
           // A <data> has no value of its own: it JOINS the value of the thing around it.
           // Written where there is nothing to join — straight into <tdc>, <env>, <block> or
@@ -1510,10 +1513,7 @@ public final class Validator {
       if (FIXTURE_TAG_NAMES.contains(tag)) {
         // A fixture holds text and <line>s; anything else was ignored in silence.
         // A `<data>` written straight into a fixture is not an unknown child -- the tag is known and the placement is what is wrong. The renderer only ever walks <line> children, so the text was dropped without a word. Named rather than rendered: a bare <data> would have to invent whether it ends the line, and <line><data> already says.
-        checkFixtureData(el, tag);
-        Set<String> passes = new java.util.HashSet<>(FIXTURE_CHILDREN);
-        passes.add("data");
-        checkChildren(el.content(), tag, passes, "TDC131", FIXTURE_CHILDREN);
+        checkFixtureItems(el, tag);
       } else if ("pool".equals(tag)) {
         // Tags with a reason of their own keep TDC230, which says far more; they pass
         // this check but are never offered as allowed.
@@ -6342,16 +6342,109 @@ public final class Validator {
   // ── block ────────────────────────────────────────────────────────────────────────────────
 
   private void checkBlock(TDCParser.OpenCloseElementContext block) {
+    checkItems(block, "block", OutputScope.TOP);
+  }
+
+  /**
+   * What the groups around a line publish: names, the lists they walk, and whether any walks.
+   *
+   * <p>A {@code <group each="Depts">} puts its element in scope for every line inside it, nested
+   * groups included, so {@code ${{Depts.name}}} and {@code if="Doctors.dept.id == Depts.id"} are
+   * names there.
+   */
+  private record OutputScope(Set<String> names, List<String> walked, boolean each) {
+    static final OutputScope TOP = new OutputScope(Set.of(), List.of(), false);
+  }
+
+  /** The {@code <line>}s and {@code <group>}s of a block or a group; anything else is misplaced. */
+  private void checkItems(
+      TDCParser.OpenCloseElementContext container, String parent, OutputScope scope) {
     // These two were missed when the other containers were closed: an invented tag in
     // either passed in silence while the same tag one level up did not.
-    checkChildren(block.content(), "block", BLOCK_CHILDREN, "TDC013", BLOCK_CHILDREN);
-    for (TDCParser.ElementContext child : block.content().element()) {
+    checkChildren(container.content(), parent, BLOCK_CHILDREN, "TDC013", BLOCK_CHILDREN);
+    if (container.content() == null) {
+      return;
+    }
+    for (TDCParser.ElementContext child : container.content().element()) {
       TDCParser.OpenCloseElementContext open = child.openCloseElement();
       if (open != null && "line".equals(open.name.getText())) {
         checkChildren(open.content(), "line", LINE_CHILDREN, "TDC013", LINE_CHILDREN);
-        checkLine(open);
+        checkLine(open, scope);
+      } else if (open != null && "group".equals(open.name.getText())) {
+        checkGroup(open, scope);
       }
     }
+  }
+
+  /**
+   * {@code <group each="…" if="…">} — several lines as one unit.
+   *
+   * <p>Its {@code each=} is checked as a line's is (TDC206, TDC207). Its {@code if=} reads the
+   * scope around it and the element it walks, but not its own positions, which count the elements
+   * that {@code if=} keeps. And no typed column may sit anywhere inside: a group repeats its lines
+   * or drops them as a whole, and a column has one cell per record either way (TDC209).
+   */
+  private void checkGroup(TDCParser.OpenCloseElementContext group, OutputScope scope) {
+    checkClosedTagAttrs("group", group.attr(), line(group), column(group));
+    String each = attributes(group.attr()).get("each");
+    String eachName = each == null ? "" : each.trim();
+    if (each != null) {
+      checkEachAttr(group, eachName);
+    }
+    String condition = attributes(group.attr()).get("if");
+    if (condition != null) {
+      int[] where = at(group.attr(), "if", line(group), column(group));
+      checkIfExpression(condition, where[0], where[1]);
+      Set<String> published = new LinkedHashSet<>(scope.names());
+      published.addAll(eachNames(eachName, true));
+      deferLineExpression(condition, where[0], where[1], scope.each() || each != null, published);
+    }
+    String column = firstNamedData(group);
+    if (column != null) {
+      error("TDC209", "a named <data name=\"" + column + "\"> cannot sit inside a <group>",
+          "A group prints its lines several times or drops them all, and a typed column has one "
+              + "cell per record either way. Keep typed columns on lines outside the group.",
+          line(group), column(group));
+    }
+    Set<String> names = new LinkedHashSet<>(scope.names());
+    names.addAll(eachNames(eachName, false));
+    List<String> walked = new ArrayList<>(scope.walked());
+    if (!eachName.isEmpty()) {
+      walked.add(eachName);
+    }
+    checkItems(group, "group", new OutputScope(names, walked, scope.each() || each != null));
+  }
+
+  /** The first {@code <data name="…">} anywhere inside, or null. */
+  private static String firstNamedData(TDCParser.OpenCloseElementContext container) {
+    if (container.content() == null) {
+      return null;
+    }
+    for (TDCParser.ElementContext child : container.content().element()) {
+      TDCParser.DataElementContext data = child.dataElement();
+      if (data instanceof TDCParser.DataWithBodyContext body) {
+        String name = attributes(body.attr()).getOrDefault("name", "").trim();
+        if (!name.isEmpty()) {
+          return name;
+        }
+        continue;
+      }
+      if (data instanceof TDCParser.DataSelfClosedContext self) {
+        String name = attributes(self.attr()).getOrDefault("name", "").trim();
+        if (!name.isEmpty()) {
+          return name;
+        }
+        continue;
+      }
+      TDCParser.OpenCloseElementContext inner = child.openCloseElement();
+      if (inner != null) {
+        String found = firstNamedData(inner);
+        if (found != null) {
+          return found;
+        }
+      }
+    }
+    return null;
   }
 
   /**
@@ -6361,7 +6454,50 @@ public final class Validator {
    * placed here would produce a value nothing else could reference, and a construct like a
    * switch would be building a column in the middle of a layout.
    */
-  private void checkLine(TDCParser.OpenCloseElementContext line) {
+  /** {@code each=} on a line or a group: it has to name a list or a pool. */
+  private void checkEachAttr(TDCParser.OpenCloseElementContext element, String eachName) {
+    int[] eachAt = at(element, "each");
+    if (eachName.isEmpty()) {
+      error("TDC206", "each=\"\" names no sequence",
+          "Point it at a repeating sequence, <line each=\"Orders\">, or at a pool, "
+              + "<line each=\"Doctors\">.",
+          eachAt[0], eachAt[1]);
+    } else if (!declaredNames.contains(eachName) && !poolFields.containsKey(eachName)) {
+      // Nothing by that name: the line would print nothing at all, and an empty child table is
+      // the quietest way a config can be wrong.
+      error("TDC206", "each=\"" + eachName + "\" — no sequence or pool with that name",
+          "The name must match a repeating <sequence name=\"…\"> declared in <env>, or a "
+              + "<pool name=\"…\">.",
+          eachAt[0], eachAt[1]);
+    } else if (declaredNames.contains(eachName) && !repeatingNames.contains(eachName)) {
+      // Walking a scalar would emit one line and look like it worked, which is the kind of
+      // near-miss that survives review.
+      error("TDC207", "each=\"" + eachName + "\" — that sequence holds one value, not a list",
+          "Add repeat= to its <gen>, e.g. <gen … repeat=\"1..5\"/>, or drop each=.",
+          eachAt[0], eachAt[1]);
+    } else {
+      // A typed column is collected once per record, and an each= line emits several — a
+      // list's elements or a pool's records alike. The two cannot both be true, so the column
+      // would silently take whichever came last.
+      for (TDCParser.ElementContext child : element.content().element()) {
+        TDCParser.DataElementContext data = child.dataElement();
+        if (!(data instanceof TDCParser.DataWithBodyContext body)) {
+          continue;
+        }
+        String columnName = attributes(body.attr()).get("name");
+        if (columnName != null && !columnName.trim().isEmpty()) {
+          error("TDC209",
+              "a named <data name=\"" + columnName + "\"> cannot sit inside an each= line",
+              "Typed columns are collected once per card. For columnar output keep the list as "
+                  + "a list column (type=\"[]…\"); each= is for text and SQL.",
+              eachAt[0], eachAt[1]);
+          break;
+        }
+      }
+    }
+  }
+
+  private void checkLine(TDCParser.OpenCloseElementContext line, OutputScope scope) {
     checkClosedTagAttrs("line", line.attr(), line(line), column(line));
     // `if=` sits on the <line> as well as on each <data> inside it, and an unparsable one has to
     // be caught in both places or a whole line silently never renders.
@@ -6369,57 +6505,26 @@ public final class Validator {
     // condition and every <data> inside it may name them.
     String each = attributes(line.attr()).get("each");
     String eachName = each == null ? "" : each.trim();
-    boolean walksAList = each != null;
+    boolean walksAList = each != null || scope.each();
     // What a walked pool or list publishes: every <data> may read the positions, and the line's
-    // own if= may not, because the positions count the lines that if= lets through.
-    Set<String> names = eachNames(eachName, false);
+    // own if= may not, because the positions count the lines that if= lets through. The groups
+    // around the line add what THEY walk.
+    Set<String> names = new LinkedHashSet<>(scope.names());
+    names.addAll(eachNames(eachName, false));
+    List<String> walked = new ArrayList<>(scope.walked());
+    if (!eachName.isEmpty()) {
+      walked.add(eachName);
+    }
     String lineCondition = attributes(line.attr()).get("if");
     if (lineCondition != null) {
       int[] where = at(line.attr(), "if", line(line), column(line));
       checkIfExpression(lineCondition, where[0], where[1]);
-      deferLineExpression(
-          lineCondition, where[0], where[1], walksAList, eachNames(eachName, true));
+      Set<String> published = new LinkedHashSet<>(scope.names());
+      published.addAll(eachNames(eachName, true));
+      deferLineExpression(lineCondition, where[0], where[1], walksAList, published);
     }
     if (each != null) {
-      int[] eachAt = at(line, "each");
-      if (eachName.isEmpty()) {
-        error("TDC206", "each=\"\" names no sequence",
-            "Point it at a repeating sequence, <line each=\"Orders\">, or at a pool, "
-                + "<line each=\"Doctors\">.",
-            eachAt[0], eachAt[1]);
-      } else if (!declaredNames.contains(eachName) && !poolFields.containsKey(eachName)) {
-        // Nothing by that name: the line would print nothing at all, and an empty child table is
-        // the quietest way a config can be wrong.
-        error("TDC206", "each=\"" + eachName + "\" — no sequence or pool with that name",
-            "The name must match a repeating <sequence name=\"…\"> declared in <env>, or a "
-                + "<pool name=\"…\">.",
-            eachAt[0], eachAt[1]);
-      } else if (declaredNames.contains(eachName) && !repeatingNames.contains(eachName)) {
-        // Walking a scalar would emit one line and look like it worked, which is the kind of
-        // near-miss that survives review.
-        error("TDC207", "each=\"" + eachName + "\" — that sequence holds one value, not a list",
-            "Add repeat= to its <gen>, e.g. <gen … repeat=\"1..5\"/>, or drop each=.",
-            eachAt[0], eachAt[1]);
-      } else {
-        // A typed column is collected once per record, and an each= line emits several — a
-        // list's elements or a pool's records alike. The two cannot both be true, so the column
-        // would silently take whichever came last.
-        for (TDCParser.ElementContext child : line.content().element()) {
-          TDCParser.DataElementContext data = child.dataElement();
-          if (!(data instanceof TDCParser.DataWithBodyContext body)) {
-            continue;
-          }
-          String columnName = attributes(body.attr()).get("name");
-          if (columnName != null && !columnName.trim().isEmpty()) {
-            error("TDC209",
-                "a named <data name=\"" + columnName + "\"> cannot sit inside an each= line",
-                "Typed columns are collected once per card. For columnar output keep the list as "
-                    + "a list column (type=\"[]…\"); each= is for text and SQL.",
-                eachAt[0], eachAt[1]);
-            break;
-          }
-        }
-      }
+      checkEachAttr(line, eachName);
     }
 
     for (TDCParser.ElementContext child : line.content().element()) {
@@ -6456,7 +6561,7 @@ public final class Validator {
         String text = PairedData.restore(body.dataContent().getText());
         int dataLine = body.getStart().getLine();
         int dataColumn = body.getStart().getCharPositionInLine();
-        for (String[] found : JsonLists.check(text, listSeparators, eachName)) {
+        for (String[] found : JsonLists.check(text, listSeparators, walked)) {
           warn("TDC312", found[0], found[1], dataLine, dataColumn);
         }
         lineNames = names;
@@ -7553,7 +7658,7 @@ public final class Validator {
    * so {@code <before><data>x</data></before>} validated and emitted nothing at all. The list is
    * what the "Allowed inside" note prints, so it has to say what the renderer actually does.
    */
-  private static final Set<String> FIXTURE_CHILDREN = Set.of("line");
+  private static final Set<String> FIXTURE_CHILDREN = Set.of("line", "group");
 
   /** A {@code <data>} with no {@code <line>} around it, inside a fixture body. */
   /**
@@ -7572,6 +7677,24 @@ public final class Validator {
           line, column);
     } else {
       error("TDC010", "unknown child of <tdc>: \"<" + name + ">\"", takes, line, column);
+    }
+  }
+
+  /** The lines of a fixture, or of a {@code <group>} inside one — the same rules at every depth. */
+  private void checkFixtureItems(TDCParser.OpenCloseElementContext container, String tag) {
+    checkFixtureData(container, tag);
+    Set<String> passes = new java.util.HashSet<>(FIXTURE_CHILDREN);
+    passes.add("data");
+    checkChildren(container.content(), tag, passes, "TDC131", FIXTURE_CHILDREN);
+    if (container.content() == null) {
+      return;
+    }
+    for (TDCParser.ElementContext child : container.content().element()) {
+      TDCParser.OpenCloseElementContext group = child.openCloseElement();
+      if (group != null && "group".equals(group.name.getText())) {
+        checkClosedTagAttrs("group", group.attr(), line(group), column(group));
+        checkFixtureItems(group, tag);
+      }
     }
   }
 
@@ -7595,7 +7718,7 @@ public final class Validator {
   private static final Set<String> SWITCH_CHILDREN = Set.of("map", "case", "default");
 
   /** What may sit directly inside {@code <block>} and {@code <line>}. */
-  private static final Set<String> BLOCK_CHILDREN = Set.of("line");
+  private static final Set<String> BLOCK_CHILDREN = Set.of("line", "group");
 
   private static final Set<String> LINE_CHILDREN = Set.of("data", "gen", "mix", "switch");
 

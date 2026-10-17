@@ -40,6 +40,7 @@ const PLACEMENT_HINT: Record<string, string> = {
   map: 'A <map> belongs inside a <switch>.',
   default: 'A <default> belongs inside a <switch>.',
   line: 'A <line> belongs inside a <block> (or a before/after fixture).',
+  group: 'A <group> belongs inside a <block> or a fixture, around the <line>s it repeats.',
   sequence: 'A <sequence> belongs directly inside <env>.',
   // A <data> has no value of its own: it JOINS the value of the thing around
   // it. Written where there is nothing to join — straight into <tdc>, <env>,

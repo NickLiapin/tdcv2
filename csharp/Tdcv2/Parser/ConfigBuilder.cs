@@ -656,7 +656,10 @@ public static class ConfigBuilder
             Uniq: IsTrue(attrs.GetValueOrDefault("uniq")));
     }
 
-    /// <summary>Every <c>&lt;line&gt;</c> under a container, each flattened to its data text.</summary>
+    /// <summary>
+    /// Every <c>&lt;line&gt;</c> and <c>&lt;group&gt;</c> under a container, a line flattened to
+    /// its data text.
+    /// </summary>
     private static IReadOnlyList<Line> Lines(TDCParser.ContentContext? content)
     {
         var result = new List<Line>();
@@ -668,6 +671,17 @@ public static class ConfigBuilder
         foreach (TDCParser.ElementContext child in content.element())
         {
             TDCParser.OpenCloseElementContext open = child.openCloseElement();
+            if (open is not null && open.name.Text == "group")
+            {
+                IReadOnlyDictionary<string, string> groupAttrs = Attributes(open.attr());
+                result.Add(new Line(
+                    Array.Empty<DataPart>(),
+                    groupAttrs.GetValueOrDefault("if"),
+                    groupAttrs.GetValueOrDefault("each"),
+                    Lines(open.content())));
+                continue;
+            }
+
             if (open is null || open.name.Text != "line")
             {
                 continue;

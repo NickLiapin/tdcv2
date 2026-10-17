@@ -80,7 +80,9 @@ cada uno, cada uno con su propio `Name`/`Age`.
 atributos. Su única tarea es contener las líneas de un solo registro, que el renderizador
 repite `count` veces.
 
-Sus únicos hijos permitidos son `<line>`. Una etiqueta ajena directamente dentro de
+Contiene `<line>`s y [`<group>`](../constructs/relational-tables.md#varias-líneas-por-elemento-group)s
+de ellas: varias líneas impresas una vez por elemento de una lista o de un pool, o conservadas
+y descartadas juntas por una sola condición. Una etiqueta ajena directamente dentro de
 `<block>` es un error, no un salto silencioso: así se atrapa un
 [`<gen>`](../generators/overview.md#top) mal puesto o una etiqueta con errata antes de que
 corrompa la salida:

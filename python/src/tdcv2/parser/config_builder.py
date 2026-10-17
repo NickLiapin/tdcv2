@@ -20,6 +20,7 @@ from ..model.config import (
     Field,
     Fixtures,
     Gen,
+    Group,
     Item,
     Line,
     Mix,
@@ -456,12 +457,19 @@ def _map_text(element) -> str:
     return ""
 
 
-def _lines(content) -> list[Line]:
-    out: list[Line] = []
+def _lines(content) -> list:
+    """The ``<line>``s and ``<group>``s of a block, a fixture or a group, in order."""
+    out: list = []
     if content is None:
         return out
     for child in content.element():
         open_el = child.openCloseElement()
+        if open_el is not None and open_el.name.text == "group":
+            group_attrs = attributes(open_el.attr())
+            out.append(
+                Group(_lines(open_el.content()), group_attrs.get("if"), group_attrs.get("each"))
+            )
+            continue
         if open_el is None or open_el.name.text != "line":
             continue
         parts: list[DataPart] = []

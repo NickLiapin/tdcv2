@@ -70,6 +70,7 @@ const TAGS: readonly string[] = [
   'default',
   // output
   'line',
+  'group',
   'data',
   // fixtures (env children)
   'before',
@@ -98,7 +99,8 @@ const CHILDREN: ReadonlyMap<string, readonly string[]> = new Map([
   // named-<data> constant shipped with composed sequences, <compute> is read
   // by findChildElement) rather than against a list.
   ['sequence', ['gen', 'data', 'compute']],
-  ['block', ['line']],
+  ['block', ['line', 'group']],
+  ['group', ['line', 'group']],
   ['line', ['data']],
   // Env-level wrappers around whole sequences.
   ['distinct', ['sequence']],
@@ -124,15 +126,16 @@ const CHILDREN: ReadonlyMap<string, readonly string[]> = new Map([
  * of their own and are listed here.
  */
 const TAG_ATTRIBUTES: Record<string, readonly string[]> = {
+  // The compute tags, from the table their evaluator reads them through. One name collides with a
+  // tag below — `<group>`, which is also the output's group of lines — so these go first and the
+  // output meaning wins outside a `<compute>`; `computeCompletions` picks by where the caret is.
+  ...COMPUTE_ATTRIBUTES,
   ...Object.fromEntries([...CLOSED_TAG_ATTRIBUTES].map(([tag, attrs]) => [tag, [...attrs].sort()])),
   // For `<gen>` this is the UNION across generator types; `genAttrCompletions`
   // narrows it by the `type=` already typed.
   gen: [...GEN_ATTRIBUTES].sort(),
   block: [],
   compute: [],
-  // The compute tags, from the table their evaluator reads them through. No
-  // name here collides with a tag above.
-  ...COMPUTE_ATTRIBUTES,
 };
 
 export function computeCompletions(
@@ -163,7 +166,9 @@ export function computeCompletions(
   if (tagName === 'gen') {
     return genAttrCompletions(openTag);
   }
-  const attrs = TAG_ATTRIBUTES[tagName] ?? [];
+  const inCompute = openTags(before.slice(0, lastLt)).includes('compute');
+  const computeAttrs: Readonly<Record<string, readonly string[]>> = COMPUTE_ATTRIBUTES;
+  const attrs = (inCompute ? computeAttrs[tagName] : undefined) ?? TAG_ATTRIBUTES[tagName] ?? [];
   return attrs.map((a) => item(a, CompletionItemKind.Property));
 }
 

@@ -167,7 +167,16 @@ public sealed record DataPart(string Text, string? IfExpr, string? Name = null, 
 /// it is dropped before the delimiters are placed, so the line above it does not keep a separator
 /// pointing at nothing.
 /// </param>
-public sealed record Line(IReadOnlyList<DataPart> Parts, string? IfExpr, string? Each = null);
+/// <param name="Items">
+/// Non-null for a <c>&lt;group&gt;</c>: the lines and groups it holds, printed together — once per
+/// element with <c>Each</c>, or all or none by <c>IfExpr</c>. A group has no data parts of its own.
+/// </param>
+public sealed record Line(
+    IReadOnlyList<DataPart> Parts, string? IfExpr, string? Each = null, IReadOnlyList<Line>? Items = null)
+{
+    /// <summary>True for a <c>&lt;group&gt;</c>.</summary>
+    public bool IsGroup => Items is not null;
+}
 
 /// <summary>
 /// Text emitted around the repeating body.

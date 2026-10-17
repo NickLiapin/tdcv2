@@ -30,6 +30,7 @@ Every tag in the TDC DSL, and where each one is covered in depth.
 | :------------------------------------------------------- | :------------------------------------------------- | :------------------------------------------------------------ |
 | `<block>`                                                | The layout of one output record                    | [Output & formatting](../core-concepts/output-formatting.md#top) |
 | `<line>`                                                 | One line inside a record                           | [Output & formatting](../core-concepts/output-formatting.md#top) |
+| `<group>`                                                | Several lines as one unit: printed once per element with `each`, kept or dropped together with `if`. Inside `<compute>`, `<group>` is the digit-grouping tag instead | [Relational tables](../constructs/relational-tables.md#several-lines-per-element-group) |
 | `<data>`                                                 | Inside a `<line>`: literal text with interpolation | [Output & formatting](../core-concepts/output-formatting.md#top) |
 | `<before>` / `<after>`                                   | Text before / after the whole run                  | [Output & formatting](../core-concepts/output-formatting.md#top) |
 | `<before_block>` / `<after_block>` / `<delimiter_block>` | Text around / between records                      | [Output & formatting](../core-concepts/output-formatting.md#top) |

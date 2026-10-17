@@ -147,6 +147,69 @@
       "description": "The refusal a <line> has always given, now given inside a <case> too. It could not be made where the tag is walked — a case body may name a column declared BELOW it — so the node is put aside and answered once every declaration is known, exactly as an if= expression is.",
       "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><mix name=\"S\" percent=\"60\"><case><data>${{Nosuch}} North</data></case><case><data>plain South</data></case></mix></env><block><line><data>${{S}}</data></line></block></tdc>",
       "expected": ["error TDC193 1:73"]
+    },
+    {
+      "name": "group-each-names-nothing",
+      "demonstrates": "TDC206",
+      "description": "each= on a group names neither a sequence nor a pool.",
+      "config": "<tdc><env count=\"1\" seed=\"s\" local=\"en\"><pool name=\"Depts\" count=\"3\"><sequence name=\"id\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"name\"><gen type=\"text\" value=\"Cardiology,Neurology,Surgery\" order=\"sequential\"/></sequence></pool></env><block><group each=\"Dept\"><line><data>x</data></line></group></block></tdc>",
+      "expected": ["warning TDC231 1:40", "error TDC206 1:273"]
+    },
+    {
+      "name": "group-each-walks-a-single-value",
+      "demonstrates": "TDC207",
+      "description": "each= on a group names a sequence that holds one value, not a list.",
+      "config": "<tdc><env count=\"1\" seed=\"s\" local=\"en\"><sequence name=\"Kind\"><gen type=\"text\" value=\"a,b\"/></sequence></env><block><group each=\"Kind\"><line><data>x</data></line></group></block></tdc>",
+      "expected": ["error TDC207 1:129"]
+    },
+    {
+      "name": "group-if-reads-its-own-positions",
+      "demonstrates": "TDC215",
+      "description": "The positions count the elements a group's if= keeps, so that if= cannot read them.",
+      "config": "<tdc><env count=\"1\" seed=\"s\" local=\"en\"><pool name=\"Depts\" count=\"3\"><sequence name=\"id\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"name\"><gen type=\"text\" value=\"Cardiology,Neurology,Surgery\" order=\"sequential\"/></sequence></pool></env><block><group each=\"Depts\" if=\"Depts._last\"><line><data>x</data></line></group></block></tdc>",
+      "expected": ["error TDC215 1:284"]
+    },
+    {
+      "name": "group-holds-a-typed-column",
+      "demonstrates": "TDC209",
+      "description": "A named <data> is a column with one cell per record, and a group repeats or drops its lines.",
+      "config": "<tdc><env count=\"1\" seed=\"s\" local=\"en\"><sequence name=\"Kind\"><gen type=\"text\" value=\"a,b\"/></sequence></env><block><group if=\"Kind == a\"><line><data name=\"k\">${{Kind}}</data></line></group></block></tdc>",
+      "expected": ["error TDC209 1:116"]
+    },
+    {
+      "name": "group-holds-a-loose-data",
+      "demonstrates": "TDC013",
+      "description": "A group holds lines and groups; a <data> straight inside it has no line to join.",
+      "config": "<tdc><env count=\"1\" seed=\"s\" local=\"en\"><sequence name=\"Kind\"><gen type=\"text\" value=\"a,b\"/></sequence></env><block><group if=\"Kind == a\"><data>x</data></group></block></tdc>",
+      "expected": ["error TDC013 1:138"]
+    },
+    {
+      "name": "group-in-env",
+      "demonstrates": "TDC013",
+      "description": "A group belongs in the block or a fixture, around lines.",
+      "config": "<tdc><env count=\"1\" seed=\"s\" local=\"en\"><sequence name=\"Kind\"><gen type=\"text\" value=\"a,b\"/></sequence><group if=\"Kind == a\"><line><data>x</data></line></group></env><block><line><data>${{Kind}}</data></line></block></tdc>",
+      "expected": ["error TDC013 1:103"]
+    },
+    {
+      "name": "group-with-an-unknown-attribute",
+      "demonstrates": "TDC015",
+      "description": "A group reads each=, if= and comment= only.",
+      "config": "<tdc><env count=\"1\" seed=\"s\" local=\"en\"><sequence name=\"Kind\"><gen type=\"text\" value=\"a,b\"/></sequence></env><block><group eahc=\"Kind\"><line><data>x</data></line></group></block></tdc>",
+      "expected": ["error TDC015 1:129"]
+    },
+    {
+      "name": "group-scope-reaches-every-line-inside",
+      "demonstrates": "",
+      "description": "Inside a group walking a pool, every line — nested groups included — reads the record's fields and the group's positions, and a pool printed only by a group is read (no TDC231). A <group> inside <compute> keeps its own meaning.",
+      "config": "<tdc><env count=\"1\" seed=\"s\" local=\"en\"><pool name=\"Depts\" count=\"3\"><sequence name=\"id\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"name\"><gen type=\"text\" value=\"Cardiology,Neurology,Surgery\" order=\"sequential\"/></sequence></pool><pool name=\"Doctors\" count=\"5\"><sequence name=\"id\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"last\"><gen type=\"text\" value=\"Adams,Baker,Clark,Davis,Evans\" order=\"sequential\"/></sequence><sequence name=\"dept\"><gen type=\"pool\" value=\"Depts\"/></sequence><sequence name=\"langs\"><gen type=\"text\" value=\"en,es,pl\" repeat=\"1..2\" separator=\";\" distinct=\"true\"/></sequence></pool><sequence name=\"G\"><compute><result><group size=\"3\" sep=\" \"><str v=\"1234567\"/></group></result></compute></sequence></env><block><line><data>${{G}}</data></line><group each=\"Depts\"><line if=\"Depts.id > 1\"><data>${{Depts.name}}</data><data if=\"!Depts._last\">,</data></line><group each=\"Doctors\" if=\"Doctors.dept.id == Depts.id\"><line><data>${{Doctors.last}} in ${{Depts.name}} ${{Doctors.langs | json:;}}</data></line></group></group></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "gen-directly-inside-a-fixture",
+      "demonstrates": "TDC013",
+      "description": "A <gen> is a construct this language knows, put where it does not belong: TDC013, with where it goes. A tag nobody has heard of in the same place stays TDC131. TypeScript and Rust used to call the <gen> an unknown child.",
+      "config": "<tdc><env count=\"1\" seed=\"s\" local=\"en\"><sequence name=\"A\"><gen type=\"text\" value=\"a\"/></sequence><before><gen type=\"number\" value=\"1..2\"/><row/></before></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "expected": ["error TDC013 1:106", "error TDC131 1:139"]
     }
   ]
 }

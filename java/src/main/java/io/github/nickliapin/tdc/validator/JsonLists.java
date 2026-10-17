@@ -26,16 +26,23 @@ final class JsonLists {
 
   private JsonLists() {}
 
-  /** The names a {@code <line each="…">} walks — a pool among them is read by being printed. */
+  /**
+   * The names a {@code <line each="…">} or {@code <group each="…">} walks, at any depth — a pool
+   * among them is read by being printed.
+   */
   static Set<String> eachPools(TDCParser.OpenCloseElementContext block) {
     Set<String> out = new LinkedHashSet<>();
-    for (TDCParser.OpenCloseElementContext line : children(block)) {
-      if (!"line".equals(line.name.getText())) {
+    for (TDCParser.OpenCloseElementContext item : children(block)) {
+      String tag = item.name.getText();
+      if (!"line".equals(tag) && !"group".equals(tag)) {
         continue;
       }
-      String each = attributes(line.attr()).getOrDefault("each", "").trim();
+      String each = attributes(item.attr()).getOrDefault("each", "").trim();
       if (!each.isEmpty()) {
         out.add(each);
+      }
+      if ("group".equals(tag)) {
+        out.addAll(eachPools(item));
       }
     }
     return out;
@@ -76,9 +83,10 @@ final class JsonLists {
   /**
    * {@code {message, hint}} per {@code ${{List | json}}} not splitting on the list's separator.
    *
-   * @param walked the list an {@code each} line walks: there its name is the current ELEMENT
+   * @param walked the lists an {@code each} line and its groups walk: there a name is the ELEMENT
    */
-  static List<String[]> check(String text, Map<String, String> lists, String walked) {
+  static List<String[]> check(
+      String text, Map<String, String> lists, java.util.Collection<String> walked) {
     List<String[]> out = new ArrayList<>();
     if (lists.isEmpty()) {
       return out;
@@ -88,7 +96,7 @@ final class JsonLists {
       String[] pieces = m.group(1).split("\\|", -1);
       String name = pieces[0].trim();
       String separator = lists.get(name);
-      if (separator == null || name.equals(walked)) {
+      if (separator == null || walked.contains(name)) {
         continue;
       }
       for (int i = 1; i < pieces.length; i++) {

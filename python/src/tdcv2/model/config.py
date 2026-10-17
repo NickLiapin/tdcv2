@@ -195,6 +195,21 @@ class Line:
 
 
 @dataclass(frozen=True, slots=True)
+class Group:
+    """``<group>``: several lines printed as one unit.
+
+    With ``each`` the items print once per element of a list or record of a pool, with that element
+    in scope for every one of them — a record of several lines, or a nested document: a department,
+    its doctors, its closing bracket. Without it, ``if_expr`` keeps or drops all of them at once.
+    ``items`` are lines and groups, in order.
+    """
+
+    items: list
+    if_expr: str | None = None
+    each: str | None = None
+
+
+@dataclass(frozen=True, slots=True)
 class Fixtures:
     """Text emitted around the repeating body.
 

@@ -79,9 +79,11 @@ with its own `Name` and `Age`.
 attributes. Its only job is to hold the lines of a single record, which the renderer
 repeats `count` times.
 
-The only child it allows is `<line>`. A stray tag directly inside `<block>` is an error,
-not a silent skip — that catches a misplaced [`<gen>`](../generators/overview.md#top) or a
-mistyped tag before it corrupts your output:
+It holds `<line>`s, and [`<group>`](../constructs/relational-tables.md#several-lines-per-element-group)s
+of them — several lines printed once per element of a list or pool, or kept and dropped
+together by one condition. A stray tag directly inside `<block>` is an error, not a silent
+skip — that catches a misplaced [`<gen>`](../generators/overview.md#top) or a mistyped tag
+before it corrupts your output:
 
 `./run demo.tdc`
 

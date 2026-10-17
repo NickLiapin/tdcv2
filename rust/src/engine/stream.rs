@@ -3515,10 +3515,11 @@ impl StreamEngine<'_> {
 
             let mut active = Vec::new();
             for line in &self.env.config.block {
-                // An each= line asks its if= of every element instead, with the element in scope.
+                // An each= line asks its if= of every element instead, with the element in
+                // scope, and a <group> decides its own if= as a whole.
                 let keep = match &line.if_expr {
                     None => true,
-                    Some(_) if line.each.is_some() => true,
+                    Some(_) if line.each.is_some() || line.items.is_some() => true,
                     Some(expr) => self.condition(expr, row)?,
                 };
                 if keep {
@@ -3581,6 +3582,19 @@ impl StreamEngine<'_> {
     ) -> EngineResult<Vec<String>> {
         let inject = self.env.config.inject.as_deref();
         let lookup = StreamLookup { engine: self, row };
+        let pools = |name: &str| self.pool_tables.get(name).map(|t| t.as_ref());
+        if line.items.is_some() {
+            let lines = super::each::render_group(
+                line,
+                row.max(0) as usize,
+                inject,
+                each_info,
+                &pools,
+                &lookup,
+            )?;
+            self.raise_pending()?;
+            return Ok(lines);
+        }
         if let Some(name) = trim_to_none(line.each.as_deref()) {
             let lines = super::each::render(
                 line,
@@ -3588,7 +3602,7 @@ impl StreamEngine<'_> {
                 row.max(0) as usize,
                 inject,
                 each_info,
-                self.pool_tables.get(name).map(|t| t.as_ref()),
+                &pools,
                 &lookup,
             )?;
             self.raise_pending()?;

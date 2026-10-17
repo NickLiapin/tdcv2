@@ -585,13 +585,21 @@ fn item_of(attrs: &BTreeMap<String, String>, unnamed: &mut usize) -> Item {
     }
 }
 
-/// Every `<line>` under a container, each flattened to its data parts.
+/// Every `<line>` and `<group>` under a container, a line flattened to its data parts.
 fn lines(container: &Element) -> Vec<Line> {
     container
         .children
         .iter()
-        .filter(|c| c.kind == Kind::OpenClose && c.name == "line")
+        .filter(|c| c.kind == Kind::OpenClose && (c.name == "line" || c.name == "group"))
         .map(|line| {
+            if line.name == "group" {
+                return Line {
+                    parts: Vec::new(),
+                    if_expr: line.attr_value("if").map(str::to_string),
+                    each: line.attr_value("each").map(str::to_string),
+                    items: Some(lines(line)),
+                };
+            }
             let parts = line
                 .children
                 .iter()
@@ -607,6 +615,7 @@ fn lines(container: &Element) -> Vec<Line> {
                 parts,
                 if_expr: line.attr_value("if").map(str::to_string),
                 each: line.attr_value("each").map(str::to_string),
+                items: None,
             }
         })
         .collect()

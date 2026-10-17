@@ -356,7 +356,7 @@ tiene dónde ir.
 | `TDC204` | `repeat` en un generador que no puede repetir            | El mensaje nombra el tipo                                                 |
 | `TDC206` | `each=""` no nombra ninguna secuencia                    | Nombre la lista a recorrer                                                |
 | `TDC207` | `each` nombra una secuencia de un solo valor             | Tiene que ser una lista — agregue `repeat` en el origen                   |
-| `TDC209` | Un `<data>` con nombre dentro de una línea con `each=`   | Esa línea produce varias filas, y el nombre de columna queda ambiguo      |
+| `TDC209` | Un `<data>` con nombre dentro de una línea con `each=` o de un `<group>` | Esa línea produce varias filas, o ninguna, y el nombre de columna queda ambiguo |
 | `TDC211` | `weight` en un generador que no es `file`                | Los pesos vienen de una columna del CSV                                   |
 | `TDC212` | `weight` sin `column`                                    | Los pesos viven en una segunda columna, que hay que nombrar               |
 | `TDC213` | `weight` junto con `order`                               | `order` recorre las filas por posición; ponderar las elige por frecuencia |

@@ -60,17 +60,17 @@ pub const POOL_CHILDREN: [&str; 5] = ["sequence", "mix", "switch", "uniq", "dist
 /// so `<before><data>x</data></before>` validated and emitted nothing at all.
 /// The list is what the "Allowed inside" note prints, so it has to say what the
 /// renderer actually does.
-pub const FIXTURE_CHILDREN: [&str; 1] = ["line"];
+pub const FIXTURE_CHILDREN: [&str; 2] = ["line", "group"];
 
 /// What may sit directly inside `<block>` and `<line>`.
-pub const BLOCK_CHILDREN: [&str; 1] = ["line"];
+pub const BLOCK_CHILDREN: [&str; 2] = ["line", "group"];
 pub const LINE_CHILDREN: [&str; 4] = ["data", "gen", "mix", "switch"];
 
 /// What may sit directly inside `<switch>`.
 pub const SWITCH_CHILDREN: [&str; 3] = ["map", "case", "default"];
 
 /// What each closed tag reads.
-pub const CLOSED_TAG_ATTRIBUTES: [(&str, &[&str]); 14] = [
+pub const CLOSED_TAG_ATTRIBUTES: [(&str, &[&str]); 15] = [
     (
         "env",
         &[
@@ -81,6 +81,7 @@ pub const CLOSED_TAG_ATTRIBUTES: [(&str, &[&str]); 14] = [
     // An assertion is its two attributes and nothing else.
     ("assert", &["that", "each", "says", "comment"]),
     ("line", &["if", "each", "comment"]),
+    ("group", &["if", "each", "comment"]),
     ("tdc", &["version", "v", "regex_max_length", "comment"]),
     ("mix", &["name", "percent", "parent", "flag", "comment"]),
     // `percent` is NOT here: a <switch> picks its case from `on=`, and <case> requires
@@ -397,7 +398,7 @@ pub const KNOWN_TEMPLATE_PATHS: [&str; 9] = [
 
 pub const BUILTIN_TEMPLATE_PATHS: [&str; 2] = ["person.b_day", "date.range"];
 
-pub const PLACEMENT_HINTS: [(&str, &str); 9] = [
+pub const PLACEMENT_HINTS: [(&str, &str); 10] = [
     (
         "gen",
         "A <gen> lives inside a <sequence> (or a <case> of a <mix>/<switch>).",
@@ -417,6 +418,10 @@ pub const PLACEMENT_HINTS: [(&str, &str); 9] = [
     (
         "line",
         "A <line> belongs inside a <block> (or a before/after fixture).",
+    ),
+    (
+        "group",
+        "A <group> belongs inside a <block> or a fixture, around the <line>s it repeats.",
     ),
     ("sequence", "A <sequence> belongs directly inside <env>."),
     // A <data> has no value of its own: it JOINS the value of the thing around it. Written

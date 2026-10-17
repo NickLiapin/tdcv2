@@ -503,6 +503,48 @@ JSON-документ со справочниками — отделения и 
 поэтому при большем числе строк те же таблицы повторились бы. Двадцать таблиц — это двадцать
 пулов и двадцать строк с `each`, никаких других конструкций не нужно.
 
+### Записи внутри записей
+
+Если в каждой записи лежит список собственных записей — отделение и его врачи, — печатайте её
+через [`<group each="…">`](../constructs/relational-tables.md#несколько-строк-на-элемент-group):
+группа повторяет несколько строк на каждое отделение, а группа внутри неё обходит врачей и
+оставляет врачей того отделения, которое сейчас печатается.
+
+```xml
+<block>
+    <line><data>[</data></line>
+    <group each="Depts">
+        <line><data>  {"name": ${{Depts.name | json}}, "doctors": [</data></line>
+        <group each="Doctors" if="Doctors.dept.id == Depts.id">
+            <line><data>    {"name": ${{Doctors.last | json}},</data></line>
+            <line><data>     "languages": ${{Doctors.languages | json:;}}}</data><data if="!Doctors._last">,</data></line>
+        </group>
+        <line><data>  ]}</data><data if="!Depts._last">,</data></line>
+    </group>
+    <line><data>]</data></line>
+</block>
+```
+
+`./run nested.tdc`
+
+```
+[
+  {"name": "Cardiology", "doctors": [
+    {"name": "Williams",
+     "languages": ["English", "Polish"]}
+  ]},
+  {"name": "Neurology", "doctors": [
+    {"name": "Smith",
+     "languages": ["English"]},
+    {"name": "Johnson",
+     "languages": ["English"]}
+  ]}
+]
+```
+
+`Doctors._last` считает врачей одного отделения и в следующем начинает заново, поэтому каждый
+внутренний массив закрывается без висящей запятой, а `Depts._last` делает то же для внешнего.
+
 ## SQL
 
 Для SQL вы выдаёте команды, которые база выполняет напрямую — TDC ни к чему не подключается, он

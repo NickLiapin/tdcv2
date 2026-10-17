@@ -67,8 +67,8 @@ export function checkBlockDataRefs(
   records: readonly string[] = [],
   /** Every list by the path that names it, and its separator — for `| json` (TDC312). */
   lists: ReadonlyMap<string, string> = new Map(),
-  /** The list this line walks with `each`, whose name is the current element here. */
-  walked?: string,
+  /** The lists this line and its groups walk with `each`, whose names are elements here. */
+  walked: readonly string[] = [],
 ): void {
   checkJsonLists(text, node, inject, lists, diagnostics, walked);
   if (inject !== '${{%}}') return;

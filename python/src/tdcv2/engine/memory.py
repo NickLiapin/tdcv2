@@ -34,7 +34,7 @@ from ..generators import formula as formula_gen
 from ..generators import http as http_gen
 from ..generators import repeat as repeat_gen
 from ..generators import stat as stat_gen
-from ..model.config import Config, Gen, Item, Line, SequenceSpec
+from ..model.config import Config, Gen, Group, Item, Line, SequenceSpec
 from ..packs import DataPacks
 from ..parser import config_builder
 from ..pattern import gen as patterns
@@ -195,11 +195,15 @@ def build(
 
         # The suppressed lines are dropped first. A delimiter belongs between the lines that
         # SURVIVE, so deciding that up front is what keeps a separator off the last one standing.
-        # An each= line asks its if= of every element instead, with the element in scope.
+        # An each= line asks its if= of every element instead, with the element in scope, and a
+        # <group> decides its own if= as a whole.
         active = [
             line
             for line in config.block
-            if line.if_expr is None or line.each or _condition(line.if_expr, columns, row)
+            if line.if_expr is None
+            or line.each
+            or isinstance(line, Group)
+            or _condition(line.if_expr, columns, row)
         ]
         # The OUTPUT lines, not the <line> ELEMENTS. One `<line each="Items">` produces as many
         # output lines as the list has elements, and the three per-line fixtures are documented
@@ -3096,6 +3100,16 @@ def _render_line(line: Line, columns, row: int, inject: str, each_info, pools=No
     than one joined string so the caller can put a fixture BETWEEN the lines an each= produced —
     which is what <delimiter_line> is for, and what it silently failed to do.
     """
+    if isinstance(line, Group):
+        return each.render_group(
+            line,
+            row,
+            inject,
+            each_info,
+            pools,
+            _row_lookup(columns, row),
+            lambda name: name in columns,
+        )
     list_name = None if line.each is None else line.each.strip()
     if list_name:
         return each.render(

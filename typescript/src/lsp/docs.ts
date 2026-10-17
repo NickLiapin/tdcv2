@@ -53,7 +53,8 @@ export const TAG_DOCS: Record<string, string> = {
   slice: 'A substring by index.',
   replace: 'Replaces every occurrence — the needle is a literal, not a pattern.',
   trim: 'Strips the outer whitespace.',
-  group: 'Groups characters from the RIGHT, the way a card number or a thousands separator does.',
+  group:
+    'In `<block>` or a fixture: several lines as one unit — `each=` prints them once per element of a list or record of a pool, with that element in scope, and `if=` keeps or drops them all at once. Inside `<compute>`: groups characters from the RIGHT, the way a card number or a thousands separator does.',
   choose:
     'Picks the first `<when>` whose `<test>` holds. `<otherwise>` is required — a `<choose>` without one is `TDC184`.',
   when: 'One branch of a `<choose>`: a `<test>` and the `<result>` to use when it holds.',

@@ -156,9 +156,11 @@ public final class MemoryEngine {
       // so deciding that up front is what keeps a separator off the last one standing.
       List<Config.Line> active = new ArrayList<>();
       for (Config.Line line : config.block()) {
-        // An each= line asks its if= of every element instead, with the element in scope.
+        // An each= line asks its if= of every element instead, with the element in scope, and a
+        // <group> decides its own if= as a whole.
         if (line.ifExpr() == null
             || line.each() != null
+            || line.isGroup()
             || condition(line.ifExpr(), columns, row)) {
           active.add(line);
         }
@@ -4613,10 +4615,12 @@ public final class MemoryEngine {
       String inject,
       Map<String, Repeat.Spec> eachInfo,
       Map<String, Pool.Table> pools) {
+    if (line.isGroup()) {
+      return Each.renderGroup(line, row, inject, eachInfo, pools::get, lookup(columns, row));
+    }
     String listName = line.each() == null ? null : line.each().trim();
     if (listName != null && !listName.isEmpty()) {
-      return Each.render(
-          line, listName, row, inject, eachInfo, pools.get(listName), lookup(columns, row));
+      return Each.render(line, listName, row, inject, eachInfo, pools::get, lookup(columns, row));
     }
     StringBuilder text = new StringBuilder();
     for (Config.DataPart part : line.parts()) {

@@ -19,8 +19,7 @@ from collections.abc import Callable
 from ..expr import as_condition
 from ..format import interpolate
 from ..generators import repeat as repeat_gen
-
-POSITIONS = ("_item", "_first", "_last")
+from ..model.config import Group
 
 
 def render(
@@ -34,6 +33,74 @@ def render(
     has: Callable[[str], bool],
 ) -> list[str]:
     """The output lines of one ``each`` line on one row, each with its newline attached."""
+    out = []
+    for overlay in _overlays(name, line.if_expr, row, each_info, pools, value, has):
+        look, known = _views(overlay, value, has)
+        template = "".join(part.text for part in line.parts if _holds(part.if_expr, look, known))
+        out.append(interpolate.apply(template, inject, look) + "\n")
+    return out
+
+
+def render_group(
+    group,
+    row: int,
+    inject: str,
+    each_info,
+    pools,
+    value: Callable[[str], str | None],
+    has: Callable[[str], bool],
+) -> list[str]:
+    """``<group>``: its lines and groups, once per element it walks — or once, or not at all.
+
+    With ``each`` the items print once per element of a list or record of a pool, with that
+    element in scope for every one of them, so an inner ``each`` can keep the doctors of the
+    department being printed (``Doctors.dept.id == Depts.id``). Without it, ``if`` decides all of
+    them at once, in the scope around the group.
+    """
+    name = (group.each or "").strip()
+    if name:
+        overlays = _overlays(name, group.if_expr, row, each_info, pools, value, has)
+    else:
+        overlays = [{}] if _holds(group.if_expr, value, has) else []
+    out: list[str] = []
+    for overlay in overlays:
+        look, known = _views(overlay, value, has)
+        for item in group.items:
+            out.extend(render_item(item, row, inject, each_info, pools, look, known))
+    return out
+
+
+def render_item(
+    item,
+    row: int,
+    inject: str,
+    each_info,
+    pools,
+    value: Callable[[str], str | None],
+    has: Callable[[str], bool],
+) -> list[str]:
+    """One line or group inside a group, in the scope the groups around it put in place."""
+    if isinstance(item, Group):
+        return render_group(item, row, inject, each_info, pools, value, has)
+    name = None if item.each is None else item.each.strip()
+    if name:
+        return render(item, name, row, inject, each_info, pools, value, has)
+    if not _holds(item.if_expr, value, has):
+        return []
+    template = "".join(part.text for part in item.parts if _holds(part.if_expr, value, has))
+    return [interpolate.apply(template, inject, value) + "\n"]
+
+
+def _overlays(
+    name: str,
+    keep: str | None,
+    row: int,
+    each_info,
+    pools,
+    value: Callable[[str], str | None],
+    has: Callable[[str], bool],
+) -> list[dict[str, str]]:
+    """One overlay per element printed, positions included, after ``keep`` has dropped some."""
     candidates: list[dict[str, str]] = []
     table = None if has(name) else (pools or {}).get(name)
     if table is not None:
@@ -65,30 +132,31 @@ def render(
                 }
             )
 
-    def views(overlay: dict[str, str]):
-        def look(n: str) -> str | None:
-            return overlay[n] if n in overlay else value(n)
-
-        def known(n: str) -> bool:
-            return n in overlay or has(n)
-
-        return look, known
-
-    def holds(expression: str | None, overlay: dict[str, str]) -> bool:
-        if expression is None:
-            return True
-        look, known = views(overlay)
-        return as_condition(expression, known, lambda n: look(n) or "")
-
-    kept = [overlay for overlay in candidates if holds(line.if_expr, overlay)]
-    out = []
-    for k, overlay in enumerate(kept):
-        overlay = {
+    kept = [o for o in candidates if _holds(keep, *_views(o, value, has))]
+    return [
+        {
             **overlay,
             f"{name}._item": str(k + 1),
             f"{name}._first": "true" if k == 0 else "false",
             f"{name}._last": "true" if k == len(kept) - 1 else "false",
         }
-        template = "".join(part.text for part in line.parts if holds(part.if_expr, overlay))
-        out.append(interpolate.apply(template, inject, views(overlay)[0]) + "\n")
-    return out
+        for k, overlay in enumerate(kept)
+    ]
+
+
+def _views(overlay: dict[str, str], value, has):
+    """The scope around, with one element's names laid over it."""
+
+    def look(n: str) -> str | None:
+        return overlay[n] if n in overlay else value(n)
+
+    def known(n: str) -> bool:
+        return n in overlay or has(n)
+
+    return look, known
+
+
+def _holds(expression: str | None, look, known) -> bool:
+    if expression is None:
+        return True
+    return as_condition(expression, known, lambda n: look(n) or "")

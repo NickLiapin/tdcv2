@@ -445,6 +445,46 @@ pool the document prints. `count="1"` prints the document once; a pool is the sa
 row, so with more rows the same tables would repeat. Twenty tables are twenty pools and
 twenty `each` lines — no other construct is involved.
 
+### Records inside records
+
+When each record holds a list of its own records — a department and its doctors — print it with
+[`<group each="…">`](../constructs/relational-tables.mdx#several-lines-per-element-group): the
+group repeats several lines per department, and a group inside it walks the doctors, keeping
+those of the department being printed.
+
+```xml
+<block>
+    <line><data>[</data></line>
+    <group each="Depts">
+        <line><data>  {"name": ${{Depts.name | json}}, "doctors": [</data></line>
+        <group each="Doctors" if="Doctors.dept.id == Depts.id">
+            <line><data>    {"name": ${{Doctors.last | json}},</data></line>
+            <line><data>     "languages": ${{Doctors.languages | json:;}}}</data><data if="!Doctors._last">,</data></line>
+        </group>
+        <line><data>  ]}</data><data if="!Depts._last">,</data></line>
+    </group>
+    <line><data>]</data></line>
+</block>
+```
+
+<Terminal title="./run nested.tdc">
+{`[
+  {"name": "Cardiology", "doctors": [
+    {"name": "Williams",
+     "languages": ["English", "Polish"]}
+  ]},
+  {"name": "Neurology", "doctors": [
+    {"name": "Smith",
+     "languages": ["English"]},
+    {"name": "Johnson",
+     "languages": ["English"]}
+  ]}
+]`}
+</Terminal>
+
+`Doctors._last` counts the doctors of one department and starts over in the next, so each inner
+array closes without a trailing comma, and `Depts._last` does the same for the outer one.
+
 ### Many records: NDJSON
 
 An array has a ceiling: to read a single object, a parser has to load the **whole file**, so

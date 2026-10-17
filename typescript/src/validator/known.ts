@@ -353,7 +353,7 @@ export const KNOWN_SEQUENCE_CHILDREN: readonly string[] = [
 ] as const;
 
 /** Tag names valid as direct children of `<block>`. */
-export const KNOWN_BLOCK_CHILDREN: readonly string[] = ['line'] as const;
+export const KNOWN_BLOCK_CHILDREN: readonly string[] = ['line', 'group'] as const;
 
 /**
  * `<distinct>` and `<uniq>` mean two different things depending on where they
@@ -404,7 +404,7 @@ export const KNOWN_POOL_CHILDREN: readonly string[] = [
  * The list is what the "Allowed inside" note prints, so it has to say what the
  * renderer actually does.
  */
-export const KNOWN_FIXTURE_CHILDREN: readonly string[] = ['line'] as const;
+export const KNOWN_FIXTURE_CHILDREN: readonly string[] = ['line', 'group'] as const;
 
 /** Tag names valid inside the open/close form of `<gen>`. */
 export const KNOWN_GEN_CHILDREN: readonly string[] = ['data'] as const;
@@ -429,6 +429,8 @@ export const ALLOWED_CHILDREN: Readonly<Record<string, readonly string[]>> = {
   pool: KNOWN_POOL_CHILDREN,
   gen: KNOWN_GEN_CHILDREN,
   line: ['data', 'gen', 'mix', 'switch'],
+  // A group holds what a block holds: lines, and groups of them.
+  group: KNOWN_BLOCK_CHILDREN,
   before: KNOWN_FIXTURE_CHILDREN,
   after: KNOWN_FIXTURE_CHILDREN,
   before_block: KNOWN_FIXTURE_CHILDREN,

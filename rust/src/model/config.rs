@@ -225,6 +225,9 @@ pub struct Line {
     /// does not keep a separator pointing at nothing.
     pub if_expr: Option<String>,
     pub each: Option<String>,
+    /// `Some` for a `<group>`: the lines and groups it holds, printed together — once per element
+    /// with `each`, or all or none by `if`. A group has no `<data>` parts of its own.
+    pub items: Option<Vec<Line>>,
 }
 
 /// Text emitted around the repeating body.

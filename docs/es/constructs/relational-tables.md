@@ -236,6 +236,87 @@ El pool tiene cinco médicos, y el último trabaja de noche, así que el filtro 
 coma colgando. [Formatos de salida → JSON](../guides/output-formats.md#json) arma así un
 documento entero a partir de dos pools.
 
+## Varias líneas por elemento: `<group>`
+
+`each` en una `<line>` repite **una** línea. Cuando un elemento necesita varias — un
+departamento, luego sus médicos, luego un corchete de cierre —, envuelva las líneas en un
+`<group>`. `<group each="…">` imprime todo lo que contiene una vez por elemento, en orden, con
+ese elemento a la vista de cada línea:
+
+```xml
+<block>
+    <line><data>[</data></line>
+    <group each="Depts">
+        <line><data>  {"name": ${{Depts.name | json}}, "doctors": [</data></line>
+        <group each="Doctors" if="Doctors.dept.id == Depts.id">
+            <line><data>    {"name": ${{Doctors.last | json}},</data></line>
+            <line><data>     "languages": ${{Doctors.languages | json:;}}}</data><data if="!Doctors._last">,</data></line>
+        </group>
+        <line><data>  ]}</data><data if="!Depts._last">,</data></line>
+    </group>
+    <line><data>]</data></line>
+</block>
+```
+
+Los pools `Depts` y `Doctors` son los de
+[Formatos de salida → Dos tablas en un solo documento](../guides/output-formats.md#dos-tablas-en-un-solo-documento).
+
+`./run nested.tdc`
+
+```
+[
+  {"name": "Cardiology", "doctors": [
+    {"name": "Williams",
+     "languages": ["English", "Polish"]}
+  ]},
+  {"name": "Neurology", "doctors": [
+    {"name": "Smith",
+     "languages": ["English"]},
+    {"name": "Johnson",
+     "languages": ["English"]}
+  ]}
+]
+```
+
+El grupo exterior imprime tres líneas por cada departamento. Dentro de él, `${{Depts.name}}` es el
+departamento que se está imprimiendo, así que el grupo interior, que recorre todos los médicos,
+se queda con los que tienen el mismo `dept.id`. Cada nivel cuenta sus propias posiciones:
+`Doctors._last` es el último médico impreso **en este departamento** y vuelve a empezar en el
+siguiente, y `Depts._last` es el último departamento. Por eso cada coma cae donde JSON la
+necesita. Un grupo puede contener líneas y otros grupos, tan hondo como llegue el documento.
+
+Sin `each`, el `if=` de un grupo conserva o descarta todas sus líneas a la vez — una condición en
+lugar de la misma copiada en cada línea:
+
+```xml
+<block>
+    <line><data>#${{Id}} ${{Kind}}</data></line>
+    <group if="Kind == visit">
+        <line><data>  room ${{Room}}</data></line>
+        <line><data>  check-in at the front desk</data></line>
+    </group>
+</block>
+```
+
+`./run contacts.tdc`
+
+```
+#1 call
+#2 visit
+  room 122
+  check-in at the front desk
+#3 visit
+  room 116
+  check-in at the front desk
+#4 call
+```
+
+Una línea dentro de un grupo conserva su propio `if=` y puede recorrer una lista propia con
+`each`. El `if=` de un grupo puede leer el elemento que recorre, pero no sus posiciones, que
+cuentan los elementos que ese `if=` deja pasar (`TDC215`). Una columna tipada — `<data name="…">` —
+no puede estar en ningún lugar dentro de un grupo (`TDC209`): el grupo imprime sus líneas varias
+veces o ninguna, y una columna tiene una celda por registro.
+
 ## Un ciclo de vida, no solo una lista
 
 Las filas de un registro no tienen que ser un saco de valores sin relación. Pueden ser una
@@ -352,8 +433,8 @@ adivinar:
 | :------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------ | :------- |
 | `each` sobre una secuencia **sin** [`repeat`](../reference/attributes.md#top) | no hay nada que recorrer                                                                                            | `TDC207` |
 | `each` sobre un nombre que no es ni una secuencia ni un pool               | no existe nada con ese nombre, y la línea no imprimiría nada en absoluto                                            | `TDC206` |
-| `<data name="…">` dentro de una línea con `each`                           | un `<data>` con nombre es una **columna** para Parquet, y Parquet junta columnas por tarjeta, no por fila recorrida | `TDC209` |
-| `Orders._last` en el `if=` de la misma línea con `each`                    | las posiciones cuentan las líneas que deja pasar ese `if=`, así que no pueden decidir cuáles son                    | `TDC215` |
+| `<data name="…">` dentro de una línea con `each` o de un `<group>`        | un `<data>` con nombre es una **columna** para Parquet, y Parquet junta columnas por tarjeta, no por fila recorrida | `TDC209` |
+| `Orders._last` en el `if=` de la misma línea con `each` o del mismo grupo  | las posiciones cuentan las líneas que deja pasar ese `if=`, así que no pueden decidir cuáles son                    | `TDC215` |
 
 `./run broken.tdc  (each sobre algo que no es una lista)`
 

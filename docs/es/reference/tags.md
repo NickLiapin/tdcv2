@@ -30,6 +30,7 @@ Todas las etiquetas del DSL de TDC, con el lugar donde se explican a fondo.
 | :------------------------------------------------------- | :------------------------------------------------------ | :--------------------------------------------------------- |
 | `<block>`                                                | El diseño de un registro de salida                      | [Salida y formato](../core-concepts/output-formatting.md#top) |
 | `<line>`                                                 | Una línea dentro de un registro                         | [Salida y formato](../core-concepts/output-formatting.md#top) |
+| `<group>`                                                | Varias líneas como una unidad: se imprimen una vez por elemento con `each`, se conservan o descartan juntas con `if`. Dentro de `<compute>`, `<group>` es otra etiqueta, la que agrupa dígitos | [Tablas relacionales](../constructs/relational-tables.md#varias-líneas-por-elemento-group) |
 | `<data>`                                                 | Dentro de una `<line>`: texto literal con interpolación | [Salida y formato](../core-concepts/output-formatting.md#top) |
 | `<before>` / `<after>`                                   | Texto antes / después de toda la generación             | [Salida y formato](../core-concepts/output-formatting.md#top) |
 | `<before_block>` / `<after_block>` / `<delimiter_block>` | Texto alrededor / entre registros                       | [Salida y formato](../core-concepts/output-formatting.md#top) |

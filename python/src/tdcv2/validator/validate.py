@@ -91,6 +91,7 @@ CLOSED_TAG_ATTRIBUTES = {
     "env": {"count", "seed", "local", "inject", "mode", "engine", "comment"},
     "sequence": {"name", "parent", "uniq", "comment"},
     "line": {"if", "each", "comment"},
+    "group": {"if", "each", "comment"},
     "tdc": {"version", "v", "regex_max_length", "comment"},
     "mix": {"name", "percent", "parent", "flag", "comment"},
     # `percent` is NOT here: a <switch> picks its case from `on=`, and <case> requires
@@ -127,6 +128,7 @@ PLACEMENT_HINTS = {
     "map": "A <map> belongs inside a <switch>.",
     "default": "A <default> belongs inside a <switch>.",
     "line": "A <line> belongs inside a <block> (or a before/after fixture).",
+    "group": "A <group> belongs inside a <block> or a fixture, around the <line>s it repeats.",
     "sequence": "A <sequence> belongs directly inside <env>.",
     # A <data> has no value of its own: it JOINS the value of the thing around it. Written
     # where there is nothing to join — straight into <tdc>, <env>, <block> or <pool> — it
@@ -289,13 +291,13 @@ POOL_CHILDREN = frozenset({"sequence", "mix", "switch", "uniq", "distinct"})
 #: ``data`` used to be on this list, and every renderer only ever walks ``<line>`` — so
 #: ``<before><data>x</data></before>`` validated and emitted nothing at all. The list is what the
 #: "Allowed inside" note prints, so it has to say what the renderer actually does.
-FIXTURE_CHILDREN = frozenset({"line"})
+FIXTURE_CHILDREN = frozenset({"line", "group"})
 
 # What may sit directly inside <switch>.
 SWITCH_CHILDREN = frozenset({"map", "case", "default"})
 
 # What may sit directly inside <block> and <line>.
-BLOCK_CHILDREN = frozenset({"line"})
+BLOCK_CHILDREN = frozenset({"line", "group"})
 LINE_CHILDREN = frozenset({"data", "gen", "mix", "switch"})
 
 FIXTURE_TAGS = frozenset(
@@ -1671,14 +1673,7 @@ class _Validator:
                 # walks <line> children, so the text was dropped without a word. Named rather
                 # than rendered: a bare <data> would have to invent whether it ends the line,
                 # and <line><data> already says.
-                self._check_fixture_data(inner)
-                self._check_children(
-                    inner.content(),
-                    inner.name.text,
-                    FIXTURE_CHILDREN | frozenset({"data"}),
-                    "TDC131",
-                    shown=FIXTURE_CHILDREN,
-                )
+                self._check_fixture_items(inner, inner.name.text)
         self._check_closed_tag_attrs("env", env.attr(), _line(env), _column(env))
 
         names: set[str] = set()
@@ -4098,7 +4093,23 @@ class _Validator:
             _did_you_mean(near if near != name else ""),
         )
 
-    def _check_fixture_data(self, fixture) -> None:
+    def _check_fixture_items(self, container, fixture_name: str) -> None:
+        """The lines of a fixture, or of a ``<group>`` in one — the same rules at every depth."""
+        self._check_fixture_data(container, fixture_name)
+        self._check_children(
+            container.content(),
+            fixture_name,
+            FIXTURE_CHILDREN | frozenset({"data"}),
+            "TDC131",
+            shown=FIXTURE_CHILDREN,
+        )
+        for child in _elements(container):
+            group = child.openCloseElement()
+            if group is not None and group.name.text == "group":
+                self._check_closed_tag_attrs("group", group.attr(), _line(group), _column(group))
+                self._check_fixture_items(group, fixture_name)
+
+    def _check_fixture_data(self, fixture, fixture_name: str) -> None:
         """`<data>` with no `<line>` around it, inside a fixture body."""
         content = fixture.content()
         if content is None:
@@ -4109,9 +4120,9 @@ class _Validator:
                 continue
             self._error(
                 "TDC131",
-                f"<data> directly inside <{fixture.name.text}> renders nothing",
-                f"A fixture body is made of <line>s. Wrap it: <{fixture.name.text}><line>"
-                f"<data>…</data></line></{fixture.name.text}>.",
+                f"<data> directly inside <{fixture_name}> renders nothing",
+                f"A fixture body is made of <line>s. Wrap it: <{fixture_name}><line>"
+                f"<data>…</data></line></{fixture_name}>.",
                 _line(data_el),
                 _column(data_el),
             )
@@ -6148,16 +6159,66 @@ class _Validator:
     # ── block ───────────────────────────────────────────────────────────────────────────────
 
     def _check_block(self, block) -> None:
+        self._check_items(block, "block", _OutputScope())
+
+    def _check_items(self, container, parent: str, scope: _OutputScope) -> None:
+        """The ``<line>``s and ``<group>``s of a block or a group; anything else is misplaced."""
         # These two were missed when the other containers were closed: an invented
         # tag in either passed in silence while the same tag one level up did not.
-        self._check_children(block.content(), "block", BLOCK_CHILDREN, "TDC013")
-        for child in _elements(block):
+        self._check_children(container.content(), parent, BLOCK_CHILDREN, "TDC013")
+        for child in _elements(container):
             open_el = child.openCloseElement()
             if open_el is not None and open_el.name.text == "line":
                 self._check_children(open_el.content(), "line", LINE_CHILDREN, "TDC013")
-                self._check_line(open_el)
+                self._check_line(open_el, scope)
+            elif open_el is not None and open_el.name.text == "group":
+                self._check_group(open_el, scope)
 
-    def _check_line(self, line_el) -> None:
+    def _check_group(self, group, scope: _OutputScope) -> None:
+        """``<group each="…" if="…">`` — several lines as one unit.
+
+        Its ``each=`` is checked as a line's is (TDC206, TDC207). Its ``if=`` reads the scope around
+        it and the element it walks, but not its own positions, which count the elements that
+        ``if=`` keeps. And no typed column may sit anywhere inside: a group repeats its lines or
+        drops them as a whole, and a column has one cell per record either way (TDC209).
+        """
+        self._check_closed_tag_attrs("group", group.attr(), _line(group), _column(group))
+        each = _attrs(group.attr()).get("each")
+        each_name = None if each is None else each.strip()
+        if each is not None:
+            self._check_each_attr(group, each_name)
+        condition = _attrs(group.attr()).get("if")
+        if condition is not None:
+            where = _at_attrs(group.attr(), "if", _line(group), _column(group))
+            self._check_if_expression(condition, where[0], where[1])
+            self._defer_expression(
+                condition,
+                where[0],
+                where[1],
+                scope.each or each is not None,
+                extra=scope.names | self._each_names(each_name, for_if=True),
+            )
+        column_name = _first_named_data(group)
+        if column_name is not None:
+            self._error(
+                "TDC209",
+                f'a named <data name="{column_name}"> cannot sit inside a <group>',
+                "A group prints its lines several times or drops them all, and a typed column has "
+                "one cell per record either way. Keep typed columns on lines outside the group.",
+                _line(group),
+                _column(group),
+            )
+        self._check_items(
+            group,
+            "group",
+            _OutputScope(
+                scope.names | self._each_names(each_name, for_if=False),
+                scope.walked + ((each_name,) if each_name else ()),
+                scope.each or each is not None,
+            ),
+        )
+
+    def _check_line(self, line_el, scope: _OutputScope) -> None:
         """A ``<line>`` holds text, and only text.
 
         The block describes the shape of the output, not where values come from. A generator placed
@@ -6171,10 +6232,12 @@ class _Validator:
         # condition and every <data> inside it may name them.
         each = _attrs(line_el.attr()).get("each")
         each_name = None if each is None else each.strip()
-        walks_a_list = each is not None
+        walks_a_list = each is not None or scope.each
         # What a walked pool or list publishes: every <data> may read the positions, and the
         # line's own if= may not, because the positions count the lines that if= lets through.
-        line_names = self._each_names(each_name, for_if=False)
+        # The groups around the line add what THEY walk.
+        line_names = scope.names | self._each_names(each_name, for_if=False)
+        walked = scope.walked + ((each_name,) if each_name else ())
         line_condition = _attrs(line_el.attr()).get("if")
         if line_condition is not None:
             where = _at_attrs(line_el.attr(), "if", _line(line_el), _column(line_el))
@@ -6184,59 +6247,10 @@ class _Validator:
                 where[0],
                 where[1],
                 walks_a_list,
-                extra=self._each_names(each_name, for_if=True),
+                extra=scope.names | self._each_names(each_name, for_if=True),
             )
         if each is not None:
-            line, column = _at(line_el, "each")
-            if not each_name:
-                self._error(
-                    "TDC206",
-                    'each="" names no sequence',
-                    'Point it at a repeating sequence, <line each="Orders">, or at a pool, '
-                    '<line each="Doctors">.',
-                    line,
-                    column,
-                )
-            elif each_name not in self.declared_names and each_name not in self.pool_fields:
-                # Nothing by that name: the line would print nothing at all, and an empty child
-                # table is the quietest way a config can be wrong.
-                self._error(
-                    "TDC206",
-                    f'each="{each_name}" — no sequence or pool with that name',
-                    'The name must match a repeating <sequence name="…"> declared in <env>, or a '
-                    '<pool name="…">.',
-                    line,
-                    column,
-                )
-            elif each_name in self.declared_names and each_name not in self.repeating_names:
-                # Walking a scalar would emit one line and look like it worked, which is the kind
-                # of near-miss that survives review.
-                self._error(
-                    "TDC207",
-                    f'each="{each_name}" — that sequence holds one value, not a list',
-                    'Add repeat= to its <gen>, e.g. <gen … repeat="1..5"/>, or drop each=.',
-                    line,
-                    column,
-                )
-            else:
-                # A typed column is collected once per record, and an each= line emits several —
-                # a list's elements or a pool's records alike. The two cannot both be true, so
-                # the column would silently take whichever came last.
-                for child in _elements(line_el):
-                    data = child.dataElement()
-                    if data is None or not _has_body(data):
-                        continue
-                    column_name = _attrs(data.attr()).get("name")
-                    if column_name is not None and column_name.strip():
-                        self._error(
-                            "TDC209",
-                            f'a named <data name="{column_name}"> cannot sit inside an each= line',
-                            "Typed columns are collected once per card. For columnar output keep "
-                            'the list as a list column (type="[]…"); each= is for text and SQL.',
-                            line,
-                            column,
-                        )
-                        break
+            self._check_each_attr(line_el, each_name)
 
         for child in _elements(line_el):
             self_closing = child.selfClosingElement()
@@ -6275,7 +6289,7 @@ class _Validator:
                 # The <data> element, not the <line> around it: several <data> pieces can share a
                 # line, and pointing at the line would name the wrong one whenever they do.
                 text = _data_text(data)
-                for message, hint in json_lists.check(text, self.list_separators, each_name):
+                for message, hint in json_lists.check(text, self.list_separators, walked):
                     self._warn("TDC312", message, hint, data.start.line, data.start.column)
                 self.line_names = line_names
                 try:
@@ -6318,6 +6332,59 @@ class _Validator:
                     _line(open_el),
                     _column(open_el),
                 )
+
+    def _check_each_attr(self, element, each_name: str | None) -> None:
+        """``each=`` on a line or a group: it has to name a list or a pool."""
+        line, column = _at(element, "each")
+        if not each_name:
+            self._error(
+                "TDC206",
+                'each="" names no sequence',
+                'Point it at a repeating sequence, <line each="Orders">, or at a pool, '
+                '<line each="Doctors">.',
+                line,
+                column,
+            )
+        elif each_name not in self.declared_names and each_name not in self.pool_fields:
+            # Nothing by that name: the line would print nothing at all, and an empty child
+            # table is the quietest way a config can be wrong.
+            self._error(
+                "TDC206",
+                f'each="{each_name}" — no sequence or pool with that name',
+                'The name must match a repeating <sequence name="…"> declared in <env>, or a '
+                '<pool name="…">.',
+                line,
+                column,
+            )
+        elif each_name in self.declared_names and each_name not in self.repeating_names:
+            # Walking a scalar would emit one line and look like it worked, which is the kind
+            # of near-miss that survives review.
+            self._error(
+                "TDC207",
+                f'each="{each_name}" — that sequence holds one value, not a list',
+                'Add repeat= to its <gen>, e.g. <gen … repeat="1..5"/>, or drop each=.',
+                line,
+                column,
+            )
+        else:
+            # A typed column is collected once per record, and an each= line emits several —
+            # a list's elements or a pool's records alike. The two cannot both be true, so
+            # the column would silently take whichever came last.
+            for child in _elements(element):
+                data = child.dataElement()
+                if data is None or not _has_body(data):
+                    continue
+                column_name = _attrs(data.attr()).get("name")
+                if column_name is not None and column_name.strip():
+                    self._error(
+                        "TDC209",
+                        f'a named <data name="{column_name}"> cannot sit inside an each= line',
+                        "Typed columns are collected once per card. For columnar output keep "
+                        'the list as a list column (type="[]…"); each= is for text and SQL.',
+                        line,
+                        column,
+                    )
+                    break
 
     def _each_names(self, each_name: str | None, *, for_if: bool) -> frozenset[str]:
         """The names an ``each`` line may read besides the run's own.
@@ -7283,16 +7350,49 @@ def _column(element) -> int:
 
 
 def _each_pools(block) -> set[str]:
-    """The names a ``<line each="…">`` walks — a pool among them is read by being printed."""
+    """The names a ``<line each="…">`` or ``<group each="…">`` walks, at any depth — a pool among
+    them is read by being printed."""
     out: set[str] = set()
     for child in _elements(block) if block is not None else []:
-        line_el = child.openCloseElement()
-        if line_el is None or line_el.name.text != "line":
+        item = child.openCloseElement()
+        if item is None or item.name.text not in ("line", "group"):
             continue
-        each = (_attrs(line_el.attr()).get("each") or "").strip()
+        each = (_attrs(item.attr()).get("each") or "").strip()
         if each:
             out.add(each)
+        if item.name.text == "group":
+            out |= _each_pools(item)
     return out
+
+
+@dataclasses.dataclass(frozen=True)
+class _OutputScope:
+    """What the groups around a line publish: names, the lists they walk, and whether any walks.
+
+    A ``<group each="Depts">`` puts its element in scope for every line inside it, nested groups
+    included, so ``${{Depts.name}}`` and ``if="Doctors.dept.id == Depts.id"`` are names there.
+    """
+
+    names: frozenset[str] = frozenset()
+    walked: tuple[str, ...] = ()
+    each: bool = False
+
+
+def _first_named_data(container) -> str | None:
+    """The first ``<data name="…">`` anywhere inside, or None."""
+    for child in _elements(container):
+        data = child.dataElement()
+        if data is not None:
+            name = (_attrs(data.attr()).get("name") or "").strip()
+            if name:
+                return name
+            continue
+        inner = child.openCloseElement()
+        if inner is not None:
+            found = _first_named_data(inner)
+            if found is not None:
+                return found
+    return None
 
 
 def _list_separators(env) -> dict[str, str]:

@@ -7218,6 +7218,156 @@
         "lines": ["head 1:c", "head 2:a", "row c;a", "row a;c;b"]
       }
     },
+    "structure/group-each-nests-one-pool-inside-another": {
+      "engine2": {
+        "lines": [
+          "[",
+          "  {\"name\": \"Cardiology\", \"doctors\": [",
+          "  ]},",
+          "  {\"name\": \"Neurology\", \"doctors\": [",
+          "    {\"id\": 2, \"name\": \"Baker\",",
+          "     \"langs\": [\"es\", \"en\"], \"n\": 1}",
+          "  ]},",
+          "  {\"name\": \"Surgery\", \"doctors\": [",
+          "    {\"id\": 1, \"name\": \"Adams\",",
+          "     \"langs\": [\"es\", \"pl\"], \"n\": 1},",
+          "    {\"id\": 3, \"name\": \"Clark\",",
+          "     \"langs\": [\"en\", \"pl\"], \"n\": 2},",
+          "    {\"id\": 4, \"name\": \"Davis\",",
+          "     \"langs\": [\"es\"], \"n\": 3},",
+          "    {\"id\": 5, \"name\": \"Evans\",",
+          "     \"langs\": [\"pl\"], \"n\": 4}",
+          "  ]}",
+          "]"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "[",
+          "  {\"name\": \"Cardiology\", \"doctors\": [",
+          "  ]},",
+          "  {\"name\": \"Neurology\", \"doctors\": [",
+          "    {\"id\": 2, \"name\": \"Baker\",",
+          "     \"langs\": [\"es\", \"en\"], \"n\": 1}",
+          "  ]},",
+          "  {\"name\": \"Surgery\", \"doctors\": [",
+          "    {\"id\": 1, \"name\": \"Adams\",",
+          "     \"langs\": [\"es\", \"pl\"], \"n\": 1},",
+          "    {\"id\": 3, \"name\": \"Clark\",",
+          "     \"langs\": [\"en\", \"pl\"], \"n\": 2},",
+          "    {\"id\": 4, \"name\": \"Davis\",",
+          "     \"langs\": [\"es\"], \"n\": 3},",
+          "    {\"id\": 5, \"name\": \"Evans\",",
+          "     \"langs\": [\"pl\"], \"n\": 4}",
+          "  ]}",
+          "]"
+        ]
+      }
+    },
+    "structure/group-each-list-prints-several-lines-per-element": {
+      "engine2": {
+        "lines": [
+          "card 1",
+          "  begin 1/1 a",
+          "  end a",
+          "  begin 2/2 b",
+          "  end b (last)",
+          "card 2",
+          "  begin 4/1 a",
+          "  end a",
+          "  begin 5/2 c",
+          "  end c",
+          "  begin 6/3 b",
+          "  end b (last)",
+          "card 3",
+          "  begin 7/1 c",
+          "  end c (last)",
+          "card 4"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "card 1",
+          "  begin 1/1 a",
+          "  end a",
+          "  begin 2/2 b",
+          "  end b (last)",
+          "card 2",
+          "  begin 4/1 a",
+          "  end a",
+          "  begin 5/2 c",
+          "  end c",
+          "  begin 6/3 b",
+          "  end b (last)",
+          "card 3",
+          "  begin 7/1 c",
+          "  end c (last)",
+          "card 4"
+        ]
+      }
+    },
+    "structure/group-if-keeps-or-drops-its-lines-together": {
+      "engine2": {
+        "lines": [
+          "#1 call",
+          "#2 visit",
+          "  room",
+          "  doctor",
+          "  tag y",
+          "  tag y",
+          "#3 call",
+          "#4 call",
+          "#5 visit",
+          "  room",
+          "  doctor",
+          "  tag y",
+          "  late"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "#1 call",
+          "#2 visit",
+          "  room",
+          "  doctor",
+          "  tag y",
+          "  tag y",
+          "#3 call",
+          "#4 call",
+          "#5 visit",
+          "  room",
+          "  doctor",
+          "  tag y",
+          "  late"
+        ]
+      }
+    },
+    "structure/group-in-a-fixture": {
+      "engine2": {
+        "lines": [
+          "dept 1",
+          "  name Cardiology",
+          "dept 2",
+          "  name Neurology",
+          "dept 3",
+          "  name Surgery",
+          "row 1",
+          "row 2"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "dept 1",
+          "  name Cardiology",
+          "dept 2",
+          "  name Neurology",
+          "dept 3",
+          "  name Surgery",
+          "row 1",
+          "row 2"
+        ]
+      }
+    },
     "uniq-distinct/distinct-pair": {
       "engine2": {
         "lines": [

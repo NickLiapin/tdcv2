@@ -840,7 +840,10 @@ public final class ConfigBuilder {
         isTrue(attrs.get("uniq")));
   }
 
-  /** Every {@code <line>} under a container, each flattened to its {@code <data>} text. */
+  /**
+   * Every {@code <line>} and {@code <group>} under a container, a line flattened to its {@code
+   * <data>} text.
+   */
   private static List<Config.Line> lines(TDCParser.ContentContext content) {
     List<Config.Line> out = new ArrayList<>();
     if (content == null) {
@@ -848,6 +851,13 @@ public final class ConfigBuilder {
     }
     for (TDCParser.ElementContext child : content.element()) {
       TDCParser.OpenCloseElementContext open = child.openCloseElement();
+      if (open != null && "group".equals(open.name.getText())) {
+        Map<String, String> groupAttrs = attributes(open.attr());
+        out.add(
+            new Config.Line(
+                List.of(), groupAttrs.get("if"), groupAttrs.get("each"), lines(open.content())));
+        continue;
+      }
       if (open == null || !"line".equals(open.name.getText())) {
         continue;
       }

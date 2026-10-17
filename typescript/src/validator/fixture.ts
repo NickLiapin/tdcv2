@@ -18,7 +18,13 @@ import { nodeRange } from '../errors/index.js';
 import type { OpenCloseElementContext } from '../generated/TDCParser.js';
 import { contentElements, elementKind } from '../processor/walk.js';
 
-import { childNode, childTagName, reportUnknownChild } from './placement.js';
+import {
+  childNode,
+  childTagName,
+  isKnownConstruct,
+  reportMisplaced,
+  reportUnknownChild,
+} from './placement.js';
 
 /** Fixture tags: text emitted around cards and lines, never generated data. */
 export const FIXTURE_TAGS: readonly string[] = [
@@ -42,6 +48,15 @@ export const FIXTURE_TAGS: readonly string[] = [
  * `<block><line>` has always been a hard error (TDC131). Same rule, same code.
  */
 export function checkFixture(
+  fixtureEl: OpenCloseElementContext,
+  fixtureName: string,
+  diagnostics: Diagnostic[],
+): void {
+  checkFixtureItems(fixtureEl, fixtureName, diagnostics);
+}
+
+/** The lines of a fixture, or of a `<group>` inside one — the same rules at every depth. */
+function checkFixtureItems(
   fixtureEl: OpenCloseElementContext,
   fixtureName: string,
   diagnostics: Diagnostic[],
@@ -72,10 +87,21 @@ export function checkFixture(
       continue;
     }
     const k = elementKind(el);
+    if (name === 'group' && k?.kind === 'open') {
+      checkFixtureItems(k.node, fixtureName, diagnostics);
+      continue;
+    }
     // A fixture holds text and <line>s. Anything else was ignored in silence
     // unless it happened to be a generator inside a <line> — so an invented tag
     // written straight into <before> passed without a word.
     if (name !== 'line') {
+      // A construct this language knows is in the wrong place (TDC013, with where it belongs);
+      // a tag nobody has heard of is a typo (TDC131). Python, Java and C# always said so; this
+      // and Rust called a misplaced <gen> an unknown child.
+      if (isKnownConstruct(name)) {
+        reportMisplaced(el, name, fixtureName, { diagnostics });
+        continue;
+      }
       const node = childNode(el);
       if (node) reportUnknownChild(node, fixtureName, name, 'TDC131', { diagnostics });
       continue;

@@ -110,7 +110,6 @@ import {
 } from './uniq-shape.js';
 import { checkMixFlag } from './mix-flag.js';
 import { checkGenRepeat, checkMixRepeat } from './repeat.js';
-import { checkLineConditionalColumns, checkLineEach, eachNames } from './each.js';
 import { collectListSeparators } from './json-lists.js';
 import { checkGenWeight } from './weight.js';
 import { checkGenMask } from './mask.js';
@@ -126,7 +125,8 @@ import { isCaseTransform } from '../format/transforms.js';
 import { checkDocumentVersion } from './version.js';
 import type { PackParams, PackParamWidths } from './pack-params.js';
 import { checkRootRegexMaxLength } from './regex-max-length.js';
-import { checkBlockDataRefs, runPendingCaseData } from './data-refs.js';
+import { runPendingCaseData } from './data-refs.js';
+import { checkBlock } from './block.js';
 
 export interface ValidationResult {
   readonly diagnostics: readonly Diagnostic[];
@@ -652,7 +652,7 @@ function checkEnv(envEl: OpenCloseElementContext, ctx: Ctx): void {
     if (KNOWN_ENV_CHILDREN.includes(name)) continue;
 
     // Known constructs that just belong somewhere else → clear placement error.
-    if (name === 'gen' || name === 'case' || name === 'default' || name === 'line') {
+    if (['gen', 'case', 'default', 'line', 'group'].includes(name)) {
       reportMisplaced(child, name, 'env', ctx);
       continue;
     }
@@ -1032,103 +1032,6 @@ function checkGen(
 // -----------------------------------------------------------------------
 // <block> and descendants
 // -----------------------------------------------------------------------
-
-function checkBlock(blockEl: OpenCloseElementContext, ctx: Ctx): void {
-  for (const el of contentElements(blockEl.content())) {
-    const name = childTagName(el);
-    if (name === null) continue; // whitespace between tags is not an element
-    if (name === 'line') {
-      const k = elementKind(el);
-      if (k?.kind === 'open') {
-        checkLineEach(
-          k.node,
-          {
-            declared: ctx.declaredSequences,
-            repeating: ctx.repeatingSequences,
-            pools: [...ctx.poolFields.keys()],
-          },
-          ctx.diagnostics,
-        );
-        checkLine(k.node, ctx);
-      }
-      continue;
-    }
-    // A <block> holds only <line>s; anything else is misplaced, <data> included.
-    reportMisplaced(el, name, 'block', ctx);
-  }
-}
-
-function checkLine(lineEl: OpenCloseElementContext, ctx: Ctx): void {
-  const attrs = lineEl.attr();
-  const attrMap = extractAttrs(attrs);
-  const ifAttr = findAttr(attrs, 'if');
-  const lineNames = eachNames(attrMap['each'], ctx.declaredSequences, ctx.poolFields, false);
-  if (ifAttr) {
-    checkIfExpression(ifAttr, attrMap['if'] ?? '', ctx);
-    ctx.rememberExpression(
-      ifAttr,
-      attrMap['if'] ?? '',
-      eachNames(attrMap['each'], ctx.declaredSequences, ctx.poolFields, true),
-    );
-  }
-
-  if (ifAttr) checkLineConditionalColumns(lineEl, ifAttr, ctx.diagnostics);
-
-  for (const el of contentElements(lineEl.content())) {
-    const name = childTagName(el);
-    if (name === null) continue;
-    if (name === 'data') {
-      const k = elementKind(el);
-      if (k?.kind === 'data') {
-        checkData(k.node, ctx, lineNames);
-        checkBlockDataRefs(
-          extractDataText(k.node),
-          k.node,
-          ctx.inject,
-          ctx.declaredSequences,
-          ctx.diagnostics,
-          lineNames,
-          ctx.poolReferences,
-          ctx.listSeparators,
-          attrMap['each']?.trim(),
-        );
-      }
-      continue;
-    }
-    const node = childNode(el);
-    if (!node) continue;
-    if (name === 'gen') {
-      // Generators are not allowed in the output block — it is for formatting
-      // only. Declare a named <sequence> in <env> and reference it here with
-      // ${{Name}}. (Conditional/switch values also belong in <env> sequences.)
-      ctx.diagnostics.push({
-        severity: 'error',
-        source: 'validator',
-        ...nodeRange(node),
-        message: 'a <gen> is not allowed inside <line> — the output block is for formatting only',
-        hint: 'Declare a named <sequence> in <env> and reference it here with ${{Name}}. See https://nickliapin.github.io/tdcv2/docs/core-concepts/sequences',
-        code: 'TDC131',
-      });
-      continue;
-    }
-    if (name === 'mix' || name === 'switch') {
-      // Distribution (<mix>) / lookup (<switch>) are data-producing constructs —
-      // they belong in <env>, not in the output block.
-      ctx.diagnostics.push({
-        severity: 'error',
-        source: 'validator',
-        ...nodeRange(node),
-        message: `a <${name}> is not allowed inside <line> — the output block is for formatting only`,
-        hint: 'Declare it in <env> and reference it here with ${{Name}}. See https://nickliapin.github.io/tdcv2/docs/constructs/mix',
-        code: 'TDC132',
-      });
-      continue;
-    }
-    // Anything else in a <line> (<case>, <map>, <default>, or an arbitrary tag)
-    // is misplaced.
-    reportMisplaced(el, name, 'line', ctx);
-  }
-}
 
 // -----------------------------------------------------------------------
 // <mix>/<case>

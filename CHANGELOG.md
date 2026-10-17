@@ -44,6 +44,17 @@ plus="Length m">` ends each appointment its own length after its start: the name
   row (`TDC240`); an empty cell leaves the date empty; a cell that is not a whole number stops
   the run with the row named, since rounding `1.5` hours would put a wrong time in a cell that
   looks right. Nothing is drawn, so no other column moves.
+- **`<group>` — several lines as one unit, in all five.** `<group each="Depts">` prints the lines
+  and groups inside it once per element of a list or record of a pool, with that element in
+  scope for every one of them, so a record of several lines can be written at all, and a nested
+  document is a group inside a group: each department, then — through
+  `<group each="Doctors" if="Doctors.dept.id == Depts.id">` — its own doctors, then its closing
+  bracket. Each level counts its own positions, so `Doctors._last` starts over in every
+  department and the commas fall where JSON needs them. Without `each`, `<group if="…">` keeps or
+  drops all its lines at once instead of the same condition copied onto each — the hospital
+  config repeated one on 120 lines (C10). A group lives in `<block>` or a fixture; a typed column
+  inside one is `TDC209`, and its `if=` cannot read its own positions (`TDC215`). Inside
+  `<compute>`, `<group>` keeps its other meaning, grouping digits.
 - **`TDC312` (warning): `| json` on a list without its separator, or with another one.** Both
   print a file that parses — the whole list as one string, or a one-element array — so the
   mistake would surface only in whatever reads it. Checked for a sequence, a pool field, and the
@@ -69,6 +80,11 @@ b">` held on the line printing `b` there and never in the ports, which compared 
   streaming engines of Rust and C#.** `<before>`, `<after>` and the other fixtures were handed
   no list information, so a list joined with `;` came out as one element and `_item_id` took a
   different stride. Pinned in `cases/structure.json`.
+- **A known tag written straight into a fixture was "an unknown child" in TypeScript and Rust.**
+  `<before><gen …/></before>` got `TDC131`, the code for a tag nobody has heard of; Python, Java
+  and C# said `TDC013`, a construct this language knows in the wrong place, with where it
+  belongs. All five say `TDC013` now, and an invented tag stays `TDC131`. Pinned in
+  `diagnostics/structure.json`.
 - **`each=` naming neither a sequence nor a pool was accepted by Python, Rust, Java and C#.** The
   line printed nothing at all, in silence; the reference has always refused it as `TDC206`, and
   now all five do.

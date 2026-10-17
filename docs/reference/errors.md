@@ -289,7 +289,7 @@ but the combination it asks for can't be carried out.
 | `TDC204` | `repeat` is used on a generator that can't repeat                | The message names the type                                               |
 | `TDC206` | `each=""` names no sequence                                      | Name the list to walk                                                    |
 | `TDC207` | `each` names a single-value sequence                             | It has to be a list — add `repeat` to the source                         |
-| `TDC209` | A named `<data>` sits inside an `each=` line                     | That line produces several rows, so a column name is ambiguous           |
+| `TDC209` | A named `<data>` sits inside an `each=` line or a `<group>`      | That line produces several rows, or none, so a column name is ambiguous  |
 | `TDC211` | `weight` is used on a generator other than `file`                | Weights come from a CSV column                                           |
 | `TDC212` | `weight` without `column`                                        | The weights live in a second column, which has to be named               |
 | `TDC213` | `weight` is combined with `order`                                | `order` walks the rows by position; weighting picks them by frequency    |

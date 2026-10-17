@@ -224,14 +224,22 @@ export function collectPoolReferences(env: OpenCloseElementContext | undefined):
   return named;
 }
 
-/** The pools a `<line each="Pool">` prints — read as surely as a `<gen type="pool">` reads one. */
-export function collectEachPools(block: OpenCloseElementContext | undefined): Set<string> {
-  const named = new Set<string>();
+/**
+ * The pools a `<line each="Pool">` or a `<group each="Pool">` prints, at any depth — read as surely
+ * as a `<gen type="pool">` reads one.
+ */
+export function collectEachPools(
+  block: OpenCloseElementContext | undefined,
+  named: Set<string> = new Set<string>(),
+): Set<string> {
   for (const child of contentElements(block?.content() ?? null)) {
     const k = elementKind(child);
-    if (k?.kind !== 'open' || elementName(k.node) !== 'line') continue;
+    if (k?.kind !== 'open') continue;
+    const tag = elementName(k.node);
+    if (tag !== 'line' && tag !== 'group') continue;
     const each = (extractAttrs(k.node.attr())['each'] ?? '').trim();
     if (each !== '') named.add(each);
+    if (tag === 'group') collectEachPools(k.node, named);
   }
   return named;
 }

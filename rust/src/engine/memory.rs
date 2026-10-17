@@ -4989,10 +4989,11 @@ fn emit(
         // the last one.
         let mut active: Vec<&Line> = Vec::new();
         for line in &config.block {
-            // An each= line asks its if= of every element instead, with the element in scope.
+            // An each= line asks its if= of every element instead, with the element in scope,
+            // and a <group> decides its own if= as a whole.
             let keep = match &line.if_expr {
                 None => true,
-                Some(_) if line.each.is_some() => true,
+                Some(_) if line.each.is_some() || line.items.is_some() => true,
                 Some(expr) => condition_at(expr, columns, row)?,
             };
             if keep {
@@ -5101,6 +5102,17 @@ fn render_line(
     each: &Each<'_>,
 ) -> EngineResult<Vec<String>> {
     let lookup = RowLookup { columns, row };
+    let pools = |name: &str| each.pools.get(name);
+    if line.items.is_some() {
+        return super::each::render_group(
+            line,
+            row,
+            config.inject.as_deref(),
+            &each.info,
+            &pools,
+            &lookup,
+        );
+    }
     let list_name = line
         .each
         .as_deref()
@@ -5113,7 +5125,7 @@ fn render_line(
             row,
             config.inject.as_deref(),
             &each.info,
-            each.pools.get(name),
+            &pools,
             &lookup,
         );
     }

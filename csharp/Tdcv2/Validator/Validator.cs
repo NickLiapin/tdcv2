@@ -91,6 +91,7 @@ public sealed class Validator
             ["env"] = Set("count", "seed", "local", "inject", "mode", "engine", "comment"),
             ["sequence"] = Set("name", "parent", "uniq", "comment"),
             ["line"] = Set("if", "each", "comment"),
+            ["group"] = Set("if", "each", "comment"),
             ["tdc"] = Set("version", "v", "regex_max_length", "comment"),
             ["mix"] = Set("name", "percent", "parent", "flag", "comment"),
             // `percent` is NOT here: a <switch> picks its case from `on=`, and <case>
@@ -341,6 +342,7 @@ public sealed class Validator
             ["map"] = "A <map> belongs inside a <switch>.",
             ["default"] = "A <default> belongs inside a <switch>.",
             ["line"] = "A <line> belongs inside a <block> (or a before/after fixture).",
+            ["group"] = "A <group> belongs inside a <block> or a fixture, around the <line>s it repeats.",
             ["sequence"] = "A <sequence> belongs directly inside <env>.",
             // A <data> has no value of its own: it JOINS the value of the thing around it.
             // Written where there is nothing to join — straight into <tdc>, <env>, <block> or
@@ -1681,12 +1683,7 @@ public sealed class Validator
             {
                 // A fixture holds text and <line>s; anything else was ignored in silence.
                 // A `<data>` written straight into a fixture is not an unknown child -- the tag is known and the placement is what is wrong. The renderer only ever walks <line> children, so the text was dropped without a word. Named rather than rendered: a bare <data> would have to invent whether it ends the line, and <line><data> already says.
-                CheckFixtureData(el, tag);
-                var passes = new HashSet<string>(FixtureChildren, StringComparer.Ordinal)
-                {
-                    "data",
-                };
-                CheckChildren(el.content(), tag, passes, "TDC131", FixtureChildren);
+                CheckFixtureItems(el, tag);
             }
             else if (tag == "pool")
             {
@@ -7301,20 +7298,119 @@ public sealed class Validator
 
     // ── block ────────────────────────────────────────────────────────────────────────────────
 
-    private void CheckBlock(TDCParser.OpenCloseElementContext block)
+    private void CheckBlock(TDCParser.OpenCloseElementContext block) =>
+        CheckItems(block, "block", OutputScope.Top);
+
+    /// <summary>What the groups around a line publish: names, the lists they walk, whether any walks.</summary>
+    /// <remarks>
+    /// A <c>&lt;group each="Depts"&gt;</c> puts its element in scope for every line inside it,
+    /// nested groups included, so <c>${{Depts.name}}</c> and
+    /// <c>if="Doctors.dept.id == Depts.id"</c> are names there.
+    /// </remarks>
+    private sealed record OutputScope(HashSet<string> Names, IReadOnlyList<string> Walked, bool Each)
+    {
+        internal static readonly OutputScope Top =
+            new(new HashSet<string>(StringComparer.Ordinal), Array.Empty<string>(), false);
+    }
+
+    /// <summary>The <c>&lt;line&gt;</c>s and <c>&lt;group&gt;</c>s of a block or a group; anything else is misplaced.</summary>
+    private void CheckItems(TDCParser.OpenCloseElementContext container, string parent, OutputScope scope)
     {
         // These two were missed when the other containers were closed: an invented tag in
         // either passed in silence while the same tag one level up did not.
-        CheckChildren(block.content(), "block", BlockChildren, "TDC013", BlockChildren);
-        foreach (TDCParser.ElementContext child in block.content().element())
+        CheckChildren(container.content(), parent, BlockChildren, "TDC013", BlockChildren);
+        foreach (TDCParser.ElementContext child in container.content()?.element() ?? Array.Empty<TDCParser.ElementContext>())
         {
             TDCParser.OpenCloseElementContext open = child.openCloseElement();
             if (open is not null && open.name.Text == "line")
             {
                 CheckChildren(open.content(), "line", LineChildren, "TDC013", LineChildren);
-                CheckLine(open);
+                CheckLine(open, scope);
+            }
+            else if (open is not null && open.name.Text == "group")
+            {
+                CheckGroup(open, scope);
             }
         }
+    }
+
+    /// <summary><c>&lt;group each="…" if="…"&gt;</c> — several lines as one unit.</summary>
+    /// <remarks>
+    /// Its <c>each=</c> is checked as a line's is (TDC206, TDC207). Its <c>if=</c> reads the scope
+    /// around it and the element it walks, but not its own positions, which count the elements that
+    /// <c>if=</c> keeps. And no typed column may sit anywhere inside: a group repeats its lines or
+    /// drops them as a whole, and a column has one cell per record either way (TDC209).
+    /// </remarks>
+    private void CheckGroup(TDCParser.OpenCloseElementContext group, OutputScope scope)
+    {
+        CheckClosedTagAttrs("group", group.attr(), Line(group), Column(group));
+        IReadOnlyDictionary<string, string> attrs = Attributes(group.attr());
+        bool walks = attrs.TryGetValue("each", out string? each);
+        string eachName = each?.Trim() ?? string.Empty;
+        if (walks)
+        {
+            CheckEachAttr(group, eachName);
+        }
+
+        if (attrs.GetValueOrDefault("if") is { } condition)
+        {
+            (int l, int c) = At(group.attr(), "if", Line(group), Column(group));
+            CheckIfExpression(condition, l, c);
+            var published = new HashSet<string>(scope.Names, StringComparer.Ordinal);
+            published.UnionWith(EachNames(eachName, forIf: true));
+            this.DeferLineExpression(condition, l, c, scope.Each || walks, published);
+        }
+
+        if (FirstNamedData(group) is { } column)
+        {
+            Error(
+                "TDC209",
+                $"a named <data name=\"{column}\"> cannot sit inside a <group>",
+                "A group prints its lines several times or drops them all, and a typed column has one "
+                + "cell per record either way. Keep typed columns on lines outside the group.",
+                Line(group), Column(group));
+        }
+
+        var names = new HashSet<string>(scope.Names, StringComparer.Ordinal);
+        names.UnionWith(EachNames(eachName, forIf: false));
+        var walked = new List<string>(scope.Walked);
+        if (eachName.Length > 0)
+        {
+            walked.Add(eachName);
+        }
+
+        CheckItems(group, "group", new OutputScope(names, walked, scope.Each || walks));
+    }
+
+    /// <summary>The first <c>&lt;data name="…"&gt;</c> anywhere inside, or null.</summary>
+    private static string? FirstNamedData(TDCParser.OpenCloseElementContext container)
+    {
+        foreach (TDCParser.ElementContext child in container.content()?.element() ?? Array.Empty<TDCParser.ElementContext>())
+        {
+            if (child.dataElement() is { } data)
+            {
+                TDCParser.AttrContext[] dataAttrs = data switch
+                {
+                    TDCParser.DataWithBodyContext body => body.attr(),
+                    TDCParser.DataSelfClosedContext self => self.attr(),
+                    _ => Array.Empty<TDCParser.AttrContext>(),
+                };
+                string name = (Attributes(dataAttrs).GetValueOrDefault("name") ?? string.Empty).Trim();
+                if (name.Length > 0)
+                {
+                    return name;
+                }
+
+                continue;
+            }
+
+            if (child.openCloseElement() is { } inner && FirstNamedData(inner) is { } found)
+            {
+                return found;
+            }
+        }
+
+        return null;
     }
 
     /// <summary>
@@ -7325,7 +7421,64 @@ public sealed class Validator
     /// here would produce a value nothing else could reference, and a construct like a switch would
     /// be building a column in the middle of a layout.
     /// </remarks>
-    private void CheckLine(TDCParser.OpenCloseElementContext line)
+    /// <summary><c>each=</c> on a line or a group: it has to name a list or a pool.</summary>
+    private void CheckEachAttr(TDCParser.OpenCloseElementContext element, string eachName)
+    {
+        (int l, int c) = At(element, "each");
+        if (eachName.Length == 0)
+        {
+            Error(
+                "TDC206", "each=\"\" names no sequence",
+                "Point it at a repeating sequence, <line each=\"Orders\">, or at a pool, "
+                + "<line each=\"Doctors\">.",
+                l, c);
+        }
+        else if (!_declaredNames.Contains(eachName) && !_poolFields.ContainsKey(eachName))
+        {
+            // Nothing by that name: the line would print nothing at all, and an empty child
+            // table is the quietest way a config can be wrong.
+            Error(
+                "TDC206", $"each=\"{eachName}\" — no sequence or pool with that name",
+                "The name must match a repeating <sequence name=\"…\"> declared in <env>, or a "
+                + "<pool name=\"…\">.",
+                l, c);
+        }
+        else if (_declaredNames.Contains(eachName) && !_repeatingNames.Contains(eachName))
+        {
+            // Walking a scalar would emit one line and look like it worked, which is the kind of
+            // near-miss that survives review.
+            Error(
+                "TDC207", $"each=\"{eachName}\" — that sequence holds one value, not a list",
+                "Add repeat= to its <gen>, e.g. <gen … repeat=\"1..5\"/>, or drop each=.", l, c);
+        }
+        else
+        {
+            // A typed column is collected once per record, and an each= line emits several — a
+            // list's elements or a pool's records alike. The two cannot both be true, so the
+            // column would silently take whichever came last.
+            foreach (TDCParser.ElementContext child in element.content().element())
+            {
+                if (child.dataElement() is not TDCParser.DataWithBodyContext body)
+                {
+                    continue;
+                }
+
+                string? columnName = Attributes(body.attr()).GetValueOrDefault("name");
+                if (!string.IsNullOrWhiteSpace(columnName))
+                {
+                    Error(
+                        "TDC209",
+                        $"a named <data name=\"{columnName}\"> cannot sit inside an each= line",
+                        "Typed columns are collected once per card. For columnar output keep the "
+                        + "list as a list column (type=\"[]…\"); each= is for text and SQL.",
+                        l, c);
+                    break;
+                }
+            }
+        }
+    }
+
+    private void CheckLine(TDCParser.OpenCloseElementContext line, OutputScope scope)
     {
         CheckClosedTagAttrs("line", line.attr(), Line(line), Column(line));
 
@@ -7335,74 +7488,33 @@ public sealed class Validator
 
         // `_item` and `_item_id` exist only while a line walks a list, and both the line's own
         // condition and every <data> inside it may name them.
-        bool walksAList = lineAttrs.TryGetValue("each", out string? each);
+        bool hasEach = lineAttrs.TryGetValue("each", out string? each);
+        bool walksAList = hasEach || scope.Each;
         string eachName = each?.Trim() ?? string.Empty;
 
         // What a walked pool or list publishes: every <data> may read the positions, and the
         // line's own if= may not, because the positions count the lines that if= lets through.
-        HashSet<string> names = EachNames(eachName, forIf: false);
+        // The groups around the line add what THEY walk.
+        var names = new HashSet<string>(scope.Names, StringComparer.Ordinal);
+        names.UnionWith(EachNames(eachName, forIf: false));
+        var walked = new List<string>(scope.Walked);
+        if (eachName.Length > 0)
+        {
+            walked.Add(eachName);
+        }
         string? lineCondition = lineAttrs.GetValueOrDefault("if");
         if (lineCondition is not null)
         {
             (int l, int c) = At(line.attr(), "if", Line(line), Column(line));
             CheckIfExpression(lineCondition, l, c);
-            this.DeferLineExpression(lineCondition, l, c, walksAList, EachNames(eachName, forIf: true));
+            var published = new HashSet<string>(scope.Names, StringComparer.Ordinal);
+            published.UnionWith(EachNames(eachName, forIf: true));
+            this.DeferLineExpression(lineCondition, l, c, walksAList, published);
         }
 
-        if (walksAList)
+        if (hasEach)
         {
-            (int l, int c) = At(line, "each");
-            if (eachName.Length == 0)
-            {
-                Error(
-                    "TDC206", "each=\"\" names no sequence",
-                    "Point it at a repeating sequence, <line each=\"Orders\">, or at a pool, "
-                    + "<line each=\"Doctors\">.",
-                    l, c);
-            }
-            else if (!_declaredNames.Contains(eachName) && !_poolFields.ContainsKey(eachName))
-            {
-                // Nothing by that name: the line would print nothing at all, and an empty child
-                // table is the quietest way a config can be wrong.
-                Error(
-                    "TDC206", $"each=\"{eachName}\" — no sequence or pool with that name",
-                    "The name must match a repeating <sequence name=\"…\"> declared in <env>, or a "
-                    + "<pool name=\"…\">.",
-                    l, c);
-            }
-            else if (_declaredNames.Contains(eachName) && !_repeatingNames.Contains(eachName))
-            {
-                // Walking a scalar would emit one line and look like it worked, which is the kind of
-                // near-miss that survives review.
-                Error(
-                    "TDC207", $"each=\"{eachName}\" — that sequence holds one value, not a list",
-                    "Add repeat= to its <gen>, e.g. <gen … repeat=\"1..5\"/>, or drop each=.", l, c);
-            }
-            else
-            {
-                // A typed column is collected once per record, and an each= line emits several — a
-                // list's elements or a pool's records alike. The two cannot both be true, so the
-                // column would silently take whichever came last.
-                foreach (TDCParser.ElementContext child in line.content().element())
-                {
-                    if (child.dataElement() is not TDCParser.DataWithBodyContext body)
-                    {
-                        continue;
-                    }
-
-                    string? columnName = Attributes(body.attr()).GetValueOrDefault("name");
-                    if (!string.IsNullOrWhiteSpace(columnName))
-                    {
-                        Error(
-                            "TDC209",
-                            $"a named <data name=\"{columnName}\"> cannot sit inside an each= line",
-                            "Typed columns are collected once per card. For columnar output keep the "
-                            + "list as a list column (type=\"[]…\"); each= is for text and SQL.",
-                            l, c);
-                        break;
-                    }
-                }
-            }
+            CheckEachAttr(line, eachName);
         }
 
         foreach (TDCParser.ElementContext child in line.content().element())
@@ -7446,7 +7558,7 @@ public sealed class Validator
                 // The <data> element, not the <line> around it: several <data> pieces can share a
                 // line, and pointing at the line would name the wrong one whenever they do.
                 string text = PairedData.Restore(body.dataContent().GetText());
-                foreach ((string message, string hint) in JsonLists.Check(text, _listSeparators, eachName))
+                foreach ((string message, string hint) in JsonLists.Check(text, _listSeparators, walked))
                 {
                     Warn("TDC312", message, hint, body.Start.Line, body.Start.Column);
                 }
@@ -9107,6 +9219,25 @@ public sealed class Validator
     /// the renderer actually does.
     /// </remarks>
     /// <summary>A <c>&lt;data&gt;</c> with no <c>&lt;line&gt;</c> around it, in a fixture.</summary>
+    /// <summary>The lines of a fixture, or of a <c>&lt;group&gt;</c> inside one — the same rules at every depth.</summary>
+    private void CheckFixtureItems(TDCParser.OpenCloseElementContext container, string tag)
+    {
+        CheckFixtureData(container, tag);
+        var passes = new HashSet<string>(FixtureChildren, StringComparer.Ordinal)
+        {
+            "data",
+        };
+        CheckChildren(container.content(), tag, passes, "TDC131", FixtureChildren);
+        foreach (TDCParser.ElementContext child in container.content()?.element() ?? Array.Empty<TDCParser.ElementContext>())
+        {
+            if (child.openCloseElement() is { } group && group.name.Text == "group")
+            {
+                CheckClosedTagAttrs("group", group.attr(), Line(group), Column(group));
+                CheckFixtureItems(group, tag);
+            }
+        }
+    }
+
     private void CheckFixtureData(TDCParser.OpenCloseElementContext fixture, string tag)
     {
         if (fixture.content() is null)
@@ -9130,7 +9261,7 @@ public sealed class Validator
     }
 
     private static readonly IReadOnlySet<string> FixtureChildren =
-        new HashSet<string> { "line" };
+        new HashSet<string> { "line", "group" };
 
     /// <summary>What may sit directly inside <c>&lt;switch&gt;</c>.</summary>
     private static readonly IReadOnlySet<string> SwitchChildren =
@@ -9138,7 +9269,7 @@ public sealed class Validator
 
     /// <summary>What may sit directly inside <c>&lt;block&gt;</c> and <c>&lt;line&gt;</c>.</summary>
     private static readonly IReadOnlySet<string> BlockChildren =
-        new HashSet<string> { "line" };
+        new HashSet<string> { "line", "group" };
 
     private static readonly IReadOnlySet<string> LineChildren =
         new HashSet<string> { "data", "gen", "mix", "switch" };

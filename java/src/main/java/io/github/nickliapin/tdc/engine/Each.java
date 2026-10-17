@@ -9,10 +9,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 
 /**
- * {@code each="NAME"} on a {@code <line>} — one output line per element of a list or record of a
- * pool.
+ * {@code each="NAME"} on a {@code <line>} or a {@code <group>} — its output once per element of a
+ * list or record of a pool.
  *
  * <p>Shared by the in-memory and the streaming engine, which used to carry a copy each. Both
  * copies asked a {@code <data if=…>} once per ROW, so a condition naming the element — {@code
@@ -21,31 +22,111 @@ import java.util.Map;
  *
  * <p>The walked name is a list (a {@code repeat=} sequence) or a pool. A list element overlays the
  * name itself; a pool record overlays every field as {@code Pool.field}, nested records included
- * ({@code Doctors.dept.name}), since the pool table publishes them under those paths. The line's
- * own {@code if=} is asked of each element too, and the positions — {@code Pool._item}, {@code
- * Pool._first}, {@code Pool._last} — are counted over the elements it KEEPS: {@code _last} is the
- * last line printed, which is what a JSON array needs to know before its comma, whatever the
- * filter dropped after it.
+ * ({@code Doctors.dept.name}), since the pool table publishes them under those paths. The {@code
+ * if=} is asked of each element too, and the positions — {@code Pool._item}, {@code Pool._first},
+ * {@code Pool._last} — are counted over the elements it KEEPS: {@code _last} is the last line
+ * printed, which is what a JSON array needs to know before its comma, whatever the filter dropped
+ * after it.
+ *
+ * <p>A {@code <group>} nests: its element is in scope for every line inside it, an inner group's
+ * on top of an outer one's.
  */
 final class Each {
   private Each() {}
 
-  /**
-   * The output lines of one {@code each} line on one row, each with its newline attached.
-   *
-   * @param table the pool of that name, if there is one; a sequence of the same name wins, as it
-   *     does everywhere a name is read
-   */
+  /** The output lines of one {@code each} line on one row, each with its newline attached. */
   static List<String> render(
       Config.Line line,
       String name,
       int row,
       String inject,
       Map<String, Repeat.Spec> eachInfo,
-      Pool.Table table,
+      Function<String, Pool.Table> pools,
+      Interpolate.Lookup base) {
+    List<String> out = new ArrayList<>();
+    for (Map<String, String> overlay :
+        overlays(name, line.ifExpr(), row, eachInfo, pools, base)) {
+      out.add(textOf(line, inject, view(overlay, base)));
+    }
+    return out;
+  }
+
+  /**
+   * {@code <group>}: its lines and groups, once per element it walks — or once, or not at all.
+   *
+   * <p>With {@code each=} the items print once per element of a list or record of a pool, with that
+   * element in scope for every one of them, so an inner {@code each} can keep the doctors of the
+   * department being printed ({@code Doctors.dept.id == Depts.id}). Without it, {@code if=} decides
+   * all of them at once, in the scope around the group.
+   */
+  static List<String> renderGroup(
+      Config.Line group,
+      int row,
+      String inject,
+      Map<String, Repeat.Spec> eachInfo,
+      Function<String, Pool.Table> pools,
+      Interpolate.Lookup base) {
+    String name = group.each() == null ? "" : group.each().trim();
+    List<Map<String, String>> scopes;
+    if (name.isEmpty()) {
+      scopes = holds(group.ifExpr(), base) ? List.of(Map.of()) : List.of();
+    } else {
+      scopes = overlays(name, group.ifExpr(), row, eachInfo, pools, base);
+    }
+    List<String> out = new ArrayList<>();
+    for (Map<String, String> overlay : scopes) {
+      Interpolate.Lookup view = view(overlay, base);
+      for (Config.Line item : group.items()) {
+        out.addAll(renderItem(item, row, inject, eachInfo, pools, view));
+      }
+    }
+    return out;
+  }
+
+  /** One line or group inside a group, in the scope the groups around it put in place. */
+  private static List<String> renderItem(
+      Config.Line item,
+      int row,
+      String inject,
+      Map<String, Repeat.Spec> eachInfo,
+      Function<String, Pool.Table> pools,
+      Interpolate.Lookup view) {
+    if (item.isGroup()) {
+      return renderGroup(item, row, inject, eachInfo, pools, view);
+    }
+    String name = item.each() == null ? "" : item.each().trim();
+    if (!name.isEmpty()) {
+      return render(item, name, row, inject, eachInfo, pools, view);
+    }
+    if (!holds(item.ifExpr(), view)) {
+      return List.of();
+    }
+    return List.of(textOf(item, inject, view));
+  }
+
+  /** One printed line: the parts whose condition holds, interpolated, newline attached. */
+  private static String textOf(Config.Line line, String inject, Interpolate.Lookup view) {
+    StringBuilder template = new StringBuilder();
+    for (Config.DataPart part : line.parts()) {
+      if (holds(part.ifExpr(), view)) {
+        template.append(part.text());
+      }
+    }
+    return Interpolate.apply(template.toString(), inject, view) + "\n";
+  }
+
+  /** One overlay per element printed, positions included, after {@code keep} dropped some. */
+  private static List<Map<String, String>> overlays(
+      String name,
+      String keep,
+      int row,
+      Map<String, Repeat.Spec> eachInfo,
+      Function<String, Pool.Table> pools,
       Interpolate.Lookup base) {
     List<Map<String, String>> candidates = new ArrayList<>();
-    if (table != null && !base.has(name)) {
+    // A sequence of the same name wins over a pool, as it does everywhere a name is read.
+    Pool.Table table = base.has(name) ? null : pools.apply(name);
+    if (table != null) {
       for (int m = 0; m < table.count(); m++) {
         Map<String, String> overlay = new HashMap<>();
         overlay.put("_item", String.valueOf(m + 1));
@@ -87,33 +168,23 @@ final class Each {
 
     List<Map<String, String>> kept = new ArrayList<>();
     for (Map<String, String> overlay : candidates) {
-      if (holds(line.ifExpr(), overlay, base)) {
+      if (holds(keep, view(overlay, base))) {
         kept.add(overlay);
       }
     }
-    List<String> out = new ArrayList<>();
     for (int k = 0; k < kept.size(); k++) {
       Map<String, String> overlay = kept.get(k);
       overlay.put(name + "._item", String.valueOf(k + 1));
       overlay.put(name + "._first", k == 0 ? "true" : "false");
       overlay.put(name + "._last", k == kept.size() - 1 ? "true" : "false");
-      StringBuilder template = new StringBuilder();
-      for (Config.DataPart part : line.parts()) {
-        if (holds(part.ifExpr(), overlay, base)) {
-          template.append(part.text());
-        }
-      }
-      out.add(Interpolate.apply(template.toString(), inject, view(overlay, base)) + "\n");
     }
-    return out;
+    return kept;
   }
 
-  private static boolean holds(
-      String expression, Map<String, String> overlay, Interpolate.Lookup base) {
+  private static boolean holds(String expression, Interpolate.Lookup view) {
     if (expression == null) {
       return true;
     }
-    Interpolate.Lookup view = view(overlay, base);
     return Evaluate.asCondition(
         expression,
         new Evaluate.Scope() {
@@ -130,7 +201,7 @@ final class Each {
   }
 
   /**
-   * The row's view with one element's names laid over it.
+   * The scope around, with one element's names laid over it.
    *
    * <p>Shallow on purpose: every other column still resolves per record, which is exactly what
    * makes a foreign key on the repeated line point at the right parent on every emitted row.

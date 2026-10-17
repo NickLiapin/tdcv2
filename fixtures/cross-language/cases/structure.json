@@ -286,6 +286,89 @@
       "description": "A fixture line walking a list splits it on the list's own separator and keys its elements the way a block line does. Four ports handed fixture lines no list information at all, so a list joined with ; came out as one element and _item_id took another stride.",
       "config": "<tdc><env count=\"2\" seed=\"each-fixture-sep\" local=\"en\" mode=\"memory\"><sequence name=\"Tags\"><gen type=\"text\" value=\"a,b,c\" repeat=\"2..3\" separator=\";\"/></sequence><before><line each=\"Tags\"><data>head ${{_item_id}}:${{Tags}}</data></line></before></env><block><line><data>row ${{Tags}}</data></line></block></tdc>",
       "expected": ["head 1:c", "head 2:a", "row c;a", "row a;c;b"]
+    },
+    {
+      "name": "group-each-nests-one-pool-inside-another",
+      "description": "<group each=\"Depts\"> prints its lines once per department, with the department in scope for every line inside — so an inner group walking Doctors can keep the doctors of THAT department (Doctors.dept.id == Depts.id). Each level counts its own positions: Doctors._last is the last doctor printed in this department, Depts._last the last department. A department with no doctor prints an empty array.",
+      "config": "<tdc><env count=\"1\" seed=\"group-nest\" local=\"en\" mode=\"memory\"><pool name=\"Depts\" count=\"3\"><sequence name=\"id\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"name\"><gen type=\"text\" value=\"Cardiology,Neurology,Surgery\" order=\"sequential\"/></sequence></pool><pool name=\"Doctors\" count=\"5\"><sequence name=\"id\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"last\"><gen type=\"text\" value=\"Adams,Baker,Clark,Davis,Evans\" order=\"sequential\"/></sequence><sequence name=\"dept\"><gen type=\"pool\" value=\"Depts\"/></sequence><sequence name=\"langs\"><gen type=\"text\" value=\"en,es,pl\" repeat=\"1..2\" separator=\";\" distinct=\"true\"/></sequence></pool></env><block><line><data>[</data></line><group each=\"Depts\"><line><data>  {\"name\": ${{Depts.name | json}}, \"doctors\": [</data></line><group each=\"Doctors\" if=\"Doctors.dept.id == Depts.id\"><line><data>    {\"id\": ${{Doctors.id}}, \"name\": ${{Doctors.last | json}},</data></line><line><data>     \"langs\": ${{Doctors.langs | json:;}}, \"n\": ${{Doctors._item}}}</data><data if=\"!Doctors._last\">,</data></line></group><line><data>  ]}</data><data if=\"!Depts._last\">,</data></line></group><line><data>]</data></line></block></tdc>",
+      "expected": [
+        "[",
+        "  {\"name\": \"Cardiology\", \"doctors\": [",
+        "  ]},",
+        "  {\"name\": \"Neurology\", \"doctors\": [",
+        "    {\"id\": 2, \"name\": \"Baker\",",
+        "     \"langs\": [\"es\", \"en\"], \"n\": 1}",
+        "  ]},",
+        "  {\"name\": \"Surgery\", \"doctors\": [",
+        "    {\"id\": 1, \"name\": \"Adams\",",
+        "     \"langs\": [\"es\", \"pl\"], \"n\": 1},",
+        "    {\"id\": 3, \"name\": \"Clark\",",
+        "     \"langs\": [\"en\", \"pl\"], \"n\": 2},",
+        "    {\"id\": 4, \"name\": \"Davis\",",
+        "     \"langs\": [\"es\"], \"n\": 3},",
+        "    {\"id\": 5, \"name\": \"Evans\",",
+        "     \"langs\": [\"pl\"], \"n\": 4}",
+        "  ]}",
+        "]"
+      ]
+    },
+    {
+      "name": "group-each-list-prints-several-lines-per-element",
+      "description": "A group walking a list prints all its lines for each element, _item and _item_id included, and nothing at all for a record whose list is empty.",
+      "config": "<tdc><env count=\"4\" seed=\"group-list\" local=\"en\" mode=\"memory\"><sequence name=\"Id\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"Tags\"><gen type=\"text\" value=\"a,b,c\" repeat=\"0..3\" separator=\";\"/></sequence></env><block><line><data>card ${{Id}}</data></line><group each=\"Tags\"><line><data>  begin ${{_item_id}}/${{Tags._item}} ${{Tags}}</data></line><line><data>  end ${{Tags}}</data><data if=\"Tags._last\"> (last)</data></line></group></block></tdc>",
+      "expected": [
+        "card 1",
+        "  begin 1/1 a",
+        "  end a",
+        "  begin 2/2 b",
+        "  end b (last)",
+        "card 2",
+        "  begin 4/1 a",
+        "  end a",
+        "  begin 5/2 c",
+        "  end c",
+        "  begin 6/3 b",
+        "  end b (last)",
+        "card 3",
+        "  begin 7/1 c",
+        "  end c (last)",
+        "card 4"
+      ]
+    },
+    {
+      "name": "group-if-keeps-or-drops-its-lines-together",
+      "description": "<group if=\"…\"> without each= decides all its lines at once, in the scope around it — one condition instead of the same one on every line. A group inside a group each= reads the element; a line inside a group keeps its own if=.",
+      "config": "<tdc><env count=\"5\" seed=\"group-if\" local=\"en\" mode=\"memory\"><sequence name=\"Id\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"Kind\"><gen type=\"text\" value=\"visit,call\"/></sequence><sequence name=\"Tags\"><gen type=\"text\" value=\"x,y\" repeat=\"1..2\" separator=\";\"/></sequence></env><block><line><data>#${{Id}} ${{Kind}}</data></line><group if=\"Kind == visit\"><line><data>  room</data></line><line><data>  doctor</data></line><group each=\"Tags\"><group if=\"Tags == y\"><line><data>  tag ${{Tags}}</data></line></group></group><line if=\"Id > 3\"><data>  late</data></line></group></block></tdc>",
+      "expected": [
+        "#1 call",
+        "#2 visit",
+        "  room",
+        "  doctor",
+        "  tag y",
+        "  tag y",
+        "#3 call",
+        "#4 call",
+        "#5 visit",
+        "  room",
+        "  doctor",
+        "  tag y",
+        "  late"
+      ]
+    },
+    {
+      "name": "group-in-a-fixture",
+      "description": "A fixture may hold a group too, so a lookup table of several lines per record prints once, ahead of the rows.",
+      "config": "<tdc><env count=\"2\" seed=\"group-fixture\" local=\"en\" mode=\"memory\"><pool name=\"Depts\" count=\"3\"><sequence name=\"id\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"name\"><gen type=\"text\" value=\"Cardiology,Neurology,Surgery\" order=\"sequential\"/></sequence></pool><sequence name=\"Id\"><gen type=\"increment\" value=\"1\"/></sequence><before><group each=\"Depts\"><line><data>dept ${{Depts.id}}</data></line><line><data>  name ${{Depts.name}}</data></line></group></before></env><block><line><data>row ${{Id}}</data></line></block></tdc>",
+      "expected": [
+        "dept 1",
+        "  name Cardiology",
+        "dept 2",
+        "  name Neurology",
+        "dept 3",
+        "  name Surgery",
+        "row 1",
+        "row 2"
+      ]
     }
   ]
 }
