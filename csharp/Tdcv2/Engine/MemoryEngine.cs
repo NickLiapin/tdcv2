@@ -959,8 +959,18 @@ public static class MemoryEngine
         // filters on one of them is ordered by its RANK there, not by row order.
         var layouts = new Dictionary<string, PerRow.ExactLayout>(StringComparer.Ordinal);
 
-        foreach (SequenceSpec spec in config.Sequences)
+        // Env-level groups are settled the moment their last member exists, not after the whole
+        // table: a column declared below a group reads its members, and has to read the values
+        // the group leaves behind. Settled after the loop, a <uniq> rearranged B under a pool
+        // lookup that had already picked by the old B, and a formula of a <distinct> member kept
+        // the value the group then repaired. Members sit together inside their group's tag and a
+        // column reads only what is declared above it, so "after the last member" is early enough
+        // for every reader. Both draw from keyed streams, so settling earlier moves no other column.
+        var groups = new PendingGroups(config);
+        for (int index = 0; index < config.Sequences.Count; index++)
         {
+            groups.Settle(index, ctx, columns, count, prng);
+            SequenceSpec spec = config.Sequences[index];
             bool[] mask = ParentMask(spec, columns, count);
 
             // In the order the column BUILDS them, which for a child is its rank inside the
@@ -1361,12 +1371,55 @@ public static class MemoryEngine
             }
         }
 
-        // Both run over finished columns: a group's members must all exist before the constraint
-        // between them means anything.
-        EnforceEnvDistinct(ctx, columns, count, prng);
-        EnforceEnvUniq(ctx, columns, count);
+        // Whatever is left: a group whose last member is the last sequence.
+        groups.Settle(config.Sequences.Count, ctx, columns, count, prng);
         ResolveHttp(ctx, columns, count);
         return columns;
+    }
+
+    /// <summary>The env-level groups not yet settled — see the call before the build loop.</summary>
+    /// <remarks>
+    /// <c>Settle(index)</c> settles every group whose members all lie before <c>index</c>;
+    /// <c>Sequences.Count</c> settles whatever is left. Within one call, <c>&lt;distinct&gt;</c>
+    /// before <c>&lt;uniq&gt;</c>, the order they had when both ran after the loop.
+    /// </remarks>
+    private sealed class PendingGroups
+    {
+        private readonly Dictionary<string, int> _position = new(StringComparer.Ordinal);
+        private List<IReadOnlyList<string>> _distinct;
+        private List<IReadOnlyList<string>> _uniq;
+
+        public PendingGroups(Config config)
+        {
+            for (int i = 0; i < config.Sequences.Count; i++)
+            {
+                _position[config.Sequences[i].Name] = i;
+            }
+
+            _distinct = config.EnvDistinctGroups.ToList();
+            _uniq = config.EnvUniqGroups.ToList();
+        }
+
+        private bool Ready(IReadOnlyList<string> group, int index) =>
+            group.All(name => !_position.TryGetValue(name, out int at) || at < index);
+
+        public void Settle(
+            int index, Ctx ctx, IReadOnlyDictionary<string, string[]> columns, int count, Sfc32 prng)
+        {
+            var distinct = _distinct.Where(g => Ready(g, index)).ToList();
+            var uniq = _uniq.Where(g => Ready(g, index)).ToList();
+            _distinct = _distinct.Where(g => !Ready(g, index)).ToList();
+            _uniq = _uniq.Where(g => !Ready(g, index)).ToList();
+            if (distinct.Count > 0)
+            {
+                EnforceEnvDistinct(ctx, columns, count, prng, distinct);
+            }
+
+            if (uniq.Count > 0)
+            {
+                EnforceEnvUniq(ctx, columns, count, uniq);
+            }
+        }
     }
 
     /// <summary>
@@ -2201,16 +2254,20 @@ public static class MemoryEngine
     /// Env-level <c>&lt;distinct&gt;</c>: the wrapped sequences differ from each other on every row.
     /// </summary>
     private static void EnforceEnvDistinct(
-        Ctx ctx, IReadOnlyDictionary<string, string[]> columns, int count, Sfc32 prng)
+        Ctx ctx,
+        IReadOnlyDictionary<string, string[]> columns,
+        int count,
+        Sfc32 prng,
+        IReadOnlyList<IReadOnlyList<string>> groups)
     {
-        if (ctx.Config.EnvDistinctGroups.Count == 0)
+        if (groups.Count == 0)
         {
             return;
         }
 
         var byName = ctx.Config.Sequences.ToDictionary(s => s.Name, StringComparer.Ordinal);
 
-        foreach (IReadOnlyList<string> group in ctx.Config.EnvDistinctGroups)
+        foreach (IReadOnlyList<string> group in groups)
         {
             List<string> members = ScalarMembers(group, byName, columns);
             if (members.Count < 2)
@@ -2261,16 +2318,19 @@ public static class MemoryEngine
     /// proportions intact while the combinations become distinct.
     /// </remarks>
     private static void EnforceEnvUniq(
-        Ctx ctx, IReadOnlyDictionary<string, string[]> columns, int count)
+        Ctx ctx,
+        IReadOnlyDictionary<string, string[]> columns,
+        int count,
+        IReadOnlyList<IReadOnlyList<string>> groups)
     {
-        if (ctx.Config.EnvUniqGroups.Count == 0)
+        if (groups.Count == 0)
         {
             return;
         }
 
         var byName = ctx.Config.Sequences.ToDictionary(s => s.Name, StringComparer.Ordinal);
 
-        foreach (IReadOnlyList<string> group in ctx.Config.EnvUniqGroups)
+        foreach (IReadOnlyList<string> group in groups)
         {
             List<string> members = ScalarMembers(group, byName, columns);
             if (members.Count < 2)

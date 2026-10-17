@@ -409,7 +409,20 @@ export function buildSequences(
     count,
   );
 
-  for (const spec of specs) {
+  // Env-level groups are settled the moment their last member exists, not after
+  // the whole table: a column declared below a group reads its members, and it
+  // has to read the values the group leaves behind. Settled after the loop, a
+  // `<uniq>` rearranged B under a pool lookup that had already picked by the old
+  // B — 4898 of 5000 rows printed a day other than the one looked up — and a
+  // formula of a `<distinct>` member kept the colliding value the group then
+  // repaired. The streaming engines never had this: their columns read the
+  // registry lazily, so they always saw the settled member. Members sit
+  // together inside their group's tag and a column reads only what is declared
+  // above it, so "after the last member" is early enough for every reader.
+  const settle = groupSettler(options, specs, registry, count, prng, locale, now, ctx);
+
+  for (const [index, spec] of specs.entries()) {
+    settle(index);
     // Parameter override (pack generators): a caller attribute whose name
     // matches this local sequence replaces it with a constant column. Consumes
     // no PRNG, so the rest of the body's deterministic stream is unchanged.
@@ -628,18 +641,50 @@ export function buildSequences(
     }
   }
 
-  // Config-level `<distinct>` groups: repair collisions BETWEEN whole
-  // sequences per row. Runs after all sequences materialise, so the base
-  // PRNG stream is unchanged (repair draws are appended).
-  if (options.envDistinctGroups && options.envDistinctGroups.length > 0) {
-    enforceEnvDistinct(options.envDistinctGroups, specs, registry, count, prng, locale, now, ctx);
-  }
-  // Config-level `<uniq>` groups: rearrange the grouped scalar sequences so
-  // their combined tuple is unique across rows. After distinct so both hold.
-  if (options.envUniqGroups && options.envUniqGroups.length > 0) {
-    enforceEnvUniq(options.envUniqGroups, specs, registry, count);
-  }
+  settle(specs.length);
   return registry;
+}
+
+/**
+ * Settle each env-level `<distinct>` and `<uniq>` group once its last member is
+ * built. Call it before building `specs[index]`: it settles every group whose
+ * members all lie before `index`, and `specs.length` settles whatever is left.
+ *
+ * Within one call, `<distinct>` before `<uniq>` — the order they had when both
+ * ran after the loop, so a column in both still ends unique AND repaired. Both
+ * draw what they draw from streams keyed by column and row, so settling earlier
+ * moves no other column's values.
+ */
+function groupSettler(
+  options: SequenceBuildOptions,
+  specs: readonly SequenceSpec[],
+  registry: SequenceRegistry,
+  count: number,
+  prng: () => number,
+  locale: string,
+  now: number,
+  ctx: SequenceBuildContext,
+): (index: number) => void {
+  const position = new Map(specs.map((spec, i) => [spec.name, i]));
+  const lastOf = (group: readonly string[]): number =>
+    Math.max(-1, ...group.map((name) => position.get(name) ?? -1));
+  const pending = {
+    distinct: [...(options.envDistinctGroups ?? [])],
+    uniq: [...(options.envUniqGroups ?? [])],
+  };
+  return (index) => {
+    const ready = (group: readonly string[]): boolean => lastOf(group) < index;
+    const distinct = pending.distinct.filter(ready);
+    const uniq = pending.uniq.filter(ready);
+    if (distinct.length > 0) {
+      pending.distinct = pending.distinct.filter((group) => !ready(group));
+      enforceEnvDistinct(distinct, specs, registry, count, prng, locale, now, ctx);
+    }
+    if (uniq.length > 0) {
+      pending.uniq = pending.uniq.filter((group) => !ready(group));
+      enforceEnvUniq(uniq, specs, registry, count);
+    }
+  };
 }
 
 function materializeSimple(

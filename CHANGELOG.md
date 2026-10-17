@@ -15,6 +15,24 @@ page — is tracked in that implementation's own changelog:
 
 ## [Unreleased]
 
+### Fixed
+
+- **A column reading a member of a `<uniq>` or `<distinct>` group saw the value from before the
+  group settled — on the in-memory engine, in all five, and in every pool.** The in-memory engine
+  built every column first and settled the groups after: a `<uniq>` rearranged its members and a
+  `<distinct>` repaired a colliding one, but a pool lookup, a formula or any other column that had
+  read the member was already built from the old value. Nothing said so. Reported from a real
+  config: a pool lookup filtered on a `<uniq>` member printed a day other than the one it looked
+  up on 4,898 of 5,000 rows, and on 49,954 of 50,000 in a hospital schedule. One `uniq="true"`
+  anywhere routes a config to that engine, so it reached far more configs than the ones that asked
+  for it — and a pool is always built by it, so a `<uniq>` group inside a `<pool>` was wrong on
+  every engine. A group now settles the moment its last member is built: members sit together
+  inside their group's tag and a column reads only what is declared above it, so every reader sees
+  the settled value, as the streaming engines always had. Both draw from keyed streams, so no
+  other column's values move. Pinned in `fixtures/cross-language/cases/group-readers.json`: a pool
+  lookup, a formula and a chain of two over a `<uniq>` member, a formula and a pool lookup over a
+  `<distinct>` member, and a `<uniq>` group inside a pool, each held by an `<assert>`.
+
 ## [0.3.4] — 2026-10-16
 
 ### Added
@@ -3088,10 +3106,10 @@ item below holds in all five implementations.
 ### Added
 
 - **The expression language grew from comparisons to a language.** `if=` now takes `%`,
-arithmetic on the row counters (`_count` and `_total` are numbers, not text), function
-calls — `abs`, `ceil`, `floor`, `max`, `min`, `round`, `trunc` — membership (`Country in
+  arithmetic on the row counters (`_count` and `_total` are numbers, not text), function
+  calls — `abs`, `ceil`, `floor`, `max`, `min`, `round`, `trunc` — membership (`Country in
 [US, CA, MX]`), string predicates and the ternary. `TDC101` shows what is available when
-a name is not.
+  a name is not.
   <!-- covers: TDC257-TDC261, contains, starts_with, ends_with, lower, is_empty, pow, cbrt, log10 -->
 
 - **`TdcMath` — the transcendentals are computed by TDC rather than by the host.** `sqrt`,

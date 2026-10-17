@@ -825,7 +825,18 @@ public final class MemoryEngine {
     // filters on one of them is ordered by its RANK there, not by row order.
     Map<String, PerRow.ExactLayout> layouts = new LinkedHashMap<>();
 
-    for (Config.SequenceSpec spec : config.sequences()) {
+    // Env-level groups are settled the moment their last member exists, not after the whole
+    // table: a column declared below a group reads its members, and has to read the values the
+    // group leaves behind. Settled after the loop, a <uniq> rearranged B under a pool lookup that
+    // had already picked by the old B, and a formula of a <distinct> member kept the value the
+    // group then repaired. Members sit together inside their group's tag and a column reads only
+    // what is declared above it, so "after the last member" is early enough for every reader.
+    // Both draw from keyed streams, so settling earlier moves no other column.
+    PendingGroups groups = new PendingGroups(config);
+    List<Config.SequenceSpec> specs = config.sequences();
+    for (int index = 0; index < specs.size(); index++) {
+      groups.settle(index, config, columns, count, prng, packs, nowMillis, baseDir);
+      Config.SequenceSpec spec = specs.get(index);
       boolean[] mask = parentMask(spec, columns, count);
       // In the order the column BUILDS them, which for a child is its rank inside the parent's
       // exact layout rather than plain row order.
@@ -1255,10 +1266,70 @@ public final class MemoryEngine {
         columns.put(flagName, spread(rows, flags, count));
       }
     }
-    enforceEnvDistinct(config, columns, count, prng, packs, nowMillis, baseDir);
-    enforceEnvUniq(config, columns, count);
+    groups.settle(specs.size(), config, columns, count, prng, packs, nowMillis, baseDir);
     resolveHttp(config, columns, count, baseDir);
     return columns;
+  }
+
+  /**
+   * The env-level groups not yet settled — see the call before the build loop.
+   *
+   * <p>{@code settle(index)} settles every group whose members all lie before {@code index};
+   * {@code specs.size()} settles whatever is left. Within one call, {@code <distinct>} before
+   * {@code <uniq>}, the order they had when both ran after the loop.
+   */
+  private static final class PendingGroups {
+    private final Map<String, Integer> position = new LinkedHashMap<>();
+    private List<List<String>> distinct;
+    private List<List<String>> uniq;
+
+    PendingGroups(Config config) {
+      List<Config.SequenceSpec> specs = config.sequences();
+      for (int i = 0; i < specs.size(); i++) {
+        position.put(specs.get(i).name(), i);
+      }
+      distinct = new ArrayList<>(config.envDistinctGroups());
+      uniq = new ArrayList<>(config.envUniqGroups());
+    }
+
+    private boolean ready(List<String> group, int index) {
+      for (String name : group) {
+        Integer at = position.get(name);
+        if (at != null && at >= index) {
+          return false;
+        }
+      }
+      return true;
+    }
+
+    void settle(
+        int index,
+        Config config,
+        Map<String, String[]> columns,
+        int count,
+        Prng.Sfc32 prng,
+        DataPacks packs,
+        long nowMillis,
+        Path baseDir) {
+      List<List<String>> distinctNow = new ArrayList<>();
+      List<List<String>> distinctLater = new ArrayList<>();
+      for (List<String> group : distinct) {
+        (ready(group, index) ? distinctNow : distinctLater).add(group);
+      }
+      List<List<String>> uniqNow = new ArrayList<>();
+      List<List<String>> uniqLater = new ArrayList<>();
+      for (List<String> group : uniq) {
+        (ready(group, index) ? uniqNow : uniqLater).add(group);
+      }
+      distinct = distinctLater;
+      uniq = uniqLater;
+      if (!distinctNow.isEmpty()) {
+        enforceEnvDistinct(config, columns, count, prng, packs, nowMillis, baseDir, distinctNow);
+      }
+      if (!uniqNow.isEmpty()) {
+        enforceEnvUniq(config, columns, count, uniqNow);
+      }
+    }
   }
 
   /**
@@ -1275,13 +1346,14 @@ public final class MemoryEngine {
       Prng.Sfc32 prng,
       DataPacks packs,
       long nowMillis,
-      Path baseDir) {
+      Path baseDir,
+      List<List<String>> groups) {
     Map<String, Config.SequenceSpec> byName = new LinkedHashMap<>();
     for (Config.SequenceSpec spec : config.sequences()) {
       byName.put(spec.name(), spec);
     }
 
-    for (List<String> group : config.envDistinctGroups()) {
+    for (List<String> group : groups) {
       List<String> members = scalarMembers(group, byName, columns);
       if (members.size() < 2) {
         continue;
@@ -1324,13 +1396,14 @@ public final class MemoryEngine {
    * the multiset it produced and only the pairings change. That is what keeps a weighted member's
    * proportions intact while the combinations become distinct.
    */
-  private static void enforceEnvUniq(Config config, Map<String, String[]> columns, int count) {
+  private static void enforceEnvUniq(
+      Config config, Map<String, String[]> columns, int count, List<List<String>> groups) {
     Map<String, Config.SequenceSpec> byName = new LinkedHashMap<>();
     for (Config.SequenceSpec spec : config.sequences()) {
       byName.put(spec.name(), spec);
     }
 
-    for (List<String> group : config.envUniqGroups()) {
+    for (List<String> group : groups) {
       List<String> members = scalarMembers(group, byName, columns);
       if (members.size() < 2) {
         continue;

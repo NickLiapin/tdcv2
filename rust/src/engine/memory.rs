@@ -166,6 +166,15 @@ impl<'a> Env<'a> {
             .insert(name.to_string(), column.to_vec());
     }
 
+    /// Replace a kept copy, when there is one. For a column rewritten after it was
+    /// first kept — a member of an env-level group, settled once its last member
+    /// exists — so expressions read the settled values.
+    pub(super) fn replace_sibling(&self, name: &str, column: &[Option<String>]) {
+        if let Some(kept) = self.siblings.borrow_mut().get_mut(name) {
+            *kept = column.to_vec();
+        }
+    }
+
     /// This column's value on `row`, when it was kept.
     pub(super) fn sibling_at(&self, name: &str, row: usize) -> Option<String> {
         self.siblings
@@ -1037,7 +1046,17 @@ fn build_columns_with(
         None => build_pool_tables(env)?,
     };
 
-    for spec in &env.config.sequences {
+    // Env-level groups are settled the moment their last member exists, not after the
+    // whole table: a column declared below a group reads its members, and has to read the
+    // values the group leaves behind. Settled after the loop, a `<uniq>` rearranged B under
+    // a pool lookup that had already picked by the old B, and a formula of a `<distinct>`
+    // member kept the value the group then repaired. Members sit together inside their
+    // group's tag and a column reads only what is declared above it, so "after the last
+    // member" is early enough for every reader. Both draw from keyed streams, so settling
+    // earlier moves no other column.
+    let mut groups = PendingGroups::of(env.config);
+    for (index, spec) in env.config.sequences.iter().enumerate() {
+        groups.settle(env, &mut columns, count, index)?;
         // Everything published so far, kept only if an expression somewhere can name it.
         // At the TOP of the iteration rather than the bottom: several shapes below finish
         // with `continue`, and one place every path passes through cannot forget a column.
@@ -1522,12 +1541,73 @@ fn build_columns_with(
         }
     }
 
-    // Both run over finished columns, for the same reason the per-sequence ones
-    // do — and after the loop, because a group may name a sequence declared last.
-    enforce_env_distinct(env, &mut columns, count)?;
-    enforce_env_uniq(env.config, &mut columns, count)?;
+    // Whatever is left: a group whose last member is the last sequence.
+    groups.settle(env, &mut columns, count, env.config.sequences.len())?;
 
     Ok(columns)
+}
+
+/// The env-level groups not yet settled — see the call before the build loop.
+///
+/// `settle(index)` settles every group whose members all lie before `index`;
+/// `sequences.len()` settles whatever is left. Within one call, `<distinct>`
+/// before `<uniq>`, the order they had when both ran after the loop. A settled
+/// member's copy in the expression cache is replaced: the cache keeps the first
+/// copy it sees, and that copy was taken before the group touched the column.
+struct PendingGroups {
+    position: BTreeMap<String, usize>,
+    distinct: Vec<Vec<String>>,
+    uniq: Vec<Vec<String>>,
+}
+
+impl PendingGroups {
+    fn of(config: &Config) -> Self {
+        Self {
+            position: config
+                .sequences
+                .iter()
+                .enumerate()
+                .map(|(i, spec)| (spec.name.clone(), i))
+                .collect(),
+            distinct: config.env_distinct_groups.clone(),
+            uniq: config.env_uniq_groups.clone(),
+        }
+    }
+
+    fn ready(&self, group: &[String], index: usize) -> bool {
+        group
+            .iter()
+            .all(|name| self.position.get(name).is_none_or(|&at| at < index))
+    }
+
+    fn settle(
+        &mut self,
+        env: &Env,
+        columns: &mut BTreeMap<String, Vec<Option<String>>>,
+        count: usize,
+        index: usize,
+    ) -> EngineResult<()> {
+        let (distinct, rest): (Vec<_>, Vec<_>) = std::mem::take(&mut self.distinct)
+            .into_iter()
+            .partition(|group| self.ready(group, index));
+        self.distinct = rest;
+        let (uniq, rest): (Vec<_>, Vec<_>) = std::mem::take(&mut self.uniq)
+            .into_iter()
+            .partition(|group| self.ready(group, index));
+        self.uniq = rest;
+        if !distinct.is_empty() {
+            enforce_env_distinct(env, columns, count, &distinct)?;
+        }
+        if !uniq.is_empty() {
+            enforce_env_uniq(env.config, columns, count, &uniq)?;
+        }
+        for name in distinct.iter().chain(uniq.iter()).flatten() {
+            if let Some(column) = columns.get(name) {
+                env.replace_sibling(name, column);
+            }
+        }
+        Ok(())
+    }
 }
 
 // ── uniq and distinct ────────────────────────────────────────────────────────
@@ -1749,8 +1829,9 @@ fn enforce_env_distinct(
     env: &Env,
     columns: &mut BTreeMap<String, Vec<Option<String>>>,
     count: usize,
+    groups: &[Vec<String>],
 ) -> EngineResult<()> {
-    for group in &env.config.env_distinct_groups {
+    for group in groups {
         let members = scalar_members(group, env.config, columns);
         if members.len() < 2 {
             continue;
@@ -1802,8 +1883,9 @@ fn enforce_env_uniq(
     config: &Config,
     columns: &mut BTreeMap<String, Vec<Option<String>>>,
     count: usize,
+    groups: &[Vec<String>],
 ) -> EngineResult<()> {
-    for group in &config.env_uniq_groups {
+    for group in groups {
         let members = scalar_members(group, config, columns);
         if members.len() < 2 {
             continue;

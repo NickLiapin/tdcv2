@@ -652,7 +652,16 @@ def _build_columns(
         else build_pool_tables(config, packs, now_millis, base_dir)
     )
 
-    for spec in config.sequences:
+    # Env-level groups are settled the moment their last member exists, not after the whole
+    # table: a column declared below a group reads its members, and has to read the values the
+    # group leaves behind. Settled after the loop, a `<uniq>` rearranged B under a pool lookup
+    # that had already picked by the old B, and a formula of a `<distinct>` member kept the value
+    # the group then repaired. Members sit together inside their group's tag and a column reads
+    # only what is declared above it, so "after the last member" is early enough for every
+    # reader. Both draw from keyed streams, so settling earlier moves no other column.
+    settle = _group_settler(config, columns, count, run)
+    for index, spec in enumerate(config.sequences):
+        settle(index)
         mask = _parent_mask(spec, columns, count)
         # In the order the column BUILDS them, which for a child is its rank inside the
         # parent's exact layout rather than plain row order.
@@ -773,8 +782,7 @@ def _build_columns(
             (spec.name or "") in wants_instant,
         )
 
-    _enforce_env_distinct(config, columns, count, run)
-    _enforce_env_uniq(config, columns, count)
+    settle(len(config.sequences))
     _resolve_http(config, columns, count, base_dir)
     return columns
 
@@ -1873,7 +1881,36 @@ def _uniq_redrawn_message(name: str | None, requested: int, achievable: int) -> 
     )
 
 
-def _enforce_env_distinct(config: Config, columns, count: int, run: _Run) -> None:
+def _group_settler(config: Config, columns, count: int, run: _Run):
+    """Settle each env-level group once its last member is built — see the call site.
+
+    Call it before building ``config.sequences[index]``: it settles every group whose members
+    all lie before ``index``, and ``len(config.sequences)`` settles whatever is left. Within one
+    call, ``<distinct>`` before ``<uniq>``, the order they had when both ran after the loop.
+    """
+    position = {spec.name: i for i, spec in enumerate(config.sequences)}
+    pending = {
+        "distinct": list(config.env_distinct_groups),
+        "uniq": list(config.env_uniq_groups),
+    }
+
+    def last_of(group) -> int:
+        return max([-1, *(position.get(name, -1) for name in group)])
+
+    def settle(index: int) -> None:
+        distinct = [g for g in pending["distinct"] if last_of(g) < index]
+        uniq = [g for g in pending["uniq"] if last_of(g) < index]
+        if distinct:
+            pending["distinct"] = [g for g in pending["distinct"] if last_of(g) >= index]
+            _enforce_env_distinct(config, columns, count, run, distinct)
+        if uniq:
+            pending["uniq"] = [g for g in pending["uniq"] if last_of(g) >= index]
+            _enforce_env_uniq(config, columns, count, uniq)
+
+    return settle
+
+
+def _enforce_env_distinct(config: Config, columns, count: int, run: _Run, groups=None) -> None:
     """Env-level ``<distinct>``: the wrapped sequences differ from each other on every row.
 
     The same idea as ``<distinct>`` inside one compound, one level up. A colliding sequence
@@ -1884,7 +1921,7 @@ def _enforce_env_distinct(config: Config, columns, count: int, run: _Run) -> Non
     seed = config.seed
     redraw_run = per_row.redraw(run)
 
-    for group in config.env_distinct_groups:
+    for group in config.env_distinct_groups if groups is None else groups:
         members = _scalar_members(group, by_name, columns)
         if len(members) < 2:
             continue
@@ -1915,7 +1952,7 @@ def _enforce_env_distinct(config: Config, columns, count: int, run: _Run) -> Non
                 seen.append(value)
 
 
-def _enforce_env_uniq(config: Config, columns, count: int) -> None:
+def _enforce_env_uniq(config: Config, columns, count: int, groups=None) -> None:
     """Env-level ``<uniq>``: the tuple of the wrapped sequences is unique across the run.
 
     The values are already drawn, so this rearranges rather than redraws — each column keeps the
@@ -1924,7 +1961,7 @@ def _enforce_env_uniq(config: Config, columns, count: int) -> None:
     """
     by_name = {spec.name: spec for spec in config.sequences}
 
-    for group in config.env_uniq_groups:
+    for group in config.env_uniq_groups if groups is None else groups:
         members = _scalar_members(group, by_name, columns)
         if len(members) < 2:
             continue

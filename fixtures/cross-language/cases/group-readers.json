@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "a-pool-lookup-reads-the-rearranged-uniq-member",
+      "description": "The first in-memory build looked the pool up by the value a <uniq> member drew, then rearranged the member: 4898 of 5000 rows printed a day that was not the one looked up. The lookup has to see the final value.",
+      "config": "<tdc><env count=\"8\" seed=\"gr\" local=\"en\" engine=\"1\"><pool name=\"Days\" count=\"4\"><sequence name=\"di\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"label\"><gen type=\"text\" value=\"mon,tue,wed,thu\" order=\"sequential\"/></sequence></pool><uniq><sequence name=\"A\"><gen type=\"number\" value=\"1..8\"/></sequence><sequence name=\"B\"><gen type=\"number\" value=\"1..4\"/></sequence></uniq><sequence name=\"Day\"><gen type=\"pool\" value=\"Days\" filter=\"di == B\"/></sequence><assert each=\"Day.di == B\" says=\"the looked-up day is the drawn one\"/></env><block><line><data>${{A}},${{B}},${{Day.di}},${{Day.label}}</data></line></block></tdc>",
+      "expected": [
+        "2,3,3,wed",
+        "1,3,3,wed",
+        "1,4,4,thu",
+        "1,1,1,mon",
+        "7,3,3,wed",
+        "3,4,4,thu",
+        "4,2,2,tue",
+        "2,4,4,thu"
+      ]
+    },
+    {
+      "name": "a-formula-reads-the-rearranged-uniq-member",
+      "description": "Any column reading a <uniq> member, not only a pool lookup: a formula copied the value from before the rearrangement.",
+      "config": "<tdc><env count=\"8\" seed=\"gr\" local=\"en\" engine=\"1\"><uniq><sequence name=\"A\"><gen type=\"number\" value=\"1..8\"/></sequence><sequence name=\"B\"><gen type=\"number\" value=\"1..4\"/></sequence></uniq><sequence name=\"F\"><gen type=\"formula\" expr=\"B * 10\"/></sequence><assert each=\"F == B * 10\" says=\"the formula reads the final B\"/></env><block><line><data>${{A}},${{B}},${{F}}</data></line></block></tdc>",
+      "expected": [
+        "2,3,30",
+        "1,3,30",
+        "1,4,40",
+        "1,1,10",
+        "7,3,30",
+        "3,4,40",
+        "4,2,20",
+        "2,4,40"
+      ]
+    },
+    {
+      "name": "a-reader-of-a-reader-sees-the-final-value",
+      "description": "A column reading a column that reads a <uniq> member: both have to be built after the rearrangement.",
+      "config": "<tdc><env count=\"8\" seed=\"gr\" local=\"en\" engine=\"1\"><uniq><sequence name=\"A\"><gen type=\"number\" value=\"1..8\"/></sequence><sequence name=\"B\"><gen type=\"number\" value=\"1..4\"/></sequence></uniq><sequence name=\"F\"><gen type=\"formula\" expr=\"B + 1\"/></sequence><sequence name=\"G\"><gen type=\"formula\" expr=\"F * 2\"/></sequence><assert each=\"G == (B + 1) * 2\" says=\"the chain reads the final B\"/></env><block><line><data>${{B}},${{F}},${{G}}</data></line></block></tdc>",
+      "expected": [
+        "3,4,8",
+        "3,4,8",
+        "4,5,10",
+        "1,2,4",
+        "3,4,8",
+        "4,5,10",
+        "2,3,6",
+        "4,5,10"
+      ]
+    },
+    {
+      "name": "a-formula-reads-the-repaired-distinct-member",
+      "description": "A <distinct> group repairs a row where two members collide; a formula reading the member had already copied the colliding value.",
+      "config": "<tdc><env count=\"8\" seed=\"gr\" local=\"en\" engine=\"1\"><distinct><sequence name=\"A\"><gen type=\"number\" value=\"1..3\"/></sequence><sequence name=\"B\"><gen type=\"number\" value=\"1..3\"/></sequence></distinct><sequence name=\"F\"><gen type=\"formula\" expr=\"B + 0\"/></sequence><assert each=\"F == B\" says=\"the formula reads the repaired B\"/><assert each=\"A != B\" says=\"the group still holds\"/></env><block><line><data>${{A}},${{B}},${{F}}</data></line></block></tdc>",
+      "expected": [
+        "1,3,3",
+        "1,3,3",
+        "1,3,3",
+        "1,3,3",
+        "3,2,2",
+        "2,1,1",
+        "2,1,1",
+        "1,3,3"
+      ]
+    },
+    {
+      "name": "a-pool-lookup-reads-the-repaired-distinct-member",
+      "description": "The same for a pool lookup filtered on a <distinct> member.",
+      "config": "<tdc><env count=\"8\" seed=\"gr\" local=\"en\" engine=\"1\"><pool name=\"Days\" count=\"4\"><sequence name=\"di\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"label\"><gen type=\"text\" value=\"mon,tue,wed,thu\" order=\"sequential\"/></sequence></pool><distinct><sequence name=\"A\"><gen type=\"number\" value=\"1..3\"/></sequence><sequence name=\"B\"><gen type=\"number\" value=\"1..3\"/></sequence></distinct><sequence name=\"Day\"><gen type=\"pool\" value=\"Days\" filter=\"di == B\"/></sequence><assert each=\"Day.di == B\" says=\"the looked-up day is the repaired one\"/></env><block><line><data>${{A}},${{B}},${{Day.di}}</data></line></block></tdc>",
+      "expected": [
+        "1,3,3",
+        "1,3,3",
+        "1,3,3",
+        "1,3,3",
+        "3,2,2",
+        "2,1,1",
+        "2,1,1",
+        "1,3,3"
+      ]
+    },
+    {
+      "name": "a-uniq-group-inside-a-pool-and-a-field-reading-it",
+      "description": "A pool builds its members the way an env builds rows, so a field of the pool reading a member of the pool's own <uniq> group has the same order to get right.",
+      "config": "<tdc><env count=\"8\" seed=\"gr\" local=\"en\" engine=\"1\"><pool name=\"P\" count=\"8\"><uniq><sequence name=\"A\"><gen type=\"number\" value=\"1..8\"/></sequence><sequence name=\"B\"><gen type=\"number\" value=\"1..4\"/></sequence></uniq><sequence name=\"F\"><gen type=\"formula\" expr=\"B * 10\"/></sequence></pool><sequence name=\"R\"><gen type=\"pool\" value=\"P\"/></sequence><assert each=\"R.F == R.B * 10\" says=\"the pool field reads the final B\"/></env><block><line><data>${{R.A}},${{R.B}},${{R.F}}</data></line></block></tdc>",
+      "expected": [
+        "4,3,30",
+        "6,4,40",
+        "4,3,30",
+        "8,1,10",
+        "2,1,10",
+        "5,3,30",
+        "6,4,40",
+        "5,1,10"
+      ]
+    }
+  ]
+}
