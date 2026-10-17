@@ -33,6 +33,15 @@ page — is tracked in that implementation's own changelog:
   lookup, a formula and a chain of two over a `<uniq>` member, a formula and a pool lookup over a
   `<distinct>` member, and a `<uniq>` group inside a pool, each held by an `<assert>`.
 
+- **A condition could not read a field of a nested pool record, in all five.** A record drawn from
+  a pool that holds another pool's record publishes paths like `D.room.dept.dep_id`, and a formula
+  or the output read them fine — but in an `<assert>` or an `if=` every such path was refused as
+  `TDC215`, "not a field of D", with a field list that named it. Only the first link (`D.room`) was
+  looked up, so even two links failed. The whole path is checked now, and a misspelt link is still
+  `TDC215`, with the full path as the suggestion. Pinned in `diagnostics/nested-paths.json` (paths
+  one to three links deep in `each=` and `if=`, a typo at the end and in the middle) and in
+  `cases/nested-paths.json`, where an `if=` and an `<assert>` read the three-link path at run time.
+
 ## [0.3.4] — 2026-10-16
 
 ### Added

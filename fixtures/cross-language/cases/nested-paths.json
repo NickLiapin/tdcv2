@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "conditions-read-fields-three-pools-deep",
+      "description": "An if= and an <assert> read D.room.dept.dep_id the way a formula and the output do — the validator refused both until the whole path was checked.",
+      "config": "<tdc><env count=\"6\" seed=\"r7\" local=\"en\"><pool name=\"Depts\" count=\"3\"><sequence name=\"dep_id\"><gen type=\"increment\" value=\"1\"/></sequence></pool><pool name=\"Rooms\" count=\"6\"><sequence name=\"room_id\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"dept\"><gen type=\"pool\" value=\"Depts\"/></sequence></pool><pool name=\"Docs\" count=\"4\"><sequence name=\"doc_id\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"room\"><gen type=\"pool\" value=\"Rooms\"/></sequence></pool><sequence name=\"D\"><gen type=\"pool\" value=\"Docs\"/></sequence><sequence name=\"Tag\"><gen type=\"text\" value=\"first-dept\" if=\"D.room.dept.dep_id == 1\"/><gen type=\"text\" value=\"other\"/></sequence><assert each=\"D.room.dept.dep_id >= 1\" says=\"every doctor sits in a department\"/></env><block><line><data>${{D.doc_id}}|${{D.room.room_id}}|${{D.room.dept.dep_id}}|${{Tag}}</data></line></block></tdc>",
+      "expected": [
+        "2|5|1|first-dept",
+        "4|1|2|other",
+        "2|5|1|first-dept",
+        "3|5|1|first-dept",
+        "2|5|1|first-dept",
+        "4|1|2|other"
+      ]
+    }
+  ]
+}

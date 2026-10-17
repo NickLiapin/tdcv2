@@ -6702,9 +6702,10 @@ public final class Validator {
           line, column, nearValue.isEmpty() ? "" : root + "." + nearValue);
       return;
     }
-    int inner = tail.indexOf('.');
-    String field = inner < 0 ? tail : tail.substring(0, inner);
-    if (declaredNames.contains(root + "." + field)) {
+    // The WHOLE tail is the field: a record drawn from a pool that holds another pool's record
+    // publishes D.room.dept.dep_id, and asking for the first link alone (D.room) refused every
+    // path through a nested record while a formula read the same path without complaint.
+    if (declaredNames.contains(root + "." + tail)) {
       return;
     }
     List<String> fields = new ArrayList<>();
@@ -6713,7 +6714,7 @@ public final class Validator {
         fields.add(name.substring(root.length() + 1));
       }
     }
-    String nearField = Diagnostic.closestMatch(field, fields);
+    String nearField = Diagnostic.closestMatch(tail, fields);
     errorNear("TDC215",
         "\"" + path + "\" is not a field of \"" + root + "\" — the condition can never be true",
         fields.isEmpty()

@@ -6672,8 +6672,11 @@ impl Validator {
             );
             return;
         }
-        let field = tail.split_once('.').map_or(tail, |(head, _)| head);
-        let full = format!("{root}.{field}");
+        // The WHOLE tail is the field: a record drawn from a pool that holds another
+        // pool's record publishes `D.room.dept.dep_id`, and asking for the first link
+        // alone (`D.room`) refused every path through a nested record while a formula
+        // read the same path without complaint.
+        let full = format!("{root}.{tail}");
         if self.declared_names.contains(&full) {
             return;
         }
@@ -6688,7 +6691,7 @@ impl Validator {
         } else {
             format!("Fields of \"{root}\": {}.", fields.join(", "))
         };
-        let near = crate::errors::closest_match(field, &fields);
+        let near = crate::errors::closest_match(tail, &fields);
         self.error_near(
             "TDC215",
             format!("\"{path}\" is not a field of \"{root}\" — the condition can never be true"),

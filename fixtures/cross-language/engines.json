@@ -4345,6 +4345,28 @@
         ]
       }
     },
+    "nested-paths/conditions-read-fields-three-pools-deep": {
+      "engine2": {
+        "lines": [
+          "2|5|1|first-dept",
+          "4|1|2|other",
+          "2|5|1|first-dept",
+          "3|5|1|first-dept",
+          "2|5|1|first-dept",
+          "4|1|2|other"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "2|5|1|first-dept",
+          "4|1|2|other",
+          "2|5|1|first-dept",
+          "3|5|1|first-dept",
+          "2|5|1|first-dept",
+          "4|1|2|other"
+        ]
+      }
+    },
     "one-row/a-run-of-one-row": {
       "engine2": {
         "lines": ["aba"]

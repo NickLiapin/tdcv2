@@ -7765,9 +7765,10 @@ public sealed class Validator
             return;
         }
 
-        int inner = tail.IndexOf('.', StringComparison.Ordinal);
-        string field = inner < 0 ? tail : tail[..inner];
-        if (_declaredNames.Contains(root + "." + field))
+        // The WHOLE tail is the field: a record drawn from a pool that holds another pool's
+        // record publishes D.room.dept.dep_id, and asking for the first link alone (D.room) refused
+        // every path through a nested record while a formula read the same path without complaint.
+        if (_declaredNames.Contains(root + "." + tail))
         {
             return;
         }
@@ -7776,7 +7777,7 @@ public sealed class Validator
             .Where(n => n.StartsWith(root + ".", StringComparison.Ordinal))
             .Select(n => n[(root.Length + 1)..])
             .ToList();
-        string nearField = Diagnostic.ClosestMatch(field, fields);
+        string nearField = Diagnostic.ClosestMatch(tail, fields);
         ErrorNear(
             "TDC215",
             "\"" + path + "\" is not a field of \"" + root + "\" — the condition can never be true",

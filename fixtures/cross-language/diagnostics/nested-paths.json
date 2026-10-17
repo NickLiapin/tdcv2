@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "an-assert-reads-a-field-two-pools-deep",
+      "demonstrates": "",
+      "description": "D.room.room_id is a field of the room the doctor's record points at; each= reads it like a formula does",
+      "config": "<tdc><env count=\"5\" seed=\"r7\" local=\"en\"><pool name=\"Depts\" count=\"3\"><sequence name=\"dep_id\"><gen type=\"increment\" value=\"1\"/></sequence></pool><pool name=\"Rooms\" count=\"6\"><sequence name=\"room_id\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"dept\"><gen type=\"pool\" value=\"Depts\"/></sequence></pool><pool name=\"Docs\" count=\"4\"><sequence name=\"doc_id\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"room\"><gen type=\"pool\" value=\"Rooms\"/></sequence></pool><sequence name=\"D\"><gen type=\"pool\" value=\"Docs\"/></sequence><assert each=\"D.room.room_id >= 1\" says=\"x\"/></env><block><line><data>${{D.doc_id}}</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "an-assert-reads-a-field-three-pools-deep",
+      "demonstrates": "",
+      "description": "D.room.dept.dep_id, three links, was refused with a field list that named it",
+      "config": "<tdc><env count=\"5\" seed=\"r7\" local=\"en\"><pool name=\"Depts\" count=\"3\"><sequence name=\"dep_id\"><gen type=\"increment\" value=\"1\"/></sequence></pool><pool name=\"Rooms\" count=\"6\"><sequence name=\"room_id\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"dept\"><gen type=\"pool\" value=\"Depts\"/></sequence></pool><pool name=\"Docs\" count=\"4\"><sequence name=\"doc_id\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"room\"><gen type=\"pool\" value=\"Rooms\"/></sequence></pool><sequence name=\"D\"><gen type=\"pool\" value=\"Docs\"/></sequence><assert each=\"D.room.dept.dep_id >= 1\" says=\"x\"/></env><block><line><data>${{D.doc_id}}</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "an-if-reads-a-field-three-pools-deep",
+      "demonstrates": "",
+      "description": "the same path in a gen's if= condition",
+      "config": "<tdc><env count=\"5\" seed=\"r7\" local=\"en\"><pool name=\"Depts\" count=\"3\"><sequence name=\"dep_id\"><gen type=\"increment\" value=\"1\"/></sequence></pool><pool name=\"Rooms\" count=\"6\"><sequence name=\"room_id\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"dept\"><gen type=\"pool\" value=\"Depts\"/></sequence></pool><pool name=\"Docs\" count=\"4\"><sequence name=\"doc_id\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"room\"><gen type=\"pool\" value=\"Rooms\"/></sequence></pool><sequence name=\"D\"><gen type=\"pool\" value=\"Docs\"/></sequence><sequence name=\"X\"><gen type=\"text\" value=\"a\" if=\"D.room.dept.dep_id >= 1\"/></sequence></env><block><line><data>${{D.doc_id}}</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "a-misspelt-field-three-pools-deep",
+      "demonstrates": "TDC215",
+      "description": "a typo at the third link is still a field that does not exist",
+      "config": "<tdc><env count=\"5\" seed=\"r7\" local=\"en\"><pool name=\"Depts\" count=\"3\"><sequence name=\"dep_id\"><gen type=\"increment\" value=\"1\"/></sequence></pool><pool name=\"Rooms\" count=\"6\"><sequence name=\"room_id\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"dept\"><gen type=\"pool\" value=\"Depts\"/></sequence></pool><pool name=\"Docs\" count=\"4\"><sequence name=\"doc_id\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"room\"><gen type=\"pool\" value=\"Rooms\"/></sequence></pool><sequence name=\"D\"><gen type=\"pool\" value=\"Docs\"/></sequence><assert each=\"D.room.dept.dep_ix >= 1\" says=\"x\"/></env><block><line><data>${{D.doc_id}}</data></line></block></tdc>",
+      "expected": ["error TDC215 1:558"]
+    },
+    {
+      "name": "a-misspelt-middle-link",
+      "demonstrates": "TDC215",
+      "description": "a typo in the middle of the path",
+      "config": "<tdc><env count=\"5\" seed=\"r7\" local=\"en\"><pool name=\"Depts\" count=\"3\"><sequence name=\"dep_id\"><gen type=\"increment\" value=\"1\"/></sequence></pool><pool name=\"Rooms\" count=\"6\"><sequence name=\"room_id\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"dept\"><gen type=\"pool\" value=\"Depts\"/></sequence></pool><pool name=\"Docs\" count=\"4\"><sequence name=\"doc_id\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"room\"><gen type=\"pool\" value=\"Rooms\"/></sequence></pool><sequence name=\"D\"><gen type=\"pool\" value=\"Docs\"/></sequence><assert each=\"D.rom.dept.dep_id >= 1\" says=\"x\"/></env><block><line><data>${{D.doc_id}}</data></line></block></tdc>",
+      "expected": ["error TDC215 1:558"]
+    }
+  ]
+}

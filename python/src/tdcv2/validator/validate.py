@@ -6625,11 +6625,13 @@ class _Validator:
                 _did_you_mean(f"{root}.{near}" if near else ""),
             )
             return
-        field = tail.split(".")[0]
-        if f"{root}.{field}" in self.declared_names:
+        # The WHOLE tail is the field: a record drawn from a pool that holds another pool's record
+        # publishes `D.room.dept.dep_id`, and asking for the first link alone (`D.room`) refused
+        # every path through a nested record while a formula read the same path without complaint.
+        if f"{root}.{tail}" in self.declared_names:
             return
         fields = sorted(n[len(root) + 1 :] for n in self.declared_names if n.startswith(f"{root}."))
-        near = closest_match(field, fields)
+        near = closest_match(tail, fields)
         self._error(
             "TDC215",
             f'"{path}" is not a field of "{root}" — the condition can never be true',

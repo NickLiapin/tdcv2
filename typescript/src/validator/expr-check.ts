@@ -593,14 +593,19 @@ export function checkExpressionNames(
     }
 
     // A tail on a compound is a field, and a field either exists or is a typo.
-    // Anywhere else the tail is a value the config cannot be asked about.
+    // Anywhere else the tail is a value the config cannot be asked about. The
+    // WHOLE tail is the field: a record drawn from a pool that holds another
+    // pool's record publishes `D.room.dept.dep_id`, and asking for the first
+    // link alone (`D.room`) refused every path through a nested record — in an
+    // `<assert>` or an `if=` — while a formula read the same path without
+    // complaint, and the refusal listed the very field it said was missing.
     if (compounds.includes(root)) {
-      const full = `${root}.${tail[0] ?? ''}`;
+      const full = `${root}.${tail.join('.')}`;
       if (!declared(full)) {
         const fields = everything
           .filter((n) => n.startsWith(`${root}.`))
           .map((n) => n.slice(root.length + 1));
-        const suggestion = closestMatch(tail[0] ?? '', fields);
+        const suggestion = closestMatch(tail.join('.'), fields);
         complain(
           `"${parts.join('.')}" is not a field of "${root}" — the condition can never be true`,
           fields.length === 0
