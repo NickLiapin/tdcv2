@@ -539,6 +539,9 @@ export function checkExpressionNames(
     const parts = chain(node);
     if (!parts || parts.length === 0) return;
     const [root, ...tail] = parts as [string, ...string[]];
+    // A whole path the line itself publishes — a pool record's field or a position on an
+    // `each` line (`Doctors.dept.id`, `Doctors._last`) — whose root is a pool, not a sequence.
+    if (tail.length > 0 && eachBuiltins.includes(parts.join('.'))) return;
 
     if (!declared(root)) {
       const suggestion = closestMatch(root, everything);

@@ -152,6 +152,19 @@ export function checkFilterArg(
     return;
   }
 
+  // The renderer trims an argument, so `json: ` is as empty as `json:`.
+  if (kind === 'json' && arg?.trim() === '') {
+    push(
+      diagnostics,
+      node,
+      'the "json" filter has a colon and no separator after it',
+      'Write ${{X|json}} for one value — a quoted string, or null when empty — and ' +
+        '${{X|json:;}} for a list joined with ";", which comes out as a JSON array.',
+      'TDC273',
+    );
+    return;
+  }
+
   if (kind === 'compact' && arg !== undefined && arg !== '') {
     const base = wholeNumber(arg);
     if (base === undefined || base < 2 || base > 36) {

@@ -46,7 +46,7 @@ from ..sequence import pool as pool_mod
 from ..sequence import uniq as uniq_lib
 from ..stats import dist_params, timeseries
 from ..stats import distribution as dist
-from . import branch_derived, per_row, repeat_keyed
+from . import branch_derived, each, per_row, repeat_keyed
 
 # How many redraws a <distinct> field gets before its source is called too small.
 DISTINCT_FUSE = 100
@@ -160,7 +160,8 @@ def build(
     on_progress=None,
 ) -> Rendered:
     count = config.count
-    columns = _build_columns(config, count, packs, now_millis, base_dir)
+    tables = build_pool_tables(config, packs, now_millis, base_dir)
+    columns = _build_columns(config, count, packs, now_millis, base_dir, pool_tables=tables)
 
     # The run is finished; now the config gets to check its own output — before a single line
     # is written, because a file that exists is a file someone will use.
@@ -175,7 +176,7 @@ def build(
     each_info = _each_info(config)
     fx = config.fixtures
     out: list[str] = []
-    _emit(out, fx.before, columns, 0, config.inject)
+    _emit(out, fx.before, columns, 0, config.inject, each_info, tables)
 
     # About one report per half-percent: cheap enough to leave on always.
     report_every = max(1, count // 200)
@@ -190,14 +191,15 @@ def build(
             lambda name: name in columns,
             row,
         )
-        _emit(out, fx.before_block, columns, row, config.inject)
+        _emit(out, fx.before_block, columns, row, config.inject, each_info, tables)
 
         # The suppressed lines are dropped first. A delimiter belongs between the lines that
         # SURVIVE, so deciding that up front is what keeps a separator off the last one standing.
+        # An each= line asks its if= of every element instead, with the element in scope.
         active = [
             line
             for line in config.block
-            if line.if_expr is None or _condition(line.if_expr, columns, row)
+            if line.if_expr is None or line.each or _condition(line.if_expr, columns, row)
         ]
         # The OUTPUT lines, not the <line> ELEMENTS. One `<line each="Items">` produces as many
         # output lines as the list has elements, and the three per-line fixtures are documented
@@ -206,19 +208,19 @@ def build(
         # therefore did nothing at all: no comma between the members of an array, in silence.
         emitted: list[str] = []
         for line in active:
-            emitted.extend(_render_line(line, columns, row, config.inject, each_info))
+            emitted.extend(_render_line(line, columns, row, config.inject, each_info, tables))
         for i, text in enumerate(emitted):
-            _emit(out, fx.before_line, columns, row, config.inject)
+            _emit(out, fx.before_line, columns, row, config.inject, each_info, tables)
             out.append(text)
-            _emit(out, fx.after_line, columns, row, config.inject)
+            _emit(out, fx.after_line, columns, row, config.inject, each_info, tables)
             if i < len(emitted) - 1:
-                _emit(out, fx.delimiter_line, columns, row, config.inject)
+                _emit(out, fx.delimiter_line, columns, row, config.inject, each_info, tables)
 
-        _emit(out, fx.after_block, columns, row, config.inject)
+        _emit(out, fx.after_block, columns, row, config.inject, each_info, tables)
         if row < count - 1:
-            _emit(out, fx.delimiter_block, columns, row, config.inject)
+            _emit(out, fx.delimiter_block, columns, row, config.inject, each_info, tables)
 
-    _emit(out, fx.after, columns, count - 1, config.inject)
+    _emit(out, fx.after, columns, count - 1, config.inject, each_info, tables)
     # Said at the end as well as along the way: a phase a watcher sees CLOSE is a phase it
     # can tell from a stall. The sweep above reports every half-percent and so stops short.
     if on_progress is not None:
@@ -226,11 +228,13 @@ def build(
     return Rendered("".join(out), columns, count)
 
 
-def _emit(out: list[str], lines: list[Line], columns, row: int, inject: str) -> None:
+def _emit(
+    out: list[str], lines: list[Line], columns, row: int, inject: str, each_info, pools
+) -> None:
     for line in lines:
         # A fixture line is one output line; extend rather than append, because _render_line
         # hands back the LINES now and a two-line fixture must not come out joined.
-        out.extend(_render_line(line, columns, row, inject, {}))
+        out.extend(_render_line(line, columns, row, inject, each_info, pools))
 
 
 def _each_info(config: Config) -> dict[str, repeat_gen.Spec]:
@@ -3083,62 +3087,29 @@ def _condition(expr: str, columns, row: int) -> bool:
     )
 
 
-def _render_line(line: Line, columns, row: int, inject: str, each_info) -> list[str]:
-    """One line — or, with ``each="NAME"``, one line per element of that list.
+def _render_line(line: Line, columns, row: int, inject: str, each_info, pools=None) -> list[str]:
+    """One line — or, with ``each="NAME"``, one line per element of that list or pool record.
 
     The OUTPUT LINES, each with its newline already attached. A list with nothing in it produces
     none at all: a customer with no orders leaves no blank row behind. A list is returned rather
     than one joined string so the caller can put a fixture BETWEEN the lines an each= produced —
     which is what <delimiter_line> is for, and what it silently failed to do.
     """
+    list_name = None if line.each is None else line.each.strip()
+    if list_name:
+        return each.render(
+            line,
+            list_name,
+            row,
+            inject,
+            each_info,
+            pools,
+            _row_lookup(columns, row),
+            lambda name: name in columns,
+        )
     template = "".join(
         part.text
         for part in line.parts
         if part.if_expr is None or _condition(part.if_expr, columns, row)
     )
-
-    list_name = None if line.each is None else line.each.strip()
-    if not list_name:
-        return [interpolate.apply(template, inject, _row_lookup(columns, row)) + "\n"]
-
-    spec = each_info.get(list_name)
-    column = columns.get(list_name)
-    cell = "" if column is None or column[row] is None else column[row]
-    separator = repeat_gen.DEFAULT_SEPARATOR if spec is None else spec.separator
-    elements = repeat_gen.split(cell, separator)
-
-    # Lanes: two repeating sequences write into the same child table, so each gets its own slice
-    # of every card's key block rather than sharing one counter.
-    lane = 0
-    stride = 0
-    for name, info in each_info.items():
-        if name == list_name:
-            lane = stride
-        stride += info.max
-    if stride == 0:
-        stride = len(elements)
-
-    out = []
-    for k, element in enumerate(elements):
-        lookup = _element_lookup(columns, row, list_name, element, k + 1, lane, stride)
-        out.append(interpolate.apply(template, inject, lookup) + "\n")
-    return out
-
-
-def _element_lookup(columns, row: int, list_name: str, element: str, position: int, lane, stride):
-    """The row's view with one element substituted for the list, plus the two positional built-ins.
-
-    Shallow on purpose: every other column still resolves per record, which is exactly what makes
-    a foreign key on the repeated line point at the right parent on every emitted row.
-    """
-    overlay = {
-        list_name: element,
-        "_item": str(position),
-        "_item_id": str(repeat_gen.item_key(row + 1, position, lane, stride)),
-    }
-    base = _row_lookup(columns, row)
-
-    def lookup(name: str) -> str | None:
-        return overlay[name] if name in overlay else base(name)
-
-    return lookup
+    return [interpolate.apply(template, inject, _row_lookup(columns, row)) + "\n"]

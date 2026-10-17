@@ -144,6 +144,16 @@ struct Validator {
     pool_field_values: BTreeMap<String, BTreeMap<String, Vec<String>>>,
     /// Every pool a `<gen type="pool">` names, gathered before the walk — TDC231.
     pools_read: BTreeSet<String>,
+    /// The pools a `<line each="Pool">` prints, read as surely as a `<gen type="pool">`
+    /// reads one (TDC231).
+    each_pools: BTreeSet<String>,
+    /// Every list by the path `${{…}}` names it with, and its separator — TDC312.
+    list_separators: BTreeMap<String, String>,
+    /// The names the `<line>` being checked publishes — a walked pool's fields and the walked
+    /// name's positions — and, while a deferred condition is checked, the names its line gave
+    /// it. Both are whole paths whose root need not be a sequence: `Doctors.dept.id`.
+    line_names: BTreeSet<String>,
+    expression_extra: BTreeSet<String>,
     pool_references: BTreeSet<String>,
     /// Of those, the compounds: every `<gen>` named, so the sequence is a group
     /// of fields and produces no value of its own. Which is what `parent=`
@@ -169,6 +179,7 @@ struct Validator {
         Option<BTreeSet<String>>,
         Option<&'static str>,
         Option<BTreeSet<String>>,
+        BTreeSet<String>,
     )>,
     /// Every `<data>` written inside a `<case>`, held back for the same reason:
     /// a case body may name a column declared BELOW it.
@@ -420,6 +431,8 @@ impl Validator {
         }
 
         self.check_tdc_children(tdc);
+        self.each_pools = each_pools(block);
+        self.list_separators = list_separators(env);
         if let Some(env) = env {
             self.check_env(env);
         }
@@ -440,7 +453,7 @@ impl Validator {
         // in source order.
         let pending = std::mem::take(&mut self.pending_expressions);
         let mut shift = 0usize;
-        for (at_index, condition, pos, each, scope, extra, above) in pending {
+        for (at_index, condition, pos, each, scope, extra, above, published) in pending {
             let before = self.diagnostics.len();
             // `extra` is provided by the language rather than declared, so it is never "below".
             self.declared_above = above.map(|mut names| {
@@ -454,7 +467,18 @@ impl Validator {
                 Some(names) => Some(std::mem::replace(&mut self.declared_names, names)),
             };
             let added = extra.is_some_and(|name| self.declared_names.insert(name.to_string()));
+            // What the line publishes joins the run's names for this one expression.
+            let published_added: Vec<String> = published
+                .iter()
+                .filter(|name| self.declared_names.insert((*name).clone()))
+                .cloned()
+                .collect();
+            self.expression_extra = published;
             self.check_expression_names(&condition, pos, each);
+            self.expression_extra = BTreeSet::new();
+            for name in published_added {
+                self.declared_names.remove(&name);
+            }
             if added {
                 if let Some(name) = extra {
                     self.declared_names.remove(name);
@@ -1006,6 +1030,7 @@ impl Validator {
         self.collect_pool_fields(env);
         self.collect_pool_field_values(env);
         self.collect_pool_references(env);
+        self.pools_read.extend(self.each_pools.iter().cloned());
         let mut pools_above: Vec<String> = Vec::new();
         // A fixture holds text and <line>s. Anything else was ignored in silence.
         let fixtures: Vec<Element> = env
@@ -6163,7 +6188,12 @@ impl Validator {
 
         // `_item` and `_item_id` exist only while a line walks a list, and both
         // the line's own condition and every <data> inside it may name them.
-        let walks_a_list = line.attr_value("each").is_some();
+        let each = line.attr_value("each").map(str::to_string);
+        let each_name = each.as_deref().map(str::trim).unwrap_or("").to_string();
+        let walks_a_list = each.is_some();
+        // What a walked pool or list publishes: every <data> may read the positions, and the
+        // line's own if= may not, because the positions count the lines that if= lets through.
+        let line_names = self.each_names(&each_name, false);
         let mut line_condition = line.attr_value("if").map(str::to_string);
 
         // `if=` sits on the <line> as well as on each <data> inside it, and an
@@ -6171,37 +6201,54 @@ impl Validator {
         // never renders.
         if let Some(condition) = line.attr_value("if").map(str::to_string) {
             self.check_if_expression(&condition, line.at("if"));
-            self.defer_expression(condition.clone(), line.at("if"), walks_a_list);
+            let published = self.each_names(&each_name, true);
+            self.defer_line_expression(condition.clone(), line.at("if"), walks_a_list, published);
         }
 
-        if let Some(each) = line.attr_value("each").map(str::to_string) {
-            if each.trim().is_empty() {
+        if each.is_some() {
+            if each_name.is_empty() {
                 self.error(
                     "TDC206",
                     "each=\"\" names no sequence".to_string(),
-                    "Point it at a repeating sequence: <line each=\"Orders\">.",
+                    "Point it at a repeating sequence, <line each=\"Orders\">, or at a pool, \
+                     <line each=\"Doctors\">.",
                     line.at("each"),
                 );
-            } else if self.declared_names.contains(&each) && !self.repeating_names.contains(&each) {
+            } else if !self.declared_names.contains(&each_name)
+                && !self.pool_fields.contains_key(&each_name)
+            {
+                // Nothing by that name: the line would print nothing at all, and an empty
+                // child table is the quietest way a config can be wrong.
+                self.error(
+                    "TDC206",
+                    format!("each=\"{each_name}\" — no sequence or pool with that name"),
+                    "The name must match a repeating <sequence name=\"…\"> declared in <env>, \
+                     or a <pool name=\"…\">.",
+                    line.at("each"),
+                );
+            } else if self.declared_names.contains(&each_name)
+                && !self.repeating_names.contains(&each_name)
+            {
                 // Walking a scalar would emit one line and look like it worked,
                 // which is the kind of near-miss that survives review.
                 self.error(
                     "TDC207",
-                    format!("each=\"{each}\" — that sequence holds one value, not a list"),
+                    format!("each=\"{each_name}\" — that sequence holds one value, not a list"),
                     "Add repeat= to its <gen>, e.g. <gen … repeat=\"1..5\"/>, or drop each=.",
                     line.at("each"),
                 );
-            }
-
-            // A typed column is collected once per record, and an each= line
-            // emits several. The two cannot both be true, so the column would
-            // silently take whichever element came last.
-            for child in &line.children {
-                if child.kind != Kind::Data {
-                    continue;
-                }
-                if let Some(column) = child.attr_value("name").filter(|n| !n.trim().is_empty()) {
-                    let column = column.to_string();
+            } else {
+                // A typed column is collected once per record, and an each= line emits
+                // several — a list's elements or a pool's records alike. The two cannot both
+                // be true, so the column would silently take whichever came last.
+                let named = line.children.iter().find_map(|child| {
+                    (child.kind == Kind::Data)
+                        .then(|| child.attr_value("name"))
+                        .flatten()
+                        .filter(|n| !n.trim().is_empty())
+                        .map(str::to_string)
+                });
+                if let Some(column) = named {
                     self.error(
                         "TDC209",
                         format!("a named <data name=\"{column}\"> cannot sit inside an each= line"),
@@ -6257,7 +6304,12 @@ impl Validator {
                 // pieces can share a line, and pointing at the line would name
                 // the wrong one whenever they do.
                 let text = child.text.clone();
+                for (message, hint) in json_lists(&text, &self.list_separators, &each_name) {
+                    self.warn("TDC312", message, &hint, child.pos);
+                }
+                self.line_names = line_names.clone();
                 self.check_interpolation(&text, child.pos);
+                self.line_names = BTreeSet::new();
                 // A named <data> declares a typed output COLUMN, and a column has one
                 // cell per card — the columnar writer collects it whether or not the
                 // line was rendered, so the condition was dropped and the typed file
@@ -6279,7 +6331,12 @@ impl Validator {
                 }
                 if let Some(condition) = child.attr_value("if").map(str::to_string) {
                     self.check_if_expression(&condition, child.at("if"));
-                    self.defer_expression(condition.clone(), child.at("if"), walks_a_list);
+                    self.defer_line_expression(
+                        condition.clone(),
+                        child.at("if"),
+                        walks_a_list,
+                        line_names.clone(),
+                    );
                 }
                 continue;
             }
@@ -6331,6 +6388,30 @@ impl Validator {
         }
     }
 
+    /// The names an `each` line may read besides the run's own.
+    ///
+    /// The walked name's positions (`Doctors._last`) and — walking a pool — every field of its
+    /// records. The line's own `if=` gets the fields without the positions, which count the
+    /// lines that `if=` lets through and so cannot be what decides them. `_item` and `_item_id`
+    /// are not here: the `each` flag of a deferred condition already admits them.
+    fn each_names(&self, each_name: &str, for_if: bool) -> BTreeSet<String> {
+        let mut names = BTreeSet::new();
+        if each_name.is_empty() {
+            return names;
+        }
+        if !for_if {
+            for position in ["_item", "_first", "_last"] {
+                names.insert(format!("{each_name}.{position}"));
+            }
+        }
+        if !self.declared_names.contains(each_name) {
+            for field in self.pool_fields.get(each_name).into_iter().flatten() {
+                names.insert(format!("{each_name}.{field}"));
+            }
+        }
+        names
+    }
+
     /// Every `${{…}}` in a line: the name has to exist, and each filter has to be
     /// one.
     ///
@@ -6370,7 +6451,11 @@ impl Validator {
                 );
                 continue;
             }
-            if !name.is_empty() && !self.declared_names.contains(&name) && !is_builtin(&name) {
+            if !name.is_empty()
+                && !self.declared_names.contains(&name)
+                && !self.line_names.contains(&name)
+                && !is_builtin(&name)
+            {
                 // A dot with a KNOWN root is a field mistake, and saying so beats repeating the
                 // whole reference back: the reader already knows the sequence exists. Collapsed
                 // into "is not a declared sequence", the message sent someone to <env> to declare
@@ -6511,6 +6596,18 @@ impl Validator {
         }
 
         const NO_ARGUMENT: [&str; 6] = ["trim", "sql", "upper", "lower", "capitalize", "title"];
+
+        // The renderer trims an argument, so `json: ` is as empty as `json:`.
+        if kind == "json" && arg.is_some_and(|a| a.trim().is_empty()) {
+            self.error(
+                "TDC273",
+                "the \"json\" filter has a colon and no separator after it".to_string(),
+                "Write ${{X|json}} for one value — a quoted string, or null when empty — and \
+                 ${{X|json:;}} for a list joined with \";\", which comes out as a JSON array.",
+                at,
+            );
+            return;
+        }
 
         if NO_ARGUMENT.contains(&kind) {
             if let Some(a) = arg {
@@ -6682,6 +6779,11 @@ impl Validator {
             Some((root, tail)) => (root, Some(tail)),
             None => (path, None),
         };
+        // A whole path the line itself publishes — a pool record's field or a position on an
+        // `each` line (`Doctors.dept.id`, `Doctors._last`) — whose root is a pool, not a sequence.
+        if tail.is_some() && self.expression_extra.contains(path) {
+            return;
+        }
 
         let known = |validator: &Validator, name: &str| -> bool {
             validator.declared_names.contains(name)
@@ -6891,6 +6993,26 @@ impl Validator {
         self.defer_expression_with(expression, at, each, None);
     }
 
+    /// The same, for a condition on an `each` line, with the names that line publishes.
+    fn defer_line_expression(
+        &mut self,
+        expression: String,
+        at: Pos,
+        each: bool,
+        published: BTreeSet<String>,
+    ) {
+        self.pending_expressions.push((
+            self.diagnostics.len(),
+            expression,
+            at,
+            each,
+            self.expr_scope.clone(),
+            None,
+            None,
+            published,
+        ));
+    }
+
     /// The same, for a condition that decides a column while that column is BUILT.
     ///
     /// It carries the names declared above it, because those are the only ones it can read —
@@ -6907,6 +7029,7 @@ impl Validator {
             self.expr_scope.clone(),
             extra,
             Some(above),
+            BTreeSet::new(),
         ));
     }
 
@@ -6930,6 +7053,7 @@ impl Validator {
             self.expr_scope.clone(),
             extra,
             None,
+            BTreeSet::new(),
         ));
     }
 
@@ -7277,6 +7401,159 @@ fn xml_entity(expression: &str) -> Option<(&'static str, &'static str)> {
     ENTITIES
         .into_iter()
         .find(|(found, _)| expression.contains(found))
+}
+
+/// The names a `<line each="…">` walks — a pool among them is read by being printed.
+fn each_pools(block: Option<&Element>) -> BTreeSet<String> {
+    let mut out = BTreeSet::new();
+    for line in block.map(|b| b.children.as_slice()).unwrap_or_default() {
+        if line.kind != Kind::OpenClose || line.name != "line" {
+            continue;
+        }
+        let each = line.attr_value("each").unwrap_or("").trim();
+        if !each.is_empty() {
+            out.insert(each.to_string());
+        }
+    }
+    out
+}
+
+/// Every list a `${{…}}` can name, by the path it is named with, and its separator.
+///
+/// Only lists whose separator the config states plainly are known: a `<sequence>` whose single
+/// `<gen>` repeats, a pool field of that shape, and the same field read through a reference to
+/// the pool (`D.languages`) or on a line walking it (`Doctors.languages`), one nested level
+/// included (`Doctors.dept.tags`).
+fn list_separators(env: Option<&Element>) -> BTreeMap<String, String> {
+    fn sequences_of(container: &Element) -> Vec<&Element> {
+        let mut out = Vec::new();
+        for child in &container.children {
+            if child.kind != Kind::OpenClose {
+                continue;
+            }
+            match child.name.as_str() {
+                "sequence" => out.push(child),
+                "uniq" | "distinct" => out.extend(sequences_of(child)),
+                _ => {}
+            }
+        }
+        out
+    }
+    fn lists_of(
+        sequences: &[&Element],
+        pool_lists: &BTreeMap<String, BTreeMap<String, String>>,
+    ) -> BTreeMap<String, String> {
+        let mut own = BTreeMap::new();
+        for seq in sequences {
+            let name = seq.attr_value("name").unwrap_or("").trim();
+            let gens: Vec<&Element> = seq.children.iter().filter(|c| is_gen(c)).collect();
+            if name.is_empty() || gens.len() != 1 {
+                continue;
+            }
+            let gen = gens[0];
+            if !gen.attr_value("repeat").unwrap_or("").trim().is_empty() {
+                let separator = gen
+                    .attr_value("separator")
+                    .unwrap_or(repeat::DEFAULT_SEPARATOR);
+                own.insert(name.to_string(), separator.to_string());
+            } else if gen.attr_value("type") == Some("pool") {
+                // A record drawn from another pool carries that pool's lists one level down.
+                let other = gen.attr_value("value").unwrap_or("").trim();
+                for (field, separator) in pool_lists.get(other).into_iter().flatten() {
+                    own.insert(format!("{name}.{field}"), separator.clone());
+                }
+            }
+        }
+        own
+    }
+
+    let mut lists = BTreeMap::new();
+    let Some(env) = env else {
+        return lists;
+    };
+    let mut pool_lists: BTreeMap<String, BTreeMap<String, String>> = BTreeMap::new();
+    for pool in &env.children {
+        if pool.kind != Kind::OpenClose || pool.name != "pool" {
+            continue;
+        }
+        let pool_name = pool.attr_value("name").unwrap_or("").trim().to_string();
+        if pool_name.is_empty() {
+            continue;
+        }
+        let own = lists_of(&sequences_of(pool), &pool_lists);
+        for (field, separator) in &own {
+            lists.insert(format!("{pool_name}.{field}"), separator.clone());
+        }
+        pool_lists.insert(pool_name, own);
+    }
+    lists.extend(lists_of(&sequences_of(env), &pool_lists));
+    lists
+}
+
+/// A separator `json:` can carry. The argument is trimmed, a `|` starts the next filter and a
+/// `}` ends the reference, so a list joined with any of those cannot be named after the colon.
+fn json_writable(separator: &str) -> bool {
+    !separator.trim().is_empty() && !separator.contains('|') && !separator.contains('}')
+}
+
+/// TDC312: `(message, hint)` per `${{List | json}}` not splitting on the list's separator.
+///
+/// A `repeat=` column is a LIST joined into one cell, and `| json` reads text: without its
+/// argument it prints the whole cell as one string, and with another separator a one-element
+/// array. Both produce a file that parses, so the mistake would surface only in its reader.
+/// `walked` is the list an `each` line walks: there its name is the current ELEMENT.
+fn json_lists(text: &str, lists: &BTreeMap<String, String>, walked: &str) -> Vec<(String, String)> {
+    let mut out = Vec::new();
+    if lists.is_empty() {
+        return out;
+    }
+    for body in interpolations(text) {
+        let mut pieces = body.split('|');
+        let name = pieces.next().unwrap_or("").trim().to_string();
+        let Some(separator) = lists.get(&name) else {
+            continue;
+        };
+        if name == walked {
+            continue;
+        }
+        for piece in pieces {
+            let (kind, arg) = match piece.find(':') {
+                Some(colon) => (&piece[..colon], Some(&piece[colon + 1..])),
+                None => (piece, None),
+            };
+            if kind.trim() != "json" {
+                continue;
+            }
+            let arg = arg.map(str::trim);
+            // `json:` with nothing after it is TDC273's to report, and one complaint is enough.
+            if arg == Some("") {
+                continue;
+            }
+            let want = separator.trim();
+            if arg == Some(want) {
+                continue;
+            }
+            let message = match arg {
+                None => format!(
+                    "\"{name}\" is a list joined with \"{separator}\", and | json prints it as one \
+                     string"
+                ),
+                Some(arg) => format!(
+                    "| json:{arg} splits on \"{arg}\", but \"{name}\" is joined with \"{separator}\""
+                ),
+            };
+            let hint = if json_writable(separator) {
+                format!("Write ${{{{{name} | json:{want}}}}} for a JSON array of its elements.")
+            } else {
+                format!(
+                    "\"{separator}\" cannot be written after json: — give the list another \
+                     separator=, such as \";\"."
+                )
+            };
+            out.push((message, hint));
+        }
+    }
+    out
 }
 
 fn interpolations(text: &str) -> Vec<String> {

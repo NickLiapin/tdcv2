@@ -514,6 +514,7 @@ Un **número decimal** se agrupa como lo agrupa una persona: los dígitos antes 
 | `compact` | `compact` o `compact:16` | —                                                                      |
 | `csv`     | `csv`                    | — (sin etiqueta)                                                       |
 | `sql`     | `sql`                    | — (sin etiqueta)                                                       |
+| `json`    | `json` o `json:;`        | — (sin etiqueta)                                                       |
 
 El argumento se comprueba antes de la ejecución. `slice:5,2` termina antes de empezar y
 habría dejado la columna vacía; `group:0`, `compact:1` y `compact:99` son números que el
@@ -637,12 +638,39 @@ agrégueles un prefijo usted mismo con el filtro `replace`.
 
 El filtro duplica el apóstrofo y devuelve **solo el contenido**, sin comillas externas —
 esas las escribe usted, así que la forma de la consulta sigue siendo visible en la
-configuración. Para [JSON](../guides/output-formats.mdx#json) no hay un filtro aparte:
-escape la comilla con una barra invertida usando el mismo filtro `replace`.
+configuración.
 
 Este es el entrecomillado del **SQL estándar** (PostgreSQL, SQLite, Oracle, ANSI). MySQL
 en su modo por defecto también trata `\` como carácter de escape — habilite allí
 `NO_BACKSLASH_ESCAPES`, o duplique antes las barras invertidas con `replace`.
+
+### `json` — un valor JSON completo
+
+```xml
+<data>{"name": ${{Name | json}}, "note": ${{Note | json}}, "tags": ${{Tags | json:;}}}</data>
+```
+
+<Terminal title="./run demo.tdc">
+{`{"name": "Coffee \\"Arabica\\" 250g", "note": "fragile", "tags": ["sale"]}
+{"name": "Coffee \\"Robusta\\" 250g", "note": "fragile", "tags": []}
+{"name": "Coffee \\"Robusta\\" 250g", "note": null, "tags": ["sale", "new"]}`}
+</Terminal>
+
+A diferencia de `sql`, este filtro escribe las comillas él mismo, porque en JSON forman parte
+del valor: un valor vacío sale como `null`, no como `""`. Dentro de las comillas escapa `"`,
+`\` y los caracteres de control — un tabulador, un salto de línea — y deja cualquier otro
+carácter tal como está, acentos y alfabetos no latinos incluidos.
+
+Con un argumento el valor es una **lista**: `json:;` la corta por `;` e imprime un arreglo
+JSON de cadenas, `[]` cuando está vacía. Esa es la forma de una columna con
+[`repeat`](../reference/attributes.mdx), así que escriba el `separator` de la propia columna.
+Cada elemento se recorta, así que una lista unida con `", "` se lee bien como `json:,`. Si
+falta el separador o no coincide con el de la columna, `check` lo dice
+([TDC312](../reference/errors.mdx)): el archivo se seguiría parseando, con la lista entera
+como una sola cadena.
+
+El filtro siempre produce cadenas. Deje un número sin él — `"id": ${{Id}}` — para que siga
+siendo un número.
 
 ## Vea también
 

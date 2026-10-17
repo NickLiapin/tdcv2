@@ -115,7 +115,9 @@ public final class MemoryEngine {
   public static Rendered build(
       Config config, DataPacks packs, long nowMillis, Path baseDir, Progress onProgress) {
     int count = config.count();
-    Map<String, String[]> columns = buildColumns(config, count, packs, nowMillis, baseDir);
+    Map<String, Pool.Table> tables = buildPoolTables(config, packs, nowMillis, baseDir);
+    Map<String, String[]> columns =
+        buildColumns(config, count, packs, nowMillis, baseDir, tables);
 
     // The run is finished; now the config gets to check its own output — before a single line is
     // written, because a file that exists is a file someone will use.
@@ -130,7 +132,7 @@ public final class MemoryEngine {
     Map<String, Repeat.Spec> eachInfo = eachInfo(config);
     Config.Fixtures fx = config.fixtures();
     StringBuilder out = new StringBuilder();
-    emit(out, fx.before(), columns, 0, config.inject());
+    emit(out, fx.before(), columns, 0, config.inject(), eachInfo, tables);
 
     // About one report per half-percent: cheap enough to leave on always.
     int reportEvery = Math.max(1, count / 200);
@@ -148,13 +150,16 @@ public final class MemoryEngine {
           },
           columns::containsKey,
           row);
-      emit(out, fx.beforeBlock(), columns, row, config.inject());
+      emit(out, fx.beforeBlock(), columns, row, config.inject(), eachInfo, tables);
 
       // Drop the suppressed lines first. A delimiter belongs between the lines that survive,
       // so deciding that up front is what keeps a separator off the last one standing.
       List<Config.Line> active = new ArrayList<>();
       for (Config.Line line : config.block()) {
-        if (line.ifExpr() == null || condition(line.ifExpr(), columns, row)) {
+        // An each= line asks its if= of every element instead, with the element in scope.
+        if (line.ifExpr() == null
+            || line.each() != null
+            || condition(line.ifExpr(), columns, row)) {
           active.add(line);
         }
       }
@@ -165,24 +170,24 @@ public final class MemoryEngine {
       // did nothing at all: no comma between the members of an array, in silence.
       List<String> emitted = new ArrayList<>();
       for (Config.Line line : active) {
-        emitted.addAll(renderLine(line, columns, row, config.inject(), eachInfo));
+        emitted.addAll(renderLine(line, columns, row, config.inject(), eachInfo, tables));
       }
       for (int i = 0; i < emitted.size(); i++) {
-        emit(out, fx.beforeLine(), columns, row, config.inject());
+        emit(out, fx.beforeLine(), columns, row, config.inject(), eachInfo, tables);
         out.append(emitted.get(i));
-        emit(out, fx.afterLine(), columns, row, config.inject());
+        emit(out, fx.afterLine(), columns, row, config.inject(), eachInfo, tables);
         if (i < emitted.size() - 1) {
-          emit(out, fx.delimiterLine(), columns, row, config.inject());
+          emit(out, fx.delimiterLine(), columns, row, config.inject(), eachInfo, tables);
         }
       }
 
-      emit(out, fx.afterBlock(), columns, row, config.inject());
+      emit(out, fx.afterBlock(), columns, row, config.inject(), eachInfo, tables);
       if (row < count - 1) {
-        emit(out, fx.delimiterBlock(), columns, row, config.inject());
+        emit(out, fx.delimiterBlock(), columns, row, config.inject(), eachInfo, tables);
       }
     }
 
-    emit(out, fx.after(), columns, count - 1, config.inject());
+    emit(out, fx.after(), columns, count - 1, config.inject(), eachInfo, tables);
     // Said at the end as well as along the way: a phase a watcher sees CLOSE is a phase it can
     // tell from a stall. The sweep above reports every half-percent and so stops short.
     if (onProgress != null) {
@@ -196,10 +201,12 @@ public final class MemoryEngine {
       List<Config.Line> lines,
       Map<String, String[]> columns,
       int row,
-      String inject) {
+      String inject,
+      Map<String, Repeat.Spec> eachInfo,
+      Map<String, Pool.Table> pools) {
     for (Config.Line line : lines) {
       // A fixture line is one output line, and renderLine hands back the LINES.
-      for (String text : renderLine(line, columns, row, inject, Map.of())) {
+      for (String text : renderLine(line, columns, row, inject, eachInfo, pools)) {
         out.append(text);
       }
     }
@@ -755,14 +762,10 @@ public final class MemoryEngine {
     }
   }
 
-  private static Map<String, String[]> buildColumns(
-      Config config, int count, DataPacks packs, long nowMillis, Path baseDir) {
-    return buildColumns(config, count, packs, nowMillis, baseDir, null);
-  }
-
   /**
-   * The same, with the pools already built handed in — which is how a POOL body is materialised,
-   * so that one of its members can draw from a pool declared above it.
+   * The columns of a run. The pools come in already built — a run's own, which its {@code each=}
+   * lines print as well, or the outer run's, which is how a POOL body is materialised so that one
+   * of its members can draw from a pool declared above it.
    */
   private static Map<String, String[]> buildColumns(
       Config config,
@@ -4596,7 +4599,7 @@ public final class MemoryEngine {
   }
 
   /**
-   * One line — or, with {@code each="NAME"}, one line per element of that list.
+   * One line — or, with {@code each="NAME"}, one line per element of that list or pool record.
    *
    * <p>Returns the text with its newline already attached, because a line with {@code each} may
    * produce several and a list with nothing in it must produce none at all: a customer with no
@@ -4607,84 +4610,20 @@ public final class MemoryEngine {
       Map<String, String[]> columns,
       int row,
       String inject,
-      Map<String, Repeat.Spec> eachInfo) {
+      Map<String, Repeat.Spec> eachInfo,
+      Map<String, Pool.Table> pools) {
+    String listName = line.each() == null ? null : line.each().trim();
+    if (listName != null && !listName.isEmpty()) {
+      return Each.render(
+          line, listName, row, inject, eachInfo, pools.get(listName), lookup(columns, row));
+    }
     StringBuilder text = new StringBuilder();
     for (Config.DataPart part : line.parts()) {
       if (part.ifExpr() == null || condition(part.ifExpr(), columns, row)) {
         text.append(part.text());
       }
     }
-    String template = text.toString();
-
-    String listName = line.each() == null ? null : line.each().trim();
-    if (listName == null || listName.isEmpty()) {
-      return List.of(Interpolate.apply(template, inject, lookup(columns, row)) + "\n");
-    }
-
-    Repeat.Spec spec = eachInfo.get(listName);
-    String[] column = columns.get(listName);
-    String cell = column == null || column[row] == null ? "" : column[row];
-    List<String> elements =
-        Repeat.split(cell, spec == null ? Repeat.DEFAULT_SEPARATOR : spec.separator());
-
-    // Lanes: two repeating sequences write into the same child table, so each gets its own
-    // slice of every card's key block rather than sharing one counter.
-    int lane = 0;
-    int stride = 0;
-    for (Map.Entry<String, Repeat.Spec> entry : eachInfo.entrySet()) {
-      if (entry.getKey().equals(listName)) {
-        lane = stride;
-      }
-      stride += entry.getValue().max();
-    }
-    if (stride == 0) {
-      stride = elements.size();
-    }
-
-    List<String> out = new ArrayList<>();
-    for (int k = 0; k < elements.size(); k++) {
-      out.add(
-          Interpolate.apply(
-                  template,
-                  inject,
-                  elementLookup(columns, row, listName, elements.get(k), k + 1, lane, stride))
-              + "\n");
-    }
-    return out;
-  }
-
-  /**
-   * The row's view with one element of a list substituted for the list itself, plus the two
-   * positional built-ins {@code _item} and {@code _item_id}.
-   *
-   * <p>Shallow on purpose: every other column still resolves per record, which is exactly what
-   * makes a foreign key on the repeated line point at the right parent on every emitted row.
-   */
-  private static Interpolate.Lookup elementLookup(
-      Map<String, String[]> columns,
-      int row,
-      String listName,
-      String element,
-      int position,
-      int lane,
-      int stride) {
-    Map<String, String> overlay =
-        Map.of(
-            listName, element,
-            "_item", String.valueOf(position),
-            "_item_id", String.valueOf(Repeat.itemKey(row + 1, position, lane, stride)));
-    Interpolate.Lookup base = lookup(columns, row);
-    return new Interpolate.Lookup() {
-      @Override
-      public boolean has(String name) {
-        return overlay.containsKey(name) || base.has(name);
-      }
-
-      @Override
-      public String value(String name) {
-        return overlay.containsKey(name) ? overlay.get(name) : base.value(name);
-      }
-    };
+    return List.of(Interpolate.apply(text.toString(), inject, lookup(columns, row)) + "\n");
   }
 
   /** One row's view of the columns, shared by the interpolator and the {@code if} evaluator. */

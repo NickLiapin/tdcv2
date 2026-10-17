@@ -152,6 +152,54 @@
         "2024-01-03 2024-01-02",
         "2024-01-05 2024-01-03"
       ]
+    },
+    {
+      "name": "each-walks-a-pool-record-by-record",
+      "description": "<line each=\"Pool\"> prints one line per record of the pool, in pool order, and a record's fields read as ${{Pool.field}}. The walked name carries its positions: Pool._item counts from 1, Pool._first and Pool._last say whether this is the first or last line printed — which is what puts a comma between the members of a JSON array and not after the last one. A pool is the same on every row, so a two-row run prints it twice.",
+      "config": "<tdc><env count=\"2\" seed=\"each-pool\" local=\"en\" mode=\"memory\"><pool name=\"Depts\" count=\"3\"><sequence name=\"id\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"name\"><gen type=\"text\" value=\"Cardiology,Neurology,Surgery\" order=\"sequential\"/></sequence></pool><sequence name=\"Id\"><gen type=\"increment\" value=\"1\"/></sequence></env><block><line><data>row ${{Id}}</data></line><line each=\"Depts\"><data>  ${{Depts._item}} ${{Depts.id}} ${{Depts.name}} first=${{Depts._first}} last=${{Depts._last}}</data><data if=\"!Depts._last\">,</data></line></block></tdc>",
+      "expected": [
+        "row 1",
+        "  1 1 Cardiology first=true last=false,",
+        "  2 2 Neurology first=false last=false,",
+        "  3 3 Surgery first=false last=true",
+        "row 2",
+        "  1 1 Cardiology first=true last=false,",
+        "  2 2 Neurology first=false last=false,",
+        "  3 3 Surgery first=false last=true"
+      ]
+    },
+    {
+      "name": "each-pool-reads-a-nested-record",
+      "description": "A pool field that draws from another pool is a record one level down, read as ${{Doctors.dept.name}} on a line walking Doctors. The old _item and _item_id built-ins still work on a pool line: both are the record's 1-based position.",
+      "config": "<tdc><env count=\"1\" seed=\"each-nested\" local=\"en\" mode=\"memory\"><pool name=\"Depts\" count=\"3\"><sequence name=\"id\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"name\"><gen type=\"text\" value=\"Cardiology,Neurology,Surgery\" order=\"sequential\"/></sequence></pool><pool name=\"Doctors\" count=\"6\"><sequence name=\"id\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"last\"><gen type=\"text\" value=\"Adams,Baker,Clark,Davis,Evans,Foster\" order=\"sequential\"/></sequence><sequence name=\"dept\"><gen type=\"pool\" value=\"Depts\"/></sequence></pool></env><block><line each=\"Doctors\"><data>${{_item}}/${{_item_id}} ${{Doctors.last}} works in ${{Doctors.dept.name}} (dept ${{Doctors.dept.id}})</data></line></block></tdc>",
+      "expected": [
+        "1/1 Adams works in Cardiology (dept 1)",
+        "2/2 Baker works in Neurology (dept 2)",
+        "3/3 Clark works in Cardiology (dept 1)",
+        "4/4 Davis works in Neurology (dept 2)",
+        "5/5 Evans works in Neurology (dept 2)",
+        "6/6 Foster works in Surgery (dept 3)"
+      ]
+    },
+    {
+      "name": "each-pool-if-filters-records-and-positions-count-the-printed-ones",
+      "description": "The line's if= is asked of every record, with the record in scope. The positions count only the records it lets through, so Doctors._last is the last line PRINTED — the comma rule stays right even when the last record of the pool is filtered out.",
+      "config": "<tdc><env count=\"1\" seed=\"each-filter\" local=\"en\" mode=\"memory\"><pool name=\"Depts\" count=\"3\"><sequence name=\"id\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"name\"><gen type=\"text\" value=\"Cardiology,Neurology,Surgery\" order=\"sequential\"/></sequence></pool><pool name=\"Doctors\" count=\"6\"><sequence name=\"id\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"last\"><gen type=\"text\" value=\"Adams,Baker,Clark,Davis,Evans,Foster\" order=\"sequential\"/></sequence><sequence name=\"dept\"><gen type=\"pool\" value=\"Depts\"/></sequence></pool></env><block><line><data>[</data></line><line each=\"Doctors\" if=\"Doctors.dept.id == 1\"><data>  ${{Doctors._item}}:${{Doctors.last}}@${{Doctors.dept.id}}</data><data if=\"!Doctors._last\">,</data></line><line><data>]</data></line></block></tdc>",
+      "expected": ["[", "  1:Clark@1,", "  2:Davis@1,", "  3:Evans@1", "]"]
+    },
+    {
+      "name": "each-pool-in-before-and-after",
+      "description": "A fixture line may walk a pool too, so a lookup table can be printed once, ahead of the rows, instead of once per row.",
+      "config": "<tdc><env count=\"2\" seed=\"each-fixture\" local=\"en\" mode=\"memory\"><pool name=\"Depts\" count=\"3\"><sequence name=\"id\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"name\"><gen type=\"text\" value=\"Cardiology,Neurology,Surgery\" order=\"sequential\"/></sequence></pool><sequence name=\"Id\"><gen type=\"increment\" value=\"1\"/></sequence><before><line><data>depts:</data></line><line each=\"Depts\"><data>  ${{Depts.id}}=${{Depts.name}}</data></line></before><after><line each=\"Depts\" if=\"Depts.id == 3\"><data>end with ${{Depts.name}} last=${{Depts._last}}</data></line></after></env><block><line><data>row ${{Id}}</data></line></block></tdc>",
+      "expected": [
+        "depts:",
+        "  1=Cardiology",
+        "  2=Neurology",
+        "  3=Surgery",
+        "row 1",
+        "row 2",
+        "end with Surgery last=true"
+      ]
     }
   ]
 }

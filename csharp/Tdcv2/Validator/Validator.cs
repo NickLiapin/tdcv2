@@ -651,6 +651,21 @@ public sealed class Validator
     /// <summary>Every pool a <c>&lt;gen type="pool"&gt;</c> names, gathered before the walk.</summary>
     private readonly HashSet<string> _poolsRead = new(StringComparer.Ordinal);
 
+    /// <summary>The pools a <c>&lt;line each="Pool"&gt;</c> prints, read as surely as a reference reads one.</summary>
+    private HashSet<string> _eachPools = new(StringComparer.Ordinal);
+
+    /// <summary>Every list by the path <c>${{…}}</c> names it with, and its separator — TDC312.</summary>
+    private Dictionary<string, string> _listSeparators = new(StringComparer.Ordinal);
+
+    /// <summary>
+    /// The names the <c>&lt;line&gt;</c> being checked publishes — a walked pool's fields and the
+    /// walked name's positions — and, while a deferred condition is checked, the names its line
+    /// gave it. Both are whole paths whose root need not be a sequence: <c>Doctors.dept.id</c>.
+    /// </summary>
+    private HashSet<string> _lineNames = new(StringComparer.Ordinal);
+
+    private HashSet<string> _expressionExtra = new(StringComparer.Ordinal);
+
     private readonly HashSet<string> _poolReferences = new(StringComparer.Ordinal);
 
     private readonly HashSet<TDCParser.OpenCloseElementContext> poolMemberNodes = new();
@@ -697,7 +712,8 @@ public sealed class Validator
     /// configs that work.
     /// </remarks>
     private readonly List<(int At, string Expression, int Line, int Column, bool Each,
-        HashSet<string>? Scope, string? Extra, HashSet<string>? DeclaredAbove)>
+        HashSet<string>? Scope, string? Extra, HashSet<string>? DeclaredAbove,
+        HashSet<string>? Published)>
         _pendingExpressions = new();
 
     /// <summary>
@@ -751,7 +767,13 @@ public sealed class Validator
     private void DeferExpression(
         string expression, int line, int column, bool each, string? extra = null) =>
         _pendingExpressions.Add(
-            (_diagnostics.Count, expression, line, column, each, _exprScope, extra, null));
+            (_diagnostics.Count, expression, line, column, each, _exprScope, extra, null, null));
+
+    /// <summary>The same, for a condition on an <c>each</c> line, with the names that line publishes.</summary>
+    private void DeferLineExpression(
+        string expression, int line, int column, bool each, HashSet<string> published) =>
+        _pendingExpressions.Add(
+            (_diagnostics.Count, expression, line, column, each, _exprScope, null, null, published));
 
     /// <summary>
     /// The same, for a condition that decides a column while that column is BUILT.
@@ -766,7 +788,7 @@ public sealed class Validator
         string expression, int line, int column, string? extra = null) =>
         _pendingExpressions.Add(
             (_diagnostics.Count, expression, line, column, false, _exprScope, extra,
-                new HashSet<string>(_declaredNames, StringComparer.Ordinal)));
+                new HashSet<string>(_declaredNames, StringComparer.Ordinal), null));
 
     /// <summary>
     /// Every <c>filter=</c> seen, and where its complaint belongs in the report.
@@ -860,6 +882,8 @@ public sealed class Validator
         }
 
         CheckTdcChildren(tdc);
+        _eachPools = JsonLists.EachPools(block);
+        _listSeparators = JsonLists.Separators(env);
         if (env is not null)
         {
             CheckEnv(env);
@@ -880,12 +904,14 @@ public sealed class Validator
         // Now that every name is known, the expressions can be checked — and each complaint goes
         // back where its attribute was, so the report stays in source order.
         var pending = new List<(int At, string Expression, int Line, int Column, bool Each,
-            HashSet<string>? Scope, string? Extra, HashSet<string>? DeclaredAbove)>(
+            HashSet<string>? Scope, string? Extra, HashSet<string>? DeclaredAbove,
+            HashSet<string>? Published)>(
             _pendingExpressions);
         _pendingExpressions.Clear();
         int shift = 0;
         foreach ((int at, string expression, int line, int column, bool each,
-            HashSet<string>? scope, string? extra, HashSet<string>? above) in pending)
+            HashSet<string>? scope, string? extra, HashSet<string>? above,
+            HashSet<string>? published) in pending)
         {
             int before = _diagnostics.Count;
             HashSet<string>? outer = null;
@@ -915,7 +941,24 @@ public sealed class Validator
                 }
             }
 
+            // What the line publishes joins the run's names for this one expression.
+            var publishedAdded = new List<string>();
+            foreach (string name in published ?? Enumerable.Empty<string>())
+            {
+                if (_declaredNames.Add(name))
+                {
+                    publishedAdded.Add(name);
+                }
+            }
+
+            _expressionExtra = published ?? new HashSet<string>(StringComparer.Ordinal);
             CheckExpressionNames(expression, line, column, each);
+            _expressionExtra = new HashSet<string>(StringComparer.Ordinal);
+            foreach (string name in publishedAdded)
+            {
+                _declaredNames.Remove(name);
+            }
+
             _declaredAbove = null;
             if (added)
             {
@@ -1614,6 +1657,7 @@ public sealed class Validator
         this.CollectPoolFields(env);
         this.CollectPoolFieldValues(env);
         this.CollectPoolReferences(env);
+        _poolsRead.UnionWith(_eachPools);
         CheckChildren(env.content(), "env", EnvChildren);
         foreach (TDCParser.ElementContext child in env.content().element())
         {
@@ -7250,53 +7294,72 @@ public sealed class Validator
 
         // `_item` and `_item_id` exist only while a line walks a list, and both the line's own
         // condition and every <data> inside it may name them.
-        bool walksAList = lineAttrs.ContainsKey("each");
+        bool walksAList = lineAttrs.TryGetValue("each", out string? each);
+        string eachName = each?.Trim() ?? string.Empty;
+
+        // What a walked pool or list publishes: every <data> may read the positions, and the
+        // line's own if= may not, because the positions count the lines that if= lets through.
+        HashSet<string> names = EachNames(eachName, forIf: false);
         string? lineCondition = lineAttrs.GetValueOrDefault("if");
         if (lineCondition is not null)
         {
             (int l, int c) = At(line.attr(), "if", Line(line), Column(line));
             CheckIfExpression(lineCondition, l, c);
-            this.DeferExpression(lineCondition, l, c, walksAList);
+            this.DeferLineExpression(lineCondition, l, c, walksAList, EachNames(eachName, forIf: true));
         }
 
-        if (lineAttrs.TryGetValue("each", out string? each))
+        if (walksAList)
         {
-            if (string.IsNullOrWhiteSpace(each))
+            (int l, int c) = At(line, "each");
+            if (eachName.Length == 0)
             {
-                (int l, int c) = At(line, "each");
                 Error(
                     "TDC206", "each=\"\" names no sequence",
-                    "Point it at a repeating sequence: <line each=\"Orders\">.", l, c);
+                    "Point it at a repeating sequence, <line each=\"Orders\">, or at a pool, "
+                    + "<line each=\"Doctors\">.",
+                    l, c);
             }
-            else if (_declaredNames.Contains(each) && !_repeatingNames.Contains(each))
+            else if (!_declaredNames.Contains(eachName) && !_poolFields.ContainsKey(eachName))
+            {
+                // Nothing by that name: the line would print nothing at all, and an empty child
+                // table is the quietest way a config can be wrong.
+                Error(
+                    "TDC206", $"each=\"{eachName}\" — no sequence or pool with that name",
+                    "The name must match a repeating <sequence name=\"…\"> declared in <env>, or a "
+                    + "<pool name=\"…\">.",
+                    l, c);
+            }
+            else if (_declaredNames.Contains(eachName) && !_repeatingNames.Contains(eachName))
             {
                 // Walking a scalar would emit one line and look like it worked, which is the kind of
                 // near-miss that survives review.
-                (int l, int c) = At(line, "each");
                 Error(
-                    "TDC207", $"each=\"{each}\" — that sequence holds one value, not a list",
+                    "TDC207", $"each=\"{eachName}\" — that sequence holds one value, not a list",
                     "Add repeat= to its <gen>, e.g. <gen … repeat=\"1..5\"/>, or drop each=.", l, c);
             }
-
-            // A typed column is collected once per record, and an each= line emits several. The two
-            // cannot both be true, so the column would silently take whichever element came last.
-            foreach (TDCParser.ElementContext child in line.content().element())
+            else
             {
-                if (child.dataElement() is not TDCParser.DataWithBodyContext body)
+                // A typed column is collected once per record, and an each= line emits several — a
+                // list's elements or a pool's records alike. The two cannot both be true, so the
+                // column would silently take whichever came last.
+                foreach (TDCParser.ElementContext child in line.content().element())
                 {
-                    continue;
-                }
+                    if (child.dataElement() is not TDCParser.DataWithBodyContext body)
+                    {
+                        continue;
+                    }
 
-                string? columnName = Attributes(body.attr()).GetValueOrDefault("name");
-                if (!string.IsNullOrWhiteSpace(columnName))
-                {
-                    (int l, int c) = At(line, "each");
-                    Error(
-                        "TDC209",
-                        $"a named <data name=\"{columnName}\"> cannot sit inside an each= line",
-                        "Typed columns are collected once per card. For columnar output keep the "
-                        + "list as a list column (type=\"[]…\"); each= is for text and SQL.",
-                        l, c);
+                    string? columnName = Attributes(body.attr()).GetValueOrDefault("name");
+                    if (!string.IsNullOrWhiteSpace(columnName))
+                    {
+                        Error(
+                            "TDC209",
+                            $"a named <data name=\"{columnName}\"> cannot sit inside an each= line",
+                            "Typed columns are collected once per card. For columnar output keep the "
+                            + "list as a list column (type=\"[]…\"); each= is for text and SQL.",
+                            l, c);
+                        break;
+                    }
                 }
             }
         }
@@ -7341,10 +7404,22 @@ public sealed class Validator
                 CheckDataType(body, Line(line), Column(line));
                 // The <data> element, not the <line> around it: several <data> pieces can share a
                 // line, and pointing at the line would name the wrong one whenever they do.
-                CheckInterpolation(
-                    PairedData.Restore(body.dataContent().GetText()),
-                    body.Start.Line,
-                    body.Start.Column);
+                string text = PairedData.Restore(body.dataContent().GetText());
+                foreach ((string message, string hint) in JsonLists.Check(text, _listSeparators, eachName))
+                {
+                    Warn("TDC312", message, hint, body.Start.Line, body.Start.Column);
+                }
+
+                _lineNames = names;
+                try
+                {
+                    CheckInterpolation(text, body.Start.Line, body.Start.Column);
+                }
+                finally
+                {
+                    _lineNames = new HashSet<string>(StringComparer.Ordinal);
+                }
+
                 if (Attributes(body.attr()).TryGetValue("if", out string? condition))
                 {
                     (int l, int c) = At(body.attr(), "if", Line(line), Column(line));
@@ -7369,7 +7444,7 @@ public sealed class Validator
                     }
 
                     CheckIfExpression(condition, l, c);
-                    this.DeferExpression(condition, l, c, walksAList);
+                    this.DeferLineExpression(condition, l, c, walksAList, names);
                 }
 
                 continue;
@@ -7385,6 +7460,40 @@ public sealed class Validator
                     "Declare it in <env> and reference it here with ${{Name}}. See https://nickliapin.github.io/tdcv2/docs/constructs/mix", Line(open), Column(open));
             }
         }
+    }
+
+    /// <summary>The names an <c>each</c> line may read besides the run's own.</summary>
+    /// <remarks>
+    /// The walked name's positions (<c>Doctors._last</c>) and — walking a pool — every field of its
+    /// records. The line's own <c>if=</c> gets the fields without the positions, which count the
+    /// lines that <c>if=</c> lets through and so cannot be what decides them. <c>_item</c> and
+    /// <c>_item_id</c> are not here: the <c>each</c> flag of a deferred condition admits them.
+    /// </remarks>
+    private HashSet<string> EachNames(string eachName, bool forIf)
+    {
+        var names = new HashSet<string>(StringComparer.Ordinal);
+        if (eachName.Length == 0)
+        {
+            return names;
+        }
+
+        if (!forIf)
+        {
+            foreach (string position in new[] { "_item", "_first", "_last" })
+            {
+                names.Add(eachName + "." + position);
+            }
+        }
+
+        if (!_declaredNames.Contains(eachName) && _poolFields.TryGetValue(eachName, out List<string>? fields))
+        {
+            foreach (string field in fields)
+            {
+                names.Add(eachName + "." + field);
+            }
+        }
+
+        return names;
     }
 
     /// <summary>
@@ -7422,7 +7531,10 @@ public sealed class Validator
                 continue;
             }
 
-            if (name.Length > 0 && !_declaredNames.Contains(name) && !Checks.IsBuiltin(name))
+            if (name.Length > 0
+                && !_declaredNames.Contains(name)
+                && !_lineNames.Contains(name)
+                && !Checks.IsBuiltin(name))
             {
                 // A dot with a KNOWN root is a field mistake, and saying so beats repeating
                 // the whole reference back: the reader already knows the sequence exists.
@@ -7564,6 +7676,18 @@ public sealed class Validator
     /// </remarks>
     private void CheckFilterArg(string kind, string? arg, int line, int column)
     {
+        // The renderer trims an argument, so `json: ` is as empty as `json:`.
+        if (kind == "json" && arg is not null && arg.Trim().Length == 0)
+        {
+            Error(
+                "TDC273",
+                "the \"json\" filter has a colon and no separator after it",
+                "Write ${{X|json}} for one value — a quoted string, or null when empty — and "
+                + "${{X|json:;}} for a list joined with \";\", which comes out as a JSON array.",
+                line, column);
+            return;
+        }
+
         if (Array.IndexOf(NoArgumentFilters, kind) >= 0)
         {
             if (arg != null)
@@ -7782,6 +7906,13 @@ public sealed class Validator
         int dot = path.IndexOf('.', StringComparison.Ordinal);
         string root = dot < 0 ? path : path[..dot];
         string? tail = dot < 0 ? null : path[(dot + 1)..];
+
+        // A whole path the line itself publishes — a pool record's field or a position on an
+        // `each` line (`Doctors.dept.id`, `Doctors._last`) — whose root is a pool, not a sequence.
+        if (tail is not null && _expressionExtra.Contains(path))
+        {
+            return;
+        }
 
         bool known = _declaredNames.Contains(root)
             || Checks.Builtins.Contains(root)

@@ -35,6 +35,7 @@ FILTER_NAMES = (
     "compact",
     "csv",
     "sql",
+    "json",
 )
 
 
@@ -186,6 +187,47 @@ def apply_sql(value: str) -> str:
     return value.replace("'", "''")
 
 
+def apply_json(value: str, separator: str | None) -> str:
+    """A value as a complete JSON value: a quoted, escaped string, or ``null`` when empty.
+
+    With a separator (``json:;``) the cell is a LIST — a ``repeat=`` column joined with that
+    separator — and comes out as an array of strings, ``[]`` when empty. Elements are trimmed,
+    since an argument cannot carry the space of a ``", "`` separator. Written by hand rather than
+    with ``json.dumps``: the five implementations must agree byte for byte, and their JSON
+    libraries do not — ``json.dumps`` escapes every non-ASCII character unless told otherwise.
+    """
+    if separator is None:
+        return "null" if value == "" else _json_string(value)
+    if value == "":
+        return "[]"
+    return "[" + ", ".join(_json_string(part.strip()) for part in value.split(separator)) + "]"
+
+
+_JSON_ESCAPES = {
+    '"': '\\"',
+    "\\": "\\\\",
+    "\n": "\\n",
+    "\r": "\\r",
+    "\t": "\\t",
+    "\b": "\\b",
+    "\f": "\\f",
+}
+
+
+def _json_string(value: str) -> str:
+    """``"…"``: quote, backslash and the control characters escaped; everything else as written."""
+    out = []
+    for ch in value:
+        escaped = _JSON_ESCAPES.get(ch)
+        if escaped is not None:
+            out.append(escaped)
+        elif ord(ch) < 0x20:
+            out.append(f"\\u{ord(ch):04x}")
+        else:
+            out.append(ch)
+    return '"' + "".join(out) + '"'
+
+
 def apply_filter(kind: str, arg: str | None, value: str) -> str:
     """One filter applied to one value; an unknown name is a no-op the validator flags.
 
@@ -215,6 +257,8 @@ def apply_filter(kind: str, arg: str | None, value: str) -> str:
         return apply_csv(value, arg if arg else ",")
     if kind == "sql":
         return apply_sql(value)
+    if kind == "json":
+        return apply_json(value, arg if arg else None)
     if kind in CASE_TRANSFORMS:
         return apply_case(kind, value)
     return value

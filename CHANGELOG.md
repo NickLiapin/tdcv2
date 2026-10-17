@@ -15,6 +15,55 @@ page — is tracked in that implementation's own changelog:
 
 ## [Unreleased]
 
+### Added
+
+- **`<line each="Pool">` prints a pool record by record — in all five.** One line per record,
+  in pool order, with every field read as `${{Pool.field}}` and a field drawn from another pool
+  one level down (`${{Doctors.dept.name}}`). A lookup table now comes out of the same config as
+  the rows whose foreign keys point at it, and a JSON document with several tables is several
+  pools and several `each` lines — no new tag. A pool printed only this way counts as read, so
+  it raises no `TDC231`. Asked for by the plugin agent's hospital report (C6).
+- **The walked name carries the line's positions: `Orders._item`, `Orders._first`,
+  `Orders._last` — on a list and on a pool.** They count the lines actually PRINTED, after the
+  line's `if=` has dropped what it drops, so `<data if="!Orders._last">,</data>` puts a comma
+  between elements and never after the last one, whatever the filter removed. They replace the
+  `_count` arithmetic the report's JSON recipe needed. The line's own `if=` cannot read them
+  (`TDC215`): they are counted after it decides.
+- **The `json` interpolation filter.** `${{X | json}}` writes the value as a JSON string —
+  quotes added, `"`, `\` and control characters escaped, every other character as written — and
+  an empty value as `null`. `${{X | json:;}}` reads the value as a list joined with `;` and
+  writes an array of trimmed strings, `[]` when empty. Written by hand in every implementation,
+  because their JSON libraries disagree about what to escape. `json:` with nothing after the
+  colon is `TDC273`.
+- **`TDC312` (warning): `| json` on a list without its separator, or with another one.** Both
+  print a file that parses — the whole list as one string, or a one-element array — so the
+  mistake would surface only in whatever reads it. Checked for a sequence, a pool field, and the
+  same field read through a reference or on an `each` line; a list joined with `|`, `}` or
+  whitespace, which `json:` cannot name, is told to pick another separator.
+
+### Changed
+
+- **The `if=` of an `each` line is asked of every element, in all five.** It used to be asked
+  once per row, before the line was walked, so it could keep or drop the whole line and nothing
+  else; naming the walked list read the whole joined list. Now it decides element by element,
+  with the element in scope — `<line each="Orders" if="Orders > 5000">` prints the large orders
+  only. A condition naming only the row's other columns gives the same output as before.
+
+### Fixed
+
+- **An `if=` on a `<data>` inside an `each` line was asked once per ROW in Python, Rust, Java and
+  C#.** The reference asks it once per element, with the element in scope, so `<data if="Tags ==
+b">` held on the line printing `b` there and never in the ports, which compared the whole
+  joined list. All five now share one implementation of the `each` line per language, used by
+  both engines.
+- **A fixture line walking a list ignored the list's separator in Python and Java, and in the
+  streaming engines of Rust and C#.** `<before>`, `<after>` and the other fixtures were handed
+  no list information, so a list joined with `;` came out as one element and `_item_id` took a
+  different stride. Pinned in `cases/structure.json`.
+- **`each=` naming neither a sequence nor a pool was accepted by Python, Rust, Java and C#.** The
+  line printed nothing at all, in silence; the reference has always refused it as `TDC206`, and
+  now all five do.
+
 ## [0.3.5] — 2026-10-17
 
 ### Added

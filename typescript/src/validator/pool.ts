@@ -224,6 +224,18 @@ export function collectPoolReferences(env: OpenCloseElementContext | undefined):
   return named;
 }
 
+/** The pools a `<line each="Pool">` prints — read as surely as a `<gen type="pool">` reads one. */
+export function collectEachPools(block: OpenCloseElementContext | undefined): Set<string> {
+  const named = new Set<string>();
+  for (const child of contentElements(block?.content() ?? null)) {
+    const k = elementKind(child);
+    if (k?.kind !== 'open' || elementName(k.node) !== 'line') continue;
+    const each = (extractAttrs(k.node.attr())['each'] ?? '').trim();
+    if (each !== '') named.add(each);
+  }
+  return named;
+}
+
 /**
  * A pool nobody draws from.
  *

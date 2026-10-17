@@ -2602,6 +2602,32 @@
         "lines": ["1 a [1]", "2 b [2]", "3 c [3]"]
       }
     },
+    "formatting/json-filter-quotes-a-value-and-splits-a-list": {
+      "engine2": {
+        "lines": [
+          "{\"name\": \"O'Brien\", \"quote\": \"say \\\"yo\\\" \\\\ end\", \"allergies\": []}",
+          "{\"name\": \"tab\\there\", \"quote\": \"say \\\"yo\\\" \\\\ end\", \"allergies\": [\"Milk\", \"Eggs\"]}",
+          "{\"name\": null, \"quote\": \"say \\\"yo\\\" \\\\ end\", \"allergies\": [\"Milk\", \"Soy\", \"Eggs\"]}",
+          "{\"name\": null, \"quote\": \"say \\\"yo\\\" \\\\ end\", \"allergies\": []}",
+          "{\"name\": null, \"quote\": \"say \\\"hi\\\" \\\\ end\", \"allergies\": [\"Soy\", \"Eggs\"]}",
+          "{\"name\": \"O'Brien\", \"quote\": \"say \\\"hi\\\" \\\\ end\", \"allergies\": [\"Soy\"]}",
+          "{\"name\": \"O'Brien\", \"quote\": \"say \\\"hi\\\" \\\\ end\", \"allergies\": [\"Milk\"]}",
+          "{\"name\": \"tab\\there\", \"quote\": \"say \\\"hi\\\" \\\\ end\", \"allergies\": [\"Soy\", \"Milk\", \"Eggs\"]}"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "{\"name\": \"O'Brien\", \"quote\": \"say \\\"yo\\\" \\\\ end\", \"allergies\": []}",
+          "{\"name\": \"tab\\there\", \"quote\": \"say \\\"yo\\\" \\\\ end\", \"allergies\": [\"Milk\", \"Eggs\"]}",
+          "{\"name\": null, \"quote\": \"say \\\"yo\\\" \\\\ end\", \"allergies\": [\"Milk\", \"Soy\", \"Eggs\"]}",
+          "{\"name\": null, \"quote\": \"say \\\"yo\\\" \\\\ end\", \"allergies\": []}",
+          "{\"name\": null, \"quote\": \"say \\\"hi\\\" \\\\ end\", \"allergies\": [\"Soy\", \"Eggs\"]}",
+          "{\"name\": \"O'Brien\", \"quote\": \"say \\\"hi\\\" \\\\ end\", \"allergies\": [\"Soy\"]}",
+          "{\"name\": \"O'Brien\", \"quote\": \"say \\\"hi\\\" \\\\ end\", \"allergies\": [\"Milk\"]}",
+          "{\"name\": \"tab\\there\", \"quote\": \"say \\\"hi\\\" \\\\ end\", \"allergies\": [\"Soy\", \"Milk\", \"Eggs\"]}"
+        ]
+      }
+    },
     "generators/number-padded-range": {
       "engine2": {
         "lines": ["6031", "2219", "9836", "2213", "8452", "7620"]
@@ -5362,6 +5388,86 @@
         ]
       }
     },
+    "pool/each-walks-a-pool-record-by-record": {
+      "engine2": {
+        "lines": [
+          "row 1",
+          "  1 1 Cardiology first=true last=false,",
+          "  2 2 Neurology first=false last=false,",
+          "  3 3 Surgery first=false last=true",
+          "row 2",
+          "  1 1 Cardiology first=true last=false,",
+          "  2 2 Neurology first=false last=false,",
+          "  3 3 Surgery first=false last=true"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "row 1",
+          "  1 1 Cardiology first=true last=false,",
+          "  2 2 Neurology first=false last=false,",
+          "  3 3 Surgery first=false last=true",
+          "row 2",
+          "  1 1 Cardiology first=true last=false,",
+          "  2 2 Neurology first=false last=false,",
+          "  3 3 Surgery first=false last=true"
+        ]
+      }
+    },
+    "pool/each-pool-reads-a-nested-record": {
+      "engine2": {
+        "lines": [
+          "1/1 Adams works in Cardiology (dept 1)",
+          "2/2 Baker works in Neurology (dept 2)",
+          "3/3 Clark works in Cardiology (dept 1)",
+          "4/4 Davis works in Neurology (dept 2)",
+          "5/5 Evans works in Neurology (dept 2)",
+          "6/6 Foster works in Surgery (dept 3)"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "1/1 Adams works in Cardiology (dept 1)",
+          "2/2 Baker works in Neurology (dept 2)",
+          "3/3 Clark works in Cardiology (dept 1)",
+          "4/4 Davis works in Neurology (dept 2)",
+          "5/5 Evans works in Neurology (dept 2)",
+          "6/6 Foster works in Surgery (dept 3)"
+        ]
+      }
+    },
+    "pool/each-pool-if-filters-records-and-positions-count-the-printed-ones": {
+      "engine2": {
+        "lines": ["[", "  1:Clark@1,", "  2:Davis@1,", "  3:Evans@1", "]"]
+      },
+      "engine3": {
+        "lines": ["[", "  1:Clark@1,", "  2:Davis@1,", "  3:Evans@1", "]"]
+      }
+    },
+    "pool/each-pool-in-before-and-after": {
+      "engine2": {
+        "lines": [
+          "depts:",
+          "  1=Cardiology",
+          "  2=Neurology",
+          "  3=Surgery",
+          "row 1",
+          "row 2",
+          "end with Surgery last=true"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "depts:",
+          "  1=Cardiology",
+          "  2=Neurology",
+          "  3=Surgery",
+          "row 1",
+          "row 2",
+          "end with Surgery last=true"
+        ]
+      }
+    },
     "quantile-shape/the-sweep-at-count-equals-n-is-a-permutation-of-the-sample": {
       "engine2": {
         "lines": ["38", "31", "25", "25", "12", "12", "19", "12", "47", "56"]
@@ -7023,6 +7129,46 @@
           "A 9",
           "A 10"
         ]
+      }
+    },
+    "structure/each-list-positions-and-element-conditions": {
+      "engine2": {
+        "lines": [
+          "card 1: a;b",
+          "  1:a first,",
+          "  2:b (bee)",
+          "card 2: a;c;c",
+          "  1:a first",
+          "card 3: a;c;b;c",
+          "  1:a first,",
+          "  2:b (bee)",
+          "card 4: b",
+          "  1:b (bee) first",
+          "card 5: "
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "card 1: a;b",
+          "  1:a first,",
+          "  2:b (bee)",
+          "card 2: a;c;c",
+          "  1:a first",
+          "card 3: a;c;b;c",
+          "  1:a first,",
+          "  2:b (bee)",
+          "card 4: b",
+          "  1:b (bee) first",
+          "card 5: "
+        ]
+      }
+    },
+    "structure/each-in-a-fixture-splits-on-the-list-separator": {
+      "engine2": {
+        "lines": ["head 1:c", "head 2:a", "row c;a", "row a;c;b"]
+      },
+      "engine3": {
+        "lines": ["head 1:c", "head 2:a", "row c;a", "row a;c;b"]
       }
     },
     "uniq-distinct/distinct-pair": {

@@ -3491,7 +3491,7 @@ impl StreamEngine<'_> {
         let fx = &self.env.config.fixtures;
         let each = memory::each_info(self.env.config)?;
 
-        self.emit(out, &fx.before, 0)?;
+        self.emit(out, &fx.before, 0, &each)?;
         // About one report per half-percent: cheap enough to leave on always.
         let total = self.count.max(0) as usize;
         let report_every = (total / 200).max(1);
@@ -3511,12 +3511,14 @@ impl StreamEngine<'_> {
                 &|name| self.columns.contains_key(name),
                 row.max(0) as usize,
             )?;
-            self.emit(out, &fx.before_block, row)?;
+            self.emit(out, &fx.before_block, row, &each)?;
 
             let mut active = Vec::new();
             for line in &self.env.config.block {
+                // An each= line asks its if= of every element instead, with the element in scope.
                 let keep = match &line.if_expr {
                     None => true,
+                    Some(_) if line.each.is_some() => true,
                     Some(expr) => self.condition(expr, row)?,
                 };
                 if keep {
@@ -3532,20 +3534,20 @@ impl StreamEngine<'_> {
                 emitted.extend(self.render_line(line, row, &each)?);
             }
             for (i, text) in emitted.iter().enumerate() {
-                self.emit(out, &fx.before_line, row)?;
+                self.emit(out, &fx.before_line, row, &each)?;
                 write_all(out, text)?;
-                self.emit(out, &fx.after_line, row)?;
+                self.emit(out, &fx.after_line, row, &each)?;
                 if i + 1 < emitted.len() {
-                    self.emit(out, &fx.delimiter_line, row)?;
+                    self.emit(out, &fx.delimiter_line, row, &each)?;
                 }
             }
 
-            self.emit(out, &fx.after_block, row)?;
+            self.emit(out, &fx.after_block, row, &each)?;
             if row + 1 < self.count {
-                self.emit(out, &fx.delimiter_block, row)?;
+                self.emit(out, &fx.delimiter_block, row, &each)?;
             }
         }
-        self.emit(out, &fx.after, (self.count - 1).max(0))?;
+        self.emit(out, &fx.after, (self.count - 1).max(0), &each)?;
         // Said at the end as well as along the way: a phase a watcher sees CLOSE
         // is a phase it can tell from a stall. The sweep above reports every
         // half-percent and so stops short.
@@ -3555,11 +3557,16 @@ impl StreamEngine<'_> {
         Ok(())
     }
 
-    fn emit<W: std::fmt::Write>(&self, to: &mut W, lines: &[Line], row: i32) -> EngineResult<()> {
-        let none: Vec<(String, repeat::Spec)> = Vec::new();
+    fn emit<W: std::fmt::Write>(
+        &self,
+        to: &mut W,
+        lines: &[Line],
+        row: i32,
+        each_info: &[(String, repeat::Spec)],
+    ) -> EngineResult<()> {
         for line in lines {
             // A fixture line is one output line, and `render_line` hands back the LINES.
-            for text in self.render_line(line, row, &none)? {
+            for text in self.render_line(line, row, each_info)? {
                 write_all(to, &text)?;
             }
         }
@@ -3572,6 +3579,21 @@ impl StreamEngine<'_> {
         row: i32,
         each_info: &[(String, repeat::Spec)],
     ) -> EngineResult<Vec<String>> {
+        let inject = self.env.config.inject.as_deref();
+        let lookup = StreamLookup { engine: self, row };
+        if let Some(name) = trim_to_none(line.each.as_deref()) {
+            let lines = super::each::render(
+                line,
+                name,
+                row.max(0) as usize,
+                inject,
+                each_info,
+                self.pool_tables.get(name).map(|t| t.as_ref()),
+                &lookup,
+            )?;
+            self.raise_pending()?;
+            return Ok(lines);
+        }
         let mut template = String::new();
         for part in &line.parts {
             let keep = match &part.if_expr {
@@ -3582,52 +3604,10 @@ impl StreamEngine<'_> {
                 template.push_str(&part.text);
             }
         }
-
-        let inject = self.env.config.inject.as_deref();
-        let Some(list_name) = trim_to_none(line.each.as_deref()) else {
-            let lookup = StreamLookup { engine: self, row };
-            let mut text = interpolate::apply(&template, inject, &lookup)?;
-            self.raise_pending()?;
-            text.push('\n');
-            return Ok(vec![text]);
-        };
-
-        let spec = each_info
-            .iter()
-            .find(|(n, _)| n == list_name)
-            .map(|(_, s)| s);
-        let cell = self.value_at(list_name, row)?;
-        let elements = repeat::split(
-            cell.as_deref(),
-            spec.map_or(repeat::DEFAULT_SEPARATOR, |s| s.separator.as_str()),
-        );
-
-        let (mut lane, mut stride) = (0i64, 0i64);
-        for (name, info) in each_info {
-            if name == list_name {
-                lane = stride;
-            }
-            stride += i64::from(info.max);
-        }
-        if stride == 0 {
-            stride = elements.len() as i64;
-        }
-
-        let mut result: Vec<String> = Vec::new();
-        for (k, element) in elements.iter().enumerate() {
-            let lookup = ElementLookup {
-                base: StreamLookup { engine: self, row },
-                list_name,
-                element,
-                item: (k + 1) as i64,
-                item_id: repeat::item_key(i64::from(row) + 1, (k + 1) as i64, lane, stride),
-            };
-            let mut text = interpolate::apply(&template, inject, &lookup)?;
-            self.raise_pending()?;
-            text.push('\n');
-            result.push(text);
-        }
-        Ok(result)
+        let mut text = interpolate::apply(&template, inject, &lookup)?;
+        self.raise_pending()?;
+        text.push('\n');
+        Ok(vec![text])
     }
 
     fn condition(&self, expression: &str, row: i32) -> EngineResult<bool> {
@@ -3766,29 +3746,6 @@ impl compute::Fields for BodyFields<'_, '_, '_> {
 impl compute::Fields for StreamFields<'_, '_> {
     fn get(&self, name: &str) -> Option<String> {
         self.engine.value_at(name, self.row).ok().flatten()
-    }
-}
-
-struct ElementLookup<'a, 'b, 'c> {
-    base: StreamLookup<'a, 'b>,
-    list_name: &'c str,
-    element: &'c str,
-    item: i64,
-    item_id: i64,
-}
-
-impl Lookup for ElementLookup<'_, '_, '_> {
-    fn has(&self, name: &str) -> bool {
-        name == self.list_name || name == "_item" || name == "_item_id" || self.base.has(name)
-    }
-
-    fn value(&self, name: &str) -> String {
-        match name {
-            n if n == self.list_name => self.element.to_string(),
-            "_item" => self.item.to_string(),
-            "_item_id" => self.item_id.to_string(),
-            _ => self.base.value(name),
-        }
     }
 }
 

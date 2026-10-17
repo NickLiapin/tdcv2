@@ -235,35 +235,33 @@ braces and indentation:
 
 ### An array inside an object
 
-Several values in one field come from [`repeat`](../reference/attributes.mdx), and
-[`separator`](../reference/attributes.mdx) is what goes between them. JSON wants `", "` —
-**with the quotes** — and here you hit a wall: the grammar won't let you put a `"` inside an
-attribute value, and `&quot;` passes straight through as literal text.
-
-The way around it is to separate the values with a neutral character they never contain,
-then turn that into JSON with the [`replace`](masks-and-case.mdx) filter, where quotes
-**are** allowed:
+Several values in one field come from [`repeat`](../reference/attributes.mdx), which joins
+them into one cell with its [`separator`](../reference/attributes.mdx). The
+[`json`](masks-and-case.mdx#json--a-complete-json-value) filter, given that separator,
+splits the cell again and writes a JSON array, quotes and brackets included:
 
 ```xml
 <sequence name="Tags">
-    <gen type="text" value="sale,new,gift,vip" repeat="1..3" separator="~"/>
+    <gen type="text" value="sale,new,gift,vip" repeat="0..3" separator=";"/>
 </sequence>
 ```
 
 ```xml
-<line><data>  "tags": ["${{Tags | replace:~,", "}}"],</data></line>
+<line><data>  "tags": ${{Tags | json:;}},</data></line>
 ```
 
 <Terminal title="./run out.tdc">
-{`  "tags": ["vip"],
-  "tags": ["sale", "gift"],
-  "tags": ["gift", "vip", "new"]`}
+{`  "tags": ["gift", "vip"],
+  "tags": [],
+  "tags": ["sale"],`}
 </Terminal>
 
-For an array of **numbers**, none of this applies — there are no quotes, so `separator=","`
-is enough on its own. [`repeat`](../reference/attributes.mdx) draws each value
-independently, so a tag can show up twice in one row; if you don't want that, pin a fixed
-set with [`<mix>`](../reference/tags.mdx) instead.
+A record with no tags gets `[]`, not `[""]`. Write the separator the column was joined with:
+`${{Tags | json}}` without it prints the whole list as one string, and `check` warns about
+that ([TDC312](../reference/errors.mdx)). For an array of **numbers** the filter is not
+needed — numbers take no quotes, so `separator=","` and `[${{Scores}}]` are enough.
+[`repeat`](../reference/attributes.mdx) draws each value independently, so a tag can show up
+twice in one row; add `distinct="true"` to the `<gen>` if you don't want that.
 
 ### `null` is a word, not emptiness
 
@@ -299,6 +297,21 @@ which also makes the share **exact** — on 50,000 rows you get precisely 10,000
 {"id": 3, "score": 12}`}
 </Terminal>
 
+For a **string** field, the [`json`](masks-and-case.mdx#json--a-complete-json-value) filter
+already writes `null` for an empty value, so `missing` works as it is:
+
+```xml
+<sequence name="Note"><gen type="text" value="fragile,urgent" missing="0.5"/></sequence>
+...
+<line><data>{"id": ${{Id}}, "note": ${{Note | json}}}</data></line>
+```
+
+<Terminal title="./run out.tdc">
+{`{"id": 1, "note": "fragile"}
+{"id": 2, "note": null}
+{"id": 3, "note": "urgent"}`}
+</Terminal>
+
 ### A quote from outside data
 
 The last break comes from values you don't control — a name pulled from a
@@ -310,32 +323,28 @@ as-is, and its first inner quote closes the string early:
 JSONDecodeError: Expecting ',' delimiter`}
 </Terminal>
 
-The JSON standard escapes an inner quote with a backslash. The same
-[`replace`](masks-and-case.mdx) filter does it — this is the one place you write the
-backslash yourself:
+The [`json`](masks-and-case.mdx#json--a-complete-json-value) filter writes the value as a
+JSON string: it adds the quotes and escapes what JSON requires — an inner quote, a
+backslash, a tab or a line break:
 
 ```xml
-<data>{"name": "${{Name | replace:",\"}}"}</data>
+<data>{"name": ${{Name | json}}}</data>
 ```
 
 <Terminal title="./run out.tdc">
-{`{"name": "Coffee \\"Arabica\\" 250g"}`}
+{`{"name": "Coffee \\"Arabica\\" 250g"}
+{"name": "Coffee \\"Robusta\\" 250g"}`}
 </Terminal>
 
-That parses back to the original string, quotes intact.
-
-:::note
-If your data might also contain a literal backslash, double the backslash **first** (a
-`replace` pass for `\` → `\\`), then escape the quotes — otherwise the second pass mangles
-the escapes the first one just added.
-:::
+That parses back to the original string, quotes intact. Note that the config writes no
+quotes around `${{Name | json}}`: the filter brings its own.
 
 ### A nested list inside a record
 
 A record that carries a list of its own — an order and its lines, a patient and their visits —
-needs a comma **between the repetitions** of one `<line each=…>`, and that is what
-[`<delimiter_line>`](../core-concepts/output-formatting.mdx) does. The per-line fixtures see the
-lines a reader sees, so a line multiplied by `each=` is several of them:
+prints it with [`each`](../constructs/relational-tables.mdx), one line per element. The comma
+goes on every element but the last, and the walked list says which one that is:
+`Sku._last`.
 
 ```xml
 <tdc>
@@ -347,10 +356,9 @@ lines a reader sees, so a line multiplied by `each=` is several of them:
     <before_block><line><data>  { "order": ${{OrderId}}, "lines": [</data></line></before_block>
     <after_block><line><data>  ] }</data></line></after_block>
     <delimiter_block><line><data>  ,</data></line></delimiter_block>
-    <delimiter_line><line><data>    ,</data></line></delimiter_line>
   </env>
   <block>
-    <line each="Sku"><data>    { "sku": "${{Sku}}", "qty": ${{_item}} }</data></line>
+    <line each="Sku"><data>    { "sku": ${{Sku | json}}, "qty": ${{Sku._item}} }</data><data if="!Sku._last">,</data></line>
   </block>
 </tdc>
 ```
@@ -358,23 +366,24 @@ lines a reader sees, so a line multiplied by `each=` is several of them:
 <Terminal title="./run orders.tdc">
 {`[
   { "order": 5001, "lines": [
-    { "sku": "SKU-3547", "qty": 1 }
-    ,
-    { "sku": "SKU-8121", "qty": 2 }
-    ,
+    { "sku": "SKU-3547", "qty": 1 },
+    { "sku": "SKU-8121", "qty": 2 },
     { "sku": "SKU-7610", "qty": 3 }
   ] }
   ,
   { "order": 5002, "lines": [
-    { "sku": "SKU-4917", "qty": 1 }
-    ,
+    { "sku": "SKU-4917", "qty": 1 },
     { "sku": "SKU-8482", "qty": 2 }
   ] }
 ]`}
 </Terminal>
 
-`repeat="1..3"` gives each record a different number of elements, and the delimiter follows —
-one comma fewer than there are lines, every time, including the record that has only one.
+`repeat="1..3"` gives each record a different number of elements, and the comma follows —
+one fewer than there are lines, every time, including the record that has only one. On an
+`each` line, `${{Sku}}` is the current element, so `| json` takes it without a separator.
+To put the comma on a line of its own, use
+[`<delimiter_line>`](../core-concepts/output-formatting.mdx) instead: it prints between the
+lines an `each` produces.
 
 :::note[The wrapper reads the row]
 A `${{Name}}` in a fixture IS expanded, and reads the row that fixture stands beside — so the
@@ -382,6 +391,59 @@ record's own fields go in `<before_block>` right next to the opening bracket, an
 elements in the `<block>`. What a fixture may **not** hold is a `<gen>` (`TDC131`): a generator
 there would emit a constant that looks like a drawn value.
 :::
+
+### Two tables in one document
+
+A JSON document that holds lookup tables — departments, and the doctors who work in them —
+is built from [pools](../pools/overview.mdx). `<line each="Depts">` prints the pool record by
+record, a field reads as `${{Depts.name}}`, and a field drawn from another pool reads one
+level down: `${{Doctors.dept.id}}`.
+
+```xml
+<tdc>
+  <env count="1" seed="clinic" local="en">
+    <pool name="Depts" count="2">
+      <sequence name="id"><gen type="increment" value="1"/></sequence>
+      <sequence name="name"><gen type="text" value="Cardiology,Neurology" order="sequential"/></sequence>
+    </pool>
+    <pool name="Doctors" count="3">
+      <sequence name="id"><gen type="increment" value="1"/></sequence>
+      <sequence name="last"><gen type="template" value="person.lastName"/></sequence>
+      <sequence name="dept"><gen type="pool" value="Depts"/></sequence>
+      <sequence name="languages"><gen type="text" value="English,Spanish,Polish" repeat="1..2" separator=";" distinct="true"/></sequence>
+    </pool>
+  </env>
+  <block>
+    <line><data>{</data></line>
+    <line><data>  "departments": [</data></line>
+    <line each="Depts"><data>    {"id": ${{Depts.id}}, "name": ${{Depts.name | json}}}</data><data if="!Depts._last">,</data></line>
+    <line><data>  ],</data></line>
+    <line><data>  "doctors": [</data></line>
+    <line each="Doctors"><data>    {"id": ${{Doctors.id}}, "name": ${{Doctors.last | json}}, "dept": ${{Doctors.dept.id}}, "languages": ${{Doctors.languages | json:;}}}</data><data if="!Doctors._last">,</data></line>
+    <line><data>  ]</data></line>
+    <line><data>}</data></line>
+  </block>
+</tdc>
+```
+
+<Terminal title="./run clinic.tdc">
+{`{
+  "departments": [
+    {"id": 1, "name": "Cardiology"},
+    {"id": 2, "name": "Neurology"}
+  ],
+  "doctors": [
+    {"id": 1, "name": "Smith", "dept": 2, "languages": ["English"]},
+    {"id": 2, "name": "Johnson", "dept": 2, "languages": ["English"]},
+    {"id": 3, "name": "Williams", "dept": 1, "languages": ["English", "Polish"]}
+  ]
+}`}
+</Terminal>
+
+Every `dept` points at a department that exists, because the doctors draw it from the same
+pool the document prints. `count="1"` prints the document once; a pool is the same on every
+row, so with more rows the same tables would repeat. Twenty tables are twenty pools and
+twenty `each` lines — no other construct is involved.
 
 ### Many records: NDJSON
 

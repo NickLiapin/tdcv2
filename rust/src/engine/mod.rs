@@ -13,6 +13,7 @@
 
 pub mod branch_derived;
 pub mod disk;
+mod each;
 pub mod exact_uniq;
 pub mod external_sort;
 pub mod fingerprint;

@@ -561,6 +561,13 @@
       "description": "The escape is written but the angle brackets are not.",
       "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"advanced_regex\" value=\"(?<a>[XY])\\ka\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
       "expected": ["error TDC130 1:82"]
+    },
+    {
+      "name": "named-data-on-a-line-walking-a-pool",
+      "demonstrates": "TDC209",
+      "description": "A typed column holds one cell per card, and a line walking a pool prints one line per record — the column would keep only the last.",
+      "config": "<tdc><env count=\"1\" seed=\"s\" local=\"en\"><pool name=\"Depts\" count=\"2\"><sequence name=\"id\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"name\"><gen type=\"text\" value=\"Cardiology,Neurology\"/></sequence></pool></env><block><line each=\"Depts\"><data name=\"dept\" type=\"string\">${{Depts.name}}</data></line></block></tdc>",
+      "expected": ["error TDC209 1:245"]
     }
   ]
 }

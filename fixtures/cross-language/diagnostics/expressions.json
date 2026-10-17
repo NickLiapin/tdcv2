@@ -84,6 +84,27 @@
       "description": "The rule is about WHEN the condition is answered, not about where the name sits. A <data if=> runs once the whole table exists, so a forward name is fine there — and it was measured fine on both engines. A port that applied the order rule to every condition would refuse this.",
       "config": "<tdc><env count=\"5\" seed=\"f1\" local=\"en\"><sequence name=\"A\"><gen type=\"text\" value=\"x,y\"/></sequence><sequence name=\"B\"><gen type=\"text\" value=\"p,q\"/></sequence></env><block><line><data if=\"B == p\">${{A}}</data></line></block></tdc>",
       "expected": []
+    },
+    {
+      "name": "each-names-neither-a-sequence-nor-a-pool",
+      "demonstrates": "TDC206",
+      "description": "each= naming nothing declared would print no line at all, in silence.",
+      "config": "<tdc><env count=\"1\" seed=\"s\" local=\"en\"><pool name=\"Depts\" count=\"2\"><sequence name=\"id\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"name\"><gen type=\"text\" value=\"Cardiology,Neurology\"/></sequence></pool></env><block><line each=\"Dept\"><data>x</data></line></block></tdc>",
+      "expected": ["warning TDC231 1:40", "error TDC206 1:245"]
+    },
+    {
+      "name": "each-pool-fields-and-positions-are-names-on-its-line",
+      "demonstrates": "",
+      "description": "A line walking a pool may read every field of the record, nested records included, and the walked name's positions — in ${{…}} and in a <data if=>. A pool printed only by an each= line is read, so no TDC231 either.",
+      "config": "<tdc><env count=\"1\" seed=\"s\" local=\"en\"><pool name=\"Depts\" count=\"2\"><sequence name=\"id\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"name\"><gen type=\"text\" value=\"Cardiology,Neurology\"/></sequence></pool><pool name=\"Doctors\" count=\"3\"><sequence name=\"last\"><gen type=\"text\" value=\"Adams,Baker\"/></sequence><sequence name=\"dept\"><gen type=\"pool\" value=\"Depts\"/></sequence><sequence name=\"languages\"><gen type=\"text\" value=\"English,Spanish\" repeat=\"1..2\" separator=\";\"/></sequence></pool></env><block><line each=\"Doctors\" if=\"Doctors.dept.id == 1\"><data>${{Doctors.last}} ${{Doctors.dept.name}} ${{Doctors._item}}</data><data if=\"!Doctors._last\">,</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "each-positions-are-not-names-in-the-line-if",
+      "demonstrates": "TDC215",
+      "description": "The positions count the lines the line's own if= lets through, so that if= cannot read them.",
+      "config": "<tdc><env count=\"1\" seed=\"s\" local=\"en\"><pool name=\"Depts\" count=\"2\"><sequence name=\"id\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"name\"><gen type=\"text\" value=\"Cardiology,Neurology\"/></sequence></pool></env><block><line each=\"Depts\" if=\"Depts._first\"><data>${{Depts.name}}</data></line></block></tdc>",
+      "expected": ["error TDC215 1:256"]
     }
   ]
 }

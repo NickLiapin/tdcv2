@@ -2400,7 +2400,7 @@ public final class StreamEngine {
     Map<String, Repeat.Spec> eachInfo = eachInfo();
     try {
       if (from == 0) {
-        emit(out, fx.before(), 0);
+        emit(out, fx.before(), 0, eachInfo);
       }
       // About one report per half-percent: cheap enough to leave on always.
       int reportEvery = Math.max(1, (to - from) / 200);
@@ -2411,11 +2411,12 @@ public final class StreamEngine {
         // Before the row is written, not after: a row that fails its own config's claim should
         // not reach the file when the engine can still help it.
         Assertions.checkRow(config, this::valueAt, columns::containsKey, row);
-        emit(out, fx.beforeBlock(), row);
+        emit(out, fx.beforeBlock(), row, eachInfo);
 
         List<Config.Line> active = new ArrayList<>();
         for (Config.Line line : config.block()) {
-          if (line.ifExpr() == null || condition(line.ifExpr(), row)) {
+          // An each= line asks its if= of every element instead, with the element in scope.
+          if (line.ifExpr() == null || line.each() != null || condition(line.ifExpr(), row)) {
             active.add(line);
           }
         }
@@ -2426,21 +2427,21 @@ public final class StreamEngine {
           emitted.addAll(renderLine(line, row, eachInfo));
         }
         for (int i = 0; i < emitted.size(); i++) {
-          emit(out, fx.beforeLine(), row);
+          emit(out, fx.beforeLine(), row, eachInfo);
           out.append(emitted.get(i));
-          emit(out, fx.afterLine(), row);
+          emit(out, fx.afterLine(), row, eachInfo);
           if (i < emitted.size() - 1) {
-            emit(out, fx.delimiterLine(), row);
+            emit(out, fx.delimiterLine(), row, eachInfo);
           }
         }
 
-        emit(out, fx.afterBlock(), row);
+        emit(out, fx.afterBlock(), row, eachInfo);
         if (row < count - 1) {
-          emit(out, fx.delimiterBlock(), row);
+          emit(out, fx.delimiterBlock(), row, eachInfo);
         }
       }
       if (to == count) {
-        emit(out, fx.after(), count - 1);
+        emit(out, fx.after(), count - 1, eachInfo);
       }
       // Said at the end as well as along the way: a phase a watcher sees CLOSE is a phase it can
       // tell from a stall. The sweep above reports every half-percent and so stops short.
@@ -2466,10 +2467,12 @@ public final class StreamEngine {
     return out;
   }
 
-  private void emit(Appendable out, List<Config.Line> lines, int row) throws IOException {
+  private void emit(
+      Appendable out, List<Config.Line> lines, int row, Map<String, Repeat.Spec> eachInfo)
+      throws IOException {
     for (Config.Line line : lines) {
       // A fixture line is one output line, and renderLine hands back the LINES.
-      for (String text : renderLine(line, row, Map.of())) {
+      for (String text : renderLine(line, row, eachInfo)) {
         out.append(text);
       }
     }
@@ -2477,47 +2480,18 @@ public final class StreamEngine {
 
   private List<String> renderLine(
       Config.Line line, int row, Map<String, Repeat.Spec> eachInfo) {
+    String listName = trimToNull(line.each());
+    if (listName != null) {
+      return Each.render(
+          line, listName, row, config.inject(), eachInfo, poolTables.get(listName), lookup(row));
+    }
     StringBuilder text = new StringBuilder();
     for (Config.DataPart part : line.parts()) {
       if (part.ifExpr() == null || condition(part.ifExpr(), row)) {
         text.append(part.text());
       }
     }
-    String template = text.toString();
-
-    String listName = trimToNull(line.each());
-    if (listName == null) {
-      return List.of(Interpolate.apply(template, config.inject(), lookup(row)) + "\n");
-    }
-
-    Repeat.Spec spec = eachInfo.get(listName);
-    List<String> elements =
-        Repeat.split(
-            nullToEmpty(valueAt(listName, row)),
-            spec == null ? Repeat.DEFAULT_SEPARATOR : spec.separator());
-
-    int lane = 0;
-    int stride = 0;
-    for (Map.Entry<String, Repeat.Spec> entry : eachInfo.entrySet()) {
-      if (entry.getKey().equals(listName)) {
-        lane = stride;
-      }
-      stride += entry.getValue().max();
-    }
-    if (stride == 0) {
-      stride = elements.size();
-    }
-
-    List<String> out = new ArrayList<>();
-    for (int k = 0; k < elements.size(); k++) {
-      out.add(
-          Interpolate.apply(
-                  template,
-                  config.inject(),
-                  elementLookup(row, listName, elements.get(k), k + 1, lane, stride))
-              + "\n");
-    }
-    return out;
+    return List.of(Interpolate.apply(text.toString(), config.inject(), lookup(row)) + "\n");
   }
 
   // ── row access ───────────────────────────────────────────────────────────────────────────
@@ -2537,27 +2511,6 @@ public final class StreamEngine {
       @Override
       public String value(String name) {
         return nullToEmpty(valueAt(name, row));
-      }
-    };
-  }
-
-  private Interpolate.Lookup elementLookup(
-      int row, String listName, String element, int position, int lane, int stride) {
-    Map<String, String> overlay =
-        Map.of(
-            listName, element,
-            "_item", String.valueOf(position),
-            "_item_id", String.valueOf(Repeat.itemKey(row + 1, position, lane, stride)));
-    Interpolate.Lookup base = lookup(row);
-    return new Interpolate.Lookup() {
-      @Override
-      public boolean has(String name) {
-        return overlay.containsKey(name) || base.has(name);
-      }
-
-      @Override
-      public String value(String name) {
-        return overlay.containsKey(name) ? overlay.get(name) : base.value(name);
       }
     };
   }

@@ -93,7 +93,25 @@ and two more built-ins are available **only there** — see
 | `_item_id` | A number **unique across the whole run** — a ready-made primary key            |
 
 They exist only on an `each=` line. On an ordinary line the name resolves to nothing, and
-[TDC193](errors.md#top) refuses the config rather than printing `${{_item}}` literally.
+[TDC193](errors.md#top) refuses the config rather than printing `${{_item}}` literally. On a
+line walking a [pool](../pools/overview.md#top), both are the record's position in the pool.
+
+### The walked name's positions: `X._item`, `X._first`, `X._last`
+
+The list or pool an `each=` line walks lends its name to three more:
+
+| Name             | Value                                                               |
+| :--------------- | :------------------------------------------------------------------ |
+| `Orders._item`   | The number of this line among the lines the `each` prints: `1`, `2`, `3` |
+| `Orders._first`  | `true` on the first line printed, `false` on the rest               |
+| `Orders._last`   | `true` on the last line printed, `false` on the rest                |
+
+They count the lines **printed**: an `if=` on the `each` line drops some elements, and the
+positions skip them, so `Orders._last` is true on the last line that actually appears. That
+makes `<data if="!Orders._last">,</data>` a comma between elements and never after the last
+one. They differ from `_first` and `_last` above, which mark the first and last **record**
+of the run. The line's own `if=` cannot read them ([TDC215](errors.md#top)): they are counted
+after it has decided.
 
 ## Reserved names
 

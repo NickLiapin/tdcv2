@@ -35,6 +35,55 @@
       "description": "replace with no from= changes nothing at all",
       "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"N\"><gen type=\"text\" value=\"123456789012\"/></sequence></env><block><line><data>${{N|replace}}</data></line></block></tdc>",
       "expected": ["error TDC275 1:117"]
+    },
+    {
+      "name": "json-filter-on-a-list-without-its-separator",
+      "demonstrates": "TDC312",
+      "description": "| json on a repeat= list prints the whole joined cell as ONE string — valid JSON, and almost never what was meant. The warning names the separator to write.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"L\"><gen type=\"text\" value=\"Milk,Soy\" repeat=\"0..2\" separator=\";\"/></sequence></env><block><line><data>${{L | json}}</data></line></block></tdc>",
+      "expected": ["warning TDC312 1:152"]
+    },
+    {
+      "name": "json-filter-splitting-on-the-wrong-separator",
+      "demonstrates": "TDC312",
+      "description": "| json:, on a list joined with ; finds no comma and prints a one-element array.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"L\"><gen type=\"text\" value=\"Milk,Soy\" repeat=\"0..2\" separator=\";\"/></sequence></env><block><line><data>${{L | json:,}}</data></line></block></tdc>",
+      "expected": ["warning TDC312 1:152"]
+    },
+    {
+      "name": "json-filter-on-a-pool-list-read-by-an-each-line",
+      "demonstrates": "TDC312",
+      "description": "The same mistake on a list FIELD of a pool, read as Doctors.languages on a line walking Doctors.",
+      "config": "<tdc><env count=\"1\" seed=\"s\" local=\"en\"><pool name=\"Depts\" count=\"2\"><sequence name=\"id\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"name\"><gen type=\"text\" value=\"Cardiology,Neurology\"/></sequence></pool><pool name=\"Doctors\" count=\"3\"><sequence name=\"last\"><gen type=\"text\" value=\"Adams,Baker\"/></sequence><sequence name=\"dept\"><gen type=\"pool\" value=\"Depts\"/></sequence><sequence name=\"languages\"><gen type=\"text\" value=\"English,Spanish\" repeat=\"1..2\" separator=\";\"/></sequence></pool></env><block><line each=\"Doctors\"><data>${{Doctors.last | json}}: ${{Doctors.languages | json}}</data></line></block></tdc>",
+      "expected": ["warning TDC312 1:536"]
+    },
+    {
+      "name": "json-filter-with-a-bare-colon",
+      "demonstrates": "TDC273",
+      "description": "json: with nothing after the colon names no separator: write | json for one value or | json:; for a list.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"L\"><gen type=\"text\" value=\"Milk,Soy\" repeat=\"0..2\" separator=\";\"/></sequence></env><block><line><data>${{L | json:}}</data></line></block></tdc>",
+      "expected": ["error TDC273 1:152"]
+    },
+    {
+      "name": "json-filter-on-the-list-an-each-line-walks",
+      "demonstrates": "",
+      "description": "On a line walking a list, the list's name is the current element, so | json on it prints one value and is right.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"L\"><gen type=\"text\" value=\"Milk,Soy\" repeat=\"0..2\" separator=\";\"/></sequence></env><block><line each=\"L\"><data>${{L | json}}</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "json-filter-on-a-list-joined-with-a-pipe",
+      "demonstrates": "TDC312",
+      "description": "A list joined with | cannot be split by json: at all — the pipe starts the next filter — so the warning asks for another separator.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"P\"><gen type=\"text\" value=\"a,b\" repeat=\"1..2\" separator=\"|\"/></sequence></env><block><line><data>${{P | json}}</data></line></block></tdc>",
+      "expected": ["warning TDC312 1:147"]
+    },
+    {
+      "name": "json-filter-with-only-a-space-after-the-colon",
+      "demonstrates": "TDC273",
+      "description": "The argument is trimmed, so json: followed by a space names no separator either.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"L\"><gen type=\"text\" value=\"Milk,Soy\" repeat=\"0..2\" separator=\";\"/></sequence></env><block><line><data>${{L | json: }}</data></line></block></tdc>",
+      "expected": ["error TDC273 1:152"]
     }
   ]
 }

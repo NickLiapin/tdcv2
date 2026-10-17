@@ -15,7 +15,7 @@
 use crate::engine::EngineResult;
 
 /// Every name accepted after a `|` inside an interpolation.
-pub const FILTER_NAMES: [&str; 12] = [
+pub const FILTER_NAMES: [&str; 13] = [
     "upper",
     "lower",
     "capitalize",
@@ -28,6 +28,7 @@ pub const FILTER_NAMES: [&str; 12] = [
     "compact",
     "csv",
     "sql",
+    "json",
 ];
 
 pub const CASE_TRANSFORMS: [&str; 4] = ["upper", "lower", "capitalize", "title"];
@@ -90,9 +91,52 @@ pub fn apply_filter(kind: &str, arg: Option<&str>, value: &str) -> EngineResult<
         ),
         "csv" => csv(value),
         "sql" => sql(value),
+        "json" => json(value, arg.filter(|a| !a.is_empty())),
         "upper" | "lower" | "capitalize" | "title" => apply_case(kind, value),
         _ => value.to_string(),
     })
+}
+
+/// A value as a complete JSON value: a quoted, escaped string, or `null` when empty.
+///
+/// With a separator (`json:;`) the cell is a LIST — a `repeat=` column joined with that
+/// separator — and comes out as an array of strings, `[]` when empty. Elements are trimmed,
+/// since an argument cannot carry the space of a `", "` separator. Written by hand: the five
+/// implementations must agree byte for byte, and their JSON libraries do not.
+pub fn json(value: &str, separator: Option<&str>) -> String {
+    let Some(sep) = separator else {
+        return if value.is_empty() {
+            "null".to_string()
+        } else {
+            json_string(value)
+        };
+    };
+    if value.is_empty() {
+        return "[]".to_string();
+    }
+    let parts: Vec<String> = value.split(sep).map(|p| json_string(p.trim())).collect();
+    format!("[{}]", parts.join(", "))
+}
+
+/// `"…"`: quote, backslash and the control characters escaped; everything else as written.
+fn json_string(value: &str) -> String {
+    let mut out = String::with_capacity(value.len() + 2);
+    out.push('"');
+    for ch in value.chars() {
+        match ch {
+            '"' => out.push_str("\\\""),
+            '\\' => out.push_str("\\\\"),
+            '\n' => out.push_str("\\n"),
+            '\r' => out.push_str("\\r"),
+            '\t' => out.push_str("\\t"),
+            '\u{8}' => out.push_str("\\b"),
+            '\u{c}' => out.push_str("\\f"),
+            c if (c as u32) < 0x20 => out.push_str(&format!("\\u{:04x}", c as u32)),
+            c => out.push(c),
+        }
+    }
+    out.push('"');
+    out
 }
 
 /// A substring by code-point index, `[from, to)`; a missing `to` means the end.

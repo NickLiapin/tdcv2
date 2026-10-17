@@ -47,8 +47,9 @@ ships no month names, so the dates come out English), `TDC284` (a `secret=` writ
 the config as a literal — a key travels wherever the config does), `TDC301` (a share list
 that leaves a declared value at 0%, so it can never be drawn), `TDC309` (an `<env>` with no
 `seed=`, so every run draws a different file), `TDC310` (`mm` — minutes — in a date format
-with no hour, which is almost always the month) and `TDC311` (an XML entity in `<data>`,
-printed as written). Each says as much in its row below.
+with no hour, which is almost always the month), `TDC311` (an XML entity in `<data>`,
+printed as written) and `TDC312` (`| json` on a list without its separator, which prints
+the list as one string). Each says as much in its row below.
 
 The numbers run roughly in the order a config is checked — structure first, then
 generators, then everything built on top of them — but a number is an identifier, not a
@@ -355,6 +356,7 @@ have them: they compile a config into a model that has no place to put such a `<
 | `TDC309` | _(warning)_ An `<env>` with no `seed=` | Every run draws a different file, so a config handed to someone else will not give them the data you saw. Add `seed="…"` — any text will do — and the same config gives the same bytes every time, in all five implementations. `check` and the editor show this; a run prints the seed it drew instead, and `--seed` takes the warning back. Leave the seed out only when fresh data on every run is the point |
 | `TDC310` | _(warning)_ `mm` or `m` — minutes — in a date `format=` that has no hour or second | `%m` and a hand-written `yyyy-mm-dd` mean the month; here `mm` is minutes, and a date without a time prints `00` for them on every row — `format="YYYY-mm-DD"` gave `2025-00-24`. Write `MM` for the month, or put the hour beside the minutes: `HH:mm`. Checked on a date measured from another (`of=`/`plus=`) too |
 | `TDC311` | _(warning)_ An XML entity — `&quot;`, `&lt;`, `&gt;`, `&amp;`, `&apos;` or a numeric `&#…;` — inside `<data>` | TDC expands no entities, so `&quot;` reaches the output as six characters and `{&quot;a&quot;: 1}` is not JSON. `<data>` takes `"` `<` `>` `&` `'` as they are: write the character. If the entity is what the output should hold — HTML, say — leave it and ignore the warning |
+| `TDC312` | _(warning)_ `\| json` on a list, without the list's separator or with a different one | A `repeat=` column is one cell holding a list joined with its `separator`, and `\| json` reads text: `${{Langs \| json}}` prints `"English;Spanish"` as one string, and `json:,` on a list joined with `;` prints a one-element array. Both parse, so the mistake would surface only in whatever reads the file. Write the column's separator: `${{Langs \| json:;}}`. Checked for a sequence, a pool field and the same field read through a reference or on an `each` line |
 
 ## See also
 

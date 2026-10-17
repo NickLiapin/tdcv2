@@ -68,7 +68,7 @@ from ..pattern import curve
 from ..sequence import uniq_simple
 from ..stats import dist_params
 from ..stats import distribution as dist
-from . import checks
+from . import checks, json_lists
 from .compute_check import ComputeCheck
 
 #: Operators whose right side may be a bare word rather than a name.
@@ -1005,10 +1005,14 @@ class _Validator:
         "declared_order",
         "diagnostics",
         "document_regex_max_length",
+        "each_pools",
         "env_count",
         "env_names",
         "expr_scope",
+        "expression_extra",
         "finite_values",
+        "line_names",
+        "list_separators",
         "locale",
         "packs",
         "pending_case_data",
@@ -1122,6 +1126,16 @@ class _Validator:
         # (TDC308). None means a condition read once the row is finished — `<data if=>`,
         # `<line if=>`, `<assert that=>` — where any column may be named.
         self.declared_above: frozenset[str] | None = None
+        # The pools a `<line each="Pool">` prints, read as surely as a `<gen type="pool">` reads
+        # one (TDC231), and every list by the path `${{…}}` names it with, with its separator
+        # (TDC312).
+        self.each_pools: set[str] = set()
+        self.list_separators: dict[str, str] = {}
+        # The names the <line> being checked publishes — a walked pool's fields and the walked
+        # name's positions — and, while a deferred condition is checked, the names the language
+        # gave it. Both are whole paths whose root need not be a sequence: `Doctors.dept.id`.
+        self.line_names: frozenset[str] = frozenset()
+        self.expression_extra: frozenset[str] = frozenset()
         # Every filter= seen, held back for the same reason: the column it compares against may
         # be declared BELOW the reference, and the run resolves that happily.
         # (at, expression, pool, field, other, line, column)
@@ -1165,6 +1179,8 @@ class _Validator:
             )
 
         self._check_tdc_children(tdc)
+        self.each_pools = _each_pools(block)
+        self.list_separators = _list_separators(env)
         if env is not None:
             self._check_env(env)
         if block is not None:
@@ -1200,6 +1216,7 @@ class _Validator:
             outer = self.declared_names
             # `extra` is provided by the language rather than declared, so it is never "below".
             self.declared_above = None if above is None else above | extra
+            self.expression_extra = extra
             # `extra` carries the names the LANGUAGE provides for one expression — today just
             # `_value` inside `missing_when`. Added rather than substituted, so a condition can
             # still read the columns beside it.
@@ -1212,6 +1229,7 @@ class _Validator:
             finally:
                 self.declared_names = outer
                 self.declared_above = None
+                self.expression_extra = frozenset()
             found = self.diagnostics[before:]
             del self.diagnostics[before:]
             for offset, diagnostic in enumerate(found):
@@ -2086,6 +2104,7 @@ class _Validator:
                     descend(gen)
 
         descend(env)
+        self.pools_read |= self.each_pools
 
     def _check_pool_is_read(self, pool) -> None:
         """A pool nobody draws from.
@@ -6109,50 +6128,74 @@ class _Validator:
         # to be caught in both places or a whole line silently never renders.
         # `_item` and `_item_id` exist only while a line walks a list, and both the line's own
         # condition and every <data> inside it may name them.
-        walks_a_list = _attrs(line_el.attr()).get("each") is not None
-        line_condition = _attrs(line_el.attr()).get("if")
+        each = _attrs(line_el.attr()).get("each")
+        each_name = None if each is None else each.strip()
+        walks_a_list = each is not None
+        # What a walked pool or list publishes: every <data> may read the positions, and the
+        # line's own if= may not, because the positions count the lines that if= lets through.
+        line_names = self._each_names(each_name, for_if=False)
         line_condition = _attrs(line_el.attr()).get("if")
         if line_condition is not None:
             where = _at_attrs(line_el.attr(), "if", _line(line_el), _column(line_el))
             self._check_if_expression(line_condition, where[0], where[1])
-            self._defer_expression(line_condition, where[0], where[1], walks_a_list)
-        each = _attrs(line_el.attr()).get("each")
+            self._defer_expression(
+                line_condition,
+                where[0],
+                where[1],
+                walks_a_list,
+                extra=self._each_names(each_name, for_if=True),
+            )
         if each is not None:
             line, column = _at(line_el, "each")
-            if not each.strip():
+            if not each_name:
                 self._error(
                     "TDC206",
                     'each="" names no sequence',
-                    'Point it at a repeating sequence: <line each="Orders">.',
+                    'Point it at a repeating sequence, <line each="Orders">, or at a pool, '
+                    '<line each="Doctors">.',
                     line,
                     column,
                 )
-            elif each in self.declared_names and each not in self.repeating_names:
+            elif each_name not in self.declared_names and each_name not in self.pool_fields:
+                # Nothing by that name: the line would print nothing at all, and an empty child
+                # table is the quietest way a config can be wrong.
+                self._error(
+                    "TDC206",
+                    f'each="{each_name}" — no sequence or pool with that name',
+                    'The name must match a repeating <sequence name="…"> declared in <env>, or a '
+                    '<pool name="…">.',
+                    line,
+                    column,
+                )
+            elif each_name in self.declared_names and each_name not in self.repeating_names:
                 # Walking a scalar would emit one line and look like it worked, which is the kind
                 # of near-miss that survives review.
                 self._error(
                     "TDC207",
-                    f'each="{each}" — that sequence holds one value, not a list',
+                    f'each="{each_name}" — that sequence holds one value, not a list',
                     'Add repeat= to its <gen>, e.g. <gen … repeat="1..5"/>, or drop each=.',
                     line,
                     column,
                 )
-            # A typed column is collected once per record, and an each= line emits several. The two
-            # cannot both be true, so the column would silently take whichever element came last.
-            for child in _elements(line_el):
-                data = child.dataElement()
-                if data is None or not _has_body(data):
-                    continue
-                column_name = _attrs(data.attr()).get("name")
-                if column_name is not None and column_name.strip():
-                    self._error(
-                        "TDC209",
-                        f'a named <data name="{column_name}"> cannot sit inside an each= line',
-                        "Typed columns are collected once per card. For columnar output keep the "
-                        'list as a list column (type="[]…"); each= is for text and SQL.',
-                        line,
-                        column,
-                    )
+            else:
+                # A typed column is collected once per record, and an each= line emits several —
+                # a list's elements or a pool's records alike. The two cannot both be true, so
+                # the column would silently take whichever came last.
+                for child in _elements(line_el):
+                    data = child.dataElement()
+                    if data is None or not _has_body(data):
+                        continue
+                    column_name = _attrs(data.attr()).get("name")
+                    if column_name is not None and column_name.strip():
+                        self._error(
+                            "TDC209",
+                            f'a named <data name="{column_name}"> cannot sit inside an each= line',
+                            "Typed columns are collected once per card. For columnar output keep "
+                            'the list as a list column (type="[]…"); each= is for text and SQL.',
+                            line,
+                            column,
+                        )
+                        break
 
         for child in _elements(line_el):
             self_closing = child.selfClosingElement()
@@ -6190,7 +6233,14 @@ class _Validator:
                 self._check_data_type(data, _line(line_el), _column(line_el))
                 # The <data> element, not the <line> around it: several <data> pieces can share a
                 # line, and pointing at the line would name the wrong one whenever they do.
-                self._check_interpolation(_data_text(data), data.start.line, data.start.column)
+                text = _data_text(data)
+                for message, hint in json_lists.check(text, self.list_separators, each_name):
+                    self._warn("TDC312", message, hint, data.start.line, data.start.column)
+                self.line_names = line_names
+                try:
+                    self._check_interpolation(text, data.start.line, data.start.column)
+                finally:
+                    self.line_names = frozenset()
                 condition = _attrs(data.attr()).get("if")
                 if condition is not None:
                     where = _at_attrs(data.attr(), "if", _line(line_el), _column(line_el))
@@ -6213,7 +6263,9 @@ class _Validator:
                             where[1],
                         )
                     self._check_if_expression(condition, where[0], where[1])
-                    self._defer_expression(condition, where[0], where[1], walks_a_list)
+                    self._defer_expression(
+                        condition, where[0], where[1], walks_a_list, extra=line_names
+                    )
                 continue
             open_el = child.openCloseElement()
             if open_el is not None and open_el.name.text != "data":
@@ -6225,6 +6277,23 @@ class _Validator:
                     _line(open_el),
                     _column(open_el),
                 )
+
+    def _each_names(self, each_name: str | None, *, for_if: bool) -> frozenset[str]:
+        """The names an ``each`` line may read besides the run's own.
+
+        The walked name's positions (``Doctors._last``) and — walking a pool — every field of its
+        records. The line's own ``if=`` gets the fields without the positions, which count the
+        lines that ``if=`` lets through and so cannot be what decides them. ``_item`` and
+        ``_item_id`` are not here: the ``each`` flag of a deferred condition already admits them.
+        """
+        if not each_name:
+            return frozenset()
+        names: set[str] = set()
+        if not for_if:
+            names.update(f"{each_name}.{p}" for p in ("_item", "_first", "_last"))
+        if each_name not in self.declared_names:
+            names.update(f"{each_name}.{f}" for f in self.pool_fields.get(each_name, []))
+        return frozenset(names)
 
     def _check_interpolation(self, text: str, line: int, column: int) -> None:
         """Every ``${{…}}`` in a line: the name has to exist, and each filter has to be one.
@@ -6255,7 +6324,12 @@ class _Validator:
                     column,
                 )
                 continue
-            if name and name not in self.declared_names and not checks.is_builtin(name):
+            if (
+                name
+                and name not in self.declared_names
+                and name not in self.line_names
+                and not checks.is_builtin(name)
+            ):
                 # A dot with a KNOWN root is a field mistake, and saying so beats repeating the
                 # whole reference back: the reader already knows the sequence exists. Collapsed
                 # into "is not a declared sequence", the message sent someone to <env> to declare
@@ -6372,6 +6446,17 @@ class _Validator:
                 f'the "{kind}" filter takes no argument — ":{arg}" is read by nothing',
                 f"Write ${{{{X|{kind}}}}}. Chain filters with more pipes instead: "
                 f"${{{{X|trim|{kind}}}}}.",
+                line,
+                column,
+            )
+            return
+        # The renderer trims an argument, so `json: ` is as empty as `json:`.
+        if kind == "json" and arg is not None and not arg.strip():
+            self._error(
+                "TDC273",
+                'the "json" filter has a colon and no separator after it',
+                "Write ${{X|json}} for one value — a quoted string, or null when empty — and "
+                '${{X|json:;}} for a list joined with ";", which comes out as a JSON array.',
                 line,
                 column,
             )
@@ -6596,6 +6681,10 @@ class _Validator:
 
     def _check_expression_name(self, path: str, line: int, column: int, each: bool) -> None:
         root, _, tail = path.partition(".")
+        # A whole path the line itself publishes — a pool record's field or a position on an
+        # `each` line (`Doctors.dept.id`, `Doctors._last`) — whose root is a pool, not a sequence.
+        if tail and path in self.expression_extra:
+            return
         known = (
             root in self.declared_names
             or root in checks.BUILTINS
@@ -7150,6 +7239,75 @@ def _line(element) -> int:
 
 def _column(element) -> int:
     return element.start.column
+
+
+def _each_pools(block) -> set[str]:
+    """The names a ``<line each="…">`` walks — a pool among them is read by being printed."""
+    out: set[str] = set()
+    for child in _elements(block) if block is not None else []:
+        line_el = child.openCloseElement()
+        if line_el is None or line_el.name.text != "line":
+            continue
+        each = (_attrs(line_el.attr()).get("each") or "").strip()
+        if each:
+            out.add(each)
+    return out
+
+
+def _list_separators(env) -> dict[str, str]:
+    """Every list a ``${{…}}`` can name, by the path it is named with, and its separator.
+
+    Only lists whose separator the config states plainly are known: a ``<sequence>`` whose single
+    ``<gen>`` repeats, a pool field of that shape, and the same field read through a reference to
+    the pool (``D.languages``) or on a line walking it (``Doctors.languages``), one nested level
+    included (``Doctors.dept.tags``).
+    """
+    lists: dict[str, str] = {}
+    if env is None:
+        return lists
+    pool_lists: dict[str, dict[str, str]] = {}
+
+    def sequences_of(container) -> list:
+        out: list = []
+        for child in _elements(container):
+            node = child.openCloseElement()
+            if node is None:
+                continue
+            if node.name.text == "sequence":
+                out.append(node)
+            elif node.name.text in ("uniq", "distinct"):
+                out.extend(sequences_of(node))
+        return out
+
+    def lists_of(sequences: list) -> dict[str, str]:
+        own: dict[str, str] = {}
+        for seq in sequences:
+            name = (_attrs(seq.attr()).get("name") or "").strip()
+            gens = [g for g in _child_elements(seq) if g.name.text == "gen"]
+            if not name or len(gens) != 1:
+                continue
+            gen = _attrs(gens[0].attr())
+            if (gen.get("repeat") or "").strip():
+                own[name] = gen.get("separator", repeat_gen.DEFAULT_SEPARATOR)
+            elif gen.get("type") == "pool":
+                # A record drawn from another pool carries that pool's lists one level down.
+                for field, sep in pool_lists.get((gen.get("value") or "").strip(), {}).items():
+                    own[f"{name}.{field}"] = sep
+        return own
+
+    for child in _elements(env):
+        pool = child.openCloseElement()
+        if pool is None or pool.name.text != "pool":
+            continue
+        pool_name = (_attrs(pool.attr()).get("name") or "").strip()
+        if not pool_name:
+            continue
+        own = lists_of(sequences_of(pool))
+        pool_lists[pool_name] = own
+        for field, sep in own.items():
+            lists[f"{pool_name}.{field}"] = sep
+    lists.update(lists_of(sequences_of(env)))
+    return lists
 
 
 def _find(parent, name: str):

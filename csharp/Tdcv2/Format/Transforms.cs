@@ -21,7 +21,7 @@ public static class Transforms
     public static IReadOnlyList<string> FilterNames { get; } = new[]
     {
         "upper", "lower", "capitalize", "title", "mask", "slice", "replace", "trim", "group",
-        "compact", "csv", "sql",
+        "compact", "csv", "sql", "json",
     };
 
     /// <summary>A run of non-whitespace, for <c>title</c>.</summary>
@@ -30,6 +30,64 @@ public static class Transforms
     private static readonly Regex WholeNumber = new(@"^-?\d+$", RegexOptions.Compiled);
 
     public static bool IsCaseTransform(string name) => CaseTransforms.Contains(name);
+
+    /// <summary>
+    /// A value as a complete JSON value: a quoted, escaped string, or <c>null</c> when empty.
+    /// </summary>
+    /// <remarks>
+    /// With a separator (<c>json:;</c>) the cell is a LIST — a <c>repeat=</c> column joined with
+    /// that separator — and comes out as an array of strings, <c>[]</c> when empty. Elements are
+    /// trimmed, since an argument cannot carry the space of a <c>", "</c> separator. Written by
+    /// hand: the five implementations must agree byte for byte, and their JSON libraries do not.
+    /// </remarks>
+    public static string Json(string value, string? separator)
+    {
+        if (separator is null)
+        {
+            return value.Length == 0 ? "null" : JsonString(value);
+        }
+
+        if (value.Length == 0)
+        {
+            return "[]";
+        }
+
+        return "[" + string.Join(", ", value.Split(separator).Select(p => JsonString(p.Trim()))) + "]";
+    }
+
+    /// <summary><c>"…"</c>: quote, backslash and the control characters escaped; everything else as written.</summary>
+    private static string JsonString(string value)
+    {
+        var text = new StringBuilder(value.Length + 2).Append('"');
+        foreach (char ch in value)
+        {
+            string? escaped = ch switch
+            {
+                '"' => "\\\"",
+                '\\' => "\\\\",
+                '\n' => "\\n",
+                '\r' => "\\r",
+                '\t' => "\\t",
+                '\b' => "\\b",
+                '\f' => "\\f",
+                _ => null,
+            };
+            if (escaped is not null)
+            {
+                text.Append(escaped);
+            }
+            else if (ch < 0x20)
+            {
+                text.Append("\\u").Append(((int)ch).ToString("x4", CultureInfo.InvariantCulture));
+            }
+            else
+            {
+                text.Append(ch);
+            }
+        }
+
+        return text.Append('"').ToString();
+    }
 
     public static bool IsFilterName(string name) => FilterNames.Contains(name);
 
@@ -79,6 +137,8 @@ public static class Transforms
                 return Csv(value);
             case "sql":
                 return Sql(value);
+            case "json":
+                return Json(value, string.IsNullOrEmpty(arg) ? null : arg);
             case "upper":
             case "lower":
             case "capitalize":

@@ -542,6 +542,7 @@ and any other string keep the plain right-to-left chunking.
 | `compact` | `compact` or `compact:16` | —                                                               |
 | `csv`     | `csv`                     | — (no tag)                                                      |
 | `sql`     | `sql`                     | — (no tag)                                                      |
+| `json`    | `json` or `json:;`        | — (no tag)                                                      |
 
 The argument is checked before the run. `slice:5,2` ends before it starts and would have
 emptied the column; `group:0`, `compact:1` and `compact:99` are numbers the filter cannot
@@ -669,12 +670,39 @@ INSERT INTO t VALUES ('O''Brien');
 
 The filter doubles the apostrophe and returns **only the contents**, with no outer
 quotes — you write those yourself, so the shape of the query stays visible in the config.
-For [JSON](../guides/output-formats.md#json) there's no separate filter: escape the
-quote with a backslash using the same `replace` filter.
 
 This is **standard-SQL** quoting (PostgreSQL, SQLite, Oracle, ANSI). MySQL in its
 default mode also treats `\` as an escape character — either enable
 `NO_BACKSLASH_ESCAPES` there, or double backslashes yourself with `replace` first.
+
+### `json` — a complete JSON value
+
+```xml
+<data>{"name": ${{Name | json}}, "note": ${{Note | json}}, "tags": ${{Tags | json:;}}}</data>
+```
+
+`./run demo.tdc`
+
+```
+{"name": "Coffee \"Arabica\" 250g", "note": "fragile", "tags": ["sale"]}
+{"name": "Coffee \"Robusta\" 250g", "note": "fragile", "tags": []}
+{"name": "Coffee \"Robusta\" 250g", "note": null, "tags": ["sale", "new"]}
+```
+
+Unlike `sql`, this filter writes the quotes itself, because in JSON they belong to the
+value: an empty value comes out as `null`, not as `""`. Inside the quotes it escapes `"`,
+`\` and the control characters — a tab, a line break — and leaves every other character as
+written, accents and non-Latin scripts included.
+
+With an argument the value is a **list**: `json:;` splits it on `;` and prints a JSON array
+of strings, `[]` when it is empty. That is the shape of a [`repeat`](../reference/attributes.md#top)
+column, so write the column's own `separator`. Each element is trimmed, so a list joined
+with `", "` reads correctly as `json:,`. If the separator is missing or differs from the
+column's, `check` says so ([TDC312](../reference/errors.md#top)): the file would still parse,
+with the whole list as one string.
+
+The filter always produces strings. Leave a number bare — `"id": ${{Id}}` — so it stays a
+number.
 
 ## See also
 

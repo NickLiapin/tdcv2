@@ -54,8 +54,9 @@ nombres muy bien y no trae nombres de meses, así que las fechas salen en inglé
 viaje él), `TDC301` (una lista de porcentajes que deja un valor declarado en 0%, de modo que
 ya nunca puede salir), `TDC309` (un `<env>` sin `seed=`, así que cada run da un archivo
 distinto), `TDC310` (`mm` — minutos — en un formato de fecha sin hora, que casi siempre es el
-mes) y `TDC311` (una entidad XML en `<data>`, que se imprime tal como está escrita). Cada una
-lo indica en su fila más abajo.
+mes), `TDC311` (una entidad XML en `<data>`, que se imprime tal como está escrita) y `TDC312`
+(`| json` sobre una lista sin su separador, que imprime la lista como una sola cadena). Cada
+una lo indica en su fila más abajo.
 
 Los números se reparten más o menos en el orden en que se revisa un config — primero la
 estructura, luego los generadores, luego todo lo construido encima — pero el número es un
@@ -239,6 +240,7 @@ Ver [Registros coherentes](../pools/overview.md#top).
 | `TDC309` | _(advertencia)_ Un `<env>` sin `seed=` | Cada run da un archivo distinto, así que un config que se entrega a otra persona no le dará los datos que usted vio. Agregue `seed="…"` — sirve cualquier texto — y el mismo config da los mismos bytes cada vez, en las cinco implementaciones. Lo muestran `check` y el editor; un run imprime en su lugar la semilla que sacó, y `--seed` retira la advertencia. Deje la semilla fuera solo cuando datos nuevos en cada run sean justamente el objetivo |
 | `TDC310` | _(advertencia)_ `mm` o `m` — minutos — en un `format=` de fecha sin hora ni segundos | `%m` y un `yyyy-mm-dd` escrito a mano significan el mes; aquí `mm` son minutos, y una fecha sin hora imprime `00` en su lugar en cada fila — `format="YYYY-mm-DD"` daba `2025-00-24`. El mes es `MM`; si los minutos son intencionales, ponga la hora al lado: `HH:mm`. También se revisa en una fecha medida desde otra (`of=`/`plus=`) |
 | `TDC311` | _(advertencia)_ Una entidad XML — `&quot;`, `&lt;`, `&gt;`, `&amp;`, `&apos;` o una numérica `&#…;` — dentro de `<data>` | TDC no expande entidades, así que `&quot;` llega a la salida como seis caracteres y `{&quot;a&quot;: 1}` no es JSON. `<data>` acepta `"` `<` `>` `&` `'` tal cual: escriba el carácter. Si lo que debe contener la salida es la entidad — en HTML, por ejemplo —, déjela e ignore la advertencia |
+| `TDC312` | _(advertencia)_ `\| json` sobre una lista, sin el separador de la lista o con otro distinto | Una columna con `repeat=` es una celda que guarda una lista unida con su `separator`, y `\| json` lee texto: `${{Langs \| json}}` imprime `"English;Spanish"` como una sola cadena, y `json:,` sobre una lista unida con `;` imprime un arreglo de un solo elemento. Ambos se parsean, así que el error solo saldría a la luz en quien lea el archivo. Escriba el separador de la columna: `${{Langs \| json:;}}`. Se comprueba en una secuencia, en un campo de pool y en ese mismo campo leído a través de una referencia o en una línea con `each` |
 | `TDC244` | `type="pattern"` sin `points`, `src` ni `upper`                             | Un dibujo necesita una forma de la que leer: `points="0,0 1,5 2,3"`, un archivo en `src`, o `upper`/`lower` para una banda                                                                                                                                  |
 
 Tres números de este rango se reservaron mientras se diseñaban los pools y quedarán sin

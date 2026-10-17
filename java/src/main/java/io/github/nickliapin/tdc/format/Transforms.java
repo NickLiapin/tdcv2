@@ -23,7 +23,7 @@ public final class Transforms {
   public static final List<String> FILTER_NAMES =
       List.of(
           "upper", "lower", "capitalize", "title", "mask", "slice", "replace", "trim", "group",
-          "compact", "csv", "sql");
+          "compact", "csv", "sql", "json");
 
   private Transforms() {}
 
@@ -67,6 +67,7 @@ public final class Transforms {
       case "compact" -> compact(value, a.isEmpty() ? 36 : intOr(a, 36));
       case "csv" -> csv(value);
       case "sql" -> sql(value);
+      case "json" -> json(value, arg == null || arg.isEmpty() ? null : arg);
       case "upper", "lower", "capitalize", "title" -> applyCase(kind, value);
       default -> value;
     };
@@ -168,6 +169,52 @@ public final class Transforms {
    * the config keeps writing {@code '${{Name|sql}}'} and the shape of the statement stays
    * visible where it is written.
    */
+  /**
+   * A value as a complete JSON value: a quoted, escaped string, or {@code null} when empty.
+   *
+   * <p>With a separator ({@code json:;}) the cell is a LIST — a {@code repeat=} column joined with
+   * that separator — and comes out as an array of strings, {@code []} when empty. Elements are
+   * trimmed, since an argument cannot carry the space of a {@code ", "} separator. Written by hand:
+   * the five implementations must agree byte for byte, and their JSON libraries do not.
+   */
+  public static String json(String value, String separator) {
+    if (separator == null) return value.isEmpty() ? "null" : jsonString(value);
+    if (value.isEmpty()) return "[]";
+    StringBuilder out = new StringBuilder("[");
+    int from = 0;
+    while (true) {
+      int at = value.indexOf(separator, from);
+      String part = at < 0 ? value.substring(from) : value.substring(from, at);
+      if (from > 0) out.append(", ");
+      out.append(jsonString(part.trim()));
+      if (at < 0) break;
+      from = at + separator.length();
+    }
+    return out.append(']').toString();
+  }
+
+  /** {@code "…"}: quote, backslash and the control characters escaped; everything else as is. */
+  private static String jsonString(String value) {
+    StringBuilder out = new StringBuilder(value.length() + 2).append('"');
+    for (int i = 0; i < value.length(); i++) {
+      char ch = value.charAt(i);
+      switch (ch) {
+        case '"' -> out.append("\\\"");
+        case '\\' -> out.append("\\\\");
+        case '\n' -> out.append("\\n");
+        case '\r' -> out.append("\\r");
+        case '\t' -> out.append("\\t");
+        case '\b' -> out.append("\\b");
+        case '\f' -> out.append("\\f");
+        default -> {
+          if (ch < 0x20) out.append(String.format("\\u%04x", (int) ch));
+          else out.append(ch);
+        }
+      }
+    }
+    return out.append('"').toString();
+  }
+
   public static String sql(String value) {
     return value.replace("'", "''");
   }

@@ -90,6 +90,21 @@
       "description": "`inject=\"%{%}%\"` holds three `%`, and the slot is the MIDDLE one — the rightmost that still leaves text on both sides. The reference finds it by backtracking inside `(.+)%(.+)`; Rust took the last `%`, found nothing after it and gave up, so every `%{Name}%` reached the output verbatim. Four implementations printed the value and one printed the marker: the same config, different data, and nothing said.",
       "config": "<tdc><env count=\"3\" seed=\"inj\" local=\"en\" mode=\"memory\" inject=\"%{%}%\"><sequence name=\"Id\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"W\"><gen type=\"text\" value=\"a,b,c\" order=\"sequential\"/></sequence></env><block><line><data>%{Id}% %{W}% [%{Id}%]</data></line></block></tdc>",
       "expected": ["1 a [1]", "2 b [2]", "3 c [3]"]
+    },
+    {
+      "name": "json-filter-quotes-a-value-and-splits-a-list",
+      "description": "| json prints a value as a JSON string: quotes, backslashes and control characters escaped, an empty value as null. | json:SEP splits the value on SEP and prints a JSON array of trimmed strings, an empty value as []. Together they make a record valid JSON whatever the data holds.",
+      "config": "<tdc><env count=\"8\" seed=\"j\" local=\"en\" mode=\"memory\"><sequence name=\"N\"><gen type=\"regex\" value=\"(O'Brien|back\\\\slash|tab\\there|)\"/></sequence><sequence name=\"Q\"><data>say \"</data><gen type=\"text\" value=\"hi,yo\"/><data>\" \\ end</data></sequence><sequence name=\"L\"><gen type=\"text\" value=\"Milk,Soy,Eggs\" repeat=\"0..3\" separator=\";\" distinct=\"true\"/></sequence></env><block><line><data>{\"name\": ${{N | json}}, \"quote\": ${{Q | json}}, \"allergies\": ${{L | json:;}}}</data></line></block></tdc>",
+      "expected": [
+        "{\"name\": \"O'Brien\", \"quote\": \"say \\\"yo\\\" \\\\ end\", \"allergies\": []}",
+        "{\"name\": \"tab\\there\", \"quote\": \"say \\\"yo\\\" \\\\ end\", \"allergies\": [\"Milk\", \"Eggs\"]}",
+        "{\"name\": null, \"quote\": \"say \\\"yo\\\" \\\\ end\", \"allergies\": [\"Milk\", \"Soy\", \"Eggs\"]}",
+        "{\"name\": null, \"quote\": \"say \\\"yo\\\" \\\\ end\", \"allergies\": []}",
+        "{\"name\": null, \"quote\": \"say \\\"hi\\\" \\\\ end\", \"allergies\": [\"Soy\", \"Eggs\"]}",
+        "{\"name\": \"O'Brien\", \"quote\": \"say \\\"hi\\\" \\\\ end\", \"allergies\": [\"Soy\"]}",
+        "{\"name\": \"O'Brien\", \"quote\": \"say \\\"hi\\\" \\\\ end\", \"allergies\": [\"Milk\"]}",
+        "{\"name\": \"tab\\there\", \"quote\": \"say \\\"hi\\\" \\\\ end\", \"allergies\": [\"Soy\", \"Milk\", \"Eggs\"]}"
+      ]
     }
   ]
 }

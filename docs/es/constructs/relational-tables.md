@@ -18,7 +18,9 @@ foránea de vuelta al padre, todo desde una sola configuración.
 El atributo [`each`](../reference/attributes.md#top) repite una
 [`<line>`](../core-concepts/output-formatting.md#top) una vez por cada elemento de una
 lista. Una tarjeta se convierte en **N filas de salida** — una tabla normalizada, lista
-para una base de datos.
+para una base de datos. Apuntado a un [`<pool>`](../pools/overview.md#top), imprime el pool
+registro por registro, así que una tabla de consulta sale de la misma configuración que las
+filas que la referencian.
 
 > [!NOTE]
 > Las salidas de ejemplo que siguen son ilustrativas. Los _valores_ exactos que emite un
@@ -35,13 +37,13 @@ para una base de datos.
 
 ## De un vistazo
 
-| Dónde        | Qué                                                                                         |
-| :----------- | :------------------------------------------------------------------------------------------ |
-| Se aplica en | [`<line>`](../core-concepts/output-formatting.md#top)                                          |
-| Valor        | El **nombre** de una secuencia cuyo generador tiene [`repeat`](../reference/attributes.md#top) |
-| Efecto       | La línea se emite una vez por cada elemento de esa lista                                    |
+| Dónde        | Qué                                                                                                                                    |
+| :----------- | :------------------------------------------------------------------------------------------------------------------------------------- |
+| Se aplica en | [`<line>`](../core-concepts/output-formatting.md#top)                                                                                     |
+| Valor        | El **nombre** de una secuencia cuyo generador tiene [`repeat`](../reference/attributes.md#top), o de un [`<pool>`](../pools/overview.md#top) |
+| Efecto       | La línea se emite una vez por cada elemento de esa lista, o una vez por cada registro de ese pool                                     |
 
-La secuencia destino **debe** llevar [`repeat`](../reference/attributes.md#top): eso es lo
+Una secuencia destino **debe** llevar [`repeat`](../reference/attributes.md#top): eso es lo
 que la convierte en una lista recorrible. Apunte `each` a cualquier otra cosa y TDC le
 dice por qué (vea la última sección de abajo).
 
@@ -127,6 +129,25 @@ Justamente por esto funciona la llave foránea: `${{Id}}` sigue significando el
 elemento, cada pedido apuntaría al lugar equivocado. Las columnas del padre se quedan
 fijas; solo avanzan el nombre recorrido y `_item` / `_item_id`.
 
+El nombre recorrido también lleva las **posiciones** de la línea:
+
+| Token                   | Qué significa                                                          |
+| :---------------------- | :--------------------------------------------------------------------- |
+| `${{VipOrders._item}}`  | el número de esta línea entre las que imprime el `each`: `1`, `2`, `3` |
+| `${{VipOrders._first}}` | `true` en la primera línea impresa, `false` en las demás               |
+| `${{VipOrders._last}}`  | `true` en la última línea impresa, `false` en las demás                |
+
+Llevan el nombre de la lista recorrida, así que nunca se mezclan con los
+[`_first` y `_last`](../reference/builtins.md#top) propios del run, que marcan el primer y el
+último **registro**. `_last` en una lista recorrida es lo que pone una coma entre los
+elementos y no después del último: `<data if="!VipOrders._last">,</data>`.
+
+Un [`if=`](../core-concepts/output-formatting.md#top) en una línea con `each`, y en cada
+`<data>` dentro de ella, se evalúa para **cada elemento**, con el elemento a la vista:
+`<line each="VipOrders" if="VipOrders > 5000">` imprime solo los pedidos grandes. Las
+posiciones cuentan las líneas que pasan el filtro, así que `VipOrders._last` es la última
+línea que de verdad se imprime.
+
 ## Sobre los números de pedido
 
 Mire las llaves primarias: `4, 5`, luego `11, 12, 13`, luego `16, 17`. **Suben**, pero
@@ -147,6 +168,73 @@ y cero pedidos apuntando a un cliente inexistente.
 **Por qué/cuándo:** confíe en `_item_id` como llave sustituta estable, única y segura en
 paralelo. Use `_item` en cambio cuando quiera un número de orden por tarjeta (`1, 2, 3`
 que reinicia en cada padre).
+
+## Un pool entero, registro a registro
+
+Un [`<pool>`](../pools/overview.md#top) es una tabla pequeña que se construye una vez, antes de
+las filas, y las filas sortean sus miembros de ella. `each` con el nombre del pool imprime esa
+tabla: una línea por registro, en el orden del pool, y cada campo se lee como
+`${{Pool.field}}`. Esa es la tabla de consulta a la que apuntan las llaves foráneas de las
+filas:
+
+```xml
+<env count="4" seed="visits" local="en">
+    <pool name="Doctors" count="3">
+        <sequence name="id"><gen type="increment" value="1"/></sequence>
+        <sequence name="last"><gen type="template" value="person.lastName"/></sequence>
+    </pool>
+    <sequence name="Id"><gen type="increment" value="1"/></sequence>
+    <sequence name="Doc"><gen type="pool" value="Doctors"/></sequence>
+    <before>
+        <line each="Doctors"><data>INSERT INTO doctors VALUES (${{Doctors.id}}, '${{Doctors.last | sql}}');</data></line>
+    </before>
+</env>
+<block>
+    <line><data>INSERT INTO visits VALUES (${{Id}}, ${{Doc.id}});</data></line>
+</block>
+```
+
+`./run visits.tdc`
+
+```
+INSERT INTO doctors VALUES (1, 'Smith');
+INSERT INTO doctors VALUES (2, 'Johnson');
+INSERT INTO doctors VALUES (3, 'Williams');
+INSERT INTO visits VALUES (1, 1);
+INSERT INTO visits VALUES (2, 3);
+INSERT INTO visits VALUES (3, 2);
+INSERT INTO visits VALUES (4, 2);
+```
+
+Cada médico que nombra una visita existe en `doctors`, porque ambos salen del mismo pool. El
+pool es el mismo en todas las filas, así que una línea que lo recorre imprime la tabla entera
+cada vez que corre: para imprimirla una sola vez, póngala en
+[`<before>`](../core-concepts/output-formatting.md#top) o `<after>`, o en un run con
+`count="1"`.
+
+Un campo que sortea de otro pool es un registro un nivel más abajo, y se lee igual:
+`${{Doctors.dept.name}}`. Las posiciones funcionan como en una lista — `Doctors._last` es el
+último registro impreso — y un filtro también:
+
+```xml
+<line><data>[</data></line>
+<line each="Doctors" if="Doctors.shift == day"><data>  ${{Doctors.last | json}}</data><data if="!Doctors._last">,</data></line>
+<line><data>]</data></line>
+```
+
+`./run positions.tdc`
+
+```
+[
+  "Johnson",
+  "Smith"
+]
+```
+
+El pool tiene cinco médicos, y el último trabaja de noche, así que el filtro lo descarta.
+`Doctors._last` cae en `Smith`, el último registro impreso, y el arreglo se cierra sin una
+coma colgando. [Formatos de salida → JSON](../guides/output-formats.md#json) arma así un
+documento entero a partir de dos pools.
 
 ## Un ciclo de vida, no solo una lista
 
@@ -263,8 +351,9 @@ adivinar:
 | Qué                                                                        | Por qué                                                                                                             | Error    |
 | :------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------ | :------- |
 | `each` sobre una secuencia **sin** [`repeat`](../reference/attributes.md#top) | no hay nada que recorrer                                                                                            | `TDC207` |
-| `each` sobre un nombre que no existe                                       | la secuencia no está declarada                                                                                      | `TDC206` |
+| `each` sobre un nombre que no es ni una secuencia ni un pool               | no existe nada con ese nombre, y la línea no imprimiría nada en absoluto                                            | `TDC206` |
 | `<data name="…">` dentro de una línea con `each`                           | un `<data>` con nombre es una **columna** para Parquet, y Parquet junta columnas por tarjeta, no por fila recorrida | `TDC209` |
+| `Orders._last` en el `if=` de la misma línea con `each`                    | las posiciones cuentan las líneas que deja pasar ese `if=`, así que no pueden decidir cuáles son                    | `TDC215` |
 
 `./run broken.tdc  (each sobre algo que no es una lista)`
 
@@ -289,6 +378,8 @@ varias filas físicas.
   convierte en lista, para empezar.
 - **[Integrados](../reference/builtins.md#top)** — `_item`, `_item_id`, `_count` y
   compañía.
+- **[Pools](../pools/overview.md#top)** — las tablas que puede imprimir una línea con `each`, y
+  cómo las filas sortean de ellas.
 
 ---
 

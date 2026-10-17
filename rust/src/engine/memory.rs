@@ -268,7 +268,8 @@ pub fn run_in_watched(
     on_progress: crate::engine::Watch<'_>,
 ) -> EngineResult<MaterializedRows> {
     let env = Env::new(config, packs, now_millis, base_dir);
-    let mut columns = build_columns(&env)?;
+    let tables = build_pool_tables(&env)?;
+    let mut columns = build_columns_with(&env, Some(&tables))?;
     resolve_http(&env, &mut columns)?;
     // The run is finished; now the config gets to check its own output — before
     // a single line is written, because a file that exists is a file someone
@@ -290,7 +291,7 @@ pub fn run_in_watched(
         .filter(|name| !name.starts_with('_'))
         .cloned()
         .collect();
-    let rendered = emit(config, &columns, on_progress)?;
+    let rendered = emit(config, &columns, &tables, on_progress)?;
     Ok(MaterializedRows {
         config: config.clone(),
         columns,
@@ -981,12 +982,9 @@ impl expr::Scope for MemberScope<'_> {
     }
 }
 
-fn build_columns(env: &Env) -> EngineResult<BTreeMap<String, Vec<Option<String>>>> {
-    build_columns_with(env, None)
-}
-
-/// The same, with the pools already built handed in — which is how a POOL body
-/// is materialised, so that one of its members can draw from a pool above it.
+/// The columns of a run. The pools come in already built — a run's own, which its
+/// `each=` lines print as well, or the outer run's, which is how a POOL body is
+/// materialised so that one of its members can draw from a pool above it.
 fn build_columns_with(
     env: &Env,
     prebuilt: Option<&BTreeMap<String, PoolTable>>,
@@ -4947,10 +4945,14 @@ pub(super) fn sequential_row(
 fn emit(
     config: &Config,
     columns: &BTreeMap<String, Vec<Option<String>>>,
+    pools: &BTreeMap<String, PoolTable>,
     on_progress: crate::engine::Watch<'_>,
 ) -> EngineResult<String> {
     let fx = &config.fixtures;
-    let each = each_info(config)?;
+    let each = Each {
+        info: each_info(config)?,
+        pools,
+    };
     let count = config.count.max(0) as usize;
     let mut out = String::new();
 
@@ -4979,8 +4981,10 @@ fn emit(
         // the last one.
         let mut active: Vec<&Line> = Vec::new();
         for line in &config.block {
+            // An each= line asks its if= of every element instead, with the element in scope.
             let keep = match &line.if_expr {
                 None => true,
+                Some(_) if line.each.is_some() => true,
                 Some(expr) => condition_at(expr, columns, row)?,
             };
             if keep {
@@ -5037,7 +5041,7 @@ fn emit_lines(
     columns: &BTreeMap<String, Vec<Option<String>>>,
     row: usize,
     config: &Config,
-    each: &[(String, repeat::Spec)],
+    each: &Each<'_>,
 ) -> EngineResult<()> {
     for line in lines {
         // A fixture line is one output line, and `render_line` hands back the LINES.
@@ -5070,12 +5074,13 @@ pub(super) fn each_info(config: &Config) -> EngineResult<Vec<(String, repeat::Sp
     Ok(result)
 }
 
-/// The spec for one repeating sequence, or `None` when the name is not a list.
-fn each_spec<'a>(each_info: &'a [(String, repeat::Spec)], name: &str) -> Option<&'a repeat::Spec> {
-    each_info.iter().find(|(n, _)| n == name).map(|(_, s)| s)
+/// What an `each=` line can walk: the repeating sequences, and the pools.
+struct Each<'a> {
+    info: Vec<(String, repeat::Spec)>,
+    pools: &'a BTreeMap<String, PoolTable>,
 }
 
-/// One line — or, with `each="NAME"`, one line per element of that list.
+/// One line — or, with `each="NAME"`, one line per element of that list or pool record.
 ///
 /// Returns the text with its newline already attached, because a line with
 /// `each` may produce several and a list with nothing in it must produce NONE at
@@ -5085,8 +5090,25 @@ fn render_line(
     columns: &BTreeMap<String, Vec<Option<String>>>,
     row: usize,
     config: &Config,
-    each_info: &[(String, repeat::Spec)],
+    each: &Each<'_>,
 ) -> EngineResult<Vec<String>> {
+    let lookup = RowLookup { columns, row };
+    let list_name = line
+        .each
+        .as_deref()
+        .map(str::trim)
+        .filter(|n| !n.is_empty());
+    if let Some(name) = list_name {
+        return super::each::render(
+            line,
+            name,
+            row,
+            config.inject.as_deref(),
+            &each.info,
+            each.pools.get(name),
+            &lookup,
+        );
+    }
     let mut template = String::new();
     for part in &line.parts {
         let keep = match &part.if_expr {
@@ -5097,87 +5119,9 @@ fn render_line(
             template.push_str(&part.text);
         }
     }
-
-    let list_name = line
-        .each
-        .as_deref()
-        .map(str::trim)
-        .filter(|n| !n.is_empty());
-    let Some(list_name) = list_name else {
-        let lookup = RowLookup { columns, row };
-        let mut text = interpolate::apply(&template, config.inject.as_deref(), &lookup)?;
-        text.push('\n');
-        return Ok(vec![text]);
-    };
-
-    let spec = each_spec(each_info, list_name);
-    let cell = columns
-        .get(list_name)
-        .and_then(|c| c.get(row))
-        .and_then(Option::as_deref);
-    let elements = repeat::split(
-        cell,
-        spec.map_or(repeat::DEFAULT_SEPARATOR, |s| s.separator.as_str()),
-    );
-
-    // Lanes: two repeating sequences write into the same child table, so each
-    // gets its own slice of every card's key block rather than sharing one
-    // counter.
-    let mut lane = 0i64;
-    let mut stride = 0i64;
-    for (name, info) in each_info {
-        if name == list_name {
-            lane = stride;
-        }
-        stride += i64::from(info.max);
-    }
-    if stride == 0 {
-        stride = elements.len() as i64;
-    }
-
-    let mut result: Vec<String> = Vec::new();
-    for (k, element) in elements.iter().enumerate() {
-        let lookup = ElementLookup {
-            base: RowLookup { columns, row },
-            list_name,
-            element,
-            item: (k + 1) as i64,
-            item_id: repeat::item_key(row as i64 + 1, (k + 1) as i64, lane, stride),
-        };
-        let mut text = interpolate::apply(&template, config.inject.as_deref(), &lookup)?;
-        text.push('\n');
-        result.push(text);
-    }
-    Ok(result)
-}
-
-/// The row's view with one element of a list substituted for the list itself,
-/// plus the two positional built-ins `_item` and `_item_id`.
-///
-/// Shallow on purpose: every other column still resolves per record, which is
-/// exactly what makes a foreign key on the repeated line point at the right
-/// parent on every emitted row.
-struct ElementLookup<'a> {
-    base: RowLookup<'a>,
-    list_name: &'a str,
-    element: &'a str,
-    item: i64,
-    item_id: i64,
-}
-
-impl Lookup for ElementLookup<'_> {
-    fn has(&self, name: &str) -> bool {
-        name == self.list_name || name == "_item" || name == "_item_id" || self.base.has(name)
-    }
-
-    fn value(&self, name: &str) -> String {
-        match name {
-            n if n == self.list_name => self.element.to_string(),
-            "_item" => self.item.to_string(),
-            "_item_id" => self.item_id.to_string(),
-            _ => self.base.value(name),
-        }
-    }
+    let mut text = interpolate::apply(&template, config.inject.as_deref(), &lookup)?;
+    text.push('\n');
+    Ok(vec![text])
 }
 
 /// What a name resolves to on one row.

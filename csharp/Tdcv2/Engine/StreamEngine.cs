@@ -2650,7 +2650,7 @@ public sealed class StreamEngine
 
         if (from == 0)
         {
-            Emit(output, fx.Before, 0);
+            Emit(output, fx.Before, 0, eachInfo);
         }
 
         // About one report per half-percent: cheap enough to leave on always.
@@ -2665,12 +2665,13 @@ public sealed class StreamEngine
             // Before the row is written, not after: a row that fails its own config's claim
             // should not reach the file when the engine can still help it.
             Assertions.CheckRow(_config, ValueAt, _columns.ContainsKey, row);
-            Emit(output, fx.BeforeBlock, row);
+            Emit(output, fx.BeforeBlock, row, eachInfo);
 
             var active = new List<Line>();
             foreach (Line line in _config.Block)
             {
-                if (line.IfExpr is null || Condition(line.IfExpr, row))
+                // An each= line asks its if= of every element instead, with the element in scope.
+                if (line.IfExpr is null || line.Each is not null || Condition(line.IfExpr, row))
                 {
                     active.Add(line);
                 }
@@ -2686,25 +2687,25 @@ public sealed class StreamEngine
 
             for (int i = 0; i < emitted.Count; i++)
             {
-                Emit(output, fx.BeforeLine, row);
+                Emit(output, fx.BeforeLine, row, eachInfo);
                 output.Write(emitted[i]);
-                Emit(output, fx.AfterLine, row);
+                Emit(output, fx.AfterLine, row, eachInfo);
                 if (i < emitted.Count - 1)
                 {
-                    Emit(output, fx.DelimiterLine, row);
+                    Emit(output, fx.DelimiterLine, row, eachInfo);
                 }
             }
 
-            Emit(output, fx.AfterBlock, row);
+            Emit(output, fx.AfterBlock, row, eachInfo);
             if (row < _count - 1)
             {
-                Emit(output, fx.DelimiterBlock, row);
+                Emit(output, fx.DelimiterBlock, row, eachInfo);
             }
         }
 
         if (to == _count)
         {
-            Emit(output, fx.After, _count - 1);
+            Emit(output, fx.After, _count - 1, eachInfo);
         }
 
         // Said at the end as well as along the way: a phase a watcher sees CLOSE is a phase it
@@ -2726,13 +2727,14 @@ public sealed class StreamEngine
         return result;
     }
 
-    private void Emit(TextWriter output, IReadOnlyList<Line> lines, int row)
+    private void Emit(
+        TextWriter output, IReadOnlyList<Line> lines, int row,
+        IReadOnlyDictionary<string, Repeat.Spec> eachInfo)
     {
-        var none = new Dictionary<string, Repeat.Spec>(StringComparer.Ordinal);
         foreach (Line line in lines)
         {
             // A fixture line is one output line, and RenderLine hands back the LINES.
-            foreach (string text in RenderLine(line, row, none))
+            foreach (string text in RenderLine(line, row, eachInfo))
             {
                 output.Write(text);
             }
@@ -2742,6 +2744,15 @@ public sealed class StreamEngine
     private IReadOnlyList<string> RenderLine(
         Line line, int row, IReadOnlyDictionary<string, Repeat.Spec> eachInfo)
     {
+        string? listName = TrimToNull(line.Each);
+        if (listName is not null)
+        {
+            return Each.Render(
+                line, listName, row, _config.Inject, eachInfo,
+                _poolTables.TryGetValue(listName, out PoolTable? table) ? table : null,
+                new StreamLookup(this, row));
+        }
+
         var text = new StringBuilder();
         foreach (DataPart part in line.Parts)
         {
@@ -2751,47 +2762,10 @@ public sealed class StreamEngine
             }
         }
 
-        string template = text.ToString();
-        string? listName = TrimToNull(line.Each);
-        if (listName is null)
+        return new[]
         {
-            return new[]
-            {
-                Interpolate.Apply(template, _config.Inject, new StreamLookup(this, row)) + "\n",
-            };
-        }
-
-        Repeat.Spec? spec = eachInfo.TryGetValue(listName, out Repeat.Spec found) ? found : null;
-        IReadOnlyList<string> elements = Repeat.Split(
-            NullToEmpty(ValueAt(listName, row)), spec?.Separator ?? Repeat.DefaultSeparator);
-
-        int lane = 0;
-        int stride = 0;
-        foreach (KeyValuePair<string, Repeat.Spec> entry in eachInfo)
-        {
-            if (entry.Key == listName)
-            {
-                lane = stride;
-            }
-
-            stride += entry.Value.Max;
-        }
-
-        if (stride == 0)
-        {
-            stride = elements.Count;
-        }
-
-        var result = new List<string>();
-        for (int k = 0; k < elements.Count; k++)
-        {
-            result.Add(Interpolate.Apply(
-                template, _config.Inject,
-                new StreamElementLookup(this, row, listName, elements[k], k + 1, lane, stride))
-                + "\n");
-        }
-
-        return result;
+            Interpolate.Apply(text.ToString(), _config.Inject, new StreamLookup(this, row)) + "\n",
+        };
     }
 
     // ── row access ───────────────────────────────────────────────────────────────────────────
@@ -2824,31 +2798,6 @@ public sealed class StreamEngine
         public bool Has(string name) => _engine._columns.ContainsKey(name);
 
         public string Value(string name) => NullToEmpty(_engine.ValueAt(name, _row));
-    }
-
-    private sealed class StreamElementLookup : Interpolate.ILookup
-    {
-        private readonly StreamLookup _base;
-        private readonly Dictionary<string, string> _overlay;
-
-        internal StreamElementLookup(
-            StreamEngine engine, int row, string listName, string element, int position, int lane,
-            int stride)
-        {
-            _base = new StreamLookup(engine, row);
-            _overlay = new Dictionary<string, string>(StringComparer.Ordinal)
-            {
-                [listName] = element,
-                ["_item"] = position.ToString(CultureInfo.InvariantCulture),
-                ["_item_id"] = Repeat.ItemKey(row + 1, position, lane, stride)
-                    .ToString(CultureInfo.InvariantCulture),
-            };
-        }
-
-        public bool Has(string name) => _overlay.ContainsKey(name) || _base.Has(name);
-
-        public string Value(string name) =>
-            _overlay.TryGetValue(name, out string? v) ? v : _base.Value(name);
     }
 
     private bool Condition(string expression, int row) =>

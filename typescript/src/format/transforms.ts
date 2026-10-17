@@ -122,6 +122,7 @@ export const FILTER_NAMES = [
   'compact',
   'csv',
   'sql',
+  'json',
 ] as const;
 
 /** True if `name` is a known interpolation filter. */
@@ -163,6 +164,8 @@ export function applyFilter(kind: string, arg: string | undefined, value: string
       return applyCsv(value, arg === undefined || arg === '' ? ',' : arg);
     case 'sql':
       return applySql(value);
+    case 'json':
+      return applyJson(value, arg === '' ? undefined : arg);
     case 'upper':
     case 'lower':
     case 'capitalize':
@@ -420,4 +423,43 @@ export function applyCsv(value: string, _delimiter: string): string {
  */
 export function applySql(value: string): string {
   return value.replace(/'/g, "''");
+}
+
+/**
+ * A value as a complete JSON value: a quoted, escaped string, or `null` when the cell is empty.
+ *
+ * With a separator (`json:;`) the cell is a LIST — a `repeat=` column joined with that
+ * separator — and comes out as an array of strings, `[]` when empty. Elements are trimmed, since
+ * an argument cannot carry the space of a `", "` separator.
+ *
+ * Without it a name with a quote or a backslash in it broke the document, and the docs could only
+ * suggest `replace`, one character at a time. Written by hand rather than with
+ * `JSON.stringify`: the five implementations must agree byte for byte, and their JSON libraries
+ * do not — which characters get `\u` escapes differs from one to the next.
+ */
+export function applyJson(value: string, separator: string | undefined): string {
+  if (separator === undefined) return value === '' ? 'null' : jsonString(value);
+  if (value === '') return '[]';
+  return `[${value
+    .split(separator)
+    .map((part) => jsonString(part.trim()))
+    .join(', ')}]`;
+}
+
+/** `"…"`: quote, backslash and the control characters escaped; everything else as written. */
+function jsonString(value: string): string {
+  let out = '"';
+  for (const ch of value) {
+    const code = ch.codePointAt(0) ?? 0;
+    if (ch === '"') out += '\\"';
+    else if (ch === '\\') out += '\\\\';
+    else if (ch === '\n') out += '\\n';
+    else if (ch === '\r') out += '\\r';
+    else if (ch === '\t') out += '\\t';
+    else if (ch === '\b') out += '\\b';
+    else if (ch === '\f') out += '\\f';
+    else if (code < 0x20) out += `\\u${code.toString(16).padStart(4, '0')}`;
+    else out += ch;
+  }
+  return out + '"';
 }

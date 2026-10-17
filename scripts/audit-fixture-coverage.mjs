@@ -91,7 +91,8 @@ const dateTokensUsed = new Set(
 /** The shape each kind of name takes where a config would use it. */
 const PROBE = {
   gen: (n) => new RegExp(`type=\\\\?"${quote(n)}\\\\?"`).test(DATA),
-  filter: (n) => new RegExp(`\\|${quote(n)}\\b`).test(DATA),
+  // `${{X | json}}` is as valid as `${{X|json}}`: the space after the pipe is optional.
+  filter: (n) => new RegExp(`\\|\\s*${quote(n)}\\b`).test(DATA),
   compute: (n) => new RegExp(`<\\\\?/?${quote(n)}[\\s/>\\\\]`).test(DATA),
   code: (n) => CODES.includes(n),
   date: (n) => dateTokensUsed.has(n),

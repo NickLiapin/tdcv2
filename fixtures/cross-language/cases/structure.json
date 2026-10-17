@@ -262,6 +262,30 @@
         "A 9",
         "A 10"
       ]
+    },
+    {
+      "name": "each-list-positions-and-element-conditions",
+      "description": "On a line walking a list, Tags._item, Tags._first and Tags._last count the printed elements, and every if= on the line — the line's own and each <data>'s — is asked of the element, not of the whole row: Tags == b is true on the line printing b, whatever else the row's list holds.",
+      "config": "<tdc><env count=\"5\" seed=\"each-list-pos\" local=\"en\" mode=\"memory\"><sequence name=\"Id\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"Tags\"><gen type=\"text\" value=\"a,b,c\" repeat=\"0..4\" separator=\";\"/></sequence></env><block><line><data>card ${{Id}}: ${{Tags}}</data></line><line each=\"Tags\" if=\"Tags != c\"><data>  ${{Tags._item}}:${{Tags}}</data><data if=\"Tags == b\"> (bee)</data><data if=\"Tags._first\"> first</data><data if=\"!Tags._last\">,</data></line></block></tdc>",
+      "expected": [
+        "card 1: a;b",
+        "  1:a first,",
+        "  2:b (bee)",
+        "card 2: a;c;c",
+        "  1:a first",
+        "card 3: a;c;b;c",
+        "  1:a first,",
+        "  2:b (bee)",
+        "card 4: b",
+        "  1:b (bee) first",
+        "card 5: "
+      ]
+    },
+    {
+      "name": "each-in-a-fixture-splits-on-the-list-separator",
+      "description": "A fixture line walking a list splits it on the list's own separator and keys its elements the way a block line does. Four ports handed fixture lines no list information at all, so a list joined with ; came out as one element and _item_id took another stride.",
+      "config": "<tdc><env count=\"2\" seed=\"each-fixture-sep\" local=\"en\" mode=\"memory\"><sequence name=\"Tags\"><gen type=\"text\" value=\"a,b,c\" repeat=\"2..3\" separator=\";\"/></sequence><before><line each=\"Tags\"><data>head ${{_item_id}}:${{Tags}}</data></line></before></env><block><line><data>row ${{Tags}}</data></line></block></tdc>",
+      "expected": ["head 1:c", "head 2:a", "row c;a", "row a;c;b"]
     }
   ]
 }

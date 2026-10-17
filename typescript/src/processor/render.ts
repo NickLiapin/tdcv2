@@ -34,7 +34,7 @@
 import { evaluateIf } from '../expr/evaluate.js';
 import { checkAssertions, checkRowAssertions, perRowAsserts } from '../sequence/assert.js';
 import type { AssertSpec } from '../sequence/assert.js';
-import { buildEachInfo, elementRegistry, splitElements, type EachInfo } from './each.js';
+import { buildEachInfo, eachRegistries, type EachInfo } from './each.js';
 import { resolveExistingDataSourcePath, type DataSourceOptions } from '../data-source/index.js';
 import type {
   DocumentContext,
@@ -66,14 +66,13 @@ import {
   extractSequenceSpecs,
   runGenerator,
   StreamUnsupportedError,
-  sequenceValueAt,
 } from '../sequence/index.js';
 import {
   ExactUniqRepairNeeded,
   IN_MEMORY_FALLBACK_MAX_ROWS,
   withoutTail,
 } from '../sequence/exact-uniq.js';
-import { extractPoolSpecs } from '../sequence/pool.js';
+import { extractPoolSpecs, type PoolTables } from '../sequence/pool.js';
 import type { UniqArrangement, UniqPlan } from '../sequence/build.js';
 import { bucketCountFor } from '../sequence/fingerprint.js';
 import { availableParallelism } from 'node:os';
@@ -296,6 +295,8 @@ interface RenderContext {
   readonly packs?: PackRegistry | undefined;
   /** Repeating sequences by name, so `<line each=…>` knows how to walk them. */
   readonly eachInfo?: ReadonlyMap<string, EachInfo> | undefined;
+  /** The pools, so `<line each="Pool">` can print every record of one. */
+  readonly pools?: PoolTables | undefined;
 }
 
 function createRenderState(totalCount: number): RenderState {
@@ -615,6 +616,8 @@ export interface PreparedRender {
   readonly prng: () => number;
   /** Repeating sequences by name, for `<line each=…>`. */
   readonly eachInfo: ReadonlyMap<string, EachInfo>;
+  /** The pools, for `<line each="Pool">`. */
+  readonly pools: PoolTables;
   /** The `<sequence>` specs, in declaration order — what the object API reports. */
   readonly sequenceSpecs: readonly SequenceSpec[];
   /** `<assert each="…"/>` — answered row by row, in the loop below. */
@@ -667,6 +670,7 @@ export function prepareRender(
   };
   // Pools are computed BEFORE anything else, off a derived seed, so a run that
   // gains a pool keeps every other column exactly where it was.
+  const pools = buildPoolTables(extractPoolSpecs(envEl), env.seed, env.locale, now, packOptions);
   const buildOptions = {
     ...packOptions,
     ...(options.uniqPlan !== undefined ? { uniqPlan: options.uniqPlan } : {}),
@@ -685,7 +689,7 @@ export function prepareRender(
     // A `<data>` inside a `<case>` interpolates by the document's own marker, so
     // a config that set `inject=` to emit `${{…}}` literally still does.
     inject: env.inject,
-    pools: buildPoolTables(extractPoolSpecs(envEl), env.seed, env.locale, now, packOptions),
+    pools,
     // `prev()` may look back one row only when the rows are computed in order.
     ...(env.sequential ? { sequential: true as const } : {}),
   };
@@ -819,6 +823,7 @@ export function prepareRender(
     now,
     prng,
     eachInfo,
+    pools,
     sequenceSpecs,
     perRowAsserts: perRowAsserts(asserts),
   };
@@ -841,7 +846,7 @@ export function* streamFromPrepared(
   prepared: PreparedRender,
   options: RenderOptions = {},
 ): Generator<string, void, void> {
-  const { blockEl, env, registry, now, prng, eachInfo } = prepared;
+  const { blockEl, env, registry, now, prng, eachInfo, pools } = prepared;
   const rowAsserts = prepared.perRowAsserts;
   const state = createRenderState(env.count);
 
@@ -862,6 +867,7 @@ export function* streamFromPrepared(
   // it stands beside. A fixture draws nothing, so the prng is a constant zero.
   const fixtureCtx = (iteration: number): RenderContext => ({
     eachInfo,
+    pools,
     prng: () => 0,
     locale: env.locale,
     now,
@@ -909,6 +915,7 @@ export function* streamFromPrepared(
         ...renderLine({
           line,
           eachInfo,
+          pools,
           prng,
           locale: env.locale,
           now,
@@ -950,6 +957,8 @@ function lineIfPasses(
   const attrs = elementAttrs(line);
   const expr = attrs['if'];
   if (!expr) return true;
+  // An `each` line asks its `if=` of every element instead, with the element in scope.
+  if ((attrs['each'] ?? '').trim() !== '') return true;
   return evaluateIf(expr, registry, iteration);
 }
 
@@ -1112,29 +1121,18 @@ function renderLine(ctx: RenderContext & { readonly line: OpenCloseElementContex
   if (name === undefined || name.trim() === '') {
     return [renderContent(ctx.line.content(), ctx) + '\n'];
   }
-
-  const listName = name.trim();
-  const info = ctx.eachInfo?.get(listName);
-  const source = ctx.registry[listName];
-  // An unknown name walks nothing rather than throwing — the validator reports
-  // it as TDC206 before generation ever starts.
-  const cell = source ? sequenceValueAt(source, ctx.iteration) : undefined;
-  const elements = splitElements(cell, info?.separator ?? ',');
-
-  const out: string[] = [];
-  for (let k = 0; k < elements.length; k++) {
-    const registry = elementRegistry(
-      ctx.registry,
-      listName,
-      elements[k] ?? '',
-      k + 1,
-      ctx.iteration + 1,
-      info?.lane ?? 0,
-      info?.stride ?? elements.length,
-    );
-    out.push(renderContent(ctx.line.content(), { ...ctx, registry }) + '\n');
-  }
-  return out;
+  // The line's own `if=` is asked of each element, with that element in scope.
+  const expr = elementAttrs(ctx.line)['if'];
+  const keep = (registry: SequenceRegistry): boolean =>
+    !expr || evaluateIf(expr, registry, ctx.iteration);
+  return eachRegistries(
+    name.trim(),
+    ctx.registry,
+    ctx.iteration,
+    ctx.eachInfo,
+    ctx.pools,
+    keep,
+  ).map((registry) => renderContent(ctx.line.content(), { ...ctx, registry }) + '\n');
 }
 
 function renderContent(content: ContentContext | null, ctx: RenderContext): string {

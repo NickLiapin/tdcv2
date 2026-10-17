@@ -251,36 +251,35 @@ JSON ничего не знает — кавычки ставите вы, и и�
 
 ### Массив внутри объекта
 
-Несколько значений в одном поле даёт [`repeat`](../reference/attributes.md#top), а
-[`separator`](../reference/attributes.md#top) — то, что встанет между ними. JSON хочет `", "` —
-**с кавычками**, — и тут вы упираетесь в стену: грамматика не даёт положить `"` внутрь значения
-атрибута, а `&quot;` проходит буквально.
-
-Обход: разделить нейтральным символом, которого в значениях никогда нет, а потом превратить его
-в JSON фильтром [`replace`](masks-and-case.md#top), где кавычки писать **можно**:
+Несколько значений в одном поле даёт [`repeat`](../reference/attributes.md#top): он склеивает их
+в одну ячейку через [`separator`](../reference/attributes.md#top). Фильтр
+[`json`](masks-and-case.md#json--готовое-значение-json) с этим разделителем снова режет ячейку и
+пишет JSON-массив — вместе с кавычками и скобками:
 
 ```xml
 <sequence name="Tags">
-    <gen type="text" value="sale,new,gift,vip" repeat="1..3" separator="~"/>
+    <gen type="text" value="sale,new,gift,vip" repeat="0..3" separator=";"/>
 </sequence>
 ```
 
 ```xml
-<line><data>  "tags": ["${{Tags | replace:~,", "}}"],</data></line>
+<line><data>  "tags": ${{Tags | json:;}},</data></line>
 ```
 
 `./run out.tdc`
 
 ```
-  "tags": ["vip"],
-  "tags": ["sale", "gift"],
-  "tags": ["gift", "vip", "new"]
+  "tags": ["gift", "vip"],
+  "tags": [],
+  "tags": ["sale"],
 ```
 
-Для массива **чисел** ничего этого не нужно — кавычек там нет, хватает `separator=","`
-напрямую. И учтите: [`repeat`](../reference/attributes.md#top) берёт каждое значение независимо,
-так что один тег может выпасть в строке дважды; если так не нужно, задайте фиксированный набор
-через [`<mix>`](../reference/tags.md#top).
+Запись без тегов получает `[]`, а не `[""]`. Пишите тот разделитель, через который склеена
+колонка: `${{Tags | json}}` без него печатает весь список одной строкой, и `check`
+предупреждает об этом ([TDC312](../reference/errors.md#top)). Для массива **чисел** фильтр не
+нужен — кавычек у чисел нет, хватает `separator=","` и `[${{Scores}}]`. И учтите:
+[`repeat`](../reference/attributes.md#top) берёт каждое значение независимо, так что один тег может
+выпасть в строке дважды; если так не нужно, добавьте `distinct="true"` в `<gen>`.
 
 ### `null` — это слово, а не пустота
 
@@ -320,6 +319,23 @@ JSONDecodeError: Expecting value: line 1 column 20
 {"id": 3, "score": 12}
 ```
 
+Для **строкового** поля фильтр [`json`](masks-and-case.md#json--готовое-значение-json) сам
+пишет `null` вместо пустого значения, так что `missing` работает как есть:
+
+```xml
+<sequence name="Note"><gen type="text" value="fragile,urgent" missing="0.5"/></sequence>
+...
+<line><data>{"id": ${{Id}}, "note": ${{Note | json}}}</data></line>
+```
+
+`./run out.tdc`
+
+```
+{"id": 1, "note": "fragile"}
+{"id": 2, "note": null}
+{"id": 3, "note": "urgent"}
+```
+
 ### Кавычка из чужих данных
 
 Последняя поломка приходит из значений, которые вы не контролируете, — из имени, вытянутого из
@@ -333,25 +349,23 @@ JSONDecodeError: Expecting value: line 1 column 20
 JSONDecodeError: Expecting ',' delimiter
 ```
 
-По стандарту JSON внутреннюю кавычку экранируют обратным слэшем. Тот же фильтр
-[`replace`](masks-and-case.md#top) это и делает — это единственное место, где слэш пишете вы сами:
+Фильтр [`json`](masks-and-case.md#json--готовое-значение-json) пишет значение как строку JSON:
+сам ставит кавычки и экранирует то, что требует JSON, — внутреннюю кавычку, обратный слэш,
+табуляцию, перевод строки:
 
 ```xml
-<data>{"name": "${{Name | replace:",\"}}"}</data>
+<data>{"name": ${{Name | json}}}</data>
 ```
 
 `./run out.tdc`
 
 ```
 {"name": "Кофе \"Арабика\" 250 г"}
+{"name": "Кофе \"Робуста\" 250 г"}
 ```
 
-Это разбирается обратно в исходную строку, кавычки на месте.
-
-> [!NOTE]
-> Если в ваших данных может встретиться и сам обратный слэш, удвойте его **первым** (проход
-> `replace` для `\` → `\\`), и только потом экранируйте кавычки — иначе второй проход испортит
-> экранирование, добавленное первым.
+Это разбирается обратно в исходную строку, кавычки на месте. Обратите внимание: вокруг
+`${{Name | json}}` кавычек в конфиге нет — фильтр приносит свои.
 
 ### Когда записей много: NDJSON
 
@@ -381,10 +395,10 @@ JSONDecodeError: Expecting ',' delimiter
 
 ### Вложенный список внутри записи
 
-Запись, которая несёт собственный список — заказ и его позиции, пациент и его визиты, — требует
-запятой **между повторами** одного `<line each=…>`, и это ровно то, что делает
-[`<delimiter_line>`](../core-concepts/output-formatting.md#top). Построчные фикстуры видят те строки,
-которые видит читатель, поэтому строка, размноженная `each=`, — это несколько строк:
+Запись, которая несёт собственный список — заказ и его позиции, пациент и его визиты, —
+печатает его через [`each`](../constructs/relational-tables.md#top), по строке на элемент. Запятая
+ставится после каждого элемента, кроме последнего, а какой последний, говорит сам обходимый
+список: `Sku._last`.
 
 ```xml
 <tdc>
@@ -396,10 +410,9 @@ JSONDecodeError: Expecting ',' delimiter
     <before_block><line><data>  { "order": ${{OrderId}}, "lines": [</data></line></before_block>
     <after_block><line><data>  ] }</data></line></after_block>
     <delimiter_block><line><data>  ,</data></line></delimiter_block>
-    <delimiter_line><line><data>    ,</data></line></delimiter_line>
   </env>
   <block>
-    <line each="Sku"><data>    { "sku": "${{Sku}}", "qty": ${{_item}} }</data></line>
+    <line each="Sku"><data>    { "sku": ${{Sku | json}}, "qty": ${{Sku._item}} }</data><data if="!Sku._last">,</data></line>
   </block>
 </tdc>
 ```
@@ -409,23 +422,23 @@ JSONDecodeError: Expecting ',' delimiter
 ```
 [
   { "order": 5001, "lines": [
-    { "sku": "SKU-3547", "qty": 1 }
-    ,
-    { "sku": "SKU-8121", "qty": 2 }
-    ,
+    { "sku": "SKU-3547", "qty": 1 },
+    { "sku": "SKU-8121", "qty": 2 },
     { "sku": "SKU-7610", "qty": 3 }
   ] }
   ,
   { "order": 5002, "lines": [
-    { "sku": "SKU-4917", "qty": 1 }
-    ,
+    { "sku": "SKU-4917", "qty": 1 },
     { "sku": "SKU-8482", "qty": 2 }
   ] }
 ]
 ```
 
-`repeat="1..3"` даёт каждой записи своё количество элементов, и разделитель идёт следом — запятых
-всегда на одну меньше, чем строк, включая запись, где элемент один.
+`repeat="1..3"` даёт каждой записи своё количество элементов, и запятые идут следом — их всегда
+на одну меньше, чем строк, включая запись, где элемент один. В строке с `each` `${{Sku}}` — это
+текущий элемент, поэтому `| json` берёт его без разделителя. Если запятая должна стоять на
+отдельной строке, используйте [`<delimiter_line>`](../core-concepts/output-formatting.md#top): она
+печатается между строками, которые даёт `each`.
 
 > [!NOTE]
 > **Обёртка читает строку**
@@ -434,6 +447,61 @@ JSONDecodeError: Expecting ',' delimiter
 > собственные поля записи живут в `<before_block>` прямо у открывающей скобки, а элементы массива —
 > в `<block>`. Чего фикстура держать **не** может, так это `<gen>` (`TDC131`): генератор там выдал бы
 > константу, похожую на разыгранное значение.
+
+### Две таблицы в одном документе
+
+JSON-документ со справочниками — отделения и врачи, которые в них работают, — собирается из
+[пулов](../pools/overview.md#top). `<line each="Depts">` печатает пул запись за записью, поле
+читается как `${{Depts.name}}`, а поле, взятое из другого пула, — уровнем ниже:
+`${{Doctors.dept.id}}`.
+
+```xml
+<tdc>
+  <env count="1" seed="clinic" local="en">
+    <pool name="Depts" count="2">
+      <sequence name="id"><gen type="increment" value="1"/></sequence>
+      <sequence name="name"><gen type="text" value="Cardiology,Neurology" order="sequential"/></sequence>
+    </pool>
+    <pool name="Doctors" count="3">
+      <sequence name="id"><gen type="increment" value="1"/></sequence>
+      <sequence name="last"><gen type="template" value="person.lastName"/></sequence>
+      <sequence name="dept"><gen type="pool" value="Depts"/></sequence>
+      <sequence name="languages"><gen type="text" value="English,Spanish,Polish" repeat="1..2" separator=";" distinct="true"/></sequence>
+    </pool>
+  </env>
+  <block>
+    <line><data>{</data></line>
+    <line><data>  "departments": [</data></line>
+    <line each="Depts"><data>    {"id": ${{Depts.id}}, "name": ${{Depts.name | json}}}</data><data if="!Depts._last">,</data></line>
+    <line><data>  ],</data></line>
+    <line><data>  "doctors": [</data></line>
+    <line each="Doctors"><data>    {"id": ${{Doctors.id}}, "name": ${{Doctors.last | json}}, "dept": ${{Doctors.dept.id}}, "languages": ${{Doctors.languages | json:;}}}</data><data if="!Doctors._last">,</data></line>
+    <line><data>  ]</data></line>
+    <line><data>}</data></line>
+  </block>
+</tdc>
+```
+
+`./run clinic.tdc`
+
+```
+{
+  "departments": [
+    {"id": 1, "name": "Cardiology"},
+    {"id": 2, "name": "Neurology"}
+  ],
+  "doctors": [
+    {"id": 1, "name": "Smith", "dept": 2, "languages": ["English"]},
+    {"id": 2, "name": "Johnson", "dept": 2, "languages": ["English"]},
+    {"id": 3, "name": "Williams", "dept": 1, "languages": ["English", "Polish"]}
+  ]
+}
+```
+
+Каждый `dept` указывает на существующее отделение: врачи берут его из того же пула, который
+печатает документ. `count="1"` печатает документ один раз; пул одинаков на каждой строке,
+поэтому при большем числе строк те же таблицы повторились бы. Двадцать таблиц — это двадцать
+пулов и двадцать строк с `each`, никаких других конструкций не нужно.
 
 ## SQL
 

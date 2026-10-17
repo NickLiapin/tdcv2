@@ -117,14 +117,16 @@ public static class MemoryEngine
         Config config, DataPacks? packs, long? nowMillis = null, string? baseDir = null,
         Progress? onProgress = null)
     {
-        IReadOnlyDictionary<string, string[]> columns = BuildColumns(new Ctx(
+        var ctx = new Ctx(
             config,
             packs ?? DataPacks.Discover(),
             nowMillis ?? DateTimeOffset.UtcNow.ToUnixTimeMilliseconds(),
             baseDir,
             // Shared across the whole render: two sequences naming one row key must land on the
             // same rows, whichever of them reaches the key first.
-            new Dictionary<string, RowLinkPlan>(StringComparer.Ordinal)));
+            new Dictionary<string, RowLinkPlan>(StringComparer.Ordinal));
+        IReadOnlyDictionary<string, PoolTable> tables = BuildPoolTables(ctx);
+        IReadOnlyDictionary<string, string[]> columns = BuildColumns(ctx, tables);
 
         // The run is finished; now the config gets to check its own output — before a single
         // line is written, because a file that exists is a file someone will use.
@@ -135,7 +137,7 @@ public static class MemoryEngine
                 : null,
             columns.ContainsKey);
 
-        return new MaterializedRows(config, columns, onProgress);
+        return new MaterializedRows(config, columns, tables, onProgress);
     }
 
     /// <summary>Every column already built; text is rendered on demand from those same values.</summary>
@@ -143,13 +145,16 @@ public static class MemoryEngine
     {
         private readonly Config _config;
         private readonly IReadOnlyDictionary<string, string[]> _columns;
+        private readonly IReadOnlyDictionary<string, PoolTable> _pools;
         private readonly Progress? _onProgress;
 
         internal MaterializedRows(
-            Config config, IReadOnlyDictionary<string, string[]> columns, Progress? onProgress)
+            Config config, IReadOnlyDictionary<string, string[]> columns,
+            IReadOnlyDictionary<string, PoolTable> pools, Progress? onProgress)
         {
             _config = config;
             _columns = columns;
+            _pools = pools;
             _onProgress = onProgress;
             SequenceNames = columns.Keys
                 .Where(name => !name.StartsWith('_'))
@@ -167,16 +172,17 @@ public static class MemoryEngine
 
         public bool Has(string column) => _columns.ContainsKey(column);
 
-        public string Text() => Emit(_config, _columns, _onProgress);
+        public string Text() => Emit(_config, _columns, _pools, _onProgress);
 
         public void WriteTo(TextWriter output) => output.Write(Text());
     }
 
     private static string Emit(
-        Config config, IReadOnlyDictionary<string, string[]> columns, Progress? onProgress = null)
+        Config config, IReadOnlyDictionary<string, string[]> columns,
+        IReadOnlyDictionary<string, PoolTable> pools, Progress? onProgress = null)
     {
         Fixtures fx = config.Fixtures;
-        IReadOnlyDictionary<string, Repeat.Spec> eachInfo = EachInfo(config);
+        var eachInfo = new EachSources(EachInfo(config), pools);
         var result = new StringBuilder();
 
         Emit(result, eachInfo, fx.Before, columns, 0, config.Inject);
@@ -205,7 +211,8 @@ public static class MemoryEngine
             var active = new List<Line>();
             foreach (Line line in config.Block)
             {
-                if (line.IfExpr is null || Condition(line.IfExpr, columns, row))
+                // An each= line asks its if= of every element instead, with the element in scope.
+                if (line.IfExpr is null || line.Each is not null || Condition(line.IfExpr, columns, row))
                 {
                     active.Add(line);
                 }
@@ -879,12 +886,10 @@ public static class MemoryEngine
         }
     }
 
-    private static IReadOnlyDictionary<string, string[]> BuildColumns(Ctx ctx) =>
-        BuildColumns(ctx, null);
-
     /// <summary>
-    /// The same, with the pools already built handed in — which is how a POOL body is
-    /// materialised, so that one of its members can draw from a pool declared above it.
+    /// The columns of a run. The pools come in already built — a run's own, which its
+    /// <c>each=</c> lines print as well, or the outer run's, which is how a POOL body is
+    /// materialised so that one of its members can draw from a pool declared above it.
     /// </summary>
     private static IReadOnlyDictionary<string, string[]> BuildColumns(
         Ctx ctx, IReadOnlyDictionary<string, PoolTable>? prebuilt)
@@ -4673,7 +4678,7 @@ public static class MemoryEngine
         value.Split(',').Select(p => p.Trim()).ToArray();
 
     private static void Emit(
-        StringBuilder to, IReadOnlyDictionary<string, Repeat.Spec> eachInfo,
+        StringBuilder to, EachSources eachInfo,
         IReadOnlyList<Line> lines,
         IReadOnlyDictionary<string, string[]> columns, int row, string? inject)
     {
@@ -4687,8 +4692,12 @@ public static class MemoryEngine
         }
     }
 
+    /// <summary>What an <c>each=</c> line can walk: the repeating sequences, and the pools.</summary>
+    private sealed record EachSources(
+        IReadOnlyDictionary<string, Repeat.Spec> Info, IReadOnlyDictionary<string, PoolTable> Pools);
+
     /// <summary>
-    /// One line — or, with <c>each="NAME"</c>, one line per element of that list.
+    /// One line — or, with <c>each="NAME"</c>, one line per element of that list or pool record.
     /// </summary>
     /// <remarks>
     /// Returns the text with its newline already attached, because a line with <c>each</c> may
@@ -4697,8 +4706,17 @@ public static class MemoryEngine
     /// </remarks>
     private static IReadOnlyList<string> RenderLine(
         Line line, IReadOnlyDictionary<string, string[]> columns, int row, string? inject,
-        IReadOnlyDictionary<string, Repeat.Spec> eachInfo)
+        EachSources each)
     {
+        string? listName = line.Each?.Trim();
+        if (!string.IsNullOrEmpty(listName))
+        {
+            return Each.Render(
+                line, listName, row, inject, each.Info,
+                each.Pools.TryGetValue(listName, out PoolTable? table) ? table : null,
+                new RowLookup(columns, row));
+        }
+
         var text = new StringBuilder();
         foreach (DataPart part in line.Parts)
         {
@@ -4708,48 +4726,7 @@ public static class MemoryEngine
             }
         }
 
-        string template = text.ToString();
-        string? listName = line.Each?.Trim();
-        if (string.IsNullOrEmpty(listName))
-        {
-            return new[] { Interpolate.Apply(template, inject, new RowLookup(columns, row)) + "\n" };
-        }
-
-        Repeat.Spec? spec = eachInfo.TryGetValue(listName, out Repeat.Spec found) ? found : null;
-        string cell = columns.TryGetValue(listName, out string[]? column) && column[row] is not null
-            ? column[row]
-            : "";
-        IReadOnlyList<string> elements =
-            Repeat.Split(cell, spec?.Separator ?? Repeat.DefaultSeparator);
-
-        // Lanes: two repeating sequences write into the same child table, so each gets its own
-        // slice of every card's key block rather than sharing one counter.
-        int lane = 0;
-        int stride = 0;
-        foreach (KeyValuePair<string, Repeat.Spec> entry in eachInfo)
-        {
-            if (entry.Key == listName)
-            {
-                lane = stride;
-            }
-
-            stride += entry.Value.Max;
-        }
-
-        if (stride == 0)
-        {
-            stride = elements.Count;
-        }
-
-        var result = new List<string>();
-        for (int k = 0; k < elements.Count; k++)
-        {
-            result.Add(Interpolate.Apply(
-                template, inject,
-                new ElementLookup(columns, row, listName, elements[k], k + 1, lane, stride)) + "\n");
-        }
-
-        return result;
+        return new[] { Interpolate.Apply(text.ToString(), inject, new RowLookup(columns, row)) + "\n" };
     }
 
     /// <summary>
@@ -4768,39 +4745,6 @@ public static class MemoryEngine
         }
 
         return result;
-    }
-
-    /// <summary>
-    /// The row's view with one element of a list substituted for the list itself, plus the two
-    /// positional built-ins <c>_item</c> and <c>_item_id</c>.
-    /// </summary>
-    /// <remarks>
-    /// Shallow on purpose: every other column still resolves per record, which is exactly what makes
-    /// a foreign key on the repeated line point at the right parent on every emitted row.
-    /// </remarks>
-    private sealed class ElementLookup : Interpolate.ILookup
-    {
-        private readonly RowLookup _base;
-        private readonly Dictionary<string, string> _overlay;
-
-        internal ElementLookup(
-            IReadOnlyDictionary<string, string[]> columns, int row, string listName, string element,
-            int position, int lane, int stride)
-        {
-            _base = new RowLookup(columns, row);
-            _overlay = new Dictionary<string, string>(StringComparer.Ordinal)
-            {
-                [listName] = element,
-                ["_item"] = position.ToString(CultureInfo.InvariantCulture),
-                ["_item_id"] = Repeat.ItemKey(row + 1, position, lane, stride)
-                    .ToString(CultureInfo.InvariantCulture),
-            };
-        }
-
-        public bool Has(string name) => _overlay.ContainsKey(name) || _base.Has(name);
-
-        public string Value(string name) =>
-            _overlay.TryGetValue(name, out string? v) ? v : _base.Value(name);
     }
 
     /// <summary>A <c>&lt;data&gt;</c> inside a <c>&lt;case&gt;</c>, resolved for ONE row.</summary>

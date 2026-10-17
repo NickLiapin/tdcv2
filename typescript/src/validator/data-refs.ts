@@ -4,6 +4,7 @@ import type { DataElementContext } from '../generated/TDCParser.js';
 
 import { BUILTIN_SEQUENCES } from './known.js';
 import { checkFilterArg } from './filter-args.js';
+import { checkJsonLists } from './json-lists.js';
 import { FILTER_NAMES, isFilterName } from '../format/transforms.js';
 
 /** `${{Name}}` / `${{Name | filter}}` in a `<data>` body. */
@@ -64,7 +65,12 @@ export function checkBlockDataRefs(
    * which is the worst shape a failure can take, so it is named here.
    */
   records: readonly string[] = [],
+  /** Every list by the path that names it, and its separator — for `| json` (TDC312). */
+  lists: ReadonlyMap<string, string> = new Map(),
+  /** The list this line walks with `each`, whose name is the current element here. */
+  walked?: string,
 ): void {
+  checkJsonLists(text, node, inject, lists, diagnostics, walked);
   if (inject !== '${{%}}') return;
   for (const m of text.matchAll(INTERP_REF)) {
     const ref = (m[1] ?? '').split('|')[0]?.trim() ?? '';

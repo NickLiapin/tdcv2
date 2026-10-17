@@ -244,36 +244,34 @@ con las llaves y la sangría correctas:
 
 ### Un arreglo dentro de un objeto
 
-Varios valores en un mismo campo vienen de [`repeat`](../reference/attributes.mdx), y
-[`separator`](../reference/attributes.mdx) es lo que va entre ellos. JSON quiere `", "` —
-**con las comillas** — y aquí se topa uno con un muro: la gramática no deja poner una `"`
-dentro del valor de un atributo, y `&quot;` pasa tal cual, literal.
-
-La salida: separe con un carácter neutro que los valores nunca contengan y luego
-conviértalo en JSON con el filtro [`replace`](masks-and-case.mdx), donde las comillas
-**sí** se permiten:
+Varios valores en un mismo campo vienen de [`repeat`](../reference/attributes.mdx), que los une
+en una sola celda con su [`separator`](../reference/attributes.mdx). El filtro
+[`json`](masks-and-case.mdx#json--un-valor-json-completo), con ese separador, vuelve a
+cortar la celda y escribe un arreglo JSON, con comillas y corchetes incluidos:
 
 ```xml
 <sequence name="Tags">
-    <gen type="text" value="oferta,nuevo,regalo,vip" repeat="1..3" separator="~"/>
+    <gen type="text" value="oferta,nuevo,regalo,vip" repeat="0..3" separator=";"/>
 </sequence>
 ```
 
 ```xml
-<line><data>  "tags": ["${{Tags | replace:~,", "}}"],</data></line>
+<line><data>  "tags": ${{Tags | json:;}},</data></line>
 ```
 
 <Terminal title="./run out.tdc">
-{`  "tags": ["vip", "nuevo", "regalo"],
-  "tags": ["regalo"],
-  "tags": ["oferta", "oferta"]`}
+{`  "tags": ["regalo", "vip"],
+  "tags": [],
+  "tags": ["oferta"],`}
 </Terminal>
 
-Para un arreglo de **números** nada de esto aplica — no hay comillas, así que
-`separator=","` basta por sí solo. Y note que [`repeat`](../reference/attributes.mdx) saca
-cada valor de forma independiente, así que una etiqueta puede aparecer dos veces en una
-fila; si eso no se quiere, fije un conjunto con [`<mix>`](../reference/tags.mdx) en su
-lugar.
+Un registro sin etiquetas recibe `[]`, no `[""]`. Escriba el separador con el que se unió la
+columna: `${{Tags | json}}` sin él imprime la lista entera como una sola cadena, y `check`
+lo advierte ([TDC312](../reference/errors.mdx)). Para un arreglo de **números** el filtro no
+hace falta — los números no llevan comillas, así que basta con `separator=","` y
+`[${{Scores}}]`. Y note que [`repeat`](../reference/attributes.mdx) saca cada valor de forma
+independiente, así que una etiqueta puede aparecer dos veces en una fila; si no lo quiere,
+agregue `distinct="true"` al `<gen>`.
 
 ### `null` es una palabra, no un vacío
 
@@ -310,6 +308,22 @@ en 50 000 filas se obtienen precisamente 10 000 nulls, no «como un 20 %»:
 {"id": 3, "score": 12}`}
 </Terminal>
 
+Para un campo de **cadena**, el filtro
+[`json`](masks-and-case.mdx#json--un-valor-json-completo) ya escribe `null` en lugar de un
+valor vacío, así que `missing` funciona tal cual:
+
+```xml
+<sequence name="Note"><gen type="text" value="fragile,urgent" missing="0.5"/></sequence>
+...
+<line><data>{"id": ${{Id}}, "note": ${{Note | json}}}</data></line>
+```
+
+<Terminal title="./run out.tdc">
+{`{"id": 1, "note": "fragile"}
+{"id": 2, "note": null}
+{"id": 3, "note": "urgent"}`}
+</Terminal>
+
 ### Una comilla que viene de datos externos
 
 La última ruptura viene de valores que usted no controla — un nombre sacado de un
@@ -321,25 +335,21 @@ tal cual, y la segunda comilla la cierra antes de tiempo:
 JSONDecodeError: Expecting ',' delimiter`}
 </Terminal>
 
-El estándar JSON escapa una comilla interna con una barra invertida. El mismo filtro
-[`replace`](masks-and-case.mdx) lo hace — este es el único lugar donde usted escribe la
-barra invertida a mano:
+El filtro [`json`](masks-and-case.mdx#json--un-valor-json-completo) escribe el valor como
+una cadena JSON: pone las comillas y escapa lo que JSON exige — una comilla interna, una
+barra invertida, un tabulador o un salto de línea:
 
 ```xml
-<data>{"name": "${{Name | replace:",\"}}"}</data>
+<data>{"name": ${{Name | json}}}</data>
 ```
 
 <Terminal title="./run out.tdc">
-{`{"name": "Café \\"Arábica\\" 250 g"}`}
+{`{"name": "Café \\"Arábica\\" 250 g"}
+{"name": "Café \\"Robusta\\" 250 g"}`}
 </Terminal>
 
-Eso se vuelve a parsear como la cadena original, con las comillas intactas.
-
-:::note
-Si sus datos también pudieran contener una barra invertida literal, duplique la barra
-**primero** (una pasada de `replace` de `\` → `\\`) y después escape las comillas — de lo
-contrario la segunda pasada estropea los escapes que acaba de agregar la primera.
-:::
+Eso se vuelve a parsear como la cadena original, con las comillas intactas. Note que la
+configuración no pone comillas alrededor de `${{Name | json}}`: el filtro trae las suyas.
 
 ### Muchos registros: NDJSON
 
@@ -370,10 +380,9 @@ disco sin mantener el archivo en memoria.
 
 ### Una lista anidada dentro de un registro
 
-Un registro que lleva su propia lista — un pedido y sus líneas, un paciente y sus visitas —
-necesita una coma **entre las repeticiones** de un mismo `<line each=…>`, y eso es lo que hace
-[`<delimiter_line>`](../core-concepts/output-formatting.mdx). Las fixtures por línea ven las
-líneas que ve el lector, así que una línea multiplicada por `each=` son varias de ellas:
+Un registro que lleva su propia lista — un pedido y sus líneas, un paciente y sus visitas — la
+imprime con [`each`](../constructs/relational-tables.mdx), una línea por elemento. La coma va
+en cada elemento menos el último, y la propia lista recorrida dice cuál es: `Sku._last`.
 
 ```xml
 <tdc>
@@ -385,10 +394,9 @@ líneas que ve el lector, así que una línea multiplicada por `each=` son varia
     <before_block><line><data>  { "order": ${{OrderId}}, "lines": [</data></line></before_block>
     <after_block><line><data>  ] }</data></line></after_block>
     <delimiter_block><line><data>  ,</data></line></delimiter_block>
-    <delimiter_line><line><data>    ,</data></line></delimiter_line>
   </env>
   <block>
-    <line each="Sku"><data>    { "sku": "${{Sku}}", "qty": ${{_item}} }</data></line>
+    <line each="Sku"><data>    { "sku": ${{Sku | json}}, "qty": ${{Sku._item}} }</data><data if="!Sku._last">,</data></line>
   </block>
 </tdc>
 ```
@@ -396,23 +404,23 @@ líneas que ve el lector, así que una línea multiplicada por `each=` son varia
 <Terminal title="./run orders.tdc">
 {`[
   { "order": 5001, "lines": [
-    { "sku": "SKU-3547", "qty": 1 }
-    ,
-    { "sku": "SKU-8121", "qty": 2 }
-    ,
+    { "sku": "SKU-3547", "qty": 1 },
+    { "sku": "SKU-8121", "qty": 2 },
     { "sku": "SKU-7610", "qty": 3 }
   ] }
   ,
   { "order": 5002, "lines": [
-    { "sku": "SKU-4917", "qty": 1 }
-    ,
+    { "sku": "SKU-4917", "qty": 1 },
     { "sku": "SKU-8482", "qty": 2 }
   ] }
 ]`}
 </Terminal>
 
-`repeat="1..3"` da a cada registro un número distinto de elementos, y el delimitador lo sigue: una
-coma menos que líneas, siempre, incluido el registro que solo tiene una.
+`repeat="1..3"` da a cada registro un número distinto de elementos, y las comas lo siguen: una
+menos que líneas, siempre, incluido el registro que solo tiene una. En una línea con `each`,
+`${{Sku}}` es el elemento actual, así que `| json` lo toma sin separador. Para poner la coma en
+una línea propia, use [`<delimiter_line>`](../core-concepts/output-formatting.mdx): se imprime
+entre las líneas que produce un `each`.
 
 :::note[El envoltorio lee la fila]
 Un `${{Name}}` en una fixture SÍ se expande y lee la fila junto a la que está, así que los campos
@@ -420,6 +428,59 @@ propios del registro van en `<before_block>`, justo al lado del corchete de aper
 elementos del array en el `<block>`. Lo que una fixture **no** puede llevar es un `<gen>`
 (`TDC131`): un generador ahí emitiría una constante con aspecto de valor sorteado.
 :::
+
+### Dos tablas en un solo documento
+
+Un documento JSON que guarda tablas de consulta — departamentos y los médicos que trabajan en
+ellos — se arma con [pools](../pools/overview.mdx). `<line each="Depts">` imprime el pool
+registro por registro, un campo se lee como `${{Depts.name}}`, y un campo sorteado de otro pool
+se lee un nivel más abajo: `${{Doctors.dept.id}}`.
+
+```xml
+<tdc>
+  <env count="1" seed="clinic" local="en">
+    <pool name="Depts" count="2">
+      <sequence name="id"><gen type="increment" value="1"/></sequence>
+      <sequence name="name"><gen type="text" value="Cardiology,Neurology" order="sequential"/></sequence>
+    </pool>
+    <pool name="Doctors" count="3">
+      <sequence name="id"><gen type="increment" value="1"/></sequence>
+      <sequence name="last"><gen type="template" value="person.lastName"/></sequence>
+      <sequence name="dept"><gen type="pool" value="Depts"/></sequence>
+      <sequence name="languages"><gen type="text" value="English,Spanish,Polish" repeat="1..2" separator=";" distinct="true"/></sequence>
+    </pool>
+  </env>
+  <block>
+    <line><data>{</data></line>
+    <line><data>  "departments": [</data></line>
+    <line each="Depts"><data>    {"id": ${{Depts.id}}, "name": ${{Depts.name | json}}}</data><data if="!Depts._last">,</data></line>
+    <line><data>  ],</data></line>
+    <line><data>  "doctors": [</data></line>
+    <line each="Doctors"><data>    {"id": ${{Doctors.id}}, "name": ${{Doctors.last | json}}, "dept": ${{Doctors.dept.id}}, "languages": ${{Doctors.languages | json:;}}}</data><data if="!Doctors._last">,</data></line>
+    <line><data>  ]</data></line>
+    <line><data>}</data></line>
+  </block>
+</tdc>
+```
+
+<Terminal title="./run clinic.tdc">
+{`{
+  "departments": [
+    {"id": 1, "name": "Cardiology"},
+    {"id": 2, "name": "Neurology"}
+  ],
+  "doctors": [
+    {"id": 1, "name": "Smith", "dept": 2, "languages": ["English"]},
+    {"id": 2, "name": "Johnson", "dept": 2, "languages": ["English"]},
+    {"id": 3, "name": "Williams", "dept": 1, "languages": ["English", "Polish"]}
+  ]
+}`}
+</Terminal>
+
+Cada `dept` apunta a un departamento que existe, porque los médicos lo sortean del mismo pool
+que imprime el documento. `count="1"` imprime el documento una vez; un pool es el mismo en
+todas las filas, así que con más filas las mismas tablas se repetirían. Veinte tablas son
+veinte pools y veinte líneas con `each`; no hace falta ninguna otra construcción.
 
 ## SQL
 

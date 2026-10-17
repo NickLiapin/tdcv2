@@ -15,8 +15,14 @@
  * Spec: docs/specs/2026-07-19-each-repeating-a-line-per-list-element.md
  */
 
+import type { PoolTables } from '../sequence/pool.js';
 import { parseRepeat } from '../sequence/repeat.js';
-import type { Sequence, SequenceRegistry, SequenceSpec } from '../sequence/index.js';
+import {
+  sequenceValueAt,
+  type Sequence,
+  type SequenceRegistry,
+  type SequenceSpec,
+} from '../sequence/index.js';
 
 /** 1-based position of the element within its card. */
 export const ITEM_INDEX = '_item';
@@ -26,6 +32,18 @@ export const ITEM_ID = '_item_id';
 
 /** Built-ins that only mean anything inside an `each` line. */
 export const EACH_BUILTINS: readonly string[] = [ITEM_INDEX, ITEM_ID];
+
+/**
+ * Where the element stands among the lines the `each` actually prints, read through the walked
+ * name: `${{Doctors._last}}`, `if="!Doctors._last"`. One set per walked name, so a list inside a
+ * pool record and the pool around it never answer for each other.
+ */
+export const EACH_POSITIONS: readonly string[] = ['_item', '_first', '_last'];
+
+/** The positional names a line walking `name` publishes — `Doctors._item`, `Doctors._first`, … */
+export function positionNames(name: string): string[] {
+  return EACH_POSITIONS.map((p) => `${name}.${p}`);
+}
 
 /**
  * Split a card's cell into the elements the loop walks.
@@ -157,4 +175,72 @@ export function buildEachInfo(specs: readonly SequenceSpec[]): Map<string, EachI
     lane += f.max;
   }
   return out;
+}
+
+/**
+ * The registries one `each` line renders with — one per line it PRINTS.
+ *
+ * The walked name is a list (a `repeat=` sequence) or a pool. A list element overlays the name
+ * itself; a pool record overlays every one of its fields as `Pool.field`, nested records
+ * included (`Doctors.dept.name`), since the pool table publishes them under those paths.
+ *
+ * `keep` is the line's own `if=`, asked of each element with that element in scope — a pool line
+ * that prints only some of its records is the point of a filter there. The positions are then
+ * counted over the elements that were KEPT: `Doctors._last` is the last line printed, which is
+ * what a JSON array needs to know before its comma, whatever the filter dropped after it.
+ */
+export function eachRegistries(
+  name: string,
+  base: SequenceRegistry,
+  iteration: number,
+  eachInfo: ReadonlyMap<string, EachInfo> | undefined,
+  pools: PoolTables | undefined,
+  keep: (registry: SequenceRegistry) => boolean,
+): SequenceRegistry[] {
+  const candidates: SequenceRegistry[] = [];
+  const source = base[name];
+  const table = source === undefined ? pools?.[name] : undefined;
+  if (table) {
+    for (let m = 0; m < table.count; m++) {
+      const overlay: Record<string, Sequence> = {
+        [ITEM_INDEX]: constant(ITEM_INDEX, String(m + 1)),
+        [ITEM_ID]: constant(ITEM_ID, String(m + 1)),
+      };
+      for (const field of table.fields) {
+        const path = `${name}.${field}`;
+        overlay[path] = constant(path, table.columns[field]?.[m] ?? '');
+      }
+      candidates.push({ ...base, ...overlay });
+    }
+  } else {
+    const info = eachInfo?.get(name);
+    // An unknown name walks nothing rather than throwing — the validator reports
+    // it as TDC206 before generation ever starts.
+    const cell = source ? sequenceValueAt(source, iteration) : undefined;
+    const elements = splitElements(cell, info?.separator ?? ',');
+    for (let k = 0; k < elements.length; k++) {
+      candidates.push(
+        elementRegistry(
+          base,
+          name,
+          elements[k] ?? '',
+          k + 1,
+          iteration + 1,
+          info?.lane ?? 0,
+          info?.stride ?? elements.length,
+        ),
+      );
+    }
+  }
+
+  const kept = candidates.filter(keep);
+  return kept.map((registry, k) => {
+    const [item, first, last] = positionNames(name);
+    return {
+      ...registry,
+      [item ?? '']: constant(item ?? '', String(k + 1)),
+      [first ?? '']: constant(first ?? '', k === 0 ? 'true' : 'false'),
+      [last ?? '']: constant(last ?? '', k === kept.length - 1 ? 'true' : 'false'),
+    };
+  });
 }

@@ -256,6 +256,9 @@ millones de filas de pacientes al mismo coste que mil, y funciona en todos los
   diferencia de `if`
 - [Enlazar pools entre sí](linking.md#top) — varios pools, un pool que sortea de otro pool, y
   cadenas de tres niveles
+- [Un pool entero](../constructs/relational-tables.md#un-pool-entero-registro-a-registro) —
+  `<line each="Doctors">` imprime el pool registro por registro: una tabla de consulta, o un
+  arreglo en un documento JSON
 
 ---
 

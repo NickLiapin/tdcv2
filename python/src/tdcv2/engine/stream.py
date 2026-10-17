@@ -47,7 +47,7 @@ from ..prng.prng import create
 from ..sequence import assertions
 from ..sequence import pool as pool_mod
 from ..stats import timeseries
-from . import memory
+from . import each, memory
 from .memory import composes_own_value
 
 # The types whose value is built here, and whose modifiers therefore apply here too.
@@ -249,10 +249,11 @@ class StreamEngine:
             )
             self._emit(emit, fx.before_block, row, each_info)
 
+            # An each= line asks its if= of every element instead, with the element in scope.
             active = [
                 line
                 for line in self.config.block
-                if line.if_expr is None or self._condition(line.if_expr, row)
+                if line.if_expr is None or line.each or self._condition(line.if_expr, row)
             ]
             # The OUTPUT lines, not the <line> ELEMENTS — see the note in the in-memory
             # engine. The two must agree byte for byte, so they count the same thing.
@@ -1979,38 +1980,28 @@ class StreamEngine:
     def _emit(self, emit, lines: list[Line], row: int, each_info) -> None:
         for line in lines:
             # A fixture line is one output line, and _render_line hands back the LINES.
-            for text in self._render_line(line, row, {}):
+            for text in self._render_line(line, row, each_info):
                 emit(text)
 
     def _render_line(self, line: Line, row: int, each_info) -> list[str]:
+        list_name = _trim_to_none(line.each) if line.each else None
+        if list_name is not None:
+            return each.render(
+                line,
+                list_name,
+                row,
+                self.config.inject,
+                each_info,
+                self.pool_tables,
+                self._lookup(row),
+                lambda name: name in self.columns,
+            )
         template = "".join(
             part.text
             for part in line.parts
             if part.if_expr is None or self._condition(part.if_expr, row)
         )
-
-        list_name = _trim_to_none(line.each) if line.each else None
-        if list_name is None:
-            return [interpolate.apply(template, self.config.inject, self._lookup(row)) + "\n"]
-
-        spec = each_info.get(list_name)
-        separator = repeat_gen.DEFAULT_SEPARATOR if spec is None else spec.separator
-        elements = repeat_gen.split(_none_to_empty(self.value(list_name, row)), separator)
-
-        lane = 0
-        stride = 0
-        for name, info in each_info.items():
-            if name == list_name:
-                lane = stride
-            stride += info.max
-        if stride == 0:
-            stride = len(elements)
-
-        out = []
-        for k, element in enumerate(elements):
-            lookup = self._element_lookup(row, list_name, element, k + 1, lane, stride)
-            out.append(interpolate.apply(template, self.config.inject, lookup) + "\n")
-        return out
+        return [interpolate.apply(template, self.config.inject, self._lookup(row)) + "\n"]
 
     def _value_or_none(self, name: str, row: int) -> str | None:
         column = self.columns.get(name)
@@ -2021,15 +2012,6 @@ class StreamEngine:
 
     def _lookup(self, row: int):
         return lambda name: self._value_or_none(name, row)
-
-    def _element_lookup(self, row, list_name, element, position, lane, stride):
-        overlay = {
-            list_name: element,
-            "_item": str(position),
-            "_item_id": str(repeat_gen.item_key(row + 1, position, lane, stride)),
-        }
-        base = self._lookup(row)
-        return lambda name: overlay[name] if name in overlay else base(name)
 
     def _missing_eligible(self, missing, row: int, value: str) -> bool:
         """Is this row eligible to go missing? ``True`` when there is no ``missing_when=``.

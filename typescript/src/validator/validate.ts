@@ -88,6 +88,7 @@ import {
   collectPoolFieldValues,
   collectPoolCounts,
   collectPoolFields,
+  collectEachPools,
   collectPoolReferences,
   registerPoolReference,
   runPendingPoolFilters,
@@ -109,8 +110,8 @@ import {
 } from './uniq-shape.js';
 import { checkMixFlag } from './mix-flag.js';
 import { checkGenRepeat, checkMixRepeat } from './repeat.js';
-import { checkLineConditionalColumns, checkLineEach } from './each.js';
-import { EACH_BUILTINS } from '../processor/each.js';
+import { checkLineConditionalColumns, checkLineEach, eachNames } from './each.js';
+import { collectListSeparators } from './json-lists.js';
 import { checkGenWeight } from './weight.js';
 import { checkGenMask } from './mask.js';
 import { checkAnomalyFlag, checkGenIfInCase, checkGenImperfections } from './imperfections.js';
@@ -267,6 +268,8 @@ export function validate(tree: DocumentContext, options: ValidationOptions = {})
   checkAllUnknownAttrs([...contentElements(tdc.content())], diags);
   checkUnknownAttrs('tdc', tdc.attr(), diags);
 
+  ctx.eachPools = collectEachPools(blockEl);
+  ctx.listSeparators = collectListSeparators(envEl);
   if (envEl) checkEnv(envEl, ctx);
   if (blockEl) checkBlock(blockEl, ctx);
 
@@ -322,6 +325,11 @@ class Ctx {
    * `prev`.
    */
   public currentSequence: string | undefined;
+
+  /** The pools a `<line each="Pool">` prints, so TDC231 knows they are read. */
+  public eachPools: ReadonlySet<string> = new Set();
+  /** Every list by the path `${{…}}` names it with, and its separator — for TDC312. */
+  public listSeparators: ReadonlyMap<string, string> = new Map();
 
   /** The `<pool>` whose members are being walked, if any — see `PoolRefContext`. */
   public currentPool: string | undefined;
@@ -556,6 +564,7 @@ function checkEnv(envEl: OpenCloseElementContext, ctx: Ctx): void {
   ctx.poolCounts = collectPoolCounts(envEl);
   ctx.poolFieldValues = collectPoolFieldValues(envEl);
   const poolsRead = collectPoolReferences(envEl);
+  for (const printed of ctx.eachPools) poolsRead.add(printed);
 
   // A share below one whole row: its own pass, because the denominator of a
   // <mix> in a switch branch belongs to the switch and not to the walk below.
@@ -794,7 +803,7 @@ function checkSequenceBody(seqEl: OpenCloseElementContext, ctx: Ctx): void {
         code: 'TDC036',
       });
     }
-  } else if (gens.some((g) => genAttrIf(g) !== undefined)) {
+  } else if (gens.some((g) => extractAttrs(g.attr())['if'] !== undefined)) {
     // Conditional sequence: `<gen if="…">` branches (+ an optional bare fallback
     // gen with no `if`). Each gen is just a generator — no `name` required — so
     // it must NOT be treated as a compound, which reads a name as a field.
@@ -814,7 +823,7 @@ function checkSequenceBody(seqEl: OpenCloseElementContext, ctx: Ctx): void {
     checkRowLinkOrder(gens, ctx.diagnostics);
 
     const shape = sequenceShape(
-      gens.map((g) => genAttrName(g) !== undefined),
+      gens.map((g) => extractAttrs(g.attr())['name'] !== undefined),
       hasDataLiteral(seqEl),
     );
 
@@ -823,7 +832,7 @@ function checkSequenceBody(seqEl: OpenCloseElementContext, ctx: Ctx): void {
     // and a duplicate field name is the same mistake either way.
     const seenNames = new Set<string>();
     for (const g of gens) {
-      const fieldName = genAttrName(g);
+      const fieldName = extractAttrs(g.attr())['name'];
       if (fieldName === undefined) {
         if (shape !== 'compound') checkGen(g, ctx, shape === 'simple' ? 'sequence' : 'part');
         continue;
@@ -914,17 +923,6 @@ function checkSequenceBody(seqEl: OpenCloseElementContext, ctx: Ctx): void {
     );
     if (repeats) ctx.repeatingSequences.push(name);
   }
-}
-
-/** Read the `name` attribute from a <gen>; undefined if absent. */
-function genAttrName(gen: OpenCloseElementContext | SelfClosingElementContext): string | undefined {
-  const attrs = extractAttrs(gen.attr());
-  return attrs['name'];
-}
-
-function genAttrIf(gen: OpenCloseElementContext | SelfClosingElementContext): string | undefined {
-  const attrs = extractAttrs(gen.attr());
-  return attrs['if'];
 }
 
 // -----------------------------------------------------------------------
@@ -1044,7 +1042,11 @@ function checkBlock(blockEl: OpenCloseElementContext, ctx: Ctx): void {
       if (k?.kind === 'open') {
         checkLineEach(
           k.node,
-          { declared: ctx.declaredSequences, repeating: ctx.repeatingSequences },
+          {
+            declared: ctx.declaredSequences,
+            repeating: ctx.repeatingSequences,
+            pools: [...ctx.poolFields.keys()],
+          },
           ctx.diagnostics,
         );
         checkLine(k.node, ctx);
@@ -1060,12 +1062,13 @@ function checkLine(lineEl: OpenCloseElementContext, ctx: Ctx): void {
   const attrs = lineEl.attr();
   const attrMap = extractAttrs(attrs);
   const ifAttr = findAttr(attrs, 'if');
+  const lineNames = eachNames(attrMap['each'], ctx.declaredSequences, ctx.poolFields, false);
   if (ifAttr) {
     checkIfExpression(ifAttr, attrMap['if'] ?? '', ctx);
     ctx.rememberExpression(
       ifAttr,
       attrMap['if'] ?? '',
-      attrMap['each'] === undefined ? [] : EACH_BUILTINS,
+      eachNames(attrMap['each'], ctx.declaredSequences, ctx.poolFields, true),
     );
   }
 
@@ -1077,15 +1080,17 @@ function checkLine(lineEl: OpenCloseElementContext, ctx: Ctx): void {
     if (name === 'data') {
       const k = elementKind(el);
       if (k?.kind === 'data') {
-        checkData(k.node, ctx, attrMap['each'] === undefined ? [] : EACH_BUILTINS);
+        checkData(k.node, ctx, lineNames);
         checkBlockDataRefs(
           extractDataText(k.node),
           k.node,
           ctx.inject,
           ctx.declaredSequences,
           ctx.diagnostics,
-          attrMap['each'] === undefined ? [] : EACH_BUILTINS,
+          lineNames,
           ctx.poolReferences,
+          ctx.listSeparators,
+          attrMap['each']?.trim(),
         );
       }
       continue;

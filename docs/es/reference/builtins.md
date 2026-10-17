@@ -95,6 +95,25 @@ completo está en [Tablas relacionales](../constructs/relational-tables.md#top):
 
 Existen solo en una línea con `each=`. En una línea común el nombre no resuelve a nada, y
 [TDC193](errors.md#top) rechaza la configuración en vez de imprimir `${{_item}}` literalmente.
+En una línea que recorre un [pool](../pools/overview.md#top), ambos son la posición del registro
+en el pool.
+
+### Las posiciones del nombre recorrido: `X._item`, `X._first`, `X._last`
+
+La lista o el pool que recorre una línea con `each=` presta su nombre a tres valores más:
+
+| Nombre          | Valor                                                                      |
+| :-------------- | :------------------------------------------------------------------------- |
+| `Orders._item`  | El número de esta línea entre las que imprime el `each`: `1`, `2`, `3`     |
+| `Orders._first` | `true` en la primera línea impresa, `false` en las demás                   |
+| `Orders._last`  | `true` en la última línea impresa, `false` en las demás                    |
+
+Cuentan las líneas **impresas**: un `if=` en la línea con `each` descarta algunos elementos, y
+las posiciones los saltan, así que `Orders._last` es verdadero en la última línea que de verdad
+aparece. Por eso `<data if="!Orders._last">,</data>` es una coma entre elementos y nunca
+después del último. No son los `_first` y `_last` de arriba, que marcan el primer y el último
+**registro** del run. El propio `if=` de la línea no puede leerlos ([TDC215](errors.md#top)):
+se cuentan después de que él decide.
 
 ## Nombres reservados
 

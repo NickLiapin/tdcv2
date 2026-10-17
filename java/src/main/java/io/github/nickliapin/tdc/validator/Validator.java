@@ -653,6 +653,21 @@ public final class Validator {
   /** Every pool a {@code <gen type="pool">} names, gathered before the walk — see TDC231. */
   private final Set<String> poolsRead = new LinkedHashSet<>();
 
+  /** The pools a {@code <line each="Pool">} prints, read as surely as a reference reads one. */
+  private Set<String> eachPools = Set.of();
+
+  /** Every list by the path {@code ${{…}}} names it with, and its separator — TDC312. */
+  private Map<String, String> listSeparators = Map.of();
+
+  /**
+   * The names the {@code <line>} being checked publishes — a walked pool's fields and the walked
+   * name's positions — and, while a deferred condition is checked, the names its line gave it.
+   * Both are whole paths whose root need not be a sequence: {@code Doctors.dept.id}.
+   */
+  private Set<String> lineNames = Set.of();
+
+  private Set<String> expressionExtra = Set.of();
+
   /** Sequences that draw a whole member: {@code Ref.field} is readable, {@code Ref} is not. */
   private final Set<String> poolReferences = new LinkedHashSet<>();
 
@@ -685,7 +700,8 @@ public final class Validator {
       boolean each,
       Set<String> scope,
       String extra,
-      Set<String> declaredAbove) {}
+      Set<String> declaredAbove,
+      Set<String> published) {}
 
   /**
    * The names a deferred expression may see, where they are NOT the run's.
@@ -738,7 +754,16 @@ public final class Validator {
   private void deferExpression(
       String expression, int line, int column, boolean each, String extra) {
     pendingExpressions.add(
-        new Pending(diagnostics.size(), expression, line, column, each, exprScope, extra, null));
+        new Pending(
+            diagnostics.size(), expression, line, column, each, exprScope, extra, null, Set.of()));
+  }
+
+  /** The same, for a condition on an {@code each} line, with the names that line publishes. */
+  private void deferLineExpression(
+      String expression, int line, int column, boolean each, Set<String> published) {
+    pendingExpressions.add(
+        new Pending(
+            diagnostics.size(), expression, line, column, each, exprScope, null, null, published));
   }
 
   /**
@@ -759,7 +784,8 @@ public final class Validator {
             false,
             exprScope,
             extra,
-            new LinkedHashSet<>(declaredNames)));
+            new LinkedHashSet<>(declaredNames),
+            Set.of()));
   }
 
   private final List<Pending> pendingExpressions = new ArrayList<>();
@@ -880,6 +906,8 @@ public final class Validator {
     }
 
     checkTdcChildren(tdc);
+    eachPools = JsonLists.eachPools(block);
+    listSeparators = JsonLists.separators(env);
     if (env != null) {
       checkEnv(env);
     }
@@ -917,7 +945,17 @@ public final class Validator {
           declaredAbove.add(item.extra());
         }
       }
+      // What the line publishes joins the run's names for this one expression.
+      List<String> published = new ArrayList<>();
+      for (String name : item.published()) {
+        if (declaredNames.add(name)) {
+          published.add(name);
+        }
+      }
+      expressionExtra = item.published();
       checkExpressionNames(item.expression(), item.line(), item.column(), item.each());
+      expressionExtra = Set.of();
+      published.forEach(declaredNames::remove);
       declaredAbove = null;
       if (added) {
         declaredNames.remove(item.extra());
@@ -1453,6 +1491,7 @@ public final class Validator {
     collectPoolFields(env);
     collectPoolFieldValues(env);
     collectPoolReferences(env);
+    poolsRead.addAll(eachPools);
     checkChildren(env.content(), "env", ENV_CHILDREN);
     for (TDCParser.ElementContext child : env.content().element()) {
       TDCParser.OpenCloseElementContext group = child.openCloseElement();
@@ -6295,40 +6334,57 @@ public final class Validator {
     // be caught in both places or a whole line silently never renders.
     // `_item` and `_item_id` exist only while a line walks a list, and both the line's own
     // condition and every <data> inside it may name them.
-    boolean walksAList = attributes(line.attr()).get("each") != null;
+    String each = attributes(line.attr()).get("each");
+    String eachName = each == null ? "" : each.trim();
+    boolean walksAList = each != null;
+    // What a walked pool or list publishes: every <data> may read the positions, and the line's
+    // own if= may not, because the positions count the lines that if= lets through.
+    Set<String> names = eachNames(eachName, false);
     String lineCondition = attributes(line.attr()).get("if");
     if (lineCondition != null) {
       int[] where = at(line.attr(), "if", line(line), column(line));
       checkIfExpression(lineCondition, where[0], where[1]);
-      deferExpression(lineCondition, where[0], where[1], walksAList);
+      deferLineExpression(
+          lineCondition, where[0], where[1], walksAList, eachNames(eachName, true));
     }
-    String each = attributes(line.attr()).get("each");
     if (each != null) {
-      if (each.isBlank()) {
+      int[] eachAt = at(line, "each");
+      if (eachName.isEmpty()) {
         error("TDC206", "each=\"\" names no sequence",
-            "Point it at a repeating sequence: <line each=\"Orders\">.",
-            at(line, "each")[0], at(line, "each")[1]);
-      } else if (declaredNames.contains(each) && !repeatingNames.contains(each)) {
+            "Point it at a repeating sequence, <line each=\"Orders\">, or at a pool, "
+                + "<line each=\"Doctors\">.",
+            eachAt[0], eachAt[1]);
+      } else if (!declaredNames.contains(eachName) && !poolFields.containsKey(eachName)) {
+        // Nothing by that name: the line would print nothing at all, and an empty child table is
+        // the quietest way a config can be wrong.
+        error("TDC206", "each=\"" + eachName + "\" — no sequence or pool with that name",
+            "The name must match a repeating <sequence name=\"…\"> declared in <env>, or a "
+                + "<pool name=\"…\">.",
+            eachAt[0], eachAt[1]);
+      } else if (declaredNames.contains(eachName) && !repeatingNames.contains(eachName)) {
         // Walking a scalar would emit one line and look like it worked, which is the kind of
         // near-miss that survives review.
-        error("TDC207", "each=\"" + each + "\" — that sequence holds one value, not a list",
+        error("TDC207", "each=\"" + eachName + "\" — that sequence holds one value, not a list",
             "Add repeat= to its <gen>, e.g. <gen … repeat=\"1..5\"/>, or drop each=.",
-            at(line, "each")[0], at(line, "each")[1]);
-      }
-      // A typed column is collected once per record, and an each= line emits several. The two
-      // cannot both be true, so the column would silently take whichever element came last.
-      for (TDCParser.ElementContext child : line.content().element()) {
-        TDCParser.DataElementContext data = child.dataElement();
-        if (!(data instanceof TDCParser.DataWithBodyContext body)) {
-          continue;
-        }
-        String columnName = attributes(body.attr()).get("name");
-        if (columnName != null && !columnName.trim().isEmpty()) {
-          error("TDC209",
-              "a named <data name=\"" + columnName + "\"> cannot sit inside an each= line",
-              "Typed columns are collected once per card. For columnar output keep the list as "
-                  + "a list column (type=\"[]…\"); each= is for text and SQL.",
-              at(line, "each")[0], at(line, "each")[1]);
+            eachAt[0], eachAt[1]);
+      } else {
+        // A typed column is collected once per record, and an each= line emits several — a
+        // list's elements or a pool's records alike. The two cannot both be true, so the column
+        // would silently take whichever came last.
+        for (TDCParser.ElementContext child : line.content().element()) {
+          TDCParser.DataElementContext data = child.dataElement();
+          if (!(data instanceof TDCParser.DataWithBodyContext body)) {
+            continue;
+          }
+          String columnName = attributes(body.attr()).get("name");
+          if (columnName != null && !columnName.trim().isEmpty()) {
+            error("TDC209",
+                "a named <data name=\"" + columnName + "\"> cannot sit inside an each= line",
+                "Typed columns are collected once per card. For columnar output keep the list as "
+                    + "a list column (type=\"[]…\"); each= is for text and SQL.",
+                eachAt[0], eachAt[1]);
+            break;
+          }
         }
       }
     }
@@ -6364,10 +6420,18 @@ public final class Validator {
         checkDataType(body, line(line), column(line));
         // The <data> element, not the <line> around it: several <data> pieces can share a
         // line, and pointing at the line would name the wrong one whenever they do.
-        checkInterpolation(
-            PairedData.restore(body.dataContent().getText()),
-            body.getStart().getLine(),
-            body.getStart().getCharPositionInLine());
+        String text = PairedData.restore(body.dataContent().getText());
+        int dataLine = body.getStart().getLine();
+        int dataColumn = body.getStart().getCharPositionInLine();
+        for (String[] found : JsonLists.check(text, listSeparators, eachName)) {
+          warn("TDC312", found[0], found[1], dataLine, dataColumn);
+        }
+        lineNames = names;
+        try {
+          checkInterpolation(text, dataLine, dataColumn);
+        } finally {
+          lineNames = Set.of();
+        }
         String condition = attributes(body.attr()).get("if");
         if (condition != null) {
           int[] where = at(body.attr(), "if", line(line), column(line));
@@ -6387,7 +6451,7 @@ public final class Validator {
                 where[0], where[1]);
           }
           checkIfExpression(condition, where[0], where[1]);
-          deferExpression(condition, where[0], where[1], walksAList);
+          deferLineExpression(condition, where[0], where[1], walksAList, names);
         }
         continue;
       }
@@ -6398,6 +6462,32 @@ public final class Validator {
             "Declare it in <env> and reference it here with ${{Name}}. See https://nickliapin.github.io/tdcv2/docs/constructs/mix", line(open), column(open));
       }
     }
+  }
+
+  /**
+   * The names an {@code each} line may read besides the run's own.
+   *
+   * <p>The walked name's positions ({@code Doctors._last}) and — walking a pool — every field of
+   * its records. The line's own {@code if=} gets the fields without the positions, which count
+   * the lines that {@code if=} lets through and so cannot be what decides them. {@code _item} and
+   * {@code _item_id} are not here: the {@code each} flag of a deferred condition admits them.
+   */
+  private Set<String> eachNames(String eachName, boolean forIf) {
+    Set<String> names = new LinkedHashSet<>();
+    if (eachName.isEmpty()) {
+      return names;
+    }
+    if (!forIf) {
+      for (String position : List.of("_item", "_first", "_last")) {
+        names.add(eachName + "." + position);
+      }
+    }
+    if (!declaredNames.contains(eachName)) {
+      for (String field : poolFields.getOrDefault(eachName, List.of())) {
+        names.add(eachName + "." + field);
+      }
+    }
+    return names;
   }
 
   /**
@@ -6435,7 +6525,10 @@ public final class Validator {
             line, column);
         continue;
       }
-      if (!name.isEmpty() && !declaredNames.contains(name) && !Checks.isBuiltin(name)) {
+      if (!name.isEmpty()
+          && !declaredNames.contains(name)
+          && !lineNames.contains(name)
+          && !Checks.isBuiltin(name)) {
         // A dot with a KNOWN root is a field mistake, and saying so beats repeating the whole
         // reference back: the reader already knows the sequence exists. Collapsed into "is not a
         // declared sequence", the message sent someone to <env> to declare a `P` that is declared
@@ -6558,6 +6651,14 @@ public final class Validator {
    * with mixed signs the answer depends on the value's length, and a refusal has to be a proof.
    */
   private void checkFilterArg(String kind, String arg, int line, int column) {
+    // The renderer trims an argument, so `json: ` is as empty as `json:`.
+    if ("json".equals(kind) && arg != null && arg.trim().isEmpty()) {
+      error("TDC273", "the \"json\" filter has a colon and no separator after it",
+          "Write ${{X|json}} for one value — a quoted string, or null when empty — and "
+              + "${{X|json:;}} for a list joined with \";\", which comes out as a JSON array.",
+          line, column);
+      return;
+    }
     for (String name : NO_ARGUMENT_FILTERS) {
       if (name.equals(kind)) {
         if (arg != null) {
@@ -6730,6 +6831,11 @@ public final class Validator {
     int dot = path.indexOf('.');
     String root = dot < 0 ? path : path.substring(0, dot);
     String tail = dot < 0 ? null : path.substring(dot + 1);
+    // A whole path the line itself publishes — a pool record's field or a position on an `each`
+    // line (`Doctors.dept.id`, `Doctors._last`) — whose root is a pool, not a sequence.
+    if (tail != null && expressionExtra.contains(path)) {
+      return;
+    }
 
     boolean known = declaredNames.contains(root)
         || Checks.BUILTINS.contains(root)

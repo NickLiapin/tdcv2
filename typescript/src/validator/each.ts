@@ -12,6 +12,7 @@
 import { type Diagnostic, attrValueRange } from '../errors/index.js';
 import { CONDITIONAL_COLUMN_HINT } from './column-type.js';
 import type { AttrContext, OpenCloseElementContext } from '../generated/TDCParser.js';
+import { EACH_BUILTINS, positionNames } from '../processor/each.js';
 import { contentElements, elementKind, extractDataAttrs, extractAttrs } from '../processor/walk.js';
 
 function findAttr(attrs: readonly AttrContext[], name: string): AttrContext | undefined {
@@ -24,8 +25,10 @@ function findAttr(attrs: readonly AttrContext[], name: string): AttrContext | un
 export interface EachContext {
   /** Sequence names declared in the env. */
   readonly declared: readonly string[];
-  /** Of those, the ones whose generator repeats — the only walkable ones. */
+  /** Of those, the ones whose generator repeats — walkable as a list. */
   readonly repeating: readonly string[];
+  /** The pools — walkable record by record. */
+  readonly pools: readonly string[];
 }
 
 export function checkLineEach(
@@ -43,25 +46,28 @@ export function checkLineEach(
       source: 'validator',
       ...attrValueRange(attr),
       message: 'each="" names no sequence',
-      hint: 'Point it at a repeating sequence: <line each="Orders">.',
+      hint: 'Point it at a repeating sequence, <line each="Orders">, or at a pool, <line each="Doctors">.',
       code: 'TDC206',
     });
     return;
   }
 
-  if (!ctx.declared.includes(name)) {
+  if (!ctx.declared.includes(name) && !ctx.pools.includes(name)) {
     diagnostics.push({
       severity: 'error',
       source: 'validator',
       ...attrValueRange(attr),
-      message: `each="${name}" — no sequence with that name`,
-      hint: 'The name must match a <sequence name="…"> declared in <env>.',
+      message: `each="${name}" — no sequence or pool with that name`,
+      hint:
+        'The name must match a repeating <sequence name="…"> declared in <env>, or a ' +
+        '<pool name="…">.',
       code: 'TDC206',
     });
     return;
   }
 
-  if (!ctx.repeating.includes(name)) {
+  // A pool is walked record by record: every record is one line, so it needs no repeat=.
+  if (ctx.declared.includes(name) && !ctx.repeating.includes(name)) {
     diagnostics.push({
       severity: 'error',
       source: 'validator',
@@ -116,4 +122,25 @@ export function checkLineConditionalColumns(
     });
     return;
   }
+}
+
+/**
+ * The names an `each` line may read besides the run's own: the two old positional built-ins, the
+ * walked name's positions (`Doctors._last`), and — walking a pool — every field of its records.
+ *
+ * The line's own `if=` gets the same set without the positions, which count the lines that `if=`
+ * lets through and so cannot be what decides them.
+ */
+export function eachNames(
+  each: string | undefined,
+  declared: readonly string[],
+  poolFields: ReadonlyMap<string, readonly string[]>,
+  forIf: boolean,
+): readonly string[] {
+  const name = (each ?? '').trim();
+  if (name === '') return [];
+  const fields = declared.includes(name)
+    ? []
+    : (poolFields.get(name) ?? []).map((f) => `${name}.${f}`);
+  return [...EACH_BUILTINS, ...(forIf ? [] : positionNames(name)), ...fields];
 }
