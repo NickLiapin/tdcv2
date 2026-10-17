@@ -163,11 +163,12 @@ por su cuenta si paralelizar. En resumen:
 
   `--engine 2` **rechaza** todo lo que no puede transmitir, así que una medición mide lo que
   dice medir. `--engine 3` rechaza en un solo caso — un `uniq` demasiado ajustado para su
-  reparación acotada — y en los demás cae al motor en memoria e imprime sus bytes: código 0 y
-  ni una palabra. Es angosto a propósito: las formas en las que el motor 3 cae son justo las
-  que el camino perezoso no puede expresar, y cubrirlas es para lo que existe. Eso sí implica
-  que una medición de memoria hecha con `--engine 3` sobre un `stat`, un total acumulado o un
-  `uniq` simple es una medición del motor 1. [Qué motor ejecuta su
+  reparación acotada — y en los demás le pasa la ejecución al motor en memoria, que imprime los
+  bytes: código 0 y una nota por stderr con el motivo. Es angosto a propósito: las formas que
+  el motor 3 pasa son justo las que el camino perezoso no puede expresar, y cubrirlas es para
+  lo que existe. Eso sí implica que una medición de memoria hecha con `--engine 3` sobre un
+  `stat`, un total acumulado o un `uniq` simple es una medición del motor 1, que es justo lo
+  que dice la nota. [Qué motor ejecuta su
   configuración](../guides/large-outputs.md#qué-motor-corre-su-configuración) lista las formas.
 
 TDC calcula cuántos hilos caben en la RAM de esta máquina y toma esa cantidad — en una
@@ -285,7 +286,7 @@ correrlo.
 tdcv2 check demo.tdc
 ```
 
-Todo sale por stderr — una configuración válida recibe una línea, y una inválida los
+Todo sale por stderr — una configuración válida recibe dos líneas, y una inválida los
 mismos diagnósticos que imprimiría `tdcv2 demo.tdc`. **Por stdout no sale nada**, a
 propósito: el stdout de un hook es ruido, y quien quiera los datos ejecuta el generador.
 
@@ -293,7 +294,13 @@ propósito: el stdout de un hook es ruido, y quien quiera los datos ejecuta el g
 
 ```
 tdcv2: demo.tdc is valid
+tdcv2: runs on engine 2 (streaming): every column can be built one row at a time
 ```
+
+La segunda línea dice qué motor ejecutará la configuración — 1 en memoria, 2 streaming,
+3 exacto en disco — y por qué fue a parar ahí: `uniq="true" on "Code"`, por ejemplo, manda
+la ejecución al motor 1. De eso depende cuánta memoria gasta, así que conviene saberlo antes
+de una ejecución grande. `--brief` omite esa línea.
 
 Las advertencias no hacen fallar la comprobación — se imprimen y el código de salida sigue
 siendo `0`, porque una advertencia describe algo que funciona pero probablemente no es lo

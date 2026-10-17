@@ -413,6 +413,12 @@ public sealed class Tdc
     public int Engine => EngineRouter.Resolve(_config, _packs);
 
     /// <summary>
+    /// The engine this config runs on and why, in words — what <c>check</c> prints.
+    /// <c>Downgraded</c> says engine 3 was asked for and engine 1 runs the config instead.
+    /// </summary>
+    public EngineRouter.Choice EngineChoice => EngineRouter.Explain(_config, _packs);
+
+    /// <summary>
     /// What this run is likely to cost in memory, or <c>null</c> when the answer is "not much".
     /// </summary>
     /// <remarks>

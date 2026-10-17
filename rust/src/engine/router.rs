@@ -33,6 +33,56 @@ use crate::packs::DataPacks;
 /// `None` skips that one rule and answers from the config alone, which is what a
 /// caller that has no registry to hand can honestly do.
 pub fn resolve(config: &Config, packs: Option<&DataPacks>) -> EngineResult<u8> {
+    Ok(explain(config, packs)?.engine)
+}
+
+/// How each engine is named next to its number.
+pub fn engine_label(engine: u8) -> &'static str {
+    match engine {
+        1 => "in memory",
+        2 => "streaming",
+        _ => "exact, on disk",
+    }
+}
+
+/// The engine a run uses, and why — what `check` prints.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct EngineChoice {
+    pub engine: u8,
+    pub why: String,
+    /// Engine 3 was asked for and engine 1 runs the config instead.
+    pub downgraded: bool,
+}
+
+impl EngineChoice {
+    fn new(engine: u8, why: impl Into<String>) -> Self {
+        EngineChoice {
+            engine,
+            why: why.into(),
+            downgraded: false,
+        }
+    }
+
+    /// One line for `check`: the engine, its name, and the reason.
+    pub fn describe(&self) -> String {
+        let named = format!("engine {} ({})", self.engine, engine_label(self.engine));
+        if self.downgraded {
+            format!("runs on {named}, not engine 3: {}", self.why)
+        } else {
+            format!("runs on {named}: {}", self.why)
+        }
+    }
+}
+
+/// The engine a config runs on, and the reason in words.
+///
+/// Engine 3 asked for by name runs a config the disk route sends to engine 1 on
+/// engine 1, and says so. It always did that, silently, at the last moment — the
+/// lazy build refused and the in-memory engine took over — which left nothing
+/// for `check` to report and, past the row count where a run splits itself into
+/// threads, handed each worker a refusal it could not take over from. Deciding
+/// it here, before the run, is the same answer every implementation gives.
+pub fn explain(config: &Config, _packs: Option<&DataPacks>) -> EngineResult<EngineChoice> {
     // `engine=` wins over `mode=` — except when the two contradict. `mode="sequential"`
     // is not a preference about speed, it is a promise that row N is computed after row
     // N-1, which only engine 1 keeps. Letting `engine="2"` override it silently produced
@@ -49,28 +99,43 @@ pub fn resolve(config: &Config, packs: Option<&DataPacks>) -> EngineResult<u8> {
         }
     }
     if let Some(forced) = trim_to_none(config.engine.as_deref()) {
-        return match forced {
-            "1" => Ok(1),
-            "2" => Ok(2),
-            "3" => Ok(3),
-            other => invalid(&format!(
-                "invalid engine \"{other}\" — expected \"1\" (in-memory), \"2\" (streaming), \
-                 or \"3\" (exact-on-disk)"
-            )),
+        let engine = match forced {
+            "1" => 1,
+            "2" => 2,
+            "3" => 3,
+            other => {
+                return invalid(&format!(
+                    "invalid engine \"{other}\" — expected \"1\" (in-memory), \"2\" \
+                     (streaming), or \"3\" (exact-on-disk)"
+                ))
+            }
         };
+        if engine == 3 {
+            let disk = disk_route(config);
+            if disk.engine == 1 {
+                return Ok(EngineChoice {
+                    downgraded: true,
+                    ..disk
+                });
+            }
+        }
+        return Ok(EngineChoice::new(
+            engine,
+            format!("engine=\"{forced}\" on <env>"),
+        ));
     }
 
     match trim_to_none(config.mode.as_deref()) {
-        Some("memory") => return Ok(1),
+        Some("memory") => return Ok(EngineChoice::new(1, "mode=\"memory\" on <env>")),
         // Rows strictly in order, so `prev()` has a previous row. Engine 2 resolves ANY
         // row in O(1) without touching the one before it — that is its design, and it is
         // what this mode cannot be built on. The cost is engine 1's: the run is held in
         // memory.
-        Some("sequential") => return Ok(1),
+        Some("sequential") => return Ok(EngineChoice::new(1, "mode=\"sequential\" on <env>")),
         // "stream" is the old name for asking for Engine 2 outright, from before
         // mode described the constraint rather than the engine. Kept working;
         // the router is not consulted.
-        Some("stream") => return Ok(2),
+        Some("stream") => return Ok(EngineChoice::new(2, "mode=\"stream\" on <env>")),
         Some(other) if other != "disk" => {
             return invalid(&format!(
                 "invalid mode \"{other}\" — expected \"memory\", \"disk\" or \"sequential\""
@@ -81,23 +146,30 @@ pub fn resolve(config: &Config, packs: Option<&DataPacks>) -> EngineResult<u8> {
         // generator whose whole point is volume.
         _ => {}
     }
+    Ok(disk_route(config))
+}
 
+/// `mode="disk"`, the default: the fastest engine the config allows, and why.
+fn disk_route(config: &Config) -> EngineChoice {
     // A template address that names a field resolves per row against the other
     // columns; only the in-memory engine has them all.
-    if any_gen(config, |gen| {
+    if let Some(name) = gen_owner(config, |gen| {
         gen.gen_type == "template" && is_dynamic(gen.attr_or("value", ""))
     }) {
-        return Ok(1);
+        return EngineChoice::new(1, format!("\"{name}\" picks its pack per row"));
     }
 
     // weight= with row= draws a linked record to an exact quota, which needs the
     // global total.
-    if any_gen(config, |gen| {
+    if let Some(name) = gen_owner(config, |gen| {
         gen.gen_type == "file"
             && trim_to_none(gen.attr("weight")).is_some()
             && trim_to_none(gen.attr("row")).is_some()
     }) {
-        return Ok(1);
+        return EngineChoice::new(
+            1,
+            format!("\"{name}\" draws a weighted row of a file (weight= with row=)"),
+        );
     }
 
     // A pack generator that declares its own shares used to be routed here, and for
@@ -112,12 +184,10 @@ pub fn resolve(config: &Config, packs: Option<&DataPacks>) -> EngineResult<u8> {
     // One shape still belongs here — a body carrying its own `<valid>` — and it
     // arrives the way every other unstreamable config does: refused by name.
 
-    // A network call is not reproducible, so it never runs on the reproducible
-    // path.
     // uniq on a DRAWN value takes WITHOUT REPLACEMENT — simple or composed alike — the pool and the
     // taken-set span the whole column, which only the in-memory engine holds.
     let counting = |t: &str| t == "increment" || t == "decrement";
-    if config.sequences.iter().any(|s| {
+    if let Some(spec) = config.sequences.iter().find(|s| {
         use crate::model::config::{Item, Source};
         s.uniq
             && match &s.source {
@@ -128,20 +198,61 @@ pub fn resolve(config: &Config, packs: Option<&DataPacks>) -> EngineResult<u8> {
                 _ => false,
             }
     }) {
-        return Ok(1);
+        return EngineChoice::new(1, format!("uniq=\"true\" on \"{}\"", spec.name));
     }
-    if any_gen(config, |gen| gen.gen_type == "http") {
-        return Ok(1);
+    // A network call is not reproducible, so it never runs on the reproducible
+    // path.
+    if let Some(name) = gen_owner(config, |gen| gen.gen_type == "http") {
+        return EngineChoice::new(1, format!("\"{name}\" calls a web service"));
     }
     // A <switch> branch that declares a share the streaming engines cannot lay over the right
     // rows. They refuse such a branch rather than apportion it over the wrong denominator, and a
     // refusal reached at build time is not a fallback for every caller. Decide it here,
     // statically, where every path sees the same answer.
-    if unstreamable_switch_percent(config) {
-        return Ok(1);
+    if let Some(name) = unstreamable_switch_percent(config) {
+        return EngineChoice::new(
+            1,
+            format!("a share inside \"{name}\" needs the whole column"),
+        );
     }
-
-    Ok(if needs_exact(config) { 3 } else { 2 })
+    // A column derived from other rows — a running total, a statistic, a date offset — is
+    // refused by name by the streaming builder. Deciding it here keeps that refusal from
+    // reaching a parallel worker, which has nothing to fall back to.
+    if let Some(name) = gen_owner(config, |gen| gen.gen_type == "running") {
+        return EngineChoice::new(1, format!("\"{name}\" adds up the rows before it"));
+    }
+    if let Some(name) = gen_owner(config, |gen| gen.gen_type == "stat") {
+        return EngineChoice::new(1, format!("\"{name}\" is computed over every row"));
+    }
+    if let Some(name) = gen_owner(config, |gen| {
+        gen.gen_type == "date" && trim_to_none(gen.attr("of")).is_some()
+    }) {
+        return EngineChoice::new(
+            1,
+            format!("\"{name}\" is a date offset from another column"),
+        );
+    }
+    // `parent="Name"` with no value narrows a column to the rows where the parent produced
+    // anything, which needs the parent's whole column. Same reason as the three above.
+    for spec in &config.sequences {
+        let parent = spec.parent.as_deref().unwrap_or("").trim();
+        if parent.is_empty() {
+            continue;
+        }
+        if parent
+            .find('.')
+            .is_none_or(|dot| parent[dot + 1..].is_empty())
+        {
+            return EngineChoice::new(
+                1,
+                format!("\"{}\" has parent=\"{parent}\" with no value", spec.name),
+            );
+        }
+    }
+    match exact_reason(config) {
+        Some(why) => EngineChoice::new(3, why),
+        None => EngineChoice::new(2, "every column can be built one row at a time"),
+    }
 }
 
 /// Does this `<case>` body declare a share that the denominator has to be right for?
@@ -191,7 +302,7 @@ fn nested_switches(case: &crate::model::Case, found: &mut Vec<Switch>) {
     }
 }
 
-fn unstreamable_switch_percent(config: &Config) -> bool {
+fn unstreamable_switch_percent(config: &Config) -> Option<String> {
     let plain_list_values = |name: &str| -> Option<Vec<String>> {
         let subject = config.sequences.iter().find(|s| s.name == name)?;
         let gen = match &subject.source {
@@ -229,37 +340,41 @@ fn unstreamable_switch_percent(config: &Config) -> bool {
         })
     };
 
-    if config.sequences.iter().any(|spec| match &spec.source {
-        Source::Switch(sw) => {
-            let mut bodies: Vec<&crate::model::Case> =
-                sw.entries.iter().map(|e| &e.value).collect();
-            if let Some(fallback) = &sw.fallback {
-                bodies.push(fallback);
+    config
+        .sequences
+        .iter()
+        .find(|spec| {
+            let nested = match &spec.source {
+                Source::Switch(sw) => {
+                    let mut bodies: Vec<&crate::model::Case> =
+                        sw.entries.iter().map(|e| &e.value).collect();
+                    if let Some(fallback) = &sw.fallback {
+                        bodies.push(fallback);
+                    }
+                    nested_declares_share(bodies)
+                }
+                Source::Mix(mix) => nested_declares_share(mix.cases.iter().collect()),
+                _ => false,
+            };
+            if nested {
+                return true;
             }
-            nested_declares_share(bodies)
-        }
-        Source::Mix(mix) => nested_declares_share(mix.cases.iter().collect()),
-        _ => false,
-    }) {
-        return true;
-    }
-
-    config.sequences.iter().any(|spec| {
-        let Source::Switch(sw) = &spec.source else {
-            return false;
-        };
-        if case_carries_percent(sw.fallback.as_ref()) {
-            return true;
-        }
-        let values = plain_list_values(&sw.on);
-        sw.entries.iter().any(|entry| {
-            case_carries_percent(Some(&entry.value))
-                && (entry.keys.len() != 1
-                    || values
-                        .as_ref()
-                        .is_none_or(|vs| !vs.contains(&entry.keys[0])))
+            let Source::Switch(sw) = &spec.source else {
+                return false;
+            };
+            if case_carries_percent(sw.fallback.as_ref()) {
+                return true;
+            }
+            let values = plain_list_values(&sw.on);
+            sw.entries.iter().any(|entry| {
+                case_carries_percent(Some(&entry.value))
+                    && (entry.keys.len() != 1
+                        || values
+                            .as_ref()
+                            .is_none_or(|vs| !vs.contains(&entry.keys[0])))
+            })
         })
-    })
+        .map(|spec| spec.name.clone())
 }
 
 /// Whether disk mode needs the exact engine rather than the streaming one.
@@ -270,35 +385,40 @@ fn unstreamable_switch_percent(config: &Config) -> bool {
 /// weighted choice inside a pattern. Ordinary exact percentages, uniform
 /// uniqueness, switch, distinct and text parent-child all stream.
 pub fn needs_exact(config: &Config) -> bool {
+    exact_reason(config).is_some()
+}
+
+/// Why disk mode needs the exact engine, in words; `None` when it does not.
+fn exact_reason(config: &Config) -> Option<String> {
+    for spec in &config.sequences {
+        if spec.uniq {
+            return Some(format!("uniq=\"true\" on \"{}\"", spec.name));
+        }
+        let weighted = matches!(&spec.source, Source::Gen(gen) if is_weighted_advanced_regex(gen))
+            || fields_of(spec).into_iter().any(is_weighted_advanced_regex);
+        if weighted {
+            return Some(format!(
+                "\"{}\" has a weighted choice in advanced_regex",
+                spec.name
+            ));
+        }
+        if let Some(parent) = trim_to_none(spec.parent.as_deref()) {
+            if !parent_is_finite_text(config, parent) {
+                return Some(format!(
+                    "\"{}\" has parent=\"{parent}\", which is not a list of values",
+                    spec.name
+                ));
+            }
+        }
+    }
     // A group REARRANGES the columns it covers — every column keeps its multiset, so every
     // declared share survives — and that cannot be decided a row at a time. The streaming
     // engine could only offer a different answer, and two answers from one seed is the thing
     // this whole design exists to prevent.
-    if !config.env_uniq_groups.is_empty() {
-        return true;
-    }
-
-    for spec in &config.sequences {
-        if spec.uniq {
-            return true;
-        }
-
-        if let Source::Gen(gen) = &spec.source {
-            if is_weighted_advanced_regex(gen) {
-                return true;
-            }
-        }
-        if fields_of(spec).into_iter().any(is_weighted_advanced_regex) {
-            return true;
-        }
-
-        if let Some(parent) = trim_to_none(spec.parent.as_deref()) {
-            if !parent_is_finite_text(config, parent) {
-                return true;
-            }
-        }
-    }
-    false
+    config.env_uniq_groups.first().map(|group| {
+        let names: Vec<String> = group.iter().map(|n| format!("\"{n}\"")).collect();
+        format!("a <uniq> group over {}", names.join(", "))
+    })
 }
 
 fn parent_is_finite_text(config: &Config, reference: &str) -> bool {
@@ -334,13 +454,17 @@ fn is_dynamic(value: &str) -> bool {
     value.contains("${{")
 }
 
-/// Every `<gen>` in the config, simple or a compound's field.
-fn any_gen(config: &Config, test: impl Fn(&Gen) -> bool) -> bool {
-    config.sequences.iter().any(|spec| match &spec.source {
-        Source::Gen(gen) => test(gen),
-        Source::Fields(fields) => fields.iter().any(|f| test(&f.gen)),
-        _ => false,
-    })
+/// The first sequence holding a `<gen>` — simple or a compound's field — that passes.
+fn gen_owner(config: &Config, test: impl Fn(&Gen) -> bool) -> Option<String> {
+    config
+        .sequences
+        .iter()
+        .find(|spec| match &spec.source {
+            Source::Gen(gen) => test(gen),
+            Source::Fields(fields) => fields.iter().any(|f| test(&f.gen)),
+            _ => false,
+        })
+        .map(|spec| spec.name.clone())
 }
 
 /// A compound's fields, or nothing — a simple sequence has none rather than an

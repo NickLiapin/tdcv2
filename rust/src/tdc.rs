@@ -27,6 +27,7 @@ use crate::output::atomic::Pending;
 use std::collections::BTreeMap;
 use std::path::Path;
 
+use crate::engine::router::EngineChoice;
 use crate::engine::{self, EngineError, RowSource};
 use crate::errors::{has_errors, Diagnostic, Severity};
 use crate::human_bytes::human_bytes;
@@ -203,6 +204,7 @@ pub struct Tdc {
     source: String,
     diagnostics: Vec<Diagnostic>,
     engine: u8,
+    engine_choice: EngineChoice,
     run: Box<dyn RowSource>,
     /// Kept past the build so the Parquet writer can report too: it lays the
     /// file down itself rather than going through the engine's row loop, so
@@ -478,7 +480,8 @@ impl Tdc {
         // would otherwise put two different dates in one file from one "today".
         let now_millis = options.now_millis.unwrap_or_else(now);
         let on_progress = options.on_progress.clone();
-        let engine = engine::router::resolve(&config, Some(&packs))?;
+        let engine_choice = engine::router::explain(&config, Some(&packs))?;
+        let engine = engine_choice.engine;
 
         Ok(Plan {
             config,
@@ -486,6 +489,7 @@ impl Tdc {
             source,
             diagnostics,
             engine,
+            engine_choice,
             packs,
             now_millis,
             base_dir,
@@ -539,6 +543,12 @@ impl Tdc {
     /// something useful — it uses a feature that has to see the whole column.
     pub fn engine(&self) -> u8 {
         self.engine
+    }
+
+    /// The engine this config runs on and why, in words — what `check` prints.
+    /// `downgraded` says engine 3 was asked for and engine 1 runs the config instead.
+    pub fn engine_choice(&self) -> &EngineChoice {
+        &self.engine_choice
     }
 
     /// The declared sequences, in declaration order.
@@ -740,6 +750,7 @@ pub struct Plan {
     source: String,
     diagnostics: Vec<Diagnostic>,
     engine: u8,
+    engine_choice: EngineChoice,
     packs: DataPacks,
     now_millis: i64,
     base_dir: Option<String>,
@@ -768,6 +779,11 @@ impl Plan {
     /// Which engine will run it: 1 in memory, 2 streaming, 3 exact on disk.
     pub fn engine(&self) -> u8 {
         self.engine
+    }
+
+    /// The engine that will run it and why, in words — what `check` prints.
+    pub fn engine_choice(&self) -> &EngineChoice {
+        &self.engine_choice
     }
 
     /// What this run is likely to cost in memory, or nothing when the answer is
@@ -979,6 +995,7 @@ impl Plan {
             source: self.source,
             diagnostics: self.diagnostics,
             engine: self.engine,
+            engine_choice: self.engine_choice,
             run,
             on_progress: self.on_progress,
         })

@@ -32,6 +32,7 @@ import { formatTdc } from '../formatter/index.js';
 import { writeAtomically } from '../lib/atomic-write.js';
 import { TDC, WRITE_BATCH_BYTES } from '../lib/tdc.js';
 import { parse } from '../parser/index.js';
+import { describeEngineChoice } from '../processor/render.js';
 import { NO_SEED_CODE } from '../validator/env-seed.js';
 
 import { parallelBlockReason, resolveJobCount, runParallel } from './parallel.js';
@@ -547,6 +548,16 @@ export async function main(argv: readonly string[]): Promise<number> {
       );
     }
 
+    // Engine 3 asked for by name, on a config only engine 1 can build: engine 1
+    // runs it, and the run says so. It used to happen in silence, so a time or a
+    // memory reading taken under `--engine 3` was quietly one of engine 1.
+    const choice = tdc.engineChoice();
+    if (choice.downgraded === true) {
+      process.stderr.write(
+        `tdcv2: note: engine 3 cannot build this config, so engine 1 (in memory) runs it: ${choice.why}\n`,
+      );
+    }
+
     // Memory preflight: bail early if the estimated run exceeds free RAM.
     // A warning is printed but doesn't abort; an error aborts before
     // rendering so the user doesn't wait hours for an OOM crash.
@@ -711,6 +722,9 @@ function runCheck(argv: readonly string[]): number {
     } else {
       process.stderr.write(`tdcv2: ${file} is valid\n`);
     }
+    // Which engine will run it, and why — the full report only; `--brief` is a
+    // format other programs read line by line, and this is not a diagnostic.
+    if (!brief) process.stderr.write(`tdcv2: ${describeEngineChoice(tdc.engineChoice())}\n`);
     return 0;
   } catch (err) {
     if (err instanceof TdcDiagnosticError) {

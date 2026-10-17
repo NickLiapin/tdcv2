@@ -50,7 +50,40 @@ public static class EngineRouter
         TrimToNull(config.Engine) is not null || TrimToNull(config.Mode) == "stream";
 
     /// <summary>The engine a config runs on: 1 in memory, 2 streaming, 3 exact on disk.</summary>
-    public static int Resolve(Config config, DataPacks? packs)
+    public static int Resolve(Config config, DataPacks? packs) => Explain(config, packs).Engine;
+
+    /// <summary>How each engine is named next to its number.</summary>
+    public static string Label(int engine) => engine switch
+    {
+        1 => "in memory",
+        2 => "streaming",
+        _ => "exact, on disk",
+    };
+
+    /// <summary>The engine a run uses, and why — what <c>check</c> prints.</summary>
+    /// <param name="Engine">1 in memory, 2 streaming, 3 exact on disk.</param>
+    /// <param name="Why">The reason, in words.</param>
+    /// <param name="Downgraded">Engine 3 was asked for and engine 1 runs the config instead.</param>
+    public sealed record Choice(int Engine, string Why, bool Downgraded = false)
+    {
+        /// <summary>One line for <c>check</c>: the engine, its name, and the reason.</summary>
+        public string Describe()
+        {
+            string named = $"engine {Engine} ({Label(Engine)})";
+            return Downgraded ? $"runs on {named}, not engine 3: {Why}" : $"runs on {named}: {Why}";
+        }
+    }
+
+    /// <summary>The engine a config runs on, and the reason in words.</summary>
+    /// <remarks>
+    /// Engine 3 asked for by name runs a config the disk route sends to engine 1 on engine 1, and
+    /// says so. It always did that, silently, at the last moment — the lazy build refused and the
+    /// in-memory engine took over — which left nothing for <c>check</c> to report and, past the
+    /// row count where a run splits itself into threads, handed each worker a refusal it could not
+    /// take over from: this implementation exited 1 there. Deciding it here, before the run, is
+    /// the same answer every implementation gives.
+    /// </remarks>
+    public static Choice Explain(Config config, DataPacks? packs)
     {
         string? forced = TrimToNull(config.Engine);
         // engine= wins over mode= — except when the two contradict each other. mode="sequential"
@@ -74,20 +107,31 @@ public static class EngineRouter
                     + "or \"3\" (exact-on-disk)");
             }
 
-            return int.Parse(forced, System.Globalization.CultureInfo.InvariantCulture);
+            if (forced == "3")
+            {
+                Choice disk = DiskRoute(config);
+                if (disk.Engine == 1)
+                {
+                    return disk with { Downgraded = true };
+                }
+            }
+
+            return new Choice(
+                int.Parse(forced, System.Globalization.CultureInfo.InvariantCulture),
+                $"engine=\"{forced}\" on <env>");
         }
 
         string? mode = TrimToNull(config.Mode);
         if (mode == "memory")
         {
-            return 1;
+            return new Choice(1, "mode=\"memory\" on <env>");
         }
 
         // "stream" is the old name for asking for Engine 2 outright, from before mode described
         // the constraint rather than the engine. Kept working; the router is not consulted.
         if (mode == "stream")
         {
-            return 2;
+            return new Choice(2, "mode=\"stream\" on <env>");
         }
 
         // "sequential" computes rows strictly in order, which is what prev() needs and what the
@@ -97,7 +141,7 @@ public static class EngineRouter
         // paid only by a config that asked for it.
         if (mode == "sequential")
         {
-            return 1;
+            return new Choice(1, "mode=\"sequential\" on <env>");
         }
 
         if (mode is not null && mode != "disk")
@@ -106,24 +150,35 @@ public static class EngineRouter
                 $"invalid mode \"{mode}\" — expected \"memory\", \"disk\" or \"sequential\"");
         }
 
+        return DiskRoute(config);
+    }
+
+    /// <summary><c>mode="disk"</c>, the default: the fastest engine the config allows, and why.</summary>
+    private static Choice DiskRoute(Config config)
+    {
+
         // No mode at all means disk: a config says how big its run is, not how to hold it, and the
         // engine that can stream is the right default for a generator whose whole point is volume.
 
         // A template address that names a field resolves per row against the other columns; only
         // the in-memory engine has them all.
-        if (AnyGen(config, gen => gen.Type == "template" && IsDynamic(gen.Attr("value") ?? "")))
+        string? dynamic =
+            GenOwner(config, gen => gen.Type == "template" && IsDynamic(gen.Attr("value") ?? ""));
+        if (dynamic is not null)
         {
-            return 1;
+            return new Choice(1, $"\"{dynamic}\" picks its pack per row");
         }
 
         // weight= with row= draws a linked record to an exact quota, which needs the global total.
-        if (AnyGen(
-                config,
-                gen => gen.Type == "file"
-                    && TrimToNull(gen.Attrs.GetValueOrDefault("weight")) is not null
-                    && TrimToNull(gen.Attrs.GetValueOrDefault("row")) is not null))
+        string? weightedRow = GenOwner(
+            config,
+            gen => gen.Type == "file"
+                && TrimToNull(gen.Attrs.GetValueOrDefault("weight")) is not null
+                && TrimToNull(gen.Attrs.GetValueOrDefault("row")) is not null);
+        if (weightedRow is not null)
         {
-            return 1;
+            return new Choice(
+                1, $"\"{weightedRow}\" draws a weighted row of a file (weight= with row=)");
         }
 
         // A pack generator that declares its own shares used to be routed here, and for
@@ -142,30 +197,76 @@ public static class EngineRouter
         // uniq on a DRAWN value takes WITHOUT REPLACEMENT — simple or composed alike — the pool and the
         // taken-set span the whole column, which only the in-memory engine holds.
         static bool Counting(string type) => type is "increment" or "decrement";
-        if (config.Sequences.Any(s => s.Uniq
+        SequenceSpec? simpleUniq = config.Sequences.FirstOrDefault(s => s.Uniq
             && (s.Gen is not null
                 ? !Counting(s.Gen.Type)
                 : (s.Items ?? Array.Empty<Item>()).Any(
-                    i => i.Gen is not null && i.Field is null && !Counting(i.Gen.Type)))))
+                    i => i.Gen is not null && i.Field is null && !Counting(i.Gen.Type))));
+        if (simpleUniq is not null)
         {
-            return 1;
+            return new Choice(1, $"uniq=\"true\" on \"{simpleUniq.Name}\"");
         }
 
-        if (AnyGen(config, gen => gen.Type == "http"))
+        string? http = GenOwner(config, gen => gen.Type == "http");
+        if (http is not null)
         {
-            return 1;
+            return new Choice(1, $"\"{http}\" calls a web service");
         }
 
         // A <switch> branch that declares a share the streaming engines cannot lay over the
         // right rows. They refuse such a branch rather than apportion it over the wrong
         // denominator, and a refusal reached at build time is not a fallback for every caller.
         // Decide it here, statically, where every path sees the same answer.
-        if (UnstreamableSwitchPercent(config))
+        string? switchShare = UnstreamableSwitchPercent(config);
+        if (switchShare is not null)
         {
-            return 1;
+            return new Choice(1, $"a share inside \"{switchShare}\" needs the whole column");
         }
 
-        return NeedsExact(config) ? 3 : 2;
+        // A column derived from other rows — a running total, a statistic, a date offset — is
+        // refused by name by the streaming builder. Deciding it here keeps that refusal from
+        // reaching a parallel worker, which has nothing to fall back to.
+        string? running = GenOwner(config, gen => gen.Type == "running");
+        if (running is not null)
+        {
+            return new Choice(1, $"\"{running}\" adds up the rows before it");
+        }
+
+        string? stat = GenOwner(config, gen => gen.Type == "stat");
+        if (stat is not null)
+        {
+            return new Choice(1, $"\"{stat}\" is computed over every row");
+        }
+
+        string? offset = GenOwner(
+            config,
+            gen => gen.Type == "date" && TrimToNull(gen.Attrs.GetValueOrDefault("of")) is not null);
+        if (offset is not null)
+        {
+            return new Choice(1, $"\"{offset}\" is a date offset from another column");
+        }
+
+        // parent="Name" with no value narrows a column to the rows where the parent produced
+        // anything, which needs the parent's whole column. Same reason as the three above.
+        foreach (SequenceSpec spec in config.Sequences)
+        {
+            string parent = (spec.Parent ?? "").Trim();
+            if (parent.Length == 0)
+            {
+                continue;
+            }
+
+            int dot = parent.IndexOf('.');
+            if (dot < 0 || parent[(dot + 1)..].Length == 0)
+            {
+                return new Choice(1, $"\"{spec.Name}\" has parent=\"{parent}\" with no value");
+            }
+        }
+
+        string? exact = ExactReason(config);
+        return exact is not null
+            ? new Choice(3, exact)
+            : new Choice(2, "every column can be built one row at a time");
     }
 
     /// <summary>
@@ -220,13 +321,30 @@ public static class EngineRouter
         }
     }
 
-    private static bool UnstreamableSwitchPercent(Config config)
+    private static string? UnstreamableSwitchPercent(Config config)
     {
-        // A NESTED switch is never rankable — its branch covers an intersection of two
-        // partitions, and there is no O(1) rank inside one. So any share it declares, at any
-        // depth, decides engine 1.
+        List<string>? PlainListValues(string name)
+        {
+            SequenceSpec? subject = config.Sequences.FirstOrDefault(s => s.Name == name);
+            Gen? gen = subject?.Gen;
+            if (gen is null || gen.Type != "text")
+            {
+                return null;
+            }
+
+            if (gen.Attr("order") == "sequential" || !string.IsNullOrWhiteSpace(gen.Attr("repeat")))
+            {
+                return null;
+            }
+
+            return gen.Attr("value").Split(',').Select(v => v.Trim()).ToList();
+        }
+
         foreach (SequenceSpec spec in config.Sequences)
         {
+            // A NESTED switch is never rankable — its branch covers an intersection of two
+            // partitions, and there is no O(1) rank inside one. So any share it declares, at any
+            // depth, decides engine 1.
             var bodies = new List<Case?>();
             if (spec.SwitchSpec is not null)
             {
@@ -249,29 +367,9 @@ public static class EngineRouter
                 CaseCarriesPercent(inner.Fallback)
                 || inner.Entries.Any(e => CaseCarriesPercent(e.Value))))
             {
-                return true;
-            }
-        }
-
-        List<string>? PlainListValues(string name)
-        {
-            SequenceSpec? subject = config.Sequences.FirstOrDefault(s => s.Name == name);
-            Gen? gen = subject?.Gen;
-            if (gen is null || gen.Type != "text")
-            {
-                return null;
+                return spec.Name;
             }
 
-            if (gen.Attr("order") == "sequential" || !string.IsNullOrWhiteSpace(gen.Attr("repeat")))
-            {
-                return null;
-            }
-
-            return gen.Attr("value").Split(',').Select(v => v.Trim()).ToList();
-        }
-
-        foreach (SequenceSpec spec in config.Sequences)
-        {
             Switch? sw = spec.SwitchSpec;
             if (sw is null)
             {
@@ -280,7 +378,7 @@ public static class EngineRouter
 
             if (CaseCarriesPercent(sw.Fallback))
             {
-                return true;
+                return spec.Name;
             }
 
             List<string>? values = PlainListValues(sw.On);
@@ -293,12 +391,12 @@ public static class EngineRouter
 
                 if (entry.Keys.Count != 1 || values is null || !values.Contains(entry.Keys[0]))
                 {
-                    return true;
+                    return spec.Name;
                 }
             }
         }
 
-        return false;
+        return null;
     }
 
     /// <summary>
@@ -310,44 +408,40 @@ public static class EngineRouter
     /// inside a pattern. Ordinary exact percentages, switch, distinct and text parent-child all
     /// stream.
     /// </remarks>
-    public static bool NeedsExact(Config config)
+    public static bool NeedsExact(Config config) => ExactReason(config) is not null;
+
+    /// <summary>Why disk mode needs the exact engine, in words; null when it does not.</summary>
+    private static string? ExactReason(Config config)
     {
         var byName = config.Sequences.ToDictionary(s => s.Name, StringComparer.Ordinal);
-
-        // A group REARRANGES the columns it covers — every column keeps its multiset, so every
-        // declared share survives — and that cannot be decided a row at a time. The streaming
-        // engine could only offer a different answer, and two answers from one seed is the thing
-        // this whole design exists to prevent.
-        if (config.EnvUniqGroups.Count > 0)
-        {
-            return true;
-        }
 
         foreach (SequenceSpec spec in config.Sequences)
         {
             if (spec.Uniq)
             {
-                return true;
+                return $"uniq=\"true\" on \"{spec.Name}\"";
             }
 
-            if (spec.Gen is not null && IsWeightedAdvancedRegex(spec.Gen))
+            if ((spec.Gen is not null && IsWeightedAdvancedRegex(spec.Gen))
+                || FieldsOf(spec).Any(f => IsWeightedAdvancedRegex(f.Gen)))
             {
-                return true;
-            }
-
-            if (FieldsOf(spec).Any(f => IsWeightedAdvancedRegex(f.Gen)))
-            {
-                return true;
+                return $"\"{spec.Name}\" has a weighted choice in advanced_regex";
             }
 
             string? parent = TrimToNull(spec.Parent);
             if (parent is not null && !ParentIsFiniteText(byName, parent))
             {
-                return true;
+                return $"\"{spec.Name}\" has parent=\"{parent}\", which is not a list of values";
             }
         }
 
-        return false;
+        // A group REARRANGES the columns it covers — every column keeps its multiset, so every
+        // declared share survives — and that cannot be decided a row at a time. The streaming
+        // engine could only offer a different answer, and two answers from one seed is the thing
+        // this whole design exists to prevent.
+        return config.EnvUniqGroups.Count > 0
+            ? "a <uniq> group over " + string.Join(", ", config.EnvUniqGroups[0].Select(n => $"\"{n}\""))
+            : null;
     }
 
     private static bool ParentIsFiniteText(
@@ -371,23 +465,25 @@ public static class EngineRouter
     /// <summary><c>common.vehicle.model.${{Brand}}</c> — an address not known until the row is.</summary>
     private static bool IsDynamic(string value) => value.Contains("${{");
 
-    /// <summary>Every <c>&lt;gen&gt;</c> in the config, simple or a compound's field.</summary>
-    private static bool AnyGen(Config config, Func<Gen, bool> test)
+    /// <summary>
+    /// The first sequence holding a <c>&lt;gen&gt;</c> — simple or a compound's field — that passes.
+    /// </summary>
+    private static string? GenOwner(Config config, Func<Gen, bool> test)
     {
         foreach (SequenceSpec spec in config.Sequences)
         {
             if (spec.Gen is not null && test(spec.Gen))
             {
-                return true;
+                return spec.Name;
             }
 
             if (FieldsOf(spec).Any(f => f.Gen is not null && test(f.Gen)))
             {
-                return true;
+                return spec.Name;
             }
         }
 
-        return false;
+        return null;
     }
 
     /// <summary>A compound's fields, or nothing — a simple sequence has none rather than an empty list.</summary>

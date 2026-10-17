@@ -544,6 +544,13 @@ class TDC:
         """
         return router.resolve(self._config, self._packs)
 
+    def engine_choice(self) -> router.EngineChoice:
+        """The engine this config runs on and why, in words — what ``check`` prints.
+
+        ``downgraded`` says engine 3 was asked for and engine 1 runs the config instead.
+        """
+        return router.explain(self._config, self._packs)
+
     def uses_http(self) -> bool:
         """Whether this config calls a service — which makes the run non-reproducible."""
         for spec in self._config.sequences:

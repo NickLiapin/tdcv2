@@ -29,8 +29,48 @@ public final class EngineRouter {
 
   private EngineRouter() {}
 
+  /**
+   * The engine a run uses, and why — what {@code check} prints. {@code downgraded} is true when
+   * engine 3 was asked for and engine 1 runs the config instead.
+   */
+  public record Choice(int engine, String why, boolean downgraded) {
+
+    Choice(int engine, String why) {
+      this(engine, why, false);
+    }
+
+    /** One line for {@code check}: the engine, its name, and the reason. */
+    public String describe() {
+      String named = "engine " + engine + " (" + label(engine) + ")";
+      return downgraded ? "runs on " + named + ", not engine 3: " + why : "runs on " + named + ": " + why;
+    }
+  }
+
+  /** How each engine is named next to its number. */
+  public static String label(int engine) {
+    return switch (engine) {
+      case 1 -> "in memory";
+      case 2 -> "streaming";
+      default -> "exact, on disk";
+    };
+  }
+
   /** The engine a config runs on: 1 in memory, 2 streaming, 3 exact on disk. */
   public static int resolve(Config config, DataPacks packs) {
+    return explain(config, packs).engine();
+  }
+
+  /**
+   * The engine a config runs on, and the reason in words.
+   *
+   * <p>Engine 3 asked for by name runs a config the disk route sends to engine 1 on engine 1, and
+   * says so. It always did that, silently, at the last moment — the lazy build refused and the
+   * in-memory engine took over — which left nothing for {@code check} to report and, past the row
+   * count where a run splits itself into threads, handed each worker a refusal it could not take
+   * over from: this implementation exited 1 there. Deciding it here, before the run, is the same
+   * answer every implementation gives.
+   */
+  public static Choice explain(Config config, DataPacks packs) {
     String forced = trimToNull(config.engine());
     // engine= wins over mode= — except when the two contradict each other.
     //
@@ -52,16 +92,22 @@ public final class EngineRouter {
                 + forced
                 + "\" — expected \"1\" (in-memory), \"2\" (streaming), or \"3\" (exact-on-disk)");
       }
-      return Integer.parseInt(forced);
+      if ("3".equals(forced)) {
+        Choice disk = diskRoute(config);
+        if (disk.engine() == 1) {
+          return new Choice(1, disk.why(), true);
+        }
+      }
+      return new Choice(Integer.parseInt(forced), "engine=\"" + forced + "\" on <env>");
     }
     String mode = trimToNull(config.mode());
     if ("memory".equals(mode)) {
-      return 1;
+      return new Choice(1, "mode=\"memory\" on <env>");
     }
     // "stream" is the old name for asking for Engine 2 outright, from before mode described the
     // constraint rather than the engine. Kept working; the router is not consulted.
     if ("stream".equals(mode)) {
-      return 2;
+      return new Choice(2, "mode=\"stream\" on <env>");
     }
     // "sequential" computes rows strictly in order, which is what prev() needs and what the
     // streaming engines cannot promise: engine 2 resolves ANY row in O(1) without touching the
@@ -69,28 +115,38 @@ public final class EngineRouter {
     // materialises in order. The cost is engine 1's — the run is held in memory — and it is
     // paid only by a config that asked for it.
     if ("sequential".equals(mode)) {
-      return 1;
+      return new Choice(1, "mode=\"sequential\" on <env>");
     }
     if (mode != null && !"disk".equals(mode)) {
       throw new IllegalArgumentException(
           "invalid mode \"" + mode + "\" — expected \"memory\", \"disk\" or \"sequential\"");
     }
+    return diskRoute(config);
+  }
+
+  /** {@code mode="disk"}, the default: the fastest engine the config allows, and why. */
+  private static Choice diskRoute(Config config) {
     // No mode at all means disk: a config says how big its run is, not how to hold it, and the
     // engine that can stream is the right default for a generator whose whole point is volume.
 
     // A template address that names a field resolves per row against the other columns; only
     // the in-memory engine has them all.
-    if (anyGen(config, gen -> "template".equals(gen.type()) && isDynamic(gen.attr("value", "")))) {
-      return 1;
+    String dynamic =
+        genOwner(config, gen -> "template".equals(gen.type()) && isDynamic(gen.attr("value", "")));
+    if (dynamic != null) {
+      return new Choice(1, "\"" + dynamic + "\" picks its pack per row");
     }
     // weight= with row= draws a linked record to an exact quota, which needs the global total.
-    if (anyGen(
-        config,
-        gen ->
-            "file".equals(gen.type())
-                && trimToNull(gen.attrs().get("weight")) != null
-                && trimToNull(gen.attrs().get("row")) != null)) {
-      return 1;
+    String weightedRow =
+        genOwner(
+            config,
+            gen ->
+                "file".equals(gen.type())
+                    && trimToNull(gen.attrs().get("weight")) != null
+                    && trimToNull(gen.attrs().get("row")) != null);
+    if (weightedRow != null) {
+      return new Choice(
+          1, "\"" + weightedRow + "\" draws a weighted row of a file (weight= with row=)");
     }
     // A pack generator that declares its own shares used to be routed here, and for a real
     // reason: resolved a row at a time the quota was computed over a single row and every row went
@@ -105,32 +161,65 @@ public final class EngineRouter {
     // A network call is not reproducible, so it never runs on the reproducible path.
     // uniq on a simple sequence draws WITHOUT REPLACEMENT — the pool and the
     // taken-set span the whole column, which only the in-memory engine holds.
-    if (config.sequences().stream()
-        .anyMatch(
-            s ->
-                s.uniq()
-                    && (s.gen() != null
-                        ? !counting(s.gen().type())
-                        : s.items() != null
-                            && s.items().stream()
-                                .anyMatch(
-                                    i ->
-                                        i.gen() != null
-                                            && i.field() == null
-                                            && !counting(i.gen().type()))))) {
-      return 1;
+    for (Config.SequenceSpec s : config.sequences()) {
+      boolean drawn =
+          s.gen() != null
+              ? !counting(s.gen().type())
+              : s.items() != null
+                  && s.items().stream()
+                      .anyMatch(
+                          i -> i.gen() != null && i.field() == null && !counting(i.gen().type()));
+      if (s.uniq() && drawn) {
+        return new Choice(1, "uniq=\"true\" on \"" + s.name() + "\"");
+      }
     }
-    if (anyGen(config, gen -> "http".equals(gen.type()))) {
-      return 1;
+    String http = genOwner(config, gen -> "http".equals(gen.type()));
+    if (http != null) {
+      return new Choice(1, "\"" + http + "\" calls a web service");
     }
     // A <switch> branch that declares a share the streaming engines cannot lay over the right
     // rows. They refuse such a branch rather than apportion it over the wrong denominator, and a
     // refusal reached at build time is not a fallback for every caller. Decide it here,
     // statically, where every path sees the same answer.
-    if (unstreamableSwitchPercent(config)) {
-      return 1;
+    String switchShare = unstreamableSwitchPercent(config);
+    if (switchShare != null) {
+      return new Choice(1, "a share inside \"" + switchShare + "\" needs the whole column");
     }
-    return needsExact(config) ? 3 : 2;
+    // A column derived from other rows — a running total, a statistic, a date offset — is
+    // refused by name by the streaming builder. Deciding it here keeps that refusal from reaching
+    // a parallel worker, which has nothing to fall back to.
+    String running = genOwner(config, gen -> "running".equals(gen.type()));
+    if (running != null) {
+      return new Choice(1, "\"" + running + "\" adds up the rows before it");
+    }
+    String stat = genOwner(config, gen -> "stat".equals(gen.type()));
+    if (stat != null) {
+      return new Choice(1, "\"" + stat + "\" is computed over every row");
+    }
+    String offset =
+        genOwner(
+            config,
+            gen -> "date".equals(gen.type()) && trimToNull(gen.attrs().get("of")) != null);
+    if (offset != null) {
+      return new Choice(1, "\"" + offset + "\" is a date offset from another column");
+    }
+    // parent="Name" with no value narrows a column to the rows where the parent produced
+    // anything, which needs the parent's whole column. Same reason as the three above.
+    for (Config.SequenceSpec spec : config.sequences()) {
+      String parent = trimmed(spec.parent());
+      if (parent.isEmpty()) {
+        continue;
+      }
+      int dot = parent.indexOf('.');
+      if (dot < 0 || parent.substring(dot + 1).isEmpty()) {
+        return new Choice(
+            1, "\"" + spec.name() + "\" has parent=\"" + parent + "\" with no value");
+      }
+    }
+    String exact = exactReason(config);
+    return exact != null
+        ? new Choice(3, exact)
+        : new Choice(2, "every column can be built one row at a time");
   }
 
   /** Does this {@code <case>} body declare a share that the denominator has to be right for? */
@@ -185,11 +274,11 @@ public final class EngineRouter {
     }
   }
 
-  private static boolean unstreamableSwitchPercent(Config config) {
-    // A NESTED switch is never rankable — its branch covers an intersection of two partitions,
-    // and there is no O(1) rank inside one. So any share it declares, at any depth, decides
-    // engine 1.
+  private static String unstreamableSwitchPercent(Config config) {
     for (Config.SequenceSpec spec : config.sequences()) {
+      // A NESTED switch is never rankable — its branch covers an intersection of two partitions,
+      // and there is no O(1) rank inside one. So any share it declares, at any depth, decides
+      // engine 1.
       List<Config.Case> bodies = new ArrayList<>();
       if (spec.switchSpec() != null) {
         for (Config.SwitchEntry entry : spec.switchSpec().entries()) {
@@ -206,23 +295,21 @@ public final class EngineRouter {
       }
       for (Config.Switch inner : nested) {
         if (caseCarriesPercent(inner.fallback())) {
-          return true;
+          return spec.name();
         }
         for (Config.SwitchEntry entry : inner.entries()) {
           if (caseCarriesPercent(entry.value())) {
-            return true;
+            return spec.name();
           }
         }
       }
-    }
 
-    for (Config.SequenceSpec spec : config.sequences()) {
       Config.Switch sw = spec.switchSpec();
       if (sw == null) {
         continue;
       }
       if (caseCarriesPercent(sw.fallback())) {
-        return true;
+        return spec.name();
       }
       List<String> values = plainListValues(config, sw.on());
       for (Config.SwitchEntry entry : sw.entries()) {
@@ -230,11 +317,11 @@ public final class EngineRouter {
           continue;
         }
         if (entry.keys().size() != 1 || values == null || !values.contains(entry.keys().get(0))) {
-          return true;
+          return spec.name();
         }
       }
     }
-    return false;
+    return null;
   }
 
   /** The values of a plain {@code <gen type="text" value="a,b,c">} sequence, or null. */
@@ -268,37 +355,44 @@ public final class EngineRouter {
    * a pattern. Ordinary exact percentages, switch, distinct and text parent-child all stream.
    */
   public static boolean needsExact(Config config) {
+    return exactReason(config) != null;
+  }
+
+  /** Why disk mode needs the exact engine, in words; null when it does not. */
+  private static String exactReason(Config config) {
     Map<String, Config.SequenceSpec> byName = new HashMap<>();
     for (Config.SequenceSpec spec : config.sequences()) {
       byName.put(spec.name(), spec);
     }
 
+    for (Config.SequenceSpec spec : config.sequences()) {
+      if (spec.uniq()) {
+        return "uniq=\"true\" on \"" + spec.name() + "\"";
+      }
+      boolean weighted = spec.gen() != null && isWeightedAdvancedRegex(spec.gen());
+      for (Config.Field field : fieldsOf(spec)) {
+        weighted |= isWeightedAdvancedRegex(field.gen());
+      }
+      if (weighted) {
+        return "\"" + spec.name() + "\" has a weighted choice in advanced_regex";
+      }
+      String parent = trimToNull(spec.parent());
+      if (parent != null && !parentIsFiniteText(byName, parent)) {
+        return "\"" + spec.name() + "\" has parent=\"" + parent + "\", which is not a list of values";
+      }
+    }
     // A group REARRANGES the columns it covers — every column keeps its multiset, so every
     // declared share survives — and that cannot be decided a row at a time. The streaming engine
     // could only offer a different answer, and two answers from one seed is the thing this whole
     // design exists to prevent.
     if (!config.envUniqGroups().isEmpty()) {
-      return true;
+      List<String> names = new ArrayList<>();
+      for (String name : config.envUniqGroups().get(0)) {
+        names.add("\"" + name + "\"");
+      }
+      return "a <uniq> group over " + String.join(", ", names);
     }
-
-    for (Config.SequenceSpec spec : config.sequences()) {
-      if (spec.uniq()) {
-        return true;
-      }
-      if (spec.gen() != null && isWeightedAdvancedRegex(spec.gen())) {
-        return true;
-      }
-      for (Config.Field field : fieldsOf(spec)) {
-        if (isWeightedAdvancedRegex(field.gen())) {
-          return true;
-        }
-      }
-      String parent = trimToNull(spec.parent());
-      if (parent != null && !parentIsFiniteText(byName, parent)) {
-        return true;
-      }
-    }
-    return false;
+    return null;
   }
 
   private static boolean parentIsFiniteText(
@@ -331,18 +425,19 @@ public final class EngineRouter {
     return "increment".equals(type) || "decrement".equals(type);
   }
 
-  private static boolean anyGen(Config config, Predicate<Config.Gen> test) {
+  /** The first sequence holding a {@code <gen>} — simple or a compound's field — that passes. */
+  private static String genOwner(Config config, Predicate<Config.Gen> test) {
     for (Config.SequenceSpec spec : config.sequences()) {
       if (spec.gen() != null && test.test(spec.gen())) {
-        return true;
+        return spec.name();
       }
       for (Config.Field field : fieldsOf(spec)) {
         if (field.gen() != null && test.test(field.gen())) {
-          return true;
+          return spec.name();
         }
       }
     }
-    return false;
+    return null;
   }
 
   /** A compound's fields, or nothing — a simple sequence has none rather than an empty list. */

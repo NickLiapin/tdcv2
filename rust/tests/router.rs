@@ -122,9 +122,18 @@ fn the_exact_engine_is_for_what_streaming_cannot_answer_per_row() {
 
     let number_parent = concat!(
         r#"<sequence name="G"><gen type="number" value="1..9"/></sequence>"#,
-        r#"<sequence name="N" parent="G"><gen type="text" value="a,b"/></sequence>"#
+        r#"<sequence name="N" parent="G.5"><gen type="text" value="a,b"/></sequence>"#
     );
     assert_eq!(engine_for("", number_parent), 3);
+
+    // A parent with no value asks for the rows where the parent produced anything, which
+    // needs its whole column: engine 1, decided here as the reference decides it, rather
+    // than found out when the streaming build refuses.
+    let bare_parent = concat!(
+        r#"<sequence name="G"><gen type="number" value="1..9"/></sequence>"#,
+        r#"<sequence name="N" parent="G"><gen type="text" value="a,b"/></sequence>"#
+    );
+    assert_eq!(engine_for("", bare_parent), 1);
 }
 
 #[test]

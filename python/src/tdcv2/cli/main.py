@@ -355,6 +355,16 @@ def _produce(data: TDC, options: Options) -> int:
             f'Re-run with --seed "{seed.seed}" to reproduce this exact output.'
         )
 
+    # Engine 3 asked for by name, on a config only engine 1 can build: engine 1 runs it, and the
+    # run says so. It used to happen in silence, so a time or a memory reading taken under
+    # `--engine 3` was quietly one of engine 1.
+    choice = data.engine_choice()
+    if choice.downgraded:
+        sys.stderr.write(
+            "tdcv2: note: engine 3 cannot build this config, so engine 1 (in memory) runs it: "
+            f"{choice.why}\n"
+        )
+
     # Ask what the run will cost before starting it. A config that cannot fit says so in a
     # millisecond here and takes minutes to say so by thrashing.
     budget = data.preflight(materialized=options.output is None)
@@ -402,6 +412,10 @@ def _check(argv: list[str]) -> int:
     _report(problems, files[0], data.source, brief=brief)
     if not problems:
         sys.stderr.write(f"tdcv2: {files[0]} is valid\n")
+    # Which engine will run it, and why — the full report only; `--brief` is a format other
+    # programs read line by line, and this is not a diagnostic.
+    if not brief:
+        sys.stderr.write(f"tdcv2: {data.engine_choice().describe()}\n")
     return 0
 
 

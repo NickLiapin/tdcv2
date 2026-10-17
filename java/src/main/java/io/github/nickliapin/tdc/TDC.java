@@ -743,6 +743,14 @@ public final class TDC {
     return EngineRouter.resolve(config, packs);
   }
 
+  /**
+   * The engine this config runs on and why, in words — what {@code check} prints. {@code
+   * downgraded} says engine 3 was asked for and engine 1 runs the config instead.
+   */
+  public EngineRouter.Choice engineChoice() {
+    return EngineRouter.explain(config, packs);
+  }
+
   /** The parsed config, for an output format that needs the schema as well as the values. */
   Config config() {
     return config;

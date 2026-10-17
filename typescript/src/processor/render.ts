@@ -45,16 +45,11 @@ import type {
 import { bundledPacks, resolvePackAddress } from '../data-pack/index.js';
 import type { PackRegistry } from '../data-pack/index.js';
 import { type Diagnostic, TdcDiagnosticError, nodeRange } from '../errors/index.js';
-import {
-  advancedRegexGenerator,
-  advancedRegexHasWeightedChoice,
-  parseAdvancedRegexProgram,
-} from '../generators/advanced-regex.js';
+import { advancedRegexGenerator, parseAdvancedRegexProgram } from '../generators/advanced-regex.js';
 import { dateGenerator } from '../generators/date.js';
 import { fetchHttpValues, httpSeedFor, HttpServiceError } from '../generators/http.js';
 import { resolveHttpSecret } from '../generators/http-secret.js';
 import { fileUniform } from '../generators/file.js';
-import { isDynamicTemplateValue } from '../validator/known.js';
 import { numberGenerator } from '../generators/number.js';
 import { parseRegexMaxLength, regexGenerator } from '../generators/regex.js';
 import { symbolGenerator } from '../generators/symbol.js';
@@ -83,10 +78,24 @@ import type { UniqArrangement, UniqPlan } from '../sequence/build.js';
 import { bucketCountFor } from '../sequence/fingerprint.js';
 import { availableParallelism } from 'node:os';
 import { buildPoolTables } from '../sequence/pool-build.js';
-import type { CaseSpec, SequenceRegistry, SequenceSpec, SwitchSpec } from '../sequence/index.js';
+import type { SequenceRegistry, SequenceSpec } from '../sequence/index.js';
 import { resolveTemplate } from '../templates/resolver.js';
 
 import type { AttrMap } from './attrs.js';
+import { resolveRenderEngine } from './engine-route.js';
+
+// The router lives in its own module; these names were always reached through this one.
+export {
+  describeEngineChoice,
+  ENGINE_LABELS,
+  type EngineChoice,
+  explainRenderEngine,
+  needsExactEngine,
+  resolveRenderEngine,
+  specsUseBareParent,
+  specsUseDerivedColumn,
+  specsUseHttp,
+} from './engine-route.js';
 import { interpolate } from './interpolate.js';
 import {
   contentElements,
@@ -257,8 +266,13 @@ export interface RenderProgress {
  */
 export type EngineMode = 'memory' | 'disk';
 
-/** Either a user mode, or a forced engine id (advanced/`--engine`, for tests). */
-export type EngineSelection = { readonly mode: EngineMode } | { readonly forced: EngineId };
+/**
+ * Either a user mode, or a forced engine id (advanced/`--engine`, for tests).
+ * `why` says where the choice came from, for `check` and the CLI's notes.
+ */
+export type EngineSelection =
+  | { readonly mode: EngineMode; readonly why?: string }
+  | { readonly forced: EngineId; readonly why?: string };
 
 interface RenderState {
   readonly inlineCounters: WeakMap<SelfClosingElementContext, () => string>;
@@ -998,9 +1012,13 @@ function extractEnvConfig(
  * engine later, from the config — deterministically, never from hardware.
  */
 export function resolveEngineSelection(attrs: AttrMap, options: RenderOptions): EngineSelection {
-  if (options.engine !== undefined) return { forced: options.engine };
-  if (options.stream === true) return { forced: 2 };
-  if (options.mode !== undefined) return { mode: options.mode };
+  if (options.engine !== undefined) {
+    return { forced: options.engine, why: `engine ${String(options.engine)} was asked for` };
+  }
+  if (options.stream === true) return { forced: 2, why: 'streaming was asked for' };
+  if (options.mode !== undefined) {
+    return { mode: options.mode, why: `mode "${options.mode}" was asked for` };
+  }
   const engineAttr = attrs['engine'];
   const modeAttr = attrs['mode'];
   /*
@@ -1023,8 +1041,10 @@ export function resolveEngineSelection(attrs: AttrMap, options: RenderOptions): 
         'and only engine 1 does that. Drop one of the two.',
     );
   }
-  if (engineAttr !== undefined && engineAttr !== '') return { forced: parseEngineId(engineAttr) };
-  if (modeAttr === 'stream') return { forced: 2 };
+  if (engineAttr !== undefined && engineAttr !== '') {
+    return { forced: parseEngineId(engineAttr), why: `engine="${engineAttr}" on <env>` };
+  }
+  if (modeAttr === 'stream') return { forced: 2, why: 'mode="stream" on <env>' };
   /*
    * `sequential` computes rows strictly in order, which is what `prev()` needs
    * and what the streaming engines cannot promise: Engine 2 resolves ANY row in
@@ -1035,8 +1055,9 @@ export function resolveEngineSelection(attrs: AttrMap, options: RenderOptions): 
    * of a column that reads its own past, and it is paid only by a config that
    * asked for it.
    */
-  if (modeAttr === 'sequential') return { forced: 1 };
-  if (modeAttr === 'memory' || modeAttr === 'disk') return { mode: modeAttr };
+  if (modeAttr === 'sequential') return { forced: 1, why: 'mode="sequential" on <env>' };
+  if (modeAttr === 'memory') return { mode: modeAttr, why: 'mode="memory" on <env>' };
+  if (modeAttr === 'disk') return { mode: modeAttr };
   if (modeAttr !== undefined && modeAttr !== '') {
     throw new Error(`invalid mode "${modeAttr}" — expected "memory", "disk" or "sequential"`);
   }
@@ -1048,311 +1069,6 @@ function parseEngineId(raw: string): EngineId {
   throw new Error(
     `invalid engine "${raw}" — expected "1" (in-memory), "2" (streaming), or "3" (exact-on-disk)`,
   );
-}
-
-/** Resolve a selection to a concrete engine, routing `disk` mode by config. */
-export function resolveRenderEngine(
-  selection: EngineSelection,
-  specs: readonly SequenceSpec[],
-  envUniqGroups: readonly (readonly string[])[],
-): EngineId {
-  if ('forced' in selection) return selection.forced;
-  if (selection.mode === 'memory') return 1;
-  // A template `value` that interpolates a field (`common.vehicle.model.${{Brand}}`)
-  // resolves its address per row from the sibling registry — neither the lazy
-  // (Engine 2) nor the on-disk (Engine 3) path can do that, only the in-memory
-  // engine. Route disk mode there. (An explicitly forced engine above is honoured
-  // and will error clearly if it can't resolve the address.)
-  if (specsUseDynamicTemplate(specs)) return 1;
-  // `weight=` + `row=` draws a linked CSV row to an exact weighted quota — the
-  // in-memory engine does it; the streaming engines can't weight a per-card row
-  // draw without the global total, so route it to Engine 1 too.
-  if (specsUseWeightedRowLink(specs)) return 1;
-  /*
-   * A pack generator that declares a share used to be routed to Engine 1, and
-   * for a real reason: resolved a row at a time the quota was computed over a
-   * single row and every row went to the largest share, silently.
-   *
-   * The streaming builder plans such a body over the COLUMN now, so the reason
-   * is gone — and keeping the routing rule after the refusal went was worse than
-   * doing nothing, because the config still landed on the engine that holds the
-   * whole table. Measured on a 5,000,000-row `hu.person.male.fullName` column:
-   * Engine 1 wanted 2 GB and died under a 512 MB cap, while the streaming path
-   * finished the same run inside 512 MB.
-   *
-   * One shape still belongs here: a body carrying its own `<valid>`, where
-   * rejecting a row and redrawing it is a whole-column decision with no lazy
-   * form. `wholeColumnPackBody` hands that one back unbuilt and the streaming
-   * builder refuses it, which routes it here the way every other refusal does.
-   */
-  // `uniq="true"` on a simple sequence draws WITHOUT REPLACEMENT — the pool
-  // and the taken-set span the whole column, which the streaming engines
-  // cannot hold row by row. The in-memory engine does it.
-  if (specsUseSimpleUniq(specs)) return 1;
-  // A `type="http"` generator makes a network call and is non-deterministic, so
-  // it never runs on the reproducible streaming/on-disk path — it resolves in
-  // the in-memory engine's async post-pass. Route disk mode to Engine 1. (Forced
-  // engine="2"/"3" is honoured above and fails clearly in the streaming build,
-  // which has no http case.)
-  if (specsUseHttp(specs)) return 1;
-  // A `<switch>` branch that declares a share the streaming engines cannot lay
-  // over the right rows. They REFUSE such a branch rather than apportion it over
-  // the wrong denominator, and a refusal reached at build time is not a fallback
-  // when the run is parallel: `--jobs` hands each worker a FORCED streaming
-  // engine, which has nowhere to fall back to. Measured before this line
-  // existed: a 200,000-row config with `<case is="US|CA|MX">` holding a
-  // percentage produced a full file single-threaded and exited 1 with the
-  // refusal under `--jobs 4`. Decide it here, statically, where both paths see
-  // the same answer.
-  if (specsUseUnstreamableSwitchPercent(specs)) return 1;
-  // A column derived from another column — running, stat, a date offset, a
-  // formula. The streaming builder refuses each by name; deciding it here is
-  // what keeps that refusal from reaching a parallel worker, which has no
-  // fallback. See `specsUseDerivedColumn` for what this cost before.
-  if (specsUseDerivedColumn(specs)) return 1;
-  // `parent="Name"` with no value narrows a column to the rows where the parent
-  // produced ANYTHING, which the streaming builder refuses because it cannot know
-  // that without the parent's whole column. Same reason as the two lines above:
-  // the refusal is only a fallback on the single-threaded path, and `--jobs`
-  // hands each worker a FORCED streaming engine with nowhere to fall back to.
-  // Measured before this line existed: the hierarchical-dependencies page's own
-  // valueless-`parent` example wrote 99,999 rows and exited 0, then wrote a
-  // ZERO-BYTE file and exited 1 at 100,000 — `AUTO_JOBS_MIN_ROWS`, the point
-  // where the run parallelises itself. `check` called it valid at both sizes.
-  if (specsUseBareParent(specs)) return 1;
-  // disk mode: the fastest engine the config allows.
-  return needsExactEngine(specs, envUniqGroups) ? 3 : 2;
-}
-
-/** Does this `<case>` body declare a share that the denominator has to be right for? */
-function caseCarriesPercent(body: CaseSpec | undefined): boolean {
-  return (body?.parts ?? []).some(
-    (part) =>
-      (part.kind === 'mix' && (part.mixSpec.attrs['percent'] ?? '').trim() !== '') ||
-      (part.kind === 'gen' && (part.gen.attrs['percent'] ?? '').trim() !== ''),
-  );
-}
-
-/**
- * A `<switch>` branch whose share the streaming engines cannot honour.
- *
- * They can subset a branch keyed on ONE value of a plain values list — the same
- * bijection `parent="Gender.Male"` uses. They cannot rank a multi-key branch
- * (`US|CA|MX` is a union, and ranks across a union do not compose), nor
- * `<default>` (a complement, which nothing enumerates), nor any branch whose
- * subject is not a finite values list to begin with.
- *
- * Deliberately conservative: anything it cannot prove streamable goes to
- * Engine 1, which costs speed on an exotic config and never costs correctness.
- * The opposite mistake is the one that ends a run.
- */
-function specsUseUnstreamableSwitchPercent(specs: readonly SequenceSpec[]): boolean {
-  const plainListValues = (name: string): readonly string[] | undefined => {
-    const subject = specs.find((s) => s.name === name);
-    const gen = subject?.gen;
-    if (gen?.type !== 'text') return undefined;
-    if ((gen.attrs['order'] ?? '') === 'sequential') return undefined;
-    if ((gen.attrs['repeat'] ?? '').trim() !== '') return undefined;
-    return (gen.attrs['value'] ?? '').split(',').map((v) => v.trim());
-  };
-
-  const topLevelUnstreamable = (sw: SwitchSpec): boolean => {
-    if (caseCarriesPercent(sw.fallback)) return true;
-    const values = plainListValues(sw.on);
-    return sw.entries.some((entry) => {
-      if (!caseCarriesPercent(entry.value)) return false;
-      const key = entry.keys.length === 1 ? entry.keys[0] : undefined;
-      return key === undefined || !values?.includes(key);
-    });
-  };
-
-  // A NESTED switch is never rankable — its branch covers an intersection of two
-  // partitions, and there is no O(1) rank inside one. So any share it declares,
-  // at any depth, decides Engine 1.
-  const nestedUnstreamable = (sw: SwitchSpec): boolean =>
-    caseCarriesPercent(sw.fallback) || sw.entries.some((e) => caseCarriesPercent(e.value));
-
-  return specs.some((spec) => {
-    const nested = [
-      ...(spec.switchSpec
-        ? [...spec.switchSpec.entries.map((e) => e.value), spec.switchSpec.fallback]
-        : []),
-      ...(spec.mixSpec?.cases ?? []),
-    ].flatMap((body) => nestedSwitches(body));
-    if (nested.some(nestedUnstreamable)) return true;
-    return spec.switchSpec !== undefined && topLevelUnstreamable(spec.switchSpec);
-  });
-}
-
-/** Every `<switch>` written inside this `<case>` body, at any depth. */
-function nestedSwitches(body: CaseSpec | undefined): SwitchSpec[] {
-  const found: SwitchSpec[] = [];
-  const visit = (c: CaseSpec | undefined): void => {
-    for (const part of c?.parts ?? []) {
-      if (part.kind === 'switch') {
-        found.push(part.switchSpec);
-        for (const entry of part.switchSpec.entries) visit(entry.value);
-        visit(part.switchSpec.fallback);
-      } else if (part.kind === 'mix') {
-        for (const inner of part.mixSpec.cases) visit(inner);
-      }
-    }
-  };
-  visit(body);
-  return found;
-}
-
-/** Any `<gen type="http">` — the network-backed generator. */
-export function specsUseHttp(specs: readonly SequenceSpec[]): boolean {
-  return anyGen(specs, (g) => g.type === 'http');
-}
-
-/**
- * True if any sequence is a column DERIVED from another column.
- *
- * `running`, `stat` and a date offset are built in declaration order out of
- * columns that already exist, and the streaming builder refuses each by name.
- *
- * `formula` is NOT in this list, and the difference is the whole point: it reads
- * only its OWN row, so it streams — see the formula case in `stream-build.ts`.
- * `running` needs every row before this one and `stat` needs every row at all,
- * which is not a gap in the streaming builder but what those two constructs
- * mean. A date offset needs only its own row too and could join `formula` once
- * its instant-column bookkeeping is taught to resolve lazily. Before this existed the refusal was left to the build,
- * which worked single-threaded — the auto-routed disk mode caught it and fell
- * back to the in-memory engine — and then died above the row count where the
- * run goes parallel, because each worker gets a FORCED streaming engine with
- * nowhere to fall back to. The message it printed was the worst part: "run
- * without a forced streaming engine", to a user who had forced nothing.
- *
- * Measured on 0.2.1, before this line: a 200,000-row config with `running`,
- * with `stat`, with `<gen type="date" of=…>`, and with `formula` all produced a
- * full file at 5,000 rows and exited 1 at 200,000. Three of those four are
- * SHIPPED features.
- *
- * So the decision moves here, where it is static and both paths see the same
- * answer — exactly the reasoning `specsUseUnstreamableSwitchPercent` already
- * carries, applied to the case it did not cover.
- */
-export function specsUseDerivedColumn(specs: readonly SequenceSpec[]): boolean {
-  return anyGen(
-    specs,
-    (g) =>
-      g.type === 'running' ||
-      g.type === 'stat' ||
-      (g.type === 'date' && (g.attrs['of'] ?? '').trim() !== ''),
-  );
-}
-
-/**
- * Any sequence whose `parent=` names a sequence but not one of its VALUES.
- *
- * `parent="Country.US"` is a filter the streaming engines can evaluate a row at a
- * time: the row either drew `US` or it did not. `parent="Country"` asks a different
- * question — "the rows where Country produced anything at all" — and answering it
- * needs the parent's finished column, which is exactly what streaming does not have.
- * The condition is kept identical to `domainOf` in `sequence/stream-build.ts`, which
- * is the code that would otherwise refuse it mid-run.
- */
-export function specsUseBareParent(specs: readonly SequenceSpec[]): boolean {
-  return specs.some((s) => {
-    const parent = (s.parent ?? '').trim();
-    if (parent === '') return false;
-    const dot = parent.indexOf('.');
-    return dot < 0 || parent.slice(dot + 1).length === 0;
-  });
-}
-
-/** True if any `<gen>` in `specs` (simple or compound field) satisfies `pred`. */
-function anyGen(
-  specs: readonly SequenceSpec[],
-  pred: (gen: { readonly type: string; readonly attrs: AttrMap }) => boolean,
-): boolean {
-  const check = (gen: { readonly type: string; readonly attrs: AttrMap } | undefined): boolean =>
-    gen !== undefined && pred(gen);
-  return specs.some((s) => check(s.gen) || (s.gens ?? []).some((f) => check(f.gen)));
-}
-
-/** Any simple `<gen type="template">` whose `value` interpolates a field. */
-function specsUseDynamicTemplate(specs: readonly SequenceSpec[]): boolean {
-  return anyGen(
-    specs,
-    (g) => g.type === 'template' && isDynamicTemplateValue(g.attrs['value'] ?? ''),
-  );
-}
-
-/**
- * Any sequence carrying `uniq="true"` whose value is DRAWN — a whole-column draw.
- *
- * Both the simple shape (one anonymous `<gen>`) and the composed one (a drawn
- * part plus constants) take from a pool without replacement, and the pool and
- * the taken-set span the whole column. Missing the composed shape is what sent
- * such a config to a streaming engine, where one implementation crashed, one
- * refused and three ignored the attribute in silence.
- */
-function specsUseSimpleUniq(specs: readonly SequenceSpec[]): boolean {
-  const counting = (type: string): boolean => type === 'increment' || type === 'decrement';
-  return specs.some((s) => {
-    if (s.uniq !== true) return false;
-    if (s.gen !== undefined) return !counting(s.gen.type);
-    return (s.items ?? []).some((i) => i.kind === 'gen' && !counting(i.gen.type));
-  });
-}
-
-/** Any `<gen type="file">` that combines `weight=` and `row=`. */
-function specsUseWeightedRowLink(specs: readonly SequenceSpec[]): boolean {
-  return anyGen(
-    specs,
-    (g) =>
-      g.type === 'file' &&
-      (g.attrs['weight'] ?? '').trim() !== '' &&
-      (g.attrs['row'] ?? '').trim() !== '',
-  );
-}
-
-/**
- * True if the config needs Engine 3 rather than Engine 2 for disk mode — i.e.
- * it uses something Engine 2 can't do lazily: ANY `uniq`, a parent-child whose
- * parent isn't a finite text sequence, or an `advanced_regex` weighted choice
- * `(?%{…})` (exact percentages need the whole column). Everything else (exact
- * %, switch, distinct, text parent-child) streams fine on Engine 2.
- *
- * `uniq` is here in full, and that is a deliberate cost. A group REARRANGES the
- * columns it covers — every column keeps its multiset, so every declared share
- * survives — and that cannot be decided a row at a time. Engine 2 could only
- * offer a different answer: a mixed-radix bijection over the whole combination
- * space, which is uniform over combinations and discards the values actually
- * drawn. Two engines, two datasets from one seed. Sending uniq to Engine 3
- * costs a uniq config the lazy path and buys back one answer everywhere.
- */
-export function needsExactEngine(
-  specs: readonly SequenceSpec[],
-  envUniqGroups: readonly (readonly string[])[],
-): boolean {
-  const specByName = new Map(specs.map((s) => [s.name, s]));
-  const parentIsFiniteText = (ref: string): boolean =>
-    specByName.get(ref.split('.')[0] ?? ref)?.gen?.type === 'text';
-  // A weighted-choice advanced_regex can't be materialized lazily (see the
-  // streaming builder's matching refusal). Checked on a simple or compound
-  // field; exotic nestings (mix/switch/conditional) still route correctly via
-  // the streaming builder's throw + auto-fallback, this just makes it explicit.
-  const isWeightedAdvancedRegex = (gen: {
-    readonly type: string;
-    readonly attrs: AttrMap;
-  }): boolean =>
-    gen.type === 'advanced_regex' && advancedRegexHasWeightedChoice(gen.attrs['value'] ?? '');
-
-  for (const spec of specs) {
-    if (spec.uniq) return true;
-    if (spec.gen && isWeightedAdvancedRegex(spec.gen)) return true;
-    for (const field of spec.gens ?? []) {
-      if (isWeightedAdvancedRegex(field.gen)) return true;
-    }
-    // A child whose parent isn't a finite text sequence — Engine 2 can't nest there.
-    if (spec.parent && !parentIsFiniteText(spec.parent)) return true;
-  }
-  if (envUniqGroups.length > 0) return true;
-  return false;
 }
 
 /**

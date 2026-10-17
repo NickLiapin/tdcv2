@@ -167,11 +167,19 @@ tdcv2: a statistic ("Avg") is computed over every row of the run, including the 
 ```
 
 A forced `--engine 3` is the exception, and worth knowing before you measure anything:
-it refuses only a `uniq` too tight for its bounded repair, and on every other shape in the
-list above it falls back to the in-memory engine and prints its bytes — exit 0, no message.
-Deliberately so, because those shapes are the ones the lazy path cannot express at all and
-covering them is what engine 3 is for. It does mean a memory reading taken with
-`--engine 3` on one of them is a reading of engine 1.
+it refuses only a `uniq` too tight for its bounded repair, and hands every other shape in the
+list above to the in-memory engine, which prints the bytes — exit 0. That is deliberate:
+those shapes are the ones the lazy path cannot express at all, and covering them is what
+engine 3 is for. The run says so on stderr, because a memory reading taken with
+`--engine 3` on one of them is a reading of engine 1:
+
+`./run report.tdc --engine 3`
+
+```
+tdcv2: note: engine 3 cannot build this config, so engine 1 (in memory) runs it: \"R\" adds up the rows before it
+```
+
+[`tdcv2 check`](../reference/cli.md#tdcv2-check) prints the same choice before anything runs.
 
 ### What streams that you might expect not to
 

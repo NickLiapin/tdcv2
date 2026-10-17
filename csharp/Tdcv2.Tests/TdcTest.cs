@@ -196,11 +196,12 @@ public class TdcTest
             2, new Tdc(new Tdc.Options { ConfigString = People, Mode = "disk" }).Engine);
     }
 
-    /// <summary>A config the router sends to engine 2 that engine 2 turns out not to be able to build.</summary>
+    /// <summary>A config engine 2 cannot build, which nothing named an engine for.</summary>
     /// <remarks>
     /// A running total: row nine million IS the sum of everything before it, so no engine that works
-    /// a row at a time can answer it — but nothing in the config's shape says so before the engine
-    /// tries.
+    /// a row at a time can answer it. The router used to send it to engine 2 and find out when the
+    /// build refused; it now reads the shape first, as the reference does, so a run split into
+    /// threads never hands a worker that refusal.
     /// </remarks>
     private const string RoutedThenRefused =
         "<tdc><env count=\"6\" seed=\"ledger\" local=\"en\">"
@@ -213,7 +214,7 @@ public class TdcTest
     {
         // Nothing asked for the streaming engine, so nothing is owed a refusal: the run belongs to
         // whichever engine can answer it, and the answer is the in-memory engine's.
-        Assert.Equal(2, Build(RoutedThenRefused).Engine);
+        Assert.Equal(1, Build(RoutedThenRefused).Engine);
         Assert.Equal(
             "399 399\n-246 153\n-270 -117\n159 42\n24 66\n-400 -334\n",
             Build(RoutedThenRefused).ToString());

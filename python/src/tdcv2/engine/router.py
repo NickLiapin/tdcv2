@@ -16,14 +16,49 @@ available and the reason these checks exist.
 from __future__ import annotations
 
 from collections.abc import Callable
+from dataclasses import dataclass
 
 from ..generators import advanced_regex
 from ..model.config import Config, Gen
 from ..packs import DataPacks
 
+#: How each engine is named next to its number.
+ENGINE_LABELS = {1: "in memory", 2: "streaming", 3: "exact, on disk"}
+
+
+@dataclass(frozen=True)
+class EngineChoice:
+    """The engine a run uses, and why — what ``check`` prints.
+
+    ``downgraded`` is true when engine 3 was asked for and engine 1 runs the config instead.
+    """
+
+    engine: int
+    why: str
+    downgraded: bool = False
+
+    def describe(self) -> str:
+        """One line for ``check``: the engine, its name, and the reason."""
+        named = f"engine {self.engine} ({ENGINE_LABELS[self.engine]})"
+        if self.downgraded:
+            return f"runs on {named}, not engine 3: {self.why}"
+        return f"runs on {named}: {self.why}"
+
 
 def resolve(config: Config, packs: DataPacks | None = None) -> int:
     """The engine a config runs on: 1 in memory, 2 streaming, 3 exact on disk."""
+    return explain(config, packs).engine
+
+
+def explain(config: Config, packs: DataPacks | None = None) -> EngineChoice:
+    """The engine a config runs on, and the reason in words.
+
+    Engine 3 asked for by name runs a config the disk route sends to engine 1 on engine 1, and
+    says so. It always did that, silently, at the last moment — the lazy build refused and the
+    in-memory engine took over — which left nothing for ``check`` to report and, past the row
+    count where a run splits itself into threads, handed each worker a refusal it could not take
+    over from. Deciding it here, before the run, is the same answer every implementation gives.
+    """
     forced = _trim_to_none(config.engine)
     mode_for_conflict = _trim_to_none(config.mode)
     # `engine=` wins over `mode=` — except when the two contradict. `mode="sequential"`
@@ -42,39 +77,54 @@ def resolve(config: Config, packs: DataPacks | None = None) -> int:
                 f'invalid engine "{forced}" — expected "1" (in-memory), "2" (streaming), '
                 'or "3" (exact-on-disk)'
             )
-        return int(forced)
+        if forced == "3":
+            disk = _disk_route(config)
+            if disk.engine == 1:
+                return EngineChoice(1, disk.why, downgraded=True)
+        return EngineChoice(int(forced), f'engine="{forced}" on <env>')
 
     mode = _trim_to_none(config.mode)
     if mode == "memory":
-        return 1
+        return EngineChoice(1, 'mode="memory" on <env>')
     # Rows strictly in order, so `prev()` has a previous row. Engine 2 resolves ANY row
     # in O(1) without touching the one before it — that is its design, and it is what
     # this mode cannot be built on. The cost is engine 1's: the run is held in memory.
     if mode == "sequential":
-        return 1
+        return EngineChoice(1, 'mode="sequential" on <env>')
     if mode == "stream":
         # The old name for asking for Engine 2 outright, from before mode described the constraint
         # rather than the engine. Kept working; the router is not consulted.
-        return 2
+        return EngineChoice(2, 'mode="stream" on <env>')
     if mode is not None and mode != "disk":
         raise ValueError(f'invalid mode "{mode}" — expected "memory", "disk" or "sequential"')
+    return _disk_route(config)
+
+
+def _disk_route(config: Config) -> EngineChoice:
+    """``mode="disk"``, the default: the fastest engine the config allows, and why."""
     # No mode at all means disk: a config says how big its run is, not how to hold it, and the
     # engine that can stream is the right default for a generator whose whole point is volume.
 
     # A template address that names a field resolves per row against the other columns; only the
     # in-memory engine has them all.
-    if _any_gen(config, lambda gen: gen.type == "template" and _is_dynamic(gen.attr("value"))):
-        return 1
+    dynamic = _gen_owner(
+        config, lambda gen: gen.type == "template" and _is_dynamic(gen.attr("value"))
+    )
+    if dynamic is not None:
+        return EngineChoice(1, f'"{dynamic}" picks its pack per row')
     # weight= with row= draws a linked record to an exact quota, which needs the global total.
-    if _any_gen(
+    weighted_row = _gen_owner(
         config,
         lambda gen: (
             gen.type == "file"
             and _trim_to_none(gen.attrs.get("weight")) is not None
             and _trim_to_none(gen.attrs.get("row")) is not None
         ),
-    ):
-        return 1
+    )
+    if weighted_row is not None:
+        return EngineChoice(
+            1, f'"{weighted_row}" draws a weighted row of a file (weight= with row=)'
+        )
     # A pack generator that declares its own shares used to be routed here, and for a real
     # reason: resolved a row at a time the quota was computed over a single row and every row went
     # to the largest share. The streaming builder plans such a body over the COLUMN now, so the
@@ -87,9 +137,8 @@ def resolve(config: Config, packs: DataPacks | None = None) -> int:
     # every other unstreamable config does: the streaming builder refuses it by name.
     # uniq on a DRAWN value takes WITHOUT REPLACEMENT — simple or composed alike — the pool and the
     # taken-set span the whole column, which only the in-memory engine holds.
-    if any(
-        s.uniq
-        and (
+    for s in config.sequences:
+        if s.uniq and (
             s.gen.type not in ("increment", "decrement")
             if s.gen is not None
             else any(
@@ -98,20 +147,43 @@ def resolve(config: Config, packs: DataPacks | None = None) -> int:
                 and i.gen.type not in ("increment", "decrement")
                 for i in (s.items or [])
             )
-        )
-        for s in config.sequences
-    ):
-        return 1
+        ):
+            return EngineChoice(1, f'uniq="true" on "{s.name}"')
     # A network call is not reproducible, so it never runs on the reproducible path.
-    if _any_gen(config, lambda gen: gen.type == "http"):
-        return 1
+    http = _gen_owner(config, lambda gen: gen.type == "http")
+    if http is not None:
+        return EngineChoice(1, f'"{http}" calls a web service')
     # A <switch> branch that declares a share the streaming engines cannot lay over the right
     # rows. They refuse such a branch rather than apportion it over the wrong denominator, and a
     # refusal reached at build time is not a fallback for every caller. Decide it here,
     # statically, where every path sees the same answer.
-    if _unstreamable_switch_percent(config):
-        return 1
-    return 3 if needs_exact(config) else 2
+    switch_share = _unstreamable_switch_percent(config)
+    if switch_share is not None:
+        return EngineChoice(1, f'a share inside "{switch_share}" needs the whole column')
+    # A column derived from other rows — a running total, a statistic, a date offset — is
+    # refused by name by the streaming builder. Deciding it here keeps that refusal from reaching
+    # a parallel worker, which has nothing to fall back to.
+    running = _gen_owner(config, lambda gen: gen.type == "running")
+    if running is not None:
+        return EngineChoice(1, f'"{running}" adds up the rows before it')
+    stat = _gen_owner(config, lambda gen: gen.type == "stat")
+    if stat is not None:
+        return EngineChoice(1, f'"{stat}" is computed over every row')
+    offset = _gen_owner(
+        config, lambda gen: gen.type == "date" and _trim_to_none(gen.attrs.get("of")) is not None
+    )
+    if offset is not None:
+        return EngineChoice(1, f'"{offset}" is a date offset from another column')
+    # `parent="Name"` with no value narrows a column to the rows where the parent produced
+    # anything, which needs the parent's whole column. Same reason as the three above.
+    for spec in config.sequences:
+        parent = (spec.parent or "").strip()
+        if parent and ("." not in parent or parent[parent.index(".") + 1 :] == ""):
+            return EngineChoice(1, f'"{spec.name}" has parent="{parent}" with no value')
+    exact = _exact_reason(config)
+    if exact is not None:
+        return EngineChoice(3, exact)
+    return EngineChoice(2, "every column can be built one row at a time")
 
 
 def _case_carries_percent(case) -> bool:
@@ -125,7 +197,7 @@ def _case_carries_percent(case) -> bool:
     )
 
 
-def _unstreamable_switch_percent(config: Config) -> bool:
+def _unstreamable_switch_percent(config: Config) -> str | None:
     """A ``<switch>`` branch whose share the streaming engines cannot honour.
 
     They can subset a branch keyed on ONE value of a plain values list — the same bijection
@@ -184,19 +256,19 @@ def _unstreamable_switch_percent(config: Config) -> bool:
                 if _case_carries_percent(nested.fallback) or any(
                     _case_carries_percent(e.value) for e in nested.entries
                 ):
-                    return True
+                    return spec.name
 
         if sw is None:
             continue
         if _case_carries_percent(sw.fallback):
-            return True
+            return spec.name
         values = plain_list_values(sw.on)
         for entry in sw.entries:
             if not _case_carries_percent(entry.value):
                 continue
             if len(entry.keys) != 1 or values is None or entry.keys[0] not in values:
-                return True
-    return False
+                return spec.name
+    return None
 
 
 def needs_exact(config: Config) -> bool:
@@ -211,23 +283,29 @@ def needs_exact(config: Config) -> bool:
     be decided a row at a time. The streaming engine could only offer a different answer, and two
     answers from one seed is the thing this whole design exists to prevent.
     """
-    by_name = {spec.name: spec for spec in config.sequences}
+    return _exact_reason(config) is not None
 
-    if config.env_uniq_groups:
-        return True
+
+def _exact_reason(config: Config) -> str | None:
+    """Why disk mode needs the exact engine, in words; None when it does not."""
+    by_name = {spec.name: spec for spec in config.sequences}
 
     for spec in config.sequences:
         if spec.uniq:
-            return True
+            return f'uniq="true" on "{spec.name}"'
+        weighted = f'"{spec.name}" has a weighted choice in advanced_regex'
         if spec.gen is not None and _is_weighted_advanced_regex(spec.gen):
-            return True
+            return weighted
         for f in _fields_of(spec):
             if _is_weighted_advanced_regex(f.gen):
-                return True
+                return weighted
         parent = _trim_to_none(spec.parent)
         if parent is not None and not _parent_is_finite_text(by_name, parent):
-            return True
-    return False
+            return f'"{spec.name}" has parent="{parent}", which is not a list of values'
+    if config.env_uniq_groups:
+        group = ", ".join(f'"{name}"' for name in config.env_uniq_groups[0])
+        return f"a <uniq> group over {group}"
+    return None
 
 
 def _parent_is_finite_text(by_name, reference: str) -> bool:
@@ -326,15 +404,15 @@ def _is_dynamic(value: str) -> bool:
     return "${{" in value
 
 
-def _any_gen(config: Config, test: Callable[[Gen], bool]) -> bool:
-    """Every ``<gen>`` in the config, simple or a compound's field."""
+def _gen_owner(config: Config, test: Callable[[Gen], bool]) -> str | None:
+    """The first sequence holding a ``<gen>`` — simple or a compound's field — that passes."""
     for spec in config.sequences:
         if spec.gen is not None and test(spec.gen):
-            return True
+            return spec.name
         for f in _fields_of(spec):
             if f.gen is not None and test(f.gen):
-                return True
-    return False
+                return spec.name
+    return None
 
 
 def _fields_of(spec):

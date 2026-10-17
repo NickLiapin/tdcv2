@@ -45,7 +45,8 @@ import {
   renderAsync,
   renderStream,
   resolveEngineSelection,
-  resolveRenderEngine,
+  explainRenderEngine,
+  type EngineChoice,
   specsUseHttp,
 } from '../processor/render.js';
 import { extractEnvUniqGroups, extractSequenceSpecs } from '../sequence/index.js';
@@ -362,6 +363,16 @@ export class TDC {
    * resolved with the same precedence + disk-mode routing as the renderer.
    */
   private resolveEngine(): EngineId {
+    return this.engineChoice().engine;
+  }
+
+  /**
+   * The engine this run uses and why, in words — what `check` prints, and what
+   * a run says when engine 3 was asked for and engine 1 runs the config.
+   *
+   * @internal Engine choice is a cost, not a contract — see `usesStreamEngine`.
+   */
+  public engineChoice(): EngineChoice {
     const envEl = findEnv(this.tree);
     const attrs = envEl ? extractAttrs(envEl.attr()) : {};
     const selection = resolveEngineSelection(attrs, {
@@ -385,7 +396,7 @@ export class TDC {
     // before this fix: the same weight=+row= config produced 50,000 rows and
     // then, at 100,000, exited 1 with zero rows and a message telling the reader
     // to "run without a forced streaming engine" they had never asked for.
-    return resolveRenderEngine(selection, extractSequenceSpecs(envEl), extractEnvUniqGroups(envEl));
+    return explainRenderEngine(selection, extractSequenceSpecs(envEl), extractEnvUniqGroups(envEl));
   }
 
   /** Resolved card count (CLI/API override beats env). Public for the parallel CLI. */

@@ -329,6 +329,16 @@ public final class Main {
               + "\" to reproduce this exact output.");
     }
 
+    // Engine 3 asked for by name, on a config only engine 1 can build: engine 1 runs it, and the
+    // run says so. It used to happen in silence, so a time or a memory reading taken under
+    // `--engine 3` was quietly one of engine 1.
+    io.github.nickliapin.tdc.engine.EngineRouter.Choice choice = data.engineChoice();
+    if (choice.downgraded()) {
+      note(
+          "note: engine 3 cannot build this config, so engine 1 (in memory) runs it: "
+              + choice.why());
+    }
+
     // Ask what the run will cost before starting it. A config that cannot fit says so in a
     // millisecond here and takes minutes to say so by thrashing.
     Diagnostic budget = data.preflight(options.output() == null);
@@ -396,6 +406,11 @@ public final class Main {
     report(problems, files.get(0), data.source(), brief);
     if (problems.isEmpty()) {
       System.err.println("tdcv2: " + files.get(0) + " is valid");
+    }
+    // Which engine will run it, and why — the full report only; `--brief` is a format other
+    // programs read line by line, and this is not a diagnostic.
+    if (!brief) {
+      System.err.println("tdcv2: " + data.engineChoice().describe());
     }
     return 0;
   }

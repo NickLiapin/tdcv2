@@ -55,7 +55,10 @@
     "repeatAccumulateOverText": "<tdc><env count=\"3\" seed=\"t\" local=\"en\"><sequence name=\"S\"><gen type=\"text\" value=\"abc\" repeat=\"3\" accumulate=\"sum\"/></sequence></env><block><line><data>${{S}}</data></line></block></tdc>",
     "offsetFromNumberParquet": "<tdc><env count=\"5\" seed=\"t\" local=\"en\"><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"C\"><gen type=\"date\" of=\"N\" plus=\"1d\" format=\"YYYY-MM-DD\"/></sequence></env><block><line><data name=\"c\">${{C}}</data></line></block></tdc>",
     "divideByZeroLastRow": "<tdc><env count=\"200000\" seed=\"t\" local=\"en\"><sequence name=\"N\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"F\"><gen type=\"formula\" expr=\"1 / (N - 200000)\"/></sequence></env><block><line><data>${{F}}</data></line></block></tdc>",
-    "misspelledPercent": "<tdc>\n  <env count=\"3\" seed=\"demo\">\n    <sequence name=\"Status\"><gen type=\"text\" value=\"ok,fail\" persent=\"90,10\"/></sequence>\n  </env>\n  <block><line><data>${{Status}}</data></line></block>\n</tdc>\n"
+    "misspelledPercent": "<tdc>\n  <env count=\"3\" seed=\"demo\">\n    <sequence name=\"Status\"><gen type=\"text\" value=\"ok,fail\" persent=\"90,10\"/></sequence>\n  </env>\n  <block><line><data>${{Status}}</data></line></block>\n</tdc>\n",
+    "uniqColumn": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"Code\" uniq=\"true\"><gen type=\"number\" value=\"1..9\"/></sequence></env><block><line><data>${{Code}}</data></line></block></tdc>",
+    "runningOnEngine3": "<tdc><env count=\"4\" seed=\"s\" local=\"en\" engine=\"3\"><sequence name=\"N\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"R\"><gen type=\"running\" of=\"N\" accumulate=\"sum\"/></sequence></env><block><line><data>${{N}} ${{R}}</data></line></block></tdc>",
+    "runningBig": "<tdc><env count=\"120000\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"R\"><gen type=\"running\" of=\"N\" accumulate=\"sum\"/></sequence></env><block><line><data>${{N}} ${{R}}</data></line></block></tdc>"
   },
   "cases": [
     {
@@ -306,6 +309,69 @@
       "argv": ["check", "{dir}/a.tdc"],
       "exit": 0,
       "stdout": ""
+    },
+    {
+      "name": "check names the engine that will run the config, and why",
+      "files": {
+        "a.tdc": "@uniqColumn"
+      },
+      "argv": ["check", "{dir}/a.tdc"],
+      "exit": 0,
+      "stdout": "",
+      "stderrContains": [
+        "is valid",
+        "tdcv2: runs on engine 1 (in memory): uniq=\"true\" on \"Code\"\n"
+      ],
+      "note": "Asked for by a plugin agent that spent an hour finding out by trying --engine 1, 2 and 3 in turn. The full report only: --brief is read line by line by other programs, and the seed-warning case below pins its exact stderr."
+    },
+    {
+      "name": "check names the streaming engine when every column streams",
+      "files": {
+        "a.tdc": "@tiny"
+      },
+      "argv": ["check", "{dir}/a.tdc"],
+      "exit": 0,
+      "stderrContains": [
+        "tdcv2: runs on engine 2 (streaming): every column can be built one row at a time\n"
+      ]
+    },
+    {
+      "name": "check says when engine 3 is asked for and engine 1 runs the config",
+      "files": {
+        "a.tdc": "@runningOnEngine3"
+      },
+      "argv": ["check", "{dir}/a.tdc"],
+      "exit": 0,
+      "stderrContains": [
+        "tdcv2: runs on engine 1 (in memory), not engine 3: \"R\" adds up the rows before it\n"
+      ]
+    },
+    {
+      "name": "a run asked to use engine 3 says when engine 1 runs it instead",
+      "files": {
+        "a.tdc": "@runningOnEngine3"
+      },
+      "argv": ["{dir}/a.tdc"],
+      "exit": 0,
+      "stdout": "1 1\n2 3\n3 6\n4 10\n",
+      "stderrContains": [
+        "tdcv2: note: engine 3 cannot build this config, so engine 1 (in memory) runs it: \"R\" adds up the rows before it\n"
+      ],
+      "note": "It used to happen in silence, so a time or a memory reading taken under --engine 3 was quietly one of engine 1."
+    },
+    {
+      "name": "--engine 3 on a config only engine 1 builds still runs when the run is big enough to split",
+      "files": {
+        "a.tdc": "@runningBig"
+      },
+      "argv": ["{dir}/a.tdc", "--engine", "3", "-o", "{dir}/out.txt"],
+      "exit": 0,
+      "stdout": "",
+      "stderrContains": ["tdcv2: note: engine 3 cannot build this config"],
+      "wroteContains": {
+        "out.txt": ["\n120000 7200060000\n"]
+      },
+      "note": "Past 100,000 rows a run splits itself into threads and hands each one the engine it was asked for. Java and C# handed engine 3's refusal to every worker and exited 1; at four rows the same config ran. 1 + 2 + ... + 120000 = 7200060000."
     },
     {
       "name": "check on an invalid config exits 1 with the same block",

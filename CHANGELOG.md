@@ -15,6 +15,19 @@ page — is tracked in that implementation's own changelog:
 
 ## [Unreleased]
 
+### Added
+
+- **`tdcv2 check` says which engine will run the config, and why — in all five.** A second line
+  after "is valid", or after the warnings, such as
+  `tdcv2: runs on engine 1 (in memory): uniq="true" on "Code"`. Asked for by a plugin agent that
+  spent an hour finding it out by running `--engine 1`, `2` and `3` in turn. `--brief` leaves
+  the line out, since other programs read that format line by line.
+- **A run asked to use engine 3 says when engine 1 runs it instead.** On a config the lazy path
+  cannot build — a running total, a statistic, a simple `uniq`, a `parent` with no value — a forced
+  `--engine 3` has always handed the run to the in-memory engine without a word, so a memory
+  reading taken under it was quietly one of engine 1. It now prints a note on stderr:
+  `tdcv2: note: engine 3 cannot build this config, so engine 1 (in memory) runs it: …`.
+
 ### Fixed
 
 - **A column reading a member of a `<uniq>` or `<distinct>` group saw the value from before the
@@ -76,6 +89,15 @@ page — is tracked in that implementation's own changelog:
   run then refused. Two neighbours fixed on the way: the reference refused a pool field named
   like a run column declared above the pool as a duplicate (TDC032), and Python reported the pair
   as ambiguous (TDC232); a pool's fields are its own. Pinned in `diagnostics/pool-scope.json`.
+
+- **`--engine 3` on a config only engine 1 can build exited 1 past 100,000 rows, in Java and
+  C#.** At that size a run splits itself into threads and hands each one the engine it was asked
+  for; engine 3's refusal reached every worker with nothing to fall back to, and the message
+  blamed a "forced streaming engine" nobody had asked for. Four rows of the same config ran. The
+  choice is now made before the run, the same way in all five, so such a run stays on one thread
+  on engine 1. The routers of Python, Rust, Java and C# also learned the two rules only the
+  reference had — a column derived from other rows and a `parent` with no value — which they
+  used to discover at run time. Pinned in `cli.json`, with a 120,000-row run.
 
 ## [0.3.4] — 2026-10-16
 

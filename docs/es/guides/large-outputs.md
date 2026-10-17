@@ -178,11 +178,19 @@ tdcv2: a statistic ("Avg") is computed over every row of the run, including the 
 ```
 
 Un `--engine 3` forzado es la excepción, y conviene saberlo antes de medir nada: rechaza
-solo un `uniq` demasiado ajustado para su reparación acotada, y en las demás formas de la
-lista de arriba cae al motor en memoria e imprime sus bytes — código 0, ni una palabra. Es
-deliberado: esas formas son justo las que el camino perezoso no puede expresar, y cubrirlas
-es para lo que existe el motor 3. Eso sí implica que una lectura de memoria tomada con
-`--engine 3` sobre alguna de ellas es una lectura del motor 1.
+solo un `uniq` demasiado ajustado para su reparación acotada, y las demás formas de la lista
+de arriba se las pasa al motor en memoria, que imprime los bytes — código 0. Es deliberado:
+esas formas son justo las que el camino perezoso no puede expresar, y cubrirlas es para lo
+que existe el motor 3. La ejecución lo avisa por stderr, porque una lectura de memoria
+tomada con `--engine 3` sobre alguna de ellas es una lectura del motor 1:
+
+`./run report.tdc --engine 3`
+
+```
+tdcv2: note: engine 3 cannot build this config, so engine 1 (in memory) runs it: \"R\" adds up the rows before it
+```
+
+[`tdcv2 check`](../reference/cli.md#tdcv2-check) muestra la misma elección antes de ejecutar nada.
 
 ### Lo que sí hace streaming aunque no lo parezca
 

@@ -1,4 +1,5 @@
 using System.Reflection;
+using Tdcv2.Engine;
 using Tdcv2.Errors;
 using Tdcv2.Formatter;
 using Tdcv2.Parser;
@@ -370,6 +371,18 @@ See https://github.com/NickLiapin/tdcv2 for the DSL reference.
                 + $"\"{seed.Value}\" to reproduce this exact output.");
         }
 
+        // Engine 3 asked for by name, on a config only engine 1 can build: engine 1 runs it, and
+        // the run says so. It used to happen in silence, so a time or a memory reading taken
+        // under `--engine 3` was quietly one of engine 1.
+        EngineRouter.Choice choice = data.EngineChoice;
+        if (choice.Downgraded)
+        {
+            Note(
+                stderr,
+                "note: engine 3 cannot build this config, so engine 1 (in memory) runs it: "
+                + choice.Why);
+        }
+
         // Ask what the run will cost before starting it. A config that cannot fit says so in a
         // millisecond here and takes minutes to say so by thrashing.
         Diagnostic? budget = data.Preflight(options.Output is null);
@@ -433,6 +446,13 @@ See https://github.com/NickLiapin/tdcv2 for the DSL reference.
         if (problems.Count == 0)
         {
             stderr.Write($"tdcv2: {files[0]} is valid\n");
+        }
+
+        // Which engine will run it, and why — the full report only; `--brief` is a format other
+        // programs read line by line, and this is not a diagnostic.
+        if (!brief)
+        {
+            stderr.Write($"tdcv2: {data.EngineChoice.Describe()}\n");
         }
 
         return 0;

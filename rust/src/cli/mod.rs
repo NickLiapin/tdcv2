@@ -353,6 +353,20 @@ fn generate(
         )?;
     }
 
+    // Engine 3 asked for by name, on a config only engine 1 can build: engine 1
+    // runs it, and the run says so. It used to happen in silence, so a time or a
+    // memory reading taken under `--engine 3` was quietly one of engine 1.
+    let choice = plan.engine_choice();
+    if choice.downgraded {
+        note(
+            stderr,
+            &format!(
+                "note: engine 3 cannot build this config, so engine 1 (in memory) runs it: {}",
+                choice.why
+            ),
+        )?;
+    }
+
     // Ask what the run will cost before starting it. A config that cannot fit
     // says so in a millisecond here and takes minutes to say so by thrashing.
     //
@@ -465,6 +479,11 @@ fn check(argv: &[String], stderr: &mut dyn Write) -> std::io::Result<i32> {
     report(stderr, problems, file, Some(data.source()), brief)?;
     if problems.is_empty() {
         writeln!(stderr, "tdcv2: {file} is valid")?;
+    }
+    // Which engine will run it, and why — the full report only; `--brief` is a
+    // format other programs read line by line, and this is not a diagnostic.
+    if !brief {
+        writeln!(stderr, "tdcv2: {}", data.engine_choice().describe())?;
     }
     Ok(0)
 }
