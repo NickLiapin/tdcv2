@@ -15,6 +15,33 @@ now works differently — newest first, each with a link to where the docs expla
 Changes inside the engine that alter nothing you write or read are left out; every change is
 in the [changelog](https://github.com/NickLiapin/tdcv2/blob/main/CHANGELOG.md).
 
+## 17 October 2026 — version 0.3.5
+
+- **`check` says which engine will run the config, and why.** A second line after "is valid",
+  such as `runs on engine 1 (in memory): uniq="true" on "Code"` — that is where the run's memory
+  goes. `--brief` leaves it out. → [`tdcv2 check`](./reference/cli.md#tdcv2-check)
+- **`--engine 3` says when engine 1 runs the config instead.** On a running total, a statistic or
+  a `uniq="true"` column it always handed the run to the in-memory engine; it now prints a note,
+  so a memory reading is not quietly one of engine 1. →
+  [Which engine runs your config](./guides/large-outputs.md#which-engine-runs-your-config)
+- **Fixed: a lookup or a formula reading a `<uniq>` member saw the value from before the group
+  was settled** — the day printed and the day looked up disagreed on almost every row. →
+  [`<uniq>` — across separate sequences](./constructs/unique-values.md#uniq--across-separate-sequences)
+- **Fixed: `<assert>` and `if=` read a field two or more pools deep**, such as
+  `D.room.dept.dep_id`. → [How deep can it go](./pools/linking.md#how-deep-can-it-go)
+- **Fixed: a filter inside a pool reads the fields beside it.** `filter="dept_no == want"`, with
+  `want` a field of the same pool, was refused as a filter that can never match. →
+  [What a name means inside `filter`](./pools/filter.md#what-a-name-means-inside-filter)
+- **Fixed: every element of a `repeat=` is its own draw.** A repeated e-mail address no longer
+  repeats one domain, and a distribution whose parameter names another column reads each row's
+  own value. → [Multiple values in a cell](./constructs/multiple-values.md#top)
+- **Fixed: February 29 stays February 29.** In the npm package a date bounded by or measured from
+  2024-02-29 came out as March 1. →
+  [A random date in a range](./generators/date.md#a-random-date-in-a-range)
+- **Python, Rust, Java and C#:** a `<switch>` on a field of a pool record, a date measured from
+  one, and `repeat=` inside a `<switch>` branch or a `<mix>` case work as they do in the npm
+  package. → [Two names, one dot](./pools/overview.md#two-names-one-dot)
+
 ## 16 October 2026 — version 0.3.4
 
 - **`init` can leave the examples out.** `tdcv2 init --yes --no-examples` writes the config

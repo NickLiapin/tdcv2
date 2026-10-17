@@ -20,6 +20,13 @@ the next build, and nothing else is edited.
 
 ## [Unreleased]
 
+## [0.3.5] — 2026-10-17
+
+### Changed
+
+- The engine changes shared by all five implementations — see the
+  [engine changelog](../CHANGELOG.md#035--2026-10-17).
+
 ## [0.3.4] — 2026-10-16
 
 ### Changed

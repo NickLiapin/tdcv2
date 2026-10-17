@@ -16,6 +16,33 @@ donde la documentación lo explica ahora. Los cambios dentro del motor que no al
 que usted escribe o lee quedan fuera; todos los cambios están en el
 [registro de cambios](https://github.com/NickLiapin/tdcv2/blob/main/CHANGELOG.md).
 
+## 17 de octubre de 2026 — versión 0.3.5
+
+- **`check` dice qué motor ejecutará la configuración y por qué.** Una segunda línea después de
+  «is valid», como `runs on engine 1 (in memory): uniq="true" on "Code"`: de eso depende cuánta
+  memoria gasta. `--brief` la omite. → [`tdcv2 check`](./reference/cli.md#tdcv2-check)
+- **`--engine 3` avisa cuando la configuración la ejecuta el motor 1.** Con un total acumulado,
+  una estadística o una columna `uniq="true"` siempre pasaba la ejecución al motor en memoria;
+  ahora imprime una nota, y una medición de memoria ya no es en silencio una del motor 1. →
+  [Qué motor corre su configuración](./guides/large-outputs.md#qué-motor-corre-su-configuración)
+- **Corregido: una búsqueda o una fórmula que leía un miembro de `<uniq>` veía el valor de antes
+  de reordenar el grupo** — el día impreso y el día buscado no coincidían en casi ninguna fila. →
+  [`<uniq>` — entre secuencias separadas](./constructs/unique-values.md#uniq--entre-secuencias-separadas)
+- **Corregido: `<assert>` e `if=` leen un campo a dos o más pools de profundidad**, como
+  `D.room.dept.dep_id`. → [Hasta qué profundidad llega](./pools/linking.md#hasta-qué-profundidad-llega)
+- **Corregido: un filtro dentro de un pool lee los campos de al lado.** `filter="dept_no == want"`,
+  con `want` campo del mismo pool, se rechazaba como un filtro que nunca coincide. →
+  [Qué significa un nombre dentro de `filter`](./pools/filter.md#qué-significa-un-nombre-dentro-de-filter)
+- **Corregido: cada elemento de un `repeat=` es una extracción propia.** Un e-mail repetido ya no
+  repite un solo dominio, y una distribución cuyo parámetro nombra otra columna lee el valor de
+  su propia fila. → [Varios valores en una celda](./constructs/multiple-values.md#top)
+- **Corregido: el 29 de febrero sigue siendo 29 de febrero.** En el paquete npm una fecha acotada
+  por 2024-02-29 o medida desde ella salía como 1 de marzo. →
+  [Una fecha aleatoria dentro de un rango](./generators/date.md#una-fecha-aleatoria-dentro-de-un-rango)
+- **Python, Rust, Java y C#:** un `<switch>` sobre un campo de un registro de pool, una fecha
+  medida desde uno y `repeat=` dentro de una rama de `<switch>` o un caso de `<mix>` funcionan
+  como en el paquete npm. → [Dos nombres y un punto](./pools/overview.md#dos-nombres-y-un-punto)
+
 ## 16 de octubre de 2026 — versión 0.3.4
 
 - **`init` puede omitir los ejemplos.** `tdcv2 init --yes --no-examples` escribe la

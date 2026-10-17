@@ -15,6 +15,8 @@ page — is tracked in that implementation's own changelog:
 
 ## [Unreleased]
 
+## [0.3.5] — 2026-10-17
+
 ### Added
 
 - **`tdcv2 check` says which engine will run the config, and why — in all five.** A second line

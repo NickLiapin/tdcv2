@@ -17,7 +17,7 @@ garantía entre lenguajes es una promesa central de TDC.
 ## Cómo obtenerlo
 
 > [!TIP]
-> **En PyPI — versión 0.3.4**
+> **En PyPI — versión 0.3.5**
 >
 >
 > ```bash
