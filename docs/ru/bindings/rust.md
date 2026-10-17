@@ -139,7 +139,7 @@ Quick::seeded("demo").locale("ru").get("person.lastName")?;  // закрепле
 
 ## Требования
 
-Rust **1.74** или новее.
+Rust **1.82** или новее.
 
 ---
 

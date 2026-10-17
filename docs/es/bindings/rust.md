@@ -141,7 +141,7 @@ y los conjuntos de pruebas la comprueban en vez de darla por buena.
 
 ## Requisitos
 
-Rust **1.74** o superior.
+Rust **1.82** o superior.
 
 ---
 

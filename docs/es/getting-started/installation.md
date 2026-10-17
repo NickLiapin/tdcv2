@@ -152,7 +152,7 @@ El DSL y el comportamiento son idénticos a los de la versión de npm.
 
 #### Rust — Cargo
 
-**Requisitos:** Rust **1.74** o superior.
+**Requisitos:** Rust **1.82** o superior.
 
 Un solo crate trae la biblioteca y la línea de comandos:
 

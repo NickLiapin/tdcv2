@@ -2,7 +2,7 @@
 
 ## Quick start
 
-**You need:** **Rust 1.74 or newer** (install from https://rustup.rs). Nothing
+**You need:** **Rust 1.82 or newer** (install from https://rustup.rs). Nothing
 else — this crate has **no dependencies at all**.
 
 ```bash

@@ -140,7 +140,7 @@ check it rather than take it on trust.
 
 ## Requirements
 
-Rust **1.74** or newer.
+Rust **1.82** or newer.
 
 ---
 

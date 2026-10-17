@@ -11,6 +11,15 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Fixed
+
+- **`rust-version` now says 1.82, the oldest Rust that builds the crate.** It said 1.74, but
+  the code calls `Option::is_none_or`, which Rust 1.82 stabilised. On Rust 1.74–1.81 the build
+  therefore stopped on "use of unstable library feature `is_none_or`" instead of cargo's plain
+  "requires rustc 1.82". Checked by building with 1.82.0 (passes) and 1.81.0 (fails on that
+  method alone). The README and the installation pages say 1.82 as well. Nothing changes on
+  1.82 or newer.
+
 ## [0.3.5] — 2026-10-17
 
 ### Changed
