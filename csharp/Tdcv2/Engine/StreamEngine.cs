@@ -1453,7 +1453,7 @@ public sealed class StreamEngine
                             GenValues(
                                 single,
                                 Seekable.Generator(_seed, streamId + "#e" + at + suffix, row),
-                                null, row));
+                                null, row, streamId + "#e" + at + suffix));
 
                     parts.Add(
                         r2.Distinct ? Repeat.RedrawUntilFresh(parts, type, DrawAt) : DrawAt(""));
@@ -1495,7 +1495,7 @@ public sealed class StreamEngine
                                 GenValues(
                                     single,
                                     Seekable.Generator(_seed, streamId + "#e" + at + s2, row),
-                                    null, row));
+                                    null, row, streamId + "#e" + at + s2));
 
                         (string won, string winning) =
                             Repeat.RedrawUntilFreshAt(seen, type, DrawAt);
@@ -1506,7 +1506,7 @@ public sealed class StreamEngine
                     var spiked = new bool[1];
                     GenValues(
                         single, Seekable.Generator(_seed, streamId + "#e" + k + suffix, row),
-                        spiked, row);
+                        spiked, row, streamId + "#e" + k + suffix);
                     flags.Add(spiked[0] ? "true" : "false");
                 }
 

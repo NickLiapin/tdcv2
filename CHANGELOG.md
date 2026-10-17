@@ -53,6 +53,17 @@ page — is tracked in that implementation's own changelog:
   three. Pinned in `cases/generators.json` (a repeat over a plain pack on engine 1 equals engines
   2 and 3) and `cases/pool.json` (a `distinct` repeat of a plain pack inside a pool).
 
+- **Each element of a `repeat` was built without its row or its own stream, in all five.** A
+  `repeat` over a generator pack — `common.internet.email`, any pack whose body is a small config —
+  seeded the pack body alike for every element of every row. A list inside the body, laid out
+  over its one row, then gave the same value each time: in TypeScript and Python every address
+  landed on one domain word, and in Rust, Java and C# the whole address repeated down the column.
+  Python's, Java's and C#'s streaming engines were wrong the same way. A `repeat` over a
+  distribution whose parameter names a sibling column (`lambda="Rate"`) read the first row's value
+  on every row in TypeScript and C#, and was refused as not a number in Java and Rust. Every
+  element is now built for its row and on its `#e{k}` stream, as the TypeScript streaming engine
+  always built it. Pinned in `cases/generators.json` on engine 1, and in `engines.json`.
+
 ## [0.3.4] — 2026-10-16
 
 ### Added

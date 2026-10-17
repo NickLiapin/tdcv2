@@ -2826,14 +2826,18 @@ def _run_pack_generator(
     # without the row on its seed. The reference's inner body is seeded `…|domain|0`; this one
     # was seeded `…|domain`, and a column of e-mail addresses came out with one domain repeated.
     body_row = per_row.absolute_row(run, 0) if run.per_row and count == 1 else None
-    body_seed = f"{run.config.seed}|{run.stream_id or run.column_stream_id or ''}" + (
+    body_seed = f"{run.config.seed}|{run.column_stream_id or run.stream_id or ''}" + (
         "" if body_row is None else f"|{body_row}"
     )
     # The body inherits whether it is inside a one-row build. The row is already folded into
     # `body_seed` above; a body that ALSO planned per row would draw from a stream the salt
-    # never meant.
+    # never meant. The caller's column identity is folded in there too and stops at the body:
+    # a pack the body names is seeded from its OWN sequence, `…|domain|0`, not the caller's.
     run = replace(
-        per_row.redraw(run), config=replace(run.config, seed=body_seed), per_row=run.per_row
+        per_row.redraw(run),
+        config=replace(run.config, seed=body_seed),
+        per_row=run.per_row,
+        column_stream_id=None,
     )
     body = _PACK_BODIES.get(path)
     if body is None:

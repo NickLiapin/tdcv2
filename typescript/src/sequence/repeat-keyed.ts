@@ -86,9 +86,21 @@ export function buildKeyedRepeatDraws(
       // element's own stream. Without it the build below would take the
       // whole-column per-row path and redraw from the COLUMN's stream instead,
       // losing the `#e{k}` the streaming engine draws each element from.
-      const oneRow = { ...ctx, perRow: true };
+      // The row and the element's stream travel with it, the way
+      // `resolveGenValueAt` hands them over: a generator pack seeds its body from
+      // them. Without them every element of every row seeded the body alike, and
+      // a list inside the pack — laid out over its one row — gave the same value
+      // each time: `common.internet.email` repeated on one domain word.
       const drawAt = (suffix: string): string => {
-        const draw = seekableGen(seed, `${streamId}#e${String(k)}${suffix}`, row);
+        const element = `${streamId}#e${String(k)}${suffix}`;
+        const oneRow = {
+          ...ctx,
+          perRow: true,
+          rows: [row],
+          columnSeed: seed,
+          columnStreamId: element,
+        };
+        const draw = seekableGen(seed, element, row);
         return buildGenValues(single, 1, draw, locale, now, oneRow, flags)[0] ?? '';
       };
       const value = spec.distinct ? redrawUntilFresh(parts, gen.type, drawAt) : drawAt('');

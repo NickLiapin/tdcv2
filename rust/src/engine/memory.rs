@@ -1227,8 +1227,28 @@ fn build_columns_with(
                                 applicable,
                                 &stream,
                                 &gen.gen_type,
-                                |_, element_prng, flag| {
-                                    let drawn = generate(&element, 1, element_prng, env)?;
+                                |row, element_id, element_prng, flag| {
+                                    // One element of ONE row, told which row and which
+                                    // element stream it is, as the streaming engine's one-row
+                                    // build is: a pack body seeds itself from them, and a
+                                    // distribution reads its parameter off the row. Without
+                                    // them every element seeded a pack body alike — one
+                                    // e-mail address repeated down the column — and a
+                                    // parameter naming a sibling had no row to read.
+                                    let here = [row];
+                                    let scope = SiblingScope {
+                                        rows: &here,
+                                        siblings: env,
+                                    };
+                                    let drawn = generate_in_column(
+                                        &element,
+                                        1,
+                                        element_prng,
+                                        env,
+                                        None,
+                                        Some(&scope),
+                                        Some((stream.seed.as_str(), element_id, Some(row))),
+                                    )?;
                                     let done = finish(
                                         drawn,
                                         &element.attrs,

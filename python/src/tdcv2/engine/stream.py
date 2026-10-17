@@ -966,6 +966,7 @@ class StreamEngine:
                                 single,
                                 seekable.generator(self.seed, f"{stream_id}#e{k}{suffix}", row),
                                 None,
+                                row=row,
                                 stream_id=f"{stream_id}#e{k}{suffix}",
                             )
                         )
@@ -1003,6 +1004,7 @@ class StreamEngine:
                                     single,
                                     seekable.generator(self.seed, f"{stream_id}#e{k}{s}", row),
                                     None,
+                                    row=row,
                                     stream_id=f"{stream_id}#e{k}{s}",
                                 )
                             )
@@ -1014,6 +1016,7 @@ class StreamEngine:
                         single,
                         seekable.generator(self.seed, f"{stream_id}#e{k}{suffix}", row),
                         spiked,
+                        row=row,
                         stream_id=f"{stream_id}#e{k}{suffix}",
                     )
                     flags.append(str(spiked[0]).lower())

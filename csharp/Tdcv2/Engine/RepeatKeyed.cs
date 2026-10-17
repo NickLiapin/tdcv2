@@ -33,7 +33,7 @@ internal static class RepeatKeyed
         int count,
         PerRow.Stream stream,
         string genType,
-        Func<int, Sfc32, bool[], string> oneElement,
+        Func<int, string, Sfc32, bool[], string> oneElement,
         List<string>? flagTextOut)
     {
         (Repeat.Plan plan, int key) = LengthPlan(spec, count, stream);
@@ -52,12 +52,15 @@ internal static class RepeatKeyed
 
                 // A drawn generator has no pool to draw down, so `distinct` is rejection
                 // sampling on fresh sub-streams — the same ids the reference uses, so the two
-                // agree value for value.
-                string DrawAt(string suffix) =>
-                    oneElement(
-                        at,
-                        Seekable.Generator(stream.Seed, $"{stream.Id}#e{at}{suffix}", atRow),
-                        flag);
+                // agree value for value. The element's stream travels with it, so whatever the
+                // element is built from can key off it the way the streaming engine's one-row
+                // build does.
+                string DrawAt(string suffix)
+                {
+                    string elementId = $"{stream.Id}#e{at}{suffix}";
+                    return oneElement(
+                        atRow, elementId, Seekable.Generator(stream.Seed, elementId, atRow), flag);
+                }
 
                 parts.Add(
                     spec.Distinct

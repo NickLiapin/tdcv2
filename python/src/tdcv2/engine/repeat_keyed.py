@@ -80,6 +80,13 @@ def build_draws(
                     # build would take the whole-column per-row path and redraw from the
                     # COLUMN's stream, losing the `#e{k}` the streaming engine uses.
                     per_row=True,
+                    # The row and the element's stream travel with it, as the streaming
+                    # engine hands them over: a generator pack seeds its body from them.
+                    # Without them every element of every row seeded the body alike, and a
+                    # list inside the pack, laid out over its one row, gave the same value
+                    # each time: `common.internet.email` repeated on one domain word.
+                    rows=[row],
+                    column_stream_id=f"{stream_id}#e{k}{suffix}",
                 )
                 value = finish(generate(single, 1, one), single.attrs, one.prng, flags)
                 return value[0] if value else ""

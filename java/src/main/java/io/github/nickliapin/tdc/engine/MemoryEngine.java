@@ -1209,12 +1209,18 @@ public final class MemoryEngine {
                   applicable,
                   stream,
                   spec.gen().type(),
-                  (k, elementPrng, flag) -> {
+                  // One element of ONE row, told which row and which element stream it is, as
+                  // the streaming engine's one-row build is: a pack body seeds itself from them,
+                  // and a distribution reads its parameter off the row. Without them every
+                  // element seeded a pack body alike — one e-mail address repeated down the
+                  // column — and a parameter naming a sibling had no row to read.
+                  (row, elementId, elementPrng, flag) -> {
                     List<String> done =
                         finish(
                             generate(
                                 element, 1, elementPrng, packs, config, nowMillis, baseDir,
-                                rowLinks),
+                                rowLinks, null, Siblings.of(columns), position -> row, elementId,
+                                true),
                             element.attrs(),
                             elementPrng,
                             flag);

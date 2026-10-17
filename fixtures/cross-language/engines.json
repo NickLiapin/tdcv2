@@ -3385,6 +3385,46 @@
         ]
       }
     },
+    "generators/a-repeat-over-a-generator-pack-draws-each-element-on-its-own-stream": {
+      "engine2": {
+        "lines": [
+          "ojf6q08u61@sandbox-nqbkov.invalid; hc72en_5y7@demo-w70vbn.test",
+          "qcnhqb6q3k@demo-fqx4u1.example; k_nnall5t5@fixture-yrb326.example",
+          "la52lgopxz@synthetic-plpxxe.example; h_ltx3ba5t@atlas-jj4zz9.test",
+          "qzovcn66ed@atlas-nw7trn.test; kk5afl88pf@atlas-a1a002.invalid"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "ojf6q08u61@sandbox-nqbkov.invalid; hc72en_5y7@demo-w70vbn.test",
+          "qcnhqb6q3k@demo-fqx4u1.example; k_nnall5t5@fixture-yrb326.example",
+          "la52lgopxz@synthetic-plpxxe.example; h_ltx3ba5t@atlas-jj4zz9.test",
+          "qzovcn66ed@atlas-nw7trn.test; kk5afl88pf@atlas-a1a002.invalid"
+        ]
+      }
+    },
+    "generators/a-repeat-over-a-distribution-reads-its-own-row": {
+      "engine2": {
+        "lines": [
+          "1|3 0",
+          "400|396 383",
+          "400|396 400",
+          "50|44 53",
+          "50|54 63",
+          "1|0 1"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "1|3 0",
+          "400|396 383",
+          "400|396 400",
+          "50|44 53",
+          "50|54 63",
+          "1|0 1"
+        ]
+      }
+    },
     "group-readers/a-pool-lookup-reads-the-rearranged-uniq-member": {
       "engine2": {
         "lines": [

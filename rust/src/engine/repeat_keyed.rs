@@ -34,7 +34,7 @@ pub fn build_draws(
     count: usize,
     stream: &Stream,
     gen_type: &str,
-    mut one_element: impl FnMut(usize, &mut Sfc32, &mut [bool]) -> EngineResult<String>,
+    mut one_element: impl FnMut(usize, &str, &mut Sfc32, &mut [bool]) -> EngineResult<String>,
     mut flag_text_out: Option<&mut Vec<String>>,
 ) -> EngineResult<Vec<String>> {
     let (plan, key) = length_plan(spec, count, stream);
@@ -49,13 +49,12 @@ pub fn build_draws(
             // A drawn generator has no pool to draw down, so `distinct` is rejection
             // sampling on fresh sub-streams — the same ids the reference uses, so the two
             // agree value for value.
+            // The element's stream travels with it, so whatever the element is built from can
+            // key off it the way the streaming engine's one-row build does.
             let mut draw_at = |suffix: &str, flag: &mut [bool]| -> EngineResult<String> {
-                let mut element_prng = seekable::generator(
-                    &stream.seed,
-                    &format!("{}#e{k}{suffix}", stream.id),
-                    row as i32,
-                );
-                one_element(k, &mut element_prng, flag)
+                let element = format!("{}#e{k}{suffix}", stream.id);
+                let mut element_prng = seekable::generator(&stream.seed, &element, row as i32);
+                one_element(row, &element, &mut element_prng, flag)
             };
             let value = if spec.distinct {
                 repeat::redraw_until_fresh(&parts, gen_type, |suffix| draw_at(suffix, &mut flag))?

@@ -632,6 +632,30 @@
         "Pollen; Eggs",
         "Dust Mites; Tree Nuts"
       ]
+    },
+    {
+      "name": "a-repeat-over-a-generator-pack-draws-each-element-on-its-own-stream",
+      "description": "A repeat over a generator pack, on the in-memory engine. Each element seeds the pack body from its row and its own `#e{k}` stream, as engines 2 and 3 do. Engine 1 handed every element the column's seed with no row, so a list inside the body - laid out over its one row - gave the same value every time: every address landed on `fixture-...example`.",
+      "config": "<tdc><env count=\"4\" seed=\"r6\" local=\"en\" engine=\"1\"><sequence name=\"mail\"><gen type=\"template\" value=\"common.internet.email\" repeat=\"2\" separator=\"; \"/></sequence></env><block><line><data>${{mail}}</data></line></block></tdc>",
+      "expected": [
+        "ojf6q08u61@sandbox-nqbkov.invalid; hc72en_5y7@demo-w70vbn.test",
+        "qcnhqb6q3k@demo-fqx4u1.example; k_nnall5t5@fixture-yrb326.example",
+        "la52lgopxz@synthetic-plpxxe.example; h_ltx3ba5t@atlas-jj4zz9.test",
+        "qzovcn66ed@atlas-nw7trn.test; kk5afl88pf@atlas-a1a002.invalid"
+      ]
+    },
+    {
+      "name": "a-repeat-over-a-distribution-reads-its-own-row",
+      "description": "A repeat over a distribution whose parameter names a sibling column, on the in-memory engine. Each element is built for the row it belongs to, as engines 2 and 3 build it. Engine 1 built every element as if it stood on the first row: the TypeScript and C# engines read the first row's `Rate` on every row (`400|1 0`), and the Java and Rust ones refused the parameter as not a number.",
+      "config": "<tdc><env count=\"6\" seed=\"q1\" local=\"en\" engine=\"1\"><sequence name=\"Rate\"><gen type=\"text\" value=\"1,50,400\"/></sequence><sequence name=\"X\"><gen type=\"number\" distribution=\"poisson\" lambda=\"Rate\" repeat=\"2\" separator=\" \"/></sequence></env><block><line><data>${{Rate}}|${{X}}</data></line></block></tdc>",
+      "expected": [
+        "1|3 0",
+        "400|396 383",
+        "400|396 400",
+        "50|44 53",
+        "50|54 63",
+        "1|0 1"
+      ]
     }
   ]
 }

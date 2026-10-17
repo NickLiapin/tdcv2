@@ -27,9 +27,12 @@ final class RepeatKeyed {
 
   private RepeatKeyed() {}
 
-  /** One element of one row: its own generator, and a one-slot flag for {@code anomaly=}. */
+  /**
+   * One element of one row: the row, the element's own stream and generator, and a one-slot flag
+   * for {@code anomaly=}.
+   */
   interface Element {
-    String build(int k, Prng.Sfc32 prng, boolean[] flag);
+    String build(int row, String elementId, Prng.Sfc32 prng, boolean[] flag);
   }
 
   /** One element of a LISTED row: the row it belongs to, its raw value, and its index in the row. */
@@ -64,12 +67,14 @@ final class RepeatKeyed {
         final int atRow = row;
         // A drawn generator has no pool to draw down, so `distinct` is rejection sampling on
         // fresh sub-streams — the same ids the reference uses, so the two agree value for value.
+        // The element's stream travels with it, so whatever the element is built from can key
+        // off it the way the streaming engine's one-row build does.
         java.util.function.Function<String, String> drawAt =
-            suffix ->
-                element.build(
-                    at,
-                    Seekable.generator(stream.seed(), stream.id() + "#e" + at + suffix, atRow),
-                    flag);
+            suffix -> {
+              String elementId = stream.id() + "#e" + at + suffix;
+              return element.build(
+                  atRow, elementId, Seekable.generator(stream.seed(), elementId, atRow), flag);
+            };
         parts.add(
             spec.distinct()
                 ? Repeat.redrawUntilFresh(parts, genType, drawAt)

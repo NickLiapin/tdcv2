@@ -1404,7 +1404,8 @@ public final class StreamEngine {
                               single,
                               Seekable.generator(seed, streamId + "#e" + at + suffix, row),
                               null,
-                              row));
+                              row,
+                              streamId + "#e" + at + suffix));
               parts.add(
                   repeat.distinct()
                       ? Repeat.redrawUntilFresh(parts, gen.type(), drawAt)
@@ -1444,7 +1445,8 @@ public final class StreamEngine {
                                 single,
                                 Seekable.generator(seed, streamId + "#e" + at + s2, row),
                                 null,
-                                row));
+                                row,
+                                streamId + "#e" + at + s2));
                 String[] won = Repeat.redrawUntilFreshAt(seen, gen.type(), drawAt);
                 seen.add(won[0]);
                 suffix = won[1];
@@ -1452,7 +1454,7 @@ public final class StreamEngine {
               boolean[] spiked = new boolean[1];
               genValues(
                   single, Seekable.generator(seed, streamId + "#e" + k + suffix, row), spiked,
-                  row);
+                  row, streamId + "#e" + k + suffix);
               flags.add(String.valueOf(spiked[0]));
             }
             return String.join(repeat.separator(), flags);

@@ -1316,11 +1316,28 @@ public static class MemoryEngine
                     repeatFlags = flagNamed ? new List<string>() : null;
                     values = RepeatKeyed.BuildDraws(
                         r, applicable, stream, spec.Gen.Type,
-                        (_, elementPrng, flag) =>
+                        // One element of ONE row, told which row and which element stream it
+                        // is, as the streaming engine's one-row build is: a pack body seeds
+                        // itself from them, and a distribution reads its parameter off the row.
+                        // Without them every element seeded a pack body alike — one e-mail
+                        // address repeated down the column — and a parameter naming a sibling
+                        // read the first row's value on every row.
+                        (row, elementId, elementPrng, flag) =>
                         {
                             IReadOnlyList<string> done = Finish(
-                                Generate(element, 1, elementPrng, ctx), element.Attrs,
-                                elementPrng, flag);
+                                Generate(
+                                    element,
+                                    1,
+                                    elementPrng,
+                                    ctx with
+                                    {
+                                        ColumnStreamId = elementId, ColumnRow = row, OneRow = true,
+                                    },
+                                    null,
+                                    _ => row),
+                                element.Attrs,
+                                elementPrng,
+                                flag);
                             return done.Count > 0 ? done[0] : "";
                         },
                         repeatFlags);
