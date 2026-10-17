@@ -419,6 +419,13 @@ export interface PendingPoolFilter {
   readonly field: string;
   /** The other side of the `==`: a column name, or a bare word read as a literal. */
   readonly other: string;
+  /**
+   * The pool this filter is written INSIDE, with that pool's own field names.
+   * A pool's members read each other and nothing from the run, so there the
+   * other side is a column only if it is one of those fields, and its values are
+   * that field's. Undefined for a filter at the top level.
+   */
+  readonly scope?: { readonly pool: string; readonly names: readonly string[] } | undefined;
 }
 
 function isPlainName(s: string): boolean {
@@ -438,6 +445,7 @@ export function pendingFilterFor(
   gen: OpenCloseElementContext | SelfClosingElementContext,
   poolFields: readonly string[],
   at: number,
+  scope?: PendingPoolFilter['scope'],
 ): PendingPoolFilter | undefined {
   const attrs = extractAttrs(gen.attr());
   const expr = (attrs['filter'] ?? '').trim();
@@ -454,8 +462,8 @@ export function pendingFilterFor(
   // mistake and not one this check can speak to.
   if (leftIsField === rightIsField) return undefined;
   return leftIsField
-    ? { at, gen, expr, pool, field: left, other: right }
-    : { at, gen, expr, pool, field: right, other: left };
+    ? { at, gen, expr, pool, field: left, other: right, scope }
+    : { at, gen, expr, pool, field: right, other: left, scope };
 }
 
 /**
@@ -487,8 +495,17 @@ export function runPendingPoolFilters(
     // A name no sequence has is a bare word, and the expression language reads a
     // bare word as its own text — that is how `filter="clinic == North"` says
     // "northern only". So it is a set of exactly one value.
-    const isColumn = declared.includes(item.other);
-    const otherValues = isColumn ? finiteValues.get(item.other) : [item.other];
+    //
+    // Inside a pool the names are the pool's own. They used to be looked up among
+    // the run's, where a pool's fields no longer are once its walk is over, so
+    // `dept_no == want` with `want` a field beside the reference was read as the
+    // word "want" and refused as a filter that can never match.
+    const { scope } = item;
+    const isColumn = scope ? scope.names.includes(item.other) : declared.includes(item.other);
+    const columnValues = scope
+      ? poolFieldValues.get(scope.pool)?.get(item.other)
+      : finiteValues.get(item.other);
+    const otherValues = isColumn ? columnValues : [item.other];
     if (!otherValues || otherValues.length === 0) continue;
     // Compared the way `==` compares two texts, so the check cannot refuse a
     // config the run would have answered. Raw text refused `code == Want` where
@@ -610,6 +627,12 @@ export interface PoolRefContext {
   readonly diagnostics: Diagnostic[];
   readonly poolReferences: string[];
   readonly pendingPoolFilters: PendingPoolFilter[];
+  /**
+   * The `<pool>` being walked, when the reference is one of its members. A
+   * pool's members read each other and nothing from the run, so a filter written
+   * there is checked against that pool's own fields.
+   */
+  readonly currentPool?: string | undefined;
 }
 
 export function registerPoolReference(
@@ -640,8 +663,13 @@ export function registerPoolReference(
       continue;
     }
     const fields = poolFields.get(poolName) ?? [];
-    checkFilterAmbiguity(gen, fields, declaredSequences, diagnostics);
-    const pendingFilter = pendingFilterFor(gen, fields, diagnostics.length);
+    const enclosing = ctx.currentPool;
+    const scope =
+      enclosing === undefined
+        ? undefined
+        : { pool: enclosing, names: poolFields.get(enclosing) ?? [] };
+    checkFilterAmbiguity(gen, fields, scope?.names ?? declaredSequences, diagnostics);
+    const pendingFilter = pendingFilterFor(gen, fields, diagnostics.length, scope);
     if (pendingFilter) pendingPoolFilters.push(pendingFilter);
     for (const field of fields) declaredSequences.push(`${name}.${field}`);
     // The reference itself is a record, not a value: `${{Doctor}}` alone has

@@ -64,6 +64,19 @@ page — is tracked in that implementation's own changelog:
   element is now built for its row and on its `#e{k}` stream, as the TypeScript streaming engine
   always built it. Pinned in `cases/generators.json` on engine 1, and in `engines.json`.
 
+- **A `filter=` written inside a pool was checked against the wrong names, and in Rust, Java and
+  C# not checked at all.** A pool's members read each other and nothing from the run, but the
+  check looked the other side of a filter up among the run's names. In the reference a field
+  beside the reference — `filter="dept_no == want"` with `want` a field of the same pool — was
+  read as the word "want" and refused as a filter that can never match (TDC225), on a config that
+  ran. Rust, Java and C# skipped a reference inside a pool entirely: no TDC224 for a pool that does
+  not exist, no TDC226 for a field it has not got, no TDC232, no TDC225. Now, in all five, a
+  filter inside a pool reads that pool's fields, and one at the top level reads the run's — the
+  ports used to count every pool's fields as the run's, and passed a top-level filter that the
+  run then refused. Two neighbours fixed on the way: the reference refused a pool field named
+  like a run column declared above the pool as a duplicate (TDC032), and Python reported the pair
+  as ambiguous (TDC232); a pool's fields are its own. Pinned in `diagnostics/pool-scope.json`.
+
 ## [0.3.4] — 2026-10-16
 
 ### Added

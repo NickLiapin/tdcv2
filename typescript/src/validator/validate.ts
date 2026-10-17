@@ -323,6 +323,12 @@ class Ctx {
    */
   public currentSequence: string | undefined;
 
+  /** The `<pool>` whose members are being walked, if any — see `PoolRefContext`. */
+  public currentPool: string | undefined;
+
+  /** Where that pool's own names start in `declaredSequences` — see `DeclNameCtx`. */
+  public poolNamesFrom: number | undefined;
+
   /** Of those, the ones whose `<gen>` repeats — the only ones `each=` can walk. */
   public readonly repeatingSequences: string[] = [];
 
@@ -606,6 +612,8 @@ function checkEnv(envEl: OpenCloseElementContext, ctx: Ctx): void {
       // A pool's members read each other and nothing from the run — the table is
       // built before any row exists — so every `if=` written inside is checked
       // against the pool's own field names.
+      ctx.currentPool = extractAttrs(k.node.attr())['name']?.trim() ?? '';
+      ctx.poolNamesFrom = ctx.declaredSequences.length;
       checkPoolDeclaration(
         k.node,
         poolsAbove,
@@ -614,6 +622,8 @@ function checkEnv(envEl: OpenCloseElementContext, ctx: Ctx): void {
         ctx.declaredSequences,
         ctx.pendingExpressions,
       );
+      ctx.currentPool = undefined;
+      ctx.poolNamesFrom = undefined;
       checkPoolIsRead(k.node, poolsRead, ctx.diagnostics);
       continue;
     }

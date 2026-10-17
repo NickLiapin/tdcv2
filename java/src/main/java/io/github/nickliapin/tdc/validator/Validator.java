@@ -710,6 +710,10 @@ public final class Validator {
    */
   private Set<String> declaredAbove = null;
 
+  /** Which pool each member belongs to: a filter written on one reads that pool's fields. */
+  private final Map<TDCParser.OpenCloseElementContext, String> poolMemberPool =
+      new LinkedHashMap<>();
+
   private final Map<TDCParser.OpenCloseElementContext, Set<String>> poolMemberScope =
       new java.util.IdentityHashMap<>();
 
@@ -775,8 +779,19 @@ public final class Validator {
    * <p>Held back for the same reason an {@code if=} is: the column a filter compares against may
    * be declared BELOW the reference, and the run resolves that happily.
    */
+  /**
+   * A filter put aside for TDC225. {@code enclosing} is the pool it is written inside, whose
+   * fields are the only names it reads there; null at the top level.
+   */
   private record PendingFilter(
-      int at, String expression, String pool, String field, String other, int line, int column) {}
+      int at,
+      String expression,
+      String pool,
+      String field,
+      String other,
+      int line,
+      int column,
+      String enclosing) {}
 
   private final List<PendingFilter> pendingPoolFilters = new ArrayList<>();
 
@@ -1555,6 +1570,12 @@ public final class Validator {
       if (name != null && !name.isBlank()) {
         declared.add(name);
         declaredNames.add(name);
+        if (poolMemberNodes.contains(open)) {
+          // A reference inside a pool publishes nothing to the run — its fields are the pool's —
+          // but what it names is checked all the same. It was skipped entirely: no TDC224,
+          // TDC226, TDC232 or TDC225 inside a pool.
+          checkPoolReferences(open, poolMemberPool.get(open));
+        }
         if (!poolMemberNodes.contains(open)) {
           envNames.add(name);
           registerPoolReference(open, name);
@@ -1804,6 +1825,7 @@ public final class Validator {
       if (isDeclarationTag(tag)) {
         poolMemberNodes.add(inner);
         poolMemberScope.put(inner, scope);
+        poolMemberPool.put(inner, poolName == null ? "" : poolName.trim());
         out.add(inner);
       } else if ("uniq".equals(tag) || "distinct".equals(tag)) {
         int wrapped = 0;
@@ -1815,6 +1837,7 @@ public final class Validator {
           wrapped++;
           poolMemberNodes.add(node);
           poolMemberScope.put(node, scope);
+          poolMemberPool.put(node, poolName == null ? "" : poolName.trim());
           out.add(node);
         }
         checkGroupSize(inner, tag, wrapped);
@@ -2165,6 +2188,24 @@ public final class Validator {
 
   /** Publish {@code Ref.field} for a {@code <gen type="pool">}. */
   private void registerPoolReference(TDCParser.OpenCloseElementContext sequence, String name) {
+    for (String poolName : checkPoolReferences(sequence, null)) {
+      for (String field : poolFields.get(poolName)) {
+        declaredNames.add(name + "." + field);
+      }
+      // The reference itself is a record, not a value: nothing to print.
+      valuelessNames.add(name);
+      poolReferences.add(name);
+    }
+  }
+
+  /**
+   * What each {@code <gen type="pool">} of a sequence names: the pool, and its filter. Returns the
+   * declared pools it draws from. {@code enclosing} is the pool the sequence is a member of, whose
+   * fields are what a filter written there reads; null at the top level.
+   */
+  private List<String> checkPoolReferences(
+      TDCParser.OpenCloseElementContext sequence, String enclosing) {
+    List<String> drawn = new ArrayList<>();
     for (TDCParser.ElementContext child : sequence.content().element()) {
       TDCParser.SelfClosingElementContext self = child.selfClosingElement();
       TDCParser.OpenCloseElementContext open = child.openCloseElement();
@@ -2193,14 +2234,10 @@ public final class Validator {
       }
       checkPoolFilter(
           attrs, poolName, fields, line, column,
-          self != null ? self.attr() : open.attr());
-      for (String field : fields) {
-        declaredNames.add(name + "." + field);
-      }
-      // The reference itself is a record, not a value: nothing to print.
-      valuelessNames.add(name);
-      poolReferences.add(name);
+          self != null ? self.attr() : open.attr(), enclosing);
+      drawn.add(poolName);
     }
+    return drawn;
   }
 
   /**
@@ -2216,7 +2253,8 @@ public final class Validator {
       List<String> fields,
       int line,
       int column,
-      List<TDCParser.AttrContext> attrNodes) {
+      List<TDCParser.AttrContext> attrNodes,
+      String enclosing) {
     String expression = attrs.get("filter");
     if (expression == null || expression.isBlank()) {
       return;
@@ -2241,11 +2279,17 @@ public final class Validator {
           line, column);
     }
 
+    // The columns a filter can also mean: the run's, or — written inside a pool — that pool's own
+    // fields, the only names its members read.
+    Set<String> visible =
+        enclosing == null
+            ? envNames
+            : new HashSet<>(poolFields.getOrDefault(enclosing, List.of()));
     Set<String> seen = new LinkedHashSet<>();
     java.util.regex.Matcher plain = PLAIN_NAME.matcher(expression);
     while (plain.find()) {
       String word = plain.group();
-      if (!seen.add(word) || !fields.contains(word) || !envNames.contains(word)) {
+      if (!seen.add(word) || !fields.contains(word) || !visible.contains(word)) {
         continue;
       }
       error("TDC232",
@@ -2277,7 +2321,7 @@ public final class Validator {
     }
     pendingPoolFilters.add(new PendingFilter(
         diagnostics.size(), expression.trim(), poolName,
-        leftIsField ? left : right, leftIsField ? right : left, line, column));
+        leftIsField ? left : right, leftIsField ? right : left, line, column, enclosing));
   }
 
   /**
@@ -2305,9 +2349,27 @@ public final class Validator {
       // A name no sequence has is a bare word, and the expression language reads a bare word as
       // its own text — that is how filter="clinic == North" says "northern only". So it is a set
       // of exactly one value.
-      boolean isColumn = declaredNames.contains(item.other());
-      List<String> otherValues =
-          isColumn ? finiteValues.get(item.other()) : List.of(item.other());
+      //
+      // Inside a pool the names are the pool's own; at the top level they are the run's, which a
+      // pool's fields are not. Read among every name, a field of a pool was a column wherever the
+      // filter stood.
+      boolean isColumn;
+      List<String> columnValues;
+      if (item.enclosing() != null) {
+        isColumn = poolFields.getOrDefault(item.enclosing(), List.of()).contains(item.other());
+        Map<String, List<String>> own = poolFieldValues.get(item.enclosing());
+        columnValues = own == null ? null : own.get(item.other());
+      } else {
+        boolean poolOnly = false;
+        for (List<String> names : poolFields.values()) {
+          poolOnly |= names.contains(item.other());
+        }
+        isColumn =
+            envNames.contains(item.other())
+                || (declaredNames.contains(item.other()) && !poolOnly);
+        columnValues = finiteValues.get(item.other());
+      }
+      List<String> otherValues = isColumn ? columnValues : List.of(item.other());
       if (otherValues == null || otherValues.isEmpty()) {
         continue;
       }

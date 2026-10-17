@@ -1017,6 +1017,7 @@ class _Validator:
         "pool_field_values",
         "pool_fields",
         "pool_member_nodes",
+        "pool_member_pool",
         "pool_member_scope",
         "pool_references",
         "pools_read",
@@ -1109,6 +1110,9 @@ class _Validator:
         # own names, which is every expression outside a pool.
         self.expr_scope: frozenset[str] | None = None
         self.pool_member_scope: dict[int, frozenset[str]] = {}
+        # Which pool each of those members belongs to: a `filter=` written on one reads that
+        # pool's fields, never the run's.
+        self.pool_member_pool: dict[int, str] = {}
         # The names declared ABOVE the expression being checked, when it is a condition that
         # decides a column while that column is BUILT — `<gen if=>` and `missing_when=`. Naming a
         # column declared below it was answered differently by the two engines: the in-memory one
@@ -1121,7 +1125,7 @@ class _Validator:
         # Every filter= seen, held back for the same reason: the column it compares against may
         # be declared BELOW the reference, and the run resolves that happily.
         # (at, expression, pool, field, other, line, column)
-        self.pending_pool_filters: list[tuple[int, str, str, str, str, int, int]] = []
+        self.pending_pool_filters: list[tuple[int, str, str, str, str, int, int, str | None]] = []
 
     def _roots(self) -> list[Path]:
         """The folders a file source may name. Absent packs mean none were configured."""
@@ -1830,7 +1834,9 @@ class _Validator:
                 )
                 continue
             fields = self.pool_fields[pool_name]
-            self._check_pool_filter(gen, pool_name, fields, attrs)
+            self._check_pool_filter(
+                gen, pool_name, fields, attrs, self.pool_member_pool.get(id(sequence))
+            )
             for field_name in fields:
                 self.declared_names.add(f"{name}.{field_name}")
                 self.declared_fields.append(f"{name}.{field_name}")
@@ -1838,7 +1844,9 @@ class _Validator:
             self.valueless_names.add(name)
             self.pool_references.add(name)
 
-    def _check_pool_filter(self, gen, pool_name: str, fields: list[str], attrs) -> None:
+    def _check_pool_filter(
+        self, gen, pool_name: str, fields: list[str], attrs, enclosing: str | None = None
+    ) -> None:
         """What ``filter=`` may name.
 
         A qualified ``Pool.field`` says exactly what it means, so a field the pool has not got is
@@ -1871,13 +1879,16 @@ class _Validator:
                 _line(gen),
                 _column(gen),
             )
+        # The columns a filter can also mean: the run's, or — written inside a pool — that pool's
+        # own fields, the only names its members read.
+        visible = self.env_names if enclosing is None else set(self.pool_fields.get(enclosing, []))
         seen: set[str] = set()
         for match in re.finditer(r"[A-Za-z_][A-Za-z0-9_]*", expression):
             word = match.group(0)
             if word in seen:
                 continue
             seen.add(word)
-            if word not in fields or word not in self.env_names:
+            if word not in fields or word not in visible:
                 continue
             self._error(
                 "TDC232",
@@ -1913,6 +1924,7 @@ class _Validator:
                 other,
                 _line(gen),
                 _column(gen),
+                enclosing,
             )
         )
 
@@ -1932,15 +1944,27 @@ class _Validator:
         """
         pending, self.pending_pool_filters = self.pending_pool_filters, []
         shift = 0
-        for at_index, expression, pool_name, field, other, line, column in pending:
+        for at_index, expression, pool_name, field, other, line, column, enclosing in pending:
             field_values = self.pool_field_values.get(pool_name, {}).get(field)
             if not field_values:
                 continue
             # A name no sequence has is a bare word, and the expression language reads a bare word
             # as its own text — that is how filter="clinic == North" says "northern only". So it
             # is a set of exactly one value.
-            is_column = other in self.declared_names
-            other_values = self.finite_values.get(other) if is_column else [other]
+            #
+            # Inside a pool the names are the pool's own; at the top level they are the run's,
+            # which a pool's fields are not. Read among every name, a field of a pool beside the
+            # reference was a column wherever the filter stood.
+            if enclosing is not None:
+                is_column = other in self.pool_fields.get(enclosing, [])
+                column_values = self.pool_field_values.get(enclosing, {}).get(other)
+            else:
+                pool_only = any(other in names for names in self.pool_fields.values())
+                is_column = other in self.env_names or (
+                    other in self.declared_names and not pool_only
+                )
+                column_values = self.finite_values.get(other)
+            other_values = column_values if is_column else [other]
             if not other_values:
                 continue
             # Compared the way `==` compares two texts, so the check cannot refuse a config
@@ -2288,6 +2312,7 @@ class _Validator:
                     if member.name.text in ("sequence", "mix", "switch"):
                         self.pool_member_nodes.add(id(member))
                         self.pool_member_scope[id(member)] = scope
+                        self.pool_member_pool[id(member)] = pool_name
                         out.append(member)
                     elif member.name.text in ("uniq", "distinct"):
                         wrapped_count = 0
@@ -2299,6 +2324,7 @@ class _Validator:
                                 wrapped_count += 1
                                 self.pool_member_nodes.add(id(wrapped))
                                 self.pool_member_scope[id(wrapped)] = scope
+                                self.pool_member_pool[id(wrapped)] = pool_name
                                 out.append(wrapped)
                         self._check_group_size(member, member.name.text, wrapped_count)
             elif tag in ("uniq", "distinct"):

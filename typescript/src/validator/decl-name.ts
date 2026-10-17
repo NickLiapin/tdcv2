@@ -22,6 +22,12 @@ export interface DeclNameCtx {
   readonly declaredSequences: string[];
   readonly valuelessSequences: string[];
   readonly finiteValues: Map<string, readonly string[]>;
+  /**
+   * Where the names of the `<pool>` being walked start in `declaredSequences`.
+   * A pool's members are its own columns, so one may share a name with a column
+   * of the run; only another member of the same pool is a duplicate.
+   */
+  readonly poolNamesFrom?: number | undefined;
 }
 
 /** The attribute node named `name`, for a diagnostic that points at its value. */
@@ -58,7 +64,14 @@ export function checkDeclName(
       code: 'TDC030',
     });
   } else if (nameAttr) {
-    if (ctx.declaredSequences.includes(name)) {
+    // The run's names above a pool used to count here, so a pool field named like
+    // a run column declared ABOVE the pool was refused as a duplicate, while the
+    // same pair the other way round passed.
+    const taken =
+      ctx.poolNamesFrom === undefined
+        ? ctx.declaredSequences
+        : ctx.declaredSequences.slice(ctx.poolNamesFrom);
+    if (taken.includes(name)) {
       ctx.diagnostics.push({
         severity: 'error',
         source: 'validator',

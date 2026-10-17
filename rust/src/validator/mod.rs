@@ -197,7 +197,9 @@ struct Validator {
     /// Held back for the same reason an `if=` is: the column a filter compares
     /// against may be declared BELOW the reference, and the run resolves that
     /// happily. `(at, expression, pool, field, other, pos)`.
-    pending_pool_filters: Vec<(usize, String, String, String, String, Pos)>,
+    /// The filters put aside for TDC225; the last item is the pool the filter is written
+    /// inside, whose fields are the only names it reads there.
+    pending_pool_filters: Vec<(usize, String, String, String, String, Pos, Option<String>)>,
     /// Those of them that produce a list, which is what `each=` may walk.
     repeating_names: BTreeSet<String>,
     /// Every `<gen>` carrying a `row=`, as `(key, src, pos)`. A link is checked
@@ -1179,6 +1181,12 @@ impl Validator {
                 declared.push(n.to_string());
                 self.declared_order.push(n.to_string());
                 self.declared_names.insert(n.to_string());
+                if let Some(pool) = declaration.pool.as_deref().filter(|_| in_pool) {
+                    // A reference inside a pool publishes nothing to the run — its fields
+                    // are the pool's — but what it names is checked all the same. It was
+                    // skipped entirely: no TDC224, TDC226, TDC232 or TDC225 inside a pool.
+                    self.check_pool_references_in_pool(open, pool);
+                }
                 if !in_pool {
                     self.env_names.insert(n.to_string());
                     self.register_pool_reference(open, n);
@@ -1362,7 +1370,7 @@ impl Validator {
     fn run_pending_pool_filters(&mut self) {
         let pending = std::mem::take(&mut self.pending_pool_filters);
         let mut shift = 0usize;
-        for (at_index, expression, pool, field, other, pos) in pending {
+        for (at_index, expression, pool, field, other, pos, enclosing) in pending {
             let Some(field_values) = self
                 .pool_field_values
                 .get(&pool)
@@ -1376,9 +1384,31 @@ impl Validator {
             // reads a bare word as its own text — that is how
             // `filter="clinic == North"` says "northern only". So it is a set of
             // exactly one value.
-            let is_column = self.declared_names.contains(&other);
+            //
+            // Inside a pool the names are the pool's own; at the top level they are the run's,
+            // which a pool's fields are not. Read among every name, a field of a pool was a
+            // column wherever the filter stood.
+            let (is_column, column_values) = match &enclosing {
+                Some(own) => (
+                    self.pool_fields
+                        .get(own)
+                        .is_some_and(|f| f.contains(&other)),
+                    self.pool_field_values
+                        .get(own)
+                        .and_then(|f| f.get(&other))
+                        .cloned(),
+                ),
+                None => {
+                    let pool_only = self.pool_fields.values().any(|f| f.contains(&other));
+                    (
+                        self.env_names.contains(&other)
+                            || (self.declared_names.contains(&other) && !pool_only),
+                        self.finite_values.get(&other).cloned(),
+                    )
+                }
+            };
             let other_values = if is_column {
-                self.finite_values.get(&other).cloned()
+                column_values
             } else {
                 Some(vec![other.clone()])
             };
@@ -1613,7 +1643,7 @@ impl Validator {
                 );
                 continue;
             };
-            self.check_pool_filter(child, pool_name, &fields);
+            self.check_pool_filter(child, pool_name, &fields, None);
             for field in &fields {
                 self.declared_names.insert(format!("{name}.{field}"));
                 self.declared_fields.push(format!("{name}.{field}"));
@@ -1630,7 +1660,44 @@ impl Validator {
     /// has not got is a certain mistake. An UNQUALIFIED unknown name is left
     /// alone: the expression language reads a bare word as a string literal,
     /// which is how `filter="c == North"` says "northern only".
-    fn check_pool_filter(&mut self, gen: &Element, pool_name: &str, fields: &[String]) {
+    /// A `<gen type="pool">` inside a pool: the pool it names, and its filter, read against the
+    /// enclosing pool's own fields.
+    fn check_pool_references_in_pool(&mut self, sequence: &Element, enclosing: &str) {
+        for child in &sequence.children {
+            if child.name != "gen" || child.attr_value("type") != Some("pool") {
+                continue;
+            }
+            let pool_name = child.attr_value("value").map(|s| s.trim()).unwrap_or("");
+            let Some(fields) = self.pool_fields.get(pool_name).cloned() else {
+                let declared: Vec<String> = self.pool_fields.keys().cloned().collect();
+                self.error(
+                    "TDC224",
+                    format!(
+                        "<gen type=\"pool\"> draws from \"{pool_name}\", which is not a \
+                         declared pool"
+                    ),
+                    &if declared.is_empty() {
+                        "Declare it first: <pool name=\"…\" count=\"…\"> inside the same \
+                         <env>."
+                            .to_string()
+                    } else {
+                        format!("Declared pools: {}.", declared.join(", "))
+                    },
+                    child.pos,
+                );
+                continue;
+            };
+            self.check_pool_filter(child, pool_name, &fields, Some(enclosing));
+        }
+    }
+
+    fn check_pool_filter(
+        &mut self,
+        gen: &Element,
+        pool_name: &str,
+        fields: &[String],
+        enclosing: Option<&str>,
+    ) {
         let Some(expression) = gen.attr_value("filter") else {
             return;
         };
@@ -1660,12 +1727,24 @@ impl Validator {
                 gen.pos,
             );
         }
+        // The columns a filter can also mean: the run's, or — written inside a pool — that
+        // pool's own fields, the only names its members read.
+        let visible: BTreeSet<String> = match enclosing {
+            Some(pool) => self
+                .pool_fields
+                .get(pool)
+                .cloned()
+                .unwrap_or_default()
+                .into_iter()
+                .collect(),
+            None => self.env_names.clone(),
+        };
         let mut seen: BTreeSet<String> = BTreeSet::new();
         for word in plain_names(expression) {
             if !seen.insert(word.clone()) {
                 continue;
             }
-            if !fields.iter().any(|f| f == &word) || !self.env_names.contains(&word) {
+            if !fields.iter().any(|f| f == &word) || !visible.contains(&word) {
                 continue;
             }
             self.error(
@@ -1715,6 +1794,7 @@ impl Validator {
             field.to_string(),
             other.to_string(),
             gen.pos,
+            enclosing.map(str::to_string),
         ));
     }
 

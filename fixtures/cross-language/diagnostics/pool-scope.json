@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "a-filter-inside-a-pool-reads-the-fields-beside-it",
+      "demonstrates": "",
+      "description": "Inside a pool, `want` and `wantseq` are fields of the member being built, so `dept_no == want` compares with a column, not with the word \"want\". The reference looked the names up among the run's, where a pool's fields no longer are once its walk is over, and refused both filters as never matching (TDC225).",
+      "config": "<tdc><env count=\"6\" seed=\"probe\" local=\"en\"><pool name=\"Docs\" count=\"6\"><sequence name=\"doc_id\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"dept_no\"><gen type=\"text\" value=\"1,2,3\" percent=\"50,30,20\"/></sequence><sequence name=\"dkey\"><gen type=\"formula\" expr=\"dept_no\"/></sequence></pool><pool name=\"Pats\" count=\"6\"><sequence name=\"pid\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"ag\"><gen type=\"text\" value=\"child,adult\"/></sequence><switch name=\"want\" on=\"ag\"><case is=\"child\"><data>1</data></case><default><gen type=\"text\" value=\"2,3\"/></default></switch><sequence name=\"wantseq\"><gen type=\"text\" value=\"1,2,3\"/></sequence><sequence name=\"pcpA\"><gen type=\"pool\" value=\"Docs\" filter=\"dept_no == wantseq\"/></sequence><sequence name=\"pcpB\"><gen type=\"pool\" value=\"Docs\" filter=\"dept_no == want\"/></sequence></pool><sequence name=\"P\"><gen type=\"pool\" value=\"Pats\" filter=\"pid == _count\"/></sequence></env><block><line><data>${{P.pid}} ag=${{P.ag}} want=${{P.want}} B=${{P.pcpB.dept_no}} ws=${{P.wantseq}} A=${{P.pcpA.dept_no}}</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "a-filter-inside-a-pool-against-a-field-that-never-matches",
+      "demonstrates": "",
+      "description": "The field beside the reference produces x and y, and no Docs member holds either: TDC225, naming both lists. Rust, Java and C# never checked a filter written inside a pool at all.",
+      "config": "<tdc><env count=\"4\" seed=\"probe\" local=\"en\"><pool name=\"Docs\" count=\"6\"><sequence name=\"dept_no\"><gen type=\"text\" value=\"1,2,3\"/></sequence></pool><pool name=\"Pats\" count=\"4\"><sequence name=\"pid\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"wantseq\"><gen type=\"text\" value=\"x,y\"/></sequence><sequence name=\"pcpA\"><gen type=\"pool\" value=\"Docs\" filter=\"dept_no == wantseq\"/></sequence></pool><sequence name=\"P\"><gen type=\"pool\" value=\"Pats\" filter=\"pid == _count\"/></sequence></env><block><line><data>${{P.pid}} ${{P.pcpA.dept_no}}</data></line></block></tdc>",
+      "expected": ["error TDC225 1:328"]
+    },
+    {
+      "name": "a-top-level-filter-does-not-read-another-pools-fields",
+      "demonstrates": "",
+      "description": "At the top level `wantseq` is no column — it is a field of Pats, which the run cannot read — so the filter compares with the word \"wantseq\" and can never match, as the run then refuses. The ports counted every pool's fields as the run's and let it through.",
+      "config": "<tdc><env count=\"4\" seed=\"probe\" local=\"en\"><pool name=\"Docs\" count=\"6\"><sequence name=\"dept_no\"><gen type=\"text\" value=\"1,2,3\"/></sequence></pool><pool name=\"Pats\" count=\"4\"><sequence name=\"wantseq\"><gen type=\"text\" value=\"1,2\"/></sequence></pool><sequence name=\"D\"><gen type=\"pool\" value=\"Docs\" filter=\"dept_no == wantseq\"/></sequence></env><block><line><data>${{D.dept_no}}</data></line></block></tdc>",
+      "expected": ["warning TDC231 1:147", "error TDC225 1:267"]
+    },
+    {
+      "name": "a-filter-inside-a-pool-naming-a-field-of-both-pools",
+      "demonstrates": "",
+      "description": "`dept_no` is a field of Docs and of Pats, the pool the reference is written in: which one is meant is not decidable (TDC232). Only the reference said so.",
+      "config": "<tdc><env count=\"4\" seed=\"probe\" local=\"en\"><pool name=\"Docs\" count=\"6\"><sequence name=\"dept_no\"><gen type=\"text\" value=\"1,2,3\"/></sequence></pool><pool name=\"Pats\" count=\"4\"><sequence name=\"pid\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"dept_no\"><gen type=\"text\" value=\"1,2\"/></sequence><sequence name=\"pcp\"><gen type=\"pool\" value=\"Docs\" filter=\"dept_no == 1\"/></sequence></pool><sequence name=\"P\"><gen type=\"pool\" value=\"Pats\" filter=\"pid == _count\"/></sequence></env><block><line><data>${{P.pid}}</data></line></block></tdc>",
+      "expected": ["error TDC232 1:327"]
+    },
+    {
+      "name": "a-reference-inside-a-pool-to-an-undeclared-pool",
+      "demonstrates": "",
+      "description": "A member naming a pool that does not exist is TDC224 inside a pool as at the top level; Rust, Java and C# reported only TDC236.",
+      "config": "<tdc><env count=\"4\" seed=\"probe\" local=\"en\"><pool name=\"Docs\" count=\"6\"><sequence name=\"dept_no\"><gen type=\"text\" value=\"1,2,3\"/></sequence></pool><pool name=\"Pats\" count=\"4\"><sequence name=\"pid\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"pcp\"><gen type=\"pool\" value=\"Nope\"/></sequence></pool><sequence name=\"P\"><gen type=\"pool\" value=\"Pats\" filter=\"pid == _count\"/></sequence></env><block><line><data>${{P.pid}}</data></line></block></tdc>",
+      "expected": [
+        "warning TDC231 1:44",
+        "error TDC236 1:240",
+        "error TDC224 1:261"
+      ]
+    },
+    {
+      "name": "a-reference-inside-a-pool-to-a-field-the-pool-has-not-got",
+      "demonstrates": "",
+      "description": "A qualified field the pool has not got is TDC226 inside a pool as at the top level; Rust, Java and C# passed it.",
+      "config": "<tdc><env count=\"4\" seed=\"probe\" local=\"en\"><pool name=\"Docs\" count=\"6\"><sequence name=\"dept_no\"><gen type=\"text\" value=\"1,2,3\"/></sequence></pool><pool name=\"Pats\" count=\"4\"><sequence name=\"pid\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"pcp\"><gen type=\"pool\" value=\"Docs\" filter=\"Docs.nope == 1\"/></sequence></pool><sequence name=\"P\"><gen type=\"pool\" value=\"Pats\" filter=\"pid == _count\"/></sequence></env><block><line><data>${{P.pid}}</data></line></block></tdc>",
+      "expected": ["error TDC226 1:261"]
+    },
+    {
+      "name": "a-pool-field-may-share-a-name-with-a-run-column-above-it",
+      "demonstrates": "",
+      "description": "A pool's fields are its own columns, so `dept_no` in Docs may share a name with the run's `dept_no`, and a filter inside Pats does not see the run's. The reference refused the pair as a duplicate (TDC032) when the run's column stood above the pool, and Python reported it as ambiguous (TDC232).",
+      "config": "<tdc><env count=\"4\" seed=\"probe\" local=\"en\"><sequence name=\"dept_no\"><gen type=\"text\" value=\"1,2\"/></sequence><pool name=\"Docs\" count=\"6\"><sequence name=\"dept_no\"><gen type=\"text\" value=\"1,2,3\"/></sequence></pool><pool name=\"Pats\" count=\"4\"><sequence name=\"pid\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"pcp\"><gen type=\"pool\" value=\"Docs\" filter=\"dept_no == 1\"/></sequence></pool><sequence name=\"P\"><gen type=\"pool\" value=\"Pats\" filter=\"pid == _count\"/></sequence></env><block><line><data>${{P.pid}} ${{dept_no}}</data></line></block></tdc>",
+      "expected": []
+    }
+  ]
+}

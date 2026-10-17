@@ -736,6 +736,11 @@ public sealed class Validator
         _poolMemberScope = new();
 
     /// <summary>
+    /// Which pool each member belongs to: a filter written on one reads that pool's fields.
+    /// </summary>
+    private readonly Dictionary<TDCParser.OpenCloseElementContext, string> _poolMemberPool = new();
+
+    /// <summary>
     /// Put an expression aside, together with the names it will be checked against.
     /// </summary>
     /// <remarks>
@@ -770,8 +775,12 @@ public sealed class Validator
     /// Held back for the same reason an <c>if=</c> is: the column a filter compares against may be
     /// declared BELOW the reference, and the run resolves that happily.
     /// </remarks>
+    /// <remarks>
+    /// <c>Enclosing</c> is the pool the filter is written inside, whose fields are the only names
+    /// it reads there; null at the top level.
+    /// </remarks>
     private readonly List<(int At, string Expression, string Pool, string Field, string Other,
-        int Line, int Column)> _pendingPoolFilters = new();
+        int Line, int Column, string? Enclosing)> _pendingPoolFilters = new();
 
     private Validator(string? baseDir, DataPacks? packs, long? countOverride)
     {
@@ -1773,6 +1782,14 @@ public sealed class Validator
             {
                 declared.Add(name);
                 _declaredNames.Add(name);
+                if (this.poolMemberNodes.Contains(open))
+                {
+                    // A reference inside a pool publishes nothing to the run — its fields are the
+                    // pool's — but what it names is checked all the same. It was skipped
+                    // entirely: no TDC224, TDC226, TDC232 or TDC225 inside a pool.
+                    this.CheckPoolReferences(open, this._poolMemberPool.GetValueOrDefault(open));
+                }
+
                 if (!this.poolMemberNodes.Contains(open))
                 {
                     _envNames.Add(name);
@@ -2270,6 +2287,32 @@ public sealed class Validator
     /// <summary>Publish <c>Ref.field</c> for a <c>&lt;gen type="pool"&gt;</c>.</summary>
     private void RegisterPoolReference(TDCParser.OpenCloseElementContext sequence, string name)
     {
+        foreach (string poolName in this.CheckPoolReferences(sequence, null))
+        {
+            foreach (string field in _poolFields[poolName])
+            {
+                _declaredNames.Add($"{name}.{field}");
+                _declaredFields.Add($"{name}.{field}");
+            }
+
+            // The reference itself is a record, not a value: nothing to print.
+            _valuelessNames.Add(name);
+            _poolReferences.Add(name);
+        }
+    }
+
+    /// <summary>
+    /// What each <c>&lt;gen type="pool"&gt;</c> of a sequence names: the pool, and its filter.
+    /// Returns the declared pools it draws from.
+    /// </summary>
+    /// <param name="enclosing">
+    /// The pool the sequence is a member of, whose fields are what a filter written there reads;
+    /// null at the top level.
+    /// </param>
+    private List<string> CheckPoolReferences(
+        TDCParser.OpenCloseElementContext sequence, string? enclosing)
+    {
+        var drawn = new List<string>();
         foreach (TDCParser.ElementContext child in sequence.content().element())
         {
             TDCParser.SelfClosingElementContext self = child.selfClosingElement();
@@ -2304,17 +2347,11 @@ public sealed class Validator
 
             this.CheckPoolFilter(
                 attrs, poolName, fields, line, column,
-                self is not null ? self.attr() : open!.attr());
-            foreach (string field in fields)
-            {
-                _declaredNames.Add($"{name}.{field}");
-                _declaredFields.Add($"{name}.{field}");
-            }
-
-            // The reference itself is a record, not a value: nothing to print.
-            _valuelessNames.Add(name);
-            _poolReferences.Add(name);
+                self is not null ? self.attr() : open!.attr(), enclosing);
+            drawn.Add(poolName);
         }
+
+        return drawn;
     }
 
     /// <summary>
@@ -2331,7 +2368,8 @@ public sealed class Validator
         List<string> fields,
         int line,
         int column,
-        TDCParser.AttrContext[] attrNodes)
+        TDCParser.AttrContext[] attrNodes,
+        string? enclosing)
     {
         string? expression = attrs.GetValueOrDefault("filter");
         if (string.IsNullOrWhiteSpace(expression))
@@ -2360,11 +2398,18 @@ public sealed class Validator
                 line, column);
         }
 
+        // The columns a filter can also mean: the run's, or — written inside a pool — that
+        // pool's own fields, the only names its members read.
+        HashSet<string> visible = enclosing is null
+            ? _envNames
+            : new HashSet<string>(
+                _poolFields.GetValueOrDefault(enclosing) ?? new List<string>(),
+                StringComparer.Ordinal);
         var seen = new HashSet<string>(StringComparer.Ordinal);
         foreach (Match m in Regex.Matches(expression, @"[A-Za-z_][A-Za-z0-9_]*"))
         {
             string word = m.Value;
-            if (!seen.Add(word) || !fields.Contains(word) || !_envNames.Contains(word))
+            if (!seen.Add(word) || !fields.Contains(word) || !visible.Contains(word))
             {
                 continue;
             }
@@ -2410,7 +2455,8 @@ public sealed class Validator
             leftIsField ? left : right,
             leftIsField ? right : left,
             line,
-            column));
+            column,
+            enclosing));
     }
 
     /// <summary>
@@ -2427,11 +2473,11 @@ public sealed class Validator
     private void RunPendingPoolFilters()
     {
         var pending = new List<(int At, string Expression, string Pool, string Field, string Other,
-            int Line, int Column)>(_pendingPoolFilters);
+            int Line, int Column, string? Enclosing)>(_pendingPoolFilters);
         _pendingPoolFilters.Clear();
         int shift = 0;
         foreach ((int at, string expression, string pool, string field, string other, int line,
-            int column) in pending)
+            int column, string? enclosing) in pending)
         {
             if (!_poolFieldValues.TryGetValue(pool, out Dictionary<string, List<string>>? byField)
                 || !byField.TryGetValue(field, out List<string>? fieldValues)
@@ -2443,10 +2489,27 @@ public sealed class Validator
             // A name no sequence has is a bare word, and the expression language reads a bare word
             // as its own text — that is how filter="clinic == North" says "northern only". So it
             // is a set of exactly one value.
-            bool isColumn = _declaredNames.Contains(other);
-            List<string>? otherValues = isColumn
-                ? _finiteValues.GetValueOrDefault(other)
-                : new List<string> { other };
+            //
+            // Inside a pool the names are the pool's own; at the top level they are the run's,
+            // which a pool's fields are not. Read among every name, a field of a pool was a column
+            // wherever the filter stood.
+            bool isColumn;
+            List<string>? columnValues;
+            if (enclosing is not null)
+            {
+                isColumn = _poolFields.GetValueOrDefault(enclosing)?.Contains(other) ?? false;
+                columnValues =
+                    _poolFieldValues.GetValueOrDefault(enclosing)?.GetValueOrDefault(other);
+            }
+            else
+            {
+                bool poolOnly = _poolFields.Values.Any(names => names.Contains(other));
+                isColumn = _envNames.Contains(other)
+                    || (_declaredNames.Contains(other) && !poolOnly);
+                columnValues = _finiteValues.GetValueOrDefault(other);
+            }
+
+            List<string>? otherValues = isColumn ? columnValues : new List<string> { other };
             if (otherValues is null || otherValues.Count == 0)
             {
                 continue;
@@ -2555,6 +2618,7 @@ public sealed class Validator
                     {
                         this.poolMemberNodes.Add(inner);
                         this._poolMemberScope[inner] = scope;
+                        this._poolMemberPool[inner] = declaredPool?.Trim() ?? "";
                         result.Add(inner);
                     }
                     else if (inner.name.Text is "uniq" or "distinct")
@@ -2569,6 +2633,7 @@ public sealed class Validator
                                 wrappedCount++;
                                 this.poolMemberNodes.Add(wrapped);
                                 this._poolMemberScope[wrapped] = scope;
+                                this._poolMemberPool[wrapped] = declaredPool?.Trim() ?? "";
                                 result.Add(wrapped);
                             }
                         }
