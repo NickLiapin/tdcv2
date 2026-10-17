@@ -1,0 +1,605 @@
+<tdc>
+  <!--
+    Lakeshore General Hospital (fictional), Chicago, IL - one JSON document with every table:
+      insurance_providers (13) -> departments (24) -> rooms (600) -> doctors (1000)
+      -> patients (10000) -> appointments (50000)
+
+    Row layout (one TDC row = one JSON record, sections follow each other):
+      rows     1..13     insurance_providers
+      rows    14..37     departments
+      rows    38..637    rooms
+      rows   638..1637   doctors
+      rows  1638..11637  patients
+      rows 11638..61637  appointments
+
+    Every table is a <pool> built once before the rows; a section row prints the
+    member whose id equals the row's local index, and appointments point at the same
+    members - so every foreign key exists and every linked field agrees.
+    Data "as of" 2026-10-16: appointments before that day are history, the rest are bookings.
+  -->
+  <env count="61637" seed="lakeshore-general-2026" local="en">
+
+    <before>
+      <line><data>{</data></line>
+      <line><data>  "metadata": {</data></line>
+      <line><data>    "hospital": {</data></line>
+      <line><data>      "name": "Lakeshore General Hospital",</data></line>
+      <line><data>      "address": {"line1": "2400 W Harborview Ave", "city": "Chicago", "state": "IL", "zip": "60612", "country": "US"},</data></line>
+      <line><data>      "phone": "+1 (312) 555-0100",</data></line>
+      <line><data>      "website": "https://www.lakeshoregeneral.example",</data></line>
+      <line><data>      "timezone": "America/Chicago"</data></line>
+      <line><data>    },</data></line>
+      <line><data>    "data_as_of": "2026-10-16",</data></line>
+      <line><data>    "generator": "TDCv2 0.3.4 (hospital.tdc, seed lakeshore-general-2026)",</data></line>
+      <line><data>    "counts": {"insurance_providers": 13, "departments": 24, "rooms": 600, "doctors": 1000, "patients": 10000, "appointments": 50000}</data></line>
+      <line><data>  },</data></line>
+      <line><data>  "insurance_providers": [</data></line>
+    </before>
+    <after>
+      <line><data>  ]</data></line>
+      <line><data>}</data></line>
+    </after>
+
+    <!-- ===================== insurance providers ===================== -->
+    <pool name="Payers" count="13">
+      <sequence name="payer_no"><gen type="increment" value="1"/></sequence>
+      <sequence name="pname"><gen type="text" order="sequential" value="Blue Cross Blue Shield of Illinois,UnitedHealthcare,Aetna,Cigna Healthcare,Humana,Health Alliance Medical Plans,Medicare,UnitedHealthcare Medicare Advantage,Humana Medicare Advantage,Aetna Medicare Advantage,Illinois Medicaid (HFS),Meridian Health Plan of Illinois,CountyCare Health Plan"/></sequence>
+      <switch name="segment" on="payer_no"><map>1|2|3|4|5|6:commercial, 7|8|9|10:medicare, 11|12|13:medicaid</map></switch>
+      <switch name="prefix" on="payer_no"><map>1:XOF, 2:UHC, 3:AET, 4:CGN, 5:HUM, 6:HAM, 7:MCR, 8:UMA, 9:HMA, 10:AMA, 11:ILM, 12:MHP, 13:CCH</map></switch>
+      <sequence name="edi_id" uniq="true"><gen type="number" value="10000..99999"/></sequence>
+      <sequence name="pphone"><gen type="regex" value="1-8(00|33|44|55|66|77|88)-[2-9][0-9]{2}-[0-9]{4}"/></sequence>
+    </pool>
+
+    <!-- ===================== departments ===================== -->
+    <pool name="Departments" count="24">
+      <sequence name="dep_id"><gen type="increment" value="1"/></sequence>
+      <sequence name="dname"><gen type="text" order="sequential" value="Emergency Medicine,Family Medicine,Internal Medicine,Pediatrics,Obstetrics and Gynecology,Geriatrics,Cardiology,Pulmonology,Nephrology,Endocrinology,Gastroenterology,Hematology,Neurology,Psychiatry,Orthopedics,General Surgery,Urology,Otolaryngology,Oncology,Dermatology,Ophthalmology,Rheumatology,Radiology,Physical Medicine and Rehabilitation"/></sequence>
+      <sequence name="dcode"><gen type="text" order="sequential" value="ED,FM,IM,PED,OBG,GER,CARD,PULM,NEPH,ENDO,GI,HEM,NEURO,PSY,ORTH,GSURG,URO,ENT,ONC,DERM,OPH,RHEUM,RAD,PMR"/></sequence>
+      <!-- wing = building letter + floor digit; rooms use the same codes -->
+      <sequence name="dwing"><gen type="text" order="sequential" value="A1,A2,A3,A4,A5,A6,B1,B2,B3,B4,B5,B6,C1,C2,C3,C4,C5,C6,D1,D2,D3,D4,D5,D6"/></sequence>
+      <switch name="bname" on="dep_id"><map>1|2|3|4|5|6:Main Hospital, 7|8|9|10|11|12:Specialty Care Pavilion, 13|14|15|16|17|18:Neuroscience and Surgical Pavilion, 19|20|21|22|23|24:Outpatient and Diagnostic Center</map></switch>
+      <!-- which patients a department sees: drives who books with its doctors -->
+      <switch name="scope" on="dcode">
+        <map>ED:general, PED:pediatric, OBG:women, GER:geriatric</map>
+        <default><data>adult</data></default>
+      </switch>
+      <switch name="hours" on="dcode">
+        <map>ED:24/7</map>
+        <default><data>Mon-Fri 08:00-17:00</data></default>
+      </switch>
+      <sequence name="dext"><gen type="formula" expr="110 + dep_id"/></sequence>
+    </pool>
+
+    <!-- ===================== rooms ===================== -->
+    <pool name="Rooms" count="600">
+      <sequence name="room_id"><gen type="increment" value="1"/></sequence>
+      <uniq>
+        <sequence name="wing"><gen type="text" value="A1,A2,A3,A4,A5,A6,B1,B2,B3,B4,B5,B6,C1,C2,C3,C4,C5,C6,D1,D2,D3,D4,D5,D6"/></sequence>
+        <sequence name="rnum"><gen type="number" value="1..60" length="2" first_zero="true"/></sequence>
+      </uniq>
+      <switch name="rdept" on="wing"><map>A1:1, A2:2, A3:3, A4:4, A5:5, A6:6, B1:7, B2:8, B3:9, B4:10, B5:11, B6:12, C1:13, C2:14, C3:15, C4:16, C5:17, C6:18, D1:19, D2:20, D3:21, D4:22, D5:23, D6:24</map></switch>
+      <sequence name="rtype"><gen type="text" value="Consultation Office,Exam Room,Procedure Room,Patient Ward,Treatment Room" percent="34,30,12,16,8"/></sequence>
+      <switch name="capacity" on="rtype">
+        <case is="Consultation Office"><gen type="number" value="2..3"/></case>
+        <case is="Exam Room"><gen type="number" value="2..4"/></case>
+        <case is="Procedure Room"><gen type="number" value="4..6"/></case>
+        <case is="Patient Ward"><gen type="number" value="1..4"/></case>
+        <case is="Treatment Room"><gen type="number" value="2..4"/></case>
+      </switch>
+      <sequence name="rext" uniq="true"><gen type="number" value="2000..8999"/></sequence>
+      <sequence name="wheelchair"><gen type="text" value="true,false" percent="92,8"/></sequence>
+    </pool>
+
+    <!-- ===================== doctors ===================== -->
+    <pool name="Doctors" count="1000">
+      <sequence name="doc_id"><gen type="increment" value="1"/></sequence>
+      <sequence name="dept_no"><gen type="text" value="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24" percent="8,7,9,6,5,3,5,3,2,3,3,2,4,4,5,5,3,3,4,3,3,2,4,4"/></sequence>
+      <!-- computed copy of dept_no: other pools filter on it -->
+      <sequence name="dkey"><gen type="formula" expr="dept_no"/></sequence>
+      <sequence name="dept"><gen type="pool" value="Departments" filter="dep_id == dept_no"/></sequence>
+      <!-- the doctor's own office: a consultation office or exam room of the same department -->
+      <sequence name="room"><gen type="pool" value="Rooms" filter="rdept == dept_no && (rtype == 'Consultation Office' || rtype == 'Exam Room')"/></sequence>
+      <sequence name="dgender"><gen type="text" value="M,F" percent="55,45"/></sequence>
+      <switch name="dfirst" on="dgender">
+        <case is="M"><gen type="template" value="person.male.firstName"/></case>
+        <case is="F"><gen type="template" value="person.female.firstName"/></case>
+      </switch>
+      <sequence name="dmiddle"><gen type="regex" value="[A-HJ-PR-WY]"/></sequence>
+      <sequence name="dlast"><gen type="template" value="person.lastName"/></sequence>
+      <sequence name="credential"><gen type="text" value="MD,DO" percent="88,12"/></sequence>
+      <switch name="school" on="credential">
+        <case is="MD"><gen type="text" value="Northwestern University Feinberg School of Medicine,University of Chicago Pritzker School of Medicine,Rush Medical College,University of Illinois College of Medicine,Loyola University Chicago Stritch School of Medicine,Rosalind Franklin University Chicago Medical School,Indiana University School of Medicine,Medical College of Wisconsin,University of Michigan Medical School,Washington University School of Medicine in St. Louis,Johns Hopkins University School of Medicine,Harvard Medical School,University of Wisconsin School of Medicine and Public Health,Mayo Clinic Alix School of Medicine,Ohio State University College of Medicine,University of Iowa Carver College of Medicine"/></case>
+        <case is="DO"><gen type="text" value="Midwestern University Chicago College of Osteopathic Medicine,Kansas City University College of Osteopathic Medicine,Des Moines University College of Osteopathic Medicine,Michigan State University College of Osteopathic Medicine,Ohio University Heritage College of Osteopathic Medicine,Philadelphia College of Osteopathic Medicine"/></case>
+      </switch>
+      <sequence name="position"><gen type="text" value="Attending Physician,Senior Attending Physician,Fellow,Resident Physician,Medical Director" percent="52,16,10,18,4"/></sequence>
+      <switch name="hired" on="position">
+        <case is="Resident Physician"><gen type="date" from="2022-06-20" to="2026-07-01" format="YYYY-MM-DD"/></case>
+        <case is="Fellow"><gen type="date" from="2023-06-20" to="2026-07-01" format="YYYY-MM-DD"/></case>
+        <case is="Attending Physician"><gen type="date" from="2008-01-01" to="2026-06-30" format="YYYY-MM-DD"/></case>
+        <case is="Senior Attending Physician"><gen type="date" from="1996-01-01" to="2015-12-31" format="YYYY-MM-DD"/></case>
+        <case is="Medical Director"><gen type="date" from="1994-01-01" to="2012-12-31" format="YYYY-MM-DD"/></case>
+      </switch>
+      <!-- age at hire follows the career stage -->
+      <switch name="ddob" on="position">
+        <case is="Resident Physician"><gen type="date" of="hired" plus="-31..-26y" format="YYYY-MM-DD"/></case>
+        <case is="Fellow"><gen type="date" of="hired" plus="-35..-29y" format="YYYY-MM-DD"/></case>
+        <case is="Attending Physician"><gen type="date" of="hired" plus="-45..-30y" format="YYYY-MM-DD"/></case>
+        <case is="Senior Attending Physician"><gen type="date" of="hired" plus="-42..-30y" format="YYYY-MM-DD"/></case>
+        <case is="Medical Director"><gen type="date" of="hired" plus="-42..-33y" format="YYYY-MM-DD"/></case>
+      </switch>
+      <switch name="certified" on="position">
+        <case is="Resident Physician|Fellow"><data>false</data></case>
+        <default><gen type="text" value="true,false" percent="94,6"/></default>
+      </switch>
+      <!-- National Provider Identifier and Illinois physician license (036-xxxxxx): never repeat -->
+      <sequence name="npi" uniq="true"><gen type="regex" value="1[0-9]{9}"/></sequence>
+      <sequence name="license" uniq="true"><gen type="number" value="100000..299999"/></sequence>
+      <sequence name="darea"><gen type="text" value="312,773,872,847,630,708" percent="30,30,5,15,12,8"/></sequence>
+      <sequence name="dlocal" uniq="true"><gen type="regex" value="[2-9][0-9]{2}-[0-9]{4}"/></sequence>
+      <mix name="languages" percent="70,14,4,3,3,2,2,2">
+        <case><data>["English"]</data></case>
+        <case><data>["English", "Spanish"]</data></case>
+        <case><data>["English", "Polish"]</data></case>
+        <case><data>["English", "Hindi"]</data></case>
+        <case><data>["English", "Mandarin"]</data></case>
+        <case><data>["English", "Arabic"]</data></case>
+        <case><data>["English", "Tagalog"]</data></case>
+        <case><data>["English", "Russian"]</data></case>
+      </mix>
+      <sequence name="accepting"><gen type="text" value="true,false" percent="80,20"/></sequence>
+      <sequence name="fee10"><gen type="number" value="12..45"/></sequence>
+      <sequence name="fee"><gen type="formula" expr="fee10 * 10"/></sequence>
+    </pool>
+
+    <!-- ===================== patients ===================== -->
+    <pool name="Patients" count="10000">
+      <sequence name="pid"><gen type="increment" value="1"/></sequence>
+      <!-- medical record number (the patient card), SSN, phone and policy: never repeat -->
+      <sequence name="mrn" uniq="true"><gen type="number" value="10000000..99999999"/></sequence>
+      <sequence name="kind"><gen type="text" value="child_m,child_f,adult_m,adult_f,senior_m,senior_f" percent="9,9,28,30,11,13"/></sequence>
+      <switch name="pgender" on="kind"><map>child_m|adult_m|senior_m:M, child_f|adult_f|senior_f:F</map></switch>
+      <switch name="age_group" on="kind"><map>child_m|child_f:child, adult_m|adult_f:adult, senior_m|senior_f:senior</map></switch>
+      <switch name="pfirst" on="pgender">
+        <case is="M"><gen type="template" value="person.male.firstName"/></case>
+        <case is="F"><gen type="template" value="person.female.firstName"/></case>
+      </switch>
+      <sequence name="pmiddle"><gen type="regex" value="[A-HJ-PR-WY]"/></sequence>
+      <sequence name="plast"><gen type="template" value="person.lastName"/></sequence>
+      <switch name="dob" on="age_group">
+        <case is="child"><gen type="date" from="2008-10-17" to="2023-11-30" format="YYYY-MM-DD"/></case>
+        <case is="adult"><gen type="date" from="1961-10-17" to="2005-12-31" format="YYYY-MM-DD"/></case>
+        <case is="senior"><gen type="date" from="1932-01-01" to="1961-10-16" format="YYYY-MM-DD"/></case>
+      </switch>
+      <sequence name="ssn" uniq="true"><gen type="regex" value="(00[1-9]|0[1-9][0-9]|[1-5][0-9]{2}|6[0-5][0-9]|66[0-57-9]|6[7-9][0-9]|[78][0-9]{2})-(0[1-9]|[1-9][0-9])-(000[1-9]|00[1-9][0-9]|0[1-9][0-9]{2}|[1-9][0-9]{3})"/></sequence>
+      <!-- registration precedes the first possible appointment (2024-01-01) -->
+      <switch name="registered" on="age_group">
+        <case is="child"><gen type="date" of="dob" plus="0..30d" format="YYYY-MM-DD"/></case>
+        <default><gen type="date" from="2010-01-04" to="2023-12-29" format="YYYY-MM-DD"/></default>
+      </switch>
+      <switch name="marital" on="age_group">
+        <case is="child"><data>Single</data></case>
+        <case is="adult"><gen type="text" value="Married,Single,Divorced,Domestic Partner,Widowed" percent="47,36,12,4,1"/></case>
+        <case is="senior"><gen type="text" value="Married,Widowed,Divorced,Single" percent="55,25,14,6"/></case>
+      </switch>
+      <sequence name="language"><gen type="text" value="English,Spanish,Polish,Chinese,Arabic,Tagalog,Vietnamese" percent="81,12,3,1,1,1,1"/></sequence>
+      <sequence name="blood"><gen type="text" value="O+,A+,B+,AB+,O-,A-,B-,AB-" percent="38,34,9,3,7,6,2,1"/></sequence>
+
+      <!-- address: a real Chicago-area city with its own state, ZIP codes and area codes -->
+      <sequence name="city"><gen type="text" value="Chicago,Evanston,Skokie,Oak Park,Cicero,Berwyn,Naperville,Aurora,Joliet,Schaumburg,Arlington Heights,Des Plaines,Elgin,Waukegan,Orland Park,Bolingbrook,Gary,Hammond,Kenosha" percent="47,4,3,3,3,2,4,4,4,3,3,2,3,3,2,2,3,3,2"/></sequence>
+      <switch name="state" on="city">
+        <map>Gary|Hammond:IN, Kenosha:WI</map>
+        <default><data>IL</data></default>
+      </switch>
+      <switch name="zip" on="city">
+        <case is="Chicago"><gen type="text" value="60601,60605,60607,60608,60609,60610,60611,60612,60613,60614,60615,60616,60617,60618,60619,60620,60622,60623,60625,60626,60628,60629,60630,60632,60634,60636,60637,60639,60640,60641,60643,60644,60645,60647,60649,60651,60652,60655,60657,60659,60660"/></case>
+        <case is="Evanston"><gen type="text" value="60201,60202"/></case>
+        <case is="Skokie"><gen type="text" value="60076,60077"/></case>
+        <case is="Oak Park"><gen type="text" value="60301,60302,60304"/></case>
+        <case is="Cicero"><gen type="text" value="60804"/></case>
+        <case is="Berwyn"><gen type="text" value="60402"/></case>
+        <case is="Naperville"><gen type="text" value="60540,60563,60564,60565"/></case>
+        <case is="Aurora"><gen type="text" value="60502,60504,60505,60506"/></case>
+        <case is="Joliet"><gen type="text" value="60431,60432,60433,60435,60436"/></case>
+        <case is="Schaumburg"><gen type="text" value="60173,60193,60194,60195"/></case>
+        <case is="Arlington Heights"><gen type="text" value="60004,60005"/></case>
+        <case is="Des Plaines"><gen type="text" value="60016,60018"/></case>
+        <case is="Elgin"><gen type="text" value="60120,60123,60124"/></case>
+        <case is="Waukegan"><gen type="text" value="60085,60087"/></case>
+        <case is="Orland Park"><gen type="text" value="60462,60467"/></case>
+        <case is="Bolingbrook"><gen type="text" value="60440,60490"/></case>
+        <case is="Gary"><gen type="text" value="46402,46403,46404,46406,46407,46408,46409"/></case>
+        <case is="Hammond"><gen type="text" value="46320,46323,46324"/></case>
+        <case is="Kenosha"><gen type="text" value="53140,53142,53143,53144"/></case>
+      </switch>
+      <switch name="parea" on="city">
+        <case is="Chicago"><gen type="text" value="312,773,872" percent="40,52,8"/></case>
+        <case is="Evanston|Skokie|Schaumburg|Arlington Heights|Des Plaines|Elgin|Waukegan"><gen type="text" value="847,224" percent="80,20"/></case>
+        <case is="Oak Park|Cicero|Berwyn|Orland Park"><gen type="text" value="708"/></case>
+        <case is="Naperville|Aurora|Bolingbrook"><gen type="text" value="630,331" percent="85,15"/></case>
+        <case is="Joliet"><gen type="text" value="815,779" percent="85,15"/></case>
+        <case is="Gary|Hammond"><gen type="text" value="219"/></case>
+        <case is="Kenosha"><gen type="text" value="262"/></case>
+      </switch>
+      <sequence name="plocal" uniq="true"><gen type="regex" value="[2-9][0-9]{2}-[0-9]{4}"/></sequence>
+      <sequence name="house"><gen type="number" value="10..9899"/></sequence>
+      <sequence name="sdir"><gen type="text" value="N,S,E,W"/></sequence>
+      <sequence name="street"><gen type="template" value="usa.geo.streetName"/></sequence>
+      <sequence name="numbered"><gen type="formula" expr="contains('0123456789', at(split(street, ''), 0))"/></sequence>
+      <switch name="ssuffix" on="numbered">
+        <case is="true"><data>St</data></case>
+        <default><gen type="text" value="Ave,St,Blvd,Rd,Dr,Ln,Ct,Pl,Way" percent="30,25,8,10,10,6,5,3,3"/></default>
+      </switch>
+      <sequence name="has_apt"><gen type="text" value="yes,no" percent="32,68"/></sequence>
+      <sequence name="apt" parent="has_apt.yes"><gen type="regex" value="(Apt|Unit) [1-9][0-9]?[A-F]?"/></sequence>
+      <sequence name="email_domain"><gen type="text" value="example.com,example.net,example.org" percent="60,25,15"/></sequence>
+
+      <!-- emergency contact: the relationship follows the patient's age and sex -->
+      <switch name="ec_rel" on="kind">
+        <case is="child_m|child_f"><gen type="text" value="Mother,Father,Legal Guardian" percent="55,40,5"/></case>
+        <case is="adult_m"><gen type="text" value="Wife,Mother,Father,Sister,Brother,Partner,Friend" percent="45,12,8,9,7,10,9"/></case>
+        <case is="adult_f"><gen type="text" value="Husband,Mother,Father,Sister,Brother,Partner,Friend" percent="45,12,8,9,7,10,9"/></case>
+        <case is="senior_m"><gen type="text" value="Wife,Daughter,Son,Sister,Brother" percent="50,25,17,4,4"/></case>
+        <case is="senior_f"><gen type="text" value="Husband,Daughter,Son,Sister,Brother" percent="40,30,20,6,4"/></case>
+      </switch>
+      <switch name="ec_gender" on="ec_rel">
+        <map>Mother|Wife|Sister|Daughter:F, Father|Husband|Brother|Son:M</map>
+        <default><gen type="text" value="M,F"/></default>
+      </switch>
+      <switch name="ec_family" on="ec_rel">
+        <map>Partner|Friend|Legal Guardian:no</map>
+        <default><data>yes</data></default>
+      </switch>
+      <switch name="ec_first" on="ec_gender">
+        <case is="M"><gen type="template" value="person.male.firstName"/></case>
+        <case is="F"><gen type="template" value="person.female.firstName"/></case>
+      </switch>
+      <sequence name="ec_last"><gen type="template" value="person.lastName"/></sequence>
+      <sequence name="ec_local"><gen type="regex" value="[2-9][0-9]{2}-[0-9]{4}"/></sequence>
+
+      <!-- medical card -->
+      <sequence name="has_allergy"><gen type="text" value="yes,no" percent="38,62"/></sequence>
+      <sequence name="allergies" parent="has_allergy.yes"><gen type="text" value="Penicillin,Peanuts,Tree Nuts,Shellfish,Eggs,Milk,Soy,Wheat,Latex,Pollen,Dust Mites,Pet Dander,Bee Stings,Aspirin,Sulfa Drugs,Iodine,Sesame" repeat="1..3" separator=";" distinct="true"/></sequence>
+      <switch name="has_chronic" on="age_group">
+        <case is="child"><gen type="text" value="yes,no" percent="16,84"/></case>
+        <case is="adult"><gen type="text" value="yes,no" percent="42,58"/></case>
+        <case is="senior"><gen type="text" value="yes,no" percent="82,18"/></case>
+      </switch>
+      <switch name="chronic_all" on="age_group">
+        <case is="child"><gen type="text" value="Asthma,ADHD,Atopic Dermatitis,Type 1 Diabetes Mellitus,Food Allergy,Epilepsy,Celiac Disease,Childhood Obesity" repeat="1..2" separator=";" distinct="true"/></case>
+        <default><gen type="text" value="Hypertension,Type 2 Diabetes Mellitus,Hyperlipidemia,Asthma,Chronic Obstructive Pulmonary Disease,Coronary Artery Disease,Hypothyroidism,Osteoarthritis,Chronic Kidney Disease,Gastroesophageal Reflux Disease,Major Depressive Disorder,Generalized Anxiety Disorder,Obesity,Atrial Fibrillation,Migraine,Obstructive Sleep Apnea,Osteoporosis,Rheumatoid Arthritis" repeat="1..3" separator=";" distinct="true"/></default>
+      </switch>
+      <sequence name="chronic" parent="has_chronic.yes"><gen type="formula" expr="chronic_all"/></sequence>
+
+      <!-- insurance: Medicare for seniors, Medicaid or commercial for the rest, a few uninsured -->
+      <switch name="ins_seg" on="age_group">
+        <case is="child"><gen type="text" value="commercial,medicaid,none" percent="55,40,5"/></case>
+        <case is="adult"><gen type="text" value="commercial,medicaid,none" percent="77,14,9"/></case>
+        <case is="senior"><gen type="text" value="medicare,none" percent="98,2"/></case>
+      </switch>
+      <switch name="ins_lookup" on="ins_seg">
+        <map>none:commercial</map>
+        <default><gen type="formula" expr="ins_seg"/></default>
+      </switch>
+      <sequence name="payer"><gen type="pool" value="Payers" filter="segment == ins_lookup"/></sequence>
+      <sequence name="policy_core" uniq="true"><gen type="number" value="100000000..999999999"/></sequence>
+      <sequence name="group_no"><gen type="regex" value="[0-9]{6}-[0-9]{3}"/></sequence>
+      <switch name="plan" on="payer.payer_no">
+        <case is="7"><data>Original Medicare (Parts A and B)</data></case>
+        <case is="8|9|10"><gen type="text" value="Medicare Advantage HMO,Medicare Advantage PPO" percent="60,40"/></case>
+        <case is="11"><data>Medicaid Fee-for-Service</data></case>
+        <case is="12|13"><data>Medicaid Managed Care</data></case>
+        <default><gen type="text" value="PPO,HMO,EPO,POS,HDHP" percent="40,30,10,8,12"/></default>
+      </switch>
+      <switch name="subscriber" on="age_group">
+        <case is="child"><data>Child</data></case>
+        <case is="adult"><gen type="text" value="Self,Spouse" percent="72,28"/></case>
+        <case is="senior"><data>Self</data></case>
+      </switch>
+      <sequence name="ins_from"><gen type="date" from="2025-10-17" to="2026-10-01" format="YYYY-MM-DD"/></sequence>
+      <sequence name="ins_next"><gen type="date" of="ins_from" plus="1y" format="YYYY-MM-DD"/></sequence>
+      <sequence name="ins_to"><gen type="date" of="ins_next" plus="-1d" format="YYYY-MM-DD"/></sequence>
+      <switch name="copay" on="ins_seg">
+        <case is="commercial"><gen type="text" value="20,25,30,35,40,50" percent="15,25,25,15,12,8"/></case>
+        <case is="medicare"><gen type="text" value="0,10,20" percent="40,30,30"/></case>
+        <case is="medicaid"><gen type="text" value="0,2,4" percent="60,25,15"/></case>
+        <default><data>0</data></default>
+      </switch>
+
+      <!-- primary care physician: pediatrician for children, family/internal/geriatric medicine otherwise -->
+      <switch name="pcp_dept" on="age_group">
+        <case is="child"><data>4</data></case>
+        <case is="adult"><gen type="text" value="2,3" percent="55,45"/></case>
+        <case is="senior"><gen type="text" value="2,3,6" percent="30,40,30"/></case>
+      </switch>
+      <sequence name="pcp"><gen type="pool" value="Doctors" filter="dkey == pcp_dept"/></sequence>
+    </pool>
+
+    <!-- ===================== calendar: every weekday 2024-01-01 .. 2027-03-31 ===================== -->
+    <pool name="Days" count="848">
+      <sequence name="di"><gen type="increment" value="1"/></sequence>
+      <sequence name="ddate"><gen type="date" from="2024-01-01" order="sequential" step="1d" weekdays="mon..fri" format="YYYY-MM-DD"/></sequence>
+    </pool>
+
+    <!-- ===================== which section a row belongs to ===================== -->
+    <sequence name="T"><gen type="formula" expr="_count <= 13 ? pay : (_count <= 37 ? dep : (_count <= 637 ? room : (_count <= 1637 ? doc : (_count <= 11637 ? pat : apt))))"/></sequence>
+    <sequence name="PayKey"><gen type="formula" expr="((_count - 1) % 13) + 1"/></sequence>
+    <sequence name="DepKey"><gen type="formula" expr="((_count - 14) % 24) + 1"/></sequence>
+    <sequence name="RoomKey"><gen type="formula" expr="((_count - 38) % 600) + 1"/></sequence>
+    <sequence name="DocKey"><gen type="formula" expr="((_count - 638) % 1000) + 1"/></sequence>
+    <sequence name="PatKey"><gen type="formula" expr="((_count - 1638) % 10000) + 1"/></sequence>
+    <sequence name="AptId"><gen type="formula" expr="_count - 11637"/></sequence>
+
+    <sequence name="RP"><gen type="pool" value="Payers" filter="payer_no == PayKey"/></sequence>
+    <sequence name="RD"><gen type="pool" value="Departments" filter="dep_id == DepKey"/></sequence>
+    <sequence name="RR"><gen type="pool" value="Rooms" filter="room_id == RoomKey"/></sequence>
+    <sequence name="RDoc"><gen type="pool" value="Doctors" filter="doc_id == DocKey"/></sequence>
+    <sequence name="RPat"><gen type="pool" value="Patients" filter="pid == PatKey"/></sequence>
+
+    <!-- ===================== appointments ===================== -->
+    <!-- No double booking, by construction: appointment k (0..49999) is sent through a
+         bijection of k -> (doctor, weekday, 30-minute slot) over 1000 x 848 x 18 = 15,264,000
+         combinations: an affine permutation x = (7919111 k + 3141593) mod 15264000
+         (7919111 is coprime to 15264000), split into doctor / day / slot, and each part
+         permuted again (337 is coprime to 1000, 389 to 848). Distinct k give distinct
+         (doctor, day, slot), so no doctor is ever booked twice into the same slot. -->
+    <sequence name="AX"><gen type="formula" expr="(7919111 * (AptId - 1) + 3141593) % 15264000"/></sequence>
+    <sequence name="AXLow"><gen type="formula" expr="AX % 15264"/></sequence>
+    <sequence name="ADocIdx"><gen type="formula" expr="((337 * floor(AX / 15264) + 211) % 1000) + 1"/></sequence>
+    <sequence name="ADayIdx"><gen type="formula" expr="((389 * floor(AXLow / 18) + 97) % 848) + 1"/></sequence>
+    <sequence name="ASlot"><gen type="formula" expr="AXLow % 18"/></sequence>
+    <sequence name="ADoc"><gen type="pool" value="Doctors" filter="doc_id == ADocIdx"/></sequence>
+    <sequence name="ADay"><gen type="pool" value="Days" filter="di == ADayIdx"/></sequence>
+    <!-- the patient fits the department: children see pediatrics or the ED, OB/GYN sees women, geriatrics sees seniors -->
+    <switch name="AKind" on="ADoc.dept.scope">
+      <case is="pediatric"><gen type="text" value="child_m,child_f"/></case>
+      <case is="women"><data>adult_f</data></case>
+      <case is="geriatric"><gen type="text" value="senior_m,senior_f" percent="45,55"/></case>
+      <case is="general"><gen type="text" value="child_m,child_f,adult_m,adult_f,senior_m,senior_f" percent="9,9,26,28,13,15"/></case>
+      <default><gen type="text" value="adult_m,adult_f,senior_m,senior_f" percent="31,35,16,18"/></default>
+    </switch>
+    <sequence name="APt"><gen type="pool" value="Patients" filter="kind == AKind"/></sequence>
+
+    <!-- day index 729 is 2026-10-15: everything up to it already happened -->
+    <sequence name="Period"><gen type="formula" expr="ADayIdx <= 729 ? past : future"/></sequence>
+    <switch name="AStatus" on="Period">
+      <case is="past"><gen type="text" value="Completed,Cancelled,No-Show,Rescheduled" percent="84,7,6,3"/></case>
+      <case is="future"><gen type="text" value="Scheduled,Confirmed" percent="58,42"/></case>
+    </switch>
+    <switch name="AType" on="ADoc.dept.dcode">
+      <case is="ED"><gen type="text" value="Urgent Care Visit,Emergency Follow-up" percent="75,25"/></case>
+      <case is="RAD"><gen type="text" value="Imaging Study,Imaging Results Review" percent="70,30"/></case>
+      <default><gen type="text" value="Office Visit,Follow-up Visit,New Patient Consultation,Annual Wellness Visit,Procedure,Telehealth Visit" percent="34,28,14,8,6,10"/></default>
+    </switch>
+    <switch name="ADur" on="AType">
+      <map>Office Visit:20, Follow-up Visit:15, New Patient Consultation:30, Annual Wellness Visit:30, Procedure:30, Telehealth Visit:15, Urgent Care Visit:30, Emergency Follow-up:20, Imaging Study:30, Imaging Results Review:15</map>
+    </switch>
+    <switch name="AStart" on="ASlot">
+      <map>0:08:00, 1:08:30, 2:09:00, 3:09:30, 4:10:00, 5:10:30, 6:11:00, 7:11:30, 8:12:00, 9:12:30, 10:13:00, 11:13:30, 12:14:00, 13:14:30, 14:15:00, 15:15:30, 16:16:00, 17:16:30</map>
+    </switch>
+    <sequence name="AEndMin"><gen type="formula" expr="480 + 30 * ASlot + ADur"/></sequence>
+    <sequence name="AEndH0"><gen type="formula" expr="floor(AEndMin / 60)"/></sequence>
+    <sequence name="AEndM0"><gen type="formula" expr="AEndMin % 60"/></sequence>
+    <switch name="AEndH" on="AEndH0">
+      <map>8:08, 9:09</map>
+      <default><gen type="formula" expr="AEndH0"/></default>
+    </switch>
+    <switch name="AEndM" on="AEndM0">
+      <map>0:00, 5:05</map>
+      <default><gen type="formula" expr="AEndM0"/></default>
+    </switch>
+    <switch name="ABooked" on="Period">
+      <case is="past"><gen type="date" of="ADay.ddate" plus="-60..-1d" format="YYYY-MM-DD"/></case>
+      <case is="future"><gen type="date" from="2026-08-01" to="2026-10-15" format="YYYY-MM-DD"/></case>
+    </switch>
+    <switch name="AReason" on="AType">
+      <map>Annual Wellness Visit:Annual preventive examination</map>
+      <default><gen type="template" value="medical.symptom"/></default>
+    </switch>
+    <sequence name="ACancel"><gen type="text" value="Patient request,Schedule conflict,Provider unavailable,Patient illness,Transportation issue,Severe weather" percent="38,24,12,12,9,5"/></sequence>
+
+    <!-- diagnosis matches the doctor's specialty -->
+    <switch name="ADx" on="ADoc.dept.dcode">
+      <case is="ED"><gen type="text" value="Laceration of Hand,Ankle Sprain,Acute Gastroenteritis,Concussion,Kidney Stone,Cellulitis,Allergic Reaction,Dehydration,Closed Fracture of Wrist,Acute Bronchitis"/></case>
+      <case is="FM"><gen type="text" value="Hypertension,Type 2 Diabetes Mellitus,Upper Respiratory Infection,Acute Sinusitis,Hyperlipidemia,Low Back Pain,Seasonal Allergic Rhinitis,Obesity,Vitamin D Deficiency,Routine Health Maintenance"/></case>
+      <case is="IM"><gen type="text" value="Hypertension,Type 2 Diabetes Mellitus,Hyperlipidemia,Chronic Kidney Disease Stage 3,Iron Deficiency Anemia,Hypothyroidism,Gastroesophageal Reflux Disease,Community-Acquired Pneumonia,Obesity,Vitamin B12 Deficiency"/></case>
+      <case is="PED"><gen type="text" value="Acute Otitis Media,Streptococcal Pharyngitis,Viral Upper Respiratory Infection,Bronchiolitis,Childhood Asthma,Atopic Dermatitis,Hand Foot and Mouth Disease,Viral Gastroenteritis,ADHD,Well Child Visit"/></case>
+      <case is="OBG"><gen type="text" value="Supervision of Normal Pregnancy,Polycystic Ovary Syndrome,Endometriosis,Uterine Fibroids,Bacterial Vaginosis,Anemia in Pregnancy,Gestational Diabetes,Dysmenorrhea,Cervical Dysplasia,Routine Gynecological Examination"/></case>
+      <case is="GER"><gen type="text" value="Osteoporosis,Mild Cognitive Impairment,Alzheimer Disease,Osteoarthritis of Knee,Hypertension,Urinary Incontinence,Frailty Syndrome,History of Falls,Parkinson Disease,Chronic Insomnia"/></case>
+      <case is="CARD"><gen type="template" value="medical.diagnosisBySpecialty.Cardiology"/></case>
+      <case is="PULM"><gen type="template" value="medical.diagnosisBySpecialty.Pulmonology"/></case>
+      <case is="NEPH"><gen type="template" value="medical.diagnosisBySpecialty.Nephrology"/></case>
+      <case is="ENDO"><gen type="text" value="Type 2 Diabetes Mellitus,Type 1 Diabetes Mellitus,Prediabetes,Hypothyroidism,Hyperthyroidism,Osteoporosis,Primary Hyperparathyroidism,Thyroid Nodule,Adrenal Insufficiency,Cushing Syndrome"/></case>
+      <case is="GI"><gen type="template" value="medical.diagnosisBySpecialty.Gastroenterology"/></case>
+      <case is="HEM"><gen type="text" value="Iron Deficiency Anemia,Thrombocytopenia,Deep Vein Thrombosis,Polycythemia Vera,Vitamin B12 Deficiency Anemia,Hereditary Hemochromatosis,Neutropenia,Monoclonal Gammopathy of Undetermined Significance,Thalassemia Minor,Sickle Cell Trait"/></case>
+      <case is="NEURO"><gen type="template" value="medical.diagnosisBySpecialty.Neurology"/></case>
+      <case is="PSY"><gen type="template" value="medical.diagnosisBySpecialty.Psychiatry"/></case>
+      <case is="ORTH"><gen type="template" value="medical.diagnosisBySpecialty.Orthopedics"/></case>
+      <case is="GSURG"><gen type="text" value="Inguinal Hernia,Cholelithiasis,Acute Appendicitis,Umbilical Hernia,Lipoma,Pilonidal Cyst,Diverticulitis,Hemorrhoids,Postoperative Follow-up,Sebaceous Cyst"/></case>
+      <case is="URO"><gen type="text" value="Nephrolithiasis,Urinary Tract Infection,Overactive Bladder,Microscopic Hematuria,Interstitial Cystitis,Stress Urinary Incontinence,Recurrent Cystitis,Renal Cyst,Neurogenic Bladder,Urethral Stricture"/></case>
+      <case is="ENT"><gen type="text" value="Chronic Sinusitis,Deviated Nasal Septum,Chronic Tonsillitis,Sensorineural Hearing Loss,Tinnitus,Obstructive Sleep Apnea,Otitis Externa,Benign Paroxysmal Positional Vertigo,Laryngitis,Nasal Polyps"/></case>
+      <case is="ONC"><gen type="text" value="Lung Cancer,Colorectal Cancer,Leukemia,Lymphoma,Melanoma,Pancreatic Cancer,Thyroid Cancer,Bladder Cancer,Multiple Myeloma,Renal Cell Carcinoma"/></case>
+      <case is="DERM"><gen type="template" value="medical.diagnosisBySpecialty.Dermatology"/></case>
+      <case is="OPH"><gen type="text" value="Myopia,Cataract,Primary Open-Angle Glaucoma,Dry Eye Syndrome,Conjunctivitis,Diabetic Retinopathy,Age-Related Macular Degeneration,Astigmatism,Blepharitis,Presbyopia"/></case>
+      <case is="RHEUM"><gen type="text" value="Rheumatoid Arthritis,Systemic Lupus Erythematosus,Gout,Psoriatic Arthritis,Ankylosing Spondylitis,Fibromyalgia,Osteoarthritis,Polymyalgia Rheumatica,Sjogren Syndrome,Giant Cell Arteritis"/></case>
+      <case is="RAD"><gen type="text" value="Pulmonary Nodule,Hepatic Steatosis,Degenerative Disc Disease,Renal Cyst,Thyroid Nodule,No Acute Findings,Rotator Cuff Tear,Meniscal Tear,Cholelithiasis,Osteopenia"/></case>
+      <case is="PMR"><gen type="text" value="Chronic Low Back Pain,Post-Stroke Rehabilitation,Rotator Cuff Tendinopathy,Rehabilitation after Knee Replacement,Cervical Radiculopathy,Spinal Cord Injury Rehabilitation,Plantar Fasciitis,Chronic Neck Pain,Gait Abnormality,Carpal Tunnel Syndrome"/></case>
+    </switch>
+
+    <!-- prescription: a drug this department actually prescribes -->
+    <switch name="AHasRx" on="ADoc.dept.dcode">
+      <case is="RAD"><data>no</data></case>
+      <default><gen type="text" value="yes,no" percent="58,42"/></default>
+    </switch>
+    <switch name="ARx" on="ADoc.dept.dcode">
+      <case is="ED"><gen type="text" value="Ibuprofen 600 mg tablet,Acetaminophen 500 mg tablet,Ondansetron 4 mg ODT,Cephalexin 500 mg capsule,Cyclobenzaprine 10 mg tablet,Prednisone 20 mg tablet"/></case>
+      <case is="FM"><gen type="text" value="Lisinopril 10 mg tablet,Metformin 500 mg tablet,Atorvastatin 20 mg tablet,Amoxicillin 500 mg capsule,Cetirizine 10 mg tablet,Fluticasone 50 mcg nasal spray"/></case>
+      <case is="IM"><gen type="text" value="Lisinopril 20 mg tablet,Metformin 1000 mg tablet,Atorvastatin 40 mg tablet,Levothyroxine 50 mcg tablet,Omeprazole 20 mg capsule,Amlodipine 5 mg tablet"/></case>
+      <case is="PED"><gen type="text" value="Amoxicillin 400 mg/5 mL suspension,Ibuprofen 100 mg/5 mL suspension,Albuterol 90 mcg inhaler,Cetirizine 5 mg/5 mL syrup,Hydrocortisone 1% cream,Azithromycin 200 mg/5 mL suspension"/></case>
+      <case is="OBG"><gen type="text" value="Prenatal Multivitamin tablet,Ferrous Sulfate 325 mg tablet,Metronidazole 500 mg tablet,Norethindrone 0.35 mg tablet,Ibuprofen 400 mg tablet,Folic Acid 1 mg tablet"/></case>
+      <case is="GER"><gen type="text" value="Donepezil 10 mg tablet,Alendronate 70 mg tablet,Vitamin D3 2000 IU capsule,Amlodipine 5 mg tablet,Melatonin 3 mg tablet,Acetaminophen 650 mg ER tablet"/></case>
+      <case is="CARD"><gen type="text" value="Metoprolol Succinate 50 mg tablet,Atorvastatin 80 mg tablet,Apixaban 5 mg tablet,Lisinopril 10 mg tablet,Furosemide 40 mg tablet,Clopidogrel 75 mg tablet"/></case>
+      <case is="PULM"><gen type="text" value="Albuterol 90 mcg inhaler,Fluticasone-Salmeterol 250/50 mcg inhaler,Tiotropium 18 mcg inhaler,Montelukast 10 mg tablet,Prednisone 40 mg tablet,Azithromycin 250 mg tablet"/></case>
+      <case is="NEPH"><gen type="text" value="Losartan 50 mg tablet,Furosemide 20 mg tablet,Sodium Bicarbonate 650 mg tablet,Calcitriol 0.25 mcg capsule,Sevelamer 800 mg tablet"/></case>
+      <case is="ENDO"><gen type="text" value="Metformin 1000 mg tablet,Insulin Glargine 100 units/mL pen,Levothyroxine 75 mcg tablet,Semaglutide 0.5 mg pen,Glipizide 5 mg tablet,Methimazole 10 mg tablet"/></case>
+      <case is="GI"><gen type="text" value="Omeprazole 40 mg capsule,Pantoprazole 40 mg tablet,Mesalamine 1.2 g tablet,Dicyclomine 20 mg tablet,Polyethylene Glycol 3350 powder,Ondansetron 4 mg tablet"/></case>
+      <case is="HEM"><gen type="text" value="Ferrous Sulfate 325 mg tablet,Cyanocobalamin 1000 mcg tablet,Folic Acid 1 mg tablet,Apixaban 5 mg tablet,Hydroxyurea 500 mg capsule"/></case>
+      <case is="NEURO"><gen type="text" value="Sumatriptan 50 mg tablet,Gabapentin 300 mg capsule,Levetiracetam 500 mg tablet,Topiramate 25 mg tablet,Carbidopa-Levodopa 25/100 mg tablet"/></case>
+      <case is="PSY"><gen type="text" value="Sertraline 50 mg tablet,Escitalopram 10 mg tablet,Bupropion XL 150 mg tablet,Trazodone 50 mg tablet,Aripiprazole 5 mg tablet,Buspirone 10 mg tablet"/></case>
+      <case is="ORTH"><gen type="text" value="Meloxicam 15 mg tablet,Naproxen 500 mg tablet,Cyclobenzaprine 10 mg tablet,Diclofenac 1% gel,Acetaminophen 500 mg tablet"/></case>
+      <case is="GSURG"><gen type="text" value="Cephalexin 500 mg capsule,Ibuprofen 800 mg tablet,Docusate 100 mg capsule,Ondansetron 4 mg tablet,Tramadol 50 mg tablet"/></case>
+      <case is="URO"><gen type="text" value="Tamsulosin 0.4 mg capsule,Oxybutynin 5 mg tablet,Nitrofurantoin 100 mg capsule,Mirabegron 25 mg tablet,Phenazopyridine 200 mg tablet"/></case>
+      <case is="ENT"><gen type="text" value="Fluticasone 50 mcg nasal spray,Amoxicillin-Clavulanate 875/125 mg tablet,Ciprofloxacin-Dexamethasone otic suspension,Cetirizine 10 mg tablet,Prednisone 20 mg tablet"/></case>
+      <case is="ONC"><gen type="text" value="Ondansetron 8 mg tablet,Dexamethasone 4 mg tablet,Prochlorperazine 10 mg tablet,Capecitabine 500 mg tablet,Megestrol 40 mg/mL suspension"/></case>
+      <case is="DERM"><gen type="text" value="Triamcinolone 0.1% cream,Tretinoin 0.025% cream,Doxycycline 100 mg capsule,Clobetasol 0.05% ointment,Ketoconazole 2% shampoo,Mupirocin 2% ointment"/></case>
+      <case is="OPH"><gen type="text" value="Latanoprost 0.005% eye drops,Artificial Tears eye drops,Moxifloxacin 0.5% eye drops,Prednisolone Acetate 1% eye drops,Timolol 0.5% eye drops"/></case>
+      <case is="RHEUM"><gen type="text" value="Methotrexate 2.5 mg tablet,Hydroxychloroquine 200 mg tablet,Allopurinol 100 mg tablet,Prednisone 10 mg tablet,Colchicine 0.6 mg tablet"/></case>
+      <case is="PMR"><gen type="text" value="Gabapentin 300 mg capsule,Baclofen 10 mg tablet,Meloxicam 7.5 mg tablet,Lidocaine 5% patch,Duloxetine 30 mg capsule"/></case>
+      <default><data>none</data></default>
+    </switch>
+    <sequence name="ARxFreq"><gen type="text" value="Once daily,Twice daily,Three times daily,Every 6 hours as needed,At bedtime" percent="40,28,12,12,8"/></sequence>
+    <sequence name="ARxDays"><gen type="text" value="5,7,10,14,30,90" percent="8,18,14,14,30,16"/></sequence>
+    <sequence name="ARxRefills"><gen type="number" value="0..5"/></sequence>
+
+    <!-- billing for completed visits: the patient pays the copay, insurance the rest; uninsured pay it all -->
+    <sequence name="APatientDue"><gen type="formula" expr="APt.ins_seg === 'none' ? ADoc.fee : min(APt.copay, ADoc.fee)"/></sequence>
+    <sequence name="AInsPaid"><gen type="formula" expr="ADoc.fee - APatientDue"/></sequence>
+
+    <sequence name="ChkDocRoomDept"><gen type="formula" expr="RDoc.room.rdept"/></sequence>
+    <sequence name="ChkPatSegment"><gen type="formula" expr="RPat.payer.segment"/></sequence>
+    <sequence name="ChkAptRoomDept"><gen type="formula" expr="ADoc.room.rdept"/></sequence>
+
+    <!-- ===================== checks: the run stops if any of these breaks ===================== -->
+    <assert that="_total == 61637" says="13 + 24 + 600 + 1000 + 10000 + 50000 records"/>
+    <assert each="T != 'pay' || RP.payer_no == PayKey" says="each provider row prints its own provider"/>
+    <assert each="T != 'dep' || RD.dep_id == DepKey" says="each department row prints its own department"/>
+    <assert each="T != 'room' || RR.room_id == RoomKey" says="each room row prints its own room"/>
+    <assert each="T != 'doc' || RDoc.doc_id == DocKey" says="each doctor row prints its own doctor"/>
+    <assert each="T != 'pat' || RPat.pid == PatKey" says="each patient row prints its own patient"/>
+    <assert each="T != 'doc' || ChkDocRoomDept == RDoc.dept_no" says="a doctor's office belongs to the doctor's department"/>
+    <assert each="T != 'apt' || (AptId >= 1 && AptId <= 50000)" says="appointment ids run 1..50000"/>
+    <assert each="T != 'apt' || APt.kind == AKind" says="the patient fits the department's scope"/>
+    <assert each="T != 'apt' || ChkAptRoomDept == ADoc.dept_no" says="the appointment room belongs to the doctor's department"/>
+    <assert each="T != 'apt' || ADoc.doc_id == ADocIdx" says="the appointment's doctor is the one drawn"/>
+    <assert each="T != 'apt' || ADay.di == ADayIdx" says="the appointment's day is the one drawn"/>
+    <assert each="T != 'apt' || (AInsPaid >= 0 && APatientDue >= 0)" says="no negative billing amounts"/>
+    <assert each="T != 'pat' || ChkPatSegment == RPat.ins_lookup" says="the insurer serves the patient's coverage segment"/>
+  </env>
+
+  <block>
+    <!-- ===== insurance_providers ===== -->
+    <line if="T == 'pay'"><data>    {"id": ${{RP.payer_no}}, "name": "${{RP.pname}}", "type": "${{RP.segment | capitalize}}", "payer_id": "${{RP.edi_id}}", "member_id_prefix": "${{RP.prefix}}", "customer_service_phone": "${{RP.pphone}}"}</data><data if="_count != 13">,</data></line>
+
+    <!-- ===== departments ===== -->
+    <line if="_count == 14"><data>  ],</data></line>
+    <line if="_count == 14"><data>  "departments": [</data></line>
+    <line if="T == 'dep'"><data>    {"id": ${{RD.dep_id}}, "code": "${{RD.dcode}}", "name": "${{RD.dname}}", "building_code": "${{RD.dwing | slice:0,1}}", "building_name": "${{RD.bname}}", "floor": ${{RD.dwing | slice:1,2}}, "phone": "+1 (312) 555-0${{RD.dext}}", "opening_hours": "${{RD.hours}}", "patient_scope": "${{RD.scope}}"}</data><data if="_count != 37">,</data></line>
+
+    <!-- ===== rooms ===== -->
+    <line if="_count == 38"><data>  ],</data></line>
+    <line if="_count == 38"><data>  "rooms": [</data></line>
+    <line if="T == 'room'"><data>    {"id": ${{RR.room_id}}, "room_number": "${{RR.wing | slice:0,1}}-${{RR.wing | slice:1,2}}${{RR.rnum}}", "department_id": ${{RR.rdept}}, "building_code": "${{RR.wing | slice:0,1}}", "floor": ${{RR.wing | slice:1,2}}, "type": "${{RR.rtype}}", "capacity": ${{RR.capacity}}, "phone_extension": "${{RR.rext}}", "wheelchair_accessible": ${{RR.wheelchair}}}</data><data if="_count != 637">,</data></line>
+
+    <!-- ===== doctors ===== -->
+    <line if="_count == 638"><data>  ],</data></line>
+    <line if="_count == 638"><data>  "doctors": [</data></line>
+    <line if="T == 'doc'"><data>    {</data></line>
+    <line if="T == 'doc'"><data>      "id": ${{RDoc.doc_id}},</data></line>
+    <line if="T == 'doc'"><data>      "npi": "${{RDoc.npi}}",</data></line>
+    <line if="T == 'doc'"><data>      "license_number": "036-${{RDoc.license}}",</data></line>
+    <line if="T == 'doc'"><data>      "first_name": "${{RDoc.dfirst}}",</data></line>
+    <line if="T == 'doc'"><data>      "middle_initial": "${{RDoc.dmiddle}}",</data></line>
+    <line if="T == 'doc'"><data>      "last_name": "${{RDoc.dlast}}",</data></line>
+    <line if="T == 'doc'"><data>      "credential": "${{RDoc.credential}}",</data></line>
+    <line if="T == 'doc'"><data>      "gender": "${{RDoc.dgender}}",</data></line>
+    <line if="T == 'doc'"><data>      "date_of_birth": "${{RDoc.ddob}}",</data></line>
+    <line if="T == 'doc'"><data>      "department_id": ${{RDoc.dept_no}},</data></line>
+    <line if="T == 'doc'"><data>      "specialty": "${{RDoc.dept.dname}}",</data></line>
+    <line if="T == 'doc'"><data>      "position": "${{RDoc.position}}",</data></line>
+    <line if="T == 'doc'"><data>      "room_id": ${{RDoc.room.room_id}},</data></line>
+    <line if="T == 'doc'"><data>      "email": "${{RDoc.dfirst | lower}}.${{RDoc.dlast | lower}}${{RDoc.doc_id}}@lakeshoregeneral.example",</data></line>
+    <line if="T == 'doc'"><data>      "phone": "+1 (${{RDoc.darea}}) ${{RDoc.dlocal}}",</data></line>
+    <line if="T == 'doc'"><data>      "medical_school": "${{RDoc.school}}",</data></line>
+    <line if="T == 'doc'"><data>      "board_certified": ${{RDoc.certified}},</data></line>
+    <line if="T == 'doc'"><data>      "languages": ${{RDoc.languages}},</data></line>
+    <line if="T == 'doc'"><data>      "hire_date": "${{RDoc.hired}}",</data></line>
+    <line if="T == 'doc'"><data>      "consultation_fee_usd": ${{RDoc.fee}}.00,</data></line>
+    <line if="T == 'doc'"><data>      "accepting_new_patients": ${{RDoc.accepting}},</data></line>
+    <line if="T == 'doc'"><data>      "work_schedule": {"days": ["Mon", "Tue", "Wed", "Thu", "Fri"], "start": "08:00", "end": "17:00", "slot_minutes": 30}</data></line>
+    <line if="T == 'doc'"><data>    }</data><data if="_count != 1637">,</data></line>
+
+    <!-- ===== patients ===== -->
+    <line if="_count == 1638"><data>  ],</data></line>
+    <line if="_count == 1638"><data>  "patients": [</data></line>
+    <line if="T == 'pat'"><data>    {</data></line>
+    <line if="T == 'pat'"><data>      "id": ${{RPat.pid}},</data></line>
+    <line if="T == 'pat'"><data>      "medical_record_number": "MRN-${{RPat.mrn}}",</data></line>
+    <line if="T == 'pat'"><data>      "ssn": "${{RPat.ssn}}",</data></line>
+    <line if="T == 'pat'"><data>      "first_name": "${{RPat.pfirst}}",</data></line>
+    <line if="T == 'pat'"><data>      "middle_initial": "${{RPat.pmiddle}}",</data></line>
+    <line if="T == 'pat'"><data>      "last_name": "${{RPat.plast}}",</data></line>
+    <line if="T == 'pat'"><data>      "gender": "${{RPat.pgender}}",</data></line>
+    <line if="T == 'pat'"><data>      "date_of_birth": "${{RPat.dob}}",</data></line>
+    <line if="T == 'pat'"><data>      "age_group": "${{RPat.age_group}}",</data></line>
+    <line if="T == 'pat'"><data>      "marital_status": "${{RPat.marital}}",</data></line>
+    <line if="T == 'pat'"><data>      "preferred_language": "${{RPat.language}}",</data></line>
+    <line if="T == 'pat'"><data>      "phone": "+1 (${{RPat.parea}}) ${{RPat.plocal}}",</data></line>
+    <line if="T == 'pat'"><data>      "email": </data><data if="RPat.age_group == 'child'">null</data><data if="RPat.age_group != 'child'">"${{RPat.pfirst | lower}}.${{RPat.plast | lower}}${{RPat.pid}}@${{RPat.email_domain}}"</data><data>,</data></line>
+    <line if="T == 'pat'"><data>      "address": {</data></line>
+    <line if="T == 'pat'"><data>        "line1": "${{RPat.house}} ${{RPat.sdir}} ${{RPat.street}} ${{RPat.ssuffix}}",</data></line>
+    <line if="T == 'pat'"><data>        "line2": </data><data if="RPat.has_apt == 'yes'">"${{RPat.apt}}"</data><data if="RPat.has_apt == 'no'">null</data><data>,</data></line>
+    <line if="T == 'pat'"><data>        "city": "${{RPat.city}}",</data></line>
+    <line if="T == 'pat'"><data>        "state": "${{RPat.state}}",</data></line>
+    <line if="T == 'pat'"><data>        "zip": "${{RPat.zip}}",</data></line>
+    <line if="T == 'pat'"><data>        "country": "US"</data></line>
+    <line if="T == 'pat'"><data>      },</data></line>
+    <line if="T == 'pat'"><data>      "emergency_contact": {</data></line>
+    <line if="T == 'pat'"><data>        "name": "${{RPat.ec_first}} </data><data if="RPat.ec_family == 'yes'">${{RPat.plast}}</data><data if="RPat.ec_family == 'no'">${{RPat.ec_last}}</data><data>",</data></line>
+    <line if="T == 'pat'"><data>        "relationship": "${{RPat.ec_rel}}",</data></line>
+    <line if="T == 'pat'"><data>        "phone": "+1 (${{RPat.parea}}) ${{RPat.ec_local}}"</data></line>
+    <line if="T == 'pat'"><data>      },</data></line>
+    <line if="T == 'pat'"><data>      "primary_care_doctor_id": ${{RPat.pcp.doc_id}},</data></line>
+    <line if="T == 'pat'"><data>      "medical_card": {</data></line>
+    <line if="T == 'pat'"><data>        "blood_type": "${{RPat.blood}}",</data></line>
+    <line if="T == 'pat'"><data>        "allergies": </data><data if="RPat.has_allergy == 'yes'">["${{RPat.allergies | replace:;,", "}}"]</data><data if="RPat.has_allergy == 'no'">[]</data><data>,</data></line>
+    <line if="T == 'pat'"><data>        "chronic_conditions": </data><data if="RPat.has_chronic == 'yes'">["${{RPat.chronic | replace:;,", "}}"]</data><data if="RPat.has_chronic == 'no'">[]</data></line>
+    <line if="T == 'pat'"><data>      },</data></line>
+    <line if="T == 'pat' && RPat.ins_seg == 'none'"><data>      "insurance": null,</data></line>
+    <line if="T == 'pat' && RPat.ins_seg != 'none'"><data>      "insurance": {</data></line>
+    <line if="T == 'pat' && RPat.ins_seg != 'none'"><data>        "provider_id": ${{RPat.payer.payer_no}},</data></line>
+    <line if="T == 'pat' && RPat.ins_seg != 'none'"><data>        "provider_name": "${{RPat.payer.pname}}",</data></line>
+    <line if="T == 'pat' && RPat.ins_seg != 'none'"><data>        "policy_number": "${{RPat.payer.prefix}}${{RPat.policy_core}}",</data></line>
+    <line if="T == 'pat' && RPat.ins_seg != 'none'"><data>        "group_number": </data><data if="RPat.ins_seg == 'commercial'">"${{RPat.group_no}}"</data><data if="RPat.ins_seg != 'commercial'">null</data><data>,</data></line>
+    <line if="T == 'pat' && RPat.ins_seg != 'none'"><data>        "plan_type": "${{RPat.plan}}",</data></line>
+    <line if="T == 'pat' && RPat.ins_seg != 'none'"><data>        "subscriber_relationship": "${{RPat.subscriber}}",</data></line>
+    <line if="T == 'pat' && RPat.ins_seg != 'none'"><data>        "effective_date": "${{RPat.ins_from}}",</data></line>
+    <line if="T == 'pat' && RPat.ins_seg != 'none'"><data>        "expiration_date": "${{RPat.ins_to}}",</data></line>
+    <line if="T == 'pat' && RPat.ins_seg != 'none'"><data>        "copay_usd": ${{RPat.copay}}.00</data></line>
+    <line if="T == 'pat' && RPat.ins_seg != 'none'"><data>      },</data></line>
+    <line if="T == 'pat'"><data>      "registered_at": "${{RPat.registered}}"</data></line>
+    <line if="T == 'pat'"><data>    }</data><data if="_count != 11637">,</data></line>
+
+    <!-- ===== appointments ===== -->
+    <line if="_count == 11638"><data>  ],</data></line>
+    <line if="_count == 11638"><data>  "appointments": [</data></line>
+    <line if="T == 'apt'"><data>    {</data></line>
+    <line if="T == 'apt'"><data>      "id": ${{AptId}},</data></line>
+    <line if="T == 'apt'"><data>      "patient_id": ${{APt.pid}},</data></line>
+    <line if="T == 'apt'"><data>      "doctor_id": ${{ADoc.doc_id}},</data></line>
+    <line if="T == 'apt'"><data>      "department_id": ${{ADoc.dept_no}},</data></line>
+    <line if="T == 'apt'"><data>      "room_id": </data><data if="AType == 'Telehealth Visit'">null</data><data if="AType != 'Telehealth Visit'">${{ADoc.room.room_id}}</data><data>,</data></line>
+    <line if="T == 'apt'"><data>      "type": "${{AType}}",</data></line>
+    <line if="T == 'apt'"><data>      "status": "${{AStatus}}",</data></line>
+    <line if="T == 'apt'"><data>      "scheduled_start": "${{ADay.ddate}}T${{AStart}}:00",</data></line>
+    <line if="T == 'apt'"><data>      "scheduled_end": "${{ADay.ddate}}T${{AEndH}}:${{AEndM}}:00",</data></line>
+    <line if="T == 'apt'"><data>      "duration_minutes": ${{ADur}},</data></line>
+    <line if="T == 'apt'"><data>      "booked_on": "${{ABooked}}",</data></line>
+    <line if="T == 'apt'"><data>      "reason_for_visit": "${{AReason}}",</data></line>
+    <line if="T == 'apt'"><data>      "cancellation_reason": </data><data if="AStatus == 'Cancelled' || AStatus == 'Rescheduled'">"${{ACancel}}"</data><data if="AStatus != 'Cancelled' && AStatus != 'Rescheduled'">null</data><data>,</data></line>
+    <line if="T == 'apt'"><data>      "diagnosis": </data><data if="AStatus == 'Completed'">"${{ADx}}"</data><data if="AStatus != 'Completed'">null</data><data>,</data></line>
+    <line if="T == 'apt' && (AStatus != 'Completed' || AHasRx == 'no')"><data>      "prescription": null,</data></line>
+    <line if="T == 'apt' && AStatus == 'Completed' && AHasRx == 'yes'"><data>      "prescription": {"medication": "${{ARx}}", "frequency": "${{ARxFreq}}", "duration_days": ${{ARxDays}}, "refills": ${{ARxRefills}}},</data></line>
+    <line if="T == 'apt' && AStatus != 'Completed'"><data>      "billing": null</data></line>
+    <line if="T == 'apt' && AStatus == 'Completed'"><data>      "billing": {"charge_usd": ${{ADoc.fee}}.00, "insurance_paid_usd": ${{AInsPaid}}.00, "patient_paid_usd": ${{APatientDue}}.00, "payer_id": </data><data if="APt.ins_seg == 'none'">null</data><data if="APt.ins_seg != 'none'">${{APt.payer.payer_no}}</data><data>}</data></line>
+    <line if="T == 'apt'"><data>    }</data><data if="!_last">,</data></line>
+  </block>
+</tdc>

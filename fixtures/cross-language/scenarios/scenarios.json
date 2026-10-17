@@ -1,0 +1,12 @@
+{
+  "description": "Whole configs run end to end in all five implementations by scripts/scenarios.mjs. Each must print exactly the bytes whose SHA-256 is recorded here; --update re-records from the reference.",
+  "scenarios": [
+    {
+      "file": "hospital.tdc",
+      "title": "a fictional Chicago hospital: 13 payers, 24 departments, 600 rooms, 1,000 doctors, 10,000 patients and 50,000 appointments as one JSON document, every foreign key resolved through pools and checked by 14 asserts",
+      "sha256": "5a8cbb5fab2d80b2d11105f84a3bfab283bd8f2bd6c755868dae7da27c02aeb0",
+      "bytes": 45297663,
+      "lines": 1378063
+    }
+  ]
+}

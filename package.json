@@ -29,6 +29,7 @@
     "fixtures:filters": "node typescript/scripts/filter-vectors.mjs",
     "audit:fixtures": "node scripts/audit-fixture-coverage.mjs",
     "audit:docs-five-ways": "node scripts/audit-doc-examples-five-ways.mjs",
+    "scenarios": "node scripts/scenarios.mjs",
     "docs:urls": "node webdoc/scripts/list-doc-urls.mjs",
     "docs:bundle": "npm run docs:export --silent && node webdoc/scripts/list-doc-urls.mjs --bundle",
     "release": "node scripts/release.mjs",
