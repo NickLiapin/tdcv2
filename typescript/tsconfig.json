@@ -28,6 +28,7 @@
     "src/**/*",
     "test/**/*",
     "scripts/engine-sweep.ts",
+    "scripts/engine-fuzz.ts",
     "vitest.config.ts",
     "vitest.pack.config.ts",
     "vitest.heavy.config.ts",
