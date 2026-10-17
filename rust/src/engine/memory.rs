@@ -2725,6 +2725,92 @@ fn expression_reads(config: &Config, name: &str) -> bool {
 
 /// `column_values`, also keeping the instants behind a date column some offset reads.
 #[allow(clippy::too_many_arguments)]
+/// A repeating generator's cells — a LIST per row — wherever the generator is written.
+///
+/// A `<gen>` inside a `<switch>` or `<mix>` branch repeats exactly as one at the top of a
+/// sequence. Only the sequence level used to reach the repeat code, so a branch's
+/// `repeat="1..3"` came out as one value a row on this engine — and on this engine alone, since
+/// the streaming one and the reference build the branch with the same code as any other column.
+fn repeat_values(
+    gen: &Gen,
+    repeat_spec: &repeat::Spec,
+    count: usize,
+    prng: &mut Sfc32,
+    env: &Env,
+    stream: Option<&per_row::Stream>,
+) -> EngineResult<Vec<String>> {
+    // order="sequential" with a fixed repeat: the row's values are decided by its position, so
+    // none of the layout below applies — there is nothing to lay out and nothing to draw.
+    if repeat_spec.min == repeat_spec.max
+        && matches!(gen.gen_type.as_str(), "text" | "file")
+        && gen.attr("order") == Some("sequential")
+    {
+        let list = if gen.gen_type == "file" {
+            file::load(&gen.attrs, env.base_dir, env.packs.data_roots())?
+        } else {
+            split_text(gen.attr_or("value", ""))
+        };
+        let cycle = gen.attr("cycle") != Some("false");
+        let mut built = Vec::with_capacity(count);
+        for i in 0..count {
+            let row = stream.map_or(i, |s| s.row_at(i));
+            let parts = sequential_row(&list, row, repeat_spec.max.max(0) as usize, cycle)?;
+            built.push(repeat::join(&parts, repeat_spec)?);
+        }
+        return Ok(built);
+    }
+    let element = Gen::new(gen.gen_type.clone(), repeat::without(&gen.attrs));
+    let Some(stream) = stream else {
+        // The per-value passes run inside, on the flat slot buffer, so anomaly, missing and
+        // formatting come out per element of the list rather than over the joined cell.
+        return repeat::build(repeat_spec, count, prng, |slots, prng| {
+            let drawn = generate(&element, slots, prng, env)?;
+            finish(drawn, &element.attrs, prng, None, None)
+        });
+    };
+    // A listed column lays every element of every row out at once and reads the slots the
+    // length plan gave the row; anything drawn takes one sub-stream per element. Which of the
+    // two is the streaming engine's own split.
+    match listed_values(gen, env)? {
+        Some((values, percents)) => {
+            let mut modify = element_modifier(gen, repeat_spec, stream)?;
+            super::repeat_keyed::build_layout(
+                repeat_spec,
+                &values,
+                &percents,
+                count,
+                stream,
+                &mut modify,
+            )
+        }
+        None => super::repeat_keyed::build_draws(
+            repeat_spec,
+            count,
+            stream,
+            &gen.gen_type,
+            |row, element_id, element_prng, flag| {
+                let here = [row];
+                let scope = SiblingScope {
+                    rows: &here,
+                    siblings: env,
+                };
+                let drawn = generate_in_column(
+                    &element,
+                    1,
+                    element_prng,
+                    env,
+                    None,
+                    Some(&scope),
+                    Some((stream.seed.as_str(), element_id, Some(row))),
+                )?;
+                let done = finish(drawn, &element.attrs, element_prng, Some(flag), None)?;
+                Ok(done.into_iter().next().unwrap_or_default())
+            },
+            None,
+        ),
+    }
+}
+
 pub(super) fn column_values_into(
     gen: &Gen,
     count: usize,
@@ -2740,6 +2826,9 @@ pub(super) fn column_values_into(
     // lay out and nothing of the per-row draw below to share.
     if branch_derived::is_row_local(gen) {
         return branch_derived::values(gen, count, prng, env, stream, instants);
+    }
+    if let Some(repeat_spec) = repeat::parse(&gen.attrs)? {
+        return repeat_values(gen, &repeat_spec, count, prng, env, stream);
     }
     let Some(stream) = stream else {
         let drawn = generate_into(gen, count, prng, env, instants.as_deref_mut(), None)?;

@@ -51,18 +51,16 @@ export function assertValidDateTime(value: PlainDateTime, source: string): void 
 }
 
 export function toEpochMillis(value: PlainDateTime): number {
+  // `Date.UTC` reads a year below 100 as 1900 + year, so the year is set separately — and
+  // together with the month and the day. Set alone, after the day, it moved February 29 to
+  // March 1: the placeholder year 1900 has no February 29, `Date.UTC` rolled it over, and the
+  // real year arrived too late to undo it. Every date parsed on a leap day came out a day late —
+  // a range bounded by 2024-02-29, an offset measured from one — while the other four
+  // implementations kept the day.
   const normalized = new Date(
-    Date.UTC(
-      0,
-      value.month - 1,
-      value.day,
-      value.hour,
-      value.minute,
-      value.second,
-      value.millisecond,
-    ),
+    Date.UTC(2000, 0, 1, value.hour, value.minute, value.second, value.millisecond),
   );
-  normalized.setUTCFullYear(value.year);
+  normalized.setUTCFullYear(value.year, value.month - 1, value.day);
   return normalized.getTime();
 }
 

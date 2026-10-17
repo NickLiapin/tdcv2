@@ -1182,10 +1182,11 @@ impl Validator {
                 self.declared_order.push(n.to_string());
                 self.declared_names.insert(n.to_string());
                 if let Some(pool) = declaration.pool.as_deref().filter(|_| in_pool) {
-                    // A reference inside a pool publishes nothing to the run — its fields
-                    // are the pool's — but what it names is checked all the same. It was
-                    // skipped entirely: no TDC224, TDC226, TDC232 or TDC225 inside a pool.
-                    self.check_pool_references_in_pool(open, pool);
+                    // A reference inside a pool is checked like one at the top level — it was
+                    // skipped entirely: no TDC224, TDC226, TDC232 or TDC225 inside a pool —
+                    // and its fields are names the pool's own members may read, such as the
+                    // subject of a `<switch on="payer.payer_no">`.
+                    self.check_pool_references_in_pool(open, n, pool);
                 }
                 if !in_pool {
                     self.env_names.insert(n.to_string());
@@ -1647,6 +1648,9 @@ impl Validator {
             for field in &fields {
                 self.declared_names.insert(format!("{name}.{field}"));
                 self.declared_fields.push(format!("{name}.{field}"));
+                // Declared above whatever follows, like the reference itself:
+                // `of="ADay.ddate"` measures from a field of a record drawn a few columns up.
+                self.declared_order.push(format!("{name}.{field}"));
             }
             // The reference itself is a record, not a value: nothing to print.
             self.valueless_names.insert(name.to_string());
@@ -1662,7 +1666,7 @@ impl Validator {
     /// which is how `filter="c == North"` says "northern only".
     /// A `<gen type="pool">` inside a pool: the pool it names, and its filter, read against the
     /// enclosing pool's own fields.
-    fn check_pool_references_in_pool(&mut self, sequence: &Element, enclosing: &str) {
+    fn check_pool_references_in_pool(&mut self, sequence: &Element, name: &str, enclosing: &str) {
         for child in &sequence.children {
             if child.name != "gen" || child.attr_value("type") != Some("pool") {
                 continue;
@@ -1688,6 +1692,11 @@ impl Validator {
                 continue;
             };
             self.check_pool_filter(child, pool_name, &fields, Some(enclosing));
+            for field in &fields {
+                self.declared_names.insert(format!("{name}.{field}"));
+                self.declared_fields.push(format!("{name}.{field}"));
+                self.declared_order.push(format!("{name}.{field}"));
+            }
         }
     }
 
@@ -5989,7 +5998,17 @@ impl Validator {
             ),
             // A dot with a KNOWN root is a field mistake. Reported as an unknown sequence it
             // sent the reader off to check a name that is declared right above.
-            Some(on) if !declared.iter().any(|d| d == on) => {
+            // `Ref.field` — a field of a pool record or a compound declared in this scope. Looked
+            // up among plain names only, `<switch on="payer.payer_no">` was refused as naming no
+            // field on a config the reference ran.
+            Some(on)
+                if !declared.iter().any(|d| d == on)
+                    && !on.find('.').is_some_and(|dot| {
+                        dot > 0
+                            && declared.iter().any(|d| d == &on[..dot])
+                            && self.declared_names.contains(on)
+                    }) =>
+            {
                 let dot = on.find('.');
                 let root: String = match dot {
                     Some(i) => on[..i].to_string(),

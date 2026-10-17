@@ -1571,10 +1571,16 @@ public final class Validator {
         declared.add(name);
         declaredNames.add(name);
         if (poolMemberNodes.contains(open)) {
-          // A reference inside a pool publishes nothing to the run — its fields are the pool's —
-          // but what it names is checked all the same. It was skipped entirely: no TDC224,
-          // TDC226, TDC232 or TDC225 inside a pool.
-          checkPoolReferences(open, poolMemberPool.get(open));
+          // A reference inside a pool is checked like one at the top level — it was skipped
+          // entirely: no TDC224, TDC226, TDC232 or TDC225 inside a pool — and its fields are names
+          // the pool's own members may read, such as the subject of a
+          // <switch on="payer.payer_no">.
+          for (String drawn : checkPoolReferences(open, poolMemberPool.get(open))) {
+            for (String field : poolFields.get(drawn)) {
+              declaredNames.add(name + "." + field);
+              declaredOrder.add(name + "." + field);
+            }
+          }
         }
         if (!poolMemberNodes.contains(open)) {
           envNames.add(name);
@@ -2191,11 +2197,26 @@ public final class Validator {
     for (String poolName : checkPoolReferences(sequence, null)) {
       for (String field : poolFields.get(poolName)) {
         declaredNames.add(name + "." + field);
+        // Declared above whatever follows, like the reference itself: of="ADay.ddate" measures
+        // from a field of a record drawn a few columns up.
+        declaredOrder.add(name + "." + field);
       }
       // The reference itself is a record, not a value: nothing to print.
       valuelessNames.add(name);
       poolReferences.add(name);
     }
+  }
+
+  /**
+   * {@code Ref.field} — a field of a pool record or a compound declared in this scope.
+   *
+   * <p>The subject of a {@code <switch>} was looked up among plain names only, so {@code <switch
+   * on="payer.payer_no">} was refused as naming no field on a config the reference ran, and the
+   * run never started.
+   */
+  private boolean namesAField(String path, java.util.Collection<String> declared) {
+    int dot = path.indexOf('.');
+    return dot > 0 && declared.contains(path.substring(0, dot)) && declaredNames.contains(path);
   }
 
   /**
@@ -3315,7 +3336,7 @@ public final class Validator {
     if (on == null || on.isBlank()) {
       error("TDC133", "<switch> is missing a required \"on\" attribute",
           "Name the subject sequence to look up, e.g. <switch name=\"Currency\" on=\"Country\">.", line(open), column(open));
-    } else if (!declared.contains(on)) {
+    } else if (!declared.contains(on) && !namesAField(on, declared)) {
       // A dot with a KNOWN root is a field mistake. Reported as an unknown sequence it sent the
       // reader off to check a name that is declared right above.
       int dot = on.indexOf('.');

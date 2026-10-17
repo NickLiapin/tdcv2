@@ -266,6 +266,17 @@
         "10/27/1994",
         "10/24/1993"
       ]
+    },
+    {
+      "name": "a-leap-day-stays-a-leap-day",
+      "description": "February 29 as a range bound (from=\"2024-02-29\" to=\"2024-02-29\") and as the text an offset measures from (of=\"D.ddate\" on a pool record that holds 2024-02-29). The reference turned both into March 1: it built every date on the placeholder year 1900, which has no February 29, and set the real year after the day had already rolled over. The four ports kept the day. Found by a hospital config whose bookings were one day off for appointments on 2024-02-29.",
+      "config": "<tdc><env count=\"4\" seed=\"s\" local=\"en\"><pool name=\"Days\" count=\"4\"><sequence name=\"di\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"ddate\"><gen type=\"date\" from=\"2024-02-27\" order=\"sequential\" step=\"1d\" format=\"YYYY-MM-DD\"/></sequence></pool><sequence name=\"D\"><gen type=\"pool\" value=\"Days\" filter=\"di == _count\"/></sequence><sequence name=\"B\"><gen type=\"date\" of=\"D.ddate\" plus=\"-1d\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"C\"><gen type=\"date\" of=\"D.ddate\" plus=\"1d\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"E\"><gen type=\"date\" from=\"2024-02-29\" to=\"2024-02-29\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"F\"><gen type=\"date\" of=\"E\" plus=\"-1d\" format=\"YYYY-MM-DD\"/></sequence></env><block><line><data>${{D.ddate}} ${{B}} ${{C}} | ${{E}} ${{F}}</data></line></block></tdc>",
+      "expected": [
+        "2024-02-27 2024-02-26 2024-02-28 | 2024-02-29 2024-02-28",
+        "2024-02-28 2024-02-27 2024-02-29 | 2024-02-29 2024-02-28",
+        "2024-02-29 2024-02-28 2024-03-01 | 2024-02-29 2024-02-28",
+        "2024-03-01 2024-02-29 2024-03-02 | 2024-02-29 2024-02-28"
+      ]
     }
   ]
 }

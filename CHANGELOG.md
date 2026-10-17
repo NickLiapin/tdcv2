@@ -99,6 +99,22 @@ page — is tracked in that implementation's own changelog:
   reference had — a column derived from other rows and a `parent` with no value — which they
   used to discover at run time. Pinned in `cli.json`, with a 120,000-row run.
 
+- **February 29 became March 1 in the reference.** Every date it parsed was built on the
+  placeholder year 1900, which has no February 29, and the real year was set after the day had
+  rolled over — so `from="2024-02-29"` printed 2024-03-01, and an offset measured from a leap day
+  started a day late. The four ports kept the day. Found by a hospital config whose bookings for
+  appointments on 2024-02-29 came out a day off. Pinned in `cases/dates.json`.
+- **`<switch on="D.field">` and `of="D.field"` on a pool record did not run in Python, Rust, Java
+  or C#.** The subject of a `<switch>` and the source of a date offset were looked up among plain
+  names only, so a field of a record drawn from a pool was refused as TDC134 or TDC240 on a config
+  the reference ran; inside a pool, Rust, Java and C# did not publish such a record's fields at
+  all. Pinned in `cases/pool.json`.
+- **`repeat=` inside a `<switch>` branch or a `<mix>` case was ignored by the in-memory engine of
+  Python, Rust, Java and C#.** It printed one value a row where the list was asked for — on their
+  engine 1 only, and on every engine inside a pool, since pools are built in memory. A hospital's
+  chronic conditions came out one per patient. The branch now repeats as a sequence does. Pinned in
+  `cases/mix-switch.json` on engine 1 and in a pool.
+
 ## [0.3.4] — 2026-10-16
 
 ### Added

@@ -922,6 +922,80 @@ def _mix_column(
         columns[flag_name] = _spread(rows, [str(on).lower() for on in flags], count)
 
 
+def _repeat_values(
+    gen: Gen,
+    repeat: repeat_gen.Spec,
+    count: int,
+    run: _Run,
+    repeat_flags: list[str] | None = None,
+) -> list[str]:
+    """A repeating generator's cells — a LIST per row — wherever the generator is written.
+
+    A ``<gen>`` inside a ``<switch>`` or ``<mix>`` branch repeats exactly as one at the top of a
+    sequence. Only the sequence level used to reach this, so a branch's ``repeat="1..3"`` came
+    out as one value a row on this engine — and on this engine alone, since the streaming ones
+    and the reference build the branch with the same code as any other column.
+    """
+    key_pair = per_row.keyed(run)
+    if (
+        repeat.min == repeat.max
+        and gen.type in ("text", "file")
+        and gen.attrs.get("order") == "sequential"
+    ):
+        # order="sequential" with a fixed repeat: the row's values are decided by its position,
+        # so none of the layout below applies — there is nothing to lay out and nothing to draw.
+        seq_values = (
+            file_gen.load(gen.attrs, run.base_dir, run.packs.data_roots)
+            if gen.type == "file"
+            else _split_text(gen.attr("value"))
+        )
+        seq_cycle = gen.attrs.get("cycle") != "false"
+        return [
+            repeat_gen.join(
+                sequential_row(seq_values, per_row.absolute_row(run, i), repeat.max, seq_cycle),
+                repeat,
+            )
+            for i in range(count)
+        ]
+    if key_pair is not None:
+        seed, stream_id = key_pair
+        # A listed column lays every element of every row out at once and reads the slots the
+        # length plan gave the row; anything drawn takes one sub-stream per element. Which of
+        # the two is the streaming engine's own split.
+        listed = per_row.listed_values(gen, run)
+        if listed is not None:
+            values, percents = listed
+            return repeat_keyed.build_layout(
+                repeat,
+                values,
+                percents,
+                count,
+                run,
+                seed,
+                stream_id,
+                _element_modifier(gen, repeat, seed, stream_id),
+            )
+        return repeat_keyed.build_draws(
+            repeat,
+            count,
+            run,
+            seed,
+            stream_id,
+            _generate,
+            _finish,
+            repeat_flags,
+            gen=gen,
+        )
+    # The per-value passes run inside, on the flat slot buffer, so anomaly, missing and
+    # formatting come out per element of the list rather than over the joined cell.
+    return repeat_gen.build(
+        repeat,
+        count,
+        run.prng,
+        lambda slots: _finish(_generate(gen, slots, run), gen.attrs, run.prng, [False] * slots),
+    )
+
+
 def _plain_column(
     spec: SequenceSpec,
     columns,
@@ -942,7 +1016,6 @@ def _plain_column(
     repeat = repeat_gen.parse(spec.gen.attrs)
     run = per_row.with_rows(run, spec.name or "", rows)
 
-    key_pair = per_row.keyed(run)
     flag_name = spec.gen.attrs.get("anomaly_flag")
     repeat_flags: list[str] | None = (
         [] if repeat is not None and flag_name and flag_name.strip() else None
@@ -950,68 +1023,8 @@ def _plain_column(
 
     if applicable == 0:
         produced: list[str] = []
-    elif (
-        repeat is not None
-        and repeat.min == repeat.max
-        and spec.gen.type in ("text", "file")
-        and spec.gen.attrs.get("order") == "sequential"
-    ):
-        # order="sequential" with a fixed repeat: the row's values are decided by its position,
-        # so none of the layout below applies — there is nothing to lay out and nothing to draw.
-        seq_values = (
-            file_gen.load(spec.gen.attrs, run.base_dir, run.packs.data_roots)
-            if spec.gen.type == "file"
-            else _split_text(spec.gen.attr("value"))
-        )
-        seq_cycle = spec.gen.attrs.get("cycle") != "false"
-        produced = [
-            repeat_gen.join(
-                sequential_row(seq_values, per_row.absolute_row(run, i), repeat.max, seq_cycle),
-                repeat,
-            )
-            for i in range(applicable)
-        ]
-    elif repeat is not None and key_pair is not None:
-        seed, stream_id = key_pair
-        # A listed column lays every element of every row out at once and reads the slots the
-        # length plan gave the row; anything drawn takes one sub-stream per element. Which of
-        # the two is the streaming engine's own split.
-        listed = per_row.listed_values(spec.gen, run)
-        if listed is not None:
-            values, percents = listed
-            produced = repeat_keyed.build_layout(
-                repeat,
-                values,
-                percents,
-                applicable,
-                run,
-                seed,
-                stream_id,
-                _element_modifier(spec.gen, repeat, seed, stream_id),
-            )
-        else:
-            produced = repeat_keyed.build_draws(
-                repeat,
-                applicable,
-                run,
-                seed,
-                stream_id,
-                _generate,
-                _finish,
-                repeat_flags,
-                gen=spec.gen,
-            )
     elif repeat is not None:
-        # The per-value passes run inside, on the flat slot buffer, so anomaly, missing and
-        # formatting come out per element of the list rather than over the joined cell.
-        produced = repeat_gen.build(
-            repeat,
-            applicable,
-            run.prng,
-            lambda slots: _finish(
-                _generate(spec.gen, slots, run), spec.gen.attrs, run.prng, [False] * slots
-            ),
-        )
+        produced = _repeat_values(spec.gen, repeat, applicable, run, repeat_flags)
     else:
         produced = _column_values(spec.gen, applicable, run, anomaly_flags, instants_out)
 
@@ -2295,6 +2308,9 @@ def _column_values(
     Anything else keeps the older shape: generate the column, then finish it.
     """
     flags = anomaly_flags if anomaly_flags is not None else [False] * count
+    repeat = repeat_gen.parse(gen.attrs)
+    if repeat is not None:
+        return _repeat_values(gen, repeat, count, run)
     # A formula or a date offset in a branch reads the row's own columns; it has nothing to lay
     # out and nothing of the per-row draw below to share.
     if branch_derived.is_row_local_derived(gen):

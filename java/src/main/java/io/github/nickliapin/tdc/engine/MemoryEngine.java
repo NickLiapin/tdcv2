@@ -2834,6 +2834,91 @@ public final class MemoryEngine {
         layouts, null, siblings);
   }
 
+  /**
+   * A repeating generator's cells — a LIST per row — wherever the generator is written.
+   *
+   * <p>A {@code <gen>} inside a {@code <switch>} or {@code <mix>} branch repeats exactly as one
+   * at the top of a sequence. Only the sequence level used to reach the repeat code, so a
+   * branch's {@code repeat="1..3"} came out as one value a row on this engine — and on this engine
+   * alone, since the streaming one and the reference build the branch with the same code as any
+   * other column.
+   */
+  private static List<String> repeatValues(
+      Config.Gen gen,
+      Repeat.Spec repeat,
+      int count,
+      Prng.Sfc32 prng,
+      DataPacks packs,
+      Config config,
+      long nowMillis,
+      Path baseDir,
+      Map<String, RowLinkPlan> rowLinks,
+      PerRow.Stream stream,
+      Siblings siblings) {
+    // order="sequential" with a fixed repeat: the row's values are decided by its position, so
+    // none of the layout below applies — there is nothing to lay out and nothing to draw.
+    if (repeat.min() == repeat.max()
+        && ("text".equals(gen.type()) || "file".equals(gen.type()))
+        && "sequential".equals(gen.attrs().get("order"))) {
+      List<String> walkList =
+          "file".equals(gen.type())
+              ? FileGen.load(gen.attrs(), baseDir, packs.dataRoots())
+              : splitText(gen.attrs().getOrDefault("value", ""));
+      boolean walkCycle = !"false".equals(gen.attrs().get("cycle"));
+      List<String> out = new ArrayList<>(count);
+      for (int i = 0; i < count; i++) {
+        int row = stream == null ? i : stream.rowAt(i);
+        out.add(Repeat.join(sequentialRow(walkList, row, repeat.max(), walkCycle), repeat));
+      }
+      return out;
+    }
+    Config.Gen element = new Config.Gen(gen.type(), Repeat.without(gen.attrs()));
+    if (stream == null) {
+      // The per-value passes run inside, on the flat slot buffer, so anomaly, missing and
+      // formatting come out per element of the list rather than over the joined cell.
+      return Repeat.build(
+          repeat,
+          count,
+          prng,
+          slots ->
+              finish(
+                  generate(element, slots, prng, packs, config, nowMillis, baseDir, rowLinks),
+                  element.attrs(),
+                  prng,
+                  new boolean[slots]));
+    }
+    // A listed column lays every element of every row out at once and reads the slots the length
+    // plan gave the row; anything drawn takes one sub-stream per element. Which of the two is the
+    // streaming engine's own split.
+    Listed listed = listedValues(gen, packs, config, baseDir);
+    if (listed != null) {
+      return RepeatKeyed.buildLayout(
+          repeat,
+          listed.values(),
+          listed.percents(),
+          count,
+          stream,
+          elementModifier(gen, repeat, stream));
+    }
+    return RepeatKeyed.buildDraws(
+        repeat,
+        count,
+        stream,
+        gen.type(),
+        (row, elementId, elementPrng, flag) -> {
+          List<String> done =
+              finish(
+                  generate(
+                      element, 1, elementPrng, packs, config, nowMillis, baseDir, rowLinks, null,
+                      siblings, position -> row, elementId, true),
+                  element.attrs(),
+                  elementPrng,
+                  flag);
+          return done.isEmpty() ? "" : done.get(0);
+        },
+        null);
+  }
+
   /** {@link #columnValues}, also keeping the instants behind a date column some offset reads. */
   private static List<String> columnValues(
       Config.Gen gen,
@@ -2853,6 +2938,11 @@ public final class MemoryEngine {
     // out and nothing of the per-row draw below to share.
     if (BranchDerived.isRowLocal(gen)) {
       return BranchDerived.values(gen, count, prng, config.locale(), stream, siblings, instants);
+    }
+    Repeat.Spec repeat = Repeat.parse(gen.attrs());
+    if (repeat != null) {
+      return repeatValues(
+          gen, repeat, count, prng, packs, config, nowMillis, baseDir, rowLinks, stream, siblings);
     }
     if (stream == null) {
       return finish(

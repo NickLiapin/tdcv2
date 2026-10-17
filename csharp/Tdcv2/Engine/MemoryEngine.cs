@@ -3937,6 +3937,82 @@ public static class MemoryEngine
     /// <para>Without a <paramref name="stream"/> — an inline generator, a nested pack body — all
     /// three collapse to the last, which is what those callers want.</para>
     /// </remarks>
+    /// <summary>
+    /// A repeating generator's cells — a LIST per row — wherever the generator is written.
+    /// </summary>
+    /// <remarks>
+    /// A <c>&lt;gen&gt;</c> inside a <c>&lt;switch&gt;</c> or <c>&lt;mix&gt;</c> branch repeats
+    /// exactly as one at the top of a sequence. Only the sequence level used to reach the repeat
+    /// code, so a branch's <c>repeat="1..3"</c> came out as one value a row on this engine — and
+    /// on this engine alone, since the streaming one and the reference build the branch with the
+    /// same code as any other column.
+    /// </remarks>
+    private static IReadOnlyList<string> RepeatValues(
+        Gen gen, Repeat.Spec repeat, int count, Sfc32 prng, Ctx ctx, PerRow.Stream? stream)
+    {
+        // order="sequential" with a fixed repeat: the row's values are decided by its position,
+        // so none of the layout below applies — there is nothing to lay out and nothing to draw.
+        if (repeat.Min == repeat.Max
+            && (gen.Type == "text" || gen.Type == "file")
+            && gen.Attrs.GetValueOrDefault("order") == "sequential")
+        {
+            IReadOnlyList<string> walkList = gen.Type == "file"
+                ? FileGen.Load(gen.Attrs, ctx.BaseDir, ctx.Packs.DataRoots)
+                : SplitText(gen.Attrs.GetValueOrDefault("value", ""));
+            bool walkCycle = gen.Attrs.GetValueOrDefault("cycle") != "false";
+            var walked = new List<string>(count);
+            for (int i = 0; i < count; i++)
+            {
+                int row = stream?.RowAt(i) ?? i;
+                walked.Add(Repeat.Join(SequentialRow(walkList, row, repeat.Max, walkCycle), repeat));
+            }
+
+            return walked;
+        }
+
+        Gen element = new(gen.Type, Repeat.Without(gen.Attrs));
+        if (stream is null)
+        {
+            // The per-value passes run inside, on the flat slot buffer, so anomaly, missing and
+            // formatting come out per element of the list rather than over the joined cell.
+            return Repeat.Build(
+                repeat,
+                count,
+                prng,
+                slots => Finish(
+                    Generate(element, slots, prng, ctx), element.Attrs, prng, new bool[slots]));
+        }
+
+        // A listed column lays every element of every row out at once and reads the slots the
+        // length plan gave the row; anything drawn takes one sub-stream per element. Which of
+        // the two is the streaming engine's own split.
+        if (ListedValues(gen, ctx) is { } listed)
+        {
+            return RepeatKeyed.BuildLayout(
+                repeat, listed.Values, listed.Percents, count, stream,
+                ElementModifier(gen, repeat, stream));
+        }
+
+        return RepeatKeyed.BuildDraws(
+            repeat, count, stream, gen.Type,
+            (row, elementId, elementPrng, flag) =>
+            {
+                IReadOnlyList<string> done = Finish(
+                    Generate(
+                        element,
+                        1,
+                        elementPrng,
+                        ctx with { ColumnStreamId = elementId, ColumnRow = row, OneRow = true },
+                        null,
+                        _ => row),
+                    element.Attrs,
+                    elementPrng,
+                    flag);
+                return done.Count > 0 ? done[0] : "";
+            },
+            null);
+    }
+
     private static IReadOnlyList<string> ColumnValues(
         Gen gen,
         int count,
@@ -3952,6 +4028,11 @@ public static class MemoryEngine
         if (BranchDerived.IsRowLocal(gen))
         {
             return BranchDerived.Values(gen, count, prng, ctx, stream, instants);
+        }
+
+        if (Repeat.Parse(gen.Attrs) is { } repeat)
+        {
+            return RepeatValues(gen, repeat, count, prng, ctx, stream);
         }
 
         if (stream is null)

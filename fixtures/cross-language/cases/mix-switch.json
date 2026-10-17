@@ -468,6 +468,24 @@
         "lo:other",
         "hi:HIGH"
       ]
+    },
+    {
+      "name": "a-repeat-in-a-switch-branch-repeats-on-the-in-memory-engine",
+      "description": "A <gen repeat=> inside a <switch> branch, on engine 1. The four ports' in-memory engines applied repeat= only at the top of a sequence and printed one value a row, while their streaming engines and the reference printed the list.",
+      "config": "<tdc><env engine=\"1\" count=\"6\" seed=\"s\" local=\"en\"><sequence name=\"G\"><gen type=\"text\" value=\"x,y\"/></sequence><switch name=\"L\" on=\"G\"><case is=\"x\"><gen type=\"text\" value=\"a,b,c,d,e\" repeat=\"1..3\" separator=\";\" distinct=\"true\"/></case><default><gen type=\"text\" value=\"p,q,r,s\" repeat=\"2\" separator=\";\"/></default></switch></env><block><line><data>${{G}} ${{L}}</data></line></block></tdc>",
+      "expected": ["x d;b", "y s;r", "x c", "y p;p", "y s;q", "x c;e;d"]
+    },
+    {
+      "name": "a-repeat-in-a-mix-case-repeats-on-the-in-memory-engine",
+      "description": "The same for a <mix> case.",
+      "config": "<tdc><env count=\"5\" seed=\"s\" local=\"en\" engine=\"1\"><mix name=\"L\" percent=\"60,40\"><case><gen type=\"text\" value=\"a,b,c\" repeat=\"2\" separator=\";\"/></case><case><gen type=\"number\" value=\"1..9\" repeat=\"1..3\" separator=\";\"/></case></mix></env><block><line><data>${{L}}</data></line></block></tdc>",
+      "expected": ["8;1;6", "c;a", "b;b", "c;a", "9;1"]
+    },
+    {
+      "name": "a-repeat-in-a-switch-branch-inside-a-pool-repeats",
+      "description": "A pool is always built by the in-memory engine, so there the lost repeat= reached every engine: a hospital config's chronic_conditions came out one condition a patient in all four ports.",
+      "config": "<tdc><env count=\"4\" seed=\"s\" local=\"en\"><pool name=\"Pat\" count=\"6\"><sequence name=\"pid\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"G\"><gen type=\"text\" value=\"x,y\"/></sequence><switch name=\"L\" on=\"G\"><case is=\"x\"><gen type=\"text\" value=\"a,b,c,d,e\" repeat=\"1..3\" separator=\";\" distinct=\"true\"/></case><default><gen type=\"text\" value=\"p,q,r,s\" repeat=\"2\" separator=\";\"/></default></switch></pool><sequence name=\"P\"><gen type=\"pool\" value=\"Pat\" filter=\"pid == _count\"/></sequence></env><block><line><data>${{P.G}} ${{P.L}}</data></line></block></tdc>",
+      "expected": ["x d;e;a", "y r;q", "y s;p", "y s;q"]
     }
   ]
 }

@@ -632,7 +632,7 @@ public sealed class Validator
     private readonly HashSet<string> _envNames = new(StringComparer.Ordinal);
 
     /// <summary>The sequences declared BEFORE the one being walked — see CheckRunning.</summary>
-    private IReadOnlyList<string> _declaredOrder = System.Array.Empty<string>();
+    private List<string> _declaredOrder = new();
 
     /// <summary>The sequence whose gens are being walked, or null outside one.</summary>
     /// <remarks>
@@ -1784,10 +1784,20 @@ public sealed class Validator
                 _declaredNames.Add(name);
                 if (this.poolMemberNodes.Contains(open))
                 {
-                    // A reference inside a pool publishes nothing to the run — its fields are the
-                    // pool's — but what it names is checked all the same. It was skipped
-                    // entirely: no TDC224, TDC226, TDC232 or TDC225 inside a pool.
-                    this.CheckPoolReferences(open, this._poolMemberPool.GetValueOrDefault(open));
+                    // A reference inside a pool is checked like one at the top level — it was
+                    // skipped entirely: no TDC224, TDC226, TDC232 or TDC225 inside a pool — and
+                    // its fields are names the pool's own members may read, such as the subject
+                    // of a <switch on="payer.payer_no">.
+                    foreach (string drawn in this.CheckPoolReferences(
+                                 open, this._poolMemberPool.GetValueOrDefault(open)))
+                    {
+                        foreach (string field in _poolFields[drawn])
+                        {
+                            _declaredNames.Add($"{name}.{field}");
+                            _declaredFields.Add($"{name}.{field}");
+                            _declaredOrder.Add($"{name}.{field}");
+                        }
+                    }
                 }
 
                 if (!this.poolMemberNodes.Contains(open))
@@ -2293,12 +2303,29 @@ public sealed class Validator
             {
                 _declaredNames.Add($"{name}.{field}");
                 _declaredFields.Add($"{name}.{field}");
+                // Declared above whatever follows, like the reference itself: of="ADay.ddate"
+                // measures from a field of a record drawn a few columns up.
+                _declaredOrder.Add($"{name}.{field}");
             }
 
             // The reference itself is a record, not a value: nothing to print.
             _valuelessNames.Add(name);
             _poolReferences.Add(name);
         }
+    }
+
+    /// <summary>
+    /// <c>Ref.field</c> — a field of a pool record or a compound declared in this scope.
+    /// </summary>
+    /// <remarks>
+    /// The subject of a <c>&lt;switch&gt;</c> was looked up among plain names only, so
+    /// <c>&lt;switch on="payer.payer_no"&gt;</c> was refused as naming no field on a config the
+    /// reference ran, and the run never started.
+    /// </remarks>
+    private bool NamesAField(string path, IReadOnlyList<string> declared)
+    {
+        int dot = path.IndexOf('.', StringComparison.Ordinal);
+        return dot > 0 && declared.Contains(path[..dot]) && _declaredNames.Contains(path);
     }
 
     /// <summary>
@@ -3722,7 +3749,7 @@ public sealed class Validator
                 "Name the subject sequence to look up, e.g. <switch name=\"Currency\" on=\"Country\">.",
                 Line(open), Column(open));
         }
-        else if (!declared.Contains(on))
+        else if (!declared.Contains(on) && !NamesAField(on, declared))
         {
             (int line, int column) = At(open, "on");
             // A dot with a KNOWN root is a field mistake. Reported as an unknown sequence it

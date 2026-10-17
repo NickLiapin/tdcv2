@@ -1840,9 +1840,22 @@ class _Validator:
             for field_name in fields:
                 self.declared_names.add(f"{name}.{field_name}")
                 self.declared_fields.append(f"{name}.{field_name}")
+                # Declared above whatever follows, like the reference itself: `of="ADay.ddate"`
+                # measures from a field of a record drawn a few columns up.
+                self.declared_order.append(f"{name}.{field_name}")
             # The reference itself is a record, not a value: it has nothing to print.
             self.valueless_names.add(name)
             self.pool_references.add(name)
+
+    def _names_a_field(self, path: str, declared) -> bool:
+        """``Ref.field`` — a field of a pool record or a compound declared in this scope.
+
+        The subject of a ``<switch>`` was looked up among plain names only, so
+        ``<switch on="payer.payer_no">`` was refused as naming no field on a config the reference
+        ran, and the run never started.
+        """
+        dot = path.find(".")
+        return dot > 0 and path[:dot] in declared and path in self.declared_names
 
     def _check_pool_filter(
         self, gen, pool_name: str, fields: list[str], attrs, enclosing: str | None = None
@@ -3299,7 +3312,7 @@ class _Validator:
                 _line(open_el),
                 _column(open_el),
             )
-        elif on not in declared:
+        elif on not in declared and not self._names_a_field(on, declared):
             line, column = _at(open_el, "on")
             # A dot with a KNOWN root is a field mistake. Reported as an unknown sequence it sent
             # the reader off to check a name that is declared right above.
