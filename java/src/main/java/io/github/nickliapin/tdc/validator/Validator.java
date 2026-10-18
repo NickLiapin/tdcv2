@@ -909,10 +909,21 @@ public final class Validator {
     }
 
     checkTdcChildren(tdc);
-    eachPools = JsonLists.eachPools(block);
+    // Printed anywhere in the output: a lookup table printed once in <before> is read too.
+    Set<String> printed = new LinkedHashSet<>(JsonLists.eachPools(block));
+    if (env != null && env.content() != null) {
+      for (TDCParser.ElementContext child : env.content().element()) {
+        TDCParser.OpenCloseElementContext fixture = child.openCloseElement();
+        if (fixture != null && FIXTURE_TAG_NAMES.contains(fixture.name.getText())) {
+          printed.addAll(JsonLists.eachPools(fixture));
+        }
+      }
+    }
+    eachPools = printed;
     listSeparators = JsonLists.separators(env);
     if (env != null) {
       checkEnv(env);
+      checkFixtures(env);
     }
     if (block != null) {
       checkBlock(block);
@@ -2633,7 +2644,7 @@ public final class Validator {
     String own =
         currentSequence != null && prevTargets.contains(currentSequence) ? currentSequence : null;
     for (String name : names) {
-      if (Checks.isBuiltin(name) || declaredOrder.contains(name) || name.equals(own)) {
+      if (Checks.isRowBuiltin(name) || declaredOrder.contains(name) || name.equals(own)) {
         continue;
       }
       int[] at = at(gen, param);
@@ -2958,7 +2969,7 @@ public final class Validator {
         continue;
       }
       Set<String> knownFields = new LinkedHashSet<>(declaredNames);
-      knownFields.addAll(Checks.BUILTINS);
+      knownFields.addAll(Checks.ROW_BUILTINS);
       new ComputeCheck(diagnostics).check(open, knownFields);
     }
   }
@@ -3380,7 +3391,7 @@ public final class Validator {
       // reader off to check a name that is declared right above.
       int dot = on.indexOf('.');
       String root = dot < 0 ? on : on.substring(0, dot);
-      boolean fieldMistake = dot >= 0 && (declared.contains(root) || Checks.isBuiltin(root));
+      boolean fieldMistake = dot >= 0 && (declared.contains(root) || Checks.isRowBuiltin(root));
       if (fieldMistake) {
         String prefix = root + ".";
         List<String> fields = new ArrayList<>();
@@ -6341,6 +6352,26 @@ public final class Validator {
 
   // ── block ────────────────────────────────────────────────────────────────────────────────
 
+  /**
+   * The lines and groups of every fixture, checked as a block's are.
+   *
+   * <p>Nothing did that before, in any of the five. A {@code ${{Missing}}} in a header was printed
+   * as written, a condition that does not parse passed {@code check}, and a name a condition
+   * misspelt read as a word. Run after {@code <env>}, so every sequence a fixture may name is
+   * declared.
+   */
+  private void checkFixtures(TDCParser.OpenCloseElementContext env) {
+    if (env.content() == null) {
+      return;
+    }
+    for (TDCParser.ElementContext child : env.content().element()) {
+      TDCParser.OpenCloseElementContext fixture = child.openCloseElement();
+      if (fixture != null && FIXTURE_TAG_NAMES.contains(fixture.name.getText())) {
+        checkItems(fixture, fixture.name.getText(), OutputScope.FIXTURE);
+      }
+    }
+  }
+
   private void checkBlock(TDCParser.OpenCloseElementContext block) {
     checkItems(block, "block", OutputScope.TOP);
   }
@@ -6352,8 +6383,15 @@ public final class Validator {
    * groups included, so {@code ${{Depts.name}}} and {@code if="Doctors.dept.id == Depts.id"} are
    * names there.
    */
-  private record OutputScope(Set<String> names, List<String> walked, boolean each) {
-    static final OutputScope TOP = new OutputScope(Set.of(), List.of(), false);
+  private record OutputScope(
+      Set<String> names, List<String> walked, boolean each, boolean fixture) {
+    static final OutputScope TOP = new OutputScope(Set.of(), List.of(), false, false);
+
+    /**
+     * Inside a fixture. Its structure is checked during the {@code <env>} walk; here only what the
+     * lines SAY is checked, once every sequence is declared.
+     */
+    static final OutputScope FIXTURE = new OutputScope(Set.of(), List.of(), false, true);
   }
 
   /** The {@code <line>}s and {@code <group>}s of a block or a group; anything else is misplaced. */
@@ -6361,14 +6399,18 @@ public final class Validator {
       TDCParser.OpenCloseElementContext container, String parent, OutputScope scope) {
     // These two were missed when the other containers were closed: an invented tag in
     // either passed in silence while the same tag one level up did not.
-    checkChildren(container.content(), parent, BLOCK_CHILDREN, "TDC013", BLOCK_CHILDREN);
+    if (!scope.fixture()) {
+      checkChildren(container.content(), parent, BLOCK_CHILDREN, "TDC013", BLOCK_CHILDREN);
+    }
     if (container.content() == null) {
       return;
     }
     for (TDCParser.ElementContext child : container.content().element()) {
       TDCParser.OpenCloseElementContext open = child.openCloseElement();
       if (open != null && "line".equals(open.name.getText())) {
-        checkChildren(open.content(), "line", LINE_CHILDREN, "TDC013", LINE_CHILDREN);
+        if (!scope.fixture()) {
+          checkChildren(open.content(), "line", LINE_CHILDREN, "TDC013", LINE_CHILDREN);
+        }
         checkLine(open, scope);
       } else if (open != null && "group".equals(open.name.getText())) {
         checkGroup(open, scope);
@@ -6412,7 +6454,8 @@ public final class Validator {
     if (!eachName.isEmpty()) {
       walked.add(eachName);
     }
-    checkItems(group, "group", new OutputScope(names, walked, scope.each() || each != null));
+    checkItems(
+        group, "group", new OutputScope(names, walked, scope.each() || each != null, scope.fixture()));
   }
 
   /** The first {@code <data name="…">} anywhere inside, or null. */
@@ -6511,6 +6554,10 @@ public final class Validator {
     // around the line add what THEY walk.
     Set<String> names = new LinkedHashSet<>(scope.names());
     names.addAll(eachNames(eachName, false));
+    if (walksAList) {
+      names.add("_item");
+      names.add("_item_id");
+    }
     List<String> walked = new ArrayList<>(scope.walked());
     if (!eachName.isEmpty()) {
       walked.add(eachName);
@@ -6528,6 +6575,9 @@ public final class Validator {
     }
 
     for (TDCParser.ElementContext child : line.content().element()) {
+      if (scope.fixture() && child.dataElement() == null) {
+        continue; // a fixture's structure is checked during the <env> walk
+      }
       TDCParser.SelfClosingElementContext self = child.selfClosingElement();
       if (self != null && "gen".equals(self.name.getText())) {
         error("TDC131", "a <gen> is not allowed inside <line> — the output block is for formatting only",
@@ -6666,7 +6716,7 @@ public final class Validator {
       if (!name.isEmpty()
           && !declaredNames.contains(name)
           && !lineNames.contains(name)
-          && !Checks.isBuiltin(name)) {
+          && !Checks.isRowBuiltin(name)) {
         // A dot with a KNOWN root is a field mistake, and saying so beats repeating the whole
         // reference back: the reader already knows the sequence exists. Collapsed into "is not a
         // declared sequence", the message sent someone to <env> to declare a `P` that is declared
@@ -6677,7 +6727,7 @@ public final class Validator {
         // way the config writes them and the way the reference lists them.
         int dot = name.indexOf('.');
         String root = dot < 0 ? name : name.substring(0, dot);
-        if (dot >= 0 && (declaredNames.contains(root) || Checks.isBuiltin(root))) {
+        if (dot >= 0 && (declaredNames.contains(root) || Checks.isRowBuiltin(root))) {
           String prefix = root + ".";
           List<String> fields = new ArrayList<>();
           for (String declared : declaredNames) {
@@ -6976,7 +7026,7 @@ public final class Validator {
     }
 
     boolean known = declaredNames.contains(root)
-        || Checks.BUILTINS.contains(root)
+        || Checks.ROW_BUILTINS.contains(root)
         || (each && ("_item".equals(root) || "_item_id".equals(root)));
     if (!known) {
       String hint = tail == null
@@ -6994,7 +7044,7 @@ public final class Validator {
     // Declared, but not YET — see declaredAbove. Only a condition that runs while its own column
     // is built carries the list; everything read after the table exists passes here untouched.
     if (declaredAbove != null) {
-      boolean provided = Checks.BUILTINS.contains(root)
+      boolean provided = Checks.ROW_BUILTINS.contains(root)
           || (each && ("_item".equals(root) || "_item_id".equals(root)));
       if (!provided && !declaredAbove.contains(root)) {
         String hint = declaredAbove.isEmpty()
@@ -7690,10 +7740,27 @@ public final class Validator {
       return;
     }
     for (TDCParser.ElementContext child : container.content().element()) {
-      TDCParser.OpenCloseElementContext group = child.openCloseElement();
-      if (group != null && "group".equals(group.name.getText())) {
-        checkClosedTagAttrs("group", group.attr(), line(group), column(group));
-        checkFixtureItems(group, tag);
+      TDCParser.OpenCloseElementContext item = child.openCloseElement();
+      if (item != null && "group".equals(item.name.getText())) {
+        checkFixtureItems(item, tag);
+      } else if (item != null && "line".equals(item.name.getText()) && item.content() != null) {
+        // A generator does not run in a fixture — interpolation does. Accepted in silence, one
+        // emitted a CONSTANT that looked like a drawn value.
+        for (TDCParser.ElementContext inner : item.content().element()) {
+          TDCParser.SelfClosingElementContext self = inner.selfClosingElement();
+          TDCParser.OpenCloseElementContext open = inner.openCloseElement();
+          String name = self != null ? self.name.getText() : open != null ? open.name.getText() : "";
+          if (!"gen".equals(name) && !"mix".equals(name) && !"switch".equals(name)) {
+            continue;
+          }
+          int innerLine = self != null ? line(self) : line(open);
+          int innerColumn = self != null ? column(self) : column(open);
+          error("TDC131",
+              "a <" + name + "> is not allowed inside <" + tag + "> — fixtures are literal text",
+              "Generators do not run in fixtures; this would emit a constant. Declare a <sequence> "
+                  + "in <env> if the value must vary, or write the text literally.",
+              innerLine, innerColumn);
+        }
       }
     }
   }

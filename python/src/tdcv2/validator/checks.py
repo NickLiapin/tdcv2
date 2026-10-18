@@ -26,8 +26,19 @@ _WHOLE = re.compile(r"^\d+$")
 _RANGE = re.compile(r"^\d+\s*-\s*\d+$")
 
 
+#: The names every row has. ``_item`` and ``_item_id`` are not among them: they exist only where
+#: a line or a group walks a list with ``each=``, which publishes them itself. Read anywhere else
+#: they resolved to nothing and were printed as written — refused by the reference, and accepted
+#: by the four ports.
+ROW_BUILTINS = frozenset({"_count", "_first", "_last", "_total"})
+
+
 def is_builtin(name: str) -> bool:
     return name in BUILTINS
+
+
+def is_row_builtin(name: str) -> bool:
+    return name in ROW_BUILTINS
 
 
 def regex_problem(pattern: str, max_length: int) -> str | None:

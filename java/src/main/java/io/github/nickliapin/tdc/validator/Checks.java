@@ -29,6 +29,18 @@ final class Checks {
 
   private Checks() {}
 
+  /**
+   * The names every row has. {@code _item} and {@code _item_id} are not among them: they exist
+   * only where a line or a group walks a list with {@code each=}, which publishes them itself.
+   * Read anywhere else they resolved to nothing and were printed as written — refused by the
+   * reference, and accepted here.
+   */
+  static final Set<String> ROW_BUILTINS = Set.of("_count", "_first", "_last", "_total");
+
+  static boolean isRowBuiltin(String name) {
+    return ROW_BUILTINS.contains(name);
+  }
+
   static boolean isBuiltin(String name) {
     return BUILTINS.contains(name);
   }

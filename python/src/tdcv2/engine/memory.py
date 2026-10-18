@@ -236,6 +236,11 @@ def _emit(
     out: list[str], lines: list[Line], columns, row: int, inject: str, each_info, pools
 ) -> None:
     for line in lines:
+        # Its if= is read on the row the fixture stands beside: it used to be ignored in all five,
+        # so a header the config said to leave out was printed anyway.
+        plain = not isinstance(line, Group) and not line.each
+        if plain and line.if_expr is not None and not _condition(line.if_expr, columns, row):
+            continue
         # A fixture line is one output line; extend rather than append, because _render_line
         # hands back the LINES now and a two-line fixture must not come out joined.
         out.extend(_render_line(line, columns, row, inject, each_info, pools))

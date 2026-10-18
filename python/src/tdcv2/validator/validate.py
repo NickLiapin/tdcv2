@@ -1181,10 +1181,16 @@ class _Validator:
             )
 
         self._check_tdc_children(tdc)
+        # Printed anywhere in the output: a lookup table printed once in <before> is read too.
         self.each_pools = _each_pools(block)
+        for child in _elements(env) if env is not None else []:
+            fixture = child.openCloseElement()
+            if fixture is not None and fixture.name.text in FIXTURE_TAGS:
+                self.each_pools |= _each_pools(fixture)
         self.list_separators = _list_separators(env)
         if env is not None:
             self._check_env(env)
+            self._check_fixtures(env)
         if block is not None:
             self._check_block(block)
 
@@ -2677,7 +2683,7 @@ class _Validator:
             open_el = child.openCloseElement()
             if open_el is None or open_el.name.text != "compute":
                 continue
-            known = set(self.declared_names) | set(checks.BUILTINS)
+            known = set(self.declared_names) | set(checks.ROW_BUILTINS)
             ComputeCheck(self.diagnostics).check(open_el, known)
 
     def _collect_field_names(self, element, name: str) -> None:
@@ -3332,7 +3338,7 @@ class _Validator:
             # the reader off to check a name that is declared right above.
             dot = on.find(".")
             root = on if dot < 0 else on[:dot]
-            field_mistake = dot >= 0 and (root in declared or checks.is_builtin(root))
+            field_mistake = dot >= 0 and (root in declared or checks.is_row_builtin(root))
             # Against `declared_names`, not the local scope: a compound's FIELDS are registered
             # there, and filtering by the switch's own scope threw them all away, so a real field
             # mistake was told the subject "has no fields".
@@ -4104,10 +4110,25 @@ class _Validator:
             shown=FIXTURE_CHILDREN,
         )
         for child in _elements(container):
-            group = child.openCloseElement()
-            if group is not None and group.name.text == "group":
-                self._check_closed_tag_attrs("group", group.attr(), _line(group), _column(group))
-                self._check_fixture_items(group, fixture_name)
+            item = child.openCloseElement()
+            if item is not None and item.name.text == "group":
+                self._check_fixture_items(item, fixture_name)
+            elif item is not None and item.name.text == "line":
+                # A generator does not run in a fixture — interpolation does. Accepted in silence,
+                # one emitted a CONSTANT that looked like a drawn value.
+                for inner in _elements(item):
+                    node = inner.selfClosingElement() or inner.openCloseElement()
+                    if node is None or node.name.text not in ("gen", "mix", "switch"):
+                        continue
+                    self._error(
+                        "TDC131",
+                        f"a <{node.name.text}> is not allowed inside <{fixture_name}> — fixtures "
+                        "are literal text",
+                        "Generators do not run in fixtures; this would emit a constant. Declare a "
+                        "<sequence> in <env> if the value must vary, or write the text literally.",
+                        _line(node),
+                        _column(node),
+                    )
 
     def _check_fixture_data(self, fixture, fixture_name: str) -> None:
         """`<data>` with no `<line>` around it, inside a fixture body."""
@@ -5393,7 +5414,7 @@ class _Validator:
         # and the whole reason `mode="sequential"` exists.
         own_prev = _prev_targets(parsed) & {self.current_sequence or ""}
         for name in sorted(_identifiers_of(parsed)):
-            if checks.is_builtin(name) or name in self.declared_order or name in own_prev:
+            if checks.is_row_builtin(name) or name in self.declared_order or name in own_prev:
                 continue
             line, column = _at(gen, attribute)
             # The sentence follows what this attribute IS. `expr=` is the formula itself, and
@@ -6158,6 +6179,18 @@ class _Validator:
 
     # ── block ───────────────────────────────────────────────────────────────────────────────
 
+    def _check_fixtures(self, env) -> None:
+        """The lines and groups of every fixture, checked as a block's are.
+
+        Nothing did that before, in any of the five. A ``${{Missing}}`` in a header was printed as
+        written, a condition that does not parse passed ``check``, and a name a condition misspelt
+        read as a word. Run after ``<env>``, so every sequence a fixture may name is declared.
+        """
+        for child in _elements(env):
+            fixture = child.openCloseElement()
+            if fixture is not None and fixture.name.text in FIXTURE_TAGS:
+                self._check_items(fixture, fixture.name.text, _OutputScope(fixture=True))
+
     def _check_block(self, block) -> None:
         self._check_items(block, "block", _OutputScope())
 
@@ -6165,11 +6198,13 @@ class _Validator:
         """The ``<line>``s and ``<group>``s of a block or a group; anything else is misplaced."""
         # These two were missed when the other containers were closed: an invented
         # tag in either passed in silence while the same tag one level up did not.
-        self._check_children(container.content(), parent, BLOCK_CHILDREN, "TDC013")
+        if not scope.fixture:
+            self._check_children(container.content(), parent, BLOCK_CHILDREN, "TDC013")
         for child in _elements(container):
             open_el = child.openCloseElement()
             if open_el is not None and open_el.name.text == "line":
-                self._check_children(open_el.content(), "line", LINE_CHILDREN, "TDC013")
+                if not scope.fixture:
+                    self._check_children(open_el.content(), "line", LINE_CHILDREN, "TDC013")
                 self._check_line(open_el, scope)
             elif open_el is not None and open_el.name.text == "group":
                 self._check_group(open_el, scope)
@@ -6215,6 +6250,7 @@ class _Validator:
                 scope.names | self._each_names(each_name, for_if=False),
                 scope.walked + ((each_name,) if each_name else ()),
                 scope.each or each is not None,
+                scope.fixture,
             ),
         )
 
@@ -6237,6 +6273,8 @@ class _Validator:
         # line's own if= may not, because the positions count the lines that if= lets through.
         # The groups around the line add what THEY walk.
         line_names = scope.names | self._each_names(each_name, for_if=False)
+        if walks_a_list:
+            line_names |= {"_item", "_item_id"}
         walked = scope.walked + ((each_name,) if each_name else ())
         line_condition = _attrs(line_el.attr()).get("if")
         if line_condition is not None:
@@ -6254,6 +6292,8 @@ class _Validator:
 
         for child in _elements(line_el):
             self_closing = child.selfClosingElement()
+            if scope.fixture and child.dataElement() is None:
+                continue  # a fixture's structure is checked during the <env> walk
             if self_closing is not None and self_closing.name.text == "gen":
                 self._error(
                     "TDC131",
@@ -6436,7 +6476,7 @@ class _Validator:
                 name
                 and name not in self.declared_names
                 and name not in self.line_names
-                and not checks.is_builtin(name)
+                and not checks.is_row_builtin(name)
             ):
                 # A dot with a KNOWN root is a field mistake, and saying so beats repeating the
                 # whole reference back: the reader already knows the sequence exists. Collapsed
@@ -6446,7 +6486,7 @@ class _Validator:
                 # field names are invented as you go.
                 dot = name.find(".")
                 root = name if dot < 0 else name[:dot]
-                if dot >= 0 and (root in self.declared_names or checks.is_builtin(root)):
+                if dot >= 0 and (root in self.declared_names or checks.is_row_builtin(root)):
                     # Declaration order, not set order: the reference lists a compound's fields
                     # the way the config writes them, and a reader matching the note against the
                     # <sequence> above reads down the same list.
@@ -6795,7 +6835,7 @@ class _Validator:
             return
         known = (
             root in self.declared_names
-            or root in checks.BUILTINS
+            or root in checks.ROW_BUILTINS
             or (each and root in ("_item", "_item_id"))
         )
         if not known:
@@ -6822,7 +6862,7 @@ class _Validator:
         # untouched.
         if (
             self.declared_above is not None
-            and root not in checks.BUILTINS
+            and root not in checks.ROW_BUILTINS
             and not (each and root in ("_item", "_item_id"))
             and root not in self.declared_above
         ):
@@ -7376,6 +7416,9 @@ class _OutputScope:
     names: frozenset[str] = frozenset()
     walked: tuple[str, ...] = ()
     each: bool = False
+    #: Inside a fixture. Its structure is checked during the ``<env>`` walk; here only what the
+    #: lines SAY is checked, once every sequence is declared.
+    fixture: bool = False
 
 
 def _first_named_data(container) -> str | None:

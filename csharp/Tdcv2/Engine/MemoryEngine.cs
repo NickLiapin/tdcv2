@@ -4686,6 +4686,14 @@ public static class MemoryEngine
     {
         foreach (Line line in lines)
         {
+            // Its if= is read on the row the fixture stands beside: it used to be ignored in all
+            // five, so a header the config said to leave out was printed anyway.
+            if (!line.IsGroup && line.Each is null && line.IfExpr is not null
+                && !Condition(line.IfExpr, columns, row))
+            {
+                continue;
+            }
+
             // A fixture line is one output line, and RenderLine hands back the LINES.
             foreach (string text in RenderLine(line, columns, row, inject, eachInfo))
             {

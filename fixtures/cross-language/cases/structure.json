@@ -369,6 +369,21 @@
         "row 1",
         "row 2"
       ]
+    },
+    {
+      "name": "fixture-line-if-is-read",
+      "description": "The if= of a fixture line is read on the row the fixture stands beside — <before> the first, <after> the last, the per-record fixtures their own row. It used to be ignored in all five, so a line the config said to leave out was printed anyway.",
+      "config": "<tdc><env count=\"4\" seed=\"fixture-if\" local=\"en\" mode=\"memory\"><sequence name=\"Id\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"Kind\"><gen type=\"text\" value=\"a,b\"/></sequence><before><line if=\"Id == 1\"><data>first row is 1</data></line><line if=\"Id == 2\"><data>never printed</data></line></before><before_block><line if=\"Kind == a\"><data>-- an a --</data></line></before_block><after><line if=\"Id == 4\"><data>last row is 4</data></line></after></env><block><line><data>${{Id}} ${{Kind}}</data></line></block></tdc>",
+      "expected": [
+        "first row is 1",
+        "1 b",
+        "2 b",
+        "-- an a --",
+        "3 a",
+        "-- an a --",
+        "4 a",
+        "last row is 4"
+      ]
     }
   ]
 }

@@ -80,6 +80,18 @@ b">` held on the line printing `b` there and never in the ports, which compared 
   streaming engines of Rust and C#.** `<before>`, `<after>` and the other fixtures were handed
   no list information, so a list joined with `;` came out as one element and `_item_id` took a
   different stride. Pinned in `cases/structure.json`.
+- **Fixture lines were never checked, and their `if=` was never read — in all five.** A
+  `${{Missing}}` in a `<before>` was printed as written, a condition that does not parse passed
+  `check`, and `<before><line if="…">` printed the line whatever the condition said. Fixture lines
+  and groups are now checked as the block's are (`TDC193`, `TDC100`, `TDC215`, filters, `each=`),
+  after every sequence is declared, and a fixture line's `if=` is read on the row the fixture
+  stands beside. A pool printed only in a fixture counts as read (no `TDC231`). Python, Rust,
+  Java and C# also refused nothing inside a fixture line: a `<gen>` or `<mix>` there is now
+  `TDC131` in all five, as it was in the reference.
+- **`_item` and `_item_id` were accepted outside `each=` by Python, Rust, Java and C#.** On a line
+  that walks nothing, in its conditions, or in a formula, they resolve to nothing, and the four
+  printed `${{_item}}` as written; the reference refused them (`TDC193`, `TDC215`, `TDC240`). All
+  five refuse them now, and accept them on any line or group that walks a list.
 - **A known tag written straight into a fixture was "an unknown child" in TypeScript and Rust.**
   `<before><gen …/></before>` got `TDC131`, the code for a tag nobody has heard of; Python, Java
   and C# said `TDC013`, a construct this language knows in the wrong place, with where it

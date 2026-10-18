@@ -48,9 +48,36 @@ interface OutputScope {
   readonly names: readonly string[];
   /** Walked lists, whose names mean the current ELEMENT inside — `| json` takes it as one value. */
   readonly walked: readonly string[];
+  /**
+   * Inside a fixture. Its structure — what may sit where — is `fixture.ts`'s to report, during the
+   * `<env>` walk; here only what the lines SAY is checked, once every sequence is declared.
+   */
+  readonly fixture?: boolean;
 }
 
 const TOP: OutputScope = { names: [], walked: [] };
+
+/**
+ * The lines and groups of every fixture — `<before>`, `<after>` and the rest — checked as a
+ * block's are: names, conditions, filters, each=.
+ *
+ * Nothing did that before, in any of the five. A `${{Missing}}` in a header was printed as written,
+ * a condition that does not parse passed `check`, and a name a condition misspelt read as a word.
+ * Run after `<env>`, so every sequence a fixture may name is already declared.
+ */
+export function checkFixtures(
+  envEl: OpenCloseElementContext,
+  fixtureNames: readonly string[],
+  ctx: BlockCheckCtx,
+): void {
+  for (const el of contentElements(envEl.content())) {
+    const k = elementKind(el);
+    if (k?.kind !== 'open') continue;
+    const name = childTagName(el);
+    if (name === null || !fixtureNames.includes(name)) continue;
+    checkItems(k.node.content(), name, ctx, { ...TOP, fixture: true });
+  }
+}
 
 function findAttr(attrs: readonly AttrContext[], name: string): AttrContext | undefined {
   for (const a of attrs) {
@@ -74,6 +101,9 @@ function checkItems(
     const name = childTagName(el);
     if (name === null) continue; // whitespace between tags is not an element
     const k = elementKind(el);
+    if (scope.fixture === true && !((name === 'line' || name === 'group') && k?.kind === 'open')) {
+      continue;
+    }
     if ((name === 'line' || name === 'group') && k?.kind === 'open') {
       checkLineEach(
         k.node,
@@ -118,6 +148,7 @@ function checkGroup(group: OpenCloseElementContext, ctx: BlockCheckCtx, scope: O
   checkItems(group.content(), 'group', ctx, {
     names: [...scope.names, ...eachNames(each, ctx.declaredSequences, ctx.poolFields, false)],
     walked: name === '' ? scope.walked : [...scope.walked, name],
+    ...(scope.fixture === true ? { fixture: true } : {}),
   });
 }
 
@@ -191,7 +222,7 @@ function checkLine(lineEl: OpenCloseElementContext, ctx: BlockCheckCtx, scope: O
       continue;
     }
     const node = childNode(el);
-    if (!node) continue;
+    if (!node || scope.fixture === true) continue;
     if (name === 'gen') {
       // Generators are not allowed in the output block — it is for formatting
       // only. Declare a named <sequence> in <env> and reference it here with

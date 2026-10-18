@@ -431,10 +431,17 @@ impl Validator {
         }
 
         self.check_tdc_children(tdc);
+        // Printed anywhere in the output: a lookup table printed once in <before> is read too.
         self.each_pools = each_pools(block);
+        for fixture in env.map(|e| e.children.as_slice()).unwrap_or_default() {
+            if fixture.kind == Kind::OpenClose && is_fixture_tag(&fixture.name) {
+                self.each_pools.extend(each_pools(Some(fixture)));
+            }
+        }
         self.list_separators = list_separators(env);
         if let Some(env) = env {
             self.check_env(env);
+            self.check_fixtures(env);
         }
         if let Some(block) = block {
             self.check_block(block);
@@ -4449,7 +4456,7 @@ impl Validator {
         let mut own_prev = std::collections::BTreeSet::new();
         collect_prev_targets(&parsed, &mut own_prev);
         for name in names {
-            if is_builtin(&name) || self.declared_order.contains(&name) {
+            if is_row_builtin(&name) || self.declared_order.contains(&name) {
                 continue;
             }
             if Some(&name) == self.current_sequence.as_ref() && own_prev.contains(&name) {
@@ -6033,8 +6040,27 @@ impl Validator {
         }
         for child in &container.children {
             if child.kind == Kind::OpenClose && child.name == "group" {
-                self.check_closed_tag_attrs("group", child);
                 self.check_fixture_items(child, tag);
+            } else if child.kind == Kind::OpenClose && child.name == "line" {
+                // A generator does not run in a fixture — interpolation does. Accepted in
+                // silence, one emitted a CONSTANT that looked like a drawn value.
+                for inner in &child.children {
+                    if inner.kind == Kind::Data
+                        || !matches!(inner.name.as_str(), "gen" | "mix" | "switch")
+                    {
+                        continue;
+                    }
+                    self.error(
+                        "TDC131",
+                        format!(
+                            "a <{}> is not allowed inside <{tag}> — fixtures are literal text",
+                            inner.name
+                        ),
+                        "Generators do not run in fixtures; this would emit a constant. Declare \
+                         a <sequence> in <env> if the value must vary, or write the text literally.",
+                        inner.pos,
+                    );
+                }
             }
         }
     }
@@ -6121,7 +6147,7 @@ impl Validator {
                     None => (*on).to_string(),
                 };
                 let field_mistake =
-                    dot.is_some() && (declared.iter().any(|d| *d == root) || is_builtin(&root));
+                    dot.is_some() && (declared.iter().any(|d| *d == root) || is_row_builtin(&root));
                 if field_mistake {
                     let prefix = format!("{root}.");
                     let fields: Vec<&str> = self
@@ -6243,6 +6269,24 @@ impl Validator {
 
     // ── block ────────────────────────────────────────────────────────────────
 
+    /// The lines and groups of every fixture, checked as a block's are.
+    ///
+    /// Nothing did that before, in any of the five. A `${{Missing}}` in a header was printed as
+    /// written, a condition that does not parse passed `check`, and a name a condition misspelt
+    /// read as a word. Run after `<env>`, so every sequence a fixture may name is declared.
+    fn check_fixtures(&mut self, env: &Element) {
+        for fixture in &env.children {
+            if fixture.kind == Kind::OpenClose && is_fixture_tag(&fixture.name) {
+                let scope = OutputScope {
+                    fixture: true,
+                    ..OutputScope::default()
+                };
+                let name = fixture.name.clone();
+                self.check_items(fixture, &name, &scope);
+            }
+        }
+    }
+
     fn check_block(&mut self, block: &Element) {
         self.check_items(block, "block", &OutputScope::default());
     }
@@ -6252,12 +6296,16 @@ impl Validator {
         // These two were missed when the other containers were closed: an invented
         // tag in either passed in silence while the same tag one level up did not.
         // The brief report put the implementations side by side and the gap showed.
-        let c = container.clone();
-        self.check_contained(&c, parent, "TDC013", &tables::BLOCK_CHILDREN);
+        if !scope.fixture {
+            let c = container.clone();
+            self.check_contained(&c, parent, "TDC013", &tables::BLOCK_CHILDREN);
+        }
         for child in &container.children {
             if child.kind == Kind::OpenClose && child.name == "line" {
-                let l = child.clone();
-                self.check_contained(&l, "line", "TDC013", &tables::LINE_CHILDREN);
+                if !scope.fixture {
+                    let l = child.clone();
+                    self.check_contained(&l, "line", "TDC013", &tables::LINE_CHILDREN);
+                }
                 self.check_line(child, scope);
             } else if child.kind == Kind::OpenClose && child.name == "group" {
                 self.check_group(child, scope);
@@ -6309,6 +6357,7 @@ impl Validator {
             names,
             walked,
             each: scope.each || each.is_some(),
+            fixture: scope.fixture,
         };
         self.check_items(group, "group", &inner);
     }
@@ -6332,6 +6381,10 @@ impl Validator {
         // The groups around the line add what THEY walk.
         let mut line_names = scope.names.clone();
         line_names.extend(self.each_names(&each_name, false));
+        if walks_a_list {
+            line_names.insert("_item".to_string());
+            line_names.insert("_item_id".to_string());
+        }
         let mut walked = scope.walked.clone();
         if !each_name.is_empty() {
             walked.push(each_name.clone());
@@ -6353,6 +6406,9 @@ impl Validator {
         }
 
         for child in &line.children {
+            if scope.fixture && child.kind != Kind::Data {
+                continue; // a fixture's structure is checked during the <env> walk
+            }
             if is_gen(child) {
                 self.error(
                     "TDC131",
@@ -6603,7 +6659,7 @@ impl Validator {
             if !name.is_empty()
                 && !self.declared_names.contains(&name)
                 && !self.line_names.contains(&name)
-                && !is_builtin(&name)
+                && !is_row_builtin(&name)
             {
                 // A dot with a KNOWN root is a field mistake, and saying so beats repeating the
                 // whole reference back: the reader already knows the sequence exists. Collapsed
@@ -6616,7 +6672,7 @@ impl Validator {
                     Some(i) => name[..i].to_string(),
                     None => name.clone(),
                 };
-                if dot.is_some() && (self.declared_names.contains(&root) || is_builtin(&root)) {
+                if dot.is_some() && (self.declared_names.contains(&root) || is_row_builtin(&root)) {
                     let prefix = format!("{root}.");
                     let fields: Vec<&str> = self
                         .declared_fields
@@ -6936,7 +6992,7 @@ impl Validator {
 
         let known = |validator: &Validator, name: &str| -> bool {
             validator.declared_names.contains(name)
-                || is_builtin(name)
+                || is_row_builtin(name)
                 || (each && (name == "_item" || name == "_item_id"))
         };
 
@@ -6966,7 +7022,8 @@ impl Validator {
         // while its own column is built carries the list; everything read after
         // the table exists passes here untouched.
         if let Some(above) = self.declared_above.clone() {
-            let provided = is_builtin(root) || (each && (root == "_item" || root == "_item_id"));
+            let provided =
+                is_row_builtin(root) || (each && (root == "_item" || root == "_item_id"));
             if !provided && !above.contains(root) {
                 let hint = if above.is_empty() {
                     "A condition decides this column while it is being built, so it can only \
@@ -7488,7 +7545,7 @@ impl Validator {
                 continue;
             }
             let mut known = self.declared_names.clone();
-            known.extend(BUILTINS.iter().map(|b| (*b).to_string()));
+            known.extend(ROW_BUILTINS.iter().map(|b| (*b).to_string()));
             compute_check::ComputeCheck::new(&mut self.diagnostics).check(child, Some(&known));
         }
     }
@@ -7581,6 +7638,9 @@ struct OutputScope {
     names: BTreeSet<String>,
     walked: Vec<String>,
     each: bool,
+    /// Inside a fixture. Its structure is checked during the `<env>` walk; here only what the
+    /// lines SAY is checked, once every sequence is declared.
+    fixture: bool,
 }
 
 /// The first `<data name="…">` anywhere inside, or `None`.
@@ -7933,6 +7993,15 @@ pub const BUILTINS: [&str; 6] = ["_count", "_first", "_item", "_item_id", "_last
 
 pub fn is_builtin(name: &str) -> bool {
     BUILTINS.contains(&name)
+}
+
+/// The names every row has. `_item` and `_item_id` are not among them: they exist only where a
+/// line or a group walks a list with `each=`, which publishes them itself. Read anywhere else they
+/// resolved to nothing and were printed as written — refused by the reference, and accepted here.
+pub const ROW_BUILTINS: [&str; 4] = ["_count", "_first", "_last", "_total"];
+
+pub fn is_row_builtin(name: &str) -> bool {
+    ROW_BUILTINS.contains(&name)
 }
 
 /// The end of a placement sentence, by where the `<gen>` stands.

@@ -2475,6 +2475,13 @@ public final class StreamEngine {
       Appendable out, List<Config.Line> lines, int row, Map<String, Repeat.Spec> eachInfo)
       throws IOException {
     for (Config.Line line : lines) {
+      // Its if= is read on the row the fixture stands beside — see the in-memory engine.
+      if (!line.isGroup()
+          && line.each() == null
+          && line.ifExpr() != null
+          && !condition(line.ifExpr(), row)) {
+        continue;
+      }
       // A fixture line is one output line, and renderLine hands back the LINES.
       for (String text : renderLine(line, row, eachInfo)) {
         out.append(text);

@@ -88,7 +88,7 @@ import {
   collectPoolFieldValues,
   collectPoolCounts,
   collectPoolFields,
-  collectEachPools,
+  collectPrintedPools,
   collectPoolReferences,
   registerPoolReference,
   runPendingPoolFilters,
@@ -126,7 +126,7 @@ import { checkDocumentVersion } from './version.js';
 import type { PackParams, PackParamWidths } from './pack-params.js';
 import { checkRootRegexMaxLength } from './regex-max-length.js';
 import { runPendingCaseData } from './data-refs.js';
-import { checkBlock } from './block.js';
+import { checkBlock, checkFixtures } from './block.js';
 
 export interface ValidationResult {
   readonly diagnostics: readonly Diagnostic[];
@@ -268,9 +268,10 @@ export function validate(tree: DocumentContext, options: ValidationOptions = {})
   checkAllUnknownAttrs([...contentElements(tdc.content())], diags);
   checkUnknownAttrs('tdc', tdc.attr(), diags);
 
-  ctx.eachPools = collectEachPools(blockEl);
+  ctx.eachPools = collectPrintedPools(blockEl, envEl, FIXTURE_TAGS);
   ctx.listSeparators = collectListSeparators(envEl);
   if (envEl) checkEnv(envEl, ctx);
+  if (envEl) checkFixtures(envEl, FIXTURE_TAGS, ctx);
   if (blockEl) checkBlock(blockEl, ctx);
 
   // Two second passes, pools before expressions. Both splice their complaints

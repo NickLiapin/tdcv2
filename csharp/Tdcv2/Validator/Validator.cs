@@ -884,11 +884,20 @@ public sealed class Validator
         }
 
         CheckTdcChildren(tdc);
+        // Printed anywhere in the output: a lookup table printed once in <before> is read too.
         _eachPools = JsonLists.EachPools(block);
+        foreach (TDCParser.ElementContext child in env?.content()?.element() ?? Array.Empty<TDCParser.ElementContext>())
+        {
+            if (child.openCloseElement() is { } fixture && FixtureTagNames.Contains(fixture.name.Text))
+            {
+                _eachPools.UnionWith(JsonLists.EachPools(fixture));
+            }
+        }
         _listSeparators = JsonLists.Separators(env);
         if (env is not null)
         {
             CheckEnv(env);
+            CheckFixtures(env);
         }
 
         if (block is not null)
@@ -3253,7 +3262,7 @@ public sealed class Validator
             }
 
             var known = new HashSet<string>(_declaredNames, StringComparer.Ordinal);
-            known.UnionWith(Checks.Builtins);
+            known.UnionWith(Checks.RowBuiltins);
             new ComputeCheck(_diagnostics).Check(open, known);
         }
     }
@@ -3797,7 +3806,7 @@ public sealed class Validator
             // sent the reader off to check a name that is declared right above.
             int dot = on.IndexOf('.', StringComparison.Ordinal);
             string root = dot < 0 ? on : on[..dot];
-            bool fieldMistake = dot >= 0 && (declared.Contains(root) || Checks.IsBuiltin(root));
+            bool fieldMistake = dot >= 0 && (declared.Contains(root) || Checks.IsRowBuiltin(root));
             if (fieldMistake)
             {
                 string prefix = root + ".";
@@ -6282,7 +6291,7 @@ public sealed class Validator
             : null;
         foreach (string name in names)
         {
-            if (Checks.IsBuiltin(name)
+            if (Checks.IsRowBuiltin(name)
                 || _declaredOrder.Contains(name, StringComparer.Ordinal)
                 || name == own)
             {
@@ -7298,6 +7307,24 @@ public sealed class Validator
 
     // ── block ────────────────────────────────────────────────────────────────────────────────
 
+    /// <summary>The lines and groups of every fixture, checked as a block's are.</summary>
+    /// <remarks>
+    /// Nothing did that before, in any of the five. A <c>${{Missing}}</c> in a header was printed
+    /// as written, a condition that does not parse passed <c>check</c>, and a name a condition
+    /// misspelt read as a word. Run after <c>&lt;env&gt;</c>, so every sequence a fixture may name
+    /// is declared.
+    /// </remarks>
+    private void CheckFixtures(TDCParser.OpenCloseElementContext env)
+    {
+        foreach (TDCParser.ElementContext child in env.content()?.element() ?? Array.Empty<TDCParser.ElementContext>())
+        {
+            if (child.openCloseElement() is { } fixture && FixtureTagNames.Contains(fixture.name.Text))
+            {
+                CheckItems(fixture, fixture.name.Text, OutputScope.InFixture);
+            }
+        }
+    }
+
     private void CheckBlock(TDCParser.OpenCloseElementContext block) =>
         CheckItems(block, "block", OutputScope.Top);
 
@@ -7307,10 +7334,18 @@ public sealed class Validator
     /// nested groups included, so <c>${{Depts.name}}</c> and
     /// <c>if="Doctors.dept.id == Depts.id"</c> are names there.
     /// </remarks>
-    private sealed record OutputScope(HashSet<string> Names, IReadOnlyList<string> Walked, bool Each)
+    private sealed record OutputScope(
+        HashSet<string> Names, IReadOnlyList<string> Walked, bool Each, bool Fixture = false)
     {
         internal static readonly OutputScope Top =
             new(new HashSet<string>(StringComparer.Ordinal), Array.Empty<string>(), false);
+
+        /// <summary>
+        /// Inside a fixture. Its structure is checked during the <c>&lt;env&gt;</c> walk; here only
+        /// what the lines SAY is checked, once every sequence is declared.
+        /// </summary>
+        internal static readonly OutputScope InFixture =
+            new(new HashSet<string>(StringComparer.Ordinal), Array.Empty<string>(), false, true);
     }
 
     /// <summary>The <c>&lt;line&gt;</c>s and <c>&lt;group&gt;</c>s of a block or a group; anything else is misplaced.</summary>
@@ -7318,13 +7353,21 @@ public sealed class Validator
     {
         // These two were missed when the other containers were closed: an invented tag in
         // either passed in silence while the same tag one level up did not.
-        CheckChildren(container.content(), parent, BlockChildren, "TDC013", BlockChildren);
+        if (!scope.Fixture)
+        {
+            CheckChildren(container.content(), parent, BlockChildren, "TDC013", BlockChildren);
+        }
+
         foreach (TDCParser.ElementContext child in container.content()?.element() ?? Array.Empty<TDCParser.ElementContext>())
         {
             TDCParser.OpenCloseElementContext open = child.openCloseElement();
             if (open is not null && open.name.Text == "line")
             {
-                CheckChildren(open.content(), "line", LineChildren, "TDC013", LineChildren);
+                if (!scope.Fixture)
+                {
+                    CheckChildren(open.content(), "line", LineChildren, "TDC013", LineChildren);
+                }
+
                 CheckLine(open, scope);
             }
             else if (open is not null && open.name.Text == "group")
@@ -7379,7 +7422,7 @@ public sealed class Validator
             walked.Add(eachName);
         }
 
-        CheckItems(group, "group", new OutputScope(names, walked, scope.Each || walks));
+        CheckItems(group, "group", new OutputScope(names, walked, scope.Each || walks, scope.Fixture));
     }
 
     /// <summary>The first <c>&lt;data name="…"&gt;</c> anywhere inside, or null.</summary>
@@ -7497,11 +7540,18 @@ public sealed class Validator
         // The groups around the line add what THEY walk.
         var names = new HashSet<string>(scope.Names, StringComparer.Ordinal);
         names.UnionWith(EachNames(eachName, forIf: false));
+        if (walksAList)
+        {
+            names.Add("_item");
+            names.Add("_item_id");
+        }
+
         var walked = new List<string>(scope.Walked);
         if (eachName.Length > 0)
         {
             walked.Add(eachName);
         }
+
         string? lineCondition = lineAttrs.GetValueOrDefault("if");
         if (lineCondition is not null)
         {
@@ -7519,6 +7569,11 @@ public sealed class Validator
 
         foreach (TDCParser.ElementContext child in line.content().element())
         {
+            if (scope.Fixture && child.dataElement() is null)
+            {
+                continue; // a fixture's structure is checked during the <env> walk
+            }
+
             TDCParser.SelfClosingElementContext self = child.selfClosingElement();
             if (self is not null && self.name.Text == "gen")
             {
@@ -7687,7 +7742,7 @@ public sealed class Validator
             if (name.Length > 0
                 && !_declaredNames.Contains(name)
                 && !_lineNames.Contains(name)
-                && !Checks.IsBuiltin(name))
+                && !Checks.IsRowBuiltin(name))
             {
                 // A dot with a KNOWN root is a field mistake, and saying so beats repeating
                 // the whole reference back: the reader already knows the sequence exists.
@@ -7697,7 +7752,7 @@ public sealed class Validator
                 // while field names are invented as you go.
                 int dot = name.IndexOf('.', StringComparison.Ordinal);
                 string root = dot < 0 ? name : name[..dot];
-                if (dot >= 0 && (_declaredNames.Contains(root) || Checks.IsBuiltin(root)))
+                if (dot >= 0 && (_declaredNames.Contains(root) || Checks.IsRowBuiltin(root)))
                 {
                     string prefix = root + ".";
                     List<string> fields = _declaredFields
@@ -8068,7 +8123,7 @@ public sealed class Validator
         }
 
         bool known = _declaredNames.Contains(root)
-            || Checks.Builtins.Contains(root)
+            || Checks.RowBuiltins.Contains(root)
             || (each && (root == "_item" || root == "_item_id"));
         if (!known)
         {
@@ -8093,7 +8148,7 @@ public sealed class Validator
         // untouched.
         if (_declaredAbove is not null)
         {
-            bool provided = Checks.Builtins.Contains(root)
+            bool provided = Checks.RowBuiltins.Contains(root)
                 || (each && (root == "_item" || root == "_item_id"));
             if (!provided && !_declaredAbove.Contains(root))
             {
@@ -9230,10 +9285,42 @@ public sealed class Validator
         CheckChildren(container.content(), tag, passes, "TDC131", FixtureChildren);
         foreach (TDCParser.ElementContext child in container.content()?.element() ?? Array.Empty<TDCParser.ElementContext>())
         {
-            if (child.openCloseElement() is { } group && group.name.Text == "group")
+            if (child.openCloseElement() is not { } item)
             {
-                CheckClosedTagAttrs("group", group.attr(), Line(group), Column(group));
-                CheckFixtureItems(group, tag);
+                continue;
+            }
+
+            if (item.name.Text == "group")
+            {
+                CheckFixtureItems(item, tag);
+                continue;
+            }
+
+            if (item.name.Text != "line")
+            {
+                continue;
+            }
+
+            // A generator does not run in a fixture — interpolation does. Accepted in silence, one
+            // emitted a CONSTANT that looked like a drawn value.
+            foreach (TDCParser.ElementContext inner in item.content()?.element() ?? Array.Empty<TDCParser.ElementContext>())
+            {
+                TDCParser.SelfClosingElementContext? self = inner.selfClosingElement();
+                TDCParser.OpenCloseElementContext? open = inner.openCloseElement();
+                string name = self?.name.Text ?? open?.name.Text ?? string.Empty;
+                if (name is not ("gen" or "mix" or "switch"))
+                {
+                    continue;
+                }
+
+                int innerLine = self is not null ? Line(self) : Line(open!);
+                int innerColumn = self is not null ? Column(self) : Column(open!);
+                Error(
+                    "TDC131",
+                    $"a <{name}> is not allowed inside <{tag}> — fixtures are literal text",
+                    "Generators do not run in fixtures; this would emit a constant. Declare a "
+                    + "<sequence> in <env> if the value must vary, or write the text literally.",
+                    innerLine, innerColumn);
             }
         }
     }

@@ -5053,6 +5053,15 @@ fn emit_lines(
     each: &Each<'_>,
 ) -> EngineResult<()> {
     for line in lines {
+        // Its if= is read on the row the fixture stands beside: it used to be ignored in all
+        // five, so a header the config said to leave out was printed anyway.
+        if line.items.is_none() && line.each.is_none() {
+            if let Some(expr) = &line.if_expr {
+                if !condition_at(expr, columns, row)? {
+                    continue;
+                }
+            }
+        }
         // A fixture line is one output line, and `render_line` hands back the LINES.
         for text in render_line(line, columns, row, config, each)? {
             to.push_str(&text);

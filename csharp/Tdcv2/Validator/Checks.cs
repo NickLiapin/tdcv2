@@ -33,6 +33,18 @@ internal static class Checks
 
     internal static bool IsBuiltin(string name) => Builtins.Contains(name);
 
+    /// <summary>The names every row has.</summary>
+    /// <remarks>
+    /// <c>_item</c> and <c>_item_id</c> are not among them: they exist only where a line or a group
+    /// walks a list with <c>each=</c>, which publishes them itself. Read anywhere else they
+    /// resolved to nothing and were printed as written — refused by the reference, and accepted
+    /// here.
+    /// </remarks>
+    internal static readonly IReadOnlySet<string> RowBuiltins =
+        new HashSet<string>(StringComparer.Ordinal) { "_count", "_first", "_last", "_total" };
+
+    internal static bool IsRowBuiltin(string name) => RowBuiltins.Contains(name);
+
     /// <summary><c>null</c> when the pattern parses under the finite subset.</summary>
     internal static string? RegexProblem(string pattern, int maxLength) =>
         Attempt(() => RegexGen.Compile(pattern, maxLength));

@@ -207,6 +207,14 @@ public final class MemoryEngine {
       Map<String, Repeat.Spec> eachInfo,
       Map<String, Pool.Table> pools) {
     for (Config.Line line : lines) {
+      // Its if= is read on the row the fixture stands beside: it used to be ignored in all five,
+      // so a header the config said to leave out was printed anyway.
+      if (!line.isGroup()
+          && line.each() == null
+          && line.ifExpr() != null
+          && !condition(line.ifExpr(), columns, row)) {
+        continue;
+      }
       // A fixture line is one output line, and renderLine hands back the LINES.
       for (String text : renderLine(line, columns, row, inject, eachInfo, pools)) {
         out.append(text);

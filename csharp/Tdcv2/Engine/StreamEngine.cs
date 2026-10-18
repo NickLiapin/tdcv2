@@ -2734,6 +2734,12 @@ public sealed class StreamEngine
     {
         foreach (Line line in lines)
         {
+            // Its if= is read on the row the fixture stands beside — see the in-memory engine.
+            if (!line.IsGroup && line.Each is null && line.IfExpr is not null && !Condition(line.IfExpr, row))
+            {
+                continue;
+            }
+
             // A fixture line is one output line, and RenderLine hands back the LINES.
             foreach (string text in RenderLine(line, row, eachInfo))
             {

@@ -7368,6 +7368,32 @@
         ]
       }
     },
+    "structure/fixture-line-if-is-read": {
+      "engine2": {
+        "lines": [
+          "first row is 1",
+          "1 b",
+          "2 b",
+          "-- an a --",
+          "3 a",
+          "-- an a --",
+          "4 a",
+          "last row is 4"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "first row is 1",
+          "1 b",
+          "2 b",
+          "-- an a --",
+          "3 a",
+          "-- an a --",
+          "4 a",
+          "last row is 4"
+        ]
+      }
+    },
     "uniq-distinct/distinct-pair": {
       "engine2": {
         "lines": [

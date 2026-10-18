@@ -1090,11 +1090,10 @@ function renderFixture(el: OpenCloseElementContext | undefined, ctx: RenderConte
   if (!el) return '';
   let out = '';
   for (const item of outputItems(el.content())) {
-    // A fixture line is one output line, and renderLine hands back the LINES. Its `if=` was never
-    // read here, and is still not: a fixture group is the new way to make fixture lines conditional.
-    out += (
-      elementName(item) === 'group' ? renderGroup(item, ctx) : renderLine({ ...ctx, line: item })
-    ).join('');
+    // A fixture line is one output line, and renderLine hands back the LINES. Its `if=` is read on
+    // the row the fixture stands beside: it used to be ignored in all five, so a header the config
+    // said to leave out was printed anyway.
+    out += renderItem(item, ctx).join('');
   }
   return out;
 }

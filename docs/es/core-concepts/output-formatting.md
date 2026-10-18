@@ -435,6 +435,15 @@ Dos advertencias, ambas obligadas:
   dentro de una fixture es el error `TDC131`. Antes esto fallaba en silencio: un generador
   `value="500..999"` en una fixture siempre emitía `500` (la cota inferior), lo que parecía
   un valor real.
+- **Las condiciones funcionan en las fixtures, y las fixtures se comprueban.** Un
+  `<line if="…">` o un `<data if="…">` en una fixture lee la misma fila que su `${{Name}}` —
+  `<before>` la primera, `<after>` la última—, así que `<before><line if="Mode == full">`
+  imprime un encabezado solo cuando el primer registro lo pide. `check` lee las líneas de las
+  fixtures igual que las del bloque: un nombre mal escrito es `TDC193`, una condición que no
+  se analiza es `TDC100`. Un
+  [`<group>`](../constructs/relational-tables.md#varias-líneas-por-elemento-group) también
+  funciona en una fixture, así que una tabla de consulta puede imprimirse una sola vez, antes
+  de los registros.
 
 ## Un marcador de interpolación personalizado
 

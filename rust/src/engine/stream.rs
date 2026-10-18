@@ -3566,6 +3566,14 @@ impl StreamEngine<'_> {
         each_info: &[(String, repeat::Spec)],
     ) -> EngineResult<()> {
         for line in lines {
+            // Its if= is read on the row the fixture stands beside — see the in-memory engine.
+            if line.items.is_none() && line.each.is_none() {
+                if let Some(expr) = &line.if_expr {
+                    if !self.condition(expr, row)? {
+                        continue;
+                    }
+                }
+            }
             // A fixture line is one output line, and `render_line` hands back the LINES.
             for text in self.render_line(line, row, each_info)? {
                 write_all(to, &text)?;

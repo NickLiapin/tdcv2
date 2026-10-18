@@ -245,6 +245,25 @@ export function collectEachPools(
 }
 
 /**
+ * The pools printed by an `each` anywhere in the output — the block and every fixture. A lookup
+ * table printed once in `<before>` is read as surely as one printed per row.
+ */
+export function collectPrintedPools(
+  block: OpenCloseElementContext | undefined,
+  env: OpenCloseElementContext | undefined,
+  fixtureNames: readonly string[],
+): Set<string> {
+  const named = collectEachPools(block);
+  for (const child of contentElements(env?.content() ?? null)) {
+    const k = elementKind(child);
+    if (k?.kind === 'open' && fixtureNames.includes(elementName(k.node))) {
+      collectEachPools(k.node, named);
+    }
+  }
+  return named;
+}
+
+/**
  * A pool nobody draws from.
  *
  * A warning rather than an error, on the same reasoning as TDC234: the config

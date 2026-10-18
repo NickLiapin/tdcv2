@@ -1983,6 +1983,10 @@ class StreamEngine:
 
     def _emit(self, emit, lines: list[Line], row: int, each_info) -> None:
         for line in lines:
+            # Its if= is read on the row the fixture stands beside — see the in-memory engine.
+            plain = not isinstance(line, Group) and not line.each
+            if plain and line.if_expr is not None and not self._condition(line.if_expr, row):
+                continue
             # A fixture line is one output line, and _render_line hands back the LINES.
             for text in self._render_line(line, row, each_info):
                 emit(text)
