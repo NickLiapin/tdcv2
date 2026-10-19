@@ -125,7 +125,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.19.43",
-    "@vitest/coverage-v8": "^4.1.11",
+    "@vitest/coverage-v8": "^4.1.12",
     "antlr-ng": "^1.0.10",
     "eslint": "^9.10.0",
     "eslint-config-prettier": "^9.1.0",
