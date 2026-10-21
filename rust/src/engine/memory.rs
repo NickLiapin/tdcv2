@@ -4528,9 +4528,7 @@ fn pack_generator(
     }
 
     if let Some(valid) = &pack.validate {
-        enforce_valid(
-            &pack, valid, &mut local, count, prng, env, &pinned, body_seed,
-        )?;
+        enforce_valid(&pack, valid, &mut local, count, prng, env, &pinned)?;
     }
 
     let mut rendered = Vec::with_capacity(count);
@@ -4665,7 +4663,6 @@ fn enforce_valid(
     prng: &mut Sfc32,
     env: &Env,
     pinned: &BTreeMap<String, String>,
-    body_seed: &str,
 ) -> EngineResult<()> {
     // A PINNED sequence is never redrawn. A caller parameter replaces a local sequence
     // with a constant, and redrawing it threw that constant away: a config asking for a
@@ -4699,26 +4696,41 @@ fn enforce_valid(
             ));
         }
         while !holds(valid, local, row)? {
-            attempts += 1;
-            if attempts > VALID_FUSE {
+            if attempts >= VALID_FUSE {
                 return invalid(&format!(
-                    "pack generator: <valid> still fails after {VALID_FUSE} attempts — the \
-                     constraint may be impossible"
+                    "pack generator <valid> constraint could not be satisfied for row {row} \
+                     after {VALID_FUSE} attempts — the base cannot produce a valid value"
                 ));
             }
+            attempts += 1;
+            // Every base first, off the shared prng with no keyed stream, as the reference
+            // redraws. A stream keyed by the body's seed and the sequence name answers the
+            // same on every attempt, so a `text` base under it drew one value a hundred
+            // times: a pack whose guard rejected that value failed outright, and one with a
+            // second base redrew only the other and landed elsewhere than the four.
             for spec in &pack.sequences {
-                // A pinned sequence keeps its constant; a COMPUTED one still runs, because
-                // that is what recomputes a check digit from the base just redrawn.
-                if pinned.contains_key(&spec.name) {
+                if spec.is_computed() || pinned.contains_key(&spec.name) {
                     continue;
                 }
-                // One row redrawn is a one-row build whatever the body around it was.
-                for (name, mut values) in
-                    materialize_local(spec, 1, prng, env, local, body_seed, true)?
-                {
-                    let replacement = values.remove(0);
-                    if let Some(column) = local.get_mut(&name) {
-                        column[row] = replacement;
+                let Some(gen) = spec.gen() else {
+                    return invalid(&format!(
+                        "pack generator <valid> requires simple <gen> base sequences; \
+                         sequence \"{}\" is not supported",
+                        spec.name
+                    ));
+                };
+                let mut one = column_values(gen, 1, prng, env, None, None, None, None)?;
+                if let Some(column) = local.get_mut(&spec.name) {
+                    column[row] = Some(one.remove(0));
+                }
+            }
+            // Then the derived values, on THIS row, in declaration order. A one-row
+            // recompute read row 0 of every column it named.
+            for spec in &pack.sequences {
+                if let Source::Compute(tree) = &spec.source {
+                    let value = compute_row(tree, local, row)?;
+                    if let Some(column) = local.get_mut(&spec.name) {
+                        column[row] = Some(value);
                     }
                 }
             }

@@ -3352,7 +3352,13 @@ impl StreamEngine<'_> {
         row: i32,
         flags: Option<&mut [bool]>,
     ) -> EngineResult<String> {
-        let mut prng = seekable::generator(&self.drawing_seed(), stream_id, row);
+        // Inside a pack body this is the BODY's seed, not the run's: the body's columns are
+        // evaluated here, by the engine that owns the body, and a pack the body names takes
+        // its own seed from this column's identity. Read off `env.config.seed` instead, a pack
+        // nested in a whole-column body was seeded `run|inner|row` where the other four seed
+        // it `run|column|inner|row`, and every keyed draw inside it landed elsewhere.
+        let seed = self.drawing_seed();
+        let mut prng = seekable::generator(&seed, stream_id, row);
         // The row this value belongs to, and this engine's own registry to read siblings
         // from — what a distribution parameter written as an expression needs. Nothing
         // else looks at it, and a generator without one costs no lookup.
@@ -3381,7 +3387,7 @@ impl StreamEngine<'_> {
                 &self.env,
                 None,
                 Some(&scope),
-                Some((self.env.config.seed.as_str(), stream_id, Some(here[0]))),
+                Some((&seed, stream_id, Some(here[0]))),
             )?;
             let mut spiked = vec![false; slots.max(1)];
             let finished = memory::finish(

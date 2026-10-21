@@ -71,6 +71,19 @@ plus="Length m">` ends each appointment its own length after its start: the name
 
 ### Fixed
 
+- **A pack's `<valid>` redrew a `text` base under a fixed stream in Rust and C#.** The redraw
+  was keyed by the body's seed and the sequence name, which answers the same on every attempt, so
+  a `text` base drew one value a hundred times: a pack whose guard rejected that value failed
+  outright, and one with a second base redrew only the other and landed elsewhere than the
+  reference — 11 of the 38 shipped packs with a `<valid>`, the ISO 6346 container code and
+  Slovenia's postal code among them. Every base is now redrawn off the shared prng, then every
+  derived value recomputed on that row (Rust recomputed it from row 0), and the fuse's message is
+  the reference's. Pinned in `cases/rare-paths.json`.
+- **A pack nested in a whole-column pack body was seeded from the run, not the body, in Rust's
+  streaming engines.** Indonesia's NPWP16 declares a share, so its body is built over the column,
+  and for an individual it is the NIK, a second pack; its keyed draws — the woman's +40 on the
+  day of birth — landed on other rows than in the other four. Found by running every generator of
+  every bundle through all five. Pinned in `cases/rare-paths.json`.
 - **An `if=` on a `<data>` inside an `each` line was asked once per ROW in Python, Rust, Java and
   C#.** The reference asks it once per element, with the element in scope, so `<data if="Tags ==
 b">` held on the line printing `b` there and never in the ports, which compared the whole

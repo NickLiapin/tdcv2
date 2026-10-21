@@ -3152,31 +3152,44 @@ public static class MemoryEngine
 
             while (!Holds(pack, local, row))
             {
-                if (++attempts > ValidFuse)
+                if (attempts >= ValidFuse)
                 {
                     throw new InvalidOperationException(
-                        $"pack generator: <valid> still fails after {ValidFuse} attempts — the "
-                        + "constraint may be impossible");
+                        $"pack generator <valid> constraint could not be satisfied for row {row} "
+                        + $"after {ValidFuse} attempts — the base cannot produce a valid value");
                 }
 
+                attempts++;
+
+                // Every base first, off the shared prng with no keyed stream, as the reference
+                // redraws. A stream keyed by the seed and the sequence name answers the same on
+                // every attempt, so a `text` base under it drew one value a hundred times: a pack
+                // whose guard rejected that value failed outright, and one with a second base
+                // redrew only the other and landed elsewhere than the four.
+                foreach (SequenceSpec spec in pack.Sequences)
+                {
+                    if (spec.IsComputed || pinned.ContainsKey(spec.Name))
+                    {
+                        continue;
+                    }
+
+                    if (spec.Gen is null || spec.Fields is not null)
+                    {
+                        throw new InvalidOperationException(
+                            "pack generator <valid> requires simple <gen> base sequences; "
+                            + $"sequence \"{spec.Name}\" is not supported");
+                    }
+
+                    local[spec.Name][row] =
+                        ColumnValues(spec.Gen, 1, prng, ctx with { OneRow = true }, null)[0];
+                }
+
+                // Then the derived values, on this row, in declaration order.
                 foreach (SequenceSpec spec in pack.Sequences)
                 {
                     if (spec.IsComputed)
                     {
                         local[spec.Name][row] = ComputeRow(spec, local, row);
-                        continue;
-                    }
-
-                    // A pinned sequence keeps its constant.
-                    if (pinned.ContainsKey(spec.Name))
-                    {
-                        continue;
-                    }
-
-                    foreach ((string name, string[] values) in
-                        MaterializeLocal(spec, 1, prng, ctx with { OneRow = true }, local))
-                    {
-                        local[name][row] = values[0];
                     }
                 }
             }

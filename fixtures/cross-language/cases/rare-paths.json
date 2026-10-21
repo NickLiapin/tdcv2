@@ -67,6 +67,44 @@
       "description": "The on-disk uniq at the edge of what the pool allows, where the verify has real work",
       "config": "<tdc><env count=\"9\" seed=\"u-tight\" local=\"en\" mode=\"disk\"><sequence name=\"K\" uniq=\"true\"><gen name=\"a\" type=\"text\" value=\"p,q,r\"/><gen name=\"b\" type=\"text\" value=\"x,y,z\"/></sequence></env><block><line><data>${{K.a}}${{K.b}}</data></line></block></tdc>",
       "expected": ["qz", "ry", "rz", "qy", "rx", "py", "px", "qx", "pz"]
+    },
+    {
+      "name": "pack-valid-redraws-a-text-base",
+      "description": "A pack's <valid> redraws EVERY base off the shared prng, a text base included, then recomputes the derived values on that row. Two ports redrew under a stream keyed by the body's seed and the sequence name, which answers the same on every attempt: Slovenia's area digit (a text list) never moved, only the other base did, and seven of these twelve postal codes came out different.",
+      "config": "<tdc><env count=\"12\" seed=\"si\"><sequence name=\"P\"><gen type=\"template\" value=\"slovenia.geo.postalCode\"/></sequence></env><block><line><data>${{P}}</data></line></block></tdc>",
+      "expected": [
+        "6147",
+        "8264",
+        "2324",
+        "4034",
+        "2129",
+        "9070",
+        "6236",
+        "6214",
+        "2144",
+        "5129",
+        "9074",
+        "6223"
+      ]
+    },
+    {
+      "name": "a-pack-nested-in-a-whole-column-body-is-seeded-from-that-body",
+      "description": "Indonesia's 16-digit NPWP declares a share (70% individuals), so its body is built over the whole column, and for an individual it is the NIK — a second pack, whose sex digit is a keyed draw. The nested pack is seeded from the body's own column identity, run|P|nik|row. One streaming engine read the run's seed there instead, so the woman's +40 on the day of birth landed on different rows.",
+      "config": "<tdc><env count=\"12\" seed=\"npwp\"><sequence name=\"P\"><gen type=\"template\" value=\"indonesia.tax.npwp16\"/></sequence></env><block><line><data>${{P}}</data></line></block></tdc>",
+      "expected": [
+        "0018324954669000",
+        "1871036405697812",
+        "3579022111848474",
+        "7107225403874988",
+        "0043598036188000",
+        "7210051508415475",
+        "0018162735621000",
+        "7314035805108304",
+        "6411105412910105",
+        "7314126002552098",
+        "0062957246102000",
+        "3207121703842977"
+      ]
     }
   ]
 }
