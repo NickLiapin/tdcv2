@@ -564,8 +564,9 @@ Also available: `common.security.jwt`, `common.security.md5`, `common.security.s
 ### Phone numbers
 
 `common.phone.e164` picks a random country; each country also has its own path. They
-all emit E.164 form and draw on the fictional ranges reserved for drama and testing
-(US area code 202 with the `555` exchange, UK Ofcom `07700 900xxx`, and so on):
+all emit E.164 form, and where a country reserves numbers for drama and testing the path
+uses them — a real US area code with `555-0100` to `555-0199`, UK Ofcom `07700 900xxx`,
+and so on:
 
 ```xml
 <gen type="template" value="usa.phone"/>
@@ -573,10 +574,10 @@ all emit E.164 form and draw on the fictional ranges reserved for drama and test
 ```
 
 <Terminal title="./run phones.tdc">
-{`usa.phone           +12025557027
-usa.phone           +12025556829
-common.phone.e164   +447700900829
-common.phone.e164   +33670270136`}
+{`usa.phone           +16455550143
+usa.phone           +13155550169
+common.phone.e164   +525583046224
+common.phone.e164   +447700900302`}
 </Terminal>
 
 ### National tax and document numbers

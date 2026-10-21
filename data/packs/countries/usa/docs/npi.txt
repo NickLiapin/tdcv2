@@ -1,0 +1,36 @@
+---
+address: usa.docs.npi
+description: US National Provider Identifier (NPI) — the 10-digit number every doctor, nurse practitioner, pharmacy, hospital and clinic bills under, for individuals (type 1) and organisations (type 2) alike. Nine digits plus a Luhn check digit computed as if the number were preceded by 80840, the card-issuer prefix for US health applications (HIPAA final rule, 23 January 2004). The number carries no meaning — no state, no specialty — and the first digit is always 1 here because 1 is the only first digit issued so far; 2 is the untouched rest of the initial 200-million range. Verified against the CMS worked example 1234567893 and against 400 real NPIs from the NPPES registry. A generated NPI can coincide with a real one, as any well-formed number can.
+generator: tdc
+---
+<sequence name="base"><gen type="number" value="100000000..199999999" length="9"/></sequence>
+<sequence name="npi"><compute>
+  <!-- Luhn over 80840 + the nine digits: the prefix is part of the sum even though it is never written. -->
+  <let name="payload"><concat><str v="80840"/><field name="base"/></concat></let>
+  <let name="sum"><reduce>
+    <over><use name="payload"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/>
+      <choose>
+        <when>
+          <test><equals>
+            <mod><current_index/><int v="2"/></mod>
+            <mod><add><length><use name="payload"/></length><int v="1"/></add><int v="2"/></mod>
+          </equals></test>
+          <then>
+            <let name="d"><multiply><current/><int v="2"/></multiply></let>
+            <choose>
+              <when><test><greater_than><use name="d"/><int v="9"/></greater_than></test>
+                    <then><subtract><use name="d"/><int v="9"/></subtract></then></when>
+              <otherwise><use name="d"/></otherwise>
+            </choose>
+          </then>
+        </when>
+        <otherwise><current/></otherwise>
+      </choose>
+    </add></do>
+  </reduce></let>
+  <let name="check"><mod><subtract><int v="10"/><mod><use name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
+  <result><concat><field name="base"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{npi}}</data>

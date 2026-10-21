@@ -1,0 +1,42 @@
+---
+address: brazil.docs.cns
+description: Brazilian national health card number (Cartão Nacional de Saúde, CNS, the "cartão do SUS") — 15 digits, in the definitive form a card is issued with once the holder is identified. The first eleven digits are the holder's PIS/PASEP number (a valid one here, starting with 1 or 2, its own mod-11 digit included), followed by 000 and a check digit: the eleven digits weighted 15 down to 5, the digit is 11 minus the sum modulo 11, 11 becomes 0, and when it comes out as 10 the sum is raised by 2, the filler becomes 001 and the digit is computed again (Ministry of Health routine, as published by ANVISA). Every valid CNS therefore has its fifteen digits, weighted 15 down to 1, summing to a multiple of 11. Provisional numbers (starting 7, 8 or 9) are not generated. Verified against the ANVISA examples 161243374450004 and 898000000043208.
+generator: tdc
+locale: pt
+---
+<sequence name="base"><gen type="regex" value="[12][0-9]{9}"/></sequence>
+<sequence name="cns"><compute>
+  <!-- The PIS/PASEP check digit (weights 3,2,9,8,7,6,5,4,3,2; 10 and 11 fall back to 0). -->
+  <let name="pisSum"><reduce>
+    <over><field name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="3,2,9,8,7,6,5,4,3,2"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="pisRaw"><subtract><int v="11"/><mod><use name="pisSum"/><int v="11"/></mod></subtract></let>
+  <let name="pis"><concat>
+    <field name="base"/>
+    <choose>
+      <when><test><greater_than><use name="pisRaw"/><int v="9"/></greater_than></test><then><int v="0"/></then></when>
+      <otherwise><use name="pisRaw"/></otherwise>
+    </choose>
+  </concat></let>
+  <!-- The CNS digit: the eleven PIS digits weighted 15 down to 5. -->
+  <let name="sum"><reduce>
+    <over><use name="pis"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/><subtract><int v="15"/><current_index/></subtract></multiply></add></do>
+  </reduce></let>
+  <let name="first"><mod><subtract><int v="11"/><mod><use name="sum"/><int v="11"/></mod></subtract><int v="11"/></mod></let>
+  <result>
+    <choose>
+      <when><test><equals><use name="first"/><int v="10"/></equals></test>
+        <then><concat><use name="pis"/><str v="001"/>
+          <subtract><int v="11"/><mod><add><use name="sum"/><int v="2"/></add><int v="11"/></mod></subtract>
+        </concat></then></when>
+      <otherwise><concat><use name="pis"/><str v="000"/><use name="first"/></concat></otherwise>
+    </choose>
+  </result>
+</compute></sequence>
+<data>${{cns}}</data>

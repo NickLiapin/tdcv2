@@ -1,0 +1,37 @@
+---
+address: france.docs.finess
+description: French health establishment number (numéro FINESS, Fichier national des établissements sanitaires et sociaux) — the 9-digit number of a hospital, clinic, care home, pharmacy or the legal body that runs them; nothing in France's health and social sector is funded without one. Two digits for the département, a 0, five digits and a Luhn check digit. The Agence du numérique en santé describes the 3rd and 4th digits as always 0, but real numbers vary in the 4th (the Pitié-Salpêtrière in Paris is 750100125), so only the 3rd is held at 0 here. Départements 01-95 are drawn; Corsica (2A, 2B) and the overseas départements are not. Verified against the ANS example 150001899 and the published numbers of several Paris and Lyon hospitals.
+generator: tdc
+locale: fr
+---
+<sequence name="department"><gen type="number" value="1..95" length="2" first_zero="true" exclude="20"/></sequence>
+<sequence name="serial"><gen type="number" value="0..99999" length="5" first_zero="true"/></sequence>
+<sequence name="finess"><compute>
+  <let name="body"><concat><field name="department"/><str v="0"/><field name="serial"/></concat></let>
+  <let name="sum"><reduce>
+    <over><use name="body"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/>
+      <choose>
+        <when>
+          <test><equals>
+            <mod><current_index/><int v="2"/></mod>
+            <mod><add><length><use name="body"/></length><int v="1"/></add><int v="2"/></mod>
+          </equals></test>
+          <then>
+            <let name="d"><multiply><current/><int v="2"/></multiply></let>
+            <choose>
+              <when><test><greater_than><use name="d"/><int v="9"/></greater_than></test>
+                    <then><subtract><use name="d"/><int v="9"/></subtract></then></when>
+              <otherwise><use name="d"/></otherwise>
+            </choose>
+          </then>
+        </when>
+        <otherwise><current/></otherwise>
+      </choose>
+    </add></do>
+  </reduce></let>
+  <let name="check"><mod><subtract><int v="10"/><mod><use name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
+  <result><concat><use name="body"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{finess}}</data>

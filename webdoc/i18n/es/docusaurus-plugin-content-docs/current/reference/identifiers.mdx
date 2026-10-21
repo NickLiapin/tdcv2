@@ -128,6 +128,8 @@ Unas cuantas rutas representativas y los parámetros que exponen:
 | `usa.tax.ein`             | `prefix`, `serial`         |
 | `usa.tax.itin`            | `mid`, `group`, `serial`   |
 | `usa.finance.aba_routing` | `prefix`, `tail`           |
+| `usa.phone`               | `area`, `line`             |
+| `germany.docs.lanr`       | `doctor`, `specialty`      |
 
 :::note[Variantes simplificadas]
 Cuando estos generadores se mudaron a paquetes editables, algunos parámetros poco usados
@@ -324,9 +326,11 @@ common.logistics.container_iso6346  PQXU6242844`}
 ## Números de teléfono
 
 `common.phone.e164` elige un país al azar; cada país tiene además su propia ruta. Todos
-emiten la forma E.164. Cuando un país reserva un rango para ficción y pruebas, el paquete
-lo usa —el área `202` de EE. UU. con la central `555`, el `613 555` de Canadá, el
-`07700 900xxx` de Ofcom en el Reino Unido—. La mayoría de los países no reserva ninguno,
+emiten la forma E.164. Cuando un país reserva números para ficción y pruebas, el paquete
+los usa: EE. UU. y Canadá toman un código de área real en servicio —cualquiera de la base
+de NANPA, guardados en `usa.phoneAreaCode` y `canada.phoneAreaCode`— seguido de
+`555-0100` a `555-0199`, los números reservados para la ficción; el Reino Unido usa el
+`07700 900xxx` de Ofcom. La mayoría de los países no reserva ninguno,
 así que esas rutas construyen un número válido por estructura a partir de prefijos reales:
 sirve para guardar y analizar, pero no para marcarlo. **Úselos cuando** un fixture de
 contactos deba analizarse como un número internacional válido.
@@ -337,28 +341,28 @@ contactos deba analizarse como un número internacional válido.
 ```
 
 <Terminal title="./run phones.tdc">
-{`usa.phone             +12025550883
-canada.phone          +16135558575
-united_kingdom.phone  +447700900864
-germany.phone         +4917140038023
-france.phone          +33618948981
-common.phone.e164     +34663489915`}
+{`usa.phone             +12605550194
+canada.phone          +17785550122
+united_kingdom.phone  +447700900211
+germany.phone         +4916217255164
+france.phone          +33647516563
+common.phone.e164     +5491126272479`}
 </Terminal>
 
 | Ruta                   | Produce                                                                  | Ejemplo          |
 | :--------------------- | :----------------------------------------------------------------------- | :--------------- |
 | `argentina.phone`      | Móvil de Argentina, E.164 (+54 9 11…)                                    | `+5491185268868` |
 | `brazil.phone`         | Móvil de Brasil, E.164 (+55 + DDD + 9…)                                  | `+5562940038023` |
-| `canada.phone`         | Canadá, E.164 (área 613, central ficticia 555)                           | `+16135558575`   |
-| `common.phone.e164`    | Teléfono E.164, país al azar del conjunto                                | `+34663489915`   |
-| `france.phone`         | Móvil de Francia, E.164 (+33 6…)                                         | `+33618948981`   |
-| `germany.phone`        | Móvil de Alemania, E.164 (+49 15x/16x/17x…)                              | `+4917140038023` |
+| `canada.phone`         | Canadá, E.164 (código de área real, ficción 555-01XX)                    | `+17785550122`   |
+| `common.phone.e164`    | Teléfono E.164, país al azar del conjunto                                | `+5491126272479` |
+| `france.phone`         | Móvil de Francia, E.164 (+33 6…)                                         | `+33647516563`   |
+| `germany.phone`        | Móvil de Alemania, E.164 (+49 15x/16x/17x…)                              | `+4916217255164` |
 | `mexico.phone`         | México, E.164 (+52 + LADA, número nacional de 10 dígitos)                | `+527353382246`  |
 | `poland.phone`         | Móvil de Polonia, E.164 (+48 5…)                                         | `+48587209191`   |
 | `russia.phone`         | Móvil de Rusia, E.164 (+7 9…)                                            | `+79962527739`   |
 | `spain.phone`          | Móvil de España, E.164 (+34 6…)                                          | `+34631634932`   |
-| `united_kingdom.phone` | Móvil del Reino Unido, E.164 (rango de ficción de Ofcom +44 7700 900xxx) | `+447700900864`  |
-| `usa.phone`            | EE. UU., E.164 (área 202, central ficticia 555)                          | `+12025550883`   |
+| `united_kingdom.phone` | Móvil del Reino Unido, E.164 (rango de ficción de Ofcom +44 7700 900xxx) | `+447700900211`  |
+| `usa.phone`            | EE. UU., E.164 (código de área real, ficción 555-01XX)                   | `+12605550194`   |
 
 ## Números fiscales y de documentos por país
 
@@ -379,6 +383,25 @@ usa.tax.itin             975531718
 usa.finance.aba_routing  649946910`}
 </Terminal>
 
+Los sistemas de salud numeran igual a sus médicos, hospitales y pacientes, y esos números
+también llevan dígitos de control: el NPI con el que factura cada proveedor en EE. UU., el
+número vitalicio del médico en Alemania y el número del seguro en la tarjeta sanitaria, el
+RPPS y el FINESS franceses, la tarjeta del SUS brasileña:
+
+```xml
+<gen type="template" value="usa.docs.npi"/>
+<gen type="template" value="germany.docs.lanr" specialty="28"/>
+```
+
+<Terminal title="./run health.tdc">
+{`usa.docs.npi        1185286543
+germany.docs.kvnr   C002080564
+germany.docs.lanr   176240528
+france.docs.rpps    10579255182
+france.docs.finess  060053394
+brazil.docs.cns     215078168060009`}
+</Terminal>
+
 **Úselos cuando** un registro deba llevar un identificador propio de un país que
 sobreviva al validador de ese país —un CPF brasileño, un PESEL polaco, un número de IVA
 alemán— sin dejar de ser demostrablemente falso. La lista completa, por dirección:
@@ -392,6 +415,7 @@ alemán— sin dejar de ser demostrablemente falso. La lista completa, por direc
 | `belgium.tax.vat`                   | IVA belga (BE + base de 8 dígitos + verificación mod-97)                                                                  | `BE0507916645`         |
 | `bolivia.docs.ci`                   | Cédula de Identidad boliviana (número de 7 dígitos, sin dígito de control)                                                | `3991646`              |
 | `bolivia.tax.nit`                   | NIT boliviano (número fiscal de 9 dígitos, sin dígito de control)                                                         | `252014061`            |
+| `brazil.docs.cns`                   | Tarjeta de salud CNS brasileña (PIS válido + 000/001 + dígito mod-11 del Ministerio de Salud)                             | `215078168060009`      |
 | `brazil.tax.cnpj`                   | CNPJ brasileño (raíz de 8 dígitos + sucursal de 4 dígitos + dos dígitos de control mod-11)                                | `25232116564552`       |
 | `brazil.tax.cpf`                    | CPF brasileño (base de 9 dígitos + dos dígitos de control mod-11)                                                         | `14806904651`          |
 | `bulgaria.tax.vat`                  | IVA búlgaro (BG + 9 o 10 dígitos, sin suma de verificación)                                                               | `BG380883064`          |
@@ -417,8 +441,12 @@ alemán— sin dejar de ser demostrablemente falso. La lista completa, por direc
 | `estonia.tax.vat`                   | IVA / KMKR estonio (EE + 9 dígitos, sin suma de verificación)                                                             | `EE949727018`          |
 | `europe.tax.vat`                    | IVA de la UE (delega en un estado miembro por omisión: Alemania)                                                          | `DE193530291`          |
 | `finland.tax.vat`                   | IVA / ALV finlandés (FI + base de 7 dígitos + verificación mod-11 ponderada)                                              | `FI76372425`           |
+| `france.docs.finess`                | Número de establecimiento de salud FINESS francés (departamento + 0 + 5 dígitos + Luhn)                                   | `060053394`            |
+| `france.docs.rpps`                  | Número de profesional de salud RPPS francés (10 + 8 dígitos + verificación Luhn)                                          | `10579255182`          |
 | `france.tax.siren`                  | SIREN francés (8 dígitos + verificación Luhn)                                                                             | `033948829`            |
 | `france.tax.vat`                    | IVA francés (FR + clave mod-97 + SIREN con Luhn válido)                                                                   | `FR82250352820`        |
+| `germany.docs.kvnr`                 | Número de seguro médico KVNR alemán (letra + 8 dígitos + verificación ponderada mod-10)                                   | `C002080564`           |
+| `germany.docs.lanr`                 | Número de médico LANR alemán (6 dígitos + control 4/9 mod-10 + especialidad 01–69)                                        | `176240528`            |
 | `germany.tax.vat`                   | IVA / USt-IdNr alemán (DE + 8 dígitos, verificación iterativa mod-11/10)                                                  | `DE641787309`          |
 | `greece.tax.vat`                    | IVA / AFM griego (EL + base de 8 dígitos + verificación mod-11 ponderada y luego mod-10)                                  | `EL413288496`          |
 | `guatemala.docs.cui`                | CUI de Guatemala (serie de 9 dígitos + departamento 01–22 + municipio 01–99, sin dígito de control)                       | `2642014611803`        |
@@ -469,6 +497,7 @@ alemán— sin dejar de ser demostrablemente falso. La lista completa, por direc
 | `united_kingdom.docs.nino`          | Número de seguro nacional del Reino Unido (2 letras + 6 dígitos + sufijo A–D; sin suma de verificación)                   | `QQ995347B`            |
 | `uruguay.docs.ci`                   | Cédula de Identidad de Uruguay (cuerpo de hasta 7 dígitos + dígito de control mod-10 ponderado)                           | `01252600`             |
 | `uruguay.tax.rut`                   | RUT de Uruguay (cuerpo de 11 dígitos + verificación mod-11 ponderada)                                                     | `218883180011`         |
+| `usa.docs.npi`                      | Identificador Nacional de Proveedor (NPI) de EE. UU. (9 dígitos + Luhn sobre el prefijo 80840)                            | `1185286543`           |
 | `usa.docs.ssn`                      | Número de seguro social de EE. UU. (área 001–899 excepto 666, grupo 01–99, serie 0001–9999)                               | `003060008`            |
 | `usa.finance.aba_routing`           | Número de ruta ABA de EE. UU. (8 dígitos + verificación mod-10 `[3,7,1]`)                                                 | `649946910`            |
 | `usa.tax.ein`                       | Número de identificación patronal de EE. UU. (prefijo válido del IRS + 7 dígitos; sin suma de verificación)               | `678895040`            |

@@ -584,9 +584,9 @@ También están disponibles: `common.security.jwt`, `common.security.md5`,
 ### Números telefónicos
 
 `common.phone.e164` elige un país al azar; cada país tiene además su propia ruta.
-Todos emiten en forma E.164 y usan los rangos ficticios reservados para ficción y
-pruebas (el área 202 de Estados Unidos con la central `555`, el `07700 900xxx` de la
-Ofcom británica, …):
+Todos emiten en forma E.164, y donde un país reserva números para la ficción y las
+pruebas, la ruta los usa: un código de área real de Estados Unidos con `555-0100` a
+`555-0199`, el `07700 900xxx` de la Ofcom británica, …:
 
 ```xml
 <gen type="template" value="usa.phone"/>
@@ -594,10 +594,10 @@ Ofcom británica, …):
 ```
 
 <Terminal title="./run phones.tdc">
-{`usa.phone           +12025557027
-usa.phone           +12025556829
-common.phone.e164   +447700900829
-common.phone.e164   +33670270136`}
+{`usa.phone           +16455550143
+usa.phone           +13155550169
+common.phone.e164   +525583046224
+common.phone.e164   +447700900302`}
 </Terminal>
 
 ### Números fiscales y de documentos nacionales

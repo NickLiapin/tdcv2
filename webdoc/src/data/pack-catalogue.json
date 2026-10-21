@@ -253,7 +253,7 @@
           ]
         ]
       ],
-      "bytes": 47627,
+      "bytes": 47781,
       "regions": null,
       "unreleased": false
     }
@@ -47981,8 +47981,8 @@
     },
     {
       "id": "antigua_and_barbuda",
-      "name": "Antigua And Barbuda",
-      "blurb": "Data specific to Antigua And Barbuda",
+      "name": "Antigua and Barbuda",
+      "blurb": "Data specific to Antigua and Barbuda",
       "files": 9,
       "groups": [
         [
@@ -49206,7 +49206,7 @@
     },
     {
       "id": "bosnia_and_herzegovina",
-      "name": "Bosnia And Herzegovina",
+      "name": "Bosnia and Herzegovina",
       "blurb": "Data specific to Bosnia And Herzegovina",
       "files": 22,
       "groups": [
@@ -49366,11 +49366,12 @@
       "id": "brazil",
       "name": "Brazil",
       "blurb": "Data specific to Brazil",
-      "files": 15,
+      "files": 16,
       "groups": [
         [
           "docs",
           [
+            "cns",
             "pis"
           ]
         ],
@@ -49434,7 +49435,7 @@
           ]
         ]
       ],
-      "bytes": 7482,
+      "bytes": 8705,
       "regions": [
         "south"
       ],
@@ -49874,7 +49875,7 @@
       "id": "canada",
       "name": "Canada",
       "blurb": "Data specific to Canada",
-      "files": 20,
+      "files": 21,
       "groups": [
         [
           "docs",
@@ -49922,6 +49923,12 @@
           ]
         ],
         [
+          "phoneAreaCode",
+          [
+            "phoneAreaCode"
+          ]
+        ],
+        [
           "sport",
           [
             "team"
@@ -49942,7 +49949,7 @@
           ]
         ]
       ],
-      "bytes": 10848,
+      "bytes": 11798,
       "regions": [
         "north"
       ],
@@ -51112,8 +51119,8 @@
     },
     {
       "id": "dr_congo",
-      "name": "Dr Congo",
-      "blurb": "Data specific to Dr Congo",
+      "name": "DR Congo",
+      "blurb": "Data specific to DR Congo",
       "files": 9,
       "groups": [
         [
@@ -51945,15 +51952,17 @@
       "id": "france",
       "name": "France",
       "blurb": "Data specific to France",
-      "files": 21,
+      "files": 23,
       "groups": [
         [
           "docs",
           [
             "cni",
             "driversLicense",
+            "finess",
             "nir",
-            "passport"
+            "passport",
+            "rpps"
           ]
         ],
         [
@@ -52014,7 +52023,7 @@
           ]
         ]
       ],
-      "bytes": 12311,
+      "bytes": 14469,
       "regions": [
         "europe"
       ],
@@ -52249,11 +52258,13 @@
       "id": "germany",
       "name": "Germany",
       "blurb": "Data specific to Germany",
-      "files": 14,
+      "files": 16,
       "groups": [
         [
           "docs",
           [
+            "kvnr",
+            "lanr",
             "taxId"
           ]
         ],
@@ -52311,7 +52322,7 @@
           ]
         ]
       ],
-      "bytes": 7340,
+      "bytes": 9537,
       "regions": [
         "europe"
       ],
@@ -52689,8 +52700,8 @@
     },
     {
       "id": "guinea_bissau",
-      "name": "Guinea Bissau",
-      "blurb": "Data specific to Guinea Bissau",
+      "name": "Guinea-Bissau",
+      "blurb": "Data specific to Guinea-Bissau",
       "files": 10,
       "groups": [
         [
@@ -58469,8 +58480,8 @@
     },
     {
       "id": "saint_kitts_and_nevis",
-      "name": "Saint Kitts And Nevis",
-      "blurb": "Data specific to Saint Kitts And Nevis",
+      "name": "Saint Kitts and Nevis",
+      "blurb": "Data specific to Saint Kitts and Nevis",
       "files": 9,
       "groups": [
         [
@@ -58583,8 +58594,8 @@
     },
     {
       "id": "saint_vincent_and_the_grenadines",
-      "name": "Saint Vincent And The Grenadines",
-      "blurb": "Data specific to Saint Vincent And The Grenadines",
+      "name": "Saint Vincent and the Grenadines",
+      "blurb": "Data specific to Saint Vincent and the Grenadines",
       "files": 9,
       "groups": [
         [
@@ -58759,8 +58770,8 @@
     },
     {
       "id": "sao_tome_and_principe",
-      "name": "Sao Tome And Principe",
-      "blurb": "Data specific to Sao Tome And Principe",
+      "name": "Sao Tome and Principe",
+      "blurb": "Data specific to Sao Tome and Principe",
       "files": 9,
       "groups": [
         [
@@ -60710,8 +60721,8 @@
     },
     {
       "id": "trinidad_and_tobago",
-      "name": "Trinidad And Tobago",
-      "blurb": "Data specific to Trinidad And Tobago",
+      "name": "Trinidad and Tobago",
+      "blurb": "Data specific to Trinidad and Tobago",
       "files": 10,
       "groups": [
         [
@@ -61077,69 +61088,6 @@
       "unreleased": false
     },
     {
-      "id": "uae",
-      "name": "Uae",
-      "blurb": "Data specific to Uae",
-      "files": 10,
-      "groups": [
-        [
-          "docs",
-          [
-            "emiratesId"
-          ]
-        ],
-        [
-          "education",
-          [
-            "university"
-          ]
-        ],
-        [
-          "finance",
-          [
-            "bank",
-            "iban"
-          ]
-        ],
-        [
-          "geo",
-          [
-            "city",
-            "region"
-          ]
-        ],
-        [
-          "holiday",
-          [
-            "holiday"
-          ]
-        ],
-        [
-          "phone",
-          [
-            "phone"
-          ]
-        ],
-        [
-          "sport",
-          [
-            "team"
-          ]
-        ],
-        [
-          "vehicle",
-          [
-            "plate"
-          ]
-        ]
-      ],
-      "bytes": 4398,
-      "regions": [
-        "asia"
-      ],
-      "unreleased": false
-    },
-    {
       "id": "uganda",
       "name": "Uganda",
       "blurb": "Data specific to Uganda",
@@ -61306,6 +61254,69 @@
       "unreleased": false
     },
     {
+      "id": "uae",
+      "name": "United Arab Emirates",
+      "blurb": "Data specific to United Arab Emirates",
+      "files": 10,
+      "groups": [
+        [
+          "docs",
+          [
+            "emiratesId"
+          ]
+        ],
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "bank",
+            "iban"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "region"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
+        ]
+      ],
+      "bytes": 4398,
+      "regions": [
+        "asia"
+      ],
+      "unreleased": false
+    },
+    {
       "id": "united_kingdom",
       "name": "United Kingdom",
       "blurb": "Data specific to United Kingdom",
@@ -61386,6 +61397,93 @@
       "unreleased": false
     },
     {
+      "id": "usa",
+      "name": "United States",
+      "blurb": "Data specific to the USA regardless of the language it is written in",
+      "files": 24,
+      "groups": [
+        [
+          "docs",
+          [
+            "driversLicense",
+            "medicare",
+            "npi",
+            "passport",
+            "ssn"
+          ]
+        ],
+        [
+          "education",
+          [
+            "university"
+          ]
+        ],
+        [
+          "finance",
+          [
+            "aba_routing",
+            "accountType",
+            "bank"
+          ]
+        ],
+        [
+          "geo",
+          [
+            "city",
+            "county",
+            "state",
+            "stateAbbr",
+            "streetName",
+            "streetNamed",
+            "zip"
+          ]
+        ],
+        [
+          "holiday",
+          [
+            "holiday"
+          ]
+        ],
+        [
+          "phone",
+          [
+            "phone"
+          ]
+        ],
+        [
+          "phoneAreaCode",
+          [
+            "phoneAreaCode"
+          ]
+        ],
+        [
+          "sport",
+          [
+            "team"
+          ]
+        ],
+        [
+          "tax",
+          [
+            "ein",
+            "filingStatus",
+            "itin"
+          ]
+        ],
+        [
+          "vehicle",
+          [
+            "plate"
+          ]
+        ]
+      ],
+      "bytes": 22048,
+      "regions": [
+        "north"
+      ],
+      "unreleased": false
+    },
+    {
       "id": "uruguay",
       "name": "Uruguay",
       "blurb": "Data specific to Uruguay",
@@ -61459,86 +61557,6 @@
       "bytes": 11666,
       "regions": [
         "south"
-      ],
-      "unreleased": false
-    },
-    {
-      "id": "usa",
-      "name": "Usa",
-      "blurb": "Data specific to the USA regardless of the language it is written in",
-      "files": 22,
-      "groups": [
-        [
-          "docs",
-          [
-            "driversLicense",
-            "medicare",
-            "passport",
-            "ssn"
-          ]
-        ],
-        [
-          "education",
-          [
-            "university"
-          ]
-        ],
-        [
-          "finance",
-          [
-            "aba_routing",
-            "accountType",
-            "bank"
-          ]
-        ],
-        [
-          "geo",
-          [
-            "city",
-            "county",
-            "state",
-            "stateAbbr",
-            "streetName",
-            "streetNamed",
-            "zip"
-          ]
-        ],
-        [
-          "holiday",
-          [
-            "holiday"
-          ]
-        ],
-        [
-          "phone",
-          [
-            "phone"
-          ]
-        ],
-        [
-          "sport",
-          [
-            "team"
-          ]
-        ],
-        [
-          "tax",
-          [
-            "ein",
-            "filingStatus",
-            "itin"
-          ]
-        ],
-        [
-          "vehicle",
-          [
-            "plate"
-          ]
-        ]
-      ],
-      "bytes": 19277,
-      "regions": [
-        "north"
       ],
       "unreleased": false
     },

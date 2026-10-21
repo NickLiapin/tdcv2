@@ -46,6 +46,15 @@ const LOCALE_MIN = 100;
 /** A country below this is a placeholder — the thirteen at one file hold only a VAT format. */
 const COUNTRY_MIN = 4;
 
+/**
+ * Packs past the bar that are still being written, and why. Without this the next run publishes
+ * one the moment it crosses a hundred files: Chuvash did, half done, and only a manual edit kept
+ * it out of the registry. Remove the entry when the pack is finished.
+ */
+const NOT_YET = {
+  cv: 'in progress — 110 of the ~220 files a finished language holds',
+};
+
 const CHECK = process.argv.includes('--check');
 
 /**
@@ -424,13 +433,37 @@ function titleCase(id) {
     .join(' ');
 }
 
+/**
+ * Country names a folder name cannot spell. Title-casing the id printed "Usa (country)",
+ * "Uae", "Dr Congo" and "Guinea Bissau" in `tdcv2 pack list` and the picker.
+ */
+const COUNTRY_NAMES = {
+  dr_congo: 'DR Congo',
+  guinea_bissau: 'Guinea-Bissau',
+  uae: 'United Arab Emirates',
+  usa: 'United States',
+};
+
+/** The words that stay lower case inside a name: "Bosnia and Herzegovina", not "And". */
+const MINOR_WORDS = new Set(['and', 'of', 'the']);
+
+function countryName(id) {
+  if (COUNTRY_NAMES[id] !== undefined) return COUNTRY_NAMES[id];
+  return id
+    .split('_')
+    .map((part, i) =>
+      i > 0 && MINOR_WORDS.has(part) ? part : part.charAt(0).toUpperCase() + part.slice(1),
+    )
+    .join(' ');
+}
+
 function describe(kind, id, dir) {
   const areas = categories(dir);
   const shown = areas.slice(0, 12).join(', ');
   const more = areas.length > 12 ? `, and ${areas.length - 12} more` : '';
   return kind === 'locale'
     ? `Content bound to the ${LANGUAGE_NAMES[id] ?? titleCase(id)} language rather than to any one country: ${shown}${more}.`
-    : `Data specific to ${titleCase(id)}: ${shown}${more}.`;
+    : `Data specific to ${countryName(id)}: ${shown}${more}.`;
 }
 
 const previous = JSON.parse(readFileSync(MANIFEST, 'utf8'));
@@ -484,6 +517,10 @@ for (const entry of readdirSync(PACKS, { withFileTypes: true }).sort((a, b) =>
     skipped.push({ id, kind: 'locale', files, why: files === 0 ? 'empty' : `only ${files} files` });
     continue;
   }
+  if (NOT_YET[id] !== undefined) {
+    skipped.push({ id, kind: 'locale', files, why: NOT_YET[id] });
+    continue;
+  }
   bundles.push({
     id,
     name: `${readLocaleName(dir, id) ?? titleCase(id)} (language)`,
@@ -515,7 +552,7 @@ for (const entry of readdirSync(countriesDir, { withFileTypes: true }).sort((a, 
   if (place === undefined) unplaced.push(id);
   bundles.push({
     id,
-    name: `${titleCase(id)} (country)`,
+    name: `${countryName(id)} (country)`,
     description: authored(id, describe('country', id, dir)),
     country: id,
     ...(place ? { regions: place.regions, point: place.point } : {}),
@@ -545,7 +582,8 @@ if (skipped.length > 0) {
   process.stdout.write(`\nnot published (${skipped.length}) — a catalogue entry has to resolve:\n`);
   const byReason = new Map();
   for (const s of skipped) {
-    const key = `${s.kind}, ${s.why === 'empty' ? 'empty' : 'a stub'}`;
+    const held = NOT_YET[s.id];
+    const key = `${s.kind}, ${held ?? (s.why === 'empty' ? 'empty' : 'a stub')}`;
     byReason.set(key, [...(byReason.get(key) ?? []), s.id]);
   }
   for (const [reason, ids] of byReason) {

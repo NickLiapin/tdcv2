@@ -154,8 +154,8 @@ describe('bundled global finance/payment/product/device/security packs', () => {
 
 describe('bundled phone packs (common.phone.e164 + <country>.phone)', () => {
   const COUNTRY_PATTERNS: Record<string, RegExp> = {
-    'usa.phone': /^\+1202555\d{4}$/,
-    'canada.phone': /^\+1613555\d{4}$/,
+    'usa.phone': /^\+1[2-9]\d{2}55501\d{2}$/,
+    'canada.phone': /^\+1[2-9]\d{2}55501\d{2}$/,
     'russia.phone': /^\+79\d{9}$/,
     'united_kingdom.phone': /^\+447700900\d{3}$/,
     'germany.phone': /^\+49(15[12579]|160|16[23]|17[0-9])\d{8}$/,

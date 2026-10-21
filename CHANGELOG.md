@@ -61,6 +61,20 @@ plus="Length m">` ends each appointment its own length after its start: the name
   same field read through a reference or on an `each` line; a list joined with `|`, `}` or
   whitespace, which `json:` cannot name, is told to pick another separator.
 
+- **Health identifiers: the US NPI, Germany's KVNR and LANR, France's RPPS and FINESS, Brazil's
+  CNS.** `usa.docs.npi` is the 10-digit National Provider Identifier with its Luhn digit over the
+  80840 prefix; `germany.docs.kvnr` the insurance number on the health card (letter as 01-26,
+  weights 1-2, digit sums, mod 10); `germany.docs.lanr` the lifelong doctor number (4-9 weights,
+  then a specialty group 01-69, pinnable as `specialty="28"`); `france.docs.rpps` the health
+  professional number and `france.docs.finess` the establishment number (both Luhn);
+  `brazil.docs.cns` the SUS card in its definitive form (a valid PIS, then the Ministry of
+  Health mod-11 digit). Each was checked against numbers from its own source — the CMS worked
+  example and 400 real NPPES records, the KVNR guideline example, the KBV pseudo numbers, the
+  ANS examples and a real hospital's FINESS, ANVISA's CNS examples — and 20,000 of each passed an
+  independent validator. Asked for by the plugin agent's hospital report (C12).
+- **`usa.phoneAreaCode` and `canada.phoneAreaCode`: every geographic area code in service**, 372
+  in the 50 states and DC and 55 in Canada, from the NANPA database of 17 October 2026.
+
 ### Changed
 
 - **The `if=` of an `each` line is asked of every element, in all five.** It used to be asked
@@ -68,6 +82,16 @@ plus="Length m">` ends each appointment its own length after its start: the name
   else; naming the walked list read the whole joined list. Now it decides element by element,
   with the element in scope — `<line each="Orders" if="Orders > 5000">` prints the large orders
   only. A condition naming only the row's other columns gives the same output as before.
+
+- **`usa.phone` and `canada.phone` draw a real area code.** Every US number used to be
+  `+1 202 555 …` and every Canadian one `+1 613 555 …`; now the area code is any one in service
+  and the line is 555-0100 to 555-0199, the only numbers North America keeps reserved for fiction
+  — 37,200 distinct US numbers instead of 10,000, and none of them, unlike the old range, a
+  working service such as 555-1212. `area=` and `line=` pin either part. `common.phone.e164`
+  builds its North American numbers the same way.
+- **Country names in the pack registry read as names.** `tdcv2 pack list` and the picker said
+  "Usa (country)", "Uae", "Dr Congo" and "Antigua And Barbuda"; they now say United States, United
+  Arab Emirates, DR Congo, Antigua and Barbuda.
 
 ### Fixed
 

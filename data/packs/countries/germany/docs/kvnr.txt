@@ -1,0 +1,37 @@
+---
+address: germany.docs.kvnr
+description: German health insurance number (Krankenversichertennummer, KVNR) — the 10-character number printed on the electronic health card (eGK), the part that stays with a person for life whichever insurer they move to. A capital letter A-Z, eight digits and a check digit. For the check the letter becomes its place in the alphabet as two digits (A = 01, Z = 26), the resulting ten digits are weighted 1-2-1-2-…, each product is reduced to its digit sum, and the check digit is the total modulo 10 (guideline of the GKV-Spitzenverband under § 290 SGB V). Verified against the worked example A123456780 and an independent open-source validator. The 9-digit insurer code (IK) that a full 20-character number appends is not part of this value.
+generator: tdc
+locale: de
+---
+<sequence name="letter"><gen type="regex" value="[A-Z]"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{8}"/></sequence>
+<sequence name="kvnr"><compute>
+  <!-- A is 10 in base 36, so its place in the alphabet is the code minus 9. -->
+  <let name="digits"><concat>
+    <pad width="2"><subtract><to_number><encode as="base36"><field name="letter"/></encode></to_number><int v="9"/></subtract></pad>
+    <field name="serial"/>
+  </concat></let>
+  <let name="sum"><reduce>
+    <over><use name="digits"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/>
+      <choose>
+        <when>
+          <test><equals><mod><current_index/><int v="2"/></mod><int v="1"/></equals></test>
+          <then>
+            <let name="d"><multiply><current/><int v="2"/></multiply></let>
+            <choose>
+              <when><test><greater_than><use name="d"/><int v="9"/></greater_than></test>
+                    <then><subtract><use name="d"/><int v="9"/></subtract></then></when>
+              <otherwise><use name="d"/></otherwise>
+            </choose>
+          </then>
+        </when>
+        <otherwise><current/></otherwise>
+      </choose>
+    </add></do>
+  </reduce></let>
+  <result><concat><field name="letter"/><field name="serial"/><mod><use name="sum"/><int v="10"/></mod></concat></result>
+</compute></sequence>
+<data>${{kvnr}}</data>

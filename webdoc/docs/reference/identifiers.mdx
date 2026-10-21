@@ -123,6 +123,8 @@ A few representative paths and the parameters they expose:
 | `usa.tax.ein`             | `prefix`, `serial`         |
 | `usa.tax.itin`            | `mid`, `group`, `serial`   |
 | `usa.finance.aba_routing` | `prefix`, `tail`           |
+| `usa.phone`               | `area`, `line`             |
+| `germany.docs.lanr`       | `doctor`, `specialty`      |
 
 :::note[Simplified variants]
 When these generators moved into editable packs, a few rarely used parameters and
@@ -314,7 +316,9 @@ common.logistics.container_iso6346  PQXU6242844`}
 
 `common.phone.e164` picks a random country, and each country also has its own path. They
 all emit E.164 format. Where a country reserves a range for drama and testing, the pack
-uses it — US area `202` with the `555` exchange, Canada `613 555`, UK Ofcom
+uses it. The US and Canada take a real area code in service — every one of them, from the
+NANPA database, kept in `usa.phoneAreaCode` and `canada.phoneAreaCode` — followed by
+`555-0100` to `555-0199`, the line numbers reserved for fiction; the UK uses Ofcom's
 `07700 900xxx`. Most countries reserve no such range, so those paths build a structurally
 valid number out of real prefixes instead: safe to store and to parse, but not a number
 anyone can dial. **Use them when** a contact fixture has to parse as a valid
@@ -326,28 +330,28 @@ international number.
 ```
 
 <Terminal title="./run phones.tdc">
-{`usa.phone             +12025550883
-canada.phone          +16135558575
-united_kingdom.phone  +447700900864
-germany.phone         +4917140038023
-france.phone          +33618948981
-common.phone.e164     +34663489915`}
+{`usa.phone             +12605550194
+canada.phone          +17785550122
+united_kingdom.phone  +447700900211
+germany.phone         +4916217255164
+france.phone          +33647516563
+common.phone.e164     +5491126272479`}
 </Terminal>
 
 | Path                   | Produces                                             | Example          |
 | :--------------------- | :--------------------------------------------------- | :--------------- |
 | `argentina.phone`      | Argentina mobile, E.164 (+54 9 11…)                  | `+5491185268868` |
 | `brazil.phone`         | Brazil mobile, E.164 (+55 + DDD + 9…)                | `+5562940038023` |
-| `canada.phone`         | Canada, E.164 (area 613, fictional 555 exchange)     | `+16135558575`   |
-| `common.phone.e164`    | E.164 phone, with a random country from the set      | `+34663489915`   |
-| `france.phone`         | France mobile, E.164 (+33 6…)                        | `+33618948981`   |
-| `germany.phone`        | Germany mobile, E.164 (+49 15x/16x/17x…)             | `+4917140038023` |
+| `canada.phone`         | Canada, E.164 (real area code, 555-01XX fiction)     | `+17785550122`   |
+| `common.phone.e164`    | E.164 phone, with a random country from the set      | `+5491126272479` |
+| `france.phone`         | France mobile, E.164 (+33 6…)                        | `+33647516563`   |
+| `germany.phone`        | Germany mobile, E.164 (+49 15x/16x/17x…)             | `+4916217255164` |
 | `mexico.phone`         | Mexico, E.164 (+52 + LADA, 10-digit national number) | `+527353382246`  |
 | `poland.phone`         | Poland mobile, E.164 (+48 5…)                        | `+48587209191`   |
 | `russia.phone`         | Russia mobile, E.164 (+7 9…)                         | `+79962527739`   |
 | `spain.phone`          | Spain mobile, E.164 (+34 6…)                         | `+34631634932`   |
-| `united_kingdom.phone` | UK mobile, E.164 (Ofcom drama range +44 7700 900xxx) | `+447700900864`  |
-| `usa.phone`            | US, E.164 (area 202, fictional 555 exchange)         | `+12025550883`   |
+| `united_kingdom.phone` | UK mobile, E.164 (Ofcom drama range +44 7700 900xxx) | `+447700900211`  |
+| `usa.phone`            | US, E.164 (real area code, 555-01XX fiction)         | `+12605550194`   |
 
 ## National tax and document numbers
 
@@ -367,6 +371,25 @@ usa.tax.itin             975531718
 usa.finance.aba_routing  649946910`}
 </Terminal>
 
+Health systems number their doctors, hospitals and patients the same way, and those
+numbers carry check digits too — the US NPI that every provider bills under, Germany's
+lifelong doctor number and the insurance number on the health card, France's RPPS and
+FINESS, Brazil's SUS card:
+
+```xml
+<gen type="template" value="usa.docs.npi"/>
+<gen type="template" value="germany.docs.lanr" specialty="28"/>
+```
+
+<Terminal title="./run health.tdc">
+{`usa.docs.npi        1185286543
+germany.docs.kvnr   C002080564
+germany.docs.lanr   176240528
+france.docs.rpps    10579255182
+france.docs.finess  060053394
+brazil.docs.cns     215078168060009`}
+</Terminal>
+
 **Use these when** a record has to carry a country-appropriate identifier that survives
 that country's validator — a Brazilian CPF, a Polish PESEL, a German VAT number — while
 staying provably fake. Here's the full list, by address:
@@ -380,6 +403,7 @@ staying provably fake. Here's the full list, by address:
 | `belgium.tax.vat`                   | Belgian VAT (BE + 8-digit base + mod-97 check)                                                | `BE0507916645`         |
 | `bolivia.docs.ci`                   | Bolivian Cedula de Identidad (7-digit number, no check digit)                                 | `3991646`              |
 | `bolivia.tax.nit`                   | Bolivian NIT (9-digit tax number, no check digit)                                             | `252014061`            |
+| `brazil.docs.cns`                   | Brazilian health card CNS (valid PIS + 000/001 + Ministry of Health mod-11 digit)             | `215078168060009`      |
 | `brazil.tax.cnpj`                   | Brazilian CNPJ (8-digit root + 4-digit branch + two mod-11 check digits)                      | `25232116564552`       |
 | `brazil.tax.cpf`                    | Brazilian CPF (9-digit base + two mod-11 check digits)                                        | `14806904651`          |
 | `bulgaria.tax.vat`                  | Bulgarian VAT (BG + 9 or 10 digits, no checksum)                                              | `BG380883064`          |
@@ -405,8 +429,12 @@ staying provably fake. Here's the full list, by address:
 | `estonia.tax.vat`                   | Estonian VAT / KMKR (EE + 9 digits, no checksum)                                              | `EE949727018`          |
 | `europe.tax.vat`                    | EU VAT (delegates to a default member state — Germany)                                        | `DE193530291`          |
 | `finland.tax.vat`                   | Finnish VAT / ALV (FI + 7-digit base + weighted mod-11 check)                                 | `FI76372425`           |
+| `france.docs.finess`                | French health establishment FINESS (département + 0 + 5 digits + Luhn check)                  | `060053394`            |
+| `france.docs.rpps`                  | French health professional RPPS (10 + 8 digits + Luhn check)                                  | `10579255182`          |
 | `france.tax.siren`                  | French SIREN (8 digits + Luhn check)                                                          | `033948829`            |
 | `france.tax.vat`                    | French VAT (FR + mod-97 key + valid Luhn SIREN)                                               | `FR82250352820`        |
+| `germany.docs.kvnr`                 | German health insurance number KVNR (letter + 8 digits + weighted mod-10 check)               | `C002080564`           |
+| `germany.docs.lanr`                 | German doctor number LANR (6 digits + 4/9 mod-10 check + specialty group 01–69)               | `176240528`            |
 | `germany.tax.vat`                   | German VAT / USt-IdNr (DE + 8 digits, iterative mod-11/10 check)                              | `DE641787309`          |
 | `greece.tax.vat`                    | Greek VAT / AFM (EL + 8-digit base + weighted mod-11 then mod-10 check)                       | `EL413288496`          |
 | `guatemala.docs.cui`                | Guatemala CUI (9-digit serial + department 01–22 + municipality 01–99, no check digit)        | `2642014611803`        |
@@ -457,6 +485,7 @@ staying provably fake. Here's the full list, by address:
 | `united_kingdom.docs.nino`          | UK National Insurance number (2 letters + 6 digits + suffix A–D; no checksum)                 | `QQ995347B`            |
 | `uruguay.docs.ci`                   | Uruguay Cedula de Identidad (up to 7-digit body + weighted mod-10 check digit)                | `01252600`             |
 | `uruguay.tax.rut`                   | Uruguay RUT (11-digit body + weighted mod-11 check)                                           | `218883180011`         |
+| `usa.docs.npi`                      | US National Provider Identifier (9 digits + Luhn check over the 80840 prefix)                 | `1185286543`           |
 | `usa.docs.ssn`                      | US Social Security number (area 001–899 excl. 666, group 01–99, serial 0001–9999)             | `003060008`            |
 | `usa.finance.aba_routing`           | US ABA routing number (8 digits + mod-10 `[3,7,1]` check)                                     | `649946910`            |
 | `usa.tax.ein`                       | US Employer Identification Number (valid IRS prefix + 7 digits; no checksum)                  | `678895040`            |

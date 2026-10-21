@@ -1,6 +1,8 @@
 ---
 address: canada.phone
-description: Canada phone in E.164 form (area 613, fictional 555 exchange)
+description: Canadian phone number in E.164 form, +1 NPA 555-01XX. The area code is a real one in service, drawn from canada.phoneAreaCode (55 codes across the provinces and territories); the rest is 555-0100 to 555-0199, the only line numbers reserved for fiction in every North American area code, so a generated number never rings a real subscriber. That gives 5,500 distinct numbers in all. Pin the area code with area="416", the last two digits with line="0123".
 generator: tdc
 ---
-<gen type="regex" value="\+1613555[0-9]{4}"/>
+<sequence name="area"><gen type="template" value="canada.phoneAreaCode"/></sequence>
+<sequence name="line"><gen type="number" value="100..199" length="4" first_zero="true"/></sequence>
+<data>+1${{area}}555${{line}}</data>

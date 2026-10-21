@@ -4,7 +4,7 @@
  * Every bundled address, as a property. Regenerate after changing the packs:
  * `npm run quick:types`. `npm run check` fails if the two disagree.
  *
- * 32987 addresses.
+ * 32995 addresses.
  */
 
 import type { QuickAddress, QuickParams } from './types.js';
@@ -980,6 +980,7 @@ export type QuickAddressTree = {
     };
     readonly brazil: {
       readonly docs: {
+        readonly cns: QuickAddress;
         readonly pis: QuickAddress;
       };
       readonly education: {
@@ -1203,6 +1204,7 @@ export type QuickAddressTree = {
       };
       readonly holiday: QuickAddress;
       readonly phone: QuickAddress;
+      readonly phoneAreaCode: QuickAddress;
       readonly sport: {
         readonly team: QuickAddress;
       };
@@ -2048,8 +2050,10 @@ export type QuickAddressTree = {
       readonly docs: {
         readonly cni: QuickAddress;
         readonly driversLicense: QuickAddress;
+        readonly finess: QuickAddress;
         readonly nir: QuickAddress;
         readonly passport: QuickAddress;
+        readonly rpps: QuickAddress;
       };
       readonly education: {
         readonly university: QuickAddress;
@@ -2169,6 +2173,8 @@ export type QuickAddressTree = {
     };
     readonly germany: {
       readonly docs: {
+        readonly kvnr: QuickAddress;
+        readonly lanr: QuickAddress;
         readonly taxId: QuickAddress;
       };
       readonly education: {
@@ -6025,6 +6031,7 @@ export type QuickAddressTree = {
       readonly docs: {
         readonly driversLicense: QuickAddress;
         readonly medicare: QuickAddress;
+        readonly npi: QuickAddress;
         readonly passport: QuickAddress;
         readonly ssn: QuickAddress;
       };
@@ -6047,6 +6054,7 @@ export type QuickAddressTree = {
       };
       readonly holiday: QuickAddress;
       readonly phone: QuickAddress;
+      readonly phoneAreaCode: QuickAddress;
       readonly sport: {
         readonly team: QuickAddress;
       };

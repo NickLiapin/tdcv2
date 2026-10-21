@@ -1,0 +1,20 @@
+---
+address: germany.docs.lanr
+description: German lifelong doctor number (lebenslange Arztnummer, LANR) — the 9-digit number every doctor and psychotherapist in statutory health care bills under, issued by the regional Kassenärztliche Vereinigung. Six digits that identify the doctor for life, a check digit, and a two-digit specialty group (Fachgruppe) that changes when the doctor's field does. The check digit weights the first six digits 4-9-4-9-4-9 and is 10 minus the sum modulo 10, with 10 written as 0. The specialty is drawn from the assigned groups 01-69 — 01-03 family doctors, 28 cardiology, 34 and 40 paediatrics, 62 radiology, 68 psychological psychotherapists and so on; pin one with specialty="28". The pseudo numbers used for an unknown or non-contract doctor (3333333, 4444444, 555555x, 9999999) are never drawn. Verified against those pseudo numbers, which are built to pass the same check, and an independent open-source implementation.
+generator: tdc
+locale: de
+---
+<sequence name="doctor"><gen type="number" value="1..999999" length="6" first_zero="true" exclude="333333,444444,555555,999999"/></sequence>
+<sequence name="specialty"><gen type="number" value="1..69" length="2" first_zero="true"/></sequence>
+<sequence name="lanr"><compute>
+  <let name="sum"><reduce>
+    <over><field name="doctor"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="4,9,4,9,4,9"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="check"><mod><subtract><int v="10"/><mod><use name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
+  <result><concat><field name="doctor"/><use name="check"/><field name="specialty"/></concat></result>
+</compute></sequence>
+<data>${{lanr}}</data>

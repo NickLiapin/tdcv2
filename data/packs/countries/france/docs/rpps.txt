@@ -1,0 +1,35 @@
+---
+address: france.docs.rpps
+description: French health professional number (numéro RPPS, Répertoire partagé des professionnels de santé) — the 11-digit identifier a doctor, pharmacist, dentist, midwife, physiotherapist, podiatrist or nurse keeps for life, printed on the CPS card and published in the Annuaire Santé. Ten digits that carry no meaning and a Luhn check digit (Agence du numérique en santé). Every number issued so far starts with 10, and so does every one drawn here. Verified against the ANS examples 10000812437 and 10000668540. The older ADELI number, 9 characters and retired since October 2024, is a different identifier.
+generator: tdc
+locale: fr
+---
+<sequence name="base"><gen type="number" value="1000000000..1099999999" length="10"/></sequence>
+<sequence name="rpps"><compute>
+  <let name="sum"><reduce>
+    <over><field name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/>
+      <choose>
+        <when>
+          <test><equals>
+            <mod><current_index/><int v="2"/></mod>
+            <mod><add><length><field name="base"/></length><int v="1"/></add><int v="2"/></mod>
+          </equals></test>
+          <then>
+            <let name="d"><multiply><current/><int v="2"/></multiply></let>
+            <choose>
+              <when><test><greater_than><use name="d"/><int v="9"/></greater_than></test>
+                    <then><subtract><use name="d"/><int v="9"/></subtract></then></when>
+              <otherwise><use name="d"/></otherwise>
+            </choose>
+          </then>
+        </when>
+        <otherwise><current/></otherwise>
+      </choose>
+    </add></do>
+  </reduce></let>
+  <let name="check"><mod><subtract><int v="10"/><mod><use name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
+  <result><concat><field name="base"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{rpps}}</data>
