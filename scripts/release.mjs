@@ -181,7 +181,8 @@ function whatsNewCovers(version) {
     'webdoc/i18n/ru/docusaurus-plugin-content-docs/current/whats-new.mdx',
     'webdoc/i18n/es/docusaurus-plugin-content-docs/current/whats-new.mdx',
   ];
-  const escaped = version.replace(/\./g, '\\.');
+  // Every metacharacter, not just the dots: a version is read from the command line.
+  const escaped = version.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const heading = new RegExp(`^## .*\\b${escaped}\\b`, 'm');
   const missing = files.filter((file) => !heading.test(read(file)));
   if (missing.length > 0) {
