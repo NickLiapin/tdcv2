@@ -138,6 +138,18 @@ b">` held on the line printing `b` there and never in the ports, which compared 
   line printed nothing at all, in silence; the reference has always refused it as `TDC206`, and
   now all five do.
 
+### Documentation
+
+- **An AI Agents section, in all three languages.** Four pages on
+  [`tdcv2-agents`](https://github.com/NickLiapin/tdcv2-agents), the skill and MCP server that
+  let a coding agent write and run TDC configs: what each part does and which to choose, the
+  Claude Code plugin, the skill and the server in Codex, Cursor, VS Code, Gemini CLI and any
+  other MCP client, and what the agent does with a request. The Claude Code commands and the
+  server were run — the plugin installed, updated and removed in an isolated Claude Code, the
+  server driven over MCP through check, generate and peek; for the other clients, each command
+  and file format comes from that client's own documentation. The plugin's version comes from `webdoc/src/data/agents.json`
+  through two new build tokens, and `scripts/release.mjs` warns when npm serves a newer one.
+
 ## [0.3.5] — 2026-10-17
 
 ### Added

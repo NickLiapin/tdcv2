@@ -4,7 +4,7 @@
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/getting-started/editor-support)**
 
-← Назад: [Первый датасет](./first-data.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Структура конфигурации](../core-concepts/configuration.md#top) →
+← Назад: [Первый датасет](./first-data.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [TDC для ИИ-агентов](../ai-agents/overview.md#top) →
 
 ---
 
@@ -138,6 +138,6 @@ lspconfig.tdc.setup({})
 
 ---
 
-← Назад: [Первый датасет](./first-data.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Структура конфигурации](../core-concepts/configuration.md#top) →
+← Назад: [Первый датасет](./first-data.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [TDC для ИИ-агентов](../ai-agents/overview.md#top) →
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/getting-started/editor-support)**

@@ -28,6 +28,12 @@ behind, because Central caps how many releases it accepts from a project each mo
 coincidence: where they match, `tdcv2 0.3.5` from any of them answers a
 config the same way, down to the byte.
 
+> [!TIP]
+> **Working with a coding agent?**
+>
+> Claude Code, Codex, Cursor, VS Code and Gemini CLI can write and run TDC configs for you.
+> The skill and the MCP server that teach them how are in [AI Agents](../ai-agents/overview.md#top).
+
 Pick your ecosystem. To try TDC without committing to a language, use the npm
 tab: it includes a wrapper script that runs a config without any code of your
 own.

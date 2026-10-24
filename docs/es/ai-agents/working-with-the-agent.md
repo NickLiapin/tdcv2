@@ -1,0 +1,81 @@
+<a name="top"></a>
+
+[English](../../ai-agents/working-with-the-agent.md#top) · [Русский](../../ru/ai-agents/working-with-the-agent.md#top) · **Español**
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/ai-agents/working-with-the-agent)**
+
+← Anterior: [Otros agentes](./other-agents.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Estructura de la configuración](../core-concepts/configuration.md#top) →
+
+---
+
+# Trabajar con el agente
+
+## Pida en palabras sencillas
+
+Describa los datos como se los describiría a un colega:
+
+```text
+500 clientes de 20 países en CSV.
+Una prueba de pytest para validate_user con 50 usuarios distintos.
+Inserciones SQL para una clínica: departamentos, médicos de cada departamento y sus citas.
+El mismo archivo de pedidos, pero con 10.000 filas y el 30 % cancelados.
+```
+
+Diga lo que le importa: el formato, cuántas filas, qué campos deben concordar entre sí, las
+proporciones que necesita, el idioma o el país. Lo que no indique lo decide el agente y lo
+escribe en la configuración, donde usted puede verlo.
+
+## Qué hace el agente
+
+1. Lee la guía de TDC, una vez por sesión.
+2. Busca valores reales en los [paquetes de datos](../data-packs/overview.md#top): nombres,
+   ciudades, IBAN. Si falta un idioma o un país, instala el paquete; con el servidor MCP, su
+   cliente le pide permiso primero.
+3. Escribe la configuración `.tdc` y la comprueba con el motor hasta que no quede ningún
+   error.
+4. Genera una vista previa de las primeras filas o el archivo completo.
+5. Resume el archivo —número de filas, el reparto de cada columna, los rangos— para mostrar
+   que contiene lo que usted pidió.
+6. Le entrega el archivo y la configuración.
+
+Solo con el skill, el agente hace todo esto con el comando `tdcv2` en su terminal. Con el
+servidor MCP, en cambio, llama a las herramientas del servidor.
+
+## Las herramientas del servidor
+
+| Herramienta      | Qué hace                                                                                |
+| :--------------- | :-------------------------------------------------------------------------------------- |
+| `tdc_read_docs`  | la guía, las trampas que `check` no detecta, código de prueba en cinco lenguajes, cualquier página de esta documentación |
+| `tdc_find_packs` | busca paquetes de datos instalados por palabras ("apellido", "iban") y da sus direcciones |
+| `tdc_pack_add`   | instala paquetes para otro idioma o país: `tdcv2 pack add`                               |
+| `tdc_check`      | todos los diagnósticos, con código, línea, columna, pista y un "quizá quiso decir"      |
+| `tdc_generate`   | una vista previa de hasta 50 líneas o el archivo completo                               |
+| `tdc_peek`       | un resumen breve de un archivo CSV, JSON o SQL del proyecto                             |
+| `tdc_format`     | da formato a una configuración como lo hace `tdcv2 format`                              |
+
+El servidor también ofrece la guía como prompt, `tdcv2_guide`, y cuatro páginas como
+recursos: `tdcv2://guide`, `tdcv2://traps`, `tdcv2://from-code` y `tdcv2://linked-tables`.
+
+## Revise lo que recibe
+
+Lo que conviene conservar es la configuración. Es un archivo corto que enuncia cada regla que
+siguen los datos, y leerlo es más rápido que leer los datos;
+[Su primer conjunto de datos](../getting-started/first-data.md#top) explica lo que verá en ella.
+Guárdela en el proyecto junto al archivo que generó.
+
+La misma configuración con la misma semilla da el mismo archivo, byte a byte. Ejecútela usted
+mismo, sin el agente:
+
+```bash
+npx -y tdcv2@0.3.5 customers.tdc -o customers.csv
+```
+
+Para cambiar los datos, cambie la configuración: pídaselo al agente ("que sean 10.000 filas,
+un tercio de Alemania") o edite el archivo y vuelva a ejecutarlo.
+`tdcv2 check customers.tdc` le dice si una edición es válida antes de generar.
+
+---
+
+← Anterior: [Otros agentes](./other-agents.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Estructura de la configuración](../core-concepts/configuration.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/ai-agents/working-with-the-agent)**

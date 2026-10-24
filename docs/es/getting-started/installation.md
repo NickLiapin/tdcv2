@@ -22,6 +22,13 @@ mismos bytes: un gigabyte de salida desde la misma configuración sale idéntico
 cada una. Cada una lleva además la misma línea de comandos, así que ninguna
 configuración necesita las herramientas de otro lenguaje para ejecutarse.
 
+> [!TIP]
+> **¿Trabaja con un agente de programación?**
+>
+> Claude Code, Codex, Cursor, VS Code y Gemini CLI pueden escribir y ejecutar configuraciones de TDC
+> por usted. El skill y el servidor MCP que les enseñan a hacerlo están en
+> [Agentes de IA](../ai-agents/overview.md#top).
+
 Elija abajo su ecosistema. Si solo quiere probar TDC sin comprometerse con un
 lenguaje, use la pestaña de npm: incluye un wrapper de un solo comando que no
 necesita nada de código.

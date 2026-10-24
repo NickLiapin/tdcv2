@@ -18,6 +18,13 @@
 - [Первый датасет](./getting-started/first-data.md#top)
 - [Поддержка в редакторе](./getting-started/editor-support.md#top)
 
+## ИИ-агенты
+
+- [TDC для ИИ-агентов](./ai-agents/overview.md#top)
+- [Claude Code](./ai-agents/claude-code.md#top)
+- [Другие агенты](./ai-agents/other-agents.md#top)
+- [Работа с агентом](./ai-agents/working-with-the-agent.md#top)
+
 ## Основы
 
 - [Структура конфигурации](./core-concepts/configuration.md#top)

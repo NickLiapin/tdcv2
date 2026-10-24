@@ -4,7 +4,7 @@
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/getting-started/editor-support)**
 
-← Previous: [Your first dataset](./first-data.md#top) · **[Contents](../README.md#top)** · Next: [Configuration structure](../core-concepts/configuration.md#top) →
+← Previous: [Your first dataset](./first-data.md#top) · **[Contents](../README.md#top)** · Next: [TDC for AI agents](../ai-agents/overview.md#top) →
 
 ---
 
@@ -137,6 +137,6 @@ library and the CLI.
 
 ---
 
-← Previous: [Your first dataset](./first-data.md#top) · **[Contents](../README.md#top)** · Next: [Configuration structure](../core-concepts/configuration.md#top) →
+← Previous: [Your first dataset](./first-data.md#top) · **[Contents](../README.md#top)** · Next: [TDC for AI agents](../ai-agents/overview.md#top) →
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/getting-started/editor-support)**

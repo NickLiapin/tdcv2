@@ -174,6 +174,27 @@ function localeOf(file) {
   return m ? m[1] : 'en';
 }
 
+/**
+ * The plugin for AI agents, which is not this repository's to version.
+ *
+ * `tdcv2-agents` ships from its own repository on its own schedule, and pins the
+ * engine it was checked against — which runs a release behind this tree until the
+ * plugin is synced. Both numbers live in one hand-kept file for that reason, and
+ * the pages ask for them like every other number here:
+ *
+ *   %%TDC_AGENTS_VERSION%%  the plugin, the server and the skill (`tdcv2-mcp`)
+ *   %%TDC_AGENTS_ENGINE%%   the engine that release runs (`npx -y tdcv2@…`)
+ */
+function agentsRelease() {
+  const agents = JSON.parse(
+    readFileSync(join(HERE, '..', 'src', 'data', 'agents.json'), 'utf8'),
+  );
+  return {
+    '%%TDC_AGENTS_VERSION%%': agents.version,
+    '%%TDC_AGENTS_ENGINE%%': agents.engine,
+  };
+}
+
 /** The machine form, resolved once; every page spells it in its own language. */
 export const ISO_UPDATED = lastUpdated();
 
@@ -183,6 +204,7 @@ export const TOKENS = {
   [JAVA_TOKEN]: JAVA_VERSION,
   '%%TDC_UPDATED%%': spellDate(ISO_UPDATED, 'en'),
   ...packCounts(),
+  ...agentsRelease(),
 };
 
 /** Every node kind whose value a reader can end up copying. */

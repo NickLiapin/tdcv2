@@ -1,0 +1,159 @@
+<a name="top"></a>
+
+**English** · [Русский](../ru/ai-agents/other-agents.md#top) · [Español](../es/ai-agents/other-agents.md#top)
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/ai-agents/other-agents)**
+
+← Previous: [Claude Code](./claude-code.md#top) · **[Contents](../README.md#top)** · Next: [Working with the agent](./working-with-the-agent.md#top) →
+
+---
+
+# Codex, Cursor, VS Code, Gemini CLI and other agents
+
+Each of these agents reads skills, so one command makes TDC available in all of them. The MCP
+server is optional on top of it.
+
+## The skill
+
+```bash
+npx -y tdcv2-mcp@0.1.5 install-skill --agents
+```
+
+This puts the skill in `~/.agents/skills/tdcv2` — the shared folder that Codex, Cursor, VS
+Code with Copilot, and Gemini CLI all read. Start a new session and ask for data in plain
+words; the agent picks the skill up by itself.
+
+To keep the skill in one repository instead, so everyone who clones it gets it, write it into
+the repository's own `.agents/skills` folder and commit it:
+
+```bash
+npx -y tdcv2-mcp@0.1.5 install-skill --dir .agents/skills
+```
+
+Where each agent looks for skills, according to its own documentation:
+
+| Agent               | For you                                                      | In a repository                                       |
+| :------------------ | :----------------------------------------------------------- | :---------------------------------------------------- |
+| Codex               | `~/.agents/skills`                                           | `.agents/skills`                                      |
+| Cursor              | `~/.agents/skills`, `~/.cursor/skills`, `~/.claude/skills`   | `.agents/skills`, `.cursor/skills`, `.claude/skills`  |
+| VS Code (Copilot)   | `~/.agents/skills`, `~/.copilot/skills`, `~/.claude/skills`  | `.agents/skills`, `.github/skills`, `.claude/skills`  |
+| Gemini CLI          | `~/.agents/skills`, `~/.gemini/skills`                       | `.agents/skills`, `.gemini/skills`                    |
+| Claude Code         | `~/.claude/skills`                                           | `.claude/skills`                                      |
+
+Running the command again replaces the skill with the release you name, which is how you
+update it.
+
+## The MCP server
+
+The server is the same package, started by the agent rather than by you. Every client takes
+the same command — `npx -y tdcv2-mcp@0.1.5` — and differs only in where the
+setting goes and what the file looks like.
+
+#### Codex
+
+Run once:
+
+```bash
+codex mcp add tdcv2 -- npx -y tdcv2-mcp@0.1.5
+```
+
+Or add the server to `~/.codex/config.toml` yourself:
+
+```toml
+[mcp_servers.tdcv2]
+command = "npx"
+args = ["-y", "tdcv2-mcp@0.1.5"]
+```
+
+Codex gives a server 10 seconds to start. The first start downloads the package, so run the
+command in [Before the first start](#before-the-first-start) once, or raise the limit with
+`startup_timeout_sec = 30` in the same table.
+
+#### Cursor
+
+Add the server to `~/.cursor/mcp.json` to have it in every project, or to `.cursor/mcp.json`
+in one project:
+
+```json
+{
+  "mcpServers": {
+    "tdcv2": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "tdcv2-mcp@0.1.5"]
+    }
+  }
+}
+```
+
+#### VS Code
+
+GitHub Copilot in VS Code reads `.vscode/mcp.json` in the workspace. The top-level key here
+is `servers`, not `mcpServers` as in the other clients:
+
+```json
+{
+  "servers": {
+    "tdcv2": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "tdcv2-mcp@0.1.5"]
+    }
+  }
+}
+```
+
+To add it to your user profile instead, for every workspace:
+
+```bash
+code --add-mcp '{"name":"tdcv2","type":"stdio","command":"npx","args":["-y","tdcv2-mcp@0.1.5"]}'
+```
+
+#### Gemini CLI
+
+Add the server to `~/.gemini/settings.json` to have it in every project, or to
+`.gemini/settings.json` in one project:
+
+```json
+{
+  "mcpServers": {
+    "tdcv2": {
+      "command": "npx",
+      "args": ["-y", "tdcv2-mcp@0.1.5"]
+    }
+  }
+}
+```
+
+## The MCP server in other clients
+
+Most MCP clients take the same `mcpServers` entry; look up where yours keeps it:
+
+```json
+{ "mcpServers": { "tdcv2": { "command": "npx", "args": ["-y", "tdcv2-mcp@0.1.5"] } } }
+```
+
+On Windows, write `"command": "npx.cmd"` if the client cannot start `npx`.
+
+## Where the server works
+
+The server treats the folder it is started in as the project: it reads `.tdc` files and
+writes generated files only there. Data packs it installs go where the project's
+`tdcv2.config.json` says, which is `tdcv2-packs/` in the project unless you chose otherwise.
+If the generated files land somewhere other than your project, tell the client which folder
+to start the server in: Codex, VS Code and Gemini CLI take a `cwd` field next to `command`.
+
+## Before the first start
+
+The first start downloads the server and the engine from npm, which can take longer than a
+client waits. Run the command once in a terminal to have it ready:
+
+```bash
+npx -y tdcv2-mcp@0.1.5 --help
+```
+
+---
+
+← Previous: [Claude Code](./claude-code.md#top) · **[Contents](../README.md#top)** · Next: [Working with the agent](./working-with-the-agent.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/ai-agents/other-agents)**

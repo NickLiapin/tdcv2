@@ -18,6 +18,13 @@
 - [Su primer conjunto de datos](./getting-started/first-data.md#top)
 - [Soporte del editor](./getting-started/editor-support.md#top)
 
+## Agentes de IA
+
+- [TDC para agentes de IA](./ai-agents/overview.md#top)
+- [Claude Code](./ai-agents/claude-code.md#top)
+- [Otros agentes](./ai-agents/other-agents.md#top)
+- [Trabajar con el agente](./ai-agents/working-with-the-agent.md#top)
+
 ## Conceptos básicos
 
 - [Estructura de la configuración](./core-concepts/configuration.md#top)

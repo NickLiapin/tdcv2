@@ -38,5 +38,9 @@
   "sidebar.docsSidebar.category.Constructs": {
     "message": "Конструкции",
     "description": "The label for category Constructs in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.AI Agents": {
+    "message": "ИИ-агенты",
+    "description": "The label for category 'AI Agents' in sidebar 'docsSidebar'"
   }
 }

@@ -4,7 +4,7 @@
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/core-concepts/configuration)**
 
-← Anterior: [Soporte del editor](../getting-started/editor-support.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Secuencias](./sequences.md#top) →
+← Anterior: [Trabajar con el agente](../ai-agents/working-with-the-agent.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Secuencias](./sequences.md#top) →
 
 ---
 
@@ -421,6 +421,6 @@ producía calladamente diez con una semilla aleatoria. Use siempre la forma comp
 
 ---
 
-← Anterior: [Soporte del editor](../getting-started/editor-support.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Secuencias](./sequences.md#top) →
+← Anterior: [Trabajar con el agente](../ai-agents/working-with-the-agent.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Secuencias](./sequences.md#top) →
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/core-concepts/configuration)**

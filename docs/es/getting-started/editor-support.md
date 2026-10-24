@@ -4,7 +4,7 @@
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/getting-started/editor-support)**
 
-← Anterior: [Su primer conjunto de datos](./first-data.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Estructura de la configuración](../core-concepts/configuration.md#top) →
+← Anterior: [Su primer conjunto de datos](./first-data.md#top) · **[Contenido](../README.md#top)** · Siguiente: [TDC para agentes de IA](../ai-agents/overview.md#top) →
 
 ---
 
@@ -141,6 +141,6 @@ la biblioteca y la CLI.
 
 ---
 
-← Anterior: [Su primer conjunto de datos](./first-data.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Estructura de la configuración](../core-concepts/configuration.md#top) →
+← Anterior: [Su primer conjunto de datos](./first-data.md#top) · **[Contenido](../README.md#top)** · Siguiente: [TDC para agentes de IA](../ai-agents/overview.md#top) →
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/getting-started/editor-support)**

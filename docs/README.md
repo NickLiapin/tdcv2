@@ -18,6 +18,13 @@
 - [Your first dataset](./getting-started/first-data.md#top)
 - [Editor support](./getting-started/editor-support.md#top)
 
+## AI Agents
+
+- [TDC for AI agents](./ai-agents/overview.md#top)
+- [Claude Code](./ai-agents/claude-code.md#top)
+- [Other agents](./ai-agents/other-agents.md#top)
+- [Working with the agent](./ai-agents/working-with-the-agent.md#top)
+
 ## Core Concepts
 
 - [Configuration structure](./core-concepts/configuration.md#top)

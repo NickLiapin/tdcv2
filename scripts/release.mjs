@@ -390,6 +390,34 @@ function centralBudget() {
   }
 }
 
+/**
+ * The AI Agents pages name a plugin release this repository does not build.
+ *
+ * `tdcv2-agents` ships from its own repository, so the number the pages print lives in
+ * `webdoc/src/data/agents.json` by hand. A warning rather than a refusal: the plugin is
+ * synced AFTER an engine release, so at this moment it is normal for it to trail — but a
+ * page offering a release npm has already replaced should be noticed, not shipped silently.
+ */
+async function agentsPagesCurrent() {
+  const named = JSON.parse(read('webdoc/src/data/agents.json')).version;
+  try {
+    const res = await fetch('https://registry.npmjs.org/tdcv2-mcp', {
+      signal: AbortSignal.timeout(10_000),
+    });
+    const latest = (await res.json())['dist-tags']?.latest;
+    if (latest === named) {
+      ok(`AI Agents pages name tdcv2-mcp ${named}, the release npm serves`);
+    } else {
+      console.log(
+        `  warn  AI Agents pages name tdcv2-mcp ${named}, npm serves ${String(latest)} — ` +
+          'update webdoc/src/data/agents.json',
+      );
+    }
+  } catch (error) {
+    console.log(`  warn  could not ask npm about tdcv2-mcp (${String(error)})`);
+  }
+}
+
 // ── 6. the suite CI is not allowed to run ────────────────────────────────────
 
 /** A command whose output belongs on screen, failing loudly. */
@@ -534,6 +562,7 @@ if (version) {
   if (section) await changelogCoversTheSurface(section, lastTag);
   treeIsReleasable(version);
   centralBudget();
+  await agentsPagesCurrent();
 }
 
 if (problems.length > 0) {
