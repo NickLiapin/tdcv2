@@ -26,7 +26,7 @@ An agent needs two things for that, and the
   Model Context Protocol) is the standard way an agent calls tools that another program
   provides.
 
-Both ship together, under one version: 0.1.5.
+Both ship together, under one version: 0.1.6.
 
 ## Which one to use
 
@@ -54,9 +54,9 @@ Everything needs Node.js 20 or newer.
 
 ## Versions
 
-Release 0.1.5 is checked against TDC 0.3.5. The skill's
+Release 0.1.6 is checked against TDC 0.3.6. The skill's
 reference is built from that engine's documentation, and the agent runs that engine:
-`npx -y tdcv2@0.3.5`. The server prefers your project's own `tdcv2` when the
+`npx -y tdcv2@0.3.6`. The server prefers your project's own `tdcv2` when the
 project has one, and otherwise uses the engine it ships with. With another engine version,
 the agent reads that version's pages, and the engine's `check` has the last word.
 
@@ -69,7 +69,7 @@ folder it is started in.
 The network is used for four things only:
 
 - the first start downloads `tdcv2-mcp` and the engine from npm;
-- with an engine version other than 0.3.5, the agent may read that version's
+- with an engine version other than 0.3.6, the agent may read that version's
   documentation page from GitHub;
 - data packs download when you or the agent run `tdcv2 pack add` — through the server, that is
   `tdc_pack_add`, which your client asks you to allow;

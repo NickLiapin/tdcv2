@@ -16,7 +16,7 @@ ellos. El servidor MCP es opcional, encima de eso.
 ## El skill
 
 ```bash
-npx -y tdcv2-mcp@0.1.5 install-skill --agents
+npx -y tdcv2-mcp@0.1.6 install-skill --agents
 ```
 
 El comando coloca el skill en `~/.agents/skills/tdcv2`, la carpeta compartida que leen Codex,
@@ -27,7 +27,7 @@ Para que el skill viva en un solo repositorio, y lo tenga cualquiera que lo clon
 en la carpeta `.agents/skills` del propio repositorio y haga commit:
 
 ```bash
-npx -y tdcv2-mcp@0.1.5 install-skill --dir .agents/skills
+npx -y tdcv2-mcp@0.1.6 install-skill --dir .agents/skills
 ```
 
 Dónde busca skills cada agente, según su propia documentación:
@@ -46,7 +46,7 @@ actualiza.
 ## El servidor MCP
 
 El servidor es el mismo paquete, pero lo inicia el agente y no usted. Todos los clientes usan
-el mismo comando —`npx -y tdcv2-mcp@0.1.5`— y solo cambian el lugar donde va
+el mismo comando —`npx -y tdcv2-mcp@0.1.6`— y solo cambian el lugar donde va
 la configuración y la forma del archivo.
 
 #### Codex
@@ -54,7 +54,7 @@ la configuración y la forma del archivo.
 Ejecute una vez:
 
 ```bash
-codex mcp add tdcv2 -- npx -y tdcv2-mcp@0.1.5
+codex mcp add tdcv2 -- npx -y tdcv2-mcp@0.1.6
 ```
 
 O añada el servidor a `~/.codex/config.toml` usted mismo:
@@ -62,7 +62,7 @@ O añada el servidor a `~/.codex/config.toml` usted mismo:
 ```toml
 [mcp_servers.tdcv2]
 command = "npx"
-args = ["-y", "tdcv2-mcp@0.1.5"]
+args = ["-y", "tdcv2-mcp@0.1.6"]
 ```
 
 Codex da a un servidor 10 segundos para iniciarse. El primer inicio descarga el paquete, así
@@ -80,7 +80,7 @@ Añada el servidor a `~/.cursor/mcp.json` para tenerlo en todos sus proyectos, o
     "tdcv2": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "tdcv2-mcp@0.1.5"]
+      "args": ["-y", "tdcv2-mcp@0.1.6"]
     }
   }
 }
@@ -97,7 +97,7 @@ nivel superior es `servers`, no `mcpServers` como en los demás clientes:
     "tdcv2": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "tdcv2-mcp@0.1.5"]
+      "args": ["-y", "tdcv2-mcp@0.1.6"]
     }
   }
 }
@@ -106,7 +106,7 @@ nivel superior es `servers`, no `mcpServers` como en los demás clientes:
 Para añadirlo a su perfil de usuario, en todos los espacios de trabajo:
 
 ```bash
-code --add-mcp '{"name":"tdcv2","type":"stdio","command":"npx","args":["-y","tdcv2-mcp@0.1.5"]}'
+code --add-mcp '{"name":"tdcv2","type":"stdio","command":"npx","args":["-y","tdcv2-mcp@0.1.6"]}'
 ```
 
 #### Gemini CLI
@@ -119,7 +119,7 @@ Añada el servidor a `~/.gemini/settings.json` para tenerlo en todos sus proyect
   "mcpServers": {
     "tdcv2": {
       "command": "npx",
-      "args": ["-y", "tdcv2-mcp@0.1.5"]
+      "args": ["-y", "tdcv2-mcp@0.1.6"]
     }
   }
 }
@@ -131,7 +131,7 @@ La mayoría de los clientes MCP aceptan la misma entrada `mcpServers`; consulte 
 documentación de su cliente dónde la guarda:
 
 ```json
-{ "mcpServers": { "tdcv2": { "command": "npx", "args": ["-y", "tdcv2-mcp@0.1.5"] } } }
+{ "mcpServers": { "tdcv2": { "command": "npx", "args": ["-y", "tdcv2-mcp@0.1.6"] } } }
 ```
 
 En Windows, escriba `"command": "npx.cmd"` si el cliente no puede iniciar `npx`.
@@ -151,7 +151,7 @@ El primer inicio descarga el servidor y el motor desde npm, y eso puede tardar m
 un cliente espera. Ejecute el comando una vez en una terminal para tenerlo listo:
 
 ```bash
-npx -y tdcv2-mcp@0.1.5 --help
+npx -y tdcv2-mcp@0.1.6 --help
 ```
 
 ---

@@ -67,7 +67,7 @@ La misma configuración con la misma semilla da el mismo archivo, byte a byte. E
 mismo, sin el agente:
 
 ```bash
-npx -y tdcv2@0.3.5 customers.tdc -o customers.csv
+npx -y tdcv2@0.3.6 customers.tdc -o customers.csv
 ```
 
 Para cambiar los datos, cambie la configuración: pídaselo al agente ("que sean 10.000 filas,

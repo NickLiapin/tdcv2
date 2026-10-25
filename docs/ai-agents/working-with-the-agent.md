@@ -65,7 +65,7 @@ The same config with the same `seed` gives the same file, byte for byte. Rerun i
 without the agent:
 
 ```bash
-npx -y tdcv2@0.3.5 customers.tdc -o customers.csv
+npx -y tdcv2@0.3.6 customers.tdc -o customers.csv
 ```
 
 To change the data, change the config: ask the agent ("make it 10,000 rows, a third from

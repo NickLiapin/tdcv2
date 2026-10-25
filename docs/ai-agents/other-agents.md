@@ -16,7 +16,7 @@ server is optional on top of it.
 ## The skill
 
 ```bash
-npx -y tdcv2-mcp@0.1.5 install-skill --agents
+npx -y tdcv2-mcp@0.1.6 install-skill --agents
 ```
 
 This puts the skill in `~/.agents/skills/tdcv2` — the shared folder that Codex, Cursor, VS
@@ -27,7 +27,7 @@ To keep the skill in one repository instead, so everyone who clones it gets it, 
 the repository's own `.agents/skills` folder and commit it:
 
 ```bash
-npx -y tdcv2-mcp@0.1.5 install-skill --dir .agents/skills
+npx -y tdcv2-mcp@0.1.6 install-skill --dir .agents/skills
 ```
 
 Where each agent looks for skills, according to its own documentation:
@@ -46,7 +46,7 @@ update it.
 ## The MCP server
 
 The server is the same package, started by the agent rather than by you. Every client takes
-the same command — `npx -y tdcv2-mcp@0.1.5` — and differs only in where the
+the same command — `npx -y tdcv2-mcp@0.1.6` — and differs only in where the
 setting goes and what the file looks like.
 
 #### Codex
@@ -54,7 +54,7 @@ setting goes and what the file looks like.
 Run once:
 
 ```bash
-codex mcp add tdcv2 -- npx -y tdcv2-mcp@0.1.5
+codex mcp add tdcv2 -- npx -y tdcv2-mcp@0.1.6
 ```
 
 Or add the server to `~/.codex/config.toml` yourself:
@@ -62,7 +62,7 @@ Or add the server to `~/.codex/config.toml` yourself:
 ```toml
 [mcp_servers.tdcv2]
 command = "npx"
-args = ["-y", "tdcv2-mcp@0.1.5"]
+args = ["-y", "tdcv2-mcp@0.1.6"]
 ```
 
 Codex gives a server 10 seconds to start. The first start downloads the package, so run the
@@ -80,7 +80,7 @@ in one project:
     "tdcv2": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "tdcv2-mcp@0.1.5"]
+      "args": ["-y", "tdcv2-mcp@0.1.6"]
     }
   }
 }
@@ -97,7 +97,7 @@ is `servers`, not `mcpServers` as in the other clients:
     "tdcv2": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "tdcv2-mcp@0.1.5"]
+      "args": ["-y", "tdcv2-mcp@0.1.6"]
     }
   }
 }
@@ -106,7 +106,7 @@ is `servers`, not `mcpServers` as in the other clients:
 To add it to your user profile instead, for every workspace:
 
 ```bash
-code --add-mcp '{"name":"tdcv2","type":"stdio","command":"npx","args":["-y","tdcv2-mcp@0.1.5"]}'
+code --add-mcp '{"name":"tdcv2","type":"stdio","command":"npx","args":["-y","tdcv2-mcp@0.1.6"]}'
 ```
 
 #### Gemini CLI
@@ -119,7 +119,7 @@ Add the server to `~/.gemini/settings.json` to have it in every project, or to
   "mcpServers": {
     "tdcv2": {
       "command": "npx",
-      "args": ["-y", "tdcv2-mcp@0.1.5"]
+      "args": ["-y", "tdcv2-mcp@0.1.6"]
     }
   }
 }
@@ -130,7 +130,7 @@ Add the server to `~/.gemini/settings.json` to have it in every project, or to
 Most MCP clients take the same `mcpServers` entry; look up where yours keeps it:
 
 ```json
-{ "mcpServers": { "tdcv2": { "command": "npx", "args": ["-y", "tdcv2-mcp@0.1.5"] } } }
+{ "mcpServers": { "tdcv2": { "command": "npx", "args": ["-y", "tdcv2-mcp@0.1.6"] } } }
 ```
 
 On Windows, write `"command": "npx.cmd"` if the client cannot start `npx`.
@@ -149,7 +149,7 @@ The first start downloads the server and the engine from npm, which can take lon
 client waits. Run the command once in a terminal to have it ready:
 
 ```bash
-npx -y tdcv2-mcp@0.1.5 --help
+npx -y tdcv2-mcp@0.1.6 --help
 ```
 
 ---

@@ -75,9 +75,9 @@ picks the update up.
 The plugin is the simple path. If you want one part only:
 
 ```bash
-npx -y tdcv2-mcp@0.1.5 install-skill            # the skill, for you: ~/.claude/skills/tdcv2
-npx -y tdcv2-mcp@0.1.5 install-skill --project  # the skill, this project: ./.claude/skills/tdcv2
-claude mcp add tdcv2 -- npx -y tdcv2-mcp@0.1.5  # the server, this project
+npx -y tdcv2-mcp@0.1.6 install-skill            # the skill, for you: ~/.claude/skills/tdcv2
+npx -y tdcv2-mcp@0.1.6 install-skill --project  # the skill, this project: ./.claude/skills/tdcv2
+claude mcp add tdcv2 -- npx -y tdcv2-mcp@0.1.6  # the server, this project
 ```
 
 `install-skill` replaces an older copy of the skill in the same folder. `claude mcp add`

@@ -1,5 +1,5 @@
 {
   "$comment": "The tdcv2-agents release the AI Agents pages describe, and the engine it is checked against. The plugin lives in its own repository and ships on its own schedule, so the build cannot read it from typescript/package.json: update both numbers when the plugin is synced at a TDC release. scripts/release.mjs compares version with what npm serves for tdcv2-mcp.",
-  "version": "0.1.5",
-  "engine": "0.3.5"
+  "version": "0.1.6",
+  "engine": "0.3.6"
 }

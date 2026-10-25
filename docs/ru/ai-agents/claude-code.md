@@ -74,9 +74,9 @@ claude plugin uninstall tdcv2@tdcv2
 Плагин — самый простой путь. Если нужна только одна часть:
 
 ```bash
-npx -y tdcv2-mcp@0.1.5 install-skill            # скилл для вас: ~/.claude/skills/tdcv2
-npx -y tdcv2-mcp@0.1.5 install-skill --project  # скилл для проекта: ./.claude/skills/tdcv2
-claude mcp add tdcv2 -- npx -y tdcv2-mcp@0.1.5  # сервер для этого проекта
+npx -y tdcv2-mcp@0.1.6 install-skill            # скилл для вас: ~/.claude/skills/tdcv2
+npx -y tdcv2-mcp@0.1.6 install-skill --project  # скилл для проекта: ./.claude/skills/tdcv2
+claude mcp add tdcv2 -- npx -y tdcv2-mcp@0.1.6  # сервер для этого проекта
 ```
 
 `install-skill` заменяет старую копию скилла в той же папке. `claude mcp add` подключает

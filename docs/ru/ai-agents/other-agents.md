@@ -16,7 +16,7 @@
 ## Скилл
 
 ```bash
-npx -y tdcv2-mcp@0.1.5 install-skill --agents
+npx -y tdcv2-mcp@0.1.6 install-skill --agents
 ```
 
 Команда кладёт скилл в `~/.agents/skills/tdcv2` — общую папку, которую читают Codex, Cursor,
@@ -27,7 +27,7 @@ VS Code с Copilot и Gemini CLI. Начните новую сессию и пр
 `.agents/skills` самого репозитория и закоммитьте:
 
 ```bash
-npx -y tdcv2-mcp@0.1.5 install-skill --dir .agents/skills
+npx -y tdcv2-mcp@0.1.6 install-skill --dir .agents/skills
 ```
 
 Где каждый агент ищет скиллы — по его собственной документации:
@@ -46,7 +46,7 @@ npx -y tdcv2-mcp@0.1.5 install-skill --dir .agents/skills
 ## MCP-сервер
 
 Сервер — тот же пакет, только запускает его агент, а не вы. Все клиенты берут одну и ту же
-команду — `npx -y tdcv2-mcp@0.1.5` — и различаются только тем, куда писать
+команду — `npx -y tdcv2-mcp@0.1.6` — и различаются только тем, куда писать
 настройку и как выглядит файл.
 
 #### Codex
@@ -54,7 +54,7 @@ npx -y tdcv2-mcp@0.1.5 install-skill --dir .agents/skills
 Выполните один раз:
 
 ```bash
-codex mcp add tdcv2 -- npx -y tdcv2-mcp@0.1.5
+codex mcp add tdcv2 -- npx -y tdcv2-mcp@0.1.6
 ```
 
 Или добавьте сервер в `~/.codex/config.toml` сами:
@@ -62,7 +62,7 @@ codex mcp add tdcv2 -- npx -y tdcv2-mcp@0.1.5
 ```toml
 [mcp_servers.tdcv2]
 command = "npx"
-args = ["-y", "tdcv2-mcp@0.1.5"]
+args = ["-y", "tdcv2-mcp@0.1.6"]
 ```
 
 Codex даёт серверу 10 секунд на запуск. При первом запуске пакет скачивается, поэтому один
@@ -80,7 +80,7 @@ Codex даёт серверу 10 секунд на запуск. При перв
     "tdcv2": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "tdcv2-mcp@0.1.5"]
+      "args": ["-y", "tdcv2-mcp@0.1.6"]
     }
   }
 }
@@ -97,7 +97,7 @@ GitHub Copilot в VS Code читает `.vscode/mcp.json` в рабочей па
     "tdcv2": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "tdcv2-mcp@0.1.5"]
+      "args": ["-y", "tdcv2-mcp@0.1.6"]
     }
   }
 }
@@ -106,7 +106,7 @@ GitHub Copilot в VS Code читает `.vscode/mcp.json` в рабочей па
 Чтобы добавить его в профиль пользователя, для всех рабочих папок:
 
 ```bash
-code --add-mcp '{"name":"tdcv2","type":"stdio","command":"npx","args":["-y","tdcv2-mcp@0.1.5"]}'
+code --add-mcp '{"name":"tdcv2","type":"stdio","command":"npx","args":["-y","tdcv2-mcp@0.1.6"]}'
 ```
 
 #### Gemini CLI
@@ -119,7 +119,7 @@ code --add-mcp '{"name":"tdcv2","type":"stdio","command":"npx","args":["-y","tdc
   "mcpServers": {
     "tdcv2": {
       "command": "npx",
-      "args": ["-y", "tdcv2-mcp@0.1.5"]
+      "args": ["-y", "tdcv2-mcp@0.1.6"]
     }
   }
 }
@@ -131,7 +131,7 @@ code --add-mcp '{"name":"tdcv2","type":"stdio","command":"npx","args":["-y","tdc
 смотрите в его документации:
 
 ```json
-{ "mcpServers": { "tdcv2": { "command": "npx", "args": ["-y", "tdcv2-mcp@0.1.5"] } } }
+{ "mcpServers": { "tdcv2": { "command": "npx", "args": ["-y", "tdcv2-mcp@0.1.6"] } } }
 ```
 
 В Windows напишите `"command": "npx.cmd"`, если клиент не может запустить `npx`.
@@ -150,7 +150,7 @@ code --add-mcp '{"name":"tdcv2","type":"stdio","command":"npx","args":["-y","tdc
 клиент готов ждать. Выполните команду один раз в терминале, чтобы всё было готово заранее:
 
 ```bash
-npx -y tdcv2-mcp@0.1.5 --help
+npx -y tdcv2-mcp@0.1.6 --help
 ```
 
 ---

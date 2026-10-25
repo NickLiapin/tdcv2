@@ -66,7 +66,7 @@ SQL-вставки для клиники: отделения, врачи в ка
 агента:
 
 ```bash
-npx -y tdcv2@0.3.5 customers.tdc -o customers.csv
+npx -y tdcv2@0.3.6 customers.tdc -o customers.csv
 ```
 
 Чтобы изменить данные, меняйте конфиг: попросите агента («сделай 10 000 строк, треть — из
