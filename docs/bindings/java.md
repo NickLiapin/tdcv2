@@ -22,14 +22,14 @@ One dependency, from Maven Central:
 <dependency>
   <groupId>io.github.nickliapin</groupId>
   <artifactId>tdcv2</artifactId>
-  <version>0.3.5</version>
+  <version>0.3.6</version>
 </dependency>
 ```
 
 Gradle, in `build.gradle.kts`:
 
 ```kotlin
-implementation("io.github.nickliapin:tdcv2:0.3.5")
+implementation("io.github.nickliapin:tdcv2:0.3.6")
 ```
 
 > [!NOTE]
