@@ -45,6 +45,7 @@ no causa ningún problema: enseñan lo mismo.
 
 | Dónde                          | Nombre                                                                    |
 | :----------------------------- | :------------------------------------------------------------------------ |
+| Directorio de plugins de Anthropic | **TDCv2 — Fake & Test Data Generator**, en claude.ai y la aplicación de Claude: **Customize → Plugins → Discover** |
 | Código fuente (MIT)            | [NickLiapin/tdcv2-agents](https://github.com/NickLiapin/tdcv2-agents)     |
 | Marketplace de Claude Code     | `NickLiapin/tdcv2-agents`, plugin `tdcv2@tdcv2`                           |
 | Registro oficial de MCP        | `io.github.NickLiapin/tdcv2`                                              |

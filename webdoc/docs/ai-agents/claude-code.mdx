@@ -6,9 +6,27 @@ sidebar_position: 2
 # Claude Code
 
 The plugin brings both parts at once: the skill, and the MCP server, which Claude Code starts
-on its own whenever a session needs it.
+on its own whenever a session needs it. It comes from two places — Anthropic's plugin
+directory or the project's GitHub marketplace. Pick one: installed both ways, the plugin is
+there twice, so the skill loads twice and two servers start.
 
-## Install the plugin
+## Install from the plugin directory
+
+The simplest way, with a Pro, Max, Team or Enterprise plan:
+
+1. Open **Customize → Plugins** in claude.ai or in the Claude app.
+2. In **Discover**, find **TDCv2 — Fake & Test Data Generator** and select **Add**.
+
+The plugin is saved to your account. Claude Code downloads it the next time you start a
+session signed in to that account — run `/reload-plugins` to load it in a session that is
+already open — and Cowork has it too. It updates by itself when a new release reaches the
+directory. To remove it, open it in **Customize → Plugins** and select **Remove** from its
+menu.
+
+Installed this way, it is named `tdcv2-test-data@anthropic-plugin-directory` in
+`claude plugin list`. The `tdcv2@tdcv2` commands below are for the GitHub marketplace only.
+
+## Install from the GitHub marketplace
 
 ```bash
 claude plugin marketplace add NickLiapin/tdcv2-agents
@@ -36,6 +54,8 @@ project, and gives you both. [Working with the agent](./working-with-the-agent.m
 what happens at each step and how to review the result.
 
 ## Update and remove
+
+For a plugin installed from the GitHub marketplace:
 
 ```bash
 claude plugin update tdcv2@tdcv2

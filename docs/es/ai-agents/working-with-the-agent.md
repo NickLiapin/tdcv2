@@ -45,12 +45,12 @@ servidor MCP, en cambio, llama a las herramientas del servidor.
 
 | Herramienta      | Qué hace                                                                                |
 | :--------------- | :-------------------------------------------------------------------------------------- |
-| `tdc_read_docs`  | la guía, las trampas que `check` no detecta, código de prueba en cinco lenguajes, cualquier página de esta documentación |
+| `tdc_read_docs`  | la guía, las trampas que `check` no detecta, código de prueba en cinco lenguajes, varias tablas enlazadas en un archivo, cualquier página de esta documentación |
 | `tdc_find_packs` | busca paquetes de datos instalados por palabras ("apellido", "iban") y da sus direcciones |
 | `tdc_pack_add`   | instala paquetes para otro idioma o país: `tdcv2 pack add`                               |
 | `tdc_check`      | todos los diagnósticos, con código, línea, columna, pista y un "quizá quiso decir"      |
 | `tdc_generate`   | una vista previa de hasta 50 líneas o el archivo completo                               |
-| `tdc_peek`       | un resumen breve de un archivo CSV, JSON o SQL del proyecto                             |
+| `tdc_peek`       | un resumen breve de un archivo CSV, JSON o SQL del proyecto; para un objeto JSON con varias tablas, cada tabla y cuántos valores `<x>_id` no aparecen en `<x>s.id` |
 | `tdc_format`     | da formato a una configuración como lo hace `tdcv2 format`                              |
 
 El servidor también ofrece la guía como prompt, `tdcv2_guide`, y cuatro páginas como

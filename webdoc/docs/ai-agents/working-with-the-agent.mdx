@@ -39,12 +39,12 @@ With the MCP server, it calls the server's tools instead.
 
 | Tool             | What it does                                                                            |
 | :--------------- | :-------------------------------------------------------------------------------------- |
-| `tdc_read_docs`  | the guide, the traps `check` does not catch, test code in five languages, any page here |
+| `tdc_read_docs`  | the guide, the traps `check` does not catch, test code in five languages, several linked tables in one file, any page here |
 | `tdc_find_packs` | finds installed data packs by words ("last name", "iban") and gives their addresses     |
 | `tdc_pack_add`   | installs packs for another language or country — `tdcv2 pack add`                       |
 | `tdc_check`      | every diagnostic, with code, line, column, hint and a "did you mean"                    |
 | `tdc_generate`   | a preview of up to 50 lines, or the whole file                                          |
-| `tdc_peek`       | a short summary of a CSV, JSON or SQL file in the project                               |
+| `tdc_peek`       | a short summary of a CSV, JSON or SQL file in the project; for a JSON object of several tables, each table, and how many `<x>_id` values have no match in `<x>s.id` |
 | `tdc_format`     | formats a config the way `tdcv2 format` does                                            |
 
 The server also offers the guide as a prompt, `tdcv2_guide`, and four pages as resources:
