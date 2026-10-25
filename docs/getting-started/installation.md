@@ -21,11 +21,11 @@ bytes — a gigabyte of output from the same config comes out identical in each.
 Each one also carries the same command line, so nothing needs another
 language's toolchain to run a config.
 
-All five are published: **0.3.5** on npm, PyPI, NuGet and crates.io, and
+All five are published: **0.3.6** on npm, PyPI, NuGet and crates.io, and
 **0.3.5** on Maven Central — usually the same number, occasionally one
 behind, because Central caps how many releases it accepts from a project each month
 (see [the Java page](../bindings/java.md#top)). Equal version numbers are not a
-coincidence: where they match, `tdcv2 0.3.5` from any of them answers a
+coincidence: where they match, `tdcv2 0.3.6` from any of them answers a
 config the same way, down to the byte.
 
 > [!TIP]

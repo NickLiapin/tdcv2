@@ -12,6 +12,45 @@ now works differently — newest first, each with a link to where the docs expla
 Changes inside the engine that alter nothing you write or read are left out; every change is
 in the [changelog](https://github.com/NickLiapin/tdcv2/blob/main/CHANGELOG.md).
 
+## 25 October 2026 — version 0.3.6
+
+- **`<line each="Pool">` prints a pool record by record.** One line per record, every field read
+  as `${{Pool.field}}`, so a lookup table comes out of the same config as the rows that point at
+  it. The positions `Pool._first`, `Pool._last` and `Pool._item` count the lines actually
+  printed, which is what puts a comma between JSON objects and not after the last one. →
+  [A whole pool, record by record](./constructs/relational-tables.mdx#a-whole-pool-record-by-record)
+- **`<group>` keeps several lines together.** `<group each="Depts">` prints its lines once per
+  department, and a group inside it prints that department's doctors — a nested JSON document from
+  one config. Without `each`, its `if=` keeps or drops all its lines at once. →
+  [Several lines per element](./constructs/relational-tables.mdx#several-lines-per-element-group)
+- **The `json` filter.** `${{Name | json}}` writes a JSON string with the escaping done, or `null`
+  for an empty value; `${{Tags | json:;}}` writes a list as a JSON array. A list printed without
+  its separator gets a warning, `TDC312`. →
+  [`json`](./guides/masks-and-case.mdx#json--a-complete-json-value)
+- **`plus=` reads the distance from a column.** `<gen type="date" of="Start" plus="Length m">`
+  ends each appointment its own length after it starts. →
+  [A distance read from another column](./generators/date.mdx#a-distance-read-from-another-column)
+- **The `if=` of an `each` line decides element by element.** `<line each="Orders" if="Orders >
+  5000">` prints the large orders only; it used to keep or drop the whole line. →
+  [What's visible inside an `each` line](./constructs/relational-tables.mdx#whats-visible-inside-an-each-line)
+- **Fixture lines are checked, and their `if=` is read.** A misspelled `${{Name}}` in `<before>`
+  is an error in `check` instead of reaching the file as written. →
+  [Fixtures](./core-concepts/output-formatting.mdx#fixtures--text-around-the-records)
+- **Health identifiers with real check digits:** the US NPI, Germany's KVNR and LANR, France's
+  RPPS and FINESS, Brazil's CNS. →
+  [National tax and document numbers](./reference/identifiers.mdx#national-tax-and-document-numbers)
+- **US and Canadian phone numbers use every area code in service**, with 555-0100 to 555-0199,
+  the line numbers reserved for fiction. Every US number used to start `+1 202 555`. →
+  [Phone numbers](./reference/identifiers.mdx#phone-numbers)
+- **The pack registry holds %%TDC_PACK_SETS%% bundles.** Traditional Chinese, Uzbek, Montenegrin,
+  Breton, Sindhi, four more languages and 46 countries can be downloaded now, and `tdcv2 pack list` names countries as
+  names: United States, not "Usa". → [`pack list`](./data-packs/installing-packs.mdx#pack-list--see-the-catalog)
+- **Rust and C#:** a pack whose `<valid>` check rejects a value now redraws it the way the other
+  three do. Eleven shipped packs, the ISO 6346 container code and Slovenian postal codes among
+  them, gave different values there. → [`<valid>`](./compute/conditionals.mdx#valid--reject-and-retry)
+- **AI agents.** Claude Code, Codex, Cursor, VS Code and Gemini CLI can write and run TDC configs
+  for you, through a skill and an MCP server. → [AI Agents](./ai-agents/overview.mdx)
+
 ## 17 October 2026 — version 0.3.5
 
 - **`check` says which engine will run the config, and why.** A second line after "is valid",

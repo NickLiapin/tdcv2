@@ -11,6 +11,13 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [0.3.6] — 2026-10-25
+
+### Changed
+
+- The engine changes shared by all five implementations — see the
+  [engine changelog](../CHANGELOG.md#036--2026-10-25).
+
 ### Fixed
 
 - **`rust-version` now says 1.82, the oldest Rust that builds the crate.** It said 1.74, but

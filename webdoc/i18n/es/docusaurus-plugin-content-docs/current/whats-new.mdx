@@ -13,6 +13,51 @@ donde la documentación lo explica ahora. Los cambios dentro del motor que no al
 que usted escribe o lee quedan fuera; todos los cambios están en el
 [registro de cambios](https://github.com/NickLiapin/tdcv2/blob/main/CHANGELOG.md).
 
+## 25 de octubre de 2026 — versión 0.3.6
+
+- **`<line each="Pool">` imprime un pool registro por registro.** Una línea por registro, cada
+  campo leído como `${{Pool.field}}`, así que una tabla de consulta sale de la misma
+  configuración que las filas que apuntan a ella. Las posiciones `Pool._first`, `Pool._last` y
+  `Pool._item` cuentan las líneas impresas de verdad, que es lo que pone una coma entre objetos
+  JSON y no después del último. →
+  [Un pool entero, registro por registro](./constructs/relational-tables.mdx#un-pool-entero-registro-a-registro)
+- **`<group>` mantiene juntas varias líneas.** `<group each="Depts">` imprime sus líneas una vez
+  por departamento, y un grupo dentro de él imprime los médicos de ese departamento: un documento
+  JSON anidado desde una sola configuración. Sin `each`, su `if=` conserva o quita todas sus
+  líneas a la vez. →
+  [Varias líneas por elemento](./constructs/relational-tables.mdx#varias-líneas-por-elemento-group)
+- **El filtro `json`.** `${{Name | json}}` escribe una cadena JSON con el escape hecho, o `null`
+  si el valor está vacío; `${{Tags | json:;}}` escribe una lista como un array JSON. Una lista
+  impresa sin su separador recibe una advertencia, `TDC312`. →
+  [`json`](./guides/masks-and-case.mdx#json--un-valor-json-completo)
+- **`plus=` lee la distancia de una columna.** `<gen type="date" of="Start" plus="Length m">`
+  termina cada cita su propia duración después de empezar. →
+  [Una distancia leída de otra columna](./generators/date.mdx#una-distancia-leída-de-otra-columna)
+- **El `if=` de una línea con `each` decide elemento por elemento.** `<line each="Orders"
+  if="Orders > 5000">` imprime solo los pedidos grandes; antes conservaba o quitaba la línea
+  entera. →
+  [Lo que se ve dentro de una línea con `each`](./constructs/relational-tables.mdx#qué-se-ve-dentro-de-una-línea-con-each)
+- **Las líneas de los fixtures se comprueban, y su `if=` se lee.** Un `${{Name}}` mal escrito en
+  `<before>` es un error en `check` en lugar de llegar al archivo tal cual. →
+  [Fixtures](./core-concepts/output-formatting.mdx#fixtures--texto-alrededor-de-los-registros)
+- **Identificadores de salud con dígitos de control reales:** el NPI de EE. UU., el KVNR y el
+  LANR de Alemania, el RPPS y el FINESS de Francia, el CNS de Brasil. →
+  [Números fiscales y de documentos por país](./reference/identifiers.mdx#números-fiscales-y-de-documentos-por-país)
+- **Los teléfonos de EE. UU. y Canadá usan cualquier código de área en servicio**, con los
+  números 555-0100 a 555-0199, reservados para la ficción. Antes cada número de EE. UU. empezaba
+  por `+1 202 555`. → [Números de teléfono](./reference/identifiers.mdx#números-de-teléfono)
+- **El registro de paquetes tiene %%TDC_PACK_SETS%% conjuntos.** Ya se pueden descargar el chino
+  tradicional, el uzbeko, el montenegrino, el bretón, el sindhi, cuatro idiomas más y 46 países,
+  y `tdcv2 pack list` nombra los países como nombres: United States, no "Usa". →
+  [`pack list`](./data-packs/installing-packs.mdx#pack-list--ver-el-catálogo)
+- **Rust y C#:** un paquete cuya comprobación `<valid>` rechaza un valor ahora lo vuelve a sacar
+  como lo hacen los otros tres. Once paquetes incluidos, entre ellos el código de contenedor ISO
+  6346 y los códigos postales de Eslovenia, daban allí valores distintos. →
+  [`<valid>`](./compute/conditionals.mdx#valid--rechazar-y-reintentar)
+- **Agentes de IA.** Claude Code, Codex, Cursor, VS Code y Gemini CLI pueden escribir y ejecutar
+  configuraciones de TDC por usted, mediante un skill y un servidor MCP. →
+  [Agentes de IA](./ai-agents/overview.mdx)
+
 ## 17 de octubre de 2026 — versión 0.3.5
 
 - **`check` dice qué motor ejecutará la configuración y por qué.** Una segunda línea después de

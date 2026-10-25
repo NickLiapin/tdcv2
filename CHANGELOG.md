@@ -15,6 +15,8 @@ page — is tracked in that implementation's own changelog:
 
 ## [Unreleased]
 
+## [0.3.6] — 2026-10-25
+
 ### Added
 
 - **`<line each="Pool">` prints a pool record by record — in all five.** One line per record,

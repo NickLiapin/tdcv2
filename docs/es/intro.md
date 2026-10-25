@@ -26,7 +26,7 @@
 > [!IMPORTANT]
 > **Sobre esta documentación**
 >
-> Cubre TDC **0.3.5**, última actualización **25 de octubre de 2026** — la fecha del
+> Cubre TDC **0.3.6**, última actualización **25 de octubre de 2026** — la fecha del
 > cambio más reciente en cualquier página, no la fecha en que se compiló este sitio.
 
 TDC genera datos de prueba coherentes dentro de cada registro. En una misma fila, los
@@ -350,10 +350,10 @@ misma configuración y la misma semilla.
 
 | Implementación                            | Registro      | Instalación                  | Versión |
 | :---------------------------------------- | :------------ | :--------------------------- | :------ |
-| **[TypeScript](bindings/typescript.md#top)** | npm           | `npm i tdcv2`                | 0.3.5   |
-| **[Python](bindings/python.md#top)**         | PyPI          | `pip install tdcv2`          | 0.3.5   |
-| **[Rust](bindings/rust.md#top)**             | crates.io     | `cargo add tdcv2`            | 0.3.5   |
-| **[C#](bindings/csharp.md#top)**             | NuGet         | `dotnet add package Tdcv2`   | 0.3.5   |
+| **[TypeScript](bindings/typescript.md#top)** | npm           | `npm i tdcv2`                | 0.3.6   |
+| **[Python](bindings/python.md#top)**         | PyPI          | `pip install tdcv2`          | 0.3.6   |
+| **[Rust](bindings/rust.md#top)**             | crates.io     | `cargo add tdcv2`            | 0.3.6   |
+| **[C#](bindings/csharp.md#top)**             | NuGet         | `dotnet add package Tdcv2`   | 0.3.6   |
 | **[Java](bindings/java.md#top)**             | Maven Central | `io.github.nickliapin:tdcv2` | 0.3.5   |
 
 Cada paquete publicado lleva un juego inicial de paquetes de datos, así que funciona sin
