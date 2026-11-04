@@ -59,7 +59,7 @@
     },
     {
       "name": "uniq-in-a-small-pool-of-a-long-run",
-      "demonstrates": "TDC299",
+      "demonstrates": "",
       "description": "uniq on a pool member holds the POOL's values, built once before the first row: a thousand doctors cost the same at any run length. It used to read the run's count and warn about 48 MB.",
       "config": "<tdc><env count=\"200000\" seed=\"s\"><pool name=\"Doctors\" count=\"1000\"><sequence name=\"room\" uniq=\"true\"><gen type=\"number\" value=\"1000..2999\"/></sequence></pool><sequence name=\"Seen\"><gen type=\"pool\" value=\"Doctors\"/></sequence></env><block><line><data>${{Seen.room}}</data></line></block></tdc>",
       "expected": []
