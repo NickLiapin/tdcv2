@@ -161,6 +161,7 @@ export function buildLazyRegistry(
   // time a row is asked for.
   const options: SequenceBuildOptions = {
     ...baseOptions,
+    total: count,
     valueAt: (name, row) => {
       const seq = registry[name];
       return seq ? sequenceValueAt(seq, row) : undefined;
@@ -732,8 +733,10 @@ function buildValueSequence(
   }
 
   if (gen.type === 'timeseries') {
-    // Index-dependent, like counters: value uses the (population) row index; the
-    // noise draw is seekable per row on a dedicated stream.
+    // Index-dependent: the value is read at the ROW, not at the population index
+    // a subset hands out — the time axis is the run's, so a `<mix>` case or a
+    // `parent=` child continues the same wave. The noise draw is seekable per
+    // row on a dedicated stream.
     const spec = parseTimeseries(gen.attrs);
     const noisy = timeseriesHasNoise(spec);
     // The window's draws, kept in a ring: forward is one draw a row, a jump refills
@@ -747,24 +750,26 @@ function buildValueSequence(
         const r = popIndexAt(i);
         if (r === undefined) return undefined;
         const z = noisy ? correlatedNoise(spec, i, (k) => innovations(i, k)) : 0;
-        return formatTimeseries(timeseriesValueAt(spec, r, z), spec.decimals);
+        return formatTimeseries(timeseriesValueAt(spec, i, z), spec.decimals);
       }),
     };
   }
 
   if (gen.type === 'pattern') {
-    // The drawn curve(s) stretched across the rows: card r of `size` reads at
-    // t = r/(size−1). Signal = deterministic; corridor draws one seekable uniform
-    // per card for the random value in the band. Index-dependent → special-cased.
+    // The drawn curve(s) stretched across the run: row i of `total` reads at
+    // t = i/(total−1), inside a subset too. Signal = deterministic; corridor
+    // draws one seekable uniform per card for the random value in the band.
+    // Index-dependent → special-cased.
     const pg = patternGenForGen(gen, options.dataSources ?? {});
     const draws = patternGenDraws(pg);
-    const denom = size > 1 ? size - 1 : 1;
+    const span = options.total ?? size;
+    const denom = span > 1 ? span - 1 : 1;
     return {
       sequence: wrapLazy((i) => {
         const r = popIndexAt(i);
         if (r === undefined) return undefined;
         const u = draws ? (seekableUniforms(seed, `${streamId}:pat`, i, 1)[0] ?? 0.5) : 0;
-        return patternGenValue(pg, r / denom, u);
+        return patternGenValue(pg, i / denom, u);
       }),
     };
   }

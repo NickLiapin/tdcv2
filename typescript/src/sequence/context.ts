@@ -67,6 +67,13 @@ export interface SequenceBuildContext {
    */
   readonly rows?: readonly number[] | undefined;
   /**
+   * The rows of the whole run this column belongs to. A subset — a `parent=`
+   * child, a `<mix>` case — is built over fewer, but a time axis (`timeseries`,
+   * `pattern`) is the RUN's: its row 7 is row 7 of the file, whichever case
+   * produced it.
+   */
+  readonly total?: number | undefined;
+  /**
    * The exact layout each finished column got, by column name — written by
    * `exactTextLayout`, read by a child that filters on one of them.
    *

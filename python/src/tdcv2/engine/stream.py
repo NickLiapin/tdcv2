@@ -797,30 +797,33 @@ class StreamEngine:
             # for term.
             ts_innovations = timeseries.innovation_ring(ts_draw)
 
+            # The value is read at the ROW, not at the population index a subset hands out: the
+            # time axis is the run's, so a ``<mix>`` case or a ``parent=`` child continues the
+            # same wave.
             def series(row: int) -> str | None:
-                r = domain.pop_index_at(row)
-                if r is None:
+                if domain.pop_index_at(row) is None:
                     return None
                 z = 0.0
                 if noisy:
                     z = timeseries.correlated_noise(
                         spec, row, lambda k, _r=row: ts_innovations(_r, k)
                     )
-                return numbers.to_fixed(timeseries.value_at(spec, r, z), spec.decimals)
+                return numbers.to_fixed(timeseries.value_at(spec, row, z), spec.decimals)
 
             return self._inline_built(mod, series, stream_id, gen, domain)
 
         if type_ == "pattern":
             drawing = patterns.of(attrs, self.base_dir, self.packs.data_roots)
             draws = patterns.draws(drawing)
-            denom = domain.size - 1 if domain.size > 1 else 1
+            # Stretched across the run, inside a subset too: row ``row`` of ``count`` reads at
+            # row/(count-1).
+            denom = self.count - 1 if self.count > 1 else 1
 
             def drawn(row: int) -> str | None:
-                r = domain.pop_index_at(row)
-                if r is None:
+                if domain.pop_index_at(row) is None:
                     return None
                 u = seekable.uniforms(self.seed, f"{stream_id}:pat", row, 1)[0] if draws else 0.0
-                return patterns.value_at(drawing, r / denom, u)
+                return patterns.value_at(drawing, row / denom, u)
 
             return self._inline_built(mod, drawn, stream_id, gen, domain)
 

@@ -684,6 +684,9 @@ Cosas que vale la pena saber sobre `density`:
   va bien en los [motores de streaming](../guides/large-outputs.md#top).
 - **El archivo se lee una sola vez,** al inicio de la corrida, y se convierte en
   geometría — el costo no escala con la cantidad de filas.
+- **Dentro de un caso de [`<mix>`](../constructs/mix.md#top) o bajo `parent=`** el dibujo
+  sigue estirado sobre toda la corrida: la fila 7 lee la curva donde está la fila 7 del
+  archivo, sea cual sea la rama que la produjo.
 
 ## Compruébelo a mano
 

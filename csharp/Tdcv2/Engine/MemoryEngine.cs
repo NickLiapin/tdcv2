@@ -4443,7 +4443,10 @@ public static class MemoryEngine
                 z = Stats.Timeseries.CorrelatedNoise(spec, row, k => ring.Read(row, k, Draw));
             }
 
-            result.Add(Distributions.ToFixed(Stats.Timeseries.ValueAt(spec, i, z), spec.Decimals));
+            // Read at the ROW: inside a `parent=` child or a `<mix>` case, row 7 is still row 7 of
+            // the run, not the 7th slot the subset was dealt.
+            result.Add(Distributions.ToFixed(
+                Stats.Timeseries.ValueAt(spec, stream.RowAt(i), z), spec.Decimals));
         }
 
         return result;
@@ -4453,22 +4456,25 @@ public static class MemoryEngine
     /// <c>&lt;gen type="pattern"&gt;</c> keyed by the row.
     /// </summary>
     /// <remarks>
-    /// As with timeseries: the curve is read at the POSITION, and the one draw that places the
-    /// value inside its band is keyed by the ROW on the streaming engine's <c>:pat</c> stream.
+    /// As with timeseries: the curve is read at the ROW, and so is the one draw that places the
+    /// value inside its band, on the streaming engine's <c>:pat</c> stream. A subset reads the
+    /// run's curve at its own rows, so the curve is stretched over the whole run, not over the
+    /// rows the subset was dealt.
     /// </remarks>
     private static IReadOnlyList<string> PatternKeyed(
         IReadOnlyDictionary<string, string> attrs, int count, Ctx ctx, PerRow.Stream stream)
     {
         Pattern.PatternGen gen = Pattern.PatternGen.Of(attrs, ctx.BaseDir, ctx.Packs.DataRoots);
         bool draws = gen.Draws;
-        double denom = count > 1 ? count - 1 : 1;
+        int span = stream.Rows is not null ? ctx.Config.Count : count;
+        double denom = span > 1 ? span - 1 : 1;
         var result = new List<string>(count);
         for (int i = 0; i < count; i++)
         {
             double u = draws
                 ? Seekable.Uniforms(stream.Seed, $"{stream.Id}:pat", stream.RowAt(i), 1)[0]
                 : 0;
-            result.Add(gen.ValueAt(i / denom, u));
+            result.Add(gen.ValueAt(stream.RowAt(i) / denom, u));
         }
 
         return result;

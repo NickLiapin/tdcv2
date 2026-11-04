@@ -4513,6 +4513,40 @@
         "lines": ["x d;e;a", "y r;q", "y s;p", "y s;q"]
       }
     },
+    "mix-switch/a-time-axis-inside-a-subset-reads-the-row": {
+      "engine2": {
+        "lines": [
+          "1,100.0,100.0,false,b,,0",
+          "2,106.0,106.0,false,a,3,10",
+          "3,110.4,110.4,false,b,,20",
+          "4,112.0,0,true,b,,30",
+          "5,110.4,110.4,false,a,5,x",
+          "6,106.0,106.0,false,b,,50",
+          "7,100.0,100.0,false,b,,60",
+          "8,94.0,94.0,false,b,,70",
+          "9,89.6,89.6,false,a,-5,x",
+          "10,88.0,0,true,a,-6,90",
+          "11,89.6,0,true,a,-5,100",
+          "12,94.0,94.0,false,a,-3,110"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "1,100.0,100.0,false,b,,0",
+          "2,106.0,106.0,false,a,3,10",
+          "3,110.4,110.4,false,b,,20",
+          "4,112.0,0,true,b,,30",
+          "5,110.4,110.4,false,a,5,x",
+          "6,106.0,106.0,false,b,,50",
+          "7,100.0,100.0,false,b,,60",
+          "8,94.0,94.0,false,b,,70",
+          "9,89.6,89.6,false,a,-5,x",
+          "10,88.0,0,true,a,-6,90",
+          "11,89.6,0,true,a,-5,100",
+          "12,94.0,94.0,false,a,-3,110"
+        ]
+      }
+    },
     "nested-paths/conditions-read-fields-three-pools-deep": {
       "engine2": {
         "lines": [

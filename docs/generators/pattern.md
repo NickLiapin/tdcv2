@@ -667,6 +667,9 @@ Things worth knowing about `density`:
   [streaming engines](../guides/large-outputs.md#top).
 - **The file is read once,** at the start of the run, and turned into geometry — the
   cost doesn't scale with the row count.
+- **Inside a [`<mix>`](../constructs/mix.md#top) case or under `parent=`** the drawing is
+  still stretched over the whole run: row 7 reads the curve where row 7 of the file
+  sits, whichever branch produced it.
 
 ## Check it by hand
 

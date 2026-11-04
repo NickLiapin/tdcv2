@@ -29,7 +29,8 @@ the outputs on this page are exact, not just illustrative.
 
 :::note[Under `parent=` the numbers are still 1..N, in an order the seed picks]
 A counter on a [child sequence](../guides/hierarchical-dependencies.mdx) numbers only the
-rows the parent kept. Those rows carry exactly `1..N` with no gaps and no repeats — but
+rows the parent kept, and a counter inside a [`<mix>`](../constructs/mix.mdx) case only the
+rows that case got. Those rows carry exactly `1..N` with no gaps and no repeats — but
 WHICH kept row gets which number is decided by the seed, so reading down the file you may
 see 6, 4, 5, 1, 2, 3 rather than 1, 2, 3, 4, 5, 6.
 

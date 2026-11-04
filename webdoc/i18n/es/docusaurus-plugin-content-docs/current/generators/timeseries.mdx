@@ -418,6 +418,9 @@ cambia cómo se mueve el ruido, no cuán grande es.
 - El eje del tiempo es el número de fila. Se lleva de forma natural con un
   [`increment`](counters.mdx) (un contador de días) o una columna
   [`date`](date.mdx) al lado, para que cada valor cargue una fecha real.
+- **Dentro de un caso de [`<mix>`](../constructs/mix.mdx) o bajo `parent=`** el eje
+  sigue siendo el de la corrida: la fila 7 lee la serie en 7, sea cual sea la rama que
+  la produjo. Una rama rara de «sensor atascado» abre huecos en la onda sin desplazarla.
 
 ## Vea también
 

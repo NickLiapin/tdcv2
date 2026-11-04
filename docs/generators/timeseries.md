@@ -438,6 +438,9 @@ the noise moves, not how big it is.
 - The time axis is the row number. It pairs naturally with an
   [`increment`](counters.md#top) (a day counter) or a [`date`](date.md#top) column beside
   it, so each value carries a real date.
+- **Inside a [`<mix>`](../constructs/mix.md#top) case or under `parent=`** the axis is
+  still the run's: row 7 reads the series at 7, whichever branch produced it. A rare
+  "sensor stuck" branch punches holes in the wave without shifting it.
 
 ## See also
 

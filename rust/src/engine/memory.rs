@@ -3064,8 +3064,10 @@ fn timeseries_keyed(
         } else {
             0.0
         };
+        // Read at the ROW: inside a `parent=` child or a `<mix>` case, row 7 is
+        // still row 7 of the run, not the 7th slot the subset was dealt.
         result.push(crate::numbers::to_fixed(
-            timeseries::value_at(&spec, i as i64, z),
+            timeseries::value_at(&spec, stream.row_at(i) as i64, z),
             spec.decimals,
         ));
     }
@@ -3084,7 +3086,14 @@ fn pattern_keyed(
 ) -> EngineResult<Vec<String>> {
     let gen = crate::pattern::PatternGen::of(attrs, env.base_dir, env.packs.data_roots())?;
     let draws = gen.draws();
-    let denom = if count > 1 { (count - 1) as f64 } else { 1.0 };
+    // A subset reads the run's curve at its own rows, so the curve is stretched
+    // over the whole run, not over the rows the subset was dealt.
+    let span = if stream.rows.is_some() {
+        env.config.count.max(0) as usize
+    } else {
+        count
+    };
+    let denom = if span > 1 { (span - 1) as f64 } else { 1.0 };
     let mut result = Vec::with_capacity(count);
     for i in 0..count {
         let u = if draws {
@@ -3097,7 +3106,7 @@ fn pattern_keyed(
         } else {
             0.0
         };
-        result.push(gen.value_at(i as f64 / denom, u));
+        result.push(gen.value_at(stream.row_at(i) as f64 / denom, u));
     }
     Ok(result)
 }

@@ -2613,14 +2613,20 @@ def _timeseries(attrs: dict[str, str], count: int, run: _Run) -> list[str]:
         if spec.has_noise():
             row = per_row.absolute_row(run, i) if key_pair is not None else i
             z = timeseries.correlated_noise(spec, row, lambda k, r=row: innovations(r, k))
-        out.append(timeseries.format_value(timeseries.value_at(spec, i, z), spec.decimals))
+        # Read at the ROW: inside a ``parent=`` child or a ``<mix>`` case, row 7 is still row 7 of
+        # the run, not the 7th slot the subset was dealt.
+        at = per_row.absolute_row(run, i)
+        out.append(timeseries.format_value(timeseries.value_at(spec, at, z), spec.decimals))
     return out
 
 
 def _pattern(attrs: dict[str, str], count: int, run: _Run) -> list[str]:
     resolved = patterns.of(attrs, run.base_dir, run.packs.data_roots)
     draws = patterns.draws(resolved)
-    denom = count - 1 if count > 1 else 1
+    # A subset reads the run's curve at its own rows, so the curve is stretched over the whole
+    # run, not over the rows the subset was dealt.
+    span = run.config.count if run.rows is not None else count
+    denom = span - 1 if span > 1 else 1
     key_pair = per_row.keyed(run)
 
     def band(i: int) -> float:
@@ -2633,7 +2639,10 @@ def _pattern(attrs: dict[str, str], count: int, run: _Run) -> list[str]:
         seed, stream_id = key_pair
         return seekable.uniforms(seed, f"{stream_id}:pat", per_row.absolute_row(run, i), 1)[0]
 
-    return [patterns.value_at(resolved, i / denom, band(i)) for i in range(count)]
+    return [
+        patterns.value_at(resolved, per_row.absolute_row(run, i) / denom, band(i))
+        for i in range(count)
+    ]
 
 
 def _formula(spec, columns: dict[str, list[str]], count: int, sequential: bool = False) -> None:

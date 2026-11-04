@@ -1261,10 +1261,12 @@ public sealed class StreamEngine
         {
             Timeseries.Spec spec = Timeseries.Parse(attrs);
             bool noisy = spec.HasNoise;
+            // The value is read at the ROW, not at the population index a subset hands out: the
+            // time axis is the run's, so a `<mix>` case or a `parent=` child continues the same
+            // wave.
             return InlineBuilt(mod, row =>
             {
-                int? r = domain.PopIndexAt(row);
-                if (r is null)
+                if (domain.PopIndexAt(row) is null)
                 {
                     return null;
                 }
@@ -1289,7 +1291,7 @@ public sealed class StreamEngine
                 }
 
                 return Stats.Distribution.ToFixed(
-                    Timeseries.ValueAt(spec, r.Value, z), spec.Decimals);
+                    Timeseries.ValueAt(spec, row, z), spec.Decimals);
             }, streamId, gen, domain);
         }
 
@@ -1297,11 +1299,12 @@ public sealed class StreamEngine
         {
             Pattern.PatternGen drawing =
                 Pattern.PatternGen.Of(attrs, _baseDir, _packs.DataRoots);
-            double denom = domain.Size > 1 ? domain.Size - 1 : 1;
+            // Stretched across the run, inside a subset too: row `row` of `_count` reads at
+            // row/(_count-1).
+            double denom = _count > 1 ? _count - 1 : 1;
             return InlineBuilt(mod, row =>
             {
-                int? r = domain.PopIndexAt(row);
-                if (r is null)
+                if (domain.PopIndexAt(row) is null)
                 {
                     return null;
                 }
@@ -1309,7 +1312,7 @@ public sealed class StreamEngine
                 double u = drawing.Draws
                     ? Seekable.Uniforms(_seed, streamId + ":pat", row, 1)[0]
                     : 0;
-                return drawing.ValueAt(r.Value / denom, u);
+                return drawing.ValueAt(row / denom, u);
             }, streamId, gen, domain);
         }
 

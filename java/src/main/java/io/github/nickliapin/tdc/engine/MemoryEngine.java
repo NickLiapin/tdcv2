@@ -3019,7 +3019,8 @@ public final class MemoryEngine {
     }
     if ("pattern".equals(gen.type())) {
       return finishKeyed(
-          patternKeyed(gen.attrs(), count, baseDir, stream), gen, prng, anomalyFlags, stream,
+          patternKeyed(gen.attrs(), count, config.count(), baseDir, stream), gen, prng, anomalyFlags,
+          stream,
           siblings == null ? null : new Neighbours(siblings, null));
     }
 
@@ -3292,7 +3293,11 @@ public final class MemoryEngine {
         final int row = stream.rowAt(i);
         z = Timeseries.correlatedNoise(spec, row, k -> ring.read(row, k, draw));
       }
-      out.add(io.github.nickliapin.tdc.lib.Fixed.toFixed(Timeseries.valueAt(spec, i, z), spec.decimals()));
+      // Read at the ROW: inside a `parent=` child or a `<mix>` case, row 7 is still row 7 of the
+      // run, not the 7th slot the subset was dealt.
+      out.add(
+          io.github.nickliapin.tdc.lib.Fixed.toFixed(
+              Timeseries.valueAt(spec, stream.rowAt(i), z), spec.decimals()));
     }
     return out;
   }
@@ -3300,21 +3305,24 @@ public final class MemoryEngine {
   /**
    * {@code <gen type="pattern">} keyed by the row.
    *
-   * <p>As with timeseries: the curve is read at the POSITION, and the one draw that places the
-   * value inside its band is keyed by the ROW on the streaming engine's {@code :pat} stream.
+   * <p>As with timeseries: the curve is read at the ROW, and so is the one draw that places the
+   * value inside its band, on the streaming engine's {@code :pat} stream. A subset reads the run's
+   * curve at its own rows, so the curve is stretched over the whole run ({@code total}), not over
+   * the rows the subset was dealt.
    */
   private static List<String> patternKeyed(
-      Map<String, String> attrs, int count, Path baseDir, PerRow.Stream stream) {
+      Map<String, String> attrs, int count, int total, Path baseDir, PerRow.Stream stream) {
     PatternGen gen = PatternGen.of(attrs, baseDir);
     boolean draws = gen.draws();
-    double denom = count > 1 ? count - 1 : 1;
+    int span = stream.rows() != null ? total : count;
+    double denom = span > 1 ? span - 1 : 1;
     List<String> out = new ArrayList<>(count);
     for (int i = 0; i < count; i++) {
       double u =
           draws
               ? Seekable.uniforms(stream.seed(), stream.id() + ":pat", stream.rowAt(i), 1)[0]
               : 0;
-      out.add(gen.valueAt(i / denom, u));
+      out.add(gen.valueAt(stream.rowAt(i) / denom, u));
     }
     return out;
   }

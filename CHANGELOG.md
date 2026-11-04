@@ -28,6 +28,14 @@ page — is tracked in that implementation's own changelog:
   perfectly well as text. A `parent=` on a pool reference blanks its fields the same way. Such
   columns are now `OPTIONAL`, and the empty rows are `null`. A declared `type=` keeps its rule:
   without `|null`, an empty value is still an error.
+- **A `timeseries` or `pattern` inside a `<mix>` case or under `parent=` keeps the run's time
+  axis — in all five, on every engine.** It was read at the slot the subset was dealt, which is a
+  position in a shuffled order, so a wave inside `<mix percent="99,1">` came out scrambled even on
+  the rows where only the first case fired. Row 7 now reads the series at 7 whichever branch
+  produced it, and a drawn curve is stretched over the whole run. Both engines erred the same way,
+  which is why no fixture noticed; one does now. Counters are unchanged on purpose: inside a
+  subset they number `1..N` in the order the seed picks, as `counters.mdx` explains. Found by the
+  article agent building a stuck-sensor example.
 - **`missing_as` keeps a Parquet column as text.** `missing="0.5" missing_as="NULL"` on a number
   was typed `int64`, and the first missing row stopped the run on `"NULL" is not an integer`. The
   word is what the cell holds, so the column is `string`, as with `mask` and `case`.

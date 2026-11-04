@@ -112,6 +112,11 @@ export type UniqPlan = Readonly<Record<string, UniqArrangement>>;
 
 export interface SequenceBuildOptions {
   /**
+   * The rows of the whole run, for a time axis read inside a subset. Set by the
+   * streaming registry for its own run; see `SequenceBuildContext.total`.
+   */
+  readonly total?: number | undefined;
+  /**
    * This build is ONE ROW of a bigger one — a pack generator's body, built for
    * a single row of the column that names it. Carried through so the body's own
    * sequences know it too: a one-row build has no column to plan over, and
@@ -332,6 +337,7 @@ export function buildSequences(
   options: SequenceBuildOptions = {},
 ): SequenceRegistry {
   const ctx: SequenceBuildContext = {
+    total: count,
     regexMaxLength: options.regexMaxLength,
     dataSources: options.dataSources ?? {},
     packs: options.packs,
@@ -1417,8 +1423,10 @@ function buildGenValuesRaw(
       return cGen(count, prng).slice();
     }
     case 'timeseries': {
-      // Index-dependent (like counters): value(i) uses the row index; noise is a
-      // per-row standard-normal draw (2 uniforms) when present.
+      // Index-dependent: the value is read at the ROW — the time axis is the
+      // run's, so inside a `parent=` child or a `<mix>` case row 7 is still row 7,
+      // not the 7th slot the subset was dealt. Noise is a per-row standard-normal
+      // draw (2 uniforms) when present.
       const spec = parseTimeseries(gen.attrs);
       const noisy = timeseriesHasNoise(spec);
       const keyed = keyedDraws(ctx);
@@ -1439,7 +1447,7 @@ function buildGenValuesRaw(
           const row = keyed ? absoluteRow(ctx, i) : i;
           z = correlatedNoise(spec, row, (k) => innovations(row, k));
         }
-        out[i] = formatTimeseries(timeseriesValueAt(spec, i, z), spec.decimals);
+        out[i] = formatTimeseries(timeseriesValueAt(spec, absoluteRow(ctx, i), z), spec.decimals);
       }
       return out;
     }
@@ -1451,18 +1459,20 @@ function buildGenValuesRaw(
       const draws = patternGenDraws(pg);
       const keyed = keyedDraws(ctx);
       const out = new Array<string>(count);
-      const denom = count > 1 ? count - 1 : 1;
+      // A subset reads the run's curve at its own rows, so the curve is stretched
+      // over the whole run, not over the rows the subset was dealt.
+      const span = ctx.rows ? (ctx.total ?? count) : count;
+      const denom = span > 1 ? span - 1 : 1;
       for (let i = 0; i < count; i++) {
-        // As with timeseries: the curve is read at the position, the one draw
-        // inside the band is keyed by the row on the streaming engine's `:pat`
-        // stream.
+        // As with timeseries: the curve is read at the row, the one draw inside
+        // the band is keyed by the row on the streaming engine's `:pat` stream.
         const u = !draws
           ? 0
           : keyed
             ? (seekableUniforms(keyed.seed, `${keyed.streamId}:pat`, absoluteRow(ctx, i), 1)[0] ??
               0.5)
             : openUnit(prng());
-        out[i] = patternGenValue(pg, i / denom, u);
+        out[i] = patternGenValue(pg, absoluteRow(ctx, i) / denom, u);
       }
       return out;
     }

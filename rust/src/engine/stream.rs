@@ -2819,7 +2819,10 @@ impl StreamEngine<'_> {
                 stream,
                 modifier,
             } => {
-                let Some(r) = self.pop_index_at(domain, row)? else {
+                // The value is read at the ROW, not at the population index a
+                // subset hands out: the time axis is the run's, so a `<mix>`
+                // case or a `parent=` child continues the same wave.
+                let Some(_) = self.pop_index_at(domain, row)? else {
                     return Ok(None);
                 };
                 let z = if spec.has_noise() {
@@ -2845,7 +2848,7 @@ impl StreamEngine<'_> {
                     0.0
                 };
                 let value =
-                    numbers::to_fixed(timeseries::value_at(spec, i64::from(r), z), spec.decimals);
+                    numbers::to_fixed(timeseries::value_at(spec, i64::from(row), z), spec.decimals);
                 self.modify(modifier, row, Some(value), 0)
             }
 
@@ -2855,11 +2858,13 @@ impl StreamEngine<'_> {
                 stream,
                 modifier,
             } => {
-                let Some(r) = self.pop_index_at(domain, row)? else {
+                // Stretched across the run, inside a subset too: row `row` of
+                // `count` reads at row/(count−1).
+                let Some(_) = self.pop_index_at(domain, row)? else {
                     return Ok(None);
                 };
-                let denom = if domain.size > 1 {
-                    f64::from(domain.size - 1)
+                let denom = if self.count > 1 {
+                    (self.count - 1) as f64
                 } else {
                     1.0
                 };
@@ -2868,7 +2873,7 @@ impl StreamEngine<'_> {
                 } else {
                     0.0
                 };
-                let value = drawing.value_at(f64::from(r) / denom, u);
+                let value = drawing.value_at(f64::from(row) / denom, u);
                 self.modify(modifier, row, Some(value), 0)
             }
 

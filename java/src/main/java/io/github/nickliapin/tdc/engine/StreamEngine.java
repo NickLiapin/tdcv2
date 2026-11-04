@@ -1219,9 +1219,11 @@ public final class StreamEngine {
       boolean noisy = spec.hasNoise();
       return inlineBuilt(
           mod,
+              // The value is read at the ROW, not at the population index a subset hands out: the
+              // time axis is the run's, so a `<mix>` case or a `parent=` child continues the
+              // same wave.
               row -> {
-                Integer r = domain.popIndexAt().apply(row);
-                if (r == null) {
+                if (domain.popIndexAt().apply(row) == null) {
                   return null;
                 }
                 double z = 0;
@@ -1242,7 +1244,7 @@ public final class StreamEngine {
                             return Timeseries.standardNormal(u[0], u[1]);
                           });
                 }
-                return format(Timeseries.valueAt(spec, r, z), spec.decimals());
+                return format(Timeseries.valueAt(spec, row, z), spec.decimals());
               },
           streamId,
           gen,
@@ -1251,17 +1253,18 @@ public final class StreamEngine {
 
     if ("pattern".equals(type)) {
       PatternGen drawing = PatternGen.of(attrs, baseDir, packs.dataRoots());
-      double denom = domain.size() > 1 ? domain.size() - 1 : 1;
+      // Stretched across the run, inside a subset too: row `row` of `count` reads at
+      // row/(count-1).
+      double denom = count > 1 ? count - 1 : 1;
       return inlineBuilt(
           mod,
               row -> {
-                Integer r = domain.popIndexAt().apply(row);
-                if (r == null) {
+                if (domain.popIndexAt().apply(row) == null) {
                   return null;
                 }
                 double u =
                     drawing.draws() ? Seekable.uniforms(seed, streamId + ":pat", row, 1)[0] : 0;
-                return drawing.valueAt(r / denom, u);
+                return drawing.valueAt(row / denom, u);
               },
           streamId,
           gen,

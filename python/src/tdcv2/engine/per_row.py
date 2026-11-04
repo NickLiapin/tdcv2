@@ -98,9 +98,10 @@ def keyed(run: _Run) -> tuple[str, str] | None:
 def absolute_row(run: _Run, position: int) -> int:
     """The absolute row a drawn position belongs to.
 
-    Index-dependent generators — counters, timeseries, a pattern stretched over the run —
-    read the POSITION for their value, and the streaming engine does the same. Their random
-    draws are keyed by the row instead, which is why the two numbers have to be told apart.
+    Counters read the POSITION for their value, and the streaming engine does the same. Their
+    random draws are keyed by the row instead, which is why the two numbers have to be told
+    apart — and so is a time axis (timeseries, a pattern stretched over the run), whose row 7
+    is row 7 of the run whichever subset produced it.
     """
     if run.rows is None:
         return position

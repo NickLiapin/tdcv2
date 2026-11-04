@@ -36,7 +36,8 @@ página son exactas, no solo ilustrativas.
 > **Bajo `parent=` los números siguen siendo 1..N, en un orden que elige la semilla**
 >
 > Un contador en una [secuencia hija](../guides/hierarchical-dependencies.md#top) numera solo las
-> filas que el padre conservó. Esas filas llevan exactamente `1..N` sin huecos ni repeticiones,
+> filas que el padre conservó, y un contador dentro de un caso de
+> [`<mix>`](../constructs/mix.md#top) solo las filas que recibió ese caso. Esas filas llevan exactamente `1..N` sin huecos ni repeticiones,
 > pero CUÁL de ellas recibe qué número lo decide la semilla, así que al leer el archivo de
 > arriba abajo puede ver 6, 4, 5, 1, 2, 3 en lugar de 1, 2, 3, 4, 5, 6.
 >

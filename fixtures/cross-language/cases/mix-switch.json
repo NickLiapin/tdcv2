@@ -486,6 +486,25 @@
       "description": "A pool is always built by the in-memory engine, so there the lost repeat= reached every engine: a hospital config's chronic_conditions came out one condition a patient in all four ports.",
       "config": "<tdc><env count=\"4\" seed=\"s\" local=\"en\"><pool name=\"Pat\" count=\"6\"><sequence name=\"pid\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"G\"><gen type=\"text\" value=\"x,y\"/></sequence><switch name=\"L\" on=\"G\"><case is=\"x\"><gen type=\"text\" value=\"a,b,c,d,e\" repeat=\"1..3\" separator=\";\" distinct=\"true\"/></case><default><gen type=\"text\" value=\"p,q,r,s\" repeat=\"2\" separator=\";\"/></default></switch></pool><sequence name=\"P\"><gen type=\"pool\" value=\"Pat\" filter=\"pid == _count\"/></sequence></env><block><line><data>${{P.G}} ${{P.L}}</data></line></block></tdc>",
       "expected": ["x d;e;a", "y r;q", "y s;p", "y s;q"]
+    },
+    {
+      "name": "a-time-axis-inside-a-subset-reads-the-row",
+      "description": "A timeseries inside a <mix> case, a timeseries under parent=, and a pattern inside a <mix> case. Each used to be read at the slot the subset was dealt — a position in a SHUFFLED order — so the wave came out scrambled even on rows where only the first case fired, in both engines and all five implementations alike, which is why no case noticed. The time axis is the run's: Load equals Plain on every row the first case keeps, Child follows the same 12-row period on the rows G kept, and Shape climbs 0, 10, 20 … down the file with holes where the second case fired. Counters are not on this list on purpose: under a subset they number 1..N in seed order, as counters.mdx says. Reported by the article agent.",
+      "config": "<tdc><env count=\"12\" seed=\"plant\"><sequence name=\"Plain\"><gen type=\"timeseries\" base=\"100\" period=\"12\" amplitude=\"12\" decimals=\"1\"/></sequence><mix name=\"Load\" percent=\"75,25\" flag=\"Stuck\"><case><gen type=\"timeseries\" base=\"100\" period=\"12\" amplitude=\"12\" decimals=\"1\"/></case><case anomaly=\"true\"><gen type=\"number\" value=\"0\"/></case></mix><sequence name=\"G\"><gen type=\"text\" value=\"a,b\"/></sequence><sequence name=\"Child\" parent=\"G.a\"><gen type=\"timeseries\" base=\"0\" period=\"12\" amplitude=\"6\"/></sequence><mix name=\"Shape\" percent=\"80,20\"><case><gen type=\"pattern\" points=\"0,0  100,100\" y_range=\"0..110\"/></case><case><data>x</data></case></mix></env><block><line><data>${{_count}},${{Plain}},${{Load}},${{Stuck}},${{G}},${{Child}},${{Shape}}</data></line></block></tdc>",
+      "expected": [
+        "1,100.0,100.0,false,b,,0",
+        "2,106.0,106.0,false,a,3,10",
+        "3,110.4,110.4,false,b,,20",
+        "4,112.0,0,true,b,,30",
+        "5,110.4,110.4,false,a,5,x",
+        "6,106.0,106.0,false,b,,50",
+        "7,100.0,100.0,false,b,,60",
+        "8,94.0,94.0,false,b,,70",
+        "9,89.6,89.6,false,a,-5,x",
+        "10,88.0,0,true,a,-6,90",
+        "11,89.6,0,true,a,-5,100",
+        "12,94.0,94.0,false,a,-3,110"
+      ]
     }
   ]
 }
