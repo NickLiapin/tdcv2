@@ -38,6 +38,10 @@ que usted escribe o lee quedan fuera; todos los cambios están en el
   `count` de la ejecución, así que mil médicos con un número de consulta único avisaban de 48 MB
   en una ejecución larga. Ahora decide el `count` del propio pool. →
   [`TDC299`](./reference/errors.mdx#formato-y-modificadores)
+- **`if=` o `default=` en un `<case>` es un error en todos los paquetes**, `TDC128`. Ninguno se
+  leía nunca —un `<mix>` reparte las ramas por cuotas y un `<switch>` por la clave `is=`—, y los
+  paquetes de Python, Rust, Java y C# los aceptaban en silencio. →
+  [`TDC128`](./reference/errors.mdx#generadores)
 - **`tdcv2 big.tdc | head` termina en silencio** en los paquetes de TypeScript y Python. Antes,
   cuando `head` cerraba la tubería, imprimían un error EPIPE y salían con 1; ahora salen con 0,
   como ya hacían los otros tres. → [Códigos de salida](./reference/cli.mdx#códigos-de-salida)

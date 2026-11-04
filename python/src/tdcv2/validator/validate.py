@@ -3242,6 +3242,7 @@ class _Validator:
                         if first_anomalous is None:
                             first_anomalous = inner
                     self._check_closed_tag_attrs("case", inner.attr(), _line(inner), _column(inner))
+                    self._check_case_condition(inner, in_switch=False)
                     self._check_case_body(inner)
                 continue
             node = inner if inner is not None else self_closing
@@ -3408,6 +3409,7 @@ class _Validator:
                         _line(inner),
                         _column(inner),
                     )
+                self._check_case_condition(inner, in_switch=True)
                 self._check_case_body(inner)
             elif inner.name.text == "default":
                 entries += 1
@@ -6013,6 +6015,40 @@ class _Validator:
             line,
             column,
         )
+
+    def _check_case_condition(self, case_el, in_switch: bool) -> None:
+        """``if=`` or ``default=`` on a ``<case>`` reads as a condition, and nothing reads it.
+
+        ``<case if="Age < 18">`` looks like if/elif/else and silently hands out cases by share (a
+        ``<mix>``) or by key (a ``<switch>``) — wrong data that looks plausible. The reference has
+        refused both since the trap was found; this port accepted them until 0.3.7.
+        """
+        attrs = _attrs(case_el.attr())
+        for bad in ("if", "default"):
+            if bad not in attrs:
+                continue
+            line, column = _at(case_el, bad)
+            if in_switch:
+                self._error(
+                    "TDC128",
+                    f'"{bad}" on <case> is not supported — <switch> selects by the "is" key, not '
+                    "by condition",
+                    'Match keys go in `is` (e.g. is="US|CA"). For condition-driven values use '
+                    '<gen if="…"> in a <sequence>.',
+                    line,
+                    column,
+                )
+            else:
+                self._error(
+                    "TDC128",
+                    f'"{bad}" on <case> is not supported — <mix> picks cases by percentage, not by '
+                    "condition",
+                    "Case selection is random (Hamilton distribution over `percent`), not "
+                    'conditional. For condition-driven values use a <sequence> with <gen if="…"> '
+                    "branches. See the <mix> page in the documentation.",
+                    line,
+                    column,
+                )
 
     def _check_case_body(self, case_el) -> None:
         """What may sit inside a ``<case>``: literal text, one generator, or a nested mix.

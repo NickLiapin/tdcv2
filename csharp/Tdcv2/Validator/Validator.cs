@@ -3687,6 +3687,48 @@ public sealed class Validator
     }
 
     /// <summary>A mix needs branches, and only branches.</summary>
+    /// <summary>
+    /// <c>if=</c> or <c>default=</c> on a <c>&lt;case&gt;</c> reads as a condition, and nothing
+    /// reads it. <c>&lt;case if="Age &lt; 18"&gt;</c> looks like if/elif/else and silently hands
+    /// out cases by share (a <c>&lt;mix&gt;</c>) or by key (a <c>&lt;switch&gt;</c>) — wrong data
+    /// that looks plausible. The reference has refused both since the trap was found; this port
+    /// accepted them until 0.3.7.
+    /// </summary>
+    private void CheckCaseCondition(TDCParser.OpenCloseElementContext caseEl, bool inSwitch)
+    {
+        IReadOnlyDictionary<string, string> attrs = Attributes(caseEl.attr());
+        foreach (string bad in new[] { "if", "default" })
+        {
+            if (!attrs.ContainsKey(bad))
+            {
+                continue;
+            }
+
+            (int line, int column) = At(caseEl, bad);
+            if (inSwitch)
+            {
+                Error(
+                    "TDC128",
+                    $"\"{bad}\" on <case> is not supported — <switch> selects by the \"is\" key, not "
+                    + "by condition",
+                    "Match keys go in `is` (e.g. is=\"US|CA\"). For condition-driven values use "
+                    + "<gen if=\"…\"> in a <sequence>.",
+                    line, column);
+            }
+            else
+            {
+                Error(
+                    "TDC128",
+                    $"\"{bad}\" on <case> is not supported — <mix> picks cases by percentage, not by "
+                    + "condition",
+                    "Case selection is random (Hamilton distribution over `percent`), not conditional. "
+                    + "For condition-driven values use a <sequence> with <gen if=\"…\"> branches. "
+                    + "See the <mix> page in the documentation.",
+                    line, column);
+            }
+        }
+    }
+
     private void CheckMix(TDCParser.OpenCloseElementContext open) => CheckMix(open, true);
 
     /// <param name="named">
@@ -3720,6 +3762,7 @@ public sealed class Validator
                     }
 
                     CheckClosedTagAttrs("case", inner.attr(), Line(inner), Column(inner));
+                    CheckCaseCondition(inner, inSwitch: false);
                     CheckCaseBody(inner);
                 }
 
@@ -3903,6 +3946,7 @@ public sealed class Validator
                         Line(inner), Column(inner));
                 }
 
+                CheckCaseCondition(inner, inSwitch: true);
                 CheckCaseBody(inner);
             }
             else if (inner.name.Text == "default")

@@ -36,6 +36,9 @@ in the [changelog](https://github.com/NickLiapin/tdcv2/blob/main/CHANGELOG.md).
   run's `count`, so a thousand doctors with a unique room number warned about 48 MB on a long
   run. The pool's own `count` decides now. →
   [`TDC299`](./reference/errors.mdx#formatting-and-modifiers)
+- **`if=` or `default=` on a `<case>` is an error in every package**, `TDC128`. Neither was ever
+  read — a `<mix>` deals cases by share, a `<switch>` by the `is=` key — and the Python, Rust,
+  Java and C# packages accepted them in silence. → [`TDC128`](./reference/errors.mdx#generators)
 - **`tdcv2 big.tdc | head` ends quietly** in the TypeScript and Python packages. They used to
   print an EPIPE error and exit 1 when `head` closed the pipe; they now exit 0, as the other
   three did. → [Exit codes](./reference/cli.mdx#exit-codes)

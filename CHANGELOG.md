@@ -59,6 +59,12 @@ page — is tracked in that implementation's own changelog:
   run. The pool is built once, before the first row, so its own `count` is what the column holds:
   no warning there, and a 200,000-member pool warns even on a ten-row run. Found by the article
   agent.
+- **`if=` or `default=` on a `<case>` is refused in all five — `TDC128`.** Neither attribute is
+  read: a `<mix>` deals its cases by share and a `<switch>` picks one by its `is=` key, so
+  `<case if="Age < 18">` handed out cases at random while looking like if/elif/else. The
+  TypeScript reference has refused both since the trap was found; Python, Rust, Java and C#
+  accepted them in silence, so a config checked there failed `check` in TypeScript. Four shared
+  cases, checked to fail on the old ports. Found by the article agent.
 - **`tdcv2 big.tdc | head` ends quietly in TypeScript and Python.** `head` closes the pipe after
   its lines; the next write failed with EPIPE, and both printed the error and exited 1, as if the
   run had broken. They now stop at once and exit 0, as Rust, Java and C# already did. Found by the

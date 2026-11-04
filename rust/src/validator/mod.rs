@@ -5838,6 +5838,44 @@ impl Validator {
 
     // ── mix, switch, case ────────────────────────────────────────────────────
 
+    /// `if=` or `default=` on a `<case>` reads as a condition, and nothing reads it.
+    ///
+    /// `<case if="Age < 18">` looks like if/elif/else and silently hands out cases
+    /// by share (a `<mix>`) or by key (a `<switch>`) — wrong data that looks
+    /// plausible. The reference has refused both since the trap was found; this
+    /// port accepted them until 0.3.7.
+    fn check_case_condition(&mut self, case: &Element, in_switch: bool) {
+        for bad in ["if", "default"] {
+            if case.attr(bad).is_none() {
+                continue;
+            }
+            if in_switch {
+                self.error(
+                    "TDC128",
+                    format!(
+                        "\"{bad}\" on <case> is not supported — <switch> selects by the \"is\" \
+                         key, not by condition"
+                    ),
+                    "Match keys go in `is` (e.g. is=\"US|CA\"). For condition-driven values use \
+                     <gen if=\"…\"> in a <sequence>.",
+                    case.at(bad),
+                );
+            } else {
+                self.error(
+                    "TDC128",
+                    format!(
+                        "\"{bad}\" on <case> is not supported — <mix> picks cases by percentage, \
+                         not by condition"
+                    ),
+                    "Case selection is random (Hamilton distribution over `percent`), not \
+                     conditional. For condition-driven values use a <sequence> with <gen \
+                     if=\"…\"> branches. See the <mix> page in the documentation.",
+                    case.at(bad),
+                );
+            }
+        }
+    }
+
     /// A mix needs branches, and only branches.
     ///
     /// `named` is whether this mix sits at env level and can therefore own a flag
@@ -5857,6 +5895,7 @@ impl Validator {
                         first_anomalous.get_or_insert(child);
                     }
                     self.check_closed_tag_attrs("case", child);
+                    self.check_case_condition(child, false);
                     self.check_case_body(child);
                 }
                 continue;
@@ -6232,6 +6271,7 @@ impl Validator {
                             child.pos,
                         );
                     }
+                    self.check_case_condition(child, true);
                     self.check_case_body(child);
                 }
                 (Kind::OpenClose, "default") => {

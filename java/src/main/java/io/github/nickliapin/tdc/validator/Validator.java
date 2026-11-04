@@ -3294,6 +3294,39 @@ public final class Validator {
   }
 
   /** A mix needs branches, and only branches. */
+  /**
+   * {@code if=} or {@code default=} on a {@code <case>} reads as a condition, and nothing reads it.
+   *
+   * <p>{@code <case if="Age < 18">} looks like if/elif/else and silently hands out cases by share
+   * (a {@code <mix>}) or by key (a {@code <switch>}) — wrong data that looks plausible. The
+   * reference has refused both since the trap was found; this port accepted them until 0.3.7.
+   */
+  private void checkCaseCondition(TDCParser.OpenCloseElementContext caseEl, boolean inSwitch) {
+    Map<String, String> attrs = attributes(caseEl.attr());
+    for (String bad : List.of("if", "default")) {
+      if (!attrs.containsKey(bad)) {
+        continue;
+      }
+      int[] pos = at(caseEl, bad);
+      if (inSwitch) {
+        error("TDC128",
+            "\"" + bad + "\" on <case> is not supported — <switch> selects by the \"is\" key, not "
+                + "by condition",
+            "Match keys go in `is` (e.g. is=\"US|CA\"). For condition-driven values use "
+                + "<gen if=\"…\"> in a <sequence>.",
+            pos[0], pos[1]);
+      } else {
+        error("TDC128",
+            "\"" + bad + "\" on <case> is not supported — <mix> picks cases by percentage, not by "
+                + "condition",
+            "Case selection is random (Hamilton distribution over `percent`), not conditional. "
+                + "For condition-driven values use a <sequence> with <gen if=\"…\"> branches. "
+                + "See the <mix> page in the documentation.",
+            pos[0], pos[1]);
+      }
+    }
+  }
+
   private void checkMix(TDCParser.OpenCloseElementContext open) {
     checkMix(open, true);
   }
@@ -3323,6 +3356,7 @@ public final class Validator {
         }
         if (inner != null) {
           checkClosedTagAttrs("case", inner.attr(), line(inner), column(inner));
+          checkCaseCondition(inner, false);
           checkCaseBody(inner);
         }
         continue;
@@ -3459,6 +3493,7 @@ public final class Validator {
               "Give the match key(s): <case is=\"US\"> or multi-key <case is=\"US|CA|MX\">.",
               line(inner), column(inner));
         }
+        checkCaseCondition(inner, true);
         checkCaseBody(inner);
       } else if ("default".equals(inner.name.getText())) {
         entries++;

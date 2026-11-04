@@ -2,6 +2,34 @@
   "schemaVersion": 1,
   "cases": [
     {
+      "name": "a-condition-on-a-mix-case-is-refused",
+      "demonstrates": "TDC128",
+      "description": "if= on a <mix> case reads like if/elif/else and is never read: cases are dealt by share. The reference refused it; the four ports accepted it and handed out random cases until 0.3.7.",
+      "config": "<tdc><env count=\"4\" seed=\"t\"><mix name=\"C\" percent=\"50\"><case if=\"1 == 1\"><data>1</data></case><case><data>2</data></case></mix></env><block><line><data>${{C}}</data></line></block></tdc>",
+      "expected": ["error TDC128 1:66"]
+    },
+    {
+      "name": "default-on-a-mix-case-is-refused",
+      "demonstrates": "TDC128",
+      "description": "default= on a <mix> case is never read either. Refused in all five since 0.3.7; four ports used to accept it in silence.",
+      "config": "<tdc><env count=\"4\" seed=\"t\"><mix name=\"C\" percent=\"50\"><case default=\"true\"><data>1</data></case><case><data>2</data></case></mix></env><block><line><data>${{C}}</data></line></block></tdc>",
+      "expected": ["error TDC128 1:71"]
+    },
+    {
+      "name": "a-condition-on-a-switch-case-is-refused",
+      "demonstrates": "TDC128",
+      "description": "if= on a <switch> case: the case is chosen by its is= key and the condition is never read. Four ports used to accept it in silence.",
+      "config": "<tdc><env count=\"4\" seed=\"t\"><sequence name=\"X\"><gen type=\"text\" value=\"a,b\"/></sequence><switch name=\"C\" on=\"X\"><case is=\"a\" if=\"X == a\"><data>1</data></case><case is=\"b\"><data>2</data></case></switch></env><block><line><data>${{C}}</data></line></block></tdc>",
+      "expected": ["error TDC128 1:130"]
+    },
+    {
+      "name": "default-on-a-switch-case-is-refused",
+      "demonstrates": "TDC128",
+      "description": "default= on a <switch> case: the fallback is a <default> tag, and the attribute was never read. Four ports used to accept it in silence; found by the article agent.",
+      "config": "<tdc><env count=\"4\" seed=\"t\"><sequence name=\"X\"><gen type=\"text\" value=\"a,b\"/></sequence><switch name=\"C\" on=\"X\"><case is=\"a\" default=\"true\"><data>1</data></case><case is=\"b\"><data>2</data></case></switch></env><block><line><data>${{C}}</data></line></block></tdc>",
+      "expected": ["error TDC128 1:135"]
+    },
+    {
       "name": "unknown-child-of-sequence",
       "description": "An invented tag inside <sequence>. It used to validate and run: check said \"is valid\", exit 0, and the tag did nothing. <env> has always answered this.",
       "config": "<tdc><env count=\"2\" seed=\"p\" local=\"en\"><sequence name=\"A\"><gen type=\"number\" value=\"1..9\"/><bogus_tag/></sequence></env><block><line><data>x</data></line></block></tdc>",
