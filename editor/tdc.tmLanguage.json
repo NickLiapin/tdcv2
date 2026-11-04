@@ -25,6 +25,13 @@
       "end": "\"",
       "patterns": [{ "include": "#interpolation" }]
     },
+    "string-single": {
+      "comment": "A value in single quotes holds a \" as written — nothing is escaped.",
+      "name": "string.quoted.single.tdc",
+      "begin": "'",
+      "end": "'",
+      "patterns": [{ "include": "#interpolation" }]
+    },
     "attribute": {
       "patterns": [
         {
@@ -34,7 +41,8 @@
             "2": { "name": "punctuation.separator.key-value.tdc" }
           }
         },
-        { "include": "#string" }
+        { "include": "#string" },
+        { "include": "#string-single" }
       ]
     },
     "data-block": {

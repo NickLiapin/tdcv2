@@ -13,6 +13,20 @@ Las etiquetas `<compute>` llevan sus propios atributos (`v`, `sep`, `as`, `width
 etiqueta y se explica donde se explica esa etiqueta — ver la
 [referencia de compute](compute.mdx).
 
+## Cómo escribir un valor
+
+Un valor va entre comillas dobles: `value="a,b"`. Para poner un `"` dentro, encierre el
+valor entre comillas simples:
+
+```xml
+<gen type="text" value='say "hi",wave'/>
+<data if='City == "New York"'>…</data>
+```
+
+Dentro de un valor no se escapa nada — ni `\"` ni `&quot;` —, así que el otro tipo de
+comilla es la única forma de escribir una. Un valor no puede llevar los dos tipos a la vez;
+un texto así va en el cuerpo de un `<data>`, que toma cada carácter tal como está escrito.
+
 ## Entorno y configuración
 
 | Atributo        | Qué define                                         | Ver                                                        |

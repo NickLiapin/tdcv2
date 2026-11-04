@@ -59,7 +59,8 @@
     "uniqColumn": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"Code\" uniq=\"true\"><gen type=\"number\" value=\"1..9\"/></sequence></env><block><line><data>${{Code}}</data></line></block></tdc>",
     "runningOnEngine3": "<tdc><env count=\"4\" seed=\"s\" local=\"en\" engine=\"3\"><sequence name=\"N\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"R\"><gen type=\"running\" of=\"N\" accumulate=\"sum\"/></sequence></env><block><line><data>${{N}} ${{R}}</data></line></block></tdc>",
     "runningBig": "<tdc><env count=\"120000\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"R\"><gen type=\"running\" of=\"N\" accumulate=\"sum\"/></sequence></env><block><line><data>${{N}} ${{R}}</data></line></block></tdc>",
-    "offsetDistanceFraction": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"Start\"><gen type=\"date\" from=\"2026-03-02\" to=\"2026-03-09\"/></sequence><sequence name=\"Hrs\"><gen type=\"text\" value=\"1.5\"/></sequence><sequence name=\"End\"><gen type=\"date\" of=\"Start\" plus=\"Hrs h\"/></sequence></env><block><line><data>${{End}}</data></line></block></tdc>"
+    "offsetDistanceFraction": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"Start\"><gen type=\"date\" from=\"2026-03-02\" to=\"2026-03-09\"/></sequence><sequence name=\"Hrs\"><gen type=\"text\" value=\"1.5\"/></sequence><sequence name=\"End\"><gen type=\"date\" of=\"Start\" plus=\"Hrs h\"/></sequence></env><block><line><data>${{End}}</data></line></block></tdc>",
+    "singleQuoted": "<tdc><env count=\"2\"  seed=\"s\"><sequence name=\"Q\"><gen type=\"text\" value='say \"hi\"'/></sequence></env><block><line><data if='Q != \"\"'>${{Q}}</data></line></block></tdc>\n"
   },
   "cases": [
     {
@@ -708,6 +709,15 @@
       "argv": ["format"],
       "exit": 2,
       "stderrContains": ["file is required"]
+    },
+    {
+      "name": "format keeps a value in the quotes it was written with",
+      "files": {
+        "quoted.tdc": "@singleQuoted"
+      },
+      "argv": ["format", "{dir}/quoted.tdc"],
+      "exit": 0,
+      "stdout": "<tdc>\n    <env count=\"2\" seed=\"s\">\n        <sequence name=\"Q\">\n            <gen type=\"text\" value='say \"hi\"'/>\n        </sequence>\n    </env>\n    <block>\n        <line><data if='Q != \"\"'>${{Q}}</data></line>\n    </block>\n</tdc>\n"
     },
     {
       "name": "a project config's locale does not override what the config declares",

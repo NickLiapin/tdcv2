@@ -15,6 +15,19 @@ page — is tracked in that implementation's own changelog:
 
 ## [Unreleased]
 
+### Added
+
+- **A value can be quoted with `'` — in all five.** `value='say "hi"'` and
+  `if='City == "New York"'` hold a `"` as written; nothing inside a value is escaped, so the
+  other kind of quote is the only way to write one, and a double-quoted value still holds a `'`.
+  It works in every tag, `<data>` and `<map>` included, and in a paired `<data pair='x'>`.
+  `tdcv2 format` keeps the quote a value was written with, and writes a closing
+  `</data pair='…'>` in single quotes when the pair holds a `"` — it used to write a file that
+  no longer parsed. The editor support reads both: highlighting, completion inside
+  `type='…'`, go-to-definition and rename through `name='…'` and `parent='…'`. A single quote
+  was a `TDC001` until now, so no file that ran before reads differently. Asked for by Studio,
+  which had been writing a typed `"` as `&quot;` — six characters in the data.
+
 ### Fixed
 
 - **Parquet types a field reference by the field it reads — in all five.** `${{Dept.id}}`, where

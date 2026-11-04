@@ -238,7 +238,7 @@ fn find_tag_end(chars: &[char], start: usize) -> Option<usize> {
     None
 }
 
-/// The `pair="…"` value in a tag, as the reference's `\bpair\s*=\s*"([^"\r\n]*)"`.
+/// The `pair="…"` (or `pair='…'`) value in a tag, as the reference reads it.
 fn pair_value(tag: &[char]) -> Option<String> {
     let needle: Vec<char> = "pair".chars().collect();
     let mut at = 0usize;
@@ -257,17 +257,20 @@ fn pair_value(tag: &[char]) -> Option<String> {
             continue;
         }
         scan = skip_space(tag, scan + 1);
-        if tag.get(scan) != Some(&'"') {
-            at = found + 1;
-            continue;
-        }
+        let quote = match tag.get(scan) {
+            Some(&q) if q == '"' || q == '\'' => q,
+            _ => {
+                at = found + 1;
+                continue;
+            }
+        };
 
         scan += 1;
         let value_start = scan;
-        while scan < tag.len() && tag[scan] != '"' && tag[scan] != '\r' && tag[scan] != '\n' {
+        while scan < tag.len() && tag[scan] != quote && tag[scan] != '\r' && tag[scan] != '\n' {
             scan += 1;
         }
-        if tag.get(scan) == Some(&'"') {
+        if tag.get(scan) == Some(&quote) {
             return Some(text(&tag[value_start..scan]));
         }
         at = found + 1;

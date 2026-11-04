@@ -37,21 +37,28 @@ pub struct Attr {
 }
 
 impl Attr {
-    /// The value with the quotes taken off.
+    /// The value with the quotes taken off — `"` or `'`, closed by the one it
+    /// opened with.
     pub fn value(&self) -> &str {
-        let bytes = self.raw.as_bytes();
-        if bytes.len() >= 2 && bytes[0] == b'"' && bytes[bytes.len() - 1] == b'"' {
+        if self.quoted() {
             &self.raw[1..self.raw.len() - 1]
         } else {
             &self.raw
         }
     }
 
+    fn quoted(&self) -> bool {
+        let bytes = self.raw.as_bytes();
+        bytes.len() >= 2
+            && (bytes[0] == b'"' || bytes[0] == b'\'')
+            && bytes[bytes.len() - 1] == bytes[0]
+    }
+
     /// Where a complaint about this value should point: the first character
     /// inside the quotes. An editor underlines what a diagnostic points at, and
     /// a whole tag is not what is wrong when one attribute is.
     pub fn at(&self) -> Pos {
-        let quoted = self.raw.len() >= 2 && self.raw.starts_with('"') && self.raw.ends_with('"');
+        let quoted = self.quoted();
         Pos {
             line: self.value_pos.line,
             column: self.value_pos.column + i32::from(quoted),

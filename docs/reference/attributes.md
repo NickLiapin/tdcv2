@@ -16,6 +16,20 @@ The `<compute>` tags have attributes of their own (`v`, `sep`, `as`, `width`, `f
 `from`, `to`, `size`, `pattern`, `default`). Each one belongs to a single tag and is
 covered where that tag is explained — see the [compute reference](compute.md#top).
 
+## Writing a value
+
+A value goes in double quotes: `value="a,b"`. To put a `"` inside one, quote the value
+with single quotes instead:
+
+```xml
+<gen type="text" value='say "hi",wave'/>
+<data if='City == "New York"'>…</data>
+```
+
+Nothing inside a value is escaped — not `\"`, not `&quot;` — so the other kind of quote
+is the only way to write one. A value cannot hold both kinds at once; text like that
+belongs in a `<data>` body, which takes every character as written.
+
 ## Environment & config
 
 | Attribute       | What it sets                                  | See                                                           |

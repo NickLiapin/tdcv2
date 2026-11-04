@@ -62,7 +62,7 @@ from ..generators import stat as stat_gen
 from ..lib import numbers
 from ..output import column_type
 from ..packs import DataPacks
-from ..parser import paired_data
+from ..parser import attr_quote, paired_data
 from ..parser.generated.TDCParser import TDCParser
 from ..pattern import curve
 from ..sequence import uniq_simple
@@ -7291,7 +7291,7 @@ def _at_attrs(attrs, name: str, line: int, column: int) -> tuple[int, int]:
     for attr in attrs:
         if attr.attrName is not None and attr.attrName.text == name and attr.attrValue is not None:
             text = attr.attrValue.text
-            quoted = len(text) >= 2 and text.startswith('"') and text.endswith('"')
+            quoted = attr_quote.is_quoted(text)
             return attr.attrValue.line, attr.attrValue.column + (1 if quoted else 0)
     return line, column
 

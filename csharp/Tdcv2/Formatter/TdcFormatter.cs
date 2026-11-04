@@ -264,8 +264,9 @@ public static class TdcFormatter
 
         string attrs = AttrString(body.attr());
         IReadOnlyDictionary<string, string> map = AttrMap(body.attr());
+        // The closer takes the quote that can hold the pair: ' when it has a ".
         string close = map.TryGetValue("pair", out string? pair)
-            ? "</data pair=\"" + pair + "\">"
+            ? (pair.Contains('"') ? "</data pair='" + pair + "'>" : "</data pair=\"" + pair + "\">")
             : "</data>";
         return "<data" + attrs + ">"
             + PairedData.Restore(body.dataContent().GetText()) + close;
@@ -374,13 +375,7 @@ public static class TdcFormatter
                 continue;
             }
 
-            string value = attr.attrValue?.Text ?? "";
-            if (value.Length >= 2 && value.StartsWith('"') && value.EndsWith('"'))
-            {
-                value = value[1..^1];
-            }
-
-            result[attr.attrName.Text] = value;
+            result[attr.attrName.Text] = Parser.AttrQuote.Unquote(attr.attrValue?.Text ?? "");
         }
 
         return result;
@@ -389,12 +384,18 @@ public static class TdcFormatter
     private static string AttrString(TDCParser.AttrContext[] attrs)
     {
         var result = new System.Text.StringBuilder();
-        foreach (KeyValuePair<string, string> entry in AttrMap(attrs))
+        foreach (TDCParser.AttrContext attr in attrs)
         {
-            if (entry.Key.Length > 0)
+            if (attr.attrName is null || attr.attrName.Text.Length == 0)
             {
-                result.Append(' ').Append(entry.Key).Append("=\"").Append(entry.Value).Append('"');
+                continue;
             }
+
+            string raw = attr.attrValue?.Text ?? "";
+            // A value keeps the quote it was written with: `'say "hi"'` cannot be written with
+            // any other.
+            string value = Parser.AttrQuote.IsQuoted(raw) ? raw : "\"" + raw + "\"";
+            result.Append(' ').Append(attr.attrName.Text).Append('=').Append(value);
         }
 
         return result.ToString();

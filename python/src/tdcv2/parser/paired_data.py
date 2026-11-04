@@ -169,7 +169,7 @@ def _find_tag_end(source: str, start: int) -> int:
 
 
 def _pair_value(tag_text: str) -> str | None:
-    """The ``pair="…"`` value in a tag, as the reference's ``\\bpair\\s*=\\s*"([^"\\r\\n]*)"``."""
+    """The ``pair="…"`` (or ``pair='…'``) value in a tag, as the reference reads it."""
     length = len(tag_text)
     at = 0
     while True:
@@ -186,15 +186,16 @@ def _pair_value(tag_text: str) -> str | None:
             at = found + 1
             continue
         scan = _skip_space(tag_text, scan + 1)
-        if scan >= length or tag_text[scan] != '"':
+        if scan >= length or tag_text[scan] not in "\"'":
             at = found + 1
             continue
 
+        quote = tag_text[scan]
         scan += 1
         value_start = scan
-        while scan < length and tag_text[scan] not in '"\r\n':
+        while scan < length and tag_text[scan] not in quote + "\r\n":
             scan += 1
-        if scan < length and tag_text[scan] == '"':
+        if scan < length and tag_text[scan] == quote:
             return tag_text[value_start:scan]
         at = found + 1
 

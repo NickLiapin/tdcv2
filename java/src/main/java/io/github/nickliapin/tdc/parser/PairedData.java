@@ -220,7 +220,7 @@ public final class PairedData {
     return -1;
   }
 
-  /** The {@code pair="…"} value in a tag, as the reference's {@code \bpair\s*=\s*"([^"\r\n]*)"} */
+  /** The {@code pair="…"} (or {@code pair='…'}) value in a tag, as the reference reads it. */
   private static String pairValue(String tagText) {
     int at = 0;
     while (true) {
@@ -240,21 +240,23 @@ public final class PairedData {
         continue;
       }
       scan = skipSpace(tagText, scan + 1);
-      if (scan >= tagText.length() || tagText.charAt(scan) != '"') {
+      if (scan >= tagText.length()
+          || (tagText.charAt(scan) != '"' && tagText.charAt(scan) != '\'')) {
         at = found + 1;
         continue;
       }
 
+      char quote = tagText.charAt(scan);
       scan++;
       int valueStart = scan;
       while (scan < tagText.length()) {
         char ch = tagText.charAt(scan);
-        if (ch == '"' || ch == '\r' || ch == '\n') {
+        if (ch == quote || ch == '\r' || ch == '\n') {
           break;
         }
         scan++;
       }
-      if (scan < tagText.length() && tagText.charAt(scan) == '"') {
+      if (scan < tagText.length() && tagText.charAt(scan) == quote) {
         return tagText.substring(valueStart, scan);
       }
       at = found + 1;

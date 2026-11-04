@@ -7579,7 +7579,7 @@ public final class Validator {
     for (TDCParser.AttrContext attr : attrs) {
       if (attr.attrName != null && name.equals(attr.attrName.getText()) && attr.attrValue != null) {
         String text = attr.attrValue.getText();
-        boolean quoted = text.length() >= 2 && text.startsWith("\"") && text.endsWith("\"");
+        boolean quoted = io.github.nickliapin.tdc.parser.AttrQuote.isQuoted(text);
         return new int[] {
           attr.attrValue.getLine(),
           attr.attrValue.getCharPositionInLine() + (quoted ? 1 : 0)

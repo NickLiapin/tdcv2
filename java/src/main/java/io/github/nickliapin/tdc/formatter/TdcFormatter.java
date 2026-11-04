@@ -220,7 +220,9 @@ public final class TdcFormatter {
       return "<data" + attrs + "/>";
     }
     String pair = attrMap(node).get("pair");
-    String close = pair != null ? "</data pair=\"" + pair + "\">" : "</data>";
+    // The closer takes the quote that can hold the pair: ' when it has a ".
+    char q = pair != null && pair.contains("\"") ? '\'' : '"';
+    String close = pair != null ? "</data pair=" + q + pair + q + ">" : "</data>";
     return "<data" + attrs + ">" + PairedData.restore(content.getText()) + close;
   }
 
@@ -332,20 +334,23 @@ public final class TdcFormatter {
         continue;
       }
       String value = attr.attrValue == null ? "" : attr.attrValue.getText();
-      if (value.length() >= 2 && value.startsWith("\"") && value.endsWith("\"")) {
-        value = value.substring(1, value.length() - 1);
-      }
-      out.put(attr.attrName.getText(), value);
+      out.put(attr.attrName.getText(), io.github.nickliapin.tdc.parser.AttrQuote.unquote(value));
     }
     return out;
   }
 
   private static String attrString(Object node) {
     StringBuilder out = new StringBuilder();
-    for (Map.Entry<String, String> entry : attrMap(node).entrySet()) {
-      if (!entry.getKey().isEmpty()) {
-        out.append(' ').append(entry.getKey()).append("=\"").append(entry.getValue()).append('"');
+    for (TDCParser.AttrContext attr : attrList(node)) {
+      if (attr.attrName == null || attr.attrName.getText().isEmpty()) {
+        continue;
       }
+      String raw = attr.attrValue == null ? "" : attr.attrValue.getText();
+      // A value keeps the quote it was written with: `'say "hi"'` cannot be written with any
+      // other.
+      String value =
+          io.github.nickliapin.tdc.parser.AttrQuote.isQuoted(raw) ? raw : "\"" + raw + "\"";
+      out.append(' ').append(attr.attrName.getText()).append('=').append(value);
     }
     return out.toString();
   }

@@ -8,7 +8,7 @@
  * a bit of normalisation.
  *
  * Attribute values are a special case: the `STRING` token includes the
- * surrounding double quotes, but when we want to underline the "bad
+ * surrounding quotes, but when we want to underline the "bad
  * thing" for the user it is nicer to point at the inside of the quotes.
  * `attrValueRange` handles that.
  */
@@ -16,6 +16,7 @@
 import type { ParserRuleContext, Token } from 'antlr4ng';
 
 import type { AttrContext } from '../generated/TDCParser.js';
+import { isQuotedValue } from '../parser/attr-quote.js';
 
 export interface Pos {
   readonly line: number;
@@ -85,8 +86,8 @@ export function attrValueRange(attr: AttrContext): Range {
   const valueToken: Token | undefined = attr._attrValue ?? undefined;
   if (!valueToken) return nodeRange(attr);
   const text = valueToken.text ?? '';
-  // The STRING token is "..." including quotes. Underline the insides.
-  const hasQuotes = text.startsWith('"') && text.endsWith('"') && text.length >= 2;
+  // The STRING token is "..." or '...' including quotes. Underline the insides.
+  const hasQuotes = isQuotedValue(text);
   const inside = hasQuotes ? text.slice(1, -1) : text;
   const startCol = hasQuotes ? valueToken.column + 1 : valueToken.column;
   return {

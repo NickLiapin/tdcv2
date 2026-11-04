@@ -369,7 +369,7 @@ final class ComputeCheck {
             ? "<" + tag + "> takes no attributes."
             : "Attributes of <" + tag + ">: " + candidates(new java.util.TreeSet<>(known)) + ".";
     String text = attr.attrValue.getText();
-    boolean quoted = text.length() >= 2 && text.startsWith("\"") && text.endsWith("\"");
+    boolean quoted = io.github.nickliapin.tdc.parser.AttrQuote.isQuoted(text);
     diagnostics.add(
         Diagnostic.error(
                 "TDC015",

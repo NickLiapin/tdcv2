@@ -22,6 +22,7 @@ import {
   DataWithBodyContext as DataWithBodyCtor,
   MapWithBodyContext as MapWithBodyCtor,
 } from '../generated/TDCParser.js';
+import { unquoteValue } from '../parser/attr-quote.js';
 import { restorePairedDataText } from '../parser/paired-data.js';
 
 import type { AttrMap } from './attrs.js';
@@ -51,10 +52,8 @@ export function extractAttrs(attrs: readonly AttrContext[]): AttrMap {
   for (const a of attrs) {
     const name = a._attrName?.text ?? '';
     const rawValue = a._attrValue?.text ?? '';
-    // STRING token includes surrounding double quotes; strip them.
-    const value =
-      rawValue.startsWith('"') && rawValue.endsWith('"') ? rawValue.slice(1, -1) : rawValue;
-    if (name) out[name] = value;
+    // The STRING token includes its quotes, of either kind; strip them.
+    if (name) out[name] = unquoteValue(rawValue);
   }
   return out;
 }

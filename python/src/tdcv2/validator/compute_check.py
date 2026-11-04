@@ -17,6 +17,7 @@ from dataclasses import dataclass
 from ..errors import Diagnostic
 from ..errors.diagnostic import closest_match
 from ..format.mask import apply_mask
+from ..parser import attr_quote
 
 _ENCODINGS = frozenset({"base36", "ascii", "unicode", "hex", "binary", "octal"})
 
@@ -256,7 +257,7 @@ class ComputeCheck:
             else f"<{tag}> takes no attributes."
         )
         text = attr.attrValue.text
-        quoted = len(text) >= 2 and text.startswith('"') and text.endswith('"')
+        quoted = attr_quote.is_quoted(text)
         self.diagnostics.append(
             Diagnostic.error(
                 "TDC015",

@@ -194,3 +194,22 @@ describe('computeCompletions — the offer respects the surroundings', () => {
     expect(got).not.toContain('gen');
   });
 });
+
+describe('computeCompletions — single-quoted values', () => {
+  // A value may be quoted with ' so it can hold a " — the offer reads both kinds.
+  it("offers generator types inside type='…'", () => {
+    expect(labelsAt("<gen type='|'/>")).toEqual(expect.arrayContaining(['text', 'number']));
+  });
+
+  it("keeps a ' inside a double-quoted value from ending it", () => {
+    expect(labelsAt('<gen type="text" if="A == \'x\' && |"/>')).not.toEqual(
+      expect.arrayContaining(['type', 'value']),
+    );
+  });
+
+  it("offers a single-quoted type's own attributes", () => {
+    const labels = labelsAt("<gen type='timeseries' |");
+    expect(labels).toContain('period');
+    expect(labels).not.toContain('y_range');
+  });
+});

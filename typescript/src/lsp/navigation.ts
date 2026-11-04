@@ -14,6 +14,16 @@
 import { ATTR_DOCS, TAG_DOCS } from './docs.js';
 import type { Position, Range } from './types.js';
 
+/** `parent="…"` or `parent='…'`; the value is group 2. */
+const PARENT_VALUE = /\bparent\s*=\s*(["'])([^"'\r\n]+)\1/g;
+/** `<sequence … name="…">`, either quote; the name is group 2. */
+const SEQUENCE_NAME = /<sequence\b[^>]*?\bname\s*=\s*(["'])([^"'\r\n]+)\1/g;
+
+/** Where `value` starts in the text: it ends right before the match's closing quote. */
+function valueStart(m: RegExpMatchArray, value: string): number {
+  return (m.index ?? 0) + m[0].length - 1 - value.length;
+}
+
 export type Token =
   | { readonly kind: 'tag'; readonly name: string; readonly range: Range }
   | { readonly kind: 'attr'; readonly name: string; readonly range: Range }
@@ -78,11 +88,11 @@ export function tokenAt(text: string, position: Position): Token | null {
 
   // 2. parent="Name(.value)" and 3. <sequence … name="Name"> — the VALUE is a
   //    sequence reference (parent target / the declaration naming itself).
-  for (const re of [/\bparent\s*=\s*"([^"]+)"/g, /<sequence\b[^>]*?\bname\s*=\s*"([^"]+)"/g]) {
+  for (const re of [PARENT_VALUE, SEQUENCE_NAME]) {
     for (const m of text.matchAll(re)) {
-      const val = m[1];
+      const val = m[2];
       if (val === undefined) continue;
-      const start = m.index + m[0].indexOf(`"${val}"`) + 1;
+      const start = valueStart(m, val);
       if (off >= start && off <= start + val.length)
         return refToken(text, val, start, start + val.length);
     }
@@ -99,7 +109,7 @@ export function tokenAt(text: string, position: Position): Token | null {
   }
 
   // 5. Attribute name.
-  for (const m of text.matchAll(/([A-Za-z_][\w-]*)\s*=\s*"/g)) {
+  for (const m of text.matchAll(/([A-Za-z_][\w-]*)\s*=\s*["']/g)) {
     const name = m[1];
     if (name === undefined) continue;
     if (off >= m.index && off <= m.index + name.length) {
@@ -113,9 +123,9 @@ export function tokenAt(text: string, position: Position): Token | null {
 // --- declarations & references ---------------------------------------------
 
 export function findSequenceDeclaration(text: string, name: string): Range | null {
-  for (const m of text.matchAll(/<sequence\b[^>]*?\bname\s*=\s*"([^"]+)"/g)) {
-    if (m[1] === name) {
-      const start = m.index + m[0].indexOf(`"${name}"`) + 1;
+  for (const m of text.matchAll(SEQUENCE_NAME)) {
+    if (m[2] === name) {
+      const start = valueStart(m, name);
       return rangeAt(text, start, start + name.length);
     }
   }
@@ -128,13 +138,13 @@ export function findReferences(text: string, base: string): Range[] {
   const push = (start: number): void => {
     out.push(rangeAt(text, start, start + base.length));
   };
-  for (const m of text.matchAll(/<sequence\b[^>]*?\bname\s*=\s*"([^"]+)"/g)) {
-    if (m[1] === base) push(m.index + m[0].indexOf(`"${base}"`) + 1);
+  for (const m of text.matchAll(SEQUENCE_NAME)) {
+    if (m[2] === base) push(valueStart(m, base));
   }
-  for (const m of text.matchAll(/\bparent\s*=\s*"([^"]+)"/g)) {
-    const val = m[1];
+  for (const m of text.matchAll(PARENT_VALUE)) {
+    const val = m[2];
     if (val !== undefined && (val === base || val.startsWith(`${base}.`))) {
-      push(m.index + m[0].indexOf(`"${val}"`) + 1);
+      push(valueStart(m, val));
     }
   }
   for (const m of text.matchAll(/\$\{\{\s*([\w.]+)\s*\}\}/g)) {

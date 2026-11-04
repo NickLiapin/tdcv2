@@ -236,8 +236,12 @@ fn data_string(element: &Element) -> String {
     if element.self_closed {
         return format!("<data{}/>", attrs(element));
     }
+    // The closer takes the quote that can hold the pair: `'` when it has a `"`.
     let close = match element.attr_value("pair") {
-        Some(pair) => format!("</data pair=\"{pair}\">"),
+        Some(pair) => {
+            let q = if pair.contains('"') { '\'' } else { '"' };
+            format!("</data pair={q}{pair}{q}>")
+        }
         None => "</data>".to_string(),
     };
     format!("<data{}>{}{close}", attrs(element), element.text)
@@ -299,7 +303,15 @@ fn attrs(element: &Element) -> String {
             None => seen.push(attr),
         }
     }
+    // A value keeps the quote it was written with: `'say "hi"'` cannot be
+    // written with any other.
     seen.iter()
-        .map(|a| format!(" {}=\"{}\"", a.name, a.value()))
+        .map(|a| {
+            if a.value() == a.raw {
+                format!(" {}=\"{}\"", a.name, a.raw)
+            } else {
+                format!(" {}={}", a.name, a.raw)
+            }
+        })
         .collect()
 }

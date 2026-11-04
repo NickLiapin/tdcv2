@@ -38,8 +38,10 @@ EQ       : '=' ;
 
 NAME : IDENT ;
 
-// Attribute values: double-quoted, no line breaks, no embedded '"'.
-STRING : '"' ~["\r\n]* '"' ;
+// Attribute values: quoted, no line breaks.
+// A value in double quotes, or in single quotes so it can hold a `"` — nothing is
+// escaped either way, so the other kind of quote is the only way to write one.
+STRING : '"' ~["\r\n]* '"' | '\'' ~['\r\n]* '\'' ;
 
 COMMENT  : '<!--' .*? '-->'  -> channel(HIDDEN) ;
 XML_DECL : '<?xml' .*? '?>'  -> channel(HIDDEN) ;
@@ -60,7 +62,7 @@ mode DATA_ATTRS;
 DATA_ATTRS_WS      : [ \t\r\n]+           -> channel(HIDDEN) ;
 DATA_ATTR_NAME     : IDENT                -> type(NAME) ;
 DATA_ATTR_EQ       : '='                  -> type(EQ) ;
-DATA_ATTR_STRING   : '"' ~["\r\n]* '"'    -> type(STRING) ;
+DATA_ATTR_STRING   : ('"' ~["\r\n]* '"' | '\'' ~['\r\n]* '\'') -> type(STRING) ;
 DATA_ATTR_GT       : '>'                  -> type(GT), mode(DATA_BODY) ;
 DATA_ATTR_SELFCLOSE: '/>'                 -> type(SLASH_GT), popMode ;
 
@@ -88,7 +90,7 @@ mode MAP_ATTRS;
 MAP_ATTRS_WS       : [ \t\r\n]+        -> channel(HIDDEN) ;
 MAP_ATTR_NAME      : IDENT             -> type(NAME) ;
 MAP_ATTR_EQ        : '='               -> type(EQ) ;
-MAP_ATTR_STRING    : '"' ~["\r\n]* '"' -> type(STRING) ;
+MAP_ATTR_STRING    : ('"' ~["\r\n]* '"' | '\'' ~['\r\n]* '\'') -> type(STRING) ;
 MAP_ATTR_GT        : '>'               -> type(GT), mode(MAP_BODY) ;
 MAP_ATTR_SELFCLOSE : '/>'              -> type(SLASH_GT), popMode ;
 

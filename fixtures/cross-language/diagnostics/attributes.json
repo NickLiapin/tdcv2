@@ -281,6 +281,13 @@
       "description": "A date measured from another column is the fourth member of the derived family — running, stat and formula are the other three — and it was the one nobody added. mask=, case=, missing=, missing_as=, anomaly=, repeat= and percent= all sat on it doing nothing while `check` called the config valid; measured over six rows, each byte-identical to the plain run. `missing=\"0.9\"` blanking 0 of 6 rows is the sharpest: a reader asking for gaps got a full column. Keyed on of= rather than on the type, because a plain type=\"date\" reads every one of them correctly.",
       "config": "<tdc><env count=\"6\" seed=\"a\"><sequence name=\"D\"><gen type=\"date\" value=\"2024-01-01..2024-12-31\"/></sequence><sequence name=\"L\"><gen type=\"date\" of=\"D\" plus=\"7d\" missing=\"0.9\"/></sequence></env><block><line><data>${{L}}</data></line></block></tdc>",
       "expected": ["error TDC015 1:170"]
+    },
+    {
+      "name": "a-single-quoted-value-is-pointed-at-inside-its-quotes",
+      "demonstrates": "TDC081",
+      "description": "A diagnostic about a value points at its first character inside the quotes — for a single-quoted value too, not at the quote itself.",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"N\"><gen type=\"number\" value='abc'/></sequence></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["error TDC081 1:74"]
     }
   ]
 }

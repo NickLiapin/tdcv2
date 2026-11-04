@@ -149,10 +149,10 @@ export function computeCompletions(
   if (lastLt <= lastGt) return []; // caret is in body text, not inside a tag
 
   const openTag = before.slice(lastLt); // e.g. '<gen type="te'
-  const insideValue = (openTag.match(/"/g) ?? []).length % 2 === 1;
+  const quote = openQuote(openTag);
 
-  if (insideValue) {
-    const m = /([A-Za-z_][\w-]*)\s*=\s*"([^"]*)$/.exec(openTag);
+  if (quote !== undefined) {
+    const m = new RegExp(`([A-Za-z_][\\w-]*)\\s*=\\s*${quote}[^${quote}]*$`).exec(openTag);
     if (!m?.[1]) return [];
     return valueCompletions(m[1], openTag, text, ctx);
   }
@@ -217,7 +217,8 @@ function openTags(text: string): string[] {
  */
 function genAttrCompletions(openTag: string): CompletionItem[] {
   const all = TAG_ATTRIBUTES['gen'] ?? [];
-  const type = /\btype\s*=\s*"([^"]*)"/.exec(openTag)?.[1];
+  const typeMatch = /\btype\s*=\s*(?:"([^"]*)"|'([^']*)')/.exec(openTag);
+  const type = typeMatch?.[1] ?? typeMatch?.[2];
   const known = type !== undefined && KNOWN_GEN_TYPES.includes(type);
   const attrs = !known
     ? all
@@ -262,12 +263,29 @@ function valueAttrCompletions(_openTag: string, ctx: CompletionContext): Complet
   return [...packs, ...builtins];
 }
 
+/**
+ * The quote a tag's text is still inside at its end, if any. A value opens
+ * with `"` or `'` and only the same quote closes it, so `if="A == 'x` is
+ * inside the double-quoted value.
+ */
+function openQuote(openTag: string): string | undefined {
+  let quote: string | undefined;
+  for (const ch of openTag) {
+    if (quote === undefined) {
+      if (ch === '"' || ch === "'") quote = ch;
+    } else if (ch === quote) {
+      quote = undefined;
+    }
+  }
+  return quote;
+}
+
 /** All `<sequence name="…">` names in the document (regex, parse-free). */
 function sequenceNames(text: string): string[] {
   const out: string[] = [];
-  const re = /<sequence\b[^>]*\bname\s*=\s*"([^"]+)"/g;
+  const re = /<sequence\b[^>]*\bname\s*=\s*(["'])([^"'\r\n]+)\1/g;
   for (let m = re.exec(text); m !== null; m = re.exec(text)) {
-    if (m[1]) out.push(m[1]);
+    if (m[2]) out.push(m[2]);
   }
   return out;
 }

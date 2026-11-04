@@ -232,7 +232,7 @@ public static class PairedData
     }
 
     /// <summary>
-    /// The <c>pair="…"</c> value in a tag, as the reference's <c>\bpair\s*=\s*"([^"\r\n]*)"</c>.
+    /// The <c>pair="…"</c> (or <c>pair='…'</c>) value in a tag, as the reference reads it.
     /// </summary>
     private static string? PairValue(string tagText)
     {
@@ -259,20 +259,21 @@ public static class PairedData
                 continue;
             }
             scan = SkipSpace(tagText, scan + 1);
-            if (scan >= tagText.Length || tagText[scan] != '"')
+            if (scan >= tagText.Length || (tagText[scan] != '"' && tagText[scan] != '\''))
             {
                 at = found + 1;
                 continue;
             }
 
+            char quote = tagText[scan];
             scan++;
             int valueStart = scan;
             while (scan < tagText.Length
-                && tagText[scan] != '"' && tagText[scan] != '\r' && tagText[scan] != '\n')
+                && tagText[scan] != quote && tagText[scan] != '\r' && tagText[scan] != '\n')
             {
                 scan++;
             }
-            if (scan < tagText.Length && tagText[scan] == '"')
+            if (scan < tagText.Length && tagText[scan] == quote)
             {
                 return tagText[valueStart..scan];
             }

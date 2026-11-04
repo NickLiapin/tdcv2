@@ -7496,6 +7496,24 @@
         ]
       }
     },
+    "structure/single-quoted-attribute-values": {
+      "engine2": {
+        "lines": [
+          "[say \"hi\"] it's D </data>",
+          "plain: [plain] it's P </data>",
+          "[say \"hi\"] it's D </data>",
+          "plain: [plain] it's P </data>"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "[say \"hi\"] it's D </data>",
+          "plain: [plain] it's P </data>",
+          "[say \"hi\"] it's D </data>",
+          "plain: [plain] it's P </data>"
+        ]
+      }
+    },
     "uniq-distinct/distinct-pair": {
       "engine2": {
         "lines": [

@@ -33,6 +33,7 @@ import {
   type SelfClosingElementContext,
 } from '../generated/TDCParser.js';
 import { DiagnosticCollector } from '../parser/error-listener.js';
+import { isQuotedValue } from '../parser/attr-quote.js';
 import { preprocessPairedData } from '../parser/paired-data.js';
 import type { AttrContext } from '../generated/TDCParser.js';
 import {
@@ -208,7 +209,9 @@ function dataString(node: DataElementContext): string {
   // Self-closing <data .../> has no body.
   if (isSelfClosed(node)) return `<data${attrs}/>`;
   const pair = extractDataAttrs(node)['pair'];
-  const close = pair !== undefined ? `</data pair="${pair}">` : '</data>';
+  // The closer takes the quote that can hold the pair: `'` when it has a `"`.
+  const q = pair?.includes('"') === true ? "'" : '"';
+  const close = pair !== undefined ? `</data pair=${q}${pair}${q}>` : '</data>';
   return `<data${attrs}>${body}${close}`;
 }
 
@@ -288,9 +291,10 @@ function attrString(node: object): string {
   let out = '';
   for (const a of attrListOf(node)) {
     const name = a._attrName?.text ?? '';
-    let val = a._attrValue?.text ?? '';
-    if (val.startsWith('"') && val.endsWith('"')) val = val.slice(1, -1);
-    if (name) out += ` ${name}="${val}"`;
+    const raw = a._attrValue?.text ?? '';
+    // A value keeps the quote it was written with: `'say "hi"'` cannot be
+    // written with any other.
+    if (name) out += ` ${name}=${isQuotedValue(raw) ? raw : `"${raw}"`}`;
   }
   return out;
 }

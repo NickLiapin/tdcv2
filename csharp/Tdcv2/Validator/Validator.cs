@@ -9131,8 +9131,7 @@ public sealed class Validator
             if (attr.attrName is not null && attr.attrName.Text == name && attr.attrValue is not null)
             {
                 string text = attr.attrValue.Text;
-                bool quoted = text.Length >= 2
-                    && text.StartsWith('"') && text.EndsWith('"');
+                bool quoted = Parser.AttrQuote.IsQuoted(text);
                 return (attr.attrValue.Line, attr.attrValue.Column + (quoted ? 1 : 0));
             }
         }

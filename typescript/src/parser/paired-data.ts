@@ -154,7 +154,8 @@ function findTagEnd(source: string, start: number): number {
 }
 
 function extractPairValue(tagText: string): string | undefined {
-  return /\bpair\s*=\s*"([^"\r\n]*)"/.exec(tagText)?.[1];
+  const match = /\bpair\s*=\s*(?:"([^"\r\n]*)"|'([^'\r\n]*)')/.exec(tagText);
+  return match?.[1] ?? match?.[2];
 }
 
 function structuralWhitespace(text: string): string {

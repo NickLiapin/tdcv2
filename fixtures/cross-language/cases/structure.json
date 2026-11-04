@@ -384,6 +384,17 @@
         "4 a",
         "last row is 4"
       ]
+    },
+    {
+      "name": "single-quoted-attribute-values",
+      "description": "A value may be quoted with ' instead of \", and then holds a \" as written — the only way to write one, because nothing inside a value is escaped. Single quotes in every lexer mode: a <gen> attribute, a <data> opening tag (if=), a <map> tag (comment=), and a paired <data pair='x'> whose body carries a literal </data>. A double-quoted value still holds a ' (B). Studio found it: a \" typed into a field was written as &quot;, which reaches the data as six characters.",
+      "config": "<tdc><env count=\"4\" seed=\"quotes\" local=\"en\" mode=\"memory\"><sequence name=\"A\"><gen type=\"text\" value='say \"hi\",plain' order=\"sequential\"/></sequence><sequence name=\"B\"><gen type=\"text\" value=\"it's\"/></sequence><switch name=\"C\" on=\"A\"><map comment='keys are \"say\" and plain'>plain:P</map><default><data>D</data></default></switch></env><block><line><data if='A == \"plain\"'>plain: </data><data pair='x'>[${{A}}] ${{B}} ${{C}} </data></data pair='x'></line></block></tdc>",
+      "expected": [
+        "[say \"hi\"] it's D </data>",
+        "plain: [plain] it's P </data>",
+        "[say \"hi\"] it's D </data>",
+        "plain: [plain] it's P </data>"
+      ]
     }
   ]
 }

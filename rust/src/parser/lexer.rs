@@ -270,7 +270,7 @@ impl Lexer {
                         self.advance(2);
                         Tok::SlashGt
                     }
-                    '"' => Tok::Str(self.string()),
+                    '"' | '\'' => Tok::Str(self.string(c)),
                     c if is_ident_start(c) => Tok::Name(self.ident()),
                     _ => {
                         let bad = self.advance(1);
@@ -319,7 +319,7 @@ impl Lexer {
                         self.advance(1);
                         Tok::Eq
                     }
-                    '"' => Tok::Str(self.string()),
+                    '"' | '\'' => Tok::Str(self.string(c)),
                     c if is_ident_start(c) => Tok::Name(self.ident()),
                     _ => {
                         let bad = self.advance(1);
@@ -382,12 +382,13 @@ impl Lexer {
         self.advance(n)
     }
 
-    /// `STRING : '"' ~["\r\n]* '"'` — quotes kept, because the validator points
-    /// at the first character inside them and needs to know where they are.
-    fn string(&mut self) -> String {
+    /// `STRING : '"' ~["\r\n]* '"' | '\'' ~['\r\n]* '\''` — closed by the quote
+    /// it opened with. Quotes kept, because the validator points at the first
+    /// character inside them and needs to know where they are.
+    fn string(&mut self, quote: char) -> String {
         let mut n = 1;
         while let Some(c) = self.peek_at(n) {
-            if c == '"' {
+            if c == quote {
                 return self.advance(n + 1);
             }
             if c == '\r' || c == '\n' {
@@ -402,9 +403,9 @@ impl Lexer {
         self.advance(1);
         self.errors.push(LexError {
             pos,
-            message: "token recognition error at: '\"'".to_string(),
+            message: format!("token recognition error at: '{quote}'"),
         });
-        String::from("\"\"")
+        format!("{quote}{quote}")
     }
 
     fn skip_until(&mut self, closer: &str, unterminated: &str) {

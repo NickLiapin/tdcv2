@@ -124,3 +124,27 @@ describe('computeRename', () => {
     expect(renamed).not.toContain('Gender');
   });
 });
+
+describe('single-quoted values', () => {
+  // A value may be quoted with ' so it can hold a " — navigation reads both kinds.
+  const SINGLE = [
+    "<sequence name='Gender'><gen type=\"text\" value='M,F'/></sequence>",
+    '<sequence name="Age" parent=\'Gender.M\'><gen type="number" value="1..9"/></sequence>',
+    '<data>${{Gender}} ${{Age}}</data>',
+  ].join('\n');
+
+  it('jumps from a single-quoted parent= to a single-quoted declaration', () => {
+    const { text, position } = locate(SINGLE.replace("parent='Gender.M'", "parent='Gen|der.M'"));
+    const def = computeDefinition(text, position);
+    expect(sliceRange(text, def!)).toBe('Gender');
+    expect(def?.start.line).toBe(0);
+  });
+
+  it('renames through both kinds of quote', () => {
+    const { text, position } = locate(SINGLE.replace('${{Gender}}', '${{Gen|der}}'));
+    const out = applyEdits(text, computeRename(text, position, 'Sex'));
+    expect(out).toContain("<sequence name='Sex'>");
+    expect(out).toContain("parent='Sex.M'");
+    expect(out).toContain('${{Sex}}');
+  });
+});

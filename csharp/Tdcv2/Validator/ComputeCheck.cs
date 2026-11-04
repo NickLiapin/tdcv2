@@ -1027,7 +1027,7 @@ internal sealed class ComputeCheck
             ? $"<{tag}> takes no attributes."
             : $"Attributes of <{tag}>: {Candidates(known.OrderBy(k => k, StringComparer.Ordinal).ToList())}.";
         string text = attr.attrValue.Text;
-        bool quoted = text.Length >= 2 && text.StartsWith('"') && text.EndsWith('"');
+        bool quoted = Parser.AttrQuote.IsQuoted(text);
         _diagnostics.Add(
             Diagnostic.Error(
                 "TDC015",

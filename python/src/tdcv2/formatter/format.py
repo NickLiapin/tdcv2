@@ -30,7 +30,7 @@ from dataclasses import dataclass, field
 
 from antlr4 import CommonTokenStream, InputStream
 
-from ..parser import paired_data
+from ..parser import attr_quote, paired_data
 from ..parser.generated.TDCLexer import TDCLexer
 from ..parser.generated.TDCParser import TDCParser
 
@@ -215,7 +215,9 @@ def _data_string(node) -> str:
         # A self-closing <data …/> has no body.
         return f"<data{attrs}/>"
     pair = _attr_map(node).get("pair")
-    close = f'</data pair="{pair}">' if pair is not None else "</data>"
+    # The closer takes the quote that can hold the pair: ' when it has a ".
+    q = "'" if pair is not None and '"' in pair else '"'
+    close = f"</data pair={q}{pair}{q}>" if pair is not None else "</data>"
     return f"<data{attrs}>{paired_data.restore(content.getText())}{close}"
 
 
@@ -283,17 +285,20 @@ def _attr_map(node) -> dict[str, str]:
         if a.attrName is None:
             continue
         value = a.attrValue.text if a.attrValue is not None else ""
-        if len(value) >= 2 and value.startswith('"') and value.endswith('"'):
-            value = value[1:-1]
-        out[a.attrName.text] = value
+        out[a.attrName.text] = attr_quote.unquote(value)
     return out
 
 
 def _attr_string(node) -> str:
     out = []
-    for name, value in _attr_map(node).items():
-        if name:
-            out.append(f' {name}="{value}"')
+    for a in _attr_list(node):
+        if a.attrName is None or not a.attrName.text:
+            continue
+        raw = a.attrValue.text if a.attrValue is not None else ""
+        # A value keeps the quote it was written with: `'say "hi"'` cannot be written with any
+        # other.
+        value = raw if attr_quote.is_quoted(raw) else f'"{raw}"'
+        out.append(f" {a.attrName.text}={value}")
     return "".join(out)
 
 
