@@ -185,6 +185,11 @@ boolean, and so is a [`<mix flag=>`](../constructs/mix.md#top) column. And handi
 [`missing`](../reference/attributes.md#top) **makes the column nullable
 on its own** (`qty` came out `OPTIONAL`).
 
+So does anything else in the config that can leave a cell empty: a
+[`parent=`](../core-concepts/sequences.md#dependent-sequences-parent), or a
+[conditional sequence](../core-concepts/sequences.md#a-conditional-sequence) with no
+fallback branch. Those rows come out `null`, not as an error about a required column.
+
 **Computed columns are typed too**, by the same reasoning — what they can produce is
 known before a single row exists:
 
@@ -197,6 +202,8 @@ known before a single row exists:
 | [`file` with `read="quantile"`](../generators/file.md#top) | float, or integer with `decimals="0"` |
 | [`increment` / `decrement`](../generators/counters.md#top) | integer, or float when `value=` or `step=` is fractional |
 | [`<mix>`](../constructs/mix.md#top) | the shared type when **every** branch is a single `<gen>` that derives to it; `string` on any disagreement, or when a branch holds literal text. A `<mix flag=>` column is boolean |
+| [`<gen if>` branches](../core-concepts/sequences.md#a-conditional-sequence) | the shared type, by the same rule as `<mix>` |
+| a field: [`${{Seen.room}}`](../pools/linking.md#top), [`${{Address.city}}`](../core-concepts/sequences.md#a-compound-sequence) | the type of the field it reads, through any number of pool links |
 
 The formula row is the odd one out on purpose. `expr="A + 1"` is a whole number,
 `expr="A / 2"` is not, and `expr="A > 5 ? over : under"` is a WORD — so `decimals=` is
@@ -228,14 +235,16 @@ direction — a float holds every value such a column can produce, and `31` writ
 `amount` comes out `DOUBLE`, `age` comes out `INT64`. Declare `type=` by hand if you want
 something narrower.
 
-### Two cases where inference is deliberately skipped
+### Three cases where inference is deliberately skipped
 
 - **A [`date`](../generators/date.md#top) without `format="YYYY-MM-DD"`.** By default a date
   prints as `05/25/1996`, which isn't ISO — calling that a `date` would be dishonest.
 - **A [`mask`](masks-and-case.md#top) or [`case`](masks-and-case.md#top) on the generator.**
   These rewrite the text, so a number is no longer a number.
+- **[`missing_as`](missing-data.md#top) on the generator.** A missing value is printed as a
+  word such as `NULL`, so the column holds text.
 
-In both cases set `type=` by hand if you know what you're doing.
+In all three cases set `type=` by hand if you know what you're doing.
 
 ## When a value doesn't fit its type
 

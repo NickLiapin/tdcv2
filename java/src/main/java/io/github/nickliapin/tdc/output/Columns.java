@@ -24,18 +24,118 @@ public final class Columns {
   /** One declared column: its name, the text it renders from, and its type if it declared one. */
   public record Declared(String name, String template, ColumnType type) {}
 
+  /**
+   * What a {@code ${{…}}} reference reads: the name to type, the config whose sequences it lives
+   * among, and whether the config can leave its cell empty ({@code parent=}, or an {@code if=}
+   * with no fallback somewhere on the way).
+   */
+  public record Source(String name, Config config, boolean blank) {}
+
   private Columns() {}
 
   /**
    * A column's type, resolved. {@code null} for a column with no declared type whose source
    * cannot be told confidently — the caller falls back to text, which never corrupts anything.
+   *
+   * <p>A cell the config may leave empty ({@code parent=}, an {@code if=} with no fallback) is a
+   * NULL rather than a reason to stop: the column was never declared required. A list has no NULL
+   * of its own — an empty cell is an empty list.
    */
   public static ColumnType resolve(Declared column, Config config) {
     if (column.type() != null) {
       return column.type();
     }
-    String source = soleReference(column.template(), config.inject());
-    return source == null ? null : deriveOutput(source, config);
+    Source source = columnSource(column.template(), config);
+    if (source == null) {
+      return null;
+    }
+    ColumnType type = deriveOutput(source.name(), source.config());
+    if (!source.blank()) {
+      return type;
+    }
+    if (type == null) {
+      return ColumnType.parse("string|null");
+    }
+    return type.isRepeated() || type.nullable() ? type : ColumnType.parse(type + "|null");
+  }
+
+  /** The source a column's template reads, when it is exactly one reference. */
+  public static Source columnSource(String template, Config config) {
+    String name = soleReference(template, config.inject());
+    return name == null ? null : follow(name, config);
+  }
+
+  /**
+   * Follow {@code name} to the spec that feeds it.
+   *
+   * <p>A plain name is itself; {@code Ref.field} steps through a pool reference into the pool's
+   * own sequences (and on, for {@code Seen.at.city}), or into a compound sequence's named field.
+   * {@code null} when a step leads nowhere — the caller then falls back to text.
+   */
+  private static Source follow(String name, Config config) {
+    Config.SequenceSpec own = specNamed(name, config);
+    if (own != null) {
+      return new Source(name, config, canBeBlank(own));
+    }
+    int dot = name.indexOf('.');
+    if (dot < 0) {
+      return new Source(name, config, false);
+    }
+    Config.SequenceSpec head = specNamed(name.substring(0, dot), config);
+    String rest = name.substring(dot + 1);
+    if (head == null) {
+      return null;
+    }
+    boolean blank = canBeBlank(head);
+    if (head.gen() != null && "pool".equals(head.gen().type())) {
+      String target = head.gen().attrs().getOrDefault("value", "").trim();
+      for (Config.PoolSpec pool : config.pools()) {
+        if (pool.name().equals(target)) {
+          Source inner = follow(rest, config.withSequences(pool.sequences()));
+          return inner == null
+              ? null
+              : new Source(inner.name(), inner.config(), inner.blank() || blank);
+        }
+      }
+      return null;
+    }
+    List<Config.Field> fields = new ArrayList<>();
+    if (head.fields() != null) {
+      fields.addAll(head.fields());
+    }
+    if (head.items() != null) {
+      for (Config.Item item : head.items()) {
+        if (item.field() != null) {
+          fields.add(item.field());
+        }
+      }
+    }
+    for (Config.Field field : fields) {
+      if (field.name().equals(rest)) {
+        // The field is typed as a sequence of its own, beside the ones it may read.
+        List<Config.SequenceSpec> scope = new ArrayList<>();
+        scope.add(new Config.SequenceSpec(rest, null, field.gen()));
+        scope.addAll(config.sequences());
+        return new Source(rest, config.withSequences(scope), blank);
+      }
+    }
+    return null;
+  }
+
+  /** A sequence whose cell the config itself may leave empty on some rows. */
+  private static boolean canBeBlank(Config.SequenceSpec spec) {
+    if (spec.parent() != null) {
+      return true;
+    }
+    if (spec.branches() == null) {
+      return false;
+    }
+    for (Config.Branch branch : spec.branches()) {
+      if (branch.ifExpr() == null) {
+        return false;
+      }
+    }
+    return true;
   }
 
   /**
@@ -106,6 +206,13 @@ public final class Columns {
     if (spec != null && spec.isMix()) {
       return deriveMix(spec.mix(), config);
     }
+    if (spec != null && spec.branches() != null) {
+      List<Config.Gen> gens = new ArrayList<>();
+      for (Config.Branch branch : spec.branches()) {
+        gens.add(branch.gen());
+      }
+      return agreed(gens, config);
+    }
     Config.Gen gen = spec == null ? null : spec.gen();
     if (gen == null) {
       return null;
@@ -121,6 +228,11 @@ public final class Columns {
     }
     String missing = gen.attrs().get("missing");
     boolean nullable = missing != null && !missing.trim().isEmpty() && positive(missing);
+    // `missing_as="NULL"` prints a WORD where the value went missing, so the column holds text —
+    // calling it int64 killed the run on the first missing row.
+    if (nullable && !gen.attrs().getOrDefault("missing_as", "").isEmpty()) {
+      return null;
+    }
 
     switch (gen.type()) {
       case "number":
@@ -212,15 +324,28 @@ public final class Columns {
    * the rule that keeps a leading zero from being optimised away.
    */
   private static ColumnType deriveMix(Config.Mix mix, Config config) {
-    if (mix.cases().isEmpty()) {
-      return null;
-    }
-    ColumnType agreed = null;
+    List<Config.Gen> gens = new ArrayList<>();
     for (Config.Case caseSpec : mix.cases()) {
       if (caseSpec.parts().size() != 1 || caseSpec.parts().get(0).gen() == null) {
         return null;
       }
-      ColumnType type = deriveGen(caseSpec.parts().get(0).gen(), config);
+      gens.add(caseSpec.parts().get(0).gen());
+    }
+    return agreed(gens, config);
+  }
+
+  /**
+   * The one type every gen derives to, or {@code null} when one cannot be typed or two disagree. A
+   * {@code <mix>}'s cases and an {@code if=} sequence's branches are both "one of these gens per
+   * row", so both are typed by this rule.
+   */
+  private static ColumnType agreed(List<Config.Gen> gens, Config config) {
+    if (gens.isEmpty()) {
+      return null;
+    }
+    ColumnType agreed = null;
+    for (Config.Gen gen : gens) {
+      ColumnType type = deriveGen(gen, config);
       if (type == null) {
         return null;
       }

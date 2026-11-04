@@ -190,6 +190,11 @@ entero; `common.id.uuid` → UUID; una columna marcadora de
 [`missing`](../reference/attributes.md#top) **hace la columna nullable por sí solo** (`qty`
 quedó como `OPTIONAL`).
 
+Lo mismo hace todo lo demás que, según la configuración, puede dejar una celda vacía: un
+[`parent=`](../core-concepts/sequences.md#secuencias-dependientes-parent) o una
+[secuencia condicional](../core-concepts/sequences.md#una-secuencia-condicional) sin rama de
+respaldo. Esas filas salen como `null`, no como un error sobre una columna obligatoria.
+
 **Las columnas calculadas también reciben tipo**, por el mismo razonamiento: lo que pueden
 producir se sabe antes de que exista una sola fila.
 
@@ -202,6 +207,8 @@ producir se sabe antes de que exista una sola fila.
 | [`file` con `read="quantile"`](../generators/file.md#top) | decimal, o entero con `decimals="0"` |
 | [`increment` / `decrement`](../generators/counters.md#top) | entero, o decimal cuando `value=` o `step=` es fraccionario |
 | [`<mix>`](../constructs/mix.md#top) | el tipo compartido cuando **cada** rama es un solo `<gen>` que deriva a él; `string` ante cualquier desacuerdo, o cuando una rama tiene texto literal. Una columna `<mix flag=>` es booleana |
+| ramas [`<gen if>`](../core-concepts/sequences.md#una-secuencia-condicional) | el tipo compartido, con la misma regla que `<mix>` |
+| un campo: [`${{Seen.room}}`](../pools/linking.md#top), [`${{Address.city}}`](../core-concepts/sequences.md#una-secuencia-compuesta) | el tipo del campo que lee, a través de cualquier número de enlaces entre pools |
 
 La fila de la fórmula se sale a propósito. `expr="A + 1"` es un número entero,
 `expr="A / 2"` ya no lo es, y `expr="A > 5 ? over : under"` es una PALABRA — así que
@@ -234,15 +241,17 @@ escrito como `31.0` no pierde nada, mientras que el texto pierde el tipo entero:
 `amount` sale como `DOUBLE` y `age` como `INT64`. Declare `type=` a mano si quiere algo más
 estrecho.
 
-### Dos casos donde la inferencia se omite a propósito
+### Tres casos donde la inferencia se omite a propósito
 
 - **Un [`date`](../generators/date.md#top) sin `format="YYYY-MM-DD"`.** Por omisión una
   fecha se imprime como `05/25/1996`, que no es ISO — declararla como `date` sería
   deshonesto.
 - **Una [`mask`](masks-and-case.md#top) o un [`case`](masks-and-case.md#top) en el generador.**
   Estos reescriben el texto, así que un número deja de ser un número.
+- **[`missing_as`](missing-data.md#top) en el generador.** Un valor ausente se imprime como una
+  palabra, por ejemplo `NULL`, así que la columna contiene texto.
 
-En ambos casos ponga `type=` a mano si sabe lo que está haciendo.
+En los tres casos ponga `type=` a mano si sabe lo que está haciendo.
 
 ## Cuando un valor no cabe en su tipo
 

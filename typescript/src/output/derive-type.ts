@@ -10,7 +10,59 @@
  * Spec: docs/specs/2026-07-19-typed-output-and-parquet-writer.md §4.
  */
 
-import type { SequenceSpec } from '../sequence/types.js';
+import type { PoolSpec } from '../sequence/pool.js';
+import type { GenSpec, SequenceSpec } from '../sequence/types.js';
+
+/**
+ * What a `${{…}}` reference reads: the name to type and the specs it lives
+ * among, and whether the config can leave its cell empty.
+ */
+export interface ColumnSource {
+  readonly name: string;
+  readonly specs: readonly SequenceSpec[];
+  /** `parent=` or an `if=` with no fallback somewhere on the way — the cell may be empty. */
+  readonly blank: boolean;
+}
+
+/** A sequence whose cell the config itself may leave empty on some rows. */
+function canBeBlank(spec: SequenceSpec): boolean {
+  if (spec.parent !== undefined) return true;
+  return spec.conditional?.every((b) => b.cond !== undefined) === true;
+}
+
+/**
+ * Follow `name` to the spec that feeds it. A plain name is itself; `Ref.field`
+ * steps through a pool reference into the pool's own sequences (and on, for
+ * `Seen.at.city`), or into a compound sequence's named field. Undefined when a
+ * step leads nowhere — the caller then falls back to text.
+ */
+export function resolveColumnSource(
+  name: string,
+  specs: readonly SequenceSpec[],
+  pools: readonly PoolSpec[],
+): ColumnSource | undefined {
+  const own = specs.find((s) => s.name === name);
+  if (own) return { name, specs, blank: canBeBlank(own) };
+  const dot = name.indexOf('.');
+  if (dot < 0) return { name, specs, blank: false };
+  const head = specs.find((s) => s.name === name.slice(0, dot));
+  const rest = name.slice(dot + 1);
+  if (!head) return undefined;
+  const blank = canBeBlank(head);
+  if (head.gen?.type === 'pool') {
+    const pool = pools.find((p) => p.name === (head.gen?.attrs['value'] ?? '').trim());
+    const inner = pool === undefined ? undefined : resolveColumnSource(rest, pool.specs, pools);
+    return inner && { ...inner, blank: inner.blank || blank };
+  }
+  const fields = [
+    ...(head.gens ?? []),
+    ...(head.items ?? []).flatMap((item) => (item.kind === 'field' ? [item] : [])),
+  ];
+  const field = fields.find((f) => f.name === rest);
+  if (!field) return undefined;
+  // The field is typed as a sequence of its own, beside the ones it may read.
+  return { name: rest, specs: [{ name: rest, gen: field.gen }, ...specs], blank };
+}
 
 import { parseColumnType, type ColumnType, type OutputColumnType } from './column-type.js';
 
@@ -54,13 +106,29 @@ function deriveMixType(
   mixSpec: NonNullable<SequenceSpec['mixSpec']>,
   specs: readonly SequenceSpec[],
 ): ColumnType | undefined {
-  if (mixSpec.cases.length === 0) return undefined;
-  let agreed: ColumnType | undefined;
+  const gens: GenSpec[] = [];
   for (const caseSpec of mixSpec.cases) {
     const only = caseSpec.parts.length === 1 ? caseSpec.parts[0] : undefined;
     if (only?.kind !== 'gen') return undefined;
+    gens.push(only.gen);
+  }
+  return agreedType(gens, specs);
+}
+
+/**
+ * The one type every gen derives to, or undefined when any of them cannot be
+ * typed or two disagree. A `<mix>`'s cases and an `if=` sequence's branches
+ * are both "one of these gens per row", so both are typed by this rule.
+ */
+function agreedType(
+  gens: readonly GenSpec[],
+  specs: readonly SequenceSpec[],
+): ColumnType | undefined {
+  if (gens.length === 0) return undefined;
+  let agreed: ColumnType | undefined;
+  for (const gen of gens) {
     // Reuse the single-gen rules by asking about a throwaway spec of that gen.
-    const type = deriveColumnType('\u0000mix', [{ name: '\u0000mix', gen: only.gen }, ...specs]);
+    const type = deriveColumnType('\u0000mix', [{ name: '\u0000mix', gen }, ...specs]);
     if (!type) return undefined;
     if (!agreed) {
       agreed = type;
@@ -91,6 +159,11 @@ export function deriveColumnType(
 
   const spec = specs.find((s) => s.name === name);
   if (spec?.mixSpec) return deriveMixType(spec.mixSpec, specs);
+  if (spec?.conditional)
+    return agreedType(
+      spec.conditional.map((branch) => branch.gen),
+      specs,
+    );
   const gen = spec?.gen;
   if (!gen) return undefined;
 
@@ -99,6 +172,9 @@ export function deriveColumnType(
 
   const missing = gen.attrs['missing'];
   const nullable = missing !== undefined && missing.trim() !== '' && Number(missing) > 0;
+  // `missing_as="NULL"` prints a WORD where the value went missing, so the column
+  // holds text — calling it int64 killed the run on the first missing row.
+  if (nullable && (gen.attrs['missing_as'] ?? '') !== '') return undefined;
 
   switch (gen.type) {
     case 'number': {

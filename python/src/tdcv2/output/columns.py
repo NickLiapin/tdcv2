@@ -12,7 +12,7 @@ guessed from the rendered VALUES, because that is exactly how ``007`` turns into
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 
 from ..model.config import Config, Gen, SequenceSpec
 from . import column_type
@@ -28,16 +28,83 @@ class Declared:
     type: ColumnType | None
 
 
+@dataclass(frozen=True, slots=True)
+class Source:
+    """What a ``${{…}}`` reference reads: the name to type, the config whose sequences it lives
+    among, and whether the config can leave its cell empty."""
+
+    name: str
+    config: Config
+    blank: bool
+
+
 def resolve(column: Declared, config: Config) -> ColumnType | None:
     """A column's type, resolved.
 
     Absent for a column with no declared type whose source cannot be told confidently — the caller
     falls back to text, which never corrupts anything.
+
+    A cell the config may leave empty (``parent=``, an ``if=`` with no fallback) is a NULL rather
+    than a reason to stop: the column was never declared required. A list has no NULL of its own —
+    an empty cell is an empty list.
     """
     if column.type is not None:
         return column.type
-    source = sole_reference(column.template, config.inject)
-    return None if source is None else derive_output(source, config)
+    source = column_source(column.template, config)
+    if source is None:
+        return None
+    type_ = derive_output(source.name, source.config)
+    if not source.blank:
+        return type_
+    if type_ is None:
+        return column_type.parse("string|null")
+    return type_ if type_.is_repeated else replace(type_, nullable=True)
+
+
+def column_source(template: str, config: Config) -> Source | None:
+    """The source a column's template reads, when it is exactly one reference."""
+    name = sole_reference(template, config.inject)
+    return None if name is None else _follow(name, config)
+
+
+def _follow(name: str, config: Config) -> Source | None:
+    """Follow ``name`` to the spec that feeds it.
+
+    A plain name is itself; ``Ref.field`` steps through a pool reference into the pool's own
+    sequences (and on, for ``Seen.at.city``), or into a compound sequence's named field. Nothing
+    when a step leads nowhere — the caller then falls back to text.
+    """
+    own = _spec_named(name, config)
+    if own is not None:
+        return Source(name, config, _can_be_blank(own))
+    head_name, dot, rest = name.partition(".")
+    if not dot:
+        return Source(name, config, False)
+    head = _spec_named(head_name, config)
+    if head is None:
+        return None
+    blank = _can_be_blank(head)
+    if head.gen is not None and head.gen.type == "pool":
+        target = head.gen.attrs.get("value", "").strip()
+        pool = next((p for p in config.pools if p.name == target), None)
+        inner = None if pool is None else _follow(rest, replace(config, sequences=pool.sequences))
+        return None if inner is None else replace(inner, blank=inner.blank or blank)
+    fields = list(head.fields or []) + [
+        item.field for item in head.items or [] if item.field is not None
+    ]
+    field = next((f for f in fields if f.name == rest), None)
+    if field is None:
+        return None
+    # The field is typed as a sequence of its own, beside the ones it may read.
+    scope = replace(config, sequences=[SequenceSpec(rest, gen=field.gen), *config.sequences])
+    return Source(rest, scope, blank)
+
+
+def _can_be_blank(spec: SequenceSpec) -> bool:
+    """A sequence whose cell the config itself may leave empty on some rows."""
+    if spec.parent is not None:
+        return True
+    return spec.branches is not None and all(b.if_expr is not None for b in spec.branches)
 
 
 def sole_reference(template: str, inject: str) -> str | None:
@@ -96,6 +163,8 @@ def derive(name: str, config: Config) -> ColumnType | None:
     spec = _spec_named(name, config)
     if spec is not None and spec.is_mix:
         return _derive_mix(spec.mix, config)
+    if spec is not None and spec.branches is not None:
+        return _agreed([branch.gen for branch in spec.branches], config)
     gen = None if spec is None else spec.gen
     return None if gen is None else _derive_gen(gen, config)
 
@@ -107,6 +176,10 @@ def _derive_gen(gen: Gen, config: Config) -> ColumnType | None:
         return None
     missing = gen.attrs.get("missing")
     nullable = missing is not None and missing.strip() != "" and _positive(missing)
+    # ``missing_as="NULL"`` prints a WORD where the value went missing, so the column holds text —
+    # calling it int64 killed the run on the first missing row.
+    if nullable and gen.attrs.get("missing_as", "") != "":
+        return None
 
     # A pattern draws a NUMBER from a shape — ``y_range="1..30"`` is a range of numbers whatever
     # the curve looks like — so it types exactly like a timeseries.
@@ -180,13 +253,25 @@ def _derive_mix(mix, config: Config) -> ColumnType | None:
     the same type. A mix of a number and a word is text, and any doubt falls back to text — the
     rule that keeps a leading zero from being optimised away.
     """
-    if not mix.cases:
-        return None
-    agreed: ColumnType | None = None
+    gens = []
     for case in mix.cases:
         if len(case.parts) != 1 or case.parts[0].gen is None:
             return None
-        type_ = _derive_gen(case.parts[0].gen, config)
+        gens.append(case.parts[0].gen)
+    return _agreed(gens, config)
+
+
+def _agreed(gens: list[Gen], config: Config) -> ColumnType | None:
+    """The one type every gen derives to, or nothing when one cannot be typed or two disagree.
+
+    A ``<mix>``'s cases and an ``if=`` sequence's branches are both "one of these gens per row",
+    so both are typed by this rule.
+    """
+    if not gens:
+        return None
+    agreed: ColumnType | None = None
+    for gen in gens:
+        type_ = _derive_gen(gen, config)
         if type_ is None:
             return None
         if agreed is None:

@@ -11,9 +11,10 @@
 //! asked; failing that, it is text. Nothing is ever guessed from the rendered
 //! values, because that is exactly how `007` turns into `7`.
 
+use std::borrow::Cow;
 use std::collections::BTreeSet;
 
-use crate::model::{Config, Gen, Mix, SequenceSpec, Source};
+use crate::model::{Config, Gen, Item, Mix, SequenceSpec, Source};
 use crate::output::column_type::{ColumnType, Kind, TypeError};
 
 /// One declared column: its name, the text it renders from, and its type if it
@@ -25,17 +26,117 @@ pub struct Declared {
     pub ty: Option<ColumnType>,
 }
 
+/// What a `${{…}}` reference reads: the name to type, the config whose
+/// sequences it lives among, and whether the config can leave its cell empty.
+pub struct ColumnSource<'a> {
+    pub name: String,
+    pub config: Cow<'a, Config>,
+    /// `parent=` or an `if=` with no fallback somewhere on the way.
+    pub blank: bool,
+}
+
 /// A column's type, resolved.
 ///
 /// `None` for a column with no declared type whose source cannot be told
 /// confidently — the caller falls back to text, which never corrupts anything.
+///
+/// A cell the config may leave empty (`parent=`, an `if=` with no fallback) is
+/// a NULL rather than a reason to stop: the column was never declared
+/// required. A list has no NULL of its own — an empty cell is an empty list.
 pub fn resolve(column: &Declared, config: &Config) -> Option<ColumnType> {
     if let Some(ty) = &column.ty {
         return Some(ty.clone());
     }
+    let source = column_source(&column.template, config)?;
+    let ty = derive_output(&source.name, &source.config);
+    if !source.blank {
+        return ty;
+    }
+    match ty {
+        None => ColumnType::parse("string|null").ok(),
+        Some(ty) if ty.is_repeated() => Some(ty),
+        Some(mut ty) => {
+            ty.nullable = true;
+            Some(ty)
+        }
+    }
+}
+
+/// The source a column's template reads, when it is exactly one reference.
+pub fn column_source<'a>(template: &str, config: &'a Config) -> Option<ColumnSource<'a>> {
     let inject = config.inject.as_deref().unwrap_or("${{%}}");
-    let source = sole_reference(&column.template, inject)?;
-    derive_output(&source, config)
+    let name = sole_reference(template, inject)?;
+    follow(&name, Cow::Borrowed(config))
+}
+
+/// Follow `name` to the spec that feeds it.
+///
+/// A plain name is itself; `Ref.field` steps through a pool reference into the
+/// pool's own sequences (and on, for `Seen.at.city`), or into a compound
+/// sequence's named field. `None` when a step leads nowhere — the caller then
+/// falls back to text.
+fn follow<'a>(name: &str, config: Cow<'a, Config>) -> Option<ColumnSource<'a>> {
+    if let Some(own) = spec_named(name, &config) {
+        let blank = can_be_blank(own);
+        return Some(ColumnSource {
+            name: name.to_string(),
+            config,
+            blank,
+        });
+    }
+    let Some((head_name, rest)) = name.split_once('.') else {
+        return Some(ColumnSource {
+            name: name.to_string(),
+            config,
+            blank: false,
+        });
+    };
+    let head = spec_named(head_name, &config)?;
+    let blank = can_be_blank(head);
+    if let Source::Gen(gen) = &head.source {
+        if gen.gen_type == "pool" {
+            let target = gen.attr_or("value", "").trim();
+            let pool = config.pools.iter().find(|pool| pool.name == target)?;
+            let mut scope = config.as_ref().clone();
+            scope.sequences = pool.sequences.clone();
+            let inner = follow(rest, Cow::Owned(scope))?;
+            return Some(ColumnSource {
+                blank: inner.blank || blank,
+                ..inner
+            });
+        }
+    }
+    let field = match &head.source {
+        Source::Fields(fields) => fields.iter().find(|f| f.name == rest),
+        Source::Items(items) => items.iter().find_map(|item| match item {
+            Item::Field(f) if f.name == rest => Some(f),
+            _ => None,
+        }),
+        _ => None,
+    }?;
+    // The field is typed as a sequence of its own, beside the ones it may read.
+    let own = SequenceSpec {
+        name: rest.to_string(),
+        parent: None,
+        source: Source::Gen(field.gen.clone()),
+        distinct_groups: Vec::new(),
+        uniq: false,
+    };
+    let mut scope = config.as_ref().clone();
+    scope.sequences.insert(0, own);
+    Some(ColumnSource {
+        name: rest.to_string(),
+        config: Cow::Owned(scope),
+        blank,
+    })
+}
+
+/// A sequence whose cell the config itself may leave empty on some rows.
+fn can_be_blank(spec: &SequenceSpec) -> bool {
+    if spec.parent.is_some() {
+        return true;
+    }
+    matches!(&spec.source, Source::Branches(branches) if branches.iter().all(|b| b.if_expr.is_some()))
 }
 
 /// The single sequence a template refers to, when it is exactly one substitution
@@ -107,6 +208,7 @@ pub fn derive(name: &str, config: &Config) -> Option<ColumnType> {
     match &named.source {
         Source::Mix(mix) => derive_mix(mix, config),
         Source::Gen(gen) => derive_gen(gen, config),
+        Source::Branches(branches) => agreed(branches.iter().map(|b| &b.gen), config),
         _ => None,
     }
 }
@@ -121,6 +223,12 @@ fn derive_gen(gen: &Gen, config: &Config) -> Option<ColumnType> {
     }
 
     let nullable = gen.attr("missing").is_some_and(positive);
+    // `missing_as="NULL"` prints a WORD where the value went missing, so the
+    // column holds text — calling it int64 killed the run on the first missing
+    // row.
+    if nullable && !gen.attr_or("missing_as", "").is_empty() {
+        return None;
+    }
 
     match gen.gen_type.as_str() {
         // A pattern draws a NUMBER from a shape — `y_range="1..30"` is a range of
@@ -211,14 +319,22 @@ fn derive_gen(gen: &Gen, config: &Config) -> Option<ColumnType> {
 /// doubt falls back to text — the rule that keeps a leading zero from being
 /// optimised away.
 fn derive_mix(mix: &Mix, config: &Config) -> Option<ColumnType> {
-    if mix.cases.is_empty() {
-        return None;
-    }
-    let mut agreed: Option<ColumnType> = None;
+    let mut gens = Vec::with_capacity(mix.cases.len());
     for case in &mix.cases {
         let [crate::model::CasePart::Gen(gen)] = case.parts.as_slice() else {
             return None;
         };
+        gens.push(gen);
+    }
+    agreed(gens.into_iter(), config)
+}
+
+/// The one type every gen derives to, or `None` when one cannot be typed or two
+/// disagree. A `<mix>`'s cases and an `if=` sequence's branches are both "one
+/// of these gens per row", so both are typed by this rule.
+fn agreed<'g>(gens: impl Iterator<Item = &'g Gen>, config: &Config) -> Option<ColumnType> {
+    let mut agreed: Option<ColumnType> = None;
+    for gen in gens {
         let ty = derive_gen(gen, config)?;
         match &agreed {
             None => agreed = Some(ty),

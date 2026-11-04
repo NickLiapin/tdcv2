@@ -26,12 +26,24 @@ public static class Columns
     public sealed record Declared(string Name, string Template, ColumnType? Type);
 
     /// <summary>
+    /// What a <c>${{…}}</c> reference reads: the name to type, the config whose sequences it lives
+    /// among, and whether the config can leave its cell empty (<c>parent=</c>, or an <c>if=</c> with
+    /// no fallback somewhere on the way).
+    /// </summary>
+    public sealed record Source(string Name, Config Config, bool Blank);
+
+    /// <summary>
     /// A column's type, resolved.
     /// </summary>
     /// <returns>
     /// <c>null</c> for a column with no declared type whose source cannot be told confidently — the
     /// caller falls back to text, which never corrupts anything.
     /// </returns>
+    /// <remarks>
+    /// A cell the config may leave empty (<c>parent=</c>, an <c>if=</c> with no fallback) is a NULL
+    /// rather than a reason to stop: the column was never declared required. A list has no NULL of
+    /// its own — an empty cell is an empty list.
+    /// </remarks>
     public static ColumnType? Resolve(Declared column, Config config)
     {
         if (column.Type is not null)
@@ -39,9 +51,86 @@ public static class Columns
             return column.Type;
         }
 
-        string? source = SoleReference(column.Template, config.Inject ?? "${{%}}");
-        return source is null ? null : DeriveOutput(source, config);
+        Source? source = ColumnSource(column.Template, config);
+        if (source is null)
+        {
+            return null;
+        }
+
+        ColumnType? type = DeriveOutput(source.Name, source.Config);
+        if (!source.Blank)
+        {
+            return type;
+        }
+
+        if (type is null)
+        {
+            return ColumnType.Parse("string|null");
+        }
+
+        return type.IsRepeated || type.Nullable ? type : ColumnType.Parse(Spell(type) + "|null");
     }
+
+    /// <summary>The source a column's template reads, when it is exactly one reference.</summary>
+    public static Source? ColumnSource(string template, Config config)
+    {
+        string? name = SoleReference(template, config.Inject ?? "${{%}}");
+        return name is null ? null : Follow(name, config);
+    }
+
+    /// <summary>Follow <c>name</c> to the spec that feeds it.</summary>
+    /// <remarks>
+    /// A plain name is itself; <c>Ref.field</c> steps through a pool reference into the pool's own
+    /// sequences (and on, for <c>Seen.at.city</c>), or into a compound sequence's named field.
+    /// <c>null</c> when a step leads nowhere — the caller then falls back to text.
+    /// </remarks>
+    private static Source? Follow(string name, Config config)
+    {
+        SequenceSpec? own = SpecNamed(name, config);
+        if (own is not null)
+        {
+            return new Source(name, config, CanBeBlank(own));
+        }
+
+        int dot = name.IndexOf('.');
+        if (dot < 0)
+        {
+            return new Source(name, config, false);
+        }
+
+        SequenceSpec? head = SpecNamed(name[..dot], config);
+        string rest = name[(dot + 1)..];
+        if (head is null)
+        {
+            return null;
+        }
+
+        bool blank = CanBeBlank(head);
+        if (head.Gen is { Type: "pool" } poolGen)
+        {
+            string target = poolGen.Attrs.GetValueOrDefault("value", "").Trim();
+            PoolSpec? pool = config.Pools.FirstOrDefault(p => p.Name == target);
+            Source? inner = pool is null ? null : Follow(rest, config.WithSequences(pool.Sequences));
+            return inner is null ? null : inner with { Blank = inner.Blank || blank };
+        }
+
+        IEnumerable<Field> fields = (head.Fields ?? Array.Empty<Field>())
+            .Concat((head.Items ?? Array.Empty<Item>()).Where(i => i.Field is not null).Select(i => i.Field!));
+        Field? field = fields.FirstOrDefault(f => f.Name == rest);
+        if (field is null)
+        {
+            return null;
+        }
+
+        // The field is typed as a sequence of its own, beside the ones it may read.
+        var scope = new List<SequenceSpec> { new(rest, null, field.Gen) };
+        scope.AddRange(config.Sequences);
+        return new Source(rest, config.WithSequences(scope), blank);
+    }
+
+    /// <summary>A sequence whose cell the config itself may leave empty on some rows.</summary>
+    private static bool CanBeBlank(SequenceSpec spec) =>
+        spec.Parent is not null || (spec.Branches is not null && spec.Branches.All(b => b.IfExpr is not null));
 
     /// <summary>
     /// The single sequence a template refers to, when it is exactly one substitution and nothing else
@@ -132,6 +221,11 @@ public static class Columns
             return DeriveMix(named.Mix!, config);
         }
 
+        if (named?.Branches is not null)
+        {
+            return Agreed(named.Branches.Select(b => b.Gen).ToList(), config);
+        }
+
         return named?.Gen is null ? null : DeriveGen(named.Gen, config);
     }
 
@@ -146,6 +240,12 @@ public static class Columns
 
         string? missing = gen.Attrs.GetValueOrDefault("missing");
         bool nullable = !string.IsNullOrWhiteSpace(missing) && Positive(missing);
+        // `missing_as="NULL"` prints a WORD where the value went missing, so the column holds text —
+        // calling it int64 killed the run on the first missing row.
+        if (nullable && gen.Attrs.GetValueOrDefault("missing_as", "") != "")
+        {
+            return null;
+        }
 
         switch (gen.Type)
         {
@@ -246,12 +346,7 @@ public static class Columns
     /// </remarks>
     private static ColumnType? DeriveMix(Mix mix, Config config)
     {
-        if (mix.Cases.Count == 0)
-        {
-            return null;
-        }
-
-        ColumnType? agreed = null;
+        var gens = new List<Gen>();
         foreach (Case caseSpec in mix.Cases)
         {
             if (caseSpec.Parts.Count != 1 || caseSpec.Parts[0].Gen is null)
@@ -259,7 +354,28 @@ public static class Columns
                 return null;
             }
 
-            ColumnType? type = DeriveGen(caseSpec.Parts[0].Gen!, config);
+            gens.Add(caseSpec.Parts[0].Gen!);
+        }
+
+        return Agreed(gens, config);
+    }
+
+    /// <summary>
+    /// The one type every gen derives to, or <c>null</c> when one cannot be typed or two disagree. A
+    /// <c>&lt;mix&gt;</c>'s cases and an <c>if=</c> sequence's branches are both "one of these gens
+    /// per row", so both are typed by this rule.
+    /// </summary>
+    private static ColumnType? Agreed(IReadOnlyList<Gen> gens, Config config)
+    {
+        if (gens.Count == 0)
+        {
+            return null;
+        }
+
+        ColumnType? agreed = null;
+        foreach (Gen gen in gens)
+        {
+            ColumnType? type = DeriveGen(gen, config);
             if (type is null)
             {
                 return null;

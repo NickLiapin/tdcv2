@@ -285,10 +285,9 @@ fn build_plan(config: &Config) -> EngineResult<Plan> {
         // A declared []T needs a separator too; a comma when the column was
         // typed by hand rather than derived from a repeating generator.
         separators.push(if ty.is_repeated() {
-            let inject = config.inject.as_deref().unwrap_or("${{%}}");
             Some(
-                columns::sole_reference(&column.template, inject)
-                    .and_then(|source| columns::separator_of(&source, config))
+                columns::column_source(&column.template, config)
+                    .and_then(|source| columns::separator_of(&source.name, &source.config))
                     .unwrap_or_else(|| ",".to_string()),
             )
         } else {

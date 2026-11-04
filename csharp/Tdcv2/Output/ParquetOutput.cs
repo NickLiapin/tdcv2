@@ -112,8 +112,8 @@ public static class ParquetOutput
             // than derived from a repeating generator.
             if (type.IsRepeated)
             {
-                string? source = Columns.SoleReference(column.Template, config.Inject ?? "${{%}}");
-                string? separator = source is null ? null : Columns.SeparatorOf(source, config);
+                Columns.Source? source = Columns.ColumnSource(column.Template, config);
+                string? separator = source is null ? null : Columns.SeparatorOf(source.Name, source.Config);
                 separators.Add(separator ?? ",");
             }
             else

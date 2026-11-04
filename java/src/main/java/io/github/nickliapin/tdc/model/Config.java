@@ -438,6 +438,13 @@ public final class Config {
         envUniqGroups, envDistinctGroups, pools, asserts);
   }
 
+  /** A copy whose sequences are {@code newSequences} — a pool's members read as their own env. */
+  public Config withSequences(List<SequenceSpec> newSequences) {
+    return new Config(
+        count, seed, locale, inject, regexMaxLength, newSequences, block, fixtures, mode, engine,
+        envUniqGroups, envDistinctGroups, pools, asserts);
+  }
+
   /**
    * Env-level {@code <uniq>} groups: the TUPLE of the named sequences is unique across rows.
    *

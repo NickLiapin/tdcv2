@@ -105,8 +105,9 @@ public final class ParquetOutput {
       // A declared []T needs a separator too; a comma when the column was typed by hand rather
       // than derived from a repeating generator.
       if (type.isRepeated()) {
-        String source = Columns.soleReference(column.template(), config.inject());
-        String separator = source == null ? null : Columns.separatorOf(source, config);
+        Columns.Source source = Columns.columnSource(column.template(), config);
+        String separator =
+            source == null ? null : Columns.separatorOf(source.name(), source.config());
         separators.add(separator == null ? "," : separator);
       } else {
         separators.add(null);

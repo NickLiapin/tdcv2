@@ -15,6 +15,28 @@ page — is tracked in that implementation's own changelog:
 
 ## [Unreleased]
 
+### Fixed
+
+- **Parquet types a field reference by the field it reads — in all five.** `${{Dept.id}}`, where
+  `Dept` is a pool reference and `id` an `increment`, came out as a `string` column: the writer
+  looked the dotted name up as a sequence and found none. It now steps through the pool into its
+  members, through any number of links (`${{Dept.region.code}}`), and into a compound sequence's
+  named field (`${{Address.zip}}`). Found by the article agent.
+- **A Parquet column the config can leave empty is nullable instead of fatal.** `parent=` on a
+  number, or a `<gen if>` with no fallback branch, was typed `REQUIRED`, and the run stopped on
+  the first empty row with "empty value in a required column" — on a config that prints
+  perfectly well as text. A `parent=` on a pool reference blanks its fields the same way. Such
+  columns are now `OPTIONAL`, and the empty rows are `null`. A declared `type=` keeps its rule:
+  without `|null`, an empty value is still an error.
+- **`missing_as` keeps a Parquet column as text.** `missing="0.5" missing_as="NULL"` on a number
+  was typed `int64`, and the first missing row stopped the run on `"NULL" is not an integer`. The
+  word is what the cell holds, so the column is `string`, as with `mask` and `case`.
+
+### Changed
+
+- **A `<gen if>` sequence takes the type its branches agree on in Parquet**, by the rule a
+  `<mix>` already followed: every branch an integer → `int64`, any disagreement → `string`.
+
 ## [0.3.6] — 2026-10-25
 
 ### Added

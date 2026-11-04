@@ -88,8 +88,10 @@ def _plan(config: Config) -> _Plan:
         # A declared []T needs a separator too; a comma when the column was typed by hand rather
         # than derived from a repeating generator.
         if type_.is_repeated:
-            source = columns_lib.sole_reference(column.template, config.inject)
-            separator = None if source is None else columns_lib.separator_of(source, config)
+            source = columns_lib.column_source(column.template, config)
+            separator = (
+                None if source is None else columns_lib.separator_of(source.name, source.config)
+            )
             separators.append(separator or ",")
         else:
             separators.append(None)
@@ -125,9 +127,7 @@ def _batches(
                     elif type_.is_map:
                         value_type = type_.element
                         assert value_type is not None
-                        pairs = map_levels.parse_cell(
-                            text, plan.separators[i], value_type.nullable
-                        )
+                        pairs = map_levels.parse_cell(text, plan.separators[i], value_type.nullable)
                         batch[i].append(writer.Cell(pairs=pairs))
                     else:
                         batch[i].append(writer.Cell(value=convert.value(text, type_)))

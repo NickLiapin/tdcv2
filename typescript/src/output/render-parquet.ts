@@ -16,6 +16,7 @@ import { interpolate } from '../processor/interpolate.js';
 import { prepareRender, prepareRenderAsync, type RenderOptions } from '../processor/render.js';
 import { findChildElement } from '../processor/walk.js';
 import { extractSequenceSpecs } from '../sequence/index.js';
+import { extractPoolSpecs } from '../sequence/pool.js';
 
 import {
   isListType,
@@ -26,7 +27,12 @@ import {
 } from './column-type.js';
 import { parseMapCell } from './parquet/map.js';
 import { extractDeclaredColumns, type DeclaredColumn } from './columns.js';
-import { deriveOutputColumnType, repeatSeparatorOf, soleReference } from './derive-type.js';
+import {
+  deriveOutputColumnType,
+  repeatSeparatorOf,
+  resolveColumnSource,
+  soleReference,
+} from './derive-type.js';
 import { convertValue } from './parquet/convert.js';
 import {
   rowGroupBlocks,
@@ -84,23 +90,33 @@ function planFrom(
     );
   }
   const { tdc, env, registry } = prepared;
-  const specs = extractSequenceSpecs(findChildElement(tdc.content(), 'env'));
+  const envNode = findChildElement(tdc.content(), 'env');
+  const specs = extractSequenceSpecs(envNode);
+  const pools = extractPoolSpecs(envNode);
   // Resolution order: an explicit type= wins; otherwise ask the generator that
   // feeds the column; otherwise fall back to text. We never guess from values.
-  const sources = declared.map((column) => soleReference(column.template, env.inject));
-  const types = declared.map((column, i) => {
+  const sources = declared.map((column) => {
+    const name = soleReference(column.template, env.inject);
+    return name === undefined ? undefined : resolveColumnSource(name, specs, pools);
+  });
+  const types = declared.map((column, i): OutputColumnType => {
     if (column.type) return column.type;
     const source = sources[i];
-    return (
-      (source === undefined ? undefined : deriveOutputColumnType(source, specs)) ?? DEFAULT_TYPE
-    );
+    const type =
+      (source === undefined ? undefined : deriveOutputColumnType(source.name, source.specs)) ??
+      DEFAULT_TYPE;
+    // A cell the config may leave empty (`parent=`, an `if=` with no fallback)
+    // is a NULL, not a reason to stop: the column was never declared required.
+    // A list has no NULL of its own — an empty cell is an empty list.
+    if (source?.blank !== true || isListType(type) || isMapType(type)) return type;
+    return { ...type, nullable: true };
   });
   // A declared []T needs a separator too; fall back to the default comma when
   // the column was typed by hand rather than derived from a repeating gen.
   const separators = types.map((type, i) => {
     if (!isListType(type) && !isMapType(type)) return undefined;
     const source = sources[i];
-    return (source === undefined ? undefined : repeatSeparatorOf(source, specs)) ?? ',';
+    return (source === undefined ? undefined : repeatSeparatorOf(source.name, source.specs)) ?? ',';
   });
   const schema = declared.map((column, i) => ({
     name: column.name,
