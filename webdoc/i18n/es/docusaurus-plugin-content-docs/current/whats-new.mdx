@@ -13,6 +13,35 @@ donde la documentación lo explica ahora. Los cambios dentro del motor que no al
 que usted escribe o lee quedan fuera; todos los cambios están en el
 [registro de cambios](https://github.com/NickLiapin/tdcv2/blob/main/CHANGELOG.md).
 
+## 4 de noviembre de 2026 — versión 0.3.7
+
+- **Un valor puede ir entre comillas simples.** `value='say "hi"'` guarda un `"` tal como se
+  escribe. Dentro de un valor no se escapa nada, así que una comilla se escribe envolviendo el
+  valor en las del otro tipo. Funciona en cualquier etiqueta, y `tdcv2 format` conserva las
+  comillas que usted eligió. → [Cómo escribir un valor](./reference/attributes.mdx#cómo-escribir-un-valor)
+- **Parquet tipa un campo por el campo que lee.** `${{Dept.id}}`, leído a través de un pool, sale
+  como el `int64` que produce su `increment`, no como texto. Lo mismo un campo de una secuencia
+  compuesta, como `${{Address.zip}}`. →
+  [Puede omitir `type=`](./guides/typed-output-parquet.mdx#puede-omitir-type--tdc-lo-infiere)
+- **Una columna Parquet que la configuración puede dejar vacía admite `null`.** Un `parent=`, o
+  un `<gen if>` sin rama de reserva, detenía la ejecución en la primera fila vacía. Ahora esas
+  filas son `null`. →
+  [Puede omitir `type=`](./guides/typed-output-parquet.mdx#puede-omitir-type--tdc-lo-infiere)
+- **`missing_as` deja una columna Parquet como texto**, porque la palabra que imprime es lo que
+  guarda la celda. →
+  [Tres casos donde la inferencia se omite](./guides/typed-output-parquet.mdx#tres-casos-donde-la-inferencia-se-omite-a-propósito)
+- **Un `timeseries` o un `pattern` dentro de un caso de `<mix>` o bajo `parent=` conserva el eje
+  temporal de la ejecución.** La fila 7 lee la serie en 7, sea cual sea la rama que la produjo,
+  así que una rama rara de "sensor atascado" abre huecos en la onda sin desordenarla. →
+  [Detalles de `timeseries`](./generators/timeseries.mdx#detalles)
+- **`uniq` dentro de un `<pool>` se mide por el pool.** El aviso de memoria `TDC299` leía el
+  `count` de la ejecución, así que mil médicos con un número de consulta único avisaban de 48 MB
+  en una ejecución larga. Ahora decide el `count` del propio pool. →
+  [`TDC299`](./reference/errors.mdx#formato-y-modificadores)
+- **`tdcv2 big.tdc | head` termina en silencio** en los paquetes de TypeScript y Python. Antes,
+  cuando `head` cerraba la tubería, imprimían un error EPIPE y salían con 1; ahora salen con 0,
+  como ya hacían los otros tres. → [Códigos de salida](./reference/cli.mdx#códigos-de-salida)
+
 ## 25 de octubre de 2026 — versión 0.3.6
 
 - **`<line each="Pool">` imprime un pool registro por registro.** Una línea por registro, cada

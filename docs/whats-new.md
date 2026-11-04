@@ -15,6 +15,34 @@ now works differently — newest first, each with a link to where the docs expla
 Changes inside the engine that alter nothing you write or read are left out; every change is
 in the [changelog](https://github.com/NickLiapin/tdcv2/blob/main/CHANGELOG.md).
 
+## 4 November 2026 — version 0.3.7
+
+- **A value can be written in single quotes.** `value='say "hi"'` holds a `"` exactly as
+  written. Nothing inside a value is escaped, so the other kind of quote is how you write one.
+  It works in every tag, and `tdcv2 format` keeps the quotes you chose. →
+  [Writing a value](./reference/attributes.md#writing-a-value)
+- **Parquet types a field by the field it reads.** `${{Dept.id}}`, read through a pool, comes
+  out as the `int64` its `increment` makes, not as text. So does a compound sequence's field,
+  such as `${{Address.zip}}`. →
+  [You can skip `type=`](./guides/typed-output-parquet.md#you-can-skip-type--tdc-infers-it)
+- **A Parquet column the config may leave empty is nullable.** A `parent=`, or a `<gen if>`
+  with no fallback branch, used to stop the run at the first empty row. Those rows are `null`
+  now. → [You can skip `type=`](./guides/typed-output-parquet.md#you-can-skip-type--tdc-infers-it)
+- **`missing_as` keeps a Parquet column as text**, because the word it prints is what the cell
+  holds. →
+  [Three cases where inference is skipped](./guides/typed-output-parquet.md#three-cases-where-inference-is-deliberately-skipped)
+- **A `timeseries` or `pattern` inside a `<mix>` case or under `parent=` keeps the run's time
+  axis.** Row 7 reads the series at 7, whichever branch produced it, so a rare "sensor stuck"
+  branch punches holes in a wave without scrambling it. →
+  [`timeseries` details](./generators/timeseries.md#details)
+- **`uniq` inside a `<pool>` is measured by the pool.** The memory warning `TDC299` read the
+  run's `count`, so a thousand doctors with a unique room number warned about 48 MB on a long
+  run. The pool's own `count` decides now. →
+  [`TDC299`](./reference/errors.md#formatting-and-modifiers)
+- **`tdcv2 big.tdc | head` ends quietly** in the TypeScript and Python packages. They used to
+  print an EPIPE error and exit 1 when `head` closed the pipe; they now exit 0, as the other
+  three did. → [Exit codes](./reference/cli.md#exit-codes)
+
 ## 25 October 2026 — version 0.3.6
 
 - **`<line each="Pool">` prints a pool record by record.** One line per record, every field read

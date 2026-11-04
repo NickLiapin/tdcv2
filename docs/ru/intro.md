@@ -25,7 +25,7 @@
 > [!IMPORTANT]
 > **Об этой документации**
 >
-> Описывает TDC **0.3.6**, последнее обновление — **3 ноября 2026**: дата
+> Описывает TDC **0.3.7**, последнее обновление — **3 ноября 2026**: дата
 > последнего изменения любой из страниц, а не дата сборки сайта.
 
 TDC генерирует тестовые данные, согласованные внутри записи. В пределах одной строки
@@ -338,10 +338,10 @@ for (const user of users) {
 
 | Реализация                                | Реестр        | Установка                    | Версия |
 | :---------------------------------------- | :------------ | :--------------------------- | :----- |
-| **[TypeScript](bindings/typescript.md#top)** | npm           | `npm i tdcv2`                | 0.3.6  |
-| **[Python](bindings/python.md#top)**         | PyPI          | `pip install tdcv2`          | 0.3.6  |
-| **[Rust](bindings/rust.md#top)**             | crates.io     | `cargo add tdcv2`            | 0.3.6  |
-| **[C#](bindings/csharp.md#top)**             | NuGet         | `dotnet add package Tdcv2`   | 0.3.6  |
+| **[TypeScript](bindings/typescript.md#top)** | npm           | `npm i tdcv2`                | 0.3.7  |
+| **[Python](bindings/python.md#top)**         | PyPI          | `pip install tdcv2`          | 0.3.7  |
+| **[Rust](bindings/rust.md#top)**             | crates.io     | `cargo add tdcv2`            | 0.3.7  |
+| **[C#](bindings/csharp.md#top)**             | NuGet         | `dotnet add package Tdcv2`   | 0.3.7  |
 | **[Java](bindings/java.md#top)**             | Maven Central | `io.github.nickliapin:tdcv2` | 0.3.6  |
 
 Каждый опубликованный пакет несёт стартовый набор паков, поэтому работает без всего

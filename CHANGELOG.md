@@ -15,6 +15,8 @@ page — is tracked in that implementation's own changelog:
 
 ## [Unreleased]
 
+## [0.3.7] — 2026-11-04
+
 ### Added
 
 - **A value can be quoted with `'` — in all five.** `value='say "hi"'` and
@@ -52,6 +54,15 @@ page — is tracked in that implementation's own changelog:
 - **`missing_as` keeps a Parquet column as text.** `missing="0.5" missing_as="NULL"` on a number
   was typed `int64`, and the first missing row stopped the run on `"NULL" is not an integer`. The
   word is what the cell holds, so the column is `string`, as with `mask` and `case`.
+- **`uniq` inside a `<pool>` is sized by the pool — in all five.** `TDC299` read the run's
+  `count`, so a thousand doctors with a `uniq` room number warned about 48 MB on a 200,000-row
+  run. The pool is built once, before the first row, so its own `count` is what the column holds:
+  no warning there, and a 200,000-member pool warns even on a ten-row run. Found by the article
+  agent.
+- **`tdcv2 big.tdc | head` ends quietly in TypeScript and Python.** `head` closes the pipe after
+  its lines; the next write failed with EPIPE, and both printed the error and exited 1, as if the
+  run had broken. They now stop at once and exit 0, as Rust, Java and C# already did. Found by the
+  article agent.
 
 ### Changed
 
