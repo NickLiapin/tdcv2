@@ -759,6 +759,11 @@ public sealed class Validator
     private readonly Dictionary<TDCParser.OpenCloseElementContext, string> _poolMemberPool = new();
 
     /// <summary>
+    /// Each member's pool size, for what a uniq column INSIDE a pool costs; absent if malformed.
+    /// </summary>
+    private readonly Dictionary<TDCParser.OpenCloseElementContext, long> _poolMemberSize = new();
+
+    /// <summary>
     /// Put an expression aside, together with the names it will be checked against.
     /// </summary>
     /// <remarks>
@@ -2683,6 +2688,14 @@ public sealed class Validator
                         ? poolOwn
                         : Array.Empty<string>(),
                     StringComparer.Ordinal);
+                // A malformed count is TDC223's business; here it only means nothing to size.
+                long? poolSize = long.TryParse(
+                    Attributes(open.attr()).GetValueOrDefault("count", "").Trim(),
+                    NumberStyles.None,
+                    CultureInfo.InvariantCulture,
+                    out long parsedSize) && parsedSize > 0
+                    ? parsedSize
+                    : null;
                 foreach (TDCParser.ElementContext member in open.content().element())
                 {
                     TDCParser.OpenCloseElementContext inner = member.openCloseElement();
@@ -2693,6 +2706,11 @@ public sealed class Validator
 
                     if (inner.name.Text is "sequence" or "mix" or "switch")
                     {
+                        if (poolSize is long innerSize)
+                        {
+                            this._poolMemberSize[inner] = innerSize;
+                        }
+
                         this.poolMemberNodes.Add(inner);
                         this._poolMemberScope[inner] = scope;
                         this._poolMemberPool[inner] = declaredPool?.Trim() ?? "";
@@ -2711,6 +2729,11 @@ public sealed class Validator
                                 this.poolMemberNodes.Add(wrapped);
                                 this._poolMemberScope[wrapped] = scope;
                                 this._poolMemberPool[wrapped] = declaredPool?.Trim() ?? "";
+                                if (poolSize is long wrappedSize)
+                                {
+                                    this._poolMemberSize[wrapped] = wrappedSize;
+                                }
+
                                 result.Add(wrapped);
                             }
                         }
@@ -3349,19 +3372,37 @@ public sealed class Validator
             return;
         }
 
-        if (_envCount < UniqWarnRows)
+        // Inside a <pool> the column is the pool's, built once before the run: it holds the
+        // pool's count of values, whatever the run's count is.
+        bool inPool = this.poolMemberNodes.Contains(open);
+        long count;
+        if (inPool)
+        {
+            if (!this._poolMemberSize.TryGetValue(open, out count))
+            {
+                return;
+            }
+        }
+        else
+        {
+            count = _envCount;
+        }
+
+        if (count < UniqWarnRows)
         {
             return;
         }
 
-        double mb = _envCount * (double)UniqBytesPerValue / 1024 / 1024;
+        double mb = count * (double)UniqBytesPerValue / 1024 / 1024;
         string size = mb >= 1024
             ? $"{mb / 1024:F1} GB"
             : $"{Math.Round(mb):N0} MB";
         Warn(
             "TDC299",
-            $"uniq on \"{name ?? "?"}\" costs about {size} at {_envCount:N0} rows — memory that "
-            + "follows the row count",
+            $"uniq on \"{name ?? "?"}\" costs about {size} at {count:N0} "
+            + (inPool
+                ? "pool members — memory that follows the pool's count"
+                : "rows — memory that follows the row count"),
             "Keeping a promise about the finished column costs memory that follows count, on every "
             + "engine — the cost belongs to the promise, not to one of them. About 250 bytes a "
             + "value, measured; a compound uniq measures higher still. A single drawn column pays "

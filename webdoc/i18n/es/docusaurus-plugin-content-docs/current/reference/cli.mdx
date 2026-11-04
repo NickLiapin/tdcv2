@@ -327,7 +327,7 @@ archivo queda intacto (código de salida 1).
 
 | Código | Significado                                                                                                                                   |
 | -----: | :-------------------------------------------------------------------------------------------------------------------------------------------- |
-|    `0` | Generación exitosa, `--help` o `--version`                                                                                                    |
+|    `0` | Generación exitosa — también la que detiene un lector al cerrar la tubería, como hace `\| head` —, `--help` o `--version` |
 |    `1` | Error de lectura, parseo, validación o ejecución                                                                                              |
 |    `2` | Argumentos de CLI incorrectos — y cualquier fallo de `pack` o `init` (una descarga, una suma de verificación, una configuración ya existente) |
 

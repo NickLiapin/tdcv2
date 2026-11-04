@@ -300,3 +300,38 @@ class TestPack:
 
         assert pack_cmd.run_pack(["frobnicate"], project) == 2
         assert "unknown pack command" in capsys.readouterr().err
+
+
+def test_a_reader_closing_the_pipe_ends_the_run_quietly(tmp_path: Path) -> None:
+    """``tdcv2 big.tdc | head`` is how a reader peeks at a config's output.
+
+    ``head`` closes the pipe after its lines and the next write fails with EPIPE — the ordinary
+    end of the run, as it is for ``cat`` and ``seq``, and how Rust, Java and C# already ended.
+    This printed "tdcv2: [Errno 32] Broken pipe" and exited 1. Only a real pipe reaches it.
+    """
+    import subprocess
+    import sys
+
+    config = tmp_path / "c.tdc"
+    config.write_text(
+        '<tdc><env count="200000" seed="pipe">'
+        '<sequence name="Id"><gen type="increment" value="1"/></sequence>'
+        "</env><block><line><data>${{Id}} padding to make each row longer than one byte</data>"
+        "</line></block></tdc>"
+    )
+    code = tmp_path / "code"
+    run = subprocess.run(
+        [
+            "sh",
+            "-c",
+            f"{{ '{sys.executable}' -c 'from tdcv2.cli.main import cli; cli()' '{config}'; "
+            f"echo $? > '{code}'; }} | head -2 > /dev/null",
+        ],
+        stdin=subprocess.DEVNULL,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.PIPE,
+        text=True,
+        check=False,
+    )
+    assert run.stderr == ""
+    assert code.read_text().strip() == "0"

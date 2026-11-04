@@ -712,8 +712,12 @@ function checkSequenceBody(seqEl: OpenCloseElementContext, ctx: Ctx): void {
   // Size, not shape: what this column will COST. The shape checks below decide
   // whether uniq can be kept at all; this one asks what keeping it is worth in
   // memory, which only the run length can answer.
+  // Inside a <pool> the column is the pool's, built once before the run: it holds
+  // the pool's count of values, whatever the run's count is.
   if ((extractAttrs(seqEl.attr())['uniq'] ?? '').trim().toLowerCase() === 'true') {
-    checkUniqMemory(seqEl, name ?? '?', ctx.count, ctx.diagnostics);
+    const inPool = ctx.currentPool !== undefined;
+    const size = inPool ? ctx.poolCounts.get(ctx.currentPool ?? '') : ctx.count;
+    if (size !== undefined) checkUniqMemory(seqEl, name ?? '?', size, inPool, ctx.diagnostics);
   }
 
   // Compute sequence: the producer is a `<compute>` tree. Validate the tree

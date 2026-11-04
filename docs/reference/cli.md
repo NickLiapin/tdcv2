@@ -332,7 +332,7 @@ the formatter reports it and leaves the file untouched (exit code 1).
 
 | Code | Meaning                                                                                           |
 | ---: | :------------------------------------------------------------------------------------------------ |
-|  `0` | Successful generation, `--help`, or `--version`                                                   |
+|  `0` | Successful generation — including one a reader stopped by closing the pipe, as `\| head` does — `--help`, or `--version` |
 |  `1` | A read, parse, validation, or runtime error                                                       |
 |  `2` | Bad CLI arguments — and any `pack` or `init` failure (a download, a checksum, an existing config) |
 

@@ -208,6 +208,12 @@ def _generate(options: Options) -> int:
     except TdcError as e:
         _report(_for_the_run(e.diagnostics), options.input, e.source)
         return 1
+    except BrokenPipeError:
+        # A closed pipe is the ordinary end of `tdcv2 big.tdc | head`, not a failure worth a
+        # message nobody is left to read. Rust, Java and C# already ended this way; this used
+        # to print "[Errno 32] Broken pipe" and exit 1.
+        _silence_stdout()
+        return 0
     except (OSError, ValueError, RuntimeError) as e:
         # The same channel, for everything after the config is built. It used to guard only the
         # WRITE, and the engine router raises from `preflight` — which sits before it — so a
@@ -532,6 +538,20 @@ def _fail(message: str, usage: bool = False) -> None:
     sys.stderr.write(f"tdcv2: {message}\n")
     if usage:
         sys.stderr.write("Run `tdcv2 --help` for usage.\n")
+
+
+def _silence_stdout() -> None:
+    """Point fd 1 at the null device, so the interpreter's own flush at exit finds no pipe.
+
+    Without it Python prints "Exception ignored ... BrokenPipeError" on its way out, which
+    is the very message the caller just decided not to print.
+    """
+    try:
+        null = os.open(os.devnull, os.O_WRONLY)
+        os.dup2(null, sys.stdout.fileno())
+        os.close(null)
+    except (OSError, ValueError):
+        pass  # No real fd 1 (a test's captured stream): nothing will be flushed to a pipe.
 
 
 def _note(message: str) -> None:

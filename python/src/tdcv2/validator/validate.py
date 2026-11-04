@@ -1026,6 +1026,7 @@ class _Validator:
         "pool_member_pool",
         "pool_member_scope",
         "pool_references",
+        "pool_sizes",
         "pools_read",
         "repeating_names",
         "row_link_gens",
@@ -1119,6 +1120,8 @@ class _Validator:
         # Which pool each of those members belongs to: a `filter=` written on one reads that
         # pool's fields, never the run's.
         self.pool_member_pool: dict[int, str] = {}
+        # Each pool's member count, for what a uniq column INSIDE it costs.
+        self.pool_sizes: dict[str, int] = {}
         # The names declared ABOVE the expression being checked, when it is a condition that
         # decides a column while that column is BUILT — `<gen if=>` and `missing_when=`. Naming a
         # column declared below it was answered differently by the two engines: the in-memory one
@@ -2338,6 +2341,12 @@ class _Validator:
                 # member, and the column it guards came out empty on every row.
                 pool_name = _attrs(open_el.attr()).get("name") or ""
                 scope = frozenset(self.pool_fields.get(pool_name, []))
+                try:
+                    size = int((_attrs(open_el.attr()).get("count") or "").strip())
+                    if size > 0:
+                        self.pool_sizes[pool_name] = size
+                except ValueError:
+                    pass  # A malformed count is TDC223's business.
                 for member_el in _elements(open_el):
                     member = member_el.openCloseElement()
                     if member is None:
@@ -2725,13 +2734,21 @@ class _Validator:
         """Size, not shape: what a uniq column will COST at this run length."""
         if _attrs(open_el.attr()).get("uniq", "").strip().lower() != "true":
             return
-        if self.env_count < _UNIQ_WARN_ROWS:
+        # Inside a <pool> the column is the pool's, built once before the run: it holds the
+        # pool's count of values, whatever the run's count is.
+        pool = self.pool_member_pool.get(id(open_el))
+        size = self.env_count if pool is None else self.pool_sizes.get(pool)
+        if size is None or size < _UNIQ_WARN_ROWS:
             return
+        what = (
+            "rows — memory that follows the row count"
+            if pool is None
+            else "pool members — memory that follows the pool's count"
+        )
         self._warn(
             "TDC299",
             f'uniq on "{name or "?"}" costs about '
-            f"{_megabytes(self.env_count * _UNIQ_BYTES_PER_VALUE)} at {self.env_count:,} rows "
-            f"— memory that follows the row count",
+            f"{_megabytes(size * _UNIQ_BYTES_PER_VALUE)} at {size:,} {what}",
             "Keeping a promise about the finished column costs memory that follows count, on "
             "every engine — the cost belongs to the promise, not to one of them. About 250 "
             "bytes a value, measured; a compound uniq measures higher still. A single drawn "

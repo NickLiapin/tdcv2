@@ -694,7 +694,13 @@ impl Validator {
     /// nothing. 250 bytes a value is MEASURED — peak RSS against row count, the
     /// slope over an eight-fold range; the table is in the TypeScript reference,
     /// `typescript/src/validator/uniq-memory.ts`.
-    fn check_uniq_memory(&mut self, open: &Element, named: Option<&str>) {
+    fn check_uniq_memory(
+        &mut self,
+        open: &Element,
+        named: Option<&str>,
+        count: i64,
+        in_pool: bool,
+    ) {
         const BYTES_PER_VALUE: i64 = 250;
         const WARN_ROWS: i64 = 100_000;
         if open
@@ -706,10 +712,10 @@ impl Validator {
         {
             return;
         }
-        if self.env_count < WARN_ROWS {
+        if count < WARN_ROWS {
             return;
         }
-        let bytes = self.env_count * BYTES_PER_VALUE;
+        let bytes = count * BYTES_PER_VALUE;
         let mb = bytes as f64 / 1024.0 / 1024.0;
         let size = if mb >= 1024.0 {
             format!("{:.1} GB", mb / 1024.0)
@@ -719,10 +725,15 @@ impl Validator {
         self.warn(
             "TDC299",
             format!(
-                "uniq on \"{}\" costs about {} at {} rows — memory that follows the row count",
+                "uniq on \"{}\" costs about {} at {} {}",
                 named.unwrap_or("?"),
                 size,
-                Self::grouped(self.env_count)
+                Self::grouped(count),
+                if in_pool {
+                    "pool members — memory that follows the pool's count"
+                } else {
+                    "rows — memory that follows the row count"
+                }
             ),
             "Keeping a promise about the finished column costs memory that follows count, on \
              every engine — the cost belongs to the promise, not to one of them. About 250 bytes \
@@ -1190,7 +1201,15 @@ impl Validator {
                 "mix" => self.check_mix(open, true),
                 "sequence" => {
                     // Size, not shape: what this column will COST at this run length.
-                    self.check_uniq_memory(open, named);
+                    // Inside a <pool> the column is the pool's, built once before the run:
+                    // it holds the pool's count of values, whatever the run's count is.
+                    let size = match declaration.pool.as_deref() {
+                        Some(pool) => pool_size(env, pool),
+                        None => Some(self.env_count),
+                    };
+                    if let Some(size) = size {
+                        self.check_uniq_memory(open, named, size, in_pool);
+                    }
                     self.check_sequence_body(open, named);
                     self.check_sequence_data_attrs(open);
                     self.check_compute_body(open);
@@ -8372,6 +8391,20 @@ fn clip(value: &str) -> String {
 /// another says the same thing without making every later feature ask at which
 /// depth it applies.
 /// Every declaration inside a pool, flattened out of any group wrapper.
+/// The member count of the `<pool>` named `name`, when it is a whole number above zero.
+///
+/// A malformed count is TDC223's to report; here it only means there is nothing to size.
+fn pool_size(env: &Element, name: &str) -> Option<i64> {
+    env.children
+        .iter()
+        .find(|c| {
+            c.kind == Kind::OpenClose && c.name == "pool" && c.attr_value("name") == Some(name)
+        })
+        .and_then(|pool| pool.attr_value("count"))
+        .and_then(|raw| raw.trim().parse::<i64>().ok())
+        .filter(|n| *n > 0)
+}
+
 fn pool_member_nodes(pool: &Element) -> Vec<&Element> {
     let mut out = Vec::new();
     for member in &pool.children {

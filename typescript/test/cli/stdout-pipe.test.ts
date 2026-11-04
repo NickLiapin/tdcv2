@@ -92,4 +92,28 @@ describe('stdout is a pipe', () => {
     const lines = spawnSync('sh', ['-c', `gzip -dc '${out}' | wc -l`], { encoding: 'utf8' });
     expect(Number(lines.stdout.trim())).toBe(ROWS);
   }, 180_000);
+
+  // `tdcv2 big.tdc | head` is how a reader peeks at a config's output. `head`
+  // closes the pipe after its lines, and the next write fails with EPIPE — the
+  // ordinary end of the run, as it is for `cat` and `seq`. It used to print
+  // "tdcv2: EPIPE: broken pipe, write" and exit 1, so the reader of an article
+  // who repeated the command saw an error and concluded something had broken.
+  it.each([[''], ['--jobs 4']])(
+    'ends quietly when the reader closes the pipe %s',
+    (jobs) => {
+      const cfg = join(dir, 'c.tdc');
+      const code = join(dir, `code${jobs.replace(/\W/g, '')}`);
+      const r = spawnSync(
+        'sh',
+        [
+          '-c',
+          `{ node '${distMain}' '${cfg}' ${jobs}; echo $? > '${code}'; } | head -2 > /dev/null`,
+        ],
+        { stdio: ['ignore', 'ignore', 'pipe'], encoding: 'utf8' },
+      );
+      expect(r.stderr).toBe('');
+      expect(readFileSync(code, 'utf8').trim()).toBe('0');
+    },
+    180_000,
+  );
 });

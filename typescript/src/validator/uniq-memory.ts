@@ -69,22 +69,29 @@ function megabytes(bytes: number): string {
  * Warn when a sequence carrying `uniq="true"` will hold a large column.
  *
  * `count` is the run length, already parsed by the caller — a config whose count
- * did not parse has an error of its own and is not made clearer by this.
+ * did not parse has an error of its own and is not made clearer by this. Inside a
+ * `<pool>` it is the POOL's count: the table is built once, before the first row,
+ * and never grows with the run. Reading the run's count there warned about 48 MB
+ * for a thousand doctors.
  */
 export function checkUniqMemory(
   node: OpenCloseElementContext | SelfClosingElementContext,
   name: string,
   count: number,
+  inPool: boolean,
   diagnostics: Diagnostic[],
 ): void {
   if (count < WARN_ROWS) return;
+  const what = inPool
+    ? "pool members — memory that follows the pool's count"
+    : 'rows — memory that follows the row count';
   diagnostics.push({
     severity: 'warning',
     source: 'validator',
     ...nodeRange(node),
     message:
       `uniq on "${name}" costs about ${megabytes(count * BYTES_PER_VALUE)} at ` +
-      `${count.toLocaleString('en-US')} rows — memory that follows the row count`,
+      `${count.toLocaleString('en-US')} ${what}`,
     hint:
       'Keeping a promise about the finished column costs memory that follows count, on every ' +
       'engine — the cost belongs to the promise, not to one of them. About 250 bytes a value, ' +

@@ -673,6 +673,10 @@ export async function main(argv: readonly string[]): Promise<number> {
       );
       return 1;
     }
+    // A closed pipe is the ordinary end of `tdcv2 big.tdc | head`, not a failure
+    // worth a message nobody is left to read — the reader got the lines they asked
+    // for. Rust, Java and C# already ended this way; this used to print EPIPE.
+    if (isBrokenPipe(err)) return 0;
     process.stderr.write(`tdcv2: ${err instanceof Error ? err.message : String(err)}\n`);
     return 1;
   }
@@ -854,6 +858,11 @@ async function renderParallel(
   } else {
     await runParallel({ ...params, destFd: 1 });
   }
+}
+
+/** `tdcv2 big.tdc | head`: the reader closed the pipe after the lines they wanted. */
+function isBrokenPipe(err: unknown): boolean {
+  return (err as NodeJS.ErrnoException | undefined)?.code === 'EPIPE';
 }
 
 /**

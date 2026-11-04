@@ -736,6 +736,10 @@ public final class Validator {
   private final Map<TDCParser.OpenCloseElementContext, Set<String>> poolMemberScope =
       new java.util.IdentityHashMap<>();
 
+  /** Each member's pool size, for what a uniq column INSIDE a pool costs; absent if malformed. */
+  private final Map<TDCParser.OpenCloseElementContext, Long> poolMemberSize =
+      new java.util.IdentityHashMap<>();
+
   /**
    * Put an expression aside, together with the names it will be checked against.
    *
@@ -1872,6 +1876,13 @@ public final class Validator {
     String poolName = attributes(pool.attr()).get("name");
     Set<String> scope =
         new LinkedHashSet<>(poolFields.getOrDefault(poolName == null ? "" : poolName, List.of()));
+    Long size = null;
+    try {
+      long n = Long.parseLong(attributes(pool.attr()).getOrDefault("count", "").trim());
+      size = n > 0 ? n : null;
+    } catch (NumberFormatException e) {
+      // A malformed count is TDC223's business.
+    }
     for (TDCParser.ElementContext member : pool.content().element()) {
       TDCParser.OpenCloseElementContext inner = member.openCloseElement();
       if (inner == null) {
@@ -1882,6 +1893,9 @@ public final class Validator {
         poolMemberNodes.add(inner);
         poolMemberScope.put(inner, scope);
         poolMemberPool.put(inner, poolName == null ? "" : poolName.trim());
+        if (size != null) {
+          poolMemberSize.put(inner, size);
+        }
         out.add(inner);
       } else if ("uniq".equals(tag) || "distinct".equals(tag)) {
         int wrapped = 0;
@@ -1894,6 +1908,9 @@ public final class Validator {
           poolMemberNodes.add(node);
           poolMemberScope.put(node, scope);
           poolMemberPool.put(node, poolName == null ? "" : poolName.trim());
+          if (size != null) {
+            poolMemberSize.put(node, size);
+          }
           out.add(node);
         }
         checkGroupSize(inner, tag, wrapped);
@@ -3034,16 +3051,22 @@ public final class Validator {
     if (!"true".equals(attrs.getOrDefault("uniq", "").trim().toLowerCase(java.util.Locale.ROOT))) {
       return;
     }
-    if (envCount < UNIQ_WARN_ROWS) {
+    // Inside a <pool> the column is the pool's, built once before the run: it holds the pool's
+    // count of values, whatever the run's count is.
+    boolean inPool = poolMemberNodes.contains(open);
+    Long count = inPool ? poolMemberSize.get(open) : Long.valueOf(envCount);
+    if (count == null || count < UNIQ_WARN_ROWS) {
       return;
     }
-    double mb = envCount * (double) UNIQ_BYTES_PER_VALUE / 1024 / 1024;
+    double mb = count * (double) UNIQ_BYTES_PER_VALUE / 1024 / 1024;
     String size = mb >= 1024
         ? String.format(java.util.Locale.ROOT, "%.1f GB", mb / 1024)
         : grouped((long) Math.round(mb)) + " MB";
     warn("TDC299",
         "uniq on \"" + (name == null ? "?" : name) + "\" costs about " + size + " at "
-            + grouped(envCount) + " rows — memory that follows the row count",
+            + grouped(count) + (inPool
+                ? " pool members — memory that follows the pool's count"
+                : " rows — memory that follows the row count"),
         "Keeping a promise about the finished column costs memory that follows count, on every "
             + "engine — the cost belongs to the promise, not to one of them. About 250 bytes a "
             + "value, measured; a compound uniq measures higher still. A single drawn column pays "
