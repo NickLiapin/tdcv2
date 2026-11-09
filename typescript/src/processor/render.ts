@@ -47,8 +47,8 @@ import type { PackRegistry } from '../data-pack/index.js';
 import { type Diagnostic, TdcDiagnosticError, nodeRange } from '../errors/index.js';
 import { advancedRegexGenerator, parseAdvancedRegexProgram } from '../generators/advanced-regex.js';
 import { dateGenerator } from '../generators/date.js';
-import { fetchHttpValues, httpSeedFor, HttpServiceError } from '../generators/http.js';
-import { resolveHttpSecret } from '../generators/http-secret.js';
+import { HttpSession } from '../generators/http-column.js';
+import { syncHttpTransport } from '../generators/http-transport.js';
 import { fileUniform } from '../generators/file.js';
 import { numberGenerator } from '../generators/number.js';
 import { parseRegexMaxLength, regexGenerator } from '../generators/regex.js';
@@ -357,121 +357,26 @@ export function render(document: DocumentContext, options: RenderOptions = {}): 
   return out;
 }
 
-/** Default per-request timeout for an http generator, overridable with `timeout=` (seconds). */
-const HTTP_DEFAULT_TIMEOUT_MS = 30_000;
-
 /**
- * Build a {@link PreparedRender} on the async path: the sequence registry is
- * built synchronously (http generators leaving placeholder columns), then every
- * http column is filled from its service. Only configs with a `type="http"`
- * generator need this — everything else renders identically through the sync
- * `prepareRender`.
+ * Build a {@link PreparedRender} for a caller that awaits.
+ *
+ * Kept for the callers that were written when `http` needed an async post-pass.
+ * It no longer does: the build waits for each service where its column is
+ * built, so this is the synchronous preparation behind a promise.
  */
-export async function prepareRenderAsync(
+export function prepareRenderAsync(
   document: DocumentContext,
   options: RenderOptions = {},
 ): Promise<PreparedRender> {
-  const prepared = prepareRender(document, options, true);
-  const tdc = findTdc(document);
-  const envEl = tdc ? findChildElement(tdc.content(), 'env') : undefined;
-  await resolveHttpSequences(
-    prepared.registry,
-    extractSequenceSpecs(envEl),
-    prepared.env.seed,
-    options.baseDir ?? '.',
-  );
-  return prepared;
+  return Promise.resolve().then(() => prepareRender(document, options));
 }
 
-/**
- * Async counterpart of {@link render}. Required for a config containing a
- * `type="http"` generator; identical output to `render` for any config without
- * one. The result is non-deterministic when http is used — re-running does not
- * reproduce — which is why such a config never reaches the reproducible
- * streaming path.
- */
-export async function renderAsync(
+/** {@link render} behind a promise — see {@link prepareRenderAsync}. */
+export function renderAsync(
   document: DocumentContext,
   options: RenderOptions = {},
 ): Promise<string> {
-  const prepared = await prepareRenderAsync(document, options);
-  let out = '';
-  for (const chunk of streamFromPrepared(prepared, options)) out += chunk;
-  return out;
-}
-
-/**
- * Fill every `type="http"` sequence's placeholder column from its service.
- * Reads the `in=` column (already built, since it is a required earlier
- * sequence) as the batch input, calls the service once for the whole column,
- * and writes the answers back in place. A thrown transport error is wrapped
- * with the sequence name for a clear diagnostic.
- *
- * Each call carries a seed derived from the env seed AND the sequence name.
- * The engine cannot make an http run reproducible — the service decides the
- * values — but it can hand the service what it needs to be reproducible on its
- * own. Deriving per sequence matters: sending the raw env seed would give two
- * http sequences pointed at one service the same seed, and a service that
- * generates from it would answer both with an identical column.
- */
-async function resolveHttpSequences(
-  registry: SequenceRegistry,
-  specs: readonly SequenceSpec[],
-  seed: string,
-  baseDir: string,
-): Promise<void> {
-  for (const spec of specs) {
-    if (spec.gen?.type !== 'http') continue;
-    const seq = registry[spec.name];
-    if (!seq) continue;
-    const count = seq.values.length;
-
-    const inName = spec.gen.attrs['in'];
-    const inputs =
-      inName === undefined ? undefined : (registry[inName]?.values ?? []).map((v) => v ?? '');
-
-    // Resolved per sequence and never cached: two sequences may sign with two
-    // different secrets, and a config that names an unset variable should say so
-    // in terms of the sequence the reader wrote.
-    const secretSpec = spec.gen.attrs['secret'];
-    let secret: string | undefined;
-    if (secretSpec !== undefined && secretSpec.trim() !== '') {
-      try {
-        secret = resolveHttpSecret(secretSpec, baseDir);
-      } catch (err) {
-        throw new Error(
-          `http service for sequence "${spec.name}": ${err instanceof Error ? err.message : String(err)}`,
-        );
-      }
-    }
-
-    let values: string[];
-    try {
-      values = await fetchHttpValues({
-        src: spec.gen.attrs['src'] ?? '',
-        count,
-        inputs,
-        onError: spec.gen.attrs['on_error'] === 'empty' ? 'empty' : 'fail',
-        timeoutMs: parseHttpTimeout(spec.gen.attrs['timeout']),
-        seed: httpSeedFor(seed, spec.name),
-        secret,
-      });
-    } catch (err) {
-      if (err instanceof HttpServiceError) {
-        throw new Error(`http service for sequence "${spec.name}" at ${err.url} ${err.message}`);
-      }
-      throw err;
-    }
-    const target = seq.values as (string | undefined)[];
-    for (let i = 0; i < count; i++) target[i] = values[i];
-  }
-}
-
-/** `timeout="30"` → 30_000 ms. Falls back to the default on absent/invalid input. */
-function parseHttpTimeout(raw: string | undefined): number {
-  if (raw === undefined) return HTTP_DEFAULT_TIMEOUT_MS;
-  const seconds = Number(raw);
-  return Number.isFinite(seconds) && seconds > 0 ? seconds * 1000 : HTTP_DEFAULT_TIMEOUT_MS;
+  return Promise.resolve().then(() => render(document, options));
 }
 
 /**
@@ -632,7 +537,6 @@ export interface PreparedRender {
 export function prepareRender(
   document: DocumentContext,
   options: RenderOptions = {},
-  deferHttp = false,
 ): PreparedRender {
   const tdc = findTdc(document);
   if (!tdc) {
@@ -686,6 +590,10 @@ export function prepareRender(
       : {}),
     ...(options.onProgress !== undefined ? { onProgress: options.onProgress } : {}),
     seed: env.seed,
+    // Every `type="http"` column of this run, fetched batch by batch where it is
+    // read. Opening the session costs nothing; the helper thread starts with the
+    // first request.
+    http: new HttpSession(env.seed, options.baseDir ?? '.', syncHttpTransport),
     // A `<data>` inside a `<case>` interpolates by the document's own marker, so
     // a config that set `inject=` to emit `${{…}}` literally still does.
     inject: env.inject,
@@ -803,9 +711,6 @@ export function prepareRender(
       ...buildOptions,
       envDistinctGroups,
       envUniqGroups,
-      // On the async path an http generator produces a placeholder column here;
-      // resolveHttpSequences fills it after the whole registry is built.
-      httpDeferred: deferHttp,
     });
   }
   // The run is finished; now the config gets to check its own output. Here rather

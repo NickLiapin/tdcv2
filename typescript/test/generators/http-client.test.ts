@@ -1,12 +1,20 @@
 import { afterEach, describe, expect, it } from 'vitest';
 
-import { fetchHttpValues, HttpServiceError } from '../../src/generators/http.js';
+import {
+  fetchHttpBatch,
+  HttpServiceError,
+  type HttpFetchOptions,
+} from '../../src/generators/http.js';
 import { startService, type ServiceHandle } from '../fixtures/http-service.js';
 
 /**
  * The wire-contract client, driven against the real fixture service. This is
  * the §4 contract and the §5 error model, isolated from the engine.
  */
+
+/** The blocking client behind a promise, so a failure reads as a rejection. */
+const fetchHttpValues = (opts: HttpFetchOptions): Promise<string[]> =>
+  Promise.resolve().then(() => fetchHttpBatch(opts));
 
 let service: ServiceHandle | undefined;
 afterEach(async () => {

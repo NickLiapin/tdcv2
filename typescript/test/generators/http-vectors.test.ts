@@ -34,6 +34,8 @@ const VECTORS = JSON.parse(
       timestamp: string;
       seed: string;
       count: number;
+      offset: number;
+      total: number;
       body: string;
       signature: string;
     }[];
@@ -43,7 +45,9 @@ const VECTORS = JSON.parse(
 
 describe('X-TDC-Signature', () => {
   it.each(VECTORS.signature.vectors.map((v) => [v.name, v] as const))('%s', (_name, v) => {
-    expect(signRequest(v.secret, v.timestamp, v.seed, v.count, v.body)).toBe(v.signature);
+    expect(signRequest(v.secret, v.timestamp, v.seed, v.count, v.offset, v.total, v.body)).toBe(
+      v.signature,
+    );
   });
 
   it('has a vector for every part of the message', () => {

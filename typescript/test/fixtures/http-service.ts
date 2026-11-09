@@ -15,11 +15,15 @@
  * exercised on purpose rather than hoped for. It binds to 127.0.0.1 on an
  * ephemeral port (0 → the OS picks one), so the suite needs no fixed port and
  * nothing beyond loopback.
+ *
+ * The server runs on a thread of its own (`http-service-worker.mjs`): the
+ * generator waits for its answer on the thread that renders, so a service on
+ * that thread could never reply. Every request is reported back before it is
+ * answered, and the getters below drain those reports synchronously — whoever
+ * holds an answer can already read what the service saw.
  */
 
-import { createHmac } from 'node:crypto';
-import { createServer, type IncomingMessage, type ServerResponse } from 'node:http';
-import { AddressInfo } from 'node:net';
+import { MessageChannel, receiveMessageOnPort, Worker } from 'node:worker_threads';
 
 export type ServiceMode =
   | 'ok' // answers every request correctly and promptly
@@ -32,8 +36,21 @@ export type ServiceMode =
 
 export interface ServiceOptions {
   readonly mode?: ServiceMode;
-  /** `ok`/`slow`: how each input line becomes an output line. Default `svc-<line>`. */
-  readonly transform?: (line: string, index: number) => string;
+  /**
+   * `ok`/`slow`: how each input line becomes an output line. Default `svc-<line>`.
+   *
+   * `index` is the line's place in its batch, `row` its place in the column
+   * (`X-TDC-Offset` + index). It runs on the service's own thread, rebuilt from
+   * its source text — so it may use its arguments and globals, never a variable
+   * of the test around it.
+   */
+  readonly transform?: (line: string, index: number, row: number) => string;
+  /**
+   * Send `X-TDC-Offset` back, as the contract asks a source to. Default true —
+   * false is a service written before batches, which a multi-batch source run
+   * must refuse rather than trust.
+   */
+  readonly echoOffset?: boolean;
   /** `error-after`: start failing once this many requests have been served. */
   readonly errorAfterRequests?: number;
   /** `error-after`: start failing this many ms after the first request. */
@@ -70,41 +87,23 @@ export interface ServiceHandle {
   inputCounts(): readonly (number | undefined)[];
   /** The `X-TDC-Signature` of every request, in order — '' when absent. */
   signatures(): readonly string[];
+  /** `X-TDC-Offset` per request — `undefined` where absent. */
+  offsets(): readonly (number | undefined)[];
+  /** `X-TDC-Total` per request — `undefined` where absent. */
+  totals(): readonly (number | undefined)[];
+  /** `X-TDC-Count` per request. */
+  counts(): readonly number[];
   close(): Promise<void>;
 }
 
-const wait = (ms: number, signal?: () => boolean): Promise<void> =>
-  new Promise((resolve) => {
-    const t = setInterval(() => {
-      if (signal?.()) {
-        clearInterval(t);
-        resolve();
-      }
-    }, 5);
-    setTimeout(() => {
-      clearInterval(t);
-      resolve();
-    }, ms);
-  });
-
-/** Read a whole request body as a string. */
-function readBody(req: IncomingMessage): Promise<string> {
-  return new Promise((resolve, reject) => {
-    let data = '';
-    req.on('data', (c: Buffer) => {
-      data += c.toString();
-    });
-    req.on('end', () => {
-      resolve(data);
-    });
-    req.on('error', reject);
-  });
-}
-
-function sendLines(res: ServerResponse, lines: readonly string[]): void {
-  const body = lines.join('\n');
-  res.writeHead(200, { 'Content-Type': 'text/plain', 'Content-Length': Buffer.byteLength(body) });
-  res.end(body);
+interface Seen {
+  readonly seed: string;
+  readonly input: number | undefined;
+  readonly signature: string;
+  readonly count: number;
+  readonly offset: number | undefined;
+  readonly total: number | undefined;
+  readonly inFlight: number;
 }
 
 /**
@@ -112,183 +111,48 @@ function sendLines(res: ServerResponse, lines: readonly string[]): void {
  * URL to point the generator at and the counters the tests assert on.
  */
 export function startService(opts: ServiceOptions = {}): Promise<ServiceHandle> {
-  const mode = opts.mode ?? 'ok';
-  const transform = opts.transform ?? ((line: string) => `svc-${line}`);
-  const errorStatus = opts.errorStatus ?? 500;
-  const rateLimitEvery = opts.rateLimitEvery ?? 1;
-  const latencyMs = opts.latencyMs ?? 50;
-
-  const seedsSeen: string[] = [];
-  /** `X-TDC-Input` per request — `undefined` where the header was absent. */
-  const inputsSeen: (number | undefined)[] = [];
-  const signaturesSeen: string[] = [];
-  let seen = 0; // requests accepted, ever
-  let inFlight = 0; // requests being handled right now
-  let peak = 0;
-  let firstAt: number | undefined; // ms of the first request (for error-after)
-  let closed = false;
-
-  // A shared counter the concurrent-unsafe mode mangles: it reads, yields, then
-  // writes, so two overlapping requests hand out the SAME id. Serial callers
-  // never overlap and always get distinct ids.
-  let unsafeCounter = 0;
-
-  const server = createServer((req: IncomingMessage, res: ServerResponse) => {
-    void handle(req, res);
+  const { port1: log, port2 } = new MessageChannel();
+  const worker = new Worker(new URL('./http-service-worker.mjs', import.meta.url), {
+    workerData: {
+      options: { ...opts, transform: opts.transform?.toString() },
+      log: port2,
+    },
+    transferList: [port2],
   });
-
-  async function handle(req: IncomingMessage, res: ServerResponse): Promise<void> {
-    seen += 1;
-    inFlight += 1;
-    if (inFlight > peak) peak = inFlight;
-    const requestIndex = seen;
-    firstAt ??= monotonic();
-
-    try {
-      const count = Number(req.headers['x-tdc-count'] ?? '0');
-      const seed = String(req.headers['x-tdc-seed'] ?? '');
-      seedsSeen.push(seed);
-      const body = await readBody(req);
-      // `X-TDC-Input` is what tells a transform from a source. Without it an
-      // empty body was ambiguous — a column of one empty value looks exactly
-      // like "invent a value" — so a service that reads it can answer both
-      // honestly. Absent means source; present means that many input lines,
-      // zero included.
-      const inputHeader = req.headers['x-tdc-input'];
-      inputsSeen.push(inputHeader === undefined ? undefined : Number(inputHeader));
-      // Absent means "read the body as you always did" — a service written
-      // before the header keeps working unchanged, which is the whole reason
-      // this is a header and not a new body format. Present is what settles the
-      // one case the body alone cannot: an empty body with `1` is one empty
-      // input, with `0` it is none.
-      const declared = inputHeader === undefined ? undefined : Number(inputHeader);
-      const inputs =
-        declared === undefined
-          ? body.length === 0
-            ? []
-            : body.split('\n')
-          : declared === 0
-            ? []
-            : body.length === 0
-              ? ['']
-              : body.split('\n');
-      const n = Number.isFinite(count) && count > 0 ? count : inputs.length;
-
-      // The signature, when the service is configured to demand one. Recomputed
-      // from the same four things the client signed, with the same secret; a
-      // request that does not match is refused before any work is done.
-      if (opts.secret !== undefined) {
-        const given = String(req.headers['x-tdc-signature'] ?? '');
-        const timestamp = String(req.headers['x-tdc-timestamp'] ?? '');
-        signaturesSeen.push(given);
-        const mine = createHmac('sha256', opts.secret)
-          .update(`${timestamp}\n${seed}\n${String(count)}\n${body}`)
-          .digest('hex');
-        if (given === '' || given !== mine) {
-          res.writeHead(401, { 'Content-Type': 'text/plain' });
-          res.end('bad signature');
-          return;
-        }
-      }
-
-      // ---- failure modes, decided before doing any work ----
-      if (mode === 'rate-limit' && requestIndex % rateLimitEvery === 0) {
-        res.writeHead(429, { 'Content-Type': 'text/plain' });
-        res.end('slow down');
-        return;
-      }
-      if (mode === 'error-after' && shouldErrorAfter(requestIndex)) {
-        res.writeHead(errorStatus, { 'Content-Type': 'text/plain' });
-        res.end('deliberate failure');
-        return;
-      }
-      if (mode === 'hang') {
-        // Never answer. Leave the socket open until the server is torn down.
-        return;
-      }
-      if (mode === 'flood') {
-        // A 200 followed by junk with no end in sight — the client's size cap
-        // is what has to stop this, not the service's manners.
-        res.writeHead(200, { 'Content-Type': 'text/plain' });
-        const junk = 'x'.repeat(64 * 1024);
-        const push = (): void => {
-          if (closed || res.writableEnded) return;
-          // Respect backpressure so the flood does not buffer in this process.
-          if (res.write(junk)) setImmediate(push);
-          else res.once('drain', push);
-        };
-        push();
-        return;
-      }
-      if (mode === 'slow') {
-        await wait(latencyMs, () => closed);
-      }
-
-      // ---- the answer: N lines, in order ----
-      const source = (i: number): string => (i < inputs.length ? (inputs[i] ?? '') : String(i));
-
-      if (mode === 'concurrent-unsafe') {
-        const lines: string[] = [];
-        for (let i = 0; i < n; i++) {
-          const id = unsafeCounter; // read
-          // A real timer gap, not a microtask: it reliably lets an overlapping
-          // request run its own read before this one writes, so both see `id`.
-          await new Promise((r) => setTimeout(r, 1));
-          unsafeCounter = id + 1; // write
-          lines.push(`id-${String(id)}`);
-        }
-        sendLines(res, lines);
-        return;
-      }
-
-      const lines = Array.from({ length: n }, (_, i) => transform(source(i), i));
-      const drop = opts.dropLines ?? 0;
-      sendLines(res, drop > 0 ? lines.slice(0, Math.max(0, lines.length - drop)) : lines);
-    } finally {
-      inFlight -= 1;
+  const seen: Seen[] = [];
+  const drain = (): Seen[] => {
+    for (;;) {
+      const got = receiveMessageOnPort(log) as { message: Seen } | undefined;
+      if (got === undefined) return seen;
+      seen.push(got.message);
     }
-  }
-
-  function shouldErrorAfter(requestIndex: number): boolean {
-    if (opts.errorAfterRequests !== undefined && requestIndex > opts.errorAfterRequests) {
-      return true;
-    }
-    if (
-      opts.errorAfterMs !== undefined &&
-      firstAt !== undefined &&
-      monotonic() - firstAt >= opts.errorAfterMs
-    ) {
-      return true;
-    }
-    return false;
-  }
+  };
 
   return new Promise((resolve, reject) => {
-    server.on('error', reject);
-    server.listen(0, '127.0.0.1', () => {
-      const addr = server.address() as AddressInfo;
+    worker.once('error', reject);
+    worker.once('message', (msg: { port: number }) => {
       resolve({
-        url: `http://127.0.0.1:${String(addr.port)}/gen`,
-        port: addr.port,
-        requests: () => seen,
-        seeds: () => seedsSeen,
-        inputCounts: () => inputsSeen,
-        signatures: () => signaturesSeen,
-        concurrentPeak: () => peak,
+        url: `http://127.0.0.1:${String(msg.port)}/gen`,
+        port: msg.port,
+        requests: () => drain().length,
+        seeds: () => drain().map((s) => s.seed),
+        inputCounts: () => drain().map((s) => s.input),
+        signatures: () => drain().map((s) => s.signature),
+        offsets: () => drain().map((s) => s.offset),
+        totals: () => drain().map((s) => s.total),
+        counts: () => drain().map((s) => s.count),
+        concurrentPeak: () => Math.max(0, ...drain().map((s) => s.inFlight)),
         close: () =>
           new Promise<void>((done) => {
-            closed = true;
-            server.closeAllConnections();
-            server.close(() => {
-              done();
+            worker.once('message', () => {
+              log.close();
+              void worker.terminate().then(() => {
+                done();
+              });
             });
+            worker.postMessage('close');
           }),
       });
     });
   });
-}
-
-/** A millisecond clock that is allowed here (fixture code, never the engine). */
-function monotonic(): number {
-  return Number(process.hrtime.bigint() / 1_000_000n);
 }

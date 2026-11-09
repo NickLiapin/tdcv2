@@ -26,6 +26,7 @@ import { interpolate } from '../processor/interpolate.js';
 import { distributeByPercent } from '../distribution/hamilton.js';
 import { expandPercentMask } from '../distribution/percent-mask.js';
 import { type DataSourceOptions } from '../data-source/index.js';
+import type { HttpSession } from '../generators/http-column.js';
 import { advancedRegexGenerator } from '../generators/advanced-regex.js';
 import { decrementGenerator, incrementGenerator } from '../generators/counter.js';
 import { dateAxis, dateGenerator } from '../generators/date.js';
@@ -223,11 +224,11 @@ export interface SequenceBuildOptions {
    */
   readonly overrides?: Readonly<Record<string, string>> | undefined;
   /**
-   * Set by the async render path. Lets a `type="http"` generator produce a
-   * placeholder column to be filled by an async post-pass; absent, it refuses to
-   * render synchronously. See {@link SequenceBuildContext.httpDeferred}.
+   * The run's http columns. Present means a `type="http"` generator may call its
+   * service — and the build waits for the answer right where the column is
+   * built. See {@link SequenceBuildContext.http}.
    */
-  readonly httpDeferred?: boolean | undefined;
+  readonly http?: HttpSession | undefined;
 }
 
 /**
@@ -342,7 +343,7 @@ export function buildSequences(
     dataSources: options.dataSources ?? {},
     packs: options.packs,
     fileRowLinks: new Map<string, LinkedFileRowPlan>(),
-    httpDeferred: options.httpDeferred,
+    http: options.http,
     seed: options.seed,
     perRow: options.perRow,
     layouts: new Map(),
@@ -1477,17 +1478,22 @@ function buildGenValuesRaw(
       return out;
     }
     case 'http': {
-      // A network-backed generator. It cannot run inside this synchronous
-      // builder, so the async render path sets `httpDeferred` and fills the
-      // column in a post-pass (resolveHttpSequences). Off that path it refuses,
-      // rather than hand back a column of silent placeholders.
-      if (ctx.httpDeferred !== true) {
+      // The build waits here for the service, exactly where the column is
+      // built, so everything declared below — an if= that reads the answer, a
+      // second http with in= on it, a case that prints it — sees the real value.
+      // Row i of the column is answer i of the RUN, wherever this generator
+      // sits; `ctx.rows` names which rows this build is for.
+      if (ctx.http === undefined) {
         throw new Error(
-          'gen type "http" makes a network call and cannot be rendered synchronously — ' +
-            'use the CLI, or the async render path (renderAsync / toStringAsync).',
+          'gen type "http" makes a network call, and this render was started without ' +
+            'an http session — render it through the CLI or the Tdc class.',
         );
       }
-      return new Array<string>(count).fill('');
+      const inName = gen.attrs['in'];
+      const column = ctx.http.column(gen, ctx.streamId ?? '', ctx.total ?? count, (row) =>
+        inName === undefined ? '' : (ctx.valueAt?.(inName, row) ?? ''),
+      );
+      return column.valuesAt(ctx.rows ?? Array.from({ length: count }, (_, i) => i));
     }
     case 'running':
     case 'stat':

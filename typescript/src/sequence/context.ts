@@ -7,6 +7,7 @@
  */
 
 import type { DataSourceOptions } from '../data-source/index.js';
+import type { HttpSession } from '../generators/http-column.js';
 import type { ExactLayout } from './per-row.js';
 import type { PackRegistry } from '../data-pack/index.js';
 
@@ -84,12 +85,11 @@ export interface SequenceBuildContext {
    */
   readonly layouts?: Map<string, ExactLayout> | undefined;
   /**
-   * Set only by the async render path. A `type="http"` generator makes a network
-   * call, which cannot happen inside this synchronous builder — so it produces a
-   * placeholder column here and an async post-pass fills it. When this flag is
-   * absent, an http generator refuses rather than emit silent placeholders.
+   * The run's http columns. A `type="http"` generator asks it for its column and
+   * waits for the batches it needs. Absent, an http generator refuses rather than
+   * emit silent placeholders.
    */
-  readonly httpDeferred?: boolean | undefined;
+  readonly http?: HttpSession | undefined;
   /**
    * A finished column's value at an ABSOLUTE row — what a `<switch>` written
    * inside a `<case>` looks its subject up in.

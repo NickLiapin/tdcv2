@@ -46,11 +46,181 @@ describe('http generator', () => {
     expect(out.trim().split('\n')).toEqual(['svc0', 'svc1', 'svc2', 'svc3']);
   });
 
-  it('makes exactly one request for the whole column, not one per row', async () => {
+  it('a column inside one batch is one request, not one per row', async () => {
     svc = await startService({ mode: 'ok' });
     const src = cfg(`<sequence name="Out"><gen type="http" src="${svc.url}"/></sequence>`, 1000);
     await renderAsync(parseStrict(src), {});
     expect(svc.requests()).toBe(1);
+  });
+
+  describe('batches', () => {
+    it('cuts a long column into batch= rows each, placed by the row of the run', async () => {
+      svc = await startService({ transform: (_l, _i, row) => `r${String(row)}` });
+      const src = cfg(
+        `<sequence name="Out"><gen type="http" src="${svc.url}" batch="10"/></sequence>`,
+        25,
+      );
+      const out = render(parseStrict(src), {});
+      expect(out.trim().split('\n')).toEqual(Array.from({ length: 25 }, (_, i) => `r${String(i)}`));
+      expect(svc.counts()).toEqual([10, 10, 5]);
+      expect(svc.offsets()).toEqual([0, 10, 20]);
+      expect(svc.totals()).toEqual([25, 25, 25]);
+    });
+
+    it('sends each batch the inputs of its own rows', async () => {
+      svc = await startService({ transform: (l) => l.toUpperCase() });
+      const src = cfg(
+        `<sequence name="In"><gen type="text" value="a,b,c,d,e" order="sequential"/></sequence>` +
+          `<sequence name="Out"><gen type="http" src="${svc.url}" in="In" batch="2"/></sequence>`,
+        5,
+      );
+      expect(render(parseStrict(src), {}).trim().split('\n')).toEqual(['A', 'B', 'C', 'D', 'E']);
+      expect(svc.inputCounts()).toEqual([2, 2, 1]);
+    });
+
+    it('refuses a source that ignores the offset once there is more than one batch', async () => {
+      svc = await startService({ echoOffset: false });
+      const src = cfg(
+        `<sequence name="Out"><gen type="http" src="${svc.url}" batch="10"/></sequence>`,
+        25,
+      );
+      expect(() => render(parseStrict(src), {})).toThrow(/without echoing X-TDC-Offset/);
+    });
+
+    it('runs that same service unchanged when the column is one batch', async () => {
+      svc = await startService({ echoOffset: false, transform: (_l, i) => `n${String(i)}` });
+      const src = cfg(`<sequence name="Out"><gen type="http" src="${svc.url}"/></sequence>`, 5);
+      expect(render(parseStrict(src), {}).trim().split('\n')).toEqual([
+        'n0',
+        'n1',
+        'n2',
+        'n3',
+        'n4',
+      ]);
+    });
+
+    it('needs no echo from a transform — each answer comes from its own input', async () => {
+      svc = await startService({ echoOffset: false, transform: (l) => `<${l}>` });
+      const src = cfg(
+        `<sequence name="In"><gen type="text" value="a,b,c" order="sequential"/></sequence>` +
+          `<sequence name="Out"><gen type="http" src="${svc.url}" in="In" batch="1"/></sequence>`,
+      );
+      expect(render(parseStrict(src), {}).trim().split('\n')).toEqual(['<a>', '<b>', '<c>']);
+    });
+
+    it('on_error="empty" blanks only the batch that failed', async () => {
+      svc = await startService({ mode: 'error-after', errorAfterRequests: 1 });
+      const src =
+        `<tdc><env count="5" seed="s">` +
+        `<sequence name="Out"><gen type="http" src="${svc.url}" batch="2" on_error="empty"/></sequence>` +
+        `</env><block><line><data>[\${{Out}}]</data></line></block></tdc>`;
+      expect(render(parseStrict(src), {}).trim().split('\n')).toEqual([
+        '[svc-0]',
+        '[svc-1]',
+        '[]',
+        '[]',
+        '[]',
+      ]);
+    });
+
+    it('names the rows of the batch that failed', async () => {
+      svc = await startService({ mode: 'error-after', errorAfterRequests: 1 });
+      const src = cfg(
+        `<sequence name="Out"><gen type="http" src="${svc.url}" batch="2"/></sequence>`,
+        5,
+      );
+      expect(() => render(parseStrict(src), {})).toThrow(
+        /sequence "Out".*\(rows 2–3\) returned 500/s,
+      );
+    });
+
+    it('parallel= puts several batches on the wire and keeps their order', async () => {
+      svc = await startService({
+        mode: 'slow',
+        latencyMs: 40,
+        transform: (_l, _i, row) => String(row),
+      });
+      const src = cfg(
+        `<sequence name="Out"><gen type="http" src="${svc.url}" batch="2" parallel="4"/></sequence>`,
+        16,
+      );
+      expect(render(parseStrict(src), {}).trim().split('\n')).toEqual(
+        Array.from({ length: 16 }, (_, i) => String(i)),
+      );
+      expect(svc.concurrentPeak()).toBeGreaterThan(1);
+    });
+
+    it('by default one batch at a time, so a service unsafe to call concurrently is safe', async () => {
+      svc = await startService({ mode: 'concurrent-unsafe' });
+      const src = cfg(
+        `<sequence name="Out"><gen type="http" src="${svc.url}" batch="2"/></sequence>`,
+        8,
+      );
+      expect(render(parseStrict(src), {}).trim().split('\n')).toEqual(
+        Array.from({ length: 8 }, (_, i) => `id-${String(i)}`),
+      );
+      expect(svc.concurrentPeak()).toBe(1);
+    });
+  });
+
+  describe('a column that reads the answer sees it', () => {
+    it('an if= declared below', async () => {
+      svc = await startService({ transform: (l) => `H${l}` });
+      const src =
+        `<tdc><env count="3" seed="s">` +
+        `<sequence name="In"><gen type="text" value="a,b,c" order="sequential"/></sequence>` +
+        `<sequence name="H"><gen type="http" src="${svc.url}" in="In"/></sequence>` +
+        `<sequence name="C"><gen type="text" value="yes" if="H == 'Hb'"/><gen type="text" value="no"/></sequence>` +
+        `</env><block><line><data>\${{H}} \${{C}}</data></line></block></tdc>`;
+      expect(render(parseStrict(src), {}).trim().split('\n')).toEqual(['Ha no', 'Hb yes', 'Hc no']);
+    });
+
+    it('a case that prints it', async () => {
+      svc = await startService({ transform: (l) => `H${l}` });
+      const src =
+        `<tdc><env count="4" seed="s">` +
+        `<sequence name="In"><gen type="text" value="a,b,c,d" order="sequential"/></sequence>` +
+        `<sequence name="H"><gen type="http" src="${svc.url}" in="In"/></sequence>` +
+        `<mix name="M" percent="100"><case><data>[\${{H}}]</data></case></mix>` +
+        `</env><block><line><data>\${{M}}</data></line></block></tdc>`;
+      expect(render(parseStrict(src), {}).trim().split('\n')).toEqual([
+        '[Ha]',
+        '[Hb]',
+        '[Hc]',
+        '[Hd]',
+      ]);
+    });
+  });
+
+  describe('wherever the generator sits, row i reads answer i', () => {
+    it('in a <mix> case, an if= branch and a field', async () => {
+      svc = await startService({ transform: (l) => `H${l}` });
+      const src =
+        `<tdc><env count="4" seed="s">` +
+        `<sequence name="In"><gen type="text" value="a,b,c,d" order="sequential"/></sequence>` +
+        `<sequence name="Kind"><gen type="text" value="x,y,x,y" order="sequential"/></sequence>` +
+        `<switch name="S" on="Kind"><case is="x"><gen type="http" src="${svc.url}" in="In"/></case><default><gen type="text" value="-"/></default></switch>` +
+        `<sequence name="C"><gen type="http" src="${svc.url}" in="In" if="Kind == 'y'"/><gen type="text" value="-"/></sequence>` +
+        `<sequence name="F"><gen name="a" type="http" src="${svc.url}" in="In"/><gen name="b" type="text" value="z"/></sequence>` +
+        `</env><block><line><data>\${{S}} \${{C}} \${{F.a}}</data></line></block></tdc>`;
+      expect(render(parseStrict(src), {}).trim().split('\n')).toEqual([
+        'Ha - Ha',
+        '- Hb Hb',
+        'Hc - Hc',
+        '- Hd Hd',
+      ]);
+    });
+
+    it('a parent= child is blank where the parent does not hold', async () => {
+      svc = await startService({ transform: (l) => `H${l}` });
+      const src =
+        `<tdc><env count="4" seed="s">` +
+        `<sequence name="In"><gen type="text" value="a,b,c,d" order="sequential"/></sequence>` +
+        `<sequence name="Kind"><gen type="text" value="x,y,x,y" order="sequential"/></sequence>` +
+        `<sequence name="P" parent="Kind.x"><gen type="http" src="${svc.url}" in="In"/></sequence>` +
+        `</env><block><line><data>[\${{P}}]</data></line></block></tdc>`;
+      expect(render(parseStrict(src), {}).trim().split('\n')).toEqual(['[Ha]', '[]', '[Hc]', '[]']);
+    });
   });
 
   describe('on_error', () => {
@@ -100,13 +270,13 @@ describe('http generator', () => {
       expect(resolveRenderEngine({ mode: 'disk' }, specs, [])).toBe(1);
     });
 
-    it('the synchronous render refuses http rather than emit placeholders', () => {
+    it('the synchronous render waits for its service like every other path', async () => {
+      svc = await startService({ transform: (l) => l.toUpperCase() });
       const src = cfg(
-        `<sequence name="Out"><gen type="http" src="http://127.0.0.1:9/x"/></sequence>`,
+        `<sequence name="In"><gen type="text" value="a,b,c" order="sequential"/></sequence>` +
+          `<sequence name="Out"><gen type="http" src="${svc.url}" in="In"/></sequence>`,
       );
-      expect(() => render(parseStrict(src), {})).toThrow(
-        /network call and cannot be rendered synchronously/,
-      );
+      expect(render(parseStrict(src), {}).trim().split('\n')).toEqual(['A', 'B', 'C']);
     });
   });
 });

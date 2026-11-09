@@ -122,8 +122,11 @@ export const ATTR_DOCS: Record<string, string> = {
   // ── http ──────────────────────────────────────────────────────────────────
   in: 'On `http`: a sequence whose value is sent with each row.',
   on_error: 'On `http`: `fail` (default) or `empty` when a request does not come back.',
-  timeout: 'On `http`: seconds to wait for a response. 30 by default.',
+  timeout: 'On `http`: seconds to wait for the answer to one batch. 30 by default.',
   secret: 'On `http`: the key each request is signed with — `env:NAME`, `file:path`, or a literal.',
+  batch:
+    'On `http`: rows per request — the column goes to the service in batches this size. 10000 by default.',
+  parallel: 'On `http`: how many batches may be on the wire at once. 1 by default.',
 
   // ── statistical distributions ─────────────────────────────────────────────
   // Which parameters a distribution takes is part of what it IS, so each one

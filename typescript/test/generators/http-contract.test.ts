@@ -16,9 +16,17 @@
 
 import { afterEach, describe, expect, it } from 'vitest';
 
-import { contractHeaders, fetchHttpValues, signRequest } from '../../src/generators/http.js';
+import {
+  contractHeaders,
+  fetchHttpBatch,
+  signRequest,
+  type HttpFetchOptions,
+} from '../../src/generators/http.js';
 import { HttpSecretError, resolveHttpSecret } from '../../src/generators/http-secret.js';
 import { startService, type ServiceHandle } from '../fixtures/http-service.js';
+
+const fetchHttpValues = (opts: HttpFetchOptions): Promise<string[]> =>
+  Promise.resolve().then(() => fetchHttpBatch(opts));
 
 let service: ServiceHandle | undefined;
 
@@ -125,14 +133,19 @@ describe('a signed request', () => {
     expect(headers['X-TDC-Timestamp']).toBe('1786000000');
   });
 
-  it('covers the timestamp, the seed, the count and the body', () => {
-    const base = signRequest(SECRET, '1786000000', 'seed1', 4, 'body');
-    expect(signRequest(SECRET, '1786000001', 'seed1', 4, 'body')).not.toBe(base);
-    expect(signRequest(SECRET, '1786000000', 'seed2', 4, 'body')).not.toBe(base);
-    expect(signRequest(SECRET, '1786000000', 'seed1', 5, 'body')).not.toBe(base);
-    expect(signRequest(SECRET, '1786000000', 'seed1', 4, 'other')).not.toBe(base);
-    // Same inputs, same answer — a service can recompute it.
-    expect(signRequest(SECRET, '1786000000', 'seed1', 4, 'body')).toBe(base);
+  it('covers the timestamp, the seed, the count, the place in the column and the body', () => {
+    const base = signRequest(SECRET, '1786000000', 'seed1', 4, 0, 4, 'body');
+    expect(signRequest(SECRET, '1786000001', 'seed1', 4, 0, 4, 'body')).not.toBe(base);
+    expect(signRequest(SECRET, '1786000000', 'seed2', 4, 0, 4, 'body')).not.toBe(base);
+    expect(signRequest(SECRET, '1786000000', 'seed1', 5, 0, 4, 'body')).not.toBe(base);
+    expect(signRequest(SECRET, '1786000000', 'seed1', 4, 0, 4, 'other')).not.toBe(base);
+    // A captured batch cannot be replayed as another one of the same column.
+    expect(signRequest(SECRET, '1786000000', 'seed1', 4, 4, 8, 'body')).not.toBe(
+      signRequest(SECRET, '1786000000', 'seed1', 4, 0, 8, 'body'),
+    );
+    expect(signRequest(SECRET, '1786000000', 'seed1', 4, 0, 8, 'body')).not.toBe(base);
+    // …and it is a function of those alone.
+    expect(signRequest(SECRET, '1786000000', 'seed1', 4, 0, 4, 'body')).toBe(base);
   });
 
   it('is absent when the config declares no secret', () => {

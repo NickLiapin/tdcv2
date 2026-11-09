@@ -72,8 +72,10 @@ export default tseslint.config(
     // in. They still get the core rules, which is the point of linting them.
     // `.cjs` is here for the one script that is plain CommonJS: the quantile
     // signature check, which came in from the Studio side and is meant to be
-    // copied to each port as-is.
-    files: ['scripts/**/*.mjs', 'scripts/**/*.cjs'],
+    // copied to each port as-is. The test fixture `.mjs` files are the same
+    // kind of thing: the http test service's server, loaded by a worker thread
+    // as Node finds it.
+    files: ['scripts/**/*.mjs', 'scripts/**/*.cjs', 'test/**/*.mjs'],
     extends: [tseslint.configs.disableTypeChecked],
     languageOptions: {
       globals: globals.node,

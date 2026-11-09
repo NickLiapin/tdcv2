@@ -112,6 +112,35 @@ export function checkGenHttp(
     }
   }
 
+  // batch / parallel — how the column is cut into requests, and how many may be
+  // on the wire at once. Whole numbers above zero: a batch of 2.5 rows or of
+  // none is a config asking for something no request can be.
+  for (const [name, hint] of [
+    [
+      'batch',
+      'batch="10000" sends ten thousand rows per request. Omit it for the default of 10000.',
+    ],
+    [
+      'parallel',
+      'parallel="4" lets four requests be on the wire at once. Omit it for one at a time.',
+    ],
+  ] as const) {
+    const attr = findAttr(attrs, name);
+    if (!attr) continue;
+    const raw = (map[name] ?? '').trim();
+    const n = Number(raw);
+    if (!/^[0-9]+$/.test(raw) || !Number.isSafeInteger(n) || n <= 0) {
+      ctx.diagnostics.push({
+        severity: 'error',
+        source: 'validator',
+        ...attrValueRange(attr),
+        message: `invalid ${name} "${raw}" — expected a whole number above zero`,
+        hint,
+        code: 'TDC313',
+      });
+    }
+  }
+
   // secret — the key a request is signed with. Three spellings, and only the
   // literal is worth saying anything about: a config travels into version
   // control, and the secret would travel with it. A warning rather than an

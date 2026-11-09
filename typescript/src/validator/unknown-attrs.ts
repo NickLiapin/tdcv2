@@ -182,6 +182,8 @@ export const GEN_ATTRIBUTES: ReadonlySet<string> = new Set([
   'on_error',
   'timeout',
   'secret',
+  'batch',
+  'parallel',
   // parameters of the named distributions
   'mean',
   'sd',
@@ -284,6 +286,8 @@ export const ATTRIBUTE_OWNERS: ReadonlyMap<string, ReadonlySet<string>> = new Ma
   ['in', new Set(['http'])],
   ['on_error', new Set(['http'])],
   ['timeout', new Set(['http'])],
+  ['batch', new Set(['http'])],
+  ['parallel', new Set(['http'])],
   ['secret', new Set(['http'])],
   // The drawn curve.
   ['points', new Set(['pattern'])],
