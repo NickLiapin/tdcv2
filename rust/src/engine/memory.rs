@@ -3367,7 +3367,14 @@ pub(super) fn generate_in_column(
                 }
                 .unwrap_or_default()
             };
-            let values = col.borrow_mut().values_at(&rows, &input_at);
+            // One row is a reader walking forward — the streaming engines, a branch built
+            // row by row — so the batches after this one go on the wire while it works.
+            // Several rows are a whole column or a subset of one, known in full: only
+            // the batches holding them are asked for.
+            let values = match rows.as_slice() {
+                [row] => col.borrow_mut().value_at(*row, &input_at).map(|v| vec![v]),
+                _ => col.borrow_mut().values_at(&rows, &input_at),
+            };
             values
         }
         "increment" => counter::generate(&gen.attrs, count, true),

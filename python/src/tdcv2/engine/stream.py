@@ -32,7 +32,7 @@ from ..expr.match_key import match_key
 from ..format import interpolate
 from ..format.mask import apply_mask
 from ..format.transforms import apply_case, is_case_transform
-from ..generators import advanced_regex, imperfections, number, quantile
+from ..generators import advanced_regex, http_column, imperfections, number, quantile
 from ..generators import counter as counter_gen
 from ..generators import date_offset as date_offset_gen
 from ..generators import file as file_gen
@@ -149,6 +149,7 @@ class StreamEngine:
         "config",
         "count",
         "exact_uniq",
+        "http",
         "now_millis",
         "on_progress",
         "on_uniq_plan",
@@ -182,6 +183,8 @@ class StreamEngine:
         self.parents: dict[str, Parent] = {}
         self.exact_uniq = exact_uniq
         self.on_progress = on_progress
+        # Every `type="http"` column of the run, fetched batch by batch as rows are read.
+        self.http = http_column.HttpSession(config.seed, str(base_dir) if base_dir else ".")
         # Pools are computed before anything streams — small, and off a derived seed, so the
         # bounded-memory promise is untouched and no other column moves.
         self.pool_tables = memory.build_pool_tables(config, packs, now_millis, base_dir)
@@ -230,6 +233,7 @@ class StreamEngine:
         """
         fx = self.config.fixtures
         each_info = self._each_info()
+        self.http.restrict(start, stop)
 
         if start == 0:
             self._emit(emit, fx.before, 0, each_info)
@@ -663,14 +667,6 @@ class StreamEngine:
             # Its shares are exact over a whole column; a per-row draw would send every row to the
             # largest branch and look plausible doing it.
             raise unsupported('advanced_regex weighted choice "(?%{…})"', stream_id)
-        if type_ == "http":
-            # A network call is not a draw: neither reproducible from a row index nor
-            # answerable synchronously, which is what a lazy per-row resolver needs.
-            raise UnsupportedError(
-                f'<gen type="http"> ("{stream_id}") is a network call, so it is neither '
-                "reproducible nor answerable one row at a time; the in-memory engine "
-                "handles it (run without a forced streaming engine)"
-            )
         if type_ == "template" and "${{" in attrs.get("value", ""):
             raise UnsupportedError(
                 f'template value "{attrs.get("value", "")}" interpolates a field; '
@@ -1156,6 +1152,7 @@ class StreamEngine:
             value_at=lambda name, r: (
                 (self.columns[name](r) or "") if name in self.columns else None
             ),
+            http=self.http,
         )
         repeat = repeat_gen.parse(gen.attrs)
         if repeat is None:

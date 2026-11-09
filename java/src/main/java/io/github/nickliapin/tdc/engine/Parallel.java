@@ -124,13 +124,24 @@ public final class Parallel {
 
   /** Contiguous, balanced ranges covering {@code [0, count)}; the first few get one extra row. */
   public static List<int[]> shards(int count, int workers) {
-    int n = Math.max(1, Math.min(workers, Math.max(1, count)));
-    int base = count / n;
-    int remainder = count % n;
+    return shards(count, workers, 1);
+  }
+
+  /**
+   * The same, with every seam on a multiple of {@code align} (the last range ends at {@code
+   * count}), balanced in whole units of {@code align} rows. An http column cut into batches of
+   * that size then has no batch shared by two workers, so the service is asked for each once.
+   */
+  public static List<int[]> shards(int count, int workers, int align) {
+    long unit = Math.max(1, align);
+    long units = (count + unit - 1) / unit;
+    int n = (int) Math.max(1, Math.min(workers, Math.max(1, units)));
+    long base = units / n;
+    long remainder = units % n;
     List<int[]> out = new ArrayList<>(n);
     int start = 0;
     for (int i = 0; i < n; i++) {
-      int end = start + base + (i < remainder ? 1 : 0);
+      int end = (int) Math.min(count, (start / unit + base + (i < remainder ? 1 : 0)) * unit);
       out.add(new int[] {start, end});
       start = end;
     }
@@ -239,7 +250,9 @@ public final class Parallel {
       boolean exactUniq,
       boolean named,
       Map<String, Map<Integer, List<String>>> given) {
-    List<int[]> ranges = shards(count, workers);
+    // Seams on http batch boundaries, so no batch is fetched by two workers.
+    List<int[]> ranges =
+        shards(count, workers, io.github.nickliapin.tdc.generators.HttpColumn.alignment(config));
     // Worked out ONCE, before a single worker exists. Empty for the configs that have no
     // env-level group, which is most of them, and then this costs one build of the columns.
     Map<String, Map<Integer, List<String>>> uniqPlan = new java.util.LinkedHashMap<>();

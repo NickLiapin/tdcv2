@@ -118,6 +118,9 @@ public sealed class StreamEngine
     private readonly Dictionary<string, IParentCapable> _parents = new(StringComparer.Ordinal);
     private readonly bool _exactUniq;
     private readonly Progress? _onProgress;
+
+    /// <summary>Every <c>type="http"</c> column of the run, fetched batch by batch as rows are read.</summary>
+    private readonly HttpColumn.Session _http;
     /// <summary>Arrangements worked out elsewhere, keyed by the group's label.</summary>
     private readonly IReadOnlyDictionary<string, Dictionary<int, List<string>>>? _uniqPlan;
     /// <summary>Where an arrangement worked out HERE goes, so the others need not repeat it.</summary>
@@ -139,6 +142,7 @@ public sealed class StreamEngine
         _baseDir = baseDir;
         _seed = config.Seed;
         _count = config.Count;
+        _http = new HttpColumn.Session(config.Seed, baseDir ?? ".");
     }
 
     /// <summary>
@@ -219,6 +223,7 @@ public sealed class StreamEngine
         var engine = new StreamEngine(
             config, packs, nowMillis, baseDir, exactUniq, onProgress, uniqPlan);
         engine.BuildColumns();
+        engine._http.Restrict(from, to);
         engine.Write(output, from, to);
     }
 
@@ -1095,14 +1100,6 @@ public sealed class StreamEngine
             throw Unsupported("advanced_regex weighted choice \"(?%{…})\"", streamId);
         }
 
-        if (type == "http")
-        {
-            // A network call is not a draw: neither reproducible from a row index nor
-            // answerable synchronously, which is what a lazy per-row resolver needs.
-            throw new UnsupportedHere(
-                $"<gen type=\"http\"> (\"{streamId}\") is a network call, so it is neither reproducible nor answerable one row at a time; the in-memory engine handles it (run without a forced streaming engine)");
-        }
-
         if (type == "template" && attrs.GetValueOrDefault("value", "").Contains("${{"))
         {
             throw new UnsupportedHere(
@@ -1649,7 +1646,8 @@ public sealed class StreamEngine
             streamId,
             row,
             // One row of the run, which is what lets a pack body's seed carry the row.
-            true);
+            true,
+            Http: _http);
 
         Repeat.Spec? repeat = Repeat.Parse(gen.Attrs);
         if (repeat is null)

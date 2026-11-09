@@ -191,8 +191,18 @@ fn every_shared_http_case() {
         .and_then(Value::as_array)
         .expect("cases");
     assert!(!cases.is_empty());
-    for case in cases {
-        let name = case.get("name").and_then(Value::as_str).expect("name");
+    // Every engine reads the same batches: the in-memory one a column at a time,
+    // the two streaming ones a row at a time. `None` is the router's choice.
+    for (case, engine) in cases
+        .iter()
+        .flat_map(|c| [None, Some("1"), Some("2"), Some("3")].map(move |e| (c, e)))
+    {
+        let label = format!(
+            "{} (engine {})",
+            case.get("name").and_then(Value::as_str).expect("name"),
+            engine.unwrap_or("auto")
+        );
+        let name = label.as_str();
         let service = start(
             case.get("service")
                 .and_then(Value::as_str)
@@ -216,7 +226,11 @@ fn every_shared_http_case() {
         .map(|d| format!("{} {}", d.code, d.message))
         .collect();
         assert!(refusals.is_empty(), "{name}: {refusals:?}");
-        let config = config_builder::build(&parsed.tree, None).expect("config");
+        let built = config_builder::build(&parsed.tree, None).expect("config");
+        let config = match engine {
+            Some(id) => built.with_engine(id),
+            None => built,
+        };
         let result = tdcv2::engine::render_in(&config, 0, None);
 
         match case.get("error").and_then(Value::as_str) {

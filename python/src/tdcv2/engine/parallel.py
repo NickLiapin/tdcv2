@@ -44,19 +44,25 @@ def default_workers() -> int:
     return max(1, (os.cpu_count() or 2) - 1)
 
 
-def shards(count: int, workers: int) -> list[tuple[int, int]]:
+def shards(count: int, workers: int, align: int = 1) -> list[tuple[int, int]]:
     """Contiguous, gapless row ranges covering ``[0, count)``.
 
     The remainder goes to the earliest shards one row at a time rather than all onto the last, so
     no worker is a whole batch behind the others at the end.
+
+    With ``align`` above 1 every seam falls on a multiple of it (the last shard ends at
+    ``count``), balanced in whole units of ``align`` rows. An http column cut into batches of that
+    size then has no batch shared by two shards, so the service is asked for each batch once.
     """
     if workers < 1:
         raise ValueError("workers must be at least 1")
-    base, extra = divmod(count, workers)
+    unit = max(1, align)
+    units = -(-count // unit)
+    base, extra = divmod(units, workers)
     out: list[tuple[int, int]] = []
     start = 0
     for i in range(workers):
-        stop = start + base + (1 if i < extra else 0)
+        stop = min(count, (start // unit + base + (1 if i < extra else 0)) * unit)
         if stop > start:
             out.append((start, stop))
         start = stop
@@ -102,6 +108,7 @@ def write_file(
     count: int,
     on_progress=None,
     uniq_plan: dict | None = None,
+    align: int = 1,
 ) -> None:
     """Write ``target`` from ``config_file`` using ``workers`` processes.
 
@@ -136,7 +143,7 @@ def write_file(
         root = str(Path(__file__).resolve().parents[2])
         env["PYTHONPATH"] = root + os.pathsep + env.get("PYTHONPATH", "")
 
-        parts = [work_dir / f"part-{i:05d}" for i in range(len(shards(count, workers)))]
+        parts = [work_dir / f"part-{i:05d}" for i in range(len(shards(count, workers, align)))]
         counters = (
             [work_dir / f"progress-{i:05d}" for i in range(len(parts))] if on_progress else []
         )
@@ -158,7 +165,7 @@ def write_file(
                 text=True,
             )
             for i, ((start, stop), part) in enumerate(
-                zip(shards(count, workers), parts, strict=True)
+                zip(shards(count, workers, align), parts, strict=True)
             )
         ]
 

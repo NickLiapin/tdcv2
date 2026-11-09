@@ -200,11 +200,8 @@ fn disk_route(config: &Config) -> EngineChoice {
     }) {
         return EngineChoice::new(1, format!("uniq=\"true\" on \"{}\"", spec.name));
     }
-    // A network call is not reproducible, so it never runs on the reproducible
-    // path.
-    if let Some(name) = gen_owner(config, |gen| gen.gen_type == "http") {
-        return EngineChoice::new(1, format!("\"{name}\" calls a web service"));
-    }
+    // A `type="http"` column streams: the session fetches it batch by batch as the
+    // rows are written, so it stays out of this list — the column is never held whole.
     // A <switch> branch that declares a share the streaming engines cannot lay over the right
     // rows. They refuse such a branch rather than apportion it over the wrong denominator, and a
     // refusal reached at build time is not a fallback for every caller. Decide it here,

@@ -4468,8 +4468,7 @@ public final class MemoryEngine {
           // name would change a service's answers whenever the engine renamed one.
           String sequence = streamId == null ? "" : streamId.split("#", -1)[0];
           HttpColumn column = session.column(gen, gen.attrs(), sequence, session.total());
-          return column.valuesAt(
-              rows,
+          java.util.function.IntFunction<String> inputAt =
               row -> {
                 if (inName == null) {
                   return "";
@@ -4479,7 +4478,14 @@ public final class MemoryEngine {
                   return value == null ? "" : value;
                 }
                 return session.read(inName, row);
-              });
+              };
+          // One row is a reader walking forward — the streaming engines, a branch built row by
+          // row — so the batches after this one go on the wire while it works. Several rows are
+          // a whole column or a subset of one, known in full: only their batches are asked for.
+          if (rows.length == 1) {
+            return new ArrayList<>(List.of(column.valueAt(rows[0], inputAt)));
+          }
+          return column.valuesAt(rows, inputAt);
         } catch (HttpColumn.ColumnException e) {
           throw new IllegalStateException(e.getMessage(), e);
         }

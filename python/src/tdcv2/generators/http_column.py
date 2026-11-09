@@ -52,8 +52,16 @@ class _InFlight:
 
 
 class HttpColumn:
-    def __init__(self, spec: ColumnSpec, total: int, input_at: Callable[[int], str]) -> None:
+    def __init__(
+        self,
+        spec: ColumnSpec,
+        total: int,
+        input_at: Callable[[int], str],
+        span: Callable[[], tuple[int, int] | None] = lambda: None,
+    ) -> None:
         self._spec = spec
+        # The rows this process writes, under parallel shards; None for the whole run.
+        self._span = span
         self._total = total
         self._input_at = input_at
         self._batches = math.ceil(total / spec.batch) if spec.batch > 0 else 0
@@ -116,6 +124,10 @@ class HttpColumn:
     def _send(self, k: int, needed: bool = False) -> None:
         if k < 0 or k >= self._batches or k in self._in_flight or k in self._answered:
             return
+        # Read-ahead stops at this shard's last row: the batch past it belongs to the next shard,
+        # and asking for it here would send it twice.
+        if not needed and not self._in_span(k):
+            return
         # Never more than `parallel` out at once: a service that is not safe to call concurrently
         # gets exactly one request at a time under the default.
         if not needed and len(self._in_flight) >= self._spec.parallel:
@@ -143,6 +155,13 @@ class HttpColumn:
             # ones already sent ahead.
             self._pool = ThreadPoolExecutor(max_workers=self._spec.parallel + 1)
         self._in_flight[k] = _InFlight(self._pool.submit(http_gen.fetch, request), request)
+
+    def _in_span(self, k: int) -> bool:
+        span = self._span()
+        if span is None:
+            return True
+        first = k * self._spec.batch
+        return first < span[1] and first + self._spec.batch > span[0]
 
     def _answer(self, flight: _InFlight) -> list[str]:
         """Wait for a batch, naming its rows in a failure when the column has several."""
@@ -180,6 +199,54 @@ def _parse_count(value: str | None, fallback: int) -> int:
     return n if n > 0 else fallback
 
 
+def batch_of(attrs: dict[str, str]) -> int:
+    """Rows per request for one ``<gen type="http">``'s attributes."""
+    return _parse_count(attrs.get("batch"), DEFAULT_BATCH)
+
+
+def batches_in(config) -> list[int]:
+    """``batch=`` of every ``<gen type="http">`` in the run, wherever it sits — a sequence, a
+    field, a part, an ``if=`` branch, a ``<mix>`` or ``<switch>`` case."""
+    out: list[int] = []
+
+    def gen(g) -> None:
+        if g is not None and g.type == "http":
+            out.append(batch_of(g.attrs))
+
+    def case(c) -> None:
+        if c is None:
+            return
+        for part in c.parts:
+            gen(part.gen)
+            mix(part.mix)
+            switch(part.switch)
+
+    def mix(m) -> None:
+        if m is not None:
+            for c in m.cases:
+                case(c)
+
+    def switch(s) -> None:
+        if s is not None:
+            for entry in s.entries:
+                case(entry.value)
+            case(s.fallback)
+
+    for spec in config.sequences:
+        gen(spec.gen)
+        for f in spec.fields or []:
+            gen(f.gen)
+        for item in spec.items or []:
+            gen(item.gen)
+            if item.field is not None:
+                gen(item.field.gen)
+        for branch in spec.branches or []:
+            gen(branch.gen)
+        mix(spec.mix)
+        switch(spec.switch_spec)
+    return out
+
+
 class HttpSession:
     """The http columns of one run.
 
@@ -191,6 +258,7 @@ class HttpSession:
     def __init__(self, env_seed: str, base_dir: str) -> None:
         self._env_seed = env_seed
         self._base_dir = base_dir
+        self._span: tuple[int, int] | None = None
         self._columns: dict[tuple[int, str], HttpColumn] = {}
         # Keeps each generator alive while its id() is a key here.
         self._gens: list[object] = []
@@ -207,10 +275,14 @@ class HttpSession:
         known = self._columns.get(key)
         if known is not None:
             return known
-        made = HttpColumn(self._spec(attrs, sequence), total, input_at)
+        made = HttpColumn(self._spec(attrs, sequence), total, input_at, lambda: self._span)
         self._columns[key] = made
         self._gens.append(gen)
         return made
+
+    def restrict(self, start: int, stop: int) -> None:
+        """Read ahead no further than rows ``[start, stop)`` — the rows this process writes."""
+        self._span = (start, stop)
 
     def _spec(self, attrs: dict[str, str], sequence: str) -> ColumnSpec:
         # Resolved per column and never cached: two sequences may sign with two different
@@ -232,6 +304,6 @@ class HttpSession:
             secret=secret,
             on_error=http_gen.parse_on_error(attrs.get("on_error")),
             timeout_ms=http_gen.parse_timeout(attrs.get("timeout")),
-            batch=_parse_count(attrs.get("batch"), DEFAULT_BATCH),
+            batch=batch_of(attrs),
             parallel=_parse_count(attrs.get("parallel"), 1),
         )

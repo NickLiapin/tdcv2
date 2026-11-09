@@ -32,6 +32,7 @@ from pathlib import Path
 from . import engine
 from .engine import parallel, router
 from .errors import Diagnostic, TdcError, has_errors, summarize
+from .generators import http_column
 from .human_bytes import human_bytes
 from .model.config import Config
 from .output import parquet_output
@@ -371,6 +372,8 @@ class TDC:
                 self.count,
                 self._on_progress,
                 plan,
+                # Seams on http batch boundaries, so no batch is fetched by two shards.
+                math.lcm(1, *http_column.batches_in(self._config)),
             )
             return
 

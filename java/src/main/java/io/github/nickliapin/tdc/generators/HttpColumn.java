@@ -74,10 +74,20 @@ public final class HttpColumn {
   /** Answered batches, oldest first; trimmed to {@link #keep}. */
   private final LinkedHashMap<Integer, List<String>> answered = new LinkedHashMap<>();
   private final int keep;
+  private final java.util.function.Supplier<int[]> span;
 
   public HttpColumn(Spec spec, int total) {
+    this(spec, total, () -> null);
+  }
+
+  /**
+   * @param span the rows this run writes, {@code [start, stop)}, when a worker writes only some
+   *     of them; null for the whole run
+   */
+  public HttpColumn(Spec spec, int total, java.util.function.Supplier<int[]> span) {
     this.spec = spec;
     this.total = total;
+    this.span = span;
     this.batches = spec.batch() <= 0 ? 0 : (total + spec.batch() - 1) / spec.batch();
     // The batch being read, the one before it (a reader may look one row back across the seam)
     // and everything already on the wire.
@@ -154,6 +164,11 @@ public final class HttpColumn {
     if (k < 0 || k >= batches || inFlight.containsKey(k) || answered.containsKey(k)) {
       return;
     }
+    // Read-ahead stops at this worker's last row: the batch past it belongs to the next worker,
+    // and asking for it here would send it twice.
+    if (!needed && !inSpan(k)) {
+      return;
+    }
     // Never more than `parallel` out at once: a service that is not safe to call concurrently
     // gets exactly one request at a time under the default.
     if (!needed && inFlight.size() >= spec.parallel()) {
@@ -184,6 +199,15 @@ public final class HttpColumn {
                     spec.secret()),
             POOL);
     inFlight.put(k, new InFlight(future, offset, count));
+  }
+
+  private boolean inSpan(int k) {
+    int[] rows = span.get();
+    if (rows == null) {
+      return true;
+    }
+    long first = (long) k * spec.batch();
+    return first < rows[1] && first + spec.batch() > rows[0];
   }
 
   /** Wait for a batch, naming its rows in a failure when the column has several. */
@@ -221,6 +245,87 @@ public final class HttpColumn {
     }
   }
 
+  /** Rows per request for one {@code <gen type="http">}'s attributes. */
+  public static int batchOf(Map<String, String> attrs) {
+    return parseCount(attrs.get("batch"), DEFAULT_BATCH);
+  }
+
+  /**
+   * The row count a parallel split must fall on so no batch of any http column straddles two
+   * workers: the least common multiple of every {@code batch=} in the run, wherever the generator
+   * sits, or 1 when nothing calls a service. Straddling would send the seam's batch twice.
+   */
+  public static int alignment(io.github.nickliapin.tdc.model.Config config) {
+    long lcm = 1;
+    for (int size : batchesIn(config)) {
+      lcm = lcm / gcd(lcm, size) * size;
+      if (lcm > Integer.MAX_VALUE) {
+        return Integer.MAX_VALUE;
+      }
+    }
+    return (int) lcm;
+  }
+
+  /** {@code batch=} of every {@code <gen type="http">} in the run, wherever it sits. */
+  public static List<Integer> batchesIn(io.github.nickliapin.tdc.model.Config config) {
+    List<Integer> sizes = new ArrayList<>();
+    for (io.github.nickliapin.tdc.model.Config.SequenceSpec spec : config.sequences()) {
+      collect(spec.gen(), sizes);
+      if (spec.fields() != null) {
+        spec.fields().forEach(f -> collect(f.gen(), sizes));
+      }
+      if (spec.items() != null) {
+        for (io.github.nickliapin.tdc.model.Config.Item item : spec.items()) {
+          collect(item.gen(), sizes);
+          if (item.field() != null) {
+            collect(item.field().gen(), sizes);
+          }
+        }
+      }
+      if (spec.branches() != null) {
+        spec.branches().forEach(b -> collect(b.gen(), sizes));
+      }
+      collect(spec.mix(), sizes);
+      collect(spec.switchSpec(), sizes);
+    }
+    return sizes;
+  }
+
+  private static void collect(io.github.nickliapin.tdc.model.Config.Gen gen, List<Integer> out) {
+    if (gen != null && "http".equals(gen.type())) {
+      out.add(batchOf(gen.attrs()));
+    }
+  }
+
+  private static void collect(io.github.nickliapin.tdc.model.Config.Mix mix, List<Integer> out) {
+    if (mix != null) {
+      mix.cases().forEach(c -> collect(c, out));
+    }
+  }
+
+  private static void collect(
+      io.github.nickliapin.tdc.model.Config.Switch sw, List<Integer> out) {
+    if (sw != null) {
+      sw.entries().forEach(e -> collect(e.value(), out));
+      collect(sw.fallback(), out);
+    }
+  }
+
+  private static void collect(io.github.nickliapin.tdc.model.Config.Case c, List<Integer> out) {
+    if (c == null) {
+      return;
+    }
+    for (io.github.nickliapin.tdc.model.Config.CasePart part : c.parts()) {
+      collect(part.gen(), out);
+      collect(part.mix(), out);
+      collect(part.switchSpec(), out);
+    }
+  }
+
+  private static long gcd(long a, long b) {
+    return b == 0 ? a : gcd(b, a % b);
+  }
+
   /** A positive whole number from {@code batch=}/{@code parallel=}, or the default. */
   static int parseCount(String raw, int fallback) {
     if (raw == null) {
@@ -256,6 +361,7 @@ public final class HttpColumn {
     private final Map<Object, Map<String, HttpColumn>> columns = new java.util.IdentityHashMap<>();
     private final Session previous;
     private final java.util.function.BiFunction<String, Integer, String> reader;
+    private volatile int[] span;
 
     private Session(
         String envSeed,
@@ -287,6 +393,43 @@ public final class HttpColumn {
     /** The session of the run building on this thread, or null. */
     public static Session current() {
       return CURRENT.get();
+    }
+
+    /**
+     * A session no thread holds yet. The streaming engine keeps one for its whole run — rows are
+     * written long after the engine is built — and makes it current ({@link #enter}) only while
+     * an http generator is being read.
+     */
+    public static Session detached(
+        String envSeed,
+        Path baseDir,
+        int total,
+        java.util.function.BiFunction<String, Integer, String> reader) {
+      return new Session(envSeed, baseDir, total, reader, null);
+    }
+
+    /** Make this the current session until the returned scope closes. */
+    public Scope enter() {
+      Session prior = CURRENT.get();
+      CURRENT.set(this);
+      return () -> {
+        if (prior == null) {
+          CURRENT.remove();
+        } else {
+          CURRENT.set(prior);
+        }
+      };
+    }
+
+    /** What {@link #enter} returns: closing it restores the session that was current before. */
+    public interface Scope extends AutoCloseable {
+      @Override
+      void close();
+    }
+
+    /** Read ahead no further than rows {@code [start, stop)} — the rows this worker writes. */
+    public void restrict(int start, int stop) {
+      span = new int[] {start, stop};
     }
 
     /** Rows in the run — what every http column of it is long. */
@@ -340,9 +483,9 @@ public final class HttpColumn {
               secret,
               HttpGen.onError(attrs),
               HttpGen.timeoutMs(attrs.get("timeout")),
-              parseCount(attrs.get("batch"), DEFAULT_BATCH),
+              batchOf(attrs),
               parseCount(attrs.get("parallel"), 1));
-      HttpColumn made = new HttpColumn(spec, total);
+      HttpColumn made = new HttpColumn(spec, total, () -> span);
       bySequence.put(sequence, made);
       return made;
     }

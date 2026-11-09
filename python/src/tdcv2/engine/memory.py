@@ -2499,9 +2499,14 @@ def _generate(
             # Keyed by the COLUMN the reader wrote — `Name`, or `Name.field` — not by the stream a
             # branch draws from (`Name#if0`): X-TDC-Seed is derived from it, and an internal stream
             # name would change a service's answers whenever the engine renamed one.
-            sequence = (run.stream_id or "").split("#")[0]
+            # A one-row build names its column in `column_stream_id` instead.
+            sequence = (run.stream_id or run.column_stream_id or "").split("#")[0]
             column = run.http.column(attrs, gen, sequence, config.count, input_at)
-            return column.values_at(run.rows if run.rows is not None else list(range(count)))
+            rows = run.rows if run.rows is not None else list(range(count))
+            # One row is a reader walking forward — the streaming engines, a branch built row by
+            # row — so the batches after this one go on the wire while it works. Several rows are
+            # a whole column or a subset of one, known in full: only their batches are asked for.
+            return [column.value_at(rows[0])] if len(rows) == 1 else column.values_at(rows)
         except http_column.ColumnError as e:
             raise EngineError(str(e)) from e
     if gen.type == "regex":

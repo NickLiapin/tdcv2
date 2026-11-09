@@ -105,8 +105,14 @@ def test_every_service_the_fixture_names_is_run_here():
     }
 
 
+# Every engine reads the same batches: the in-memory one a column at a time, the two streaming
+# ones a row at a time. None is the router's choice.
+_ENGINES = [None, "1", "2", "3"]
+
+
+@pytest.mark.parametrize("engine_id", _ENGINES, ids=lambda e: f"engine-{e or 'auto'}")
 @pytest.mark.parametrize("case", FIXTURE["cases"], ids=lambda c: c["name"])
-def test_a_shared_http_case(case: dict) -> None:
+def test_a_shared_http_case(case: dict, engine_id: str | None) -> None:
     service = _Service(case["service"])
     try:
         text = case["config"].replace("{{SRC}}", service.url)
@@ -115,6 +121,8 @@ def test_a_shared_http_case(case: dict) -> None:
         refusals = [d for d in validate(parsed.tree, packs=_PACKS) if d.severity.name == "ERROR"]
         assert not refusals, [d.signature() for d in refusals]
         config = config_builder.build(parsed.tree)
+        if engine_id is not None:
+            config = config.with_engine(engine_id)
         if "error" in case:
             with pytest.raises(Exception) as caught:
                 engine.render(config, _PACKS, 0, None)
@@ -127,3 +135,21 @@ def test_a_shared_http_case(case: dict) -> None:
             assert sorted(service.seeds) == case["seeds"]
     finally:
         service.close()
+
+
+def test_every_http_generator_is_found_wherever_it_sits() -> None:
+    """The batch sizes a parallel split must fall on, from a switch case and a field alike."""
+    from tdcv2.generators import http_column
+
+    text = (
+        '<tdc><env count="3" seed="s">'
+        '<sequence name="K"><gen type="text" value="x,y"/></sequence>'
+        '<switch name="S" on="K"><case is="x"><gen type="http" src="http://127.0.0.1:9/" '
+        'batch="4"/></case><default><gen type="text" value="-"/></default></switch>'
+        '<sequence name="F"><gen name="a" type="http" src="http://127.0.0.1:9/" batch="6"/>'
+        '<gen name="b" type="text" value="z"/></sequence>'
+        '<sequence name="P"><gen type="http" src="http://127.0.0.1:9/"/></sequence>'
+        "</env><block><line><data>${{S}}</data></line></block></tdc>"
+    )
+    config = config_builder.build(facade.parse(text).tree)
+    assert sorted(http_column.batches_in(config)) == [4, 6, 10_000]

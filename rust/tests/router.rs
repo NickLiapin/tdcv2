@@ -49,7 +49,7 @@ fn stream_is_still_accepted_as_the_old_name_for_engine_two() {
 }
 
 #[test]
-fn three_things_pull_a_disk_config_back_into_memory() {
+fn two_things_pull_a_disk_config_back_into_memory() {
     // Each is a question whose answer depends on the whole column. Answered a
     // row at a time they do not fail — they quietly produce data that is wrong
     // in a way nobody notices.
@@ -69,13 +69,18 @@ fn three_things_pull_a_disk_config_back_into_memory() {
         1,
         "a weighted draw of a linked row needs the global total"
     );
+}
+
+#[test]
+fn a_web_service_column_streams() {
+    // Until 0.4 a network call pulled the run into memory, which held the whole
+    // column. It is read batch by batch now, a row at a time on the streaming path.
     assert_eq!(
         engine_for(
             "",
             r#"<sequence name="V"><gen type="http" src="http://127.0.0.1:1/"/></sequence>"#
         ),
-        1,
-        "a network call never runs on the reproducible path"
+        2
     );
 }
 

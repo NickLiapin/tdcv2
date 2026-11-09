@@ -136,16 +136,65 @@ class HttpBatchesTest {
         names);
   }
 
+  @Test
+  void aParallelSplitFallsOnBatchBoundariesSoNoBatchIsFetchedTwice() {
+    // The same splits as the TypeScript and Python twins.
+    assertEquals(
+        List.of(List.of(0, 40), List.of(40, 70), List.of(70, 100)),
+        spans(io.github.nickliapin.tdc.engine.Parallel.shards(100, 3, 10)));
+    assertEquals(
+        List.of(List.of(0, 50), List.of(50, 95)),
+        spans(io.github.nickliapin.tdc.engine.Parallel.shards(95, 2, 10)));
+    assertEquals(
+        List.of(List.of(0, 10), List.of(10, 20), List.of(20, 25)),
+        spans(io.github.nickliapin.tdc.engine.Parallel.shards(25, 8, 10)));
+  }
+
+  @Test
+  void everyHttpGeneratorIsFoundWhereverItSits() {
+    String text =
+        "<tdc><env count=\"3\" seed=\"s\">"
+            + "<sequence name=\"K\"><gen type=\"text\" value=\"x,y\"/></sequence>"
+            + "<switch name=\"S\" on=\"K\"><case is=\"x\"><gen type=\"http\""
+            + " src=\"http://127.0.0.1:9/\" batch=\"4\"/></case><default><gen type=\"text\""
+            + " value=\"-\"/></default></switch>"
+            + "<sequence name=\"F\"><gen name=\"a\" type=\"http\" src=\"http://127.0.0.1:9/\""
+            + " batch=\"6\"/><gen name=\"b\" type=\"text\" value=\"z\"/></sequence>"
+            + "</env><block><line><data>${{S}}</data></line></block></tdc>";
+    io.github.nickliapin.tdc.model.Config config =
+        io.github.nickliapin.tdc.parser.ConfigBuilder.build(
+            io.github.nickliapin.tdc.parser.TdcParserFacade.parse(text).tree());
+    List<Integer> sizes =
+        new ArrayList<>(io.github.nickliapin.tdc.generators.HttpColumn.batchesIn(config));
+    Collections.sort(sizes);
+    assertEquals(List.of(4, 6), sizes);
+    assertEquals(12, io.github.nickliapin.tdc.generators.HttpColumn.alignment(config));
+  }
+
+  private static List<List<Integer>> spans(List<int[]> ranges) {
+    return ranges.stream().map(r -> List.of(r[0], r[1])).toList();
+  }
+
   @TestFactory
   Stream<DynamicTest> everySharedHttpCase() throws IOException {
     List<DynamicTest> tests = new ArrayList<>();
+    // Every engine reads the same batches: the in-memory one a column at a time, the two
+    // streaming ones a row at a time. 0 is the router's choice.
     for (JsonNode c : fixture().get("cases")) {
-      tests.add(DynamicTest.dynamicTest(c.get("name").asText(), () -> run(c)));
+      for (int engine : new int[] {0, 1, 2, 3}) {
+        String label = c.get("name").asText() + " (engine " + (engine == 0 ? "auto" : engine) + ")";
+        tests.add(DynamicTest.dynamicTest(label, () -> run(c, engine)));
+      }
     }
     return tests.stream();
   }
 
-  private static void run(JsonNode c) throws IOException {
+  private static TDC render(String text, int engine) {
+    TDC.Options options = TDC.options().configString(text);
+    return (engine == 0 ? options : options.engine(engine)).build();
+  }
+
+  private static void run(JsonNode c, int engine) throws IOException {
     try (Service service = new Service(c.get("service").asText())) {
       String text = c.get("config").asText().replace("{{SRC}}", service.url);
       if (c.has("error")) {
@@ -153,13 +202,13 @@ class HttpBatchesTest {
         RuntimeException e =
             assertThrows(
                 RuntimeException.class,
-                () -> TDC.options().configString(text).build().toString());
+                () -> render(text, engine).toString());
         assertTrue(
             String.valueOf(e.getMessage()).contains(want),
             "got " + e.getMessage() + "\nwant " + want);
       } else {
         assertEquals(
-            c.get("output").asText(), TDC.options().configString(text).build().toString());
+            c.get("output").asText(), render(text, engine).toString());
       }
       if (c.has("requests")) {
         List<Seen> want = new ArrayList<>();

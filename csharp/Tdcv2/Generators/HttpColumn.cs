@@ -53,11 +53,14 @@ public sealed class HttpColumn
     private readonly Dictionary<int, InFlight> _inFlight = new();
     private readonly LinkedList<(int K, IReadOnlyList<string> Values)> _answered = new();
     private readonly int _keep;
+    private readonly Func<(int Start, int End)?> _span;
 
-    public HttpColumn(Spec spec, int total)
+    public HttpColumn(Spec spec, int total, Func<(int Start, int End)?>? span = null)
     {
         _spec = spec;
         _total = total;
+        // The rows this run writes, when a worker writes only some of them; null for the whole run.
+        _span = span ?? (() => null);
         _batches = spec.Batch <= 0 ? 0 : (total + spec.Batch - 1) / spec.Batch;
         // The batch being read, the one before it (a reader may look one row back across the
         // seam) and everything already on the wire.
@@ -151,6 +154,13 @@ public sealed class HttpColumn
             return;
         }
 
+        // Read-ahead stops at this worker's last row: the batch past it belongs to the next
+        // worker, and asking for it here would send it twice.
+        if (!needed && !InSpan(k))
+        {
+            return;
+        }
+
         // Never more than `parallel` out at once: a service that is not safe to call concurrently
         // gets exactly one request at a time under the default.
         if (!needed && _inFlight.Count >= _spec.Parallel)
@@ -205,6 +215,116 @@ public sealed class HttpColumn
     }
 
     /// <summary>A positive whole number from <c>batch=</c>/<c>parallel=</c>, or the default.</summary>
+    private bool InSpan(int k)
+    {
+        if (_span() is not (int start, int end))
+        {
+            return true;
+        }
+
+        long first = (long)k * _spec.Batch;
+        return first < end && first + _spec.Batch > start;
+    }
+
+    /// <summary>Rows per request for one <c>&lt;gen type="http"&gt;</c>'s attributes.</summary>
+    public static int BatchOf(IReadOnlyDictionary<string, string> attrs) =>
+        ParseCount(attrs.GetValueOrDefault("batch"), DefaultBatch);
+
+    /// <summary>
+    /// <c>batch=</c> of every <c>&lt;gen type="http"&gt;</c> in the run, wherever it sits — a
+    /// sequence, a field, a part, an <c>if=</c> branch, a <c>&lt;mix&gt;</c> or
+    /// <c>&lt;switch&gt;</c> case.
+    /// </summary>
+    public static List<int> BatchesIn(Tdcv2.Model.Config config)
+    {
+        var sizes = new List<int>();
+        foreach (Tdcv2.Model.SequenceSpec spec in config.Sequences)
+        {
+            CollectGen(spec.Gen, sizes);
+            foreach (Tdcv2.Model.Field field in spec.Fields ?? Array.Empty<Tdcv2.Model.Field>())
+            {
+                CollectGen(field.Gen, sizes);
+            }
+
+            foreach (Tdcv2.Model.Item item in spec.Items ?? Array.Empty<Tdcv2.Model.Item>())
+            {
+                CollectGen(item.Gen, sizes);
+                CollectGen(item.Field?.Gen, sizes);
+            }
+
+            foreach (Tdcv2.Model.Branch branch in spec.Branches ?? Array.Empty<Tdcv2.Model.Branch>())
+            {
+                CollectGen(branch.Gen, sizes);
+            }
+
+            CollectMix(spec.Mix, sizes);
+            CollectSwitch(spec.SwitchSpec, sizes);
+        }
+
+        return sizes;
+    }
+
+    private static void CollectGen(Tdcv2.Model.Gen? gen, List<int> sizes)
+    {
+        if (gen is { Type: "http" } http)
+        {
+            sizes.Add(BatchOf(http.Attrs));
+        }
+    }
+
+    private static void CollectCase(Tdcv2.Model.Case? c, List<int> sizes)
+    {
+        foreach (Tdcv2.Model.CasePart part in c?.Parts ?? Array.Empty<Tdcv2.Model.CasePart>())
+        {
+            CollectGen(part.Gen, sizes);
+            CollectMix(part.Mix, sizes);
+            CollectSwitch(part.SwitchSpec, sizes);
+        }
+    }
+
+    private static void CollectMix(Tdcv2.Model.Mix? mix, List<int> sizes)
+    {
+        foreach (Tdcv2.Model.Case c in mix?.Cases ?? Array.Empty<Tdcv2.Model.Case>())
+        {
+            CollectCase(c, sizes);
+        }
+    }
+
+    private static void CollectSwitch(Tdcv2.Model.Switch? sw, List<int> sizes)
+    {
+        if (sw is null)
+        {
+            return;
+        }
+
+        foreach (Tdcv2.Model.SwitchEntry entry in sw.Entries)
+        {
+            CollectCase(entry.Value, sizes);
+        }
+
+        CollectCase(sw.Fallback, sizes);
+    }
+
+    /// <summary>
+    /// The row count a parallel split must fall on so no batch of any http column straddles two
+    /// workers: the least common multiple of <see cref="BatchesIn"/>, or 1 when nothing calls a
+    /// service. Straddling would send the seam's batch twice.
+    /// </summary>
+    public static int Alignment(Tdcv2.Model.Config config)
+    {
+        long lcm = 1;
+        foreach (int size in BatchesIn(config))
+        {
+            lcm = lcm / (long)System.Numerics.BigInteger.GreatestCommonDivisor(lcm, size) * size;
+            if (lcm > int.MaxValue)
+            {
+                return int.MaxValue;
+            }
+        }
+
+        return (int)lcm;
+    }
+
     internal static int ParseCount(string? raw, int fallback)
     {
         if (raw is null)
@@ -237,11 +357,16 @@ public sealed class HttpColumn
         /// <summary>By generator IDENTITY: two generators written alike are still two columns.</summary>
         private readonly ConditionalWeakTable<object, Dictionary<string, HttpColumn>> _columns = new();
 
+        private (int Start, int End)? _span;
+
         public Session(string envSeed, string baseDir)
         {
             _envSeed = envSeed;
             _baseDir = baseDir;
         }
+
+        /// <summary>Read ahead no further than rows <c>[start, end)</c> — the rows this worker writes.</summary>
+        public void Restrict(int start, int end) => _span = (start, end);
 
         /// <summary>The column for this generator, as <paramref name="sequence"/> reads it.</summary>
         public HttpColumn Column(
@@ -280,9 +405,9 @@ public sealed class HttpColumn
                 secret,
                 HttpGen.OnError(attrs),
                 HttpGen.TimeoutMs(attrs.GetValueOrDefault("timeout")),
-                ParseCount(attrs.GetValueOrDefault("batch"), DefaultBatch),
+                BatchOf(attrs),
                 ParseCount(attrs.GetValueOrDefault("parallel"), 1));
-            var made = new HttpColumn(spec, total);
+            var made = new HttpColumn(spec, total, () => _span);
             bySequence[sequence] = made;
             return made;
         }

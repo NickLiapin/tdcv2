@@ -528,8 +528,13 @@ public sealed class Tdc
         }
 
         bool canSplit = ParallelWrite.CanSplit(_config, _packs);
-        int resolved = ParallelWrite.ResolveWorkers(
-            workers <= 0 ? null : workers, canSplit, _config.Count);
+        // A config that calls a web service runs ONE worker unless told otherwise: splitting it
+        // on its own would hand the service several requests at once, which `parallel=` is the
+        // place to allow, not the size of this machine.
+        int? asked = workers > 0
+            ? workers
+            : Tdcv2.Generators.HttpColumn.BatchesIn(_config).Count > 0 ? 1 : null;
+        int resolved = ParallelWrite.ResolveWorkers(asked, canSplit, _config.Count);
         if (resolved > 1)
         {
             try

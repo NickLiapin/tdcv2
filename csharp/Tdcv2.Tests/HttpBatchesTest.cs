@@ -136,13 +136,43 @@ public class HttpBatchesTest
                 .OrderBy(n => n, StringComparer.Ordinal).ToArray());
     }
 
+    [Fact]
+    public void AParallelSplitFallsOnBatchBoundariesSoNoBatchIsFetchedTwice()
+    {
+        // The same splits as the TypeScript and Python twins.
+        Assert.Equal(new[] { (0, 40), (40, 70), (70, 100) }, ParallelWrite.Shards(100, 3, 10));
+        Assert.Equal(new[] { (0, 50), (50, 95) }, ParallelWrite.Shards(95, 2, 10));
+        Assert.Equal(new[] { (0, 10), (10, 20), (20, 25) }, ParallelWrite.Shards(25, 8, 10));
+    }
+
+    [Fact]
+    public void EveryHttpGeneratorIsFoundWhereverItSits()
+    {
+        const string text =
+            "<tdc><env count=\"3\" seed=\"s\">"
+            + "<sequence name=\"K\"><gen type=\"text\" value=\"x,y\"/></sequence>"
+            + "<switch name=\"S\" on=\"K\"><case is=\"x\"><gen type=\"http\""
+            + " src=\"http://127.0.0.1:9/\" batch=\"4\"/></case><default><gen type=\"text\""
+            + " value=\"-\"/></default></switch>"
+            + "<sequence name=\"F\"><gen name=\"a\" type=\"http\" src=\"http://127.0.0.1:9/\""
+            + " batch=\"6\"/><gen name=\"b\" type=\"text\" value=\"z\"/></sequence>"
+            + "</env><block><line><data>${{S}}</data></line></block></tdc>";
+        var config = ConfigBuilder.Build(TdcParserFacade.Parse(text).Tree);
+        Assert.Equal(
+            new[] { 4, 6 }, Tdcv2.Generators.HttpColumn.BatchesIn(config).OrderBy(n => n).ToArray());
+        Assert.Equal(12, Tdcv2.Generators.HttpColumn.Alignment(config));
+    }
+
+    // Every engine reads the same batches: the in-memory one a column at a time, the two
+    // streaming ones a row at a time. "auto" is the router's choice.
     public static IEnumerable<object[]> Cases() =>
         Fixture().GetProperty("cases").EnumerateArray()
-            .Select(c => new object[] { c.GetProperty("name").GetString()! });
+            .SelectMany(c => new[] { "auto", "1", "2", "3" }
+                .Select(engine => new object[] { c.GetProperty("name").GetString()!, engine }));
 
     [Theory]
     [MemberData(nameof(Cases))]
-    public void ASharedHttpCase(string name)
+    public void ASharedHttpCase(string name, string engine)
     {
         JsonElement c = Fixture().GetProperty("cases").EnumerateArray()
             .First(x => x.GetProperty("name").GetString() == name);
@@ -155,7 +185,8 @@ public class HttpBatchesTest
             .Select(d => $"{d.Code} {d.Message}")
             .ToList();
         Assert.Empty(refusals);
-        var config = ConfigBuilder.Build(parsed.Tree);
+        var built = ConfigBuilder.Build(parsed.Tree);
+        var config = engine == "auto" ? built : built.WithEngineSelection(engine, built.Mode);
 
         if (c.TryGetProperty("error", out JsonElement error))
         {

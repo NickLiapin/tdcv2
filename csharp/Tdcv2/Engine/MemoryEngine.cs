@@ -1559,8 +1559,15 @@ public static class MemoryEngine
                     string sequence = (ctx.ColumnStreamId ?? "").Split('#')[0];
                     HttpColumn column = session.Column(
                         gen, gen.Attrs, sequence, ctx.Config.Count);
-                    return column.ValuesAt(
-                        rows, row => inName is null ? "" : siblingAt?.Invoke(inName, row) ?? "");
+                    Func<int, string> inputAt =
+                        row => inName is null ? "" : siblingAt?.Invoke(inName, row) ?? "";
+                    // One row is a reader walking forward — the streaming engines, a branch built
+                    // row by row — so the batches after this one go on the wire while it works.
+                    // Several rows are a whole column or a subset of one, known in full: only
+                    // their batches are asked for.
+                    return rows.Length == 1
+                        ? new List<string> { column.ValueAt(rows[0], inputAt) }
+                        : column.ValuesAt(rows, inputAt);
                 }
                 catch (HttpColumn.ColumnException e)
                 {

@@ -443,7 +443,14 @@ public final class TDC {
       int count = config.count();
       int resolved =
           io.github.nickliapin.tdc.engine.Parallel.resolveWorkers(
-              workers <= 0 ? null : workers,
+              // A config that calls a web service runs ONE worker unless told otherwise: splitting
+              // it on its own would hand the service several requests at once, which `parallel=`
+              // is the place to allow, not the size of this machine.
+              workers > 0
+                  ? Integer.valueOf(workers)
+                  : io.github.nickliapin.tdc.generators.HttpColumn.batchesIn(config).isEmpty()
+                      ? null
+                      : Integer.valueOf(1),
               io.github.nickliapin.tdc.engine.Parallel.canSplit(config, packs),
               count);
       if (resolved > 1) {

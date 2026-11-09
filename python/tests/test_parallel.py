@@ -83,6 +83,13 @@ class TestShards:
         with pytest.raises(ValueError, match="at least 1"):
             parallel.shards(10, 0)
 
+    def test_puts_every_seam_on_a_batch_boundary_when_asked_to(self) -> None:
+        # So no http batch is fetched by two shards. The same splits as the TypeScript twin.
+        assert parallel.shards(100, 3, 10) == [(0, 40), (40, 70), (70, 100)]
+        assert parallel.shards(95, 2, 10) == [(0, 50), (50, 95)]
+        assert parallel.shards(25, 8, 10) == [(0, 10), (10, 20), (20, 25)]
+        assert parallel.shards(0, 4, 10) == []
+
 
 class TestWriteRows:
     @pytest.mark.parametrize("splits", [[(0, 20)], [(0, 1), (1, 20)], [(0, 7), (7, 13), (13, 20)]])

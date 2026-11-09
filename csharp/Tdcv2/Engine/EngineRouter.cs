@@ -207,11 +207,8 @@ public static class EngineRouter
             return new Choice(1, $"uniq=\"true\" on \"{simpleUniq.Name}\"");
         }
 
-        string? http = GenOwner(config, gen => gen.Type == "http");
-        if (http is not null)
-        {
-            return new Choice(1, $"\"{http}\" calls a web service");
-        }
+        // A `type="http"` column streams: the session fetches it batch by batch as the rows are
+        // written, so it stays out of this list — the column is never held whole.
 
         // A <switch> branch that declares a share the streaming engines cannot lay over the
         // right rows. They refuse such a branch rather than apportion it over the wrong

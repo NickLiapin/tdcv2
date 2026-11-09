@@ -173,10 +173,8 @@ public final class EngineRouter {
         return new Choice(1, "uniq=\"true\" on \"" + s.name() + "\"");
       }
     }
-    String http = genOwner(config, gen -> "http".equals(gen.type()));
-    if (http != null) {
-      return new Choice(1, "\"" + http + "\" calls a web service");
-    }
+    // A `type="http"` column streams: the session fetches it batch by batch as the rows are
+    // written, so it stays out of this list — the column is never held whole.
     // A <switch> branch that declares a share the streaming engines cannot lay over the right
     // rows. They refuse such a branch rather than apportion it over the wrong denominator, and a
     // refusal reached at build time is not a fallback for every caller. Decide it here,

@@ -111,16 +111,24 @@ public static class ParallelWrite
     }
 
     /// <summary>Contiguous, balanced ranges covering <c>[0, count)</c>; the first few get one extra row.</summary>
-    public static IReadOnlyList<(int Start, int End)> Shards(int count, int workers)
+    /// <remarks>
+    /// With <paramref name="align"/> above 1 every seam falls on a multiple of it (the last range
+    /// ends at <paramref name="count"/>), balanced in whole units of <paramref name="align"/> rows.
+    /// An http column cut into batches of that size then has no batch shared by two workers, so
+    /// the service is asked for each batch once.
+    /// </remarks>
+    public static IReadOnlyList<(int Start, int End)> Shards(int count, int workers, int align = 1)
     {
-        int n = Math.Max(1, Math.Min(workers, Math.Max(1, count)));
-        int size = count / n;
-        int remainder = count % n;
+        long unit = Math.Max(1, align);
+        long units = (count + unit - 1) / unit;
+        int n = (int)Math.Max(1, Math.Min(workers, Math.Max(1, units)));
+        long size = units / n;
+        long remainder = units % n;
         var result = new List<(int, int)>(n);
         int start = 0;
         for (int i = 0; i < n; i++)
         {
-            int end = start + size + (i < remainder ? 1 : 0);
+            int end = (int)Math.Min(count, (start / unit + size + (i < remainder ? 1 : 0)) * unit);
             result.Add((start, end));
             start = end;
         }
@@ -147,7 +155,9 @@ public static class ParallelWrite
         bool named = false,
         IReadOnlyDictionary<string, Dictionary<int, List<string>>>? given = null)
     {
-        IReadOnlyList<(int Start, int End)> ranges = Shards(count, workers);
+        // Seams on http batch boundaries, so no batch is fetched by two workers.
+        IReadOnlyList<(int Start, int End)> ranges =
+            Shards(count, workers, Tdcv2.Generators.HttpColumn.Alignment(config));
         // Worked out ONCE, before a single worker exists. Empty for the configs that have no
         // env-level group, which is most of them, and then this costs one build of the columns.
         //

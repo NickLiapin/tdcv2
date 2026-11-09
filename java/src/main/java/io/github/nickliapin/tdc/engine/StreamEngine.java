@@ -8,6 +8,7 @@ import io.github.nickliapin.tdc.expr.Evaluate;
 import io.github.nickliapin.tdc.format.Interpolate;
 import io.github.nickliapin.tdc.format.Mask;
 import io.github.nickliapin.tdc.format.Transforms;
+import io.github.nickliapin.tdc.generators.HttpColumn;
 import io.github.nickliapin.tdc.generators.Counter;
 import io.github.nickliapin.tdc.generators.DateOffset;
 import io.github.nickliapin.tdc.generators.AdvancedRegexGen;
@@ -136,6 +137,8 @@ public final class StreamEngine {
   private final Map<String, ParentCapable> parents = new LinkedHashMap<>();
   private final boolean exactUniq;
   private final Progress onProgress;
+  /** Every {@code type="http"} column of the run, fetched batch by batch as rows are read. */
+  private final HttpColumn.Session http;
   /** Arrangements worked out elsewhere, keyed by the group's label. */
   private final Map<String, Map<Integer, List<String>>> uniqPlan;
   /** Where an arrangement worked out HERE goes, so the others need not repeat it. */
@@ -161,6 +164,7 @@ public final class StreamEngine {
     this.count = config.count();
     this.exactUniq = exactUniq;
     this.onProgress = onProgress;
+    this.http = HttpColumn.Session.detached(seed, baseDir, count, this::valueAt);
   }
 
   /**
@@ -234,6 +238,7 @@ public final class StreamEngine {
     StreamEngine engine =
         new StreamEngine(config, packs, nowMillis, baseDir, exactUniq, onProgress, uniqPlan, null);
     engine.buildColumns();
+    engine.http.restrict(start, Math.min(stop, engine.count));
     engine.write(out, start, Math.min(stop, engine.count));
   }
 
@@ -1034,12 +1039,6 @@ public final class StreamEngine {
       // largest branch and look plausible doing it.
       throw unsupported("advanced_regex weighted choice \"(?%{…})\"", streamId);
     }
-    if ("http".equals(type)) {
-      // A network call is not a draw: neither reproducible from a row index nor
-      // answerable synchronously, which is what a lazy per-row resolver needs.
-      throw new Unsupported(
-          "<gen type=\"http\"> (\"" + streamId + "\") is a network call, so it is neither reproducible nor answerable one row at a time; the in-memory engine handles it (run without a forced streaming engine)");
-    }
     if ("template".equals(type) && attrs.getOrDefault("value", "").contains("${{")) {
       throw new Unsupported(
           "template value \""
@@ -1606,6 +1605,26 @@ public final class StreamEngine {
       Config.Gen gen, Prng.Sfc32 prng, boolean[] flagsOut, int row, String streamId) {
     MemoryEngine.Siblings siblings =
         new MemoryEngine.Siblings(columns::containsKey, (name, at) -> valueAt(name, at));
+    // An http generator reads the run's session, which only this engine holds; it is made
+    // current for the one call. Nothing else reads it, so nothing else pays for it.
+    if ("http".equals(gen.type())) {
+      HttpColumn.Session.Scope current = http.enter();
+      try {
+        return genValuesHere(gen, prng, flagsOut, row, streamId, siblings);
+      } finally {
+        current.close();
+      }
+    }
+    return genValuesHere(gen, prng, flagsOut, row, streamId, siblings);
+  }
+
+  private List<String> genValuesHere(
+      Config.Gen gen,
+      Prng.Sfc32 prng,
+      boolean[] flagsOut,
+      int row,
+      String streamId,
+      MemoryEngine.Siblings siblings) {
     Repeat.Spec repeat = Repeat.parse(gen.attrs());
     if (repeat == null) {
       return MemoryEngine.finish(
