@@ -47,7 +47,7 @@ from ..prng.prng import create
 from ..sequence import assertions
 from ..sequence import pool as pool_mod
 from ..stats import timeseries
-from . import each, memory
+from . import each, http_uniq, memory
 from .memory import composes_own_value
 
 # The types whose value is built here, and whose modifiers therefore apply here too.
@@ -184,11 +184,20 @@ class StreamEngine:
         self.exact_uniq = exact_uniq
         self.on_progress = on_progress
         # Every `type="http"` column of the run, fetched batch by batch as rows are read.
-        self.http = http_column.HttpSession(config.seed, str(base_dir) if base_dir else ".")
+        # A column checked for repeats is read twice — once to check, once to write — and the
+        # service must be asked once, so then its answers are kept on disk.
+        self.http = http_column.HttpSession(
+            config.seed,
+            str(base_dir) if base_dir else ".",
+            keep_answers=bool(http_uniq.sequences(config)),
+        )
         # Pools are computed before anything streams — small, and off a derived seed, so the
         # bounded-memory promise is untouched and no other column moves.
         self.pool_tables = memory.build_pool_tables(config, packs, now_millis, base_dir)
         self._build_columns()
+        for name in http_uniq.sequences(config):
+            if name in self.columns:
+                http_uniq.check(name, self.columns[name], self.count)
         # Same check the in-memory engine makes, on the same finished run — an assertion that
         # only held on one engine would be a check that depends on how the file was produced.
         assertions.check(
@@ -492,7 +501,8 @@ class StreamEngine:
                     "the row is built, and the streaming path has no way to do that yet; the "
                     "in-memory engine handles it (run without a forced streaming engine)"
                 )
-            if spec.uniq:
+            # An http column's uniq is a check of its answers, not an arrangement — see http_uniq.
+            if spec.uniq and not (spec.gen is not None and spec.gen.type == "http"):
                 self._build_uniq(spec)
                 continue
             if spec.is_conditional:

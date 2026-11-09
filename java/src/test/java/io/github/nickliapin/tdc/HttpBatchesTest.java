@@ -100,6 +100,10 @@ class HttpBatchesTest {
           lines.add("H" + line);
         }
         echo = "upper".equals(name);
+      } else if ("row-repeat".equals(name)) {
+        for (int i = 0; i < count; i++) {
+          lines.add("r" + (offset + i == 3 ? 1 : offset + i));
+        }
       } else if ("row-no-echo".equals(name)) {
         for (int i = 0; i < count; i++) {
           lines.add("r" + i);
@@ -132,7 +136,8 @@ class HttpBatchesTest {
     Set<String> names = new TreeSet<>();
     fixture().get("services").fieldNames().forEachRemaining(names::add);
     assertEquals(
-        new TreeSet<>(List.of("fail-second", "row", "row-no-echo", "upper", "upper-no-echo")),
+        new TreeSet<>(
+            List.of("fail-second", "row", "row-no-echo", "row-repeat", "upper", "upper-no-echo")),
         names);
   }
 

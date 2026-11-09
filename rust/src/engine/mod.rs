@@ -17,6 +17,7 @@ mod each;
 pub mod exact_uniq;
 pub mod external_sort;
 pub mod fingerprint;
+pub mod http_uniq;
 pub mod memory;
 pub mod per_row;
 pub mod repeat_keyed;

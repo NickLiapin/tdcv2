@@ -119,6 +119,34 @@
       "description": "The same for a date offset as a named field. It used to lose of= and plus= here in silence and draw an unrelated date.",
       "config": "<tdc><env count=\"4\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"D\"><gen type=\"date\" value=\"2020-01-01..2020-12-31\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"C\"><gen name=\"due\" type=\"date\" of=\"D\" plus=\"1d\"/></sequence></env><block><line><data>${{N}}</data></line></block></tdc>",
       "expected": ["error TDC295 1:243"]
+    },
+    {
+      "name": "an-http-column-inside-a-uniq-group",
+      "description": "A <uniq> group MOVES values between rows, and a service's answer belongs to the row it was asked for. Measured before this check: 197 of 200 hashes in a group beside their password column landed on another row, and the run exited 0.",
+      "config": "<tdc><env count=\"4\" seed=\"s\" local=\"en\"><sequence name=\"P\"><gen type=\"text\" value=\"x,y\"/></sequence><uniq><sequence name=\"A\"><gen type=\"text\" value=\"a,b,c\"/></sequence><sequence name=\"H\"><gen type=\"http\" src=\"http://127.0.0.1:9/\" in=\"P\"/></sequence></uniq></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "demonstrates": "TDC314",
+      "expected": ["error TDC314 1:187"]
+    },
+    {
+      "name": "an-http-column-inside-a-distinct-group",
+      "description": "A <distinct> group asks a member for ANOTHER value, and a service answers each row once: every retry was the same request again, a thousand times, before the run gave up.",
+      "config": "<tdc><env count=\"4\" seed=\"s\" local=\"en\"><distinct><sequence name=\"A\"><gen type=\"text\" value=\"a,b\"/></sequence><sequence name=\"H\"><gen type=\"http\" src=\"http://127.0.0.1:9/\"/></sequence></distinct></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "demonstrates": "TDC314",
+      "expected": ["error TDC314 1:129"]
+    },
+    {
+      "name": "an-http-column-inside-a-mix-member-of-a-uniq-group",
+      "description": "A <mix> member carries its cases' values, so a service called inside one moves with the mix.",
+      "config": "<tdc><env count=\"4\" seed=\"s\" local=\"en\"><uniq><sequence name=\"A\"><gen type=\"text\" value=\"a,b,c\"/></sequence><mix name=\"M\"><case><gen type=\"http\" src=\"http://127.0.0.1:9/\"/></case><case><gen type=\"text\" value=\"-\"/></case></mix></uniq></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "demonstrates": "TDC314",
+      "expected": ["error TDC314 1:128"]
+    },
+    {
+      "name": "an-http-column-reading-a-uniq-group-from-outside-is-accepted",
+      "description": "The way the hint points: the group arranges the inputs, and the http column outside it reads them after the arrangement, so each hash stays with its password.",
+      "config": "<tdc><env count=\"4\" seed=\"s\" local=\"en\"><uniq><sequence name=\"P\"><gen type=\"regex\" value=\"[a-z]{6}\"/></sequence><sequence name=\"A\"><gen type=\"text\" value=\"a,b,c\"/></sequence></uniq><sequence name=\"H\"><gen type=\"http\" src=\"http://127.0.0.1:9/\" in=\"P\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "demonstrates": "",
+      "expected": []
     }
   ]
 }

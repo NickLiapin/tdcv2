@@ -32,6 +32,8 @@ def _answer(service: str, served: int, offset: int, inputs: list[str], count: in
         return 500, [], True
     if service in ("upper", "upper-no-echo"):
         return 200, [f"H{line}" for line in inputs], service == "upper"
+    if service == "row-repeat":
+        return 200, [f"r{1 if offset + i == 3 else offset + i}" for i in range(count)], True
     if service == "row-no-echo":
         return 200, [f"r{i}" for i in range(count)], False
     # row, and fail-second's first answer
@@ -102,6 +104,7 @@ def test_every_service_the_fixture_names_is_run_here():
         "row-no-echo",
         "upper-no-echo",
         "fail-second",
+        "row-repeat",
     }
 
 

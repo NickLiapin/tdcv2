@@ -15,7 +15,7 @@ import type {
   OpenCloseElementContext,
   SelfClosingElementContext,
 } from '../generated/TDCParser.js';
-import { extractAttrs } from '../processor/walk.js';
+import { contentElements, elementKind, elementName, extractAttrs } from '../processor/walk.js';
 
 function findAttr(attrs: readonly AttrContext[], name: string): AttrContext | undefined {
   for (const a of attrs) {
@@ -180,4 +180,68 @@ function isHttpUrl(value: string): boolean {
     return false;
   }
   return url.protocol === 'http:' || url.protocol === 'https:';
+}
+
+/**
+ * A `<uniq>` or `<distinct>` member that calls a web service.
+ *
+ * A group keeps its promise in one of two ways, and a service can follow
+ * neither. `<uniq>` MOVES values between rows — and a service's answer belongs
+ * to the row it was asked for: a hash moved off its password's row is a wrong
+ * hash. Measured on the reference before this check: 197 of 200 hashes in a
+ * `<uniq>` beside their password column landed on another row, and the run
+ * exited 0. `<distinct>` asks for ANOTHER value — and a service answers each
+ * row once, so every retry was the same request again, a thousand times over.
+ *
+ * Anywhere inside the member counts: a `<mix>` or `<switch>` member carries
+ * its cases' values just as a sequence carries its own.
+ */
+export function checkGroupHttpMember(
+  wrapper: OpenCloseElementContext,
+  diagnostics: Diagnostic[],
+  tag: string,
+): void {
+  for (const el of contentElements(wrapper.content())) {
+    const k = elementKind(el);
+    if (k?.kind !== 'open') continue;
+    const member = elementName(k.node);
+    if (member !== 'sequence' && member !== 'mix' && member !== 'switch') continue;
+    const gen = firstHttpGen(k.node);
+    if (gen === undefined) continue;
+    const name = extractAttrs(k.node.attr())['name'] ?? '?';
+    diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...nodeRange(gen),
+      message:
+        `<${member} name="${name}"> calls a web service (type="http"), which cannot be a ` +
+        `member of <${tag}>: ` +
+        (tag === 'uniq'
+          ? 'the group moves values between rows, and an answer belongs to the row it was asked for'
+          : 'the group asks for another value, and a service answers each row once'),
+      hint:
+        `Put the <${tag}> around the columns the service reads (in=) and leave the http column ` +
+        'outside it — it follows its inputs. To require the answers themselves to differ, write ' +
+        'uniq="true" on the http sequence: the run checks them and stops at the first repeat.',
+      code: 'TDC314',
+    });
+  }
+}
+
+/** The first `<gen type="http">` anywhere under `node`. */
+function firstHttpGen(
+  node: OpenCloseElementContext,
+): OpenCloseElementContext | SelfClosingElementContext | undefined {
+  for (const el of contentElements(node.content())) {
+    const k = elementKind(el);
+    if (k === null || k.kind === 'data') continue;
+    if (elementName(k.node) === 'gen' && extractAttrs(k.node.attr())['type'] === 'http') {
+      return k.node;
+    }
+    if (k.kind === 'open') {
+      const inner = firstHttpGen(k.node);
+      if (inner !== undefined) return inner;
+    }
+  }
+  return undefined;
 }

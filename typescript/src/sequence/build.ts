@@ -725,7 +725,14 @@ function materializeSimple(
   // column has no room to be both proportional and unique, so — unlike the
   // compound path, which only rearranges — uniq changes the draw here.
   // `increment`/`decrement` are unique by construction and keep their build.
-  if (spec.uniq === true && gen.type !== 'increment' && gen.type !== 'decrement') {
+  // An http column's `uniq` is a check of the answers, made once the run is
+  // built (http-uniq.ts) — there is nothing here to draw without replacement.
+  if (
+    spec.uniq === true &&
+    gen.type !== 'increment' &&
+    gen.type !== 'decrement' &&
+    gen.type !== 'http'
+  ) {
     const produced =
       applicableCount === 0
         ? []

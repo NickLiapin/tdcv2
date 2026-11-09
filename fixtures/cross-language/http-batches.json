@@ -6,7 +6,8 @@
     "row": "A source. Line i of a batch is answered with \"r\" + (X-TDC-Offset + i). Echoes X-TDC-Offset.",
     "row-no-echo": "A source written before batches: line i is answered with \"r\" + i, and X-TDC-Offset is never sent back.",
     "upper-no-echo": "Like upper, but never sends X-TDC-Offset back.",
-    "fail-second": "Answers the first request it receives like row; every later request gets a 500."
+    "fail-second": "Answers the first request it receives like row; every later request gets a 500.",
+    "row-repeat": "Like row, except that the line for absolute row 3 is answered with \"r1\" — a repeat of row 1. Echoes X-TDC-Offset."
   },
   "cases": [
     {
@@ -285,6 +286,60 @@
           "offset": 3,
           "total": 6,
           "input": 3
+        }
+      ]
+    },
+    {
+      "name": "uniq on an http column checks every answer and asks for each batch once",
+      "service": "row",
+      "note": "The check reads every answer before the first row is written, and the rows read them again: the second read comes off disk, so the service sees three requests, not six.",
+      "config": "<tdc><env count=\"6\" seed=\"s\"><sequence name=\"U\" uniq=\"true\"><gen type=\"http\" src=\"{{SRC}}\" batch=\"2\"/></sequence></env><block><line><data>${{U}}</data></line></block></tdc>",
+      "output": "r0\nr1\nr2\nr3\nr4\nr5\n",
+      "requests": [
+        {
+          "count": 2,
+          "offset": 0,
+          "total": 6,
+          "input": null
+        },
+        {
+          "count": 2,
+          "offset": 2,
+          "total": 6,
+          "input": null
+        },
+        {
+          "count": 2,
+          "offset": 4,
+          "total": 6,
+          "input": null
+        }
+      ]
+    },
+    {
+      "name": "a repeated answer under uniq stops the run before a row is written",
+      "service": "row-repeat",
+      "note": "Rows are numbered from one, as a reader of the file counts them.",
+      "config": "<tdc><env count=\"6\" seed=\"s\"><sequence name=\"U\" uniq=\"true\"><gen type=\"http\" src=\"{{SRC}}\" batch=\"2\"/></sequence></env><block><line><data>${{U}}</data></line></block></tdc>",
+      "error": "uniq=\"true\" on \"U\": the service answered \"r1\" on row 2 and again on row 4",
+      "requests": [
+        {
+          "count": 2,
+          "offset": 0,
+          "total": 6,
+          "input": null
+        },
+        {
+          "count": 2,
+          "offset": 2,
+          "total": 6,
+          "input": null
+        },
+        {
+          "count": 2,
+          "offset": 4,
+          "total": 6,
+          "input": null
         }
       ]
     }

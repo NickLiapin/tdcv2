@@ -164,7 +164,11 @@ public final class StreamEngine {
     this.count = config.count();
     this.exactUniq = exactUniq;
     this.onProgress = onProgress;
-    this.http = HttpColumn.Session.detached(seed, baseDir, count, this::valueAt);
+    // A column checked for repeats is read twice — once to check, once to write — and the service
+    // must be asked once, so then its answers are kept on disk.
+    this.http =
+        HttpColumn.Session.detached(
+            seed, baseDir, count, this::valueAt, !HttpUniq.sequences(config).isEmpty());
   }
 
   /**
@@ -361,7 +365,8 @@ public final class StreamEngine {
       byName.put(spec.name(), spec);
     }
     for (Config.SequenceSpec spec : config.sequences()) {
-      if (spec.uniq()) {
+      // An http column's uniq is a check of its answers, not an arrangement — see HttpUniq.
+      if (spec.uniq() && !(spec.gen() != null && "http".equals(spec.gen().type()))) {
         buildUniq(spec);
         continue;
       }
@@ -482,6 +487,12 @@ public final class StreamEngine {
       applyEnvUniq(group, byName);
     }
 
+    // A service's answers marked uniq="true" are checked first, before a row is written.
+    for (String name : HttpUniq.sequences(config)) {
+      if (columns.containsKey(name)) {
+        HttpUniq.check(name, row -> valueAt(name, row), count);
+      }
+    }
     // The same check the in-memory engine makes, on the same finished run: an assertion that only
     // held on one engine would be a check that depends on how the file was produced.
     Assertions.check(config, this::valueAt, columns::containsKey);

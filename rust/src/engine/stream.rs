@@ -733,6 +733,15 @@ impl<'a> StreamEngine<'a> {
             failure: RefCell::new(None),
         };
         engine.build_columns()?;
+        for name in super::http_uniq::sequences(config) {
+            if engine.columns.contains_key(&name) {
+                super::http_uniq::check(
+                    &name,
+                    &|row| Ok(engine.value_at(&name, row as i32)?.unwrap_or_default()),
+                    config.count.max(0) as usize,
+                )?;
+            }
+        }
         // The same check the in-memory engine makes, on the same finished run:
         // an assertion that only held on one engine would be a check that
         // depends on how the file was produced.
@@ -773,7 +782,9 @@ impl<'a> StreamEngine<'a> {
             .collect();
 
         for spec in &config.sequences {
-            if spec.uniq {
+            // An http column's uniq is a check of its answers, not an arrangement.
+            let http = matches!(&spec.source, crate::model::config::Source::Gen(g) if g.gen_type == "http");
+            if spec.uniq && !http {
                 self.build_uniq(spec)?;
                 continue;
             }

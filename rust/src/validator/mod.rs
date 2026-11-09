@@ -1100,6 +1100,9 @@ impl Validator {
                 self.check_env_group_member(declaration.element, group);
                 self.check_group_derived_member(declaration.element, group);
             }
+            if let Some(group) = declaration.wrapped_in_group {
+                self.check_group_http_member(declaration.element, group);
+            }
             let in_pool = declaration.pool.is_some();
             // Every expression deferred while this declaration is walked is a
             // pool member's or the run's, and the two see different names.
@@ -2055,6 +2058,40 @@ impl Validator {
         }
     }
 
+    /// A `<uniq>` or `<distinct>` member that calls a web service — TDC314.
+    ///
+    /// `<uniq>` MOVES values between rows, and a service's answer belongs to the row it
+    /// was asked for: measured on the reference, 197 of 200 hashes beside their password
+    /// column landed on another row. `<distinct>` asks for another value, and a service
+    /// answers each row once, so every retry was the same request again. Anywhere inside
+    /// the member counts.
+    fn check_group_http_member(&mut self, member: &Element, tag: &str) {
+        let Some(gen) = first_http_gen(member) else {
+            return;
+        };
+        let name = member.attr_value("name").unwrap_or("?").to_string();
+        let why = if tag == "uniq" {
+            "the group moves values between rows, and an answer belongs to the row it was asked for"
+        } else {
+            "the group asks for another value, and a service answers each row once"
+        };
+        self.error(
+            "TDC314",
+            format!(
+                "<{} name=\"{name}\"> calls a web service (type=\"http\"), which cannot be a \
+                 member of <{tag}>: {why}",
+                member.name
+            ),
+            &format!(
+                "Put the <{tag}> around the columns the service reads (in=) and leave the http \
+                 column outside it \u{2014} it follows its inputs. To require the answers \
+                 themselves to differ, write uniq=\"true\" on the http sequence: the run checks \
+                 them and stops at the first repeat."
+            ),
+            gen.pos,
+        );
+    }
+
     /// A DERIVED column inside a `<uniq>` or `<distinct>` group.
     ///
     /// A group is a rearrangement: it keeps every member's multiset of values and permutes
@@ -2857,6 +2894,24 @@ impl Validator {
     fn uniq_draw(&mut self, open: &Element, name: Option<&str>, gens: &[&Element]) {
         let declared = open.attr("uniq").map(|a| a.value()).unwrap_or("");
         if !declared.trim().eq_ignore_ascii_case("true") {
+            return;
+        }
+        // On an http column alone uniq is a CHECK of the answers (engine::http_uniq). Beside a
+        // literal it would be a draw again, and in a compound it rearranges the fields between
+        // rows \u{2014} and a service's answer can be neither drawn nor moved.
+        if gens.iter().any(|g| g.attr_value("type") == Some("http")) {
+            let literal = open.children.iter().any(|c| c.kind == Kind::Data);
+            if gens.len() != 1 || literal {
+                self.uniq_unsupported_with(
+                    open,
+                    name,
+                    "it holds a service's answer (type=\"http\"), which can be neither drawn \
+                     again nor moved to another row",
+                    "Write uniq=\"true\" on an http sequence of its own \u{2014} the run then \
+                     checks every answer and stops at the first repeat \u{2014} and build the \
+                     composed value from it.",
+                );
+            }
             return;
         }
         let drawn: Vec<&&Element> = gens.iter().filter(|g| g.attr("name").is_none()).collect();
@@ -8752,4 +8807,22 @@ fn entity_len(s: &[u8]) -> Option<usize> {
         end += 1;
     }
     (end > start && s.get(end) == Some(&b';')).then_some(end + 1)
+}
+
+/// The first `<gen type="http">` anywhere under `node`.
+fn first_http_gen(node: &Element) -> Option<&Element> {
+    for child in &node.children {
+        if child.kind == Kind::Data {
+            continue;
+        }
+        if is_gen(child) && child.attr_value("type") == Some("http") {
+            return Some(child);
+        }
+        if child.kind == Kind::OpenClose {
+            if let Some(found) = first_http_gen(child) {
+                return Some(found);
+            }
+        }
+    }
+    None
 }

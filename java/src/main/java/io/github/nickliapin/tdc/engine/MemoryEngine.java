@@ -119,6 +119,13 @@ public final class MemoryEngine {
     Map<String, String[]> columns =
         buildColumns(config, count, packs, nowMillis, baseDir, tables);
 
+    // A service's answers marked uniq="true" are checked first, for the same reason.
+    for (String name : HttpUniq.sequences(config)) {
+      String[] column = columns.get(name);
+      if (column != null) {
+        HttpUniq.check(name, row -> row < column.length ? column[row] : null, count);
+      }
+    }
     // The run is finished; now the config gets to check its own output — before a single line is
     // written, because a file that exists is a file someone will use.
     Assertions.check(
@@ -1184,9 +1191,11 @@ public final class MemoryEngine {
       // A single column cannot be both proportional and unique, so — unlike the
       // compound path, which only rearranges — uniq changes the draw: without
       // replacement, one PRNG draw per pick (UniqSimple).
+      // An http column's uniq is a check of the answers (HttpUniq) — nothing to draw here.
       if (spec.uniq()
           && !"increment".equals(spec.gen().type())
-          && !"decrement".equals(spec.gen().type())) {
+          && !"decrement".equals(spec.gen().type())
+          && !"http".equals(spec.gen().type())) {
         List<String> unique =
             applicable == 0
                 ? List.of()

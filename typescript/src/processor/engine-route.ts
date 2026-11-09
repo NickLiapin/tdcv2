@@ -338,7 +338,8 @@ function simpleUniqOwner(specs: readonly SequenceSpec[]): string | undefined {
   const counting = (type: string): boolean => type === 'increment' || type === 'decrement';
   return specs.find((s) => {
     if (s.uniq !== true) return false;
-    if (s.gen !== undefined) return !counting(s.gen.type);
+    // An http column's uniq checks the answers; it draws nothing, and it streams.
+    if (s.gen !== undefined) return !counting(s.gen.type) && s.gen.type !== 'http';
     return (s.items ?? []).some((i) => i.kind === 'gen' && !counting(i.gen.type));
   })?.name;
 }
@@ -395,7 +396,7 @@ function exactEngineReason(
     gen.type === 'advanced_regex' && advancedRegexHasWeightedChoice(gen.attrs['value'] ?? '');
 
   for (const spec of specs) {
-    if (spec.uniq) return `uniq="true" on "${spec.name}"`;
+    if (spec.uniq && spec.gen?.type !== 'http') return `uniq="true" on "${spec.name}"`;
     const weighted = `"${spec.name}" has a weighted choice in advanced_regex`;
     if (spec.gen && isWeightedAdvancedRegex(spec.gen)) return weighted;
     for (const field of spec.gens ?? []) {

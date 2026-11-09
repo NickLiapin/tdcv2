@@ -191,7 +191,8 @@ fn disk_route(config: &Config) -> EngineChoice {
         use crate::model::config::{Item, Source};
         s.uniq
             && match &s.source {
-                Source::Gen(gen) => !counting(&gen.gen_type),
+                // An http column's uniq checks the answers; it draws nothing, and it streams.
+                Source::Gen(gen) => !counting(&gen.gen_type) && gen.gen_type != "http",
                 Source::Items(items) => items
                     .iter()
                     .any(|i| matches!(i, Item::Gen(gen) if !counting(&gen.gen_type))),
@@ -388,7 +389,7 @@ pub fn needs_exact(config: &Config) -> bool {
 /// Why disk mode needs the exact engine, in words; `None` when it does not.
 fn exact_reason(config: &Config) -> Option<String> {
     for spec in &config.sequences {
-        if spec.uniq {
+        if spec.uniq && !matches!(&spec.source, Source::Gen(gen) if gen.gen_type == "http") {
             return Some(format!("uniq=\"true\" on \"{}\"", spec.name));
         }
         let weighted = matches!(&spec.source, Source::Gen(gen) if is_weighted_advanced_regex(gen))

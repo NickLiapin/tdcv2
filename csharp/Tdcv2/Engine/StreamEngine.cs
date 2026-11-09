@@ -142,7 +142,10 @@ public sealed class StreamEngine
         _baseDir = baseDir;
         _seed = config.Seed;
         _count = config.Count;
-        _http = new HttpColumn.Session(config.Seed, baseDir ?? ".");
+        // A column checked for repeats is read twice — once to check, once to write — and the
+        // service must be asked once, so then its answers are kept on disk.
+        _http = new HttpColumn.Session(
+            config.Seed, baseDir ?? ".", HttpUniq.Sequences(config).Count > 0);
     }
 
     /// <summary>
@@ -598,7 +601,8 @@ public sealed class StreamEngine
 
         foreach (SequenceSpec spec in _config.Sequences)
         {
-            if (spec.Uniq)
+            // An http column's uniq is a check of its answers, not an arrangement — see HttpUniq.
+            if (spec.Uniq && spec.Gen is not { Type: "http" })
             {
                 BuildUniq(spec);
                 continue;
@@ -742,6 +746,15 @@ public sealed class StreamEngine
         foreach (IReadOnlyList<string> group in _config.EnvUniqGroups)
         {
             ApplyEnvUniq(group, byName);
+        }
+
+        // A service's answers marked uniq="true" are checked first, before a row is written.
+        foreach (string name in HttpUniq.Sequences(_config))
+        {
+            if (_columns.ContainsKey(name))
+            {
+                HttpUniq.Check(name, row => ValueAt(name, row), _count);
+            }
         }
 
         // The same check the in-memory engine makes, on the same finished run: an assertion that

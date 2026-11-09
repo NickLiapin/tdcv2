@@ -19,7 +19,7 @@ import type {
   OpenCloseElementContext,
   SelfClosingElementContext,
 } from '../generated/TDCParser.js';
-import { extractAttrs } from '../processor/walk.js';
+import { contentElements, elementKind, extractAttrs } from '../processor/walk.js';
 import { uniqUnsupportedReason } from '../sequence/uniq-simple.js';
 
 import { BUILTIN_TEMPLATE_PARAMS } from './unknown-attrs.js';
@@ -97,6 +97,22 @@ export function checkUniqDraw(
   diagnostics: Diagnostic[],
 ): void {
   if (declaredUniq(seqEl) === undefined) return;
+  // On an http column alone uniq is a CHECK of the answers (http-uniq.ts). Beside
+  // a literal it would be a draw again, and in a compound it rearranges the
+  // fields between rows — and a service's answer can be neither drawn nor moved.
+  if (gens.some((g) => extractAttrs(g.attr())['type'] === 'http')) {
+    if (gens.length === 1 && !hasLiteral(seqEl)) return;
+    checkUniqUnsupported(
+      seqEl,
+      name,
+      'it holds a service\'s answer (type="http"), which can be neither drawn again nor moved ' +
+        'to another row',
+      diagnostics,
+      'Write uniq="true" on an http sequence of its own — the run then checks every answer and ' +
+        'stops at the first repeat — and build the composed value from it.',
+    );
+    return;
+  }
   // The unnamed gens are the drawn value; named ones are fields beside it. None
   // drawn: a compound, whose fields are rearranged. Two or more: TDC220's.
   const drawn = gens.filter((g) => extractAttrs(g.attr())['name'] === undefined);
@@ -282,4 +298,9 @@ export function checkUniqWithDistinct(
       '<sequence>, wrap them in <uniq>…</uniq>, and put the <distinct> at env level.',
     code: 'TDC267',
   });
+}
+
+/** Whether a sequence writes a `<data>` literal beside its generators. */
+function hasLiteral(seqEl: OpenCloseElementContext): boolean {
+  return contentElements(seqEl.content()).some((el) => elementKind(el)?.kind === 'data');
 }

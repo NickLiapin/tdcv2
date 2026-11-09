@@ -197,9 +197,10 @@ public static class EngineRouter
         // uniq on a DRAWN value takes WITHOUT REPLACEMENT — simple or composed alike — the pool and the
         // taken-set span the whole column, which only the in-memory engine holds.
         static bool Counting(string type) => type is "increment" or "decrement";
+        // An http column's uniq checks the answers; it draws nothing, and it streams.
         SequenceSpec? simpleUniq = config.Sequences.FirstOrDefault(s => s.Uniq
             && (s.Gen is not null
-                ? !Counting(s.Gen.Type)
+                ? !Counting(s.Gen.Type) && s.Gen.Type != "http"
                 : (s.Items ?? Array.Empty<Item>()).Any(
                     i => i.Gen is not null && i.Field is null && !Counting(i.Gen.Type))));
         if (simpleUniq is not null)
@@ -414,7 +415,7 @@ public static class EngineRouter
 
         foreach (SequenceSpec spec in config.Sequences)
         {
-            if (spec.Uniq)
+            if (spec.Uniq && spec.Gen is not { Type: "http" })
             {
                 return $"uniq=\"true\" on \"{spec.Name}\"";
             }

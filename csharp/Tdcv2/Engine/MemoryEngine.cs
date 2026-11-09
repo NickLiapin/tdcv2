@@ -132,6 +132,15 @@ public static class MemoryEngine
         IReadOnlyDictionary<string, PoolTable> tables = BuildPoolTables(ctx);
         IReadOnlyDictionary<string, string[]> columns = BuildColumns(ctx, tables);
 
+        // A service's answers marked uniq="true" are checked first, for the same reason.
+        foreach (string name in HttpUniq.Sequences(config))
+        {
+            if (columns.TryGetValue(name, out string[]? column))
+            {
+                HttpUniq.Check(name, row => row < column.Length ? column[row] : null, config.Count);
+            }
+        }
+
         // The run is finished; now the config gets to check its own output — before a single
         // line is written, because a file that exists is a file someone will use.
         Assertions.Check(
@@ -1261,7 +1270,8 @@ public static class MemoryEngine
             // A single column cannot be both proportional and unique, so — unlike the
             // compound path, which only rearranges — uniq changes the draw: without
             // replacement, one PRNG draw per pick (UniqSimple).
-            if (spec.Uniq && spec.Gen!.Type is not ("increment" or "decrement"))
+            // An http column's uniq is a check of the answers (HttpUniq) — nothing to draw here.
+            if (spec.Uniq && spec.Gen!.Type is not ("increment" or "decrement" or "http"))
             {
                 IReadOnlyList<string> unique =
                     applicable == 0

@@ -219,7 +219,8 @@ export function buildLazyRegistry(
       continue;
     }
 
-    if (spec.uniq) {
+    // An http column's `uniq` is a check of its answers, not an arrangement — see http-uniq.ts.
+    if (spec.uniq && spec.gen?.type !== 'http') {
       // Same rule as the env-level groups above: only the exact engine can
       // rearrange a finished column.
       if (!exactUniq) throw unsupported('uniq (a whole-column rearrangement)', spec.name);

@@ -78,6 +78,7 @@ import { checkRowLinkOrder, checkRowLinkSource } from './row-link-order.js';
 import { checkSequentialRepeat } from './sequential-repeat.js';
 import { checkCompute } from './compute.js';
 import { checkGroupDerivedMember, checkGroupPoolMembers, checkGroupSize } from './group-size.js';
+import { checkGroupHttpMember } from './http.js';
 import { checkAssertTag } from './assert.js';
 import { checkSmallShares } from './small-share.js';
 import { checkGenBody, checkGroupBody, openChild } from './container-children.js';
@@ -608,6 +609,7 @@ function checkEnv(envEl: OpenCloseElementContext, ctx: Ctx): void {
       checkGroupBody({ node: k.node }, name, KNOWN_ENV_GROUP_CHILDREN, ctx);
       checkGroupSize(k.node, ctx.diagnostics, name);
       checkGroupDerivedMember(k.node, ctx.diagnostics, name);
+      checkGroupHttpMember(k.node, ctx.diagnostics, name);
       checkGroupPoolMembers(k.node, ctx.diagnostics, name, ctx.poolCounts);
       checkEnvSequenceGroup(k.node, ctx.diagnostics, name, memberCheckers(ctx));
       continue;

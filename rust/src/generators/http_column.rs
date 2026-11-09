@@ -58,6 +58,8 @@ pub struct HttpColumn {
     /// once per row, and a copy each time made a 10,000-row batch cost 10,000 copies.
     answered: VecDeque<(usize, Rc<Vec<String>>)>,
     keep: usize,
+    /// Where answers go when the column is read more than once; `None` otherwise.
+    kept: Option<AnswerFile>,
 }
 
 /// Reads the `in=` column at an absolute row.
@@ -76,6 +78,7 @@ impl HttpColumn {
             in_flight: BTreeMap::new(),
             answered: VecDeque::new(),
             keep,
+            kept: None,
         }
     }
 
@@ -126,6 +129,12 @@ impl HttpColumn {
         if let Some((_, values)) = self.answered.iter().find(|(at, _)| *at == k) {
             return Ok(Rc::clone(values));
         }
+        // Answered once already and kept on disk: read back, never asked again.
+        if let Some(back) = self.kept.as_mut().and_then(|kept| kept.read(k)) {
+            let values = Rc::new(back);
+            self.remember(k, Rc::clone(&values));
+            return Ok(values);
+        }
         // The batch being read always goes out — the limit governs what is sent
         // AHEAD, not what the reader is waiting for.
         self.send(k, true, input_at);
@@ -136,6 +145,9 @@ impl HttpColumn {
             return Ok(Rc::new(Vec::new()));
         };
         let values = Rc::new(self.answer(flight)?);
+        if let Some(kept) = self.kept.as_mut() {
+            kept.write(k, &values)?;
+        }
         self.remember(k, Rc::clone(&values));
         if let Some(next) = next.filter(|&n| n < self.batches) {
             self.send(next, false, input_at);
@@ -151,6 +163,7 @@ impl HttpColumn {
         if k >= self.batches
             || self.in_flight.contains_key(&k)
             || self.answered.iter().any(|(at, _)| *at == k)
+            || self.kept.as_ref().is_some_and(|kept| kept.has(k))
         {
             return;
         }
@@ -239,9 +252,19 @@ fn parse_count(raw: Option<&String>, fallback: usize) -> usize {
 #[derive(Default)]
 pub struct HttpSession {
     columns: RefCell<BTreeMap<(usize, String), Rc<RefCell<HttpColumn>>>>,
+    /// Keep every answer on disk, because some column of the run is read twice.
+    keep_answers: bool,
 }
 
 impl HttpSession {
+    /// A session that keeps every answer on disk when `keep_answers` is set.
+    pub fn keeping(keep_answers: bool) -> Self {
+        Self {
+            columns: RefCell::default(),
+            keep_answers,
+        }
+    }
+
     /// The column for this generator as `sequence` reads it.
     pub fn column(
         &self,
@@ -285,8 +308,89 @@ impl HttpSession {
             batch: parse_count(attrs.get("batch"), DEFAULT_BATCH),
             parallel: parse_count(attrs.get("parallel"), 1),
         };
-        let made = Rc::new(RefCell::new(HttpColumn::new(spec, total)));
+        let mut column = HttpColumn::new(spec, total);
+        if self.keep_answers {
+            column.kept = Some(AnswerFile::default());
+        }
+        let made = Rc::new(RefCell::new(column));
         self.columns.borrow_mut().insert(key, Rc::clone(&made));
         Ok(made)
+    }
+}
+
+/// A column's answers on disk, for a column read twice.
+///
+/// `uniq="true"` on an http column reads every answer to check them, then reads
+/// them again to write the rows. Memory holds a few batches; the service must be
+/// asked once — a second request costs its time and, from a service that does not
+/// answer alike twice, would write rows other than the ones checked. So each batch
+/// is appended here as it arrives and read back by position. Answers are lines of
+/// the reply, so none holds a newline, and one joins them. The file is removed when
+/// the column is dropped.
+#[derive(Default)]
+struct AnswerFile {
+    file: Option<(std::fs::File, std::path::PathBuf)>,
+    end: u64,
+    place: BTreeMap<usize, (u64, usize)>,
+}
+
+impl AnswerFile {
+    fn has(&self, k: usize) -> bool {
+        self.place.contains_key(&k)
+    }
+
+    fn write(&mut self, k: usize, values: &[String]) -> EngineResult<()> {
+        use std::io::{Seek, SeekFrom, Write};
+        if self.place.contains_key(&k) {
+            return Ok(());
+        }
+        if self.file.is_none() {
+            let path = std::env::temp_dir().join(format!(
+                "tdc-http-{}-{}",
+                std::process::id(),
+                std::ptr::from_ref(self) as usize
+            ));
+            let file = std::fs::OpenOptions::new()
+                .read(true)
+                .write(true)
+                .create(true)
+                .truncate(true)
+                .open(&path)
+                .map_err(|e| EngineError::Invalid(format!("cannot keep http answers: {e}")))?;
+            self.file = Some((file, path));
+        }
+        let Some((file, _)) = self.file.as_mut() else {
+            return Ok(());
+        };
+        let bytes = values.join("\n").into_bytes();
+        file.seek(SeekFrom::Start(self.end))
+            .and_then(|_| file.write_all(&bytes))
+            .map_err(|e| EngineError::Invalid(format!("cannot keep http answers: {e}")))?;
+        self.place.insert(k, (self.end, bytes.len()));
+        self.end += bytes.len() as u64;
+        Ok(())
+    }
+
+    fn read(&mut self, k: usize) -> Option<Vec<String>> {
+        use std::io::{Read, Seek, SeekFrom};
+        let (at, length) = *self.place.get(&k)?;
+        let (file, _) = self.file.as_mut()?;
+        let mut bytes = vec![0u8; length];
+        file.seek(SeekFrom::Start(at)).ok()?;
+        file.read_exact(&mut bytes).ok()?;
+        Some(
+            String::from_utf8_lossy(&bytes)
+                .split('\n')
+                .map(str::to_string)
+                .collect(),
+        )
+    }
+}
+
+impl Drop for AnswerFile {
+    fn drop(&mut self) {
+        if let Some((_, path)) = self.file.take() {
+            let _ = std::fs::remove_file(path);
+        }
     }
 }

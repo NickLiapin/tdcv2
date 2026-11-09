@@ -45,6 +45,7 @@ const SERVICES: Record<string, ServiceOptions> = {
   row: { transform: (_line, _i, row) => `r${String(row)}` },
   'row-no-echo': { echoOffset: false, transform: (_line, i) => `r${String(i)}` },
   'upper-no-echo': { echoOffset: false, transform: (line) => `H${line}` },
+  'row-repeat': { transform: (_line, _i, row) => (row === 3 ? 'r1' : `r${String(row)}`) },
   'fail-second': {
     mode: 'error-after',
     errorAfterRequests: 1,

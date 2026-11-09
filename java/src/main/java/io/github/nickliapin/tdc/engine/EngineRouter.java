@@ -162,9 +162,10 @@ public final class EngineRouter {
     // uniq on a simple sequence draws WITHOUT REPLACEMENT — the pool and the
     // taken-set span the whole column, which only the in-memory engine holds.
     for (Config.SequenceSpec s : config.sequences()) {
+      // An http column's uniq checks the answers; it draws nothing, and it streams.
       boolean drawn =
           s.gen() != null
-              ? !counting(s.gen().type())
+              ? !counting(s.gen().type()) && !"http".equals(s.gen().type())
               : s.items() != null
                   && s.items().stream()
                       .anyMatch(
@@ -364,7 +365,7 @@ public final class EngineRouter {
     }
 
     for (Config.SequenceSpec spec : config.sequences()) {
-      if (spec.uniq()) {
+      if (spec.uniq() && !(spec.gen() != null && "http".equals(spec.gen().type()))) {
         return "uniq=\"true\" on \"" + spec.name() + "\"";
       }
       boolean weighted = spec.gen() != null && isWeightedAdvancedRegex(spec.gen());

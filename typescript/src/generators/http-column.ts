@@ -17,6 +17,10 @@
  * requested the moment the current one arrives, while its rows are written.
  */
 
+import { closeSync, mkdtempSync, openSync, readSync, rmSync, writeSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+
 import { resolveHttpSecret } from './http-secret.js';
 import type { SyncHttpTransport } from './http-transport.js';
 import {
@@ -43,6 +47,61 @@ export interface HttpColumnSpec {
   readonly batch: number;
   /** Batches allowed on the wire at once. */
   readonly parallel: number;
+}
+
+/**
+ * A column's answers on disk, for a column read twice.
+ *
+ * `uniq="true"` on an http column reads every answer to check them, then reads
+ * them again to write the rows. Memory holds a few batches; the service must be
+ * asked once — a second request costs its time and, from a service that does
+ * not answer alike twice, would write rows other than the ones checked. So each
+ * batch is appended here as it arrives and read back by position.
+ *
+ * Answers are lines of the reply, so none holds a newline, and one joins them.
+ */
+export class AnswerFile {
+  private fd: number | undefined;
+  private end = 0;
+  private readonly where = new Map<number, { readonly at: number; readonly length: number }>();
+
+  public has(k: number): boolean {
+    return this.where.has(k);
+  }
+
+  public write(k: number, values: readonly string[]): void {
+    if (this.where.has(k)) return;
+    const bytes = Buffer.from(values.join('\n'), 'utf8');
+    writeSync(this.open(), bytes, 0, bytes.length, this.end);
+    this.where.set(k, { at: this.end, length: bytes.length });
+    this.end += bytes.length;
+  }
+
+  public read(k: number): string[] | undefined {
+    const place = this.where.get(k);
+    if (place === undefined || this.fd === undefined) return undefined;
+    const bytes = Buffer.alloc(place.length);
+    readSync(this.fd, bytes, 0, place.length, place.at);
+    return bytes.toString('utf8').split('\n');
+  }
+
+  private open(): number {
+    if (this.fd !== undefined) return this.fd;
+    const dir = mkdtempSync(join(tmpdir(), 'tdc-http-'));
+    const fd = openSync(join(dir, 'answers'), 'w+');
+    this.fd = fd;
+    // Gone from the directory at once where the system allows an open file to
+    // be removed; where it does not, at exit.
+    try {
+      rmSync(dir, { recursive: true, force: true });
+    } catch {
+      process.once('exit', () => {
+        closeSync(fd);
+        rmSync(dir, { recursive: true, force: true });
+      });
+    }
+    return fd;
+  }
 }
 
 /** Rows `[start, end)` of the run. */
@@ -75,6 +134,8 @@ export class HttpColumn {
     private readonly transport: SyncHttpTransport,
     /** The rows this process writes, under `--jobs`; the whole run otherwise. */
     private readonly range?: RowSpan | undefined,
+    /** Where answers go when the column will be read more than once; absent otherwise. */
+    private readonly kept?: AnswerFile | undefined,
   ) {
     this.batches = Math.ceil(total / spec.batch);
     // The batch being read, the one before it (a reader may look one row back
@@ -123,6 +184,12 @@ export class HttpColumn {
   ): readonly string[] {
     const done = this.answered.get(k);
     if (done !== undefined) return done;
+    // Answered once already and kept on disk: read back, never asked again.
+    const back = this.kept?.read(k);
+    if (back !== undefined) {
+      this.remember(k, back);
+      return back;
+    }
     // The batch being read always goes out — the limit governs what is sent
     // AHEAD, not what the reader is waiting for.
     this.send(k, true);
@@ -131,6 +198,7 @@ export class HttpColumn {
     if (flight === undefined) return [];
     this.inFlight.delete(k);
     const values = this.answer(flight);
+    this.kept?.write(k, values);
     this.remember(k, values);
     if (next !== undefined && next < this.batches) this.send(next);
     return values;
@@ -146,7 +214,7 @@ export class HttpColumn {
   /** Put batch `k` on the wire, unless it is already there or answered. */
   private send(k: number, needed = false): void {
     if (k < 0 || k >= this.batches) return;
-    if (this.inFlight.has(k) || this.answered.has(k)) return;
+    if (this.inFlight.has(k) || this.answered.has(k) || this.kept?.has(k) === true) return;
     // Read-ahead stops at this worker's last row: the batch past it belongs to
     // the next worker, and asking for it here would send it twice.
     if (!needed && !this.inRange(k)) return;
@@ -265,6 +333,8 @@ export class HttpSession {
     private readonly transport: () => SyncHttpTransport,
     /** The rows this process writes, when a `--jobs` worker writes only some. */
     private readonly range?: RowSpan | undefined,
+    /** Keep every answer on disk, because some column of the run is read twice. */
+    private readonly keepAnswers = false,
   ) {}
 
   /** The column for this generator, as `sequence` reads it. */
@@ -287,6 +357,7 @@ export class HttpSession {
       inputAt,
       this.transport(),
       this.range,
+      this.keepAnswers ? new AnswerFile() : undefined,
     );
     bySequence.set(sequence, made);
     return made;

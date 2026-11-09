@@ -1737,11 +1737,13 @@ public final class Validator {
           if ("mix".equals(wrapped.name.getText())
               || "switch".equals(wrapped.name.getText())) {
             members++;
+            checkGroupHttpMember(wrapped, tag);
             out.add(wrapped);
           } else if ("sequence".equals(wrapped.name.getText())) {
             members++;
             checkEnvGroupMember(wrapped, tag);
             checkGroupDerivedMember(wrapped, tag);
+            checkGroupHttpMember(wrapped, tag);
             out.add(wrapped);
           }
         }
@@ -2575,6 +2577,63 @@ public final class Validator {
    * <p>A {@code <compute>} is the same case from the other side — {@code f(x)} is {@code f(x)}, so
    * it has no pool to draw from and no column of its own to rearrange.
    */
+  /**
+   * A {@code <uniq>} or {@code <distinct>} member that calls a web service — TDC314.
+   *
+   * <p>{@code <uniq>} MOVES values between rows, and a service's answer belongs to the row it was
+   * asked for: measured on the reference, 197 of 200 hashes beside their password column landed on
+   * another row. {@code <distinct>} asks for another value, and a service answers each row once, so
+   * every retry was the same request again. Anywhere inside the member counts.
+   */
+  private void checkGroupHttpMember(TDCParser.OpenCloseElementContext member, String tag) {
+    org.antlr.v4.runtime.ParserRuleContext gen = firstHttpGen(member);
+    if (gen == null) {
+      return;
+    }
+    String declaredName = attributes(member.attr()).get("name");
+    String name = declaredName == null ? "?" : declaredName;
+    String why =
+        "uniq".equals(tag)
+            ? "the group moves values between rows, and an answer belongs to the row it was asked"
+                + " for"
+            : "the group asks for another value, and a service answers each row once";
+    error(
+        "TDC314",
+        "<" + member.name.getText() + " name=\"" + name + "\"> calls a web service"
+            + " (type=\"http\"), which cannot be a member of <" + tag + ">: " + why,
+        "Put the <" + tag + "> around the columns the service reads (in=) and leave the http"
+            + " column outside it \u2014 it follows its inputs. To require the answers themselves to"
+            + " differ, write uniq=\"true\" on the http sequence: the run checks them and stops at"
+            + " the first repeat.",
+        gen.getStart().getLine(),
+        gen.getStart().getCharPositionInLine());
+  }
+
+  /** The first {@code <gen type="http">} anywhere under {@code node}, or null. */
+  private static org.antlr.v4.runtime.ParserRuleContext firstHttpGen(TDCParser.OpenCloseElementContext node) {
+    for (TDCParser.ElementContext child : node.content().element()) {
+      TDCParser.SelfClosingElementContext self = child.selfClosingElement();
+      if (self != null
+          && "gen".equals(self.name.getText())
+          && "http".equals(attributes(self.attr()).get("type"))) {
+        return self;
+      }
+      TDCParser.OpenCloseElementContext open = child.openCloseElement();
+      if (open == null) {
+        continue;
+      }
+      if ("gen".equals(open.name.getText())
+          && "http".equals(attributes(open.attr()).get("type"))) {
+        return open;
+      }
+      org.antlr.v4.runtime.ParserRuleContext inner = firstHttpGen(open);
+      if (inner != null) {
+        return inner;
+      }
+    }
+    return null;
+  }
+
   private void checkGroupDerivedMember(TDCParser.OpenCloseElementContext sequence, String tag) {
     String declaredName = attributes(sequence.attr()).get("name");
     String name = declaredName == null ? "?" : declaredName;
@@ -4567,6 +4626,24 @@ public final class Validator {
       TDCParser.OpenCloseElementContext open, String name, List<Map<String, String>> gens) {
     String uniq = attributes(open.attr()).get("uniq");
     if (uniq == null || !"true".equals(uniq.trim().toLowerCase(java.util.Locale.ROOT))) {
+      return;
+    }
+    // On an http column alone uniq is a CHECK of the answers (engine.HttpUniq). Beside a literal it
+    // would be a draw again, and in a compound it rearranges the fields between rows \u2014 and a
+    // service's answer can be neither drawn nor moved.
+    if (gens.stream().anyMatch(g -> "http".equals(g.get("type")))) {
+      boolean literal =
+          open.content().element().stream().anyMatch(e -> e.dataElement() != null);
+      if (gens.size() != 1 || literal) {
+        uniqUnsupported(
+            open,
+            name,
+            "it holds a service's answer (type=\"http\"), which can be neither drawn again nor"
+                + " moved to another row",
+            "Write uniq=\"true\" on an http sequence of its own \u2014 the run then checks every"
+                + " answer and stops at the first repeat \u2014 and build the composed value from"
+                + " it.");
+      }
       return;
     }
     List<Map<String, String>> drawn = gens.stream().filter(g -> !g.containsKey("name")).toList();

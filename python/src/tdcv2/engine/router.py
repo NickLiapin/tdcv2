@@ -139,7 +139,8 @@ def _disk_route(config: Config) -> EngineChoice:
     # taken-set span the whole column, which only the in-memory engine holds.
     for s in config.sequences:
         if s.uniq and (
-            s.gen.type not in ("increment", "decrement")
+            # An http column's uniq checks the answers; it draws nothing, and it streams.
+            s.gen.type not in ("increment", "decrement", "http")
             if s.gen is not None
             else any(
                 i.gen is not None
@@ -289,7 +290,7 @@ def _exact_reason(config: Config) -> str | None:
     by_name = {spec.name: spec for spec in config.sequences}
 
     for spec in config.sequences:
-        if spec.uniq:
+        if spec.uniq and not (spec.gen is not None and spec.gen.type == "http"):
             return f'uniq="true" on "{spec.name}"'
         weighted = f'"{spec.name}" has a weighted choice in advanced_regex'
         if spec.gen is not None and _is_weighted_advanced_regex(spec.gen):

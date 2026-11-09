@@ -2389,10 +2389,12 @@ class _Validator:
                     # every reference to it reads as undeclared.
                     if inner_tag in ("mix", "switch"):
                         members += 1
+                        self._check_group_http_member(wrapped, tag)
                         out.append(wrapped)
                     elif inner_tag == "sequence":
                         members += 1
                         self._check_group_derived_member(wrapped, tag)
+                        self._check_group_http_member(wrapped, tag)
                         self._check_env_group_member(wrapped, tag)
                         out.append(wrapped)
                 self._check_group_size(open_el, tag, members)
@@ -2503,6 +2505,35 @@ class _Validator:
             )
             self._check_if_expression(written, where[0], where[1])
             self._defer_expression(written, where[0], where[1], False)
+
+    def _check_group_http_member(self, member, tag: str) -> None:
+        """A ``<uniq>`` or ``<distinct>`` member that calls a web service — TDC314.
+
+        ``<uniq>`` MOVES values between rows, and a service's answer belongs to the row it was
+        asked for: measured on the reference, 197 of 200 hashes beside their password column
+        landed on another row. ``<distinct>`` asks for another value, and a service answers each
+        row once, so every retry was the same request again. Anywhere inside the member counts.
+        """
+        gen = _first_http_gen(member)
+        if gen is None:
+            return
+        name = _attrs(member.attr()).get("name") or "?"
+        why = (
+            "the group moves values between rows, and an answer belongs to the row it was asked for"
+            if tag == "uniq"
+            else "the group asks for another value, and a service answers each row once"
+        )
+        self._error(
+            "TDC314",
+            f'<{member.name.text} name="{name}"> calls a web service (type="http"), which cannot '
+            f"be a member of <{tag}>: {why}",
+            f"Put the <{tag}> around the columns the service reads (in=) and leave the http "
+            "column outside it — it follows its inputs. To require the answers themselves to "
+            'differ, write uniq="true" on the http sequence: the run checks them and stops at the '
+            "first repeat.",
+            _line(gen),
+            _column(gen),
+        )
 
     def _check_group_derived_member(self, sequence, tag: str) -> None:
         """A DERIVED column inside a `<uniq>` or `<distinct>` group.
@@ -3171,6 +3202,21 @@ class _Validator:
         path -- exactly one drawn (unnamed) part; a compound's fields are rearranged instead.
         """
         if (_attrs(open_el.attr()).get("uniq") or "").strip().lower() != "true":
+            return
+        # On an http column alone uniq is a CHECK of the answers (engine/http_uniq.py). Beside a
+        # literal it would be a draw again, and in a compound it rearranges the fields between
+        # rows — and a service's answer can be neither drawn nor moved.
+        if any(g.get("type") == "http" for g in gens):
+            literal = any(child.dataElement() is not None for child in _elements(open_el))
+            if len(gens) != 1 or literal:
+                self._uniq_unsupported(
+                    open_el,
+                    label,
+                    "it holds a service's answer (type=\"http\"), which can be neither drawn "
+                    "again nor moved to another row",
+                    'Write uniq="true" on an http sequence of its own — the run then checks every '
+                    "answer and stops at the first repeat — and build the composed value from it.",
+                )
             return
         drawn = [g for g in gens if "name" not in g]
         if len(drawn) != 1:
@@ -7668,3 +7714,18 @@ def _positive_seconds(raw: str) -> bool:
         return float(raw.strip()) > 0
     except ValueError:
         return False
+
+
+def _first_http_gen(node):
+    """The first ``<gen type="http">`` anywhere under ``node``, or None."""
+    for child in _elements(node):
+        for el in (child.selfClosingElement(), child.openCloseElement()):
+            if el is None:
+                continue
+            if el.name.text == "gen" and _attrs(el.attr()).get("type") == "http":
+                return el
+            if el is child.openCloseElement():
+                found = _first_http_gen(el)
+                if found is not None:
+                    return found
+    return None

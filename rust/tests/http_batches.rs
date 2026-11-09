@@ -49,6 +49,13 @@ fn answer(
             service == "upper",
         ),
         "row-no-echo" => (200, (0..count).map(|i| format!("r{i}")).collect(), false),
+        "row-repeat" => (
+            200,
+            (0..count)
+                .map(|i| format!("r{}", if offset + i == 3 { 1 } else { offset + i }))
+                .collect(),
+            true,
+        ),
         _ => (
             200,
             (0..count).map(|i| format!("r{}", offset + i)).collect(),
@@ -180,6 +187,7 @@ fn every_shared_http_case() {
             "fail-second",
             "row",
             "row-no-echo",
+            "row-repeat",
             "upper",
             "upper-no-echo"
         ],

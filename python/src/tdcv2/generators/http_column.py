@@ -18,6 +18,7 @@ Mirrors ``typescript/src/generators/http-column.ts``.
 from __future__ import annotations
 
 import math
+import tempfile
 from collections import OrderedDict
 from collections.abc import Callable, Sequence
 from concurrent.futures import Future, ThreadPoolExecutor
@@ -58,8 +59,11 @@ class HttpColumn:
         total: int,
         input_at: Callable[[int], str],
         span: Callable[[], tuple[int, int] | None] = lambda: None,
+        kept: AnswerFile | None = None,
     ) -> None:
         self._spec = spec
+        # Where answers go when the column is read more than once; None otherwise.
+        self._kept = kept
         # The rows this process writes, under parallel shards; None for the whole run.
         self._span = span
         self._total = total
@@ -104,6 +108,11 @@ class HttpColumn:
         done = self._answered.get(k)
         if done is not None:
             return done
+        # Answered once already and kept on disk: read back, never asked again.
+        back = self._kept.read(k) if self._kept is not None else None
+        if back is not None:
+            self._remember(k, back)
+            return back
         # The batch being read always goes out — the limit governs what is sent AHEAD, not what
         # the reader is waiting for.
         self._send(k, needed=True)
@@ -113,6 +122,8 @@ class HttpColumn:
         if flight is None:
             return []
         values = self._answer(flight)
+        if self._kept is not None:
+            self._kept.write(k, values)
         self._remember(k, values)
         if nxt is not None and nxt < self._batches:
             self._send(nxt)
@@ -123,6 +134,8 @@ class HttpColumn:
 
     def _send(self, k: int, needed: bool = False) -> None:
         if k < 0 or k >= self._batches or k in self._in_flight or k in self._answered:
+            return
+        if self._kept is not None and self._kept.has(k):
             return
         # Read-ahead stops at this shard's last row: the batch past it belongs to the next shard,
         # and asking for it here would send it twice.
@@ -182,6 +195,45 @@ class HttpColumn:
         self._answered[k] = values
         while len(self._answered) > self._keep:
             self._answered.popitem(last=False)
+
+
+class AnswerFile:
+    """A column's answers on disk, for a column read twice.
+
+    ``uniq="true"`` on an http column reads every answer to check them, then reads them again to
+    write the rows. Memory holds a few batches; the service must be asked once — a second request
+    costs its time and, from a service that does not answer alike twice, would write rows other
+    than the ones checked. So each batch is appended here as it arrives and read back by position.
+    Answers are lines of the reply, so none holds a newline, and one joins them. The file is gone
+    when it is closed or the process ends.
+    """
+
+    def __init__(self) -> None:
+        self._file = None
+        self._end = 0
+        self._where: dict[int, tuple[int, int]] = {}
+
+    def has(self, k: int) -> bool:
+        return k in self._where
+
+    def write(self, k: int, values: list[str]) -> None:
+        if k in self._where:
+            return
+        if self._file is None:
+            # Held open for the run and closed with it, so no `with` block can own it.
+            self._file = tempfile.TemporaryFile(prefix="tdc-http-")  # noqa: SIM115
+        data = "\n".join(values).encode("utf-8")
+        self._file.seek(self._end)
+        self._file.write(data)
+        self._where[k] = (self._end, len(data))
+        self._end += len(data)
+
+    def read(self, k: int) -> list[str] | None:
+        place = self._where.get(k)
+        if place is None or self._file is None:
+            return None
+        self._file.seek(place[0])
+        return self._file.read(place[1]).decode("utf-8").split("\n")
 
 
 class ColumnError(RuntimeError):
@@ -255,9 +307,11 @@ class HttpSession:
     again.
     """
 
-    def __init__(self, env_seed: str, base_dir: str) -> None:
+    def __init__(self, env_seed: str, base_dir: str, keep_answers: bool = False) -> None:
         self._env_seed = env_seed
         self._base_dir = base_dir
+        # Keep every answer on disk, because some column of the run is read twice.
+        self._keep_answers = keep_answers
         self._span: tuple[int, int] | None = None
         self._columns: dict[tuple[int, str], HttpColumn] = {}
         # Keeps each generator alive while its id() is a key here.
@@ -275,7 +329,13 @@ class HttpSession:
         known = self._columns.get(key)
         if known is not None:
             return known
-        made = HttpColumn(self._spec(attrs, sequence), total, input_at, lambda: self._span)
+        made = HttpColumn(
+            self._spec(attrs, sequence),
+            total,
+            input_at,
+            lambda: self._span,
+            AnswerFile() if self._keep_answers else None,
+        )
         self._columns[key] = made
         self._gens.append(gen)
         return made

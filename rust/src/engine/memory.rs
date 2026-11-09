@@ -136,7 +136,11 @@ impl<'a> Env<'a> {
             row_links: RefCell::new(BTreeMap::new()),
             siblings: RefCell::new(BTreeMap::new()),
             offset_instants: RefCell::new(BTreeMap::new()),
-            http: crate::generators::http_column::HttpSession::default(),
+            // A column checked for repeats is read twice — once to check, once to write —
+            // and the service must be asked once, so then its answers are kept on disk.
+            http: crate::generators::http_column::HttpSession::keeping(
+                !super::http_uniq::sequences(config).is_empty(),
+            ),
         }
     }
 
@@ -274,6 +278,16 @@ pub fn run_in_watched(
     let env = Env::new(config, packs, now_millis, base_dir);
     let tables = build_pool_tables(&env)?;
     let columns = build_columns_with(&env, Some(&tables))?;
+    // A service's answers marked uniq="true" are checked first, for the same reason.
+    for name in super::http_uniq::sequences(config) {
+        if let Some(column) = columns.get(&name) {
+            super::http_uniq::check(
+                &name,
+                &|row| Ok(column.get(row).cloned().flatten().unwrap_or_default()),
+                config.count.max(0) as usize,
+            )?;
+        }
+    }
     // The run is finished; now the config gets to check its own output — before
     // a single line is written, because a file that exists is a file someone
     // will use.
@@ -1159,8 +1173,13 @@ fn build_columns_with(
             // A single column cannot be both proportional and unique, so —
             // unlike the compound path, which only rearranges — uniq changes
             // the draw: without replacement, one PRNG draw per pick.
+            // An http column's uniq is a check of the answers (engine::http_uniq) — there
+            // is nothing here to draw without replacement.
             Source::Gen(gen)
-                if spec.uniq && gen.gen_type != "increment" && gen.gen_type != "decrement" =>
+                if spec.uniq
+                    && gen.gen_type != "increment"
+                    && gen.gen_type != "decrement"
+                    && gen.gen_type != "http" =>
             {
                 let values = if applicable == 0 {
                     Vec::new()

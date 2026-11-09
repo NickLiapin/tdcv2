@@ -101,6 +101,10 @@ public class HttpBatchesTest
                 lines.AddRange(inputs.Select(line => "H" + line));
                 echo = _name == "upper";
             }
+            else if (_name == "row-repeat")
+            {
+                lines.AddRange(Enumerable.Range(0, count).Select(i => "r" + (offset + i == 3 ? 1 : offset + i)));
+            }
             else if (_name == "row-no-echo")
             {
                 lines.AddRange(Enumerable.Range(0, count).Select(i => "r" + i));
@@ -131,7 +135,7 @@ public class HttpBatchesTest
     public void EveryServiceTheFixtureNamesIsRunHere()
     {
         Assert.Equal(
-            new[] { "fail-second", "row", "row-no-echo", "upper", "upper-no-echo" },
+            new[] { "fail-second", "row", "row-no-echo", "row-repeat", "upper", "upper-no-echo" },
             Fixture().GetProperty("services").EnumerateObject().Select(p => p.Name)
                 .OrderBy(n => n, StringComparer.Ordinal).ToArray());
     }

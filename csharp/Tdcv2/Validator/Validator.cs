@@ -2764,6 +2764,7 @@ public sealed class Validator
                     if (wrapped.name.Text == "mix" || wrapped.name.Text == "switch")
                     {
                         members++;
+                        CheckGroupHttpMember(wrapped, tag);
                         result.Add(wrapped);
                     }
                     else if (wrapped.name.Text == "sequence")
@@ -2771,6 +2772,7 @@ public sealed class Validator
                         members++;
                         CheckEnvGroupMember(wrapped, tag);
                         CheckGroupDerivedMember(wrapped, tag);
+                        CheckGroupHttpMember(wrapped, tag);
                         result.Add(wrapped);
                     }
                 }
@@ -2998,6 +3000,70 @@ public sealed class Validator
     /// <para>A <c>&lt;compute&gt;</c> is the same case from the other side — <c>f(x)</c> is
     /// <c>f(x)</c>, so it has no pool to draw from and no column of its own to rearrange.</para>
     /// </remarks>
+    /// <summary>A <c>&lt;uniq&gt;</c> or <c>&lt;distinct&gt;</c> member that calls a web service — TDC314.</summary>
+    /// <remarks>
+    /// <c>&lt;uniq&gt;</c> MOVES values between rows, and a service's answer belongs to the row it
+    /// was asked for: measured on the reference, 197 of 200 hashes beside their password column
+    /// landed on another row. <c>&lt;distinct&gt;</c> asks for another value, and a service answers
+    /// each row once, so every retry was the same request again. Anywhere inside the member counts.
+    /// </remarks>
+    private void CheckGroupHttpMember(TDCParser.OpenCloseElementContext member, string tag)
+    {
+        Antlr4.Runtime.ParserRuleContext? gen = FirstHttpGen(member);
+        if (gen is null)
+        {
+            return;
+        }
+
+        string name = Attributes(member.attr()).GetValueOrDefault("name") ?? "?";
+        string why = tag == "uniq"
+            ? "the group moves values between rows, and an answer belongs to the row it was asked for"
+            : "the group asks for another value, and a service answers each row once";
+        Error(
+            "TDC314",
+            $"<{member.name.Text} name=\"{name}\"> calls a web service (type=\"http\"), which "
+            + $"cannot be a member of <{tag}>: {why}",
+            $"Put the <{tag}> around the columns the service reads (in=) and leave the http column "
+            + "outside it \u2014 it follows its inputs. To require the answers themselves to differ, "
+            + "write uniq=\"true\" on the http sequence: the run checks them and stops at the first "
+            + "repeat.",
+            gen.Start.Line,
+            gen.Start.Column);
+    }
+
+    /// <summary>The first <c>&lt;gen type="http"&gt;</c> anywhere under <paramref name="node"/>.</summary>
+    private static Antlr4.Runtime.ParserRuleContext? FirstHttpGen(TDCParser.OpenCloseElementContext node)
+    {
+        foreach (TDCParser.ElementContext child in node.content().element())
+        {
+            TDCParser.SelfClosingElementContext? self = child.selfClosingElement();
+            if (self is not null && self.name.Text == "gen"
+                && Attributes(self.attr()).GetValueOrDefault("type") == "http")
+            {
+                return self;
+            }
+
+            TDCParser.OpenCloseElementContext? open = child.openCloseElement();
+            if (open is null)
+            {
+                continue;
+            }
+
+            if (open.name.Text == "gen" && Attributes(open.attr()).GetValueOrDefault("type") == "http")
+            {
+                return open;
+            }
+
+            Antlr4.Runtime.ParserRuleContext? inner = FirstHttpGen(open);
+            if (inner is not null)
+            {
+                return inner;
+            }
+        }
+
+        return null;
+    }
+
     private void CheckGroupDerivedMember(TDCParser.OpenCloseElementContext sequence, string tag)
     {
         string name = Attributes(sequence.attr()).GetValueOrDefault("name") ?? "?";
@@ -9188,6 +9254,26 @@ public sealed class Validator
         string? uniq = Attributes(open.attr()).GetValueOrDefault("uniq");
         if (uniq is null || !string.Equals(uniq.Trim(), "true", StringComparison.OrdinalIgnoreCase))
         {
+            return;
+        }
+
+        // On an http column alone uniq is a CHECK of the answers (Engine/HttpUniq). Beside a
+        // literal it would be a draw again, and in a compound it rearranges the fields between rows
+        // — and a service's answer can be neither drawn nor moved.
+        if (gens.Any(g => g.GetValueOrDefault("type") == "http"))
+        {
+            bool literal = open.content().element().Any(e => e.dataElement() is not null);
+            if (gens.Count != 1 || literal)
+            {
+                UniqUnsupported(
+                    open,
+                    name,
+                    "it holds a service's answer (type=\"http\"), which can be neither drawn again nor "
+                    + "moved to another row",
+                    "Write uniq=\"true\" on an http sequence of its own \u2014 the run then checks every "
+                    + "answer and stops at the first repeat \u2014 and build the composed value from it.");
+            }
+
             return;
         }
 

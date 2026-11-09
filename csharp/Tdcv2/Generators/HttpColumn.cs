@@ -55,8 +55,17 @@ public sealed class HttpColumn
     private readonly int _keep;
     private readonly Func<(int Start, int End)?> _span;
 
+    /// <summary>Where answers go when the column is read more than once; null otherwise.</summary>
+    private readonly AnswerFile? _kept;
+
     public HttpColumn(Spec spec, int total, Func<(int Start, int End)?>? span = null)
+        : this(spec, total, span, null)
     {
+    }
+
+    private HttpColumn(Spec spec, int total, Func<(int Start, int End)?>? span, AnswerFile? kept)
+    {
+        _kept = kept;
         _spec = spec;
         _total = total;
         // The rows this run writes, when a worker writes only some of them; null for the whole run.
@@ -124,6 +133,14 @@ public sealed class HttpColumn
             }
         }
 
+        // Answered once already and kept on disk: read back, never asked again.
+        IReadOnlyList<string>? back = _kept?.Read(k);
+        if (back is not null)
+        {
+            Remember(k, back);
+            return back;
+        }
+
         // The batch being read always goes out — the limit governs what is sent AHEAD, not what
         // the reader is waiting for.
         Send(k, true, inputAt);
@@ -138,6 +155,7 @@ public sealed class HttpColumn
         }
 
         IReadOnlyList<string> answer = Answer(flight);
+        _kept?.Write(k, answer);
         Remember(k, answer);
         if (next is int n && n < _batches)
         {
@@ -150,6 +168,11 @@ public sealed class HttpColumn
     private void Send(int k, bool needed, Func<int, string> inputAt)
     {
         if (k < 0 || k >= _batches || _inFlight.ContainsKey(k) || _answered.Any(a => a.K == k))
+        {
+            return;
+        }
+
+        if (_kept is not null && _kept.Has(k))
         {
             return;
         }
@@ -224,6 +247,69 @@ public sealed class HttpColumn
 
         long first = (long)k * _spec.Batch;
         return first < end && first + _spec.Batch > start;
+    }
+
+    /// <summary>A column's answers on disk, for a column read twice.</summary>
+    /// <remarks>
+    /// <c>uniq="true"</c> on an http column reads every answer to check them, then reads them again
+    /// to write the rows. Memory holds a few batches; the service must be asked once — a second
+    /// request costs its time and, from a service that does not answer alike twice, would write
+    /// rows other than the ones checked. So each batch is appended here as it arrives and read back
+    /// by position. Answers are lines of the reply, so none holds a newline, and one joins them.
+    /// The file is deleted when it is closed — at the latest, when the process ends.
+    /// </remarks>
+    private sealed class AnswerFile
+    {
+        private FileStream? _file;
+        private long _end;
+        private readonly Dictionary<int, (long At, int Length)> _where = new();
+
+        public bool Has(int k) => _where.ContainsKey(k);
+
+        public void Write(int k, IReadOnlyList<string> values)
+        {
+            if (_where.ContainsKey(k))
+            {
+                return;
+            }
+
+            _file ??= new FileStream(
+                Path.Combine(Path.GetTempPath(), "tdc-http-" + Guid.NewGuid().ToString("N")),
+                FileMode.CreateNew,
+                FileAccess.ReadWrite,
+                FileShare.None,
+                4096,
+                FileOptions.DeleteOnClose);
+            byte[] bytes = System.Text.Encoding.UTF8.GetBytes(string.Join("\n", values));
+            _file.Position = _end;
+            _file.Write(bytes, 0, bytes.Length);
+            _where[k] = (_end, bytes.Length);
+            _end += bytes.Length;
+        }
+
+        public IReadOnlyList<string>? Read(int k)
+        {
+            if (_file is null || !_where.TryGetValue(k, out (long At, int Length) place))
+            {
+                return null;
+            }
+
+            var bytes = new byte[place.Length];
+            _file.Position = place.At;
+            int read = 0;
+            while (read < bytes.Length)
+            {
+                int got = _file.Read(bytes, read, bytes.Length - read);
+                if (got <= 0)
+                {
+                    break;
+                }
+
+                read += got;
+            }
+
+            return System.Text.Encoding.UTF8.GetString(bytes).Split('\n');
+        }
     }
 
     /// <summary>Rows per request for one <c>&lt;gen type="http"&gt;</c>'s attributes.</summary>
@@ -359,10 +445,14 @@ public sealed class HttpColumn
 
         private (int Start, int End)? _span;
 
-        public Session(string envSeed, string baseDir)
+        /// <summary>Keep every answer on disk, because some column of the run is read twice.</summary>
+        private readonly bool _keepAnswers;
+
+        public Session(string envSeed, string baseDir, bool keepAnswers = false)
         {
             _envSeed = envSeed;
             _baseDir = baseDir;
+            _keepAnswers = keepAnswers;
         }
 
         /// <summary>Read ahead no further than rows <c>[start, end)</c> — the rows this worker writes.</summary>
@@ -407,7 +497,7 @@ public sealed class HttpColumn
                 HttpGen.TimeoutMs(attrs.GetValueOrDefault("timeout")),
                 BatchOf(attrs),
                 ParseCount(attrs.GetValueOrDefault("parallel"), 1));
-            var made = new HttpColumn(spec, total, () => _span);
+            var made = new HttpColumn(spec, total, () => _span, _keepAnswers ? new AnswerFile() : null);
             bySequence[sequence] = made;
             return made;
         }

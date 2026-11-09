@@ -75,6 +75,8 @@ public final class HttpColumn {
   private final LinkedHashMap<Integer, List<String>> answered = new LinkedHashMap<>();
   private final int keep;
   private final java.util.function.Supplier<int[]> span;
+  /** Where answers go when the column is read more than once; null otherwise. */
+  private final AnswerFile kept;
 
   public HttpColumn(Spec spec, int total) {
     this(spec, total, () -> null);
@@ -85,9 +87,15 @@ public final class HttpColumn {
    *     of them; null for the whole run
    */
   public HttpColumn(Spec spec, int total, java.util.function.Supplier<int[]> span) {
+    this(spec, total, span, null);
+  }
+
+  private HttpColumn(
+      Spec spec, int total, java.util.function.Supplier<int[]> span, AnswerFile kept) {
     this.spec = spec;
     this.total = total;
     this.span = span;
+    this.kept = kept;
     this.batches = spec.batch() <= 0 ? 0 : (total + spec.batch() - 1) / spec.batch();
     // The batch being read, the one before it (a reader may look one row back across the seam)
     // and everything already on the wire.
@@ -142,6 +150,12 @@ public final class HttpColumn {
     if (done != null) {
       return done;
     }
+    // Answered once already and kept on disk: read back, never asked again.
+    List<String> back = kept == null ? null : kept.read(k);
+    if (back != null) {
+      remember(k, back);
+      return back;
+    }
     // The batch being read always goes out — the limit governs what is sent AHEAD, not what the
     // reader is waiting for.
     send(k, true, inputAt);
@@ -153,6 +167,9 @@ public final class HttpColumn {
       return List.of();
     }
     List<String> values = answer(flight);
+    if (kept != null) {
+      kept.write(k, values);
+    }
     remember(k, values);
     if (next != null && next < batches) {
       send(next, false, inputAt);
@@ -162,6 +179,9 @@ public final class HttpColumn {
 
   private void send(int k, boolean needed, IntFunction<String> inputAt) {
     if (k < 0 || k >= batches || inFlight.containsKey(k) || answered.containsKey(k)) {
+      return;
+    }
+    if (kept != null && kept.has(k)) {
       return;
     }
     // Read-ahead stops at this worker's last row: the batch past it belongs to the next worker,
@@ -242,6 +262,76 @@ public final class HttpColumn {
     while (answered.size() > keep) {
       Integer oldest = answered.keySet().iterator().next();
       answered.remove(oldest);
+    }
+  }
+
+  /**
+   * A column's answers on disk, for a column read twice.
+   *
+   * <p>{@code uniq="true"} on an http column reads every answer to check them, then reads them
+   * again to write the rows. Memory holds a few batches; the service must be asked once — a second
+   * request costs its time and, from a service that does not answer alike twice, would write rows
+   * other than the ones checked. So each batch is appended here as it arrives and read back by
+   * position. Answers are lines of the reply, so none holds a newline, and one joins them. The
+   * file is deleted when the channel closes, and at exit.
+   */
+  private static final class AnswerFile {
+    private java.nio.channels.FileChannel channel;
+    private long end;
+    private final Map<Integer, long[]> where = new HashMap<>();
+
+    boolean has(int k) {
+      return where.containsKey(k);
+    }
+
+    void write(int k, List<String> values) {
+      if (where.containsKey(k)) {
+        return;
+      }
+      try {
+        if (channel == null) {
+          Path path = java.nio.file.Files.createTempFile("tdc-http-", ".answers");
+          path.toFile().deleteOnExit();
+          channel =
+              java.nio.channels.FileChannel.open(
+                  path,
+                  java.nio.file.StandardOpenOption.READ,
+                  java.nio.file.StandardOpenOption.WRITE,
+                  java.nio.file.StandardOpenOption.DELETE_ON_CLOSE);
+        }
+        byte[] bytes = String.join("\n", values).getBytes(java.nio.charset.StandardCharsets.UTF_8);
+        java.nio.ByteBuffer buffer = java.nio.ByteBuffer.wrap(bytes);
+        long at = end;
+        while (buffer.hasRemaining()) {
+          at += channel.write(buffer, at);
+        }
+        where.put(k, new long[] {end, bytes.length});
+        end += bytes.length;
+      } catch (java.io.IOException e) {
+        throw new java.io.UncheckedIOException("cannot keep http answers", e);
+      }
+    }
+
+    List<String> read(int k) {
+      long[] place = where.get(k);
+      if (place == null || channel == null) {
+        return null;
+      }
+      try {
+        java.nio.ByteBuffer buffer = java.nio.ByteBuffer.allocate((int) place[1]);
+        long at = place[0];
+        while (buffer.hasRemaining()) {
+          int read = channel.read(buffer, at);
+          if (read < 0) {
+            break;
+          }
+          at += read;
+        }
+        String text = new String(buffer.array(), java.nio.charset.StandardCharsets.UTF_8);
+        return new ArrayList<>(List.of(text.split("\n", -1)));
+      } catch (java.io.IOException e) {
+        throw new java.io.UncheckedIOException("cannot read kept http answers", e);
+      }
     }
   }
 
@@ -362,6 +452,8 @@ public final class HttpColumn {
     private final Session previous;
     private final java.util.function.BiFunction<String, Integer, String> reader;
     private volatile int[] span;
+    /** Keep every answer on disk, because some column of the run is read twice. */
+    private boolean keepAnswers;
 
     private Session(
         String envSeed,
@@ -404,8 +496,11 @@ public final class HttpColumn {
         String envSeed,
         Path baseDir,
         int total,
-        java.util.function.BiFunction<String, Integer, String> reader) {
-      return new Session(envSeed, baseDir, total, reader, null);
+        java.util.function.BiFunction<String, Integer, String> reader,
+        boolean keepAnswers) {
+      Session made = new Session(envSeed, baseDir, total, reader, null);
+      made.keepAnswers = keepAnswers;
+      return made;
     }
 
     /** Make this the current session until the returned scope closes. */
@@ -485,7 +580,8 @@ public final class HttpColumn {
               HttpGen.timeoutMs(attrs.get("timeout")),
               batchOf(attrs),
               parseCount(attrs.get("parallel"), 1));
-      HttpColumn made = new HttpColumn(spec, total, () -> span);
+      HttpColumn made =
+          new HttpColumn(spec, total, () -> span, keepAnswers ? new AnswerFile() : null);
       bySequence.put(sequence, made);
       return made;
     }

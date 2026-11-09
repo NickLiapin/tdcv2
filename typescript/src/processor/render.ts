@@ -48,6 +48,7 @@ import { type Diagnostic, TdcDiagnosticError, nodeRange } from '../errors/index.
 import { advancedRegexGenerator, parseAdvancedRegexProgram } from '../generators/advanced-regex.js';
 import { dateGenerator } from '../generators/date.js';
 import { HttpSession } from '../generators/http-column.js';
+import { checkHttpAnswersUnique, httpUniqSequences } from '../sequence/http-uniq.js';
 import { syncHttpTransport } from '../generators/http-transport.js';
 import { fileUniform } from '../generators/file.js';
 import { numberGenerator } from '../generators/number.js';
@@ -592,7 +593,15 @@ export function prepareRender(
     // Every `type="http"` column of this run, fetched batch by batch where it is
     // read. Opening the session costs nothing; the helper thread starts with the
     // first request.
-    http: new HttpSession(env.seed, options.baseDir ?? '.', syncHttpTransport, options.range),
+    http: new HttpSession(
+      env.seed,
+      options.baseDir ?? '.',
+      syncHttpTransport,
+      options.range,
+      // A column checked for repeats is read twice — once to check, once to
+      // write — and the service must be asked once, so its answers go to disk.
+      httpUniqSequences(sequenceSpecs).length > 0,
+    ),
     // A `<data>` inside a `<case>` interpolates by the document's own marker, so
     // a config that set `inject=` to emit `${{…}}` literally still does.
     inject: env.inject,
@@ -716,6 +725,11 @@ export function prepareRender(
   // than in the output half so both the sync and the async path are covered, and
   // so a failed assertion stops before a single line is written — a file that
   // exists is a file someone will use.
+  // A service's answers marked uniq="true" are checked the same way, and for the
+  // same reason: a repeat stops the run before the file exists.
+  for (const name of httpUniqSequences(sequenceSpecs)) {
+    checkHttpAnswersUnique(name, registry, env.count);
+  }
   const asserts = extractAsserts(envEl);
   checkAssertions(asserts, registry, sequenceSpecs, env.count);
 

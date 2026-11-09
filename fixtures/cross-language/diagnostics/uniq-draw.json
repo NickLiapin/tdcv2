@@ -91,6 +91,27 @@
       "description": "a pattern has a countable space and takes the unique draw",
       "config": "<tdc><env count=\"20\" seed=\"v\" local=\"en\"><sequence name=\"X\" uniq=\"true\"><gen type=\"regex\" value=\"[A-Z]{3}[0-9]{3}\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
       "expected": []
+    },
+    {
+      "name": "uniq-on-a-lone-http-column-is-a-check",
+      "description": "On an http column of its own uniq is a check of the answers: the run reads them all before the first row and stops at the first repeat. It used to be TDC218.",
+      "config": "<tdc><env count=\"4\" seed=\"s\" local=\"en\"><sequence name=\"A\" uniq=\"true\"><gen type=\"http\" src=\"http://127.0.0.1:9/\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "demonstrates": "",
+      "expected": []
+    },
+    {
+      "name": "uniq-on-a-compound-with-an-http-field",
+      "description": "A compound's uniq rearranges its fields between rows, and a service's answer cannot move off the row it was asked for.",
+      "config": "<tdc><env count=\"4\" seed=\"s\" local=\"en\"><sequence name=\"A\" uniq=\"true\"><gen name=\"h\" type=\"http\" src=\"http://127.0.0.1:9/\"/><gen name=\"k\" type=\"text\" value=\"x,y\"/></sequence></env><block><line><data>${{A.h}}</data></line></block></tdc>",
+      "demonstrates": "TDC218",
+      "expected": ["error TDC218 1:65"]
+    },
+    {
+      "name": "uniq-on-an-http-answer-beside-a-literal",
+      "description": "Beside a literal, uniq would draw the part without replacement, and an answer cannot be drawn again.",
+      "config": "<tdc><env count=\"4\" seed=\"s\" local=\"en\"><sequence name=\"A\" uniq=\"true\"><data>ID-</data><gen type=\"http\" src=\"http://127.0.0.1:9/\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "demonstrates": "TDC218",
+      "expected": ["error TDC218 1:65"]
     }
   ]
 }

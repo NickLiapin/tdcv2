@@ -54,7 +54,7 @@ from ..sequence import pool as pool_mod
 from ..sequence import uniq as uniq_lib
 from ..stats import dist_params, timeseries
 from ..stats import distribution as dist
-from . import branch_derived, each, per_row, repeat_keyed
+from . import branch_derived, each, http_uniq, per_row, repeat_keyed
 
 # How many redraws a <distinct> field gets before its source is called too small.
 DISTINCT_FUSE = 100
@@ -175,6 +175,11 @@ def build(
     tables = build_pool_tables(config, packs, now_millis, base_dir)
     columns = _build_columns(config, count, packs, now_millis, base_dir, pool_tables=tables)
 
+    # A service's answers marked uniq="true" are checked first, for the same reason.
+    for name in http_uniq.sequences(config):
+        column = columns.get(name)
+        if column is not None:
+            http_uniq.check(name, column.__getitem__, count)
     # The run is finished; now the config gets to check its own output — before a single line
     # is written, because a file that exists is a file someone will use.
     assertions.check(
@@ -786,7 +791,9 @@ def _build_columns(
             )
             continue
 
-        if spec.uniq and spec.gen.type not in ("increment", "decrement"):
+        # An http column's uniq is a check of the answers (engine/http_uniq.py) — there is
+        # nothing here to draw without replacement.
+        if spec.uniq and spec.gen.type not in ("increment", "decrement", "http"):
             # A single column cannot be both proportional and unique, so — unlike
             # the compound path, which only rearranges — uniq changes the draw:
             # without replacement, one PRNG draw per pick (sequence/uniq_simple.py).
