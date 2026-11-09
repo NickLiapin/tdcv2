@@ -162,7 +162,9 @@ motores; en un generador `pattern` elige la pregunta que se le hace al dibujo.
 | `src`      | URL del servicio (también la ruta, arriba) | [Servicio HTTP](../generators/http.md#top) |
 | `in`       | Secuencia cuyo valor se envía por fila     | [Servicio HTTP](../generators/http.md#top) |
 | `on_error` | `fail` (def.) / `empty` ante un fallo      | [Servicio HTTP](../generators/http.md#top) |
-| `timeout`  | Segundos a esperar la respuesta (def. 30)  | [Servicio HTTP](../generators/http.md#top) |
+| `timeout`  | Segundos a esperar la respuesta de un lote (def. 30) | [Servicio HTTP](../generators/http.md#top) |
+| `batch`    | Filas por petición (def. 10000) | [Servicio HTTP](../generators/http.md#top) |
+| `parallel` | Peticiones en curso a la vez (def. 1) | [Servicio HTTP](../generators/http.md#top) |
 | `secret`   | Clave con la que se firma cada petición — `env:`, `file:` o un literal | [Servicio HTTP](../generators/http.md#probar-que-la-petición-viene-de-tdc) |
 
 ## Salida y formato
