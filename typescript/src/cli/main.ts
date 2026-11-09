@@ -599,7 +599,10 @@ export async function main(argv: readonly string[]): Promise<number> {
       );
     }
     const requested = resolveJobCount({
-      explicit: args.jobs,
+      // A config that calls a web service runs ONE worker unless told otherwise:
+      // splitting it on its own would hand the service several requests at once,
+      // which `parallel=` is the place to allow, not the size of this machine.
+      explicit: args.jobs ?? (tdc.usesHttp() ? 1 : undefined),
       canParallelize,
       count: tdc.effectiveCount(),
       cores: availableParallelism(),
@@ -626,18 +629,6 @@ export async function main(argv: readonly string[]): Promise<number> {
         ? renderParquetParallel(tdc, args, jobs, opts.onProgress)
         : renderParallel(tdc, args, jobs, opts.onProgress));
       finishProgress?.();
-      return 0;
-    }
-
-    // A `type="http"` generator makes a network call, so this config renders on
-    // the async path. It is Engine-1 only (materialised in memory anyway), so a
-    // whole-output render costs nothing extra over the streaming path here.
-    if (tdc.usesHttp()) {
-      // The extension decides the CONTAINER here exactly as it does on the
-      // synchronous path. Writing the text rendering to `-o out.parquet` and
-      // exiting 0 was the one failure nothing downstream could catch.
-      if (args.output) await tdc.writeFileAsync(args.output);
-      else cliIo.writeStdout(await tdc.toStringAsync());
       return 0;
     }
 
@@ -849,6 +840,7 @@ async function renderParallel(
     ...tdc.workerOptions(),
     now: args.now ?? Date.now(),
     jobs,
+    align: tdc.httpBatchAlignment(),
     ...(onProgress !== undefined ? { onProgress } : {}),
   };
   if (args.output) {

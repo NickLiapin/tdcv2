@@ -271,8 +271,22 @@
     {
       "name": "a parent= child is blank where the parent does not hold",
       "service": "upper",
-      "config": "<tdc><env count=\"4\" seed=\"s\"><sequence name=\"In\"><gen type=\"text\" value=\"a,b,c,d\" order=\"sequential\"/></sequence><sequence name=\"Kind\"><gen type=\"text\" value=\"x,y,x,y\" order=\"sequential\"/></sequence><sequence name=\"P\" parent=\"Kind.x\"><gen type=\"http\" src=\"{{SRC}}\" in=\"In\"/></sequence></env><block><line><data>[${{P}}]</data></line></block></tdc>",
-      "output": "[Ha]\n[]\n[Hc]\n[]\n"
+      "config": "<tdc><env count=\"6\" seed=\"s\"><sequence name=\"In\"><gen type=\"text\" value=\"a,b,c,d,e,f\" order=\"sequential\"/></sequence><sequence name=\"Kind\"><gen type=\"text\" value=\"x,y\"/></sequence><sequence name=\"P\" parent=\"Kind.x\"><gen type=\"http\" src=\"{{SRC}}\" in=\"In\" batch=\"3\"/></sequence></env><block><line><data>${{Kind}} [${{P}}]</data></line></block></tdc>",
+      "output": "x [Ha]\nx [Hb]\ny []\nx [Hd]\ny []\ny []\n",
+      "requests": [
+        {
+          "count": 3,
+          "offset": 0,
+          "total": 6,
+          "input": 3
+        },
+        {
+          "count": 3,
+          "offset": 3,
+          "total": 6,
+          "input": 3
+        }
+      ]
     }
   ]
 }

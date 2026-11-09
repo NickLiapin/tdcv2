@@ -45,6 +45,12 @@ export interface HttpColumnSpec {
   readonly parallel: number;
 }
 
+/** Rows `[start, end)` of the run. */
+export interface RowSpan {
+  readonly start: number;
+  readonly end: number;
+}
+
 /** A batch on the wire: its ticket and the request it answers. */
 interface InFlight {
   readonly ticket: number;
@@ -67,6 +73,8 @@ export class HttpColumn {
     /** The `in=` column's value at an absolute row. */
     private readonly inputAt: (row: number) => string,
     private readonly transport: SyncHttpTransport,
+    /** The rows this process writes, under `--jobs`; the whole run otherwise. */
+    private readonly range?: RowSpan | undefined,
   ) {
     this.batches = Math.ceil(total / spec.batch);
     // The batch being read, the one before it (a reader may look one row back
@@ -139,6 +147,9 @@ export class HttpColumn {
   private send(k: number, needed = false): void {
     if (k < 0 || k >= this.batches) return;
     if (this.inFlight.has(k) || this.answered.has(k)) return;
+    // Read-ahead stops at this worker's last row: the batch past it belongs to
+    // the next worker, and asking for it here would send it twice.
+    if (!needed && !this.inRange(k)) return;
     // Never more than `parallel` out at once: a service that is not safe to call
     // concurrently gets exactly one request at a time under the default.
     if (!needed && this.inFlight.size >= this.spec.parallel) return;
@@ -150,6 +161,12 @@ export class HttpColumn {
         : Array.from({ length: count }, (_, i) => this.inputAt(offset + i));
     const ticket = this.transport.start(buildHttpRequest(this.options(offset, count, inputs)));
     this.inFlight.set(k, { ticket, offset, count, inputs });
+  }
+
+  private inRange(k: number): boolean {
+    if (this.range === undefined) return true;
+    const first = k * this.spec.batch;
+    return first < this.range.end && first + this.spec.batch > this.range.start;
   }
 
   /** Wait for a batch and apply the contract, naming the rows when there are several batches. */
@@ -215,6 +232,11 @@ export function parseHttpTimeout(raw: string | undefined): number {
   return Number.isFinite(seconds) && seconds > 0 ? seconds * 1000 : HTTP_DEFAULT_TIMEOUT_MS;
 }
 
+/** Rows per request for one `<gen type="http">`'s attributes. */
+export function httpBatchOf(attrs: Readonly<Record<string, string | undefined>>): number {
+  return parseCount(attrs['batch'], HTTP_DEFAULT_BATCH);
+}
+
 /** A positive whole number from `batch=`/`parallel=`, or the default. */
 function parseCount(raw: string | undefined, fallback: number): number {
   if (raw === undefined) return fallback;
@@ -241,6 +263,8 @@ export class HttpSession {
     private readonly envSeed: string,
     private readonly baseDir: string,
     private readonly transport: () => SyncHttpTransport,
+    /** The rows this process writes, when a `--jobs` worker writes only some. */
+    private readonly range?: RowSpan | undefined,
   ) {}
 
   /** The column for this generator, as `sequence` reads it. */
@@ -257,7 +281,13 @@ export class HttpSession {
     }
     const known = bySequence.get(sequence);
     if (known !== undefined) return known;
-    const made = new HttpColumn(this.spec(gen, sequence), total, inputAt, this.transport());
+    const made = new HttpColumn(
+      this.spec(gen, sequence),
+      total,
+      inputAt,
+      this.transport(),
+      this.range,
+    );
     bySequence.set(sequence, made);
     return made;
   }
@@ -286,7 +316,7 @@ export class HttpSession {
       secret,
       onError: attrs['on_error'] === 'empty' ? 'empty' : 'fail',
       timeoutMs: parseHttpTimeout(attrs['timeout']),
-      batch: parseCount(attrs['batch'], HTTP_DEFAULT_BATCH),
+      batch: httpBatchOf(attrs),
       parallel: parseCount(attrs['parallel'], 1),
     };
   }

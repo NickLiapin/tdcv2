@@ -932,6 +932,10 @@ export function streamCtx(options: SequenceBuildOptions): SequenceBuildContext {
     valueAt: options.valueAt,
     hasColumn: options.hasColumn,
     inject: options.inject,
+    // An http column is read a row at a time here, from batches the session
+    // fetched for the whole run — so the session and the run's length travel too.
+    http: options.http,
+    httpTotal: options.total,
   };
   streamCtxCache.set(options, ctx);
   return ctx;
@@ -1498,11 +1502,17 @@ function buildGenValuesRaw(
       // Keyed by the COLUMN the reader wrote — `Name`, or `Name.field` — not by the stream a
       // branch draws from (`Name#if0`): `X-TDC-Seed` is derived from it, and an internal stream
       // name would change a service's answers whenever the engine renamed one.
-      const column = columnOf(ctx.streamId);
-      const answers = ctx.http.column(gen, column, ctx.total ?? count, (row) =>
+      // A one-row build names its column in `columnStreamId` instead.
+      const column = columnOf(ctx.streamId ?? ctx.columnStreamId);
+      const answers = ctx.http.column(gen, column, ctx.total ?? ctx.httpTotal ?? count, (row) =>
         inName === undefined ? '' : (ctx.valueAt?.(inName, row) ?? ''),
       );
-      return answers.valuesAt(ctx.rows ?? Array.from({ length: count }, (_, i) => i));
+      // One row is a reader walking forward — the streaming engines, a branch built
+      // row by row — so the batches after this one go on the wire while it works.
+      // Several rows are a whole column or a subset of one, known in full: only
+      // the batches holding them are asked for.
+      const rows = ctx.rows ?? Array.from({ length: count }, (_, i) => i);
+      return rows.length === 1 ? [answers.valueAt(rows[0] ?? 0)] : answers.valuesAt(rows);
     }
     case 'running':
     case 'stat':

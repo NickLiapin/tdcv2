@@ -110,15 +110,28 @@ export function resolveJobCount(params: {
   return Math.max(1, params.cores - 1);
 }
 
-/** Contiguous, balanced ranges covering `[0, count)` — the first `count % jobs` get one extra row. */
-export function partitionRows(count: number, jobs: number): readonly (readonly [number, number])[] {
-  const j = Math.max(1, Math.min(jobs, Math.max(1, count)));
-  const base = Math.floor(count / j);
-  const remainder = count % j;
+/**
+ * Contiguous, balanced ranges covering `[0, count)` — the first `count % jobs` get one extra row.
+ *
+ * With `align` above 1 every seam falls on a multiple of it (the last range
+ * ends at `count`), and the balancing is done in whole units of `align` rows.
+ * An http column cut into batches of that size then has no batch shared by two
+ * workers, so the service is asked for each batch once, as in a single run.
+ */
+export function partitionRows(
+  count: number,
+  jobs: number,
+  align = 1,
+): readonly (readonly [number, number])[] {
+  const unit = Math.max(1, align);
+  const units = Math.ceil(count / unit);
+  const j = Math.max(1, Math.min(jobs, Math.max(1, units)));
+  const base = Math.floor(units / j);
+  const remainder = units % j;
   const ranges: [number, number][] = [];
   let start = 0;
   for (let k = 0; k < j; k++) {
-    const end = start + base + (k < remainder ? 1 : 0);
+    const end = Math.min(count, (start / unit + base + (k < remainder ? 1 : 0)) * unit);
     ranges.push([start, end]);
     start = end;
   }

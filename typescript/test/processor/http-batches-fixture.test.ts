@@ -63,16 +63,24 @@ describe('http-batches.json', () => {
     expect(Object.keys(SERVICES).sort()).toEqual(Object.keys(FIXTURE.services).sort());
   });
 
-  it.each(FIXTURE.cases.map((c) => [c.name, c] as const))('%s', async (_name, c) => {
+  // Every engine reads the same batches: the in-memory one a column at a time,
+  // the two streaming ones a row at a time. `undefined` is the router's choice.
+  const ENGINES = [undefined, 1, 2, 3] as const;
+  const runs = FIXTURE.cases.flatMap((c) =>
+    ENGINES.map((engine) => [`${c.name} (engine ${String(engine ?? 'auto')})`, c, engine] as const),
+  );
+
+  it.each(runs)('%s', async (_name, c, engine) => {
     const options = SERVICES[c.service];
     if (options === undefined) throw new Error(`no service "${c.service}"`);
     svc = await startService(options);
     const url = svc.url;
     const document = parseStrict(c.config.replaceAll('{{SRC}}', url));
+    const renderOptions = engine === undefined ? {} : { engine };
     if (c.error !== undefined) {
-      expect(() => render(document, {})).toThrow(c.error.replaceAll('{{SRC}}', url));
+      expect(() => render(document, renderOptions)).toThrow(c.error.replaceAll('{{SRC}}', url));
     } else {
-      expect(render(document, {})).toBe(c.output);
+      expect(render(document, renderOptions)).toBe(c.output);
     }
     if (c.requests !== undefined) {
       const counts = svc.counts();

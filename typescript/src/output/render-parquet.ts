@@ -13,7 +13,7 @@
 
 import type { DocumentContext } from '../generated/TDCParser.js';
 import { interpolate } from '../processor/interpolate.js';
-import { prepareRender, prepareRenderAsync, type RenderOptions } from '../processor/render.js';
+import { prepareRender, type RenderOptions } from '../processor/render.js';
 import { findChildElement } from '../processor/walk.js';
 import { extractSequenceSpecs } from '../sequence/index.js';
 import { extractPoolSpecs } from '../sequence/pool.js';
@@ -185,20 +185,6 @@ export function* renderParquetChunks(
   yield* writeParquetChunks(p.schema, batches(p, undefined, options.onProgress));
 }
 
-/**
- * The same stream for a config that had to be prepared asynchronously.
- *
- * `type="http"` is the only such config today: the values come from a service,
- * so there is nothing to lay out until the call has answered.
- */
-export async function* renderParquetChunksAsync(
-  document: DocumentContext,
-  options: RenderOptions = {},
-): AsyncGenerator<Uint8Array> {
-  const p = planFrom(document, options, await prepareRenderAsync(document, options));
-  yield* writeParquetChunks(p.schema, batches(p, undefined, options.onProgress));
-}
-
 /** The whole file in memory. Convenient for small outputs and tests. */
 export function renderParquet(document: DocumentContext, options: RenderOptions = {}): Uint8Array {
   const parts = [...renderParquetChunks(document, options)];
@@ -232,7 +218,12 @@ export function* renderParquetBlocks(
   options: RenderOptions = {},
   range?: RowRange,
 ): Generator<RowGroupBlock> {
-  const p = plan(document, options);
+  // The range reaches the render too, so an http column reads ahead no further
+  // than this worker's own rows.
+  const p = plan(
+    document,
+    range === undefined ? options : { ...options, range: { start: range.from, end: range.to } },
+  );
   yield* rowGroupBlocks(p.schema, batches(p, range, options.onProgress));
 }
 

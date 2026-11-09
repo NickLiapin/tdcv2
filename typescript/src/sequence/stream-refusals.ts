@@ -85,19 +85,6 @@ export function refuseIfWholeColumn(spec: SequenceSpec): void {
    * left to the in-memory engine; `wholeColumnPackBody` hands back nothing for
    * it, and the per-row backstop in `build.ts` refuses it there.
    */
-
-  // A network call is not a draw: it is neither reproducible from a row index
-  // nor answerable synchronously, which is what a lazy per-row resolver needs.
-  // Refused here rather than left to fall through, because the fall-through
-  // reached the in-memory engine's synchronous guard and told a CLI user to
-  // "use the CLI".
-  if (gen.type === 'http') {
-    throw new StreamUnsupportedError(
-      `<gen type="http"> ("${spec.name}") is a network call, so it is neither ` +
-        'reproducible nor answerable one row at a time; the in-memory engine handles it ' +
-        '(run without a forced streaming engine)',
-    );
-  }
 }
 
 /**

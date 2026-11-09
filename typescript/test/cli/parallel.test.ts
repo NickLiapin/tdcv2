@@ -102,6 +102,26 @@ describe('partitionRows', () => {
   it('count=0 yields a single empty range', () => {
     expect(partitionRows(0, 4)).toEqual([[0, 0]]);
   });
+
+  it('puts every seam on a batch boundary when asked to, so no batch is fetched twice', () => {
+    expect(partitionRows(100, 3, 10)).toEqual([
+      [0, 40],
+      [40, 70],
+      [70, 100],
+    ]);
+    // The last range ends at the run's end, mid-batch.
+    expect(partitionRows(95, 2, 10)).toEqual([
+      [0, 50],
+      [50, 95],
+    ]);
+    // Fewer batches than jobs: one range per batch.
+    expect(partitionRows(25, 8, 10)).toEqual([
+      [0, 10],
+      [10, 20],
+      [20, 25],
+    ]);
+    expect(partitionRows(0, 4, 10)).toEqual([[0, 0]]);
+  });
 });
 
 describe('parallelBlockReason', () => {

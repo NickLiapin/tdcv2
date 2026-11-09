@@ -1,12 +1,8 @@
 import { afterEach, describe, expect, it } from 'vitest';
 
 import { parseStrict } from '../../src/parser/index.js';
-import {
-  render,
-  renderAsync,
-  resolveRenderEngine,
-  specsUseHttp,
-} from '../../src/processor/render.js';
+import { TDC } from '../../src/lib/tdc.js';
+import { render, renderAsync, resolveRenderEngine } from '../../src/processor/render.js';
 import type { SequenceSpec } from '../../src/sequence/types.js';
 import { startService, type ServiceHandle } from '../fixtures/http-service.js';
 
@@ -261,13 +257,37 @@ describe('http generator', () => {
   });
 
   describe('routing and the sync path', () => {
-    it('routes an http config to the in-memory engine', () => {
+    it('routes an http config to the streaming engine, which reads it batch by batch', () => {
       const specs: SequenceSpec[] = [
         { name: 'Out', gen: { type: 'http', attrs: { src: 'http://x/' } } },
       ];
-      expect(specsUseHttp(specs)).toBe(true);
-      // disk mode (the default) must resolve http to Engine 1, never streaming.
-      expect(resolveRenderEngine({ mode: 'disk' }, specs, [])).toBe(1);
+      // Until 0.4 disk mode sent http to Engine 1, which held the whole column.
+      expect(resolveRenderEngine({ mode: 'disk' }, specs, [])).toBe(2);
+    });
+
+    it('finds an http generator wherever it sits, and the split --jobs must fall on', () => {
+      const tdc = (body: string): TDC =>
+        new TDC({
+          configString: cfg(
+            '<sequence name="Out"><gen type="text" value="o"/></sequence>' +
+              body.replaceAll('URL', 'http://127.0.0.1:9/'),
+          ),
+        });
+      expect(tdc('<sequence name="A"><gen type="text" value="a"/></sequence>').usesHttp()).toBe(
+        false,
+      );
+      const nested = tdc(
+        '<sequence name="K"><gen type="text" value="x,y"/></sequence>' +
+          '<switch name="S" on="K"><case is="x"><gen type="http" src="URL" batch="4"/></case>' +
+          '<default><gen type="text" value="-"/></default></switch>' +
+          '<sequence name="F"><gen name="a" type="http" src="URL" batch="6"/>' +
+          '<gen name="b" type="text" value="z"/></sequence>',
+      );
+      expect(nested.usesHttp()).toBe(true);
+      expect(nested.httpBatchAlignment()).toBe(12);
+      expect(
+        tdc('<sequence name="A"><gen type="http" src="URL"/></sequence>').httpBatchAlignment(),
+      ).toBe(10_000);
     });
 
     it('the synchronous render waits for its service like every other path', async () => {

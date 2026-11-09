@@ -79,6 +79,11 @@ export interface ParallelParams {
    */
   readonly engine?: 1 | 2 | 3 | undefined;
   readonly jobs: number;
+  /**
+   * Rows every seam between workers must fall on — the http batch size, so
+   * no batch is fetched by two workers. 1 (or absent) when nothing calls a service.
+   */
+  readonly align?: number | undefined;
   /** Destination file descriptor (1 for stdout, or an opened output file). */
   readonly destFd: number;
   /**
@@ -209,7 +214,7 @@ export async function runParallel(params: ParallelParams): Promise<void> {
   // a watcher that finds no file cannot tell "not started yet" from "died" —
   // but naming that moment `render` announced a phase two stages away. The
   // status writer now opens the file itself on `starting`, for every path.
-  const ranges = partitionRows(params.count, params.jobs);
+  const ranges = partitionRows(params.count, params.jobs, params.align);
   const dir = mkdtempSync(join(tmpdir(), 'tdc-parallel-'));
   const scanDir = join(dir, 'scan');
   let uniqPlan: UniqPlan | undefined;

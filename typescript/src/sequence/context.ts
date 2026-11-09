@@ -91,6 +91,11 @@ export interface SequenceBuildContext {
    */
   readonly http?: HttpSession | undefined;
   /**
+   * Rows in the whole run, for an http column read a row at a time. Kept apart
+   * from `total` so nothing else a one-row build reads changes with it.
+   */
+  readonly httpTotal?: number | undefined;
+  /**
    * A finished column's value at an ABSOLUTE row — what a `<switch>` written
    * inside a `<case>` looks its subject up in.
    *

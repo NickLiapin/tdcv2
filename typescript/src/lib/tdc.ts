@@ -21,7 +21,7 @@
 
 import { readFileSync, writeSync } from 'node:fs';
 import type { EngineId } from '../processor/render.js';
-import { writeAtomically, writeAtomicallySync } from './atomic-write.js';
+import { writeAtomicallySync } from './atomic-write.js';
 import { dirname, resolve } from 'node:path';
 import { Readable } from 'node:stream';
 
@@ -37,9 +37,17 @@ import { type Diagnostic, TdcDiagnosticError, hasErrors } from '../errors/index.
 
 import { estimateMemoryUsage, memoryWarning } from '../errors/memory-estimate.js';
 import type { DocumentContext, OpenCloseElementContext } from '../generated/TDCParser.js';
-import { renderParquetChunks, renderParquetChunksAsync } from '../output/render-parquet.js';
+import { httpBatchOf } from '../generators/http-column.js';
+import { renderParquetChunks } from '../output/render-parquet.js';
 import { parse } from '../parser/index.js';
-import { extractAttrs, findChildElement, elementKind, elementName } from '../processor/walk.js';
+import {
+  contentElements,
+  elementAttrs,
+  extractAttrs,
+  findChildElement,
+  elementKind,
+  elementName,
+} from '../processor/walk.js';
 import {
   render,
   renderAsync,
@@ -47,7 +55,6 @@ import {
   resolveEngineSelection,
   explainRenderEngine,
   type EngineChoice,
-  specsUseHttp,
 } from '../processor/render.js';
 import { extractEnvUniqGroups, extractSequenceSpecs } from '../sequence/index.js';
 import { NO_SEED_CODE } from '../validator/env-seed.js';
@@ -304,18 +311,30 @@ export class TDC {
 
   /**
    * Whether this config contains a `type="http"` generator, which makes a
-   * network call and so can only be rendered on the async path
-   * ({@link toStringAsync}). The CLI checks this to pick the right path.
+   * network call. The CLI checks this so it never splits such a run across
+   * workers on its own: that would send the service several requests at once.
    */
   public usesHttp(): boolean {
-    const envEl = findEnv(this.tree);
-    return specsUseHttp(extractSequenceSpecs(envEl));
+    return httpBatchSizes(findEnv(this.tree)).length > 0;
   }
 
   /**
-   * Async render — required when the config uses a `type="http"` generator,
-   * identical to {@link toString} otherwise. The result is non-deterministic
-   * when http is used: re-running does not reproduce.
+   * The row count a `--jobs` split must fall on so no batch of any http column
+   * straddles two workers: the least common multiple of their `batch=` sizes,
+   * or 1 when the config calls no service. Straddling would send the batch at
+   * the seam twice — once from each side.
+   */
+  public httpBatchAlignment(): number {
+    return httpBatchSizes(findEnv(this.tree)).reduce((a, b) => lcm(a, b), 1);
+  }
+
+  /**
+   * The same text as {@link toString}, as a promise.
+   *
+   * A config with a `type="http"` generator once had to render here; it now
+   * renders on every path, waiting for the service batch by batch. Kept for
+   * callers written against the old rule. With http in the config the result
+   * is the service's, so a re-run reproduces only what the service does.
    */
   public toStringAsync(): Promise<string> {
     return renderAsync(this.tree, this.renderOptions());
@@ -475,27 +494,20 @@ export class TDC {
   }
 
   /**
-   * Write to disk from a config that must be prepared asynchronously.
+   * {@link writeFile}, as a promise.
    *
-   * `type="http"` is the only one today. The CLI used to send it down a single
-   * `toStringAsync()` path that ignored the file extension, so `-o out.parquet`
-   * wrote the TEXT rendering under a `.parquet` name and exited 0 — the worst
-   * shape a failure can take, because everything downstream trusted the name.
+   * A config with a `type="http"` generator once had to be written here; the
+   * synchronous writer now handles it, streaming the rows as the service
+   * answers. Kept for callers written against the old rule.
    */
-  public async writeFileAsync(path: string): Promise<void> {
-    if (path.toLowerCase().endsWith('.parquet')) {
-      await writeParquetAtomically(path, async (write) => {
-        for await (const chunk of renderParquetChunksAsync(this.tree, this.renderOptions())) {
-          write(chunk);
-        }
-      });
-      return;
-    }
-    // Rendered in full before the destination is touched; the rename keeps a
-    // failure in the write itself from leaving half a file behind.
-    const text = await this.toStringAsync();
-    writeAtomicallySync(path, (fd) => {
-      writeSync(fd, text);
+  public writeFileAsync(path: string): Promise<void> {
+    return new Promise((resolve, reject) => {
+      try {
+        this.writeFile(path);
+        resolve();
+      } catch (err) {
+        reject(err instanceof Error ? err : new Error(String(err)));
+      }
     });
   }
 
@@ -735,6 +747,34 @@ function withProjectConfig(options: TdcOptions, baseDir: string): TdcOptions {
 }
 
 /** Find the <env> element inside the document's <tdc> root, if any. */
+/**
+ * `batch=` of every `<gen type="http">` under `el`, wherever it sits — a
+ * sequence, a field, a `<mix>` or `<switch>` case, an `if=` branch.
+ */
+function httpBatchSizes(el: OpenCloseElementContext | undefined): number[] {
+  const out: number[] = [];
+  const visit = (node: OpenCloseElementContext): void => {
+    for (const child of contentElements(node.content())) {
+      const k = elementKind(child);
+      if (k === null || k.kind === 'data') continue;
+      if (elementName(k.node) === 'gen') {
+        const attrs = elementAttrs(k.node);
+        if (attrs['type'] === 'http') out.push(httpBatchOf(attrs));
+      }
+      if (k.kind === 'open') visit(k.node);
+    }
+  };
+  if (el !== undefined) visit(el);
+  return out;
+}
+
+function lcm(a: number, b: number): number {
+  let x = a;
+  let y = b;
+  while (y !== 0) [x, y] = [y, x % y];
+  return (a / x) * b;
+}
+
 function findEnv(tree: DocumentContext): OpenCloseElementContext | undefined {
   for (const el of tree.element()) {
     const k = elementKind(el);
@@ -769,14 +809,5 @@ function writeParquetAtomicallySync(
 ): void {
   writeAtomicallySync(path, (fd) => {
     produce((chunk) => void writeSync(fd, chunk));
-  });
-}
-
-async function writeParquetAtomically(
-  path: string,
-  produce: (write: (c: Uint8Array) => void) => Promise<void>,
-): Promise<void> {
-  await writeAtomically(path, async (fd) => {
-    await produce((chunk) => void writeSync(fd, chunk));
   });
 }

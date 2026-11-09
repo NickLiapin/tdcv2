@@ -122,13 +122,8 @@ function diskRoute(
   // cannot hold row by row. The in-memory engine does it.
   const simpleUniq = simpleUniqOwner(specs);
   if (simpleUniq !== undefined) return memory(`uniq="true" on "${simpleUniq}"`);
-  // A `type="http"` generator makes a network call and is non-deterministic, so
-  // it never runs on the reproducible streaming/on-disk path — it resolves in
-  // the in-memory engine's async post-pass. Route disk mode to Engine 1. (Forced
-  // engine="2"/"3" is honoured above and fails clearly in the streaming build,
-  // which has no http case.)
-  const http = genOwner(specs, (g) => g.type === 'http');
-  if (http !== undefined) return memory(`"${http}" calls a web service`);
+  // A `type="http"` column streams: the session fetches it batch by batch as the
+  // rows are written, so it stays out of this list — the column is never held whole.
   // A `<switch>` branch that declares a share the streaming engines cannot lay
   // over the right rows. They REFUSE such a branch rather than apportion it over
   // the wrong denominator, and a refusal reached at build time is not a fallback
@@ -243,11 +238,6 @@ function nestedSwitches(body: CaseSpec | undefined): SwitchSpec[] {
   return found;
 }
 
-/** Any `<gen type="http">` — the network-backed generator. */
-export function specsUseHttp(specs: readonly SequenceSpec[]): boolean {
-  return anyGen(specs, (g) => g.type === 'http');
-}
-
 /**
  * True if any sequence is a column DERIVED from another column.
  *
@@ -315,14 +305,6 @@ function bareParent(specs: readonly SequenceSpec[]): string | undefined {
   return child === undefined
     ? undefined
     : `"${child.name}" has parent="${(child.parent ?? '').trim()}" with no value`;
-}
-
-/** True if any `<gen>` in `specs` (simple or compound field) satisfies `pred`. */
-function anyGen(
-  specs: readonly SequenceSpec[],
-  pred: (gen: { readonly type: string; readonly attrs: AttrMap }) => boolean,
-): boolean {
-  return genOwner(specs, pred) !== undefined;
 }
 
 /** The name of the first sequence holding a `<gen>` (simple or compound field) that satisfies `pred`. */

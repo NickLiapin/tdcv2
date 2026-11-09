@@ -93,7 +93,6 @@ export {
   resolveRenderEngine,
   specsUseBareParent,
   specsUseDerivedColumn,
-  specsUseHttp,
 } from './engine-route.js';
 import { interpolate } from './interpolate.js';
 import {
@@ -593,7 +592,7 @@ export function prepareRender(
     // Every `type="http"` column of this run, fetched batch by batch where it is
     // read. Opening the session costs nothing; the helper thread starts with the
     // first request.
-    http: new HttpSession(env.seed, options.baseDir ?? '.', syncHttpTransport),
+    http: new HttpSession(env.seed, options.baseDir ?? '.', syncHttpTransport, options.range),
     // A `<data>` inside a `<case>` interpolates by the document's own marker, so
     // a config that set `inject=` to emit `${{…}}` literally still does.
     inject: env.inject,
