@@ -3593,6 +3593,37 @@ impl Validator {
             }
         }
 
+        // `batch=` / `parallel=` — how the column is cut into requests, and how
+        // many may be on the wire at once. Whole numbers above zero: a batch of
+        // 2.5 rows or of none is a config asking for something no request can be.
+        for (name, hint) in [
+            (
+                "batch",
+                "batch=\"10000\" sends ten thousand rows per request. Omit it for the default of 10000.",
+            ),
+            (
+                "parallel",
+                "parallel=\"4\" lets four requests be on the wire at once. Omit it for one at a time.",
+            ),
+        ] {
+            let Some(raw) = attrs.get(name) else { continue };
+            let text = raw.trim();
+            // 2^53 - 1: the largest whole number the reference reads exactly.
+            let ok = !text.is_empty()
+                && text.bytes().all(|b| b.is_ascii_digit())
+                && text
+                    .parse::<u64>()
+                    .is_ok_and(|n| n > 0 && n <= 9_007_199_254_740_991);
+            if !ok {
+                self.error(
+                    "TDC313",
+                    format!("invalid {name} \"{text}\" — expected a whole number above zero"),
+                    hint,
+                    gen.at(name),
+                );
+            }
+        }
+
         // `secret=` is the key a request is signed with. Three spellings, and
         // only the literal is worth saying anything about: a config travels into
         // version control, and the secret would travel with it. A warning rather

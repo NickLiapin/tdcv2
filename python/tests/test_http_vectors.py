@@ -28,6 +28,8 @@ def test_signature_matches_every_implementation(vector):
             vector["timestamp"],
             vector["seed"],
             vector["count"],
+            vector["offset"],
+            vector["total"],
             vector["body"],
         )
         == vector["signature"]

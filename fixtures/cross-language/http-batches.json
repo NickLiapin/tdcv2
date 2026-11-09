@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "note": "The http generator on a column longer than one request, and the columns that read its answers. Each implementation runs a small local service that behaves as `services` describes, puts its URL where a config says {{SRC}}, renders the config through the engine the config routes to, and checks two things: the output (or the error) exactly, and the requests the service received — sorted by offset, since parallel= may deliver them in any order. Every case here failed on 0.3.7 in all five implementations, or did not exist there: a column was ONE request (so its reply cap capped the whole run), a column that read an http answer saw an empty string, an http generator in a case, a branch or a field printed nothing, and parent= on an http column was ignored.",
+  "note": "The http generator on a column longer than one request, and the columns that read its answers. Each implementation runs a small local service that behaves as `services` describes, puts its URL where a config says {{SRC}}, renders the config through the engine the config routes to, and checks two things: the output (or the error) exactly, and the requests the service received — sorted by offset, since parallel= may deliver them in any order. Every case here failed on 0.3.7 in all five implementations, or did not exist there: a column was ONE request (so its reply cap capped the whole run), a column that read an http answer saw an empty string, an http generator in a case, a branch or a field printed nothing, and parent= on an http column was ignored. A case may also list `seeds`: the X-TDC-Seed of every request, sorted — derived from the column the generator belongs to (Name, or Name.field), wherever in it the generator sits.",
   "services": {
     "upper": "A transform. Each input line L is answered with \"H\" + L. Echoes X-TDC-Offset.",
     "row": "A source. Line i of a batch is answered with \"r\" + (X-TDC-Offset + i). Echoes X-TDC-Offset.",
@@ -14,9 +14,24 @@
       "service": "row",
       "config": "<tdc><env count=\"25\" seed=\"s\"><sequence name=\"Out\"><gen type=\"http\" src=\"{{SRC}}\" batch=\"10\"/></sequence></env><block><line><data>${{Out}}</data></line></block></tdc>",
       "requests": [
-        { "count": 10, "offset": 0, "total": 25, "input": null },
-        { "count": 10, "offset": 10, "total": 25, "input": null },
-        { "count": 5, "offset": 20, "total": 25, "input": null }
+        {
+          "count": 10,
+          "offset": 0,
+          "total": 25,
+          "input": null
+        },
+        {
+          "count": 10,
+          "offset": 10,
+          "total": 25,
+          "input": null
+        },
+        {
+          "count": 5,
+          "offset": 20,
+          "total": 25,
+          "input": null
+        }
       ],
       "output": "r0\nr1\nr2\nr3\nr4\nr5\nr6\nr7\nr8\nr9\nr10\nr11\nr12\nr13\nr14\nr15\nr16\nr17\nr18\nr19\nr20\nr21\nr22\nr23\nr24\n"
     },
@@ -25,9 +40,24 @@
       "service": "upper",
       "config": "<tdc><env count=\"5\" seed=\"s\"><sequence name=\"In\"><gen type=\"text\" value=\"a,b,c,d,e\" order=\"sequential\"/></sequence><sequence name=\"Out\"><gen type=\"http\" src=\"{{SRC}}\" in=\"In\" batch=\"2\"/></sequence></env><block><line><data>${{In}}=${{Out}}</data></line></block></tdc>",
       "requests": [
-        { "count": 2, "offset": 0, "total": 5, "input": 2 },
-        { "count": 2, "offset": 2, "total": 5, "input": 2 },
-        { "count": 1, "offset": 4, "total": 5, "input": 1 }
+        {
+          "count": 2,
+          "offset": 0,
+          "total": 5,
+          "input": 2
+        },
+        {
+          "count": 2,
+          "offset": 2,
+          "total": 5,
+          "input": 2
+        },
+        {
+          "count": 1,
+          "offset": 4,
+          "total": 5,
+          "input": 1
+        }
       ],
       "output": "a=Ha\nb=Hb\nc=Hc\nd=Hd\ne=He\n"
     },
@@ -35,21 +65,42 @@
       "name": "a column inside one batch is one request",
       "service": "row",
       "config": "<tdc><env count=\"5\" seed=\"s\"><sequence name=\"Out\"><gen type=\"http\" src=\"{{SRC}}\"/></sequence></env><block><line><data>${{Out}}</data></line></block></tdc>",
-      "requests": [{ "count": 5, "offset": 0, "total": 5, "input": null }],
+      "requests": [
+        {
+          "count": 5,
+          "offset": 0,
+          "total": 5,
+          "input": null
+        }
+      ],
       "output": "r0\nr1\nr2\nr3\nr4\n"
     },
     {
       "name": "a source that ignores the offset is refused once there are two batches",
       "service": "row-no-echo",
       "config": "<tdc><env count=\"4\" seed=\"s\"><sequence name=\"Out\"><gen type=\"http\" src=\"{{SRC}}\" batch=\"2\"/></sequence></env><block><line><data>${{Out}}</data></line></block></tdc>",
-      "requests": [{ "count": 2, "offset": 0, "total": 4, "input": null }],
+      "requests": [
+        {
+          "count": 2,
+          "offset": 0,
+          "total": 4,
+          "input": null
+        }
+      ],
       "error": "http service for sequence \"Out\" at {{SRC}} (rows 0–1) answered the batch at row 0 without echoing X-TDC-Offset — a service with no in= column must read the offset and send it back, or every batch would repeat the first"
     },
     {
       "name": "the same service runs unchanged when the column is one batch",
       "service": "row-no-echo",
       "config": "<tdc><env count=\"3\" seed=\"s\"><sequence name=\"Out\"><gen type=\"http\" src=\"{{SRC}}\"/></sequence></env><block><line><data>${{Out}}</data></line></block></tdc>",
-      "requests": [{ "count": 3, "offset": 0, "total": 3, "input": null }],
+      "requests": [
+        {
+          "count": 3,
+          "offset": 0,
+          "total": 3,
+          "input": null
+        }
+      ],
       "output": "r0\nr1\nr2\n"
     },
     {
@@ -57,9 +108,24 @@
       "service": "upper-no-echo",
       "config": "<tdc><env count=\"3\" seed=\"s\"><sequence name=\"In\"><gen type=\"text\" value=\"a,b,c\" order=\"sequential\"/></sequence><sequence name=\"Out\"><gen type=\"http\" src=\"{{SRC}}\" in=\"In\" batch=\"1\"/></sequence></env><block><line><data>${{Out}}</data></line></block></tdc>",
       "requests": [
-        { "count": 1, "offset": 0, "total": 3, "input": 1 },
-        { "count": 1, "offset": 1, "total": 3, "input": 1 },
-        { "count": 1, "offset": 2, "total": 3, "input": 1 }
+        {
+          "count": 1,
+          "offset": 0,
+          "total": 3,
+          "input": 1
+        },
+        {
+          "count": 1,
+          "offset": 1,
+          "total": 3,
+          "input": 1
+        },
+        {
+          "count": 1,
+          "offset": 2,
+          "total": 3,
+          "input": 1
+        }
       ],
       "output": "Ha\nHb\nHc\n"
     },
@@ -68,9 +134,24 @@
       "service": "fail-second",
       "config": "<tdc><env count=\"5\" seed=\"s\"><sequence name=\"Out\"><gen type=\"http\" src=\"{{SRC}}\" batch=\"2\" on_error=\"empty\"/></sequence></env><block><line><data>[${{Out}}]</data></line></block></tdc>",
       "requests": [
-        { "count": 2, "offset": 0, "total": 5, "input": null },
-        { "count": 2, "offset": 2, "total": 5, "input": null },
-        { "count": 1, "offset": 4, "total": 5, "input": null }
+        {
+          "count": 2,
+          "offset": 0,
+          "total": 5,
+          "input": null
+        },
+        {
+          "count": 2,
+          "offset": 2,
+          "total": 5,
+          "input": null
+        },
+        {
+          "count": 1,
+          "offset": 4,
+          "total": 5,
+          "input": null
+        }
       ],
       "output": "[r0]\n[r1]\n[]\n[]\n[]\n"
     },
@@ -79,8 +160,18 @@
       "service": "fail-second",
       "config": "<tdc><env count=\"5\" seed=\"s\"><sequence name=\"Out\"><gen type=\"http\" src=\"{{SRC}}\" batch=\"2\"/></sequence></env><block><line><data>${{Out}}</data></line></block></tdc>",
       "requests": [
-        { "count": 2, "offset": 0, "total": 5, "input": null },
-        { "count": 2, "offset": 2, "total": 5, "input": null }
+        {
+          "count": 2,
+          "offset": 0,
+          "total": 5,
+          "input": null
+        },
+        {
+          "count": 2,
+          "offset": 2,
+          "total": 5,
+          "input": null
+        }
       ],
       "error": "http service for sequence \"Out\" at {{SRC}} (rows 2–3) returned 500"
     },
@@ -89,11 +180,36 @@
       "service": "row",
       "config": "<tdc><env count=\"10\" seed=\"s\"><sequence name=\"Out\"><gen type=\"http\" src=\"{{SRC}}\" batch=\"2\" parallel=\"3\"/></sequence></env><block><line><data>${{Out}}</data></line></block></tdc>",
       "requests": [
-        { "count": 2, "offset": 0, "total": 10, "input": null },
-        { "count": 2, "offset": 2, "total": 10, "input": null },
-        { "count": 2, "offset": 4, "total": 10, "input": null },
-        { "count": 2, "offset": 6, "total": 10, "input": null },
-        { "count": 2, "offset": 8, "total": 10, "input": null }
+        {
+          "count": 2,
+          "offset": 0,
+          "total": 10,
+          "input": null
+        },
+        {
+          "count": 2,
+          "offset": 2,
+          "total": 10,
+          "input": null
+        },
+        {
+          "count": 2,
+          "offset": 4,
+          "total": 10,
+          "input": null
+        },
+        {
+          "count": 2,
+          "offset": 6,
+          "total": 10,
+          "input": null
+        },
+        {
+          "count": 2,
+          "offset": 8,
+          "total": 10,
+          "input": null
+        }
       ],
       "output": "r0\nr1\nr2\nr3\nr4\nr5\nr6\nr7\nr8\nr9\n"
     },
@@ -101,14 +217,28 @@
       "name": "an if= declared below reads the answer, not an empty string",
       "service": "upper",
       "config": "<tdc><env count=\"3\" seed=\"s\"><sequence name=\"In\"><gen type=\"text\" value=\"a,b,c\" order=\"sequential\"/></sequence><sequence name=\"H\"><gen type=\"http\" src=\"{{SRC}}\" in=\"In\"/></sequence><sequence name=\"C\"><gen type=\"text\" value=\"yes\" if=\"H == 'Hb'\"/><gen type=\"text\" value=\"no\"/></sequence><sequence name=\"E\"><gen type=\"text\" value=\"empty\" if=\"H == ''\"/><gen type=\"text\" value=\"full\"/></sequence></env><block><line><data>${{H}} ${{C}} ${{E}}</data></line></block></tdc>",
-      "requests": [{ "count": 3, "offset": 0, "total": 3, "input": 3 }],
+      "requests": [
+        {
+          "count": 3,
+          "offset": 0,
+          "total": 3,
+          "input": 3
+        }
+      ],
       "output": "Ha no full\nHb yes full\nHc no full\n"
     },
     {
       "name": "a case that prints the answer prints it",
       "service": "upper",
       "config": "<tdc><env count=\"4\" seed=\"s\"><sequence name=\"In\"><gen type=\"text\" value=\"a,b,c,d\" order=\"sequential\"/></sequence><sequence name=\"H\"><gen type=\"http\" src=\"{{SRC}}\" in=\"In\"/></sequence><mix name=\"M\" percent=\"100\"><case><data>[${{H}}]</data></case></mix></env><block><line><data>${{M}}</data></line></block></tdc>",
-      "requests": [{ "count": 4, "offset": 0, "total": 4, "input": 4 }],
+      "requests": [
+        {
+          "count": 4,
+          "offset": 0,
+          "total": 4,
+          "input": 4
+        }
+      ],
       "output": "[Ha]\n[Hb]\n[Hc]\n[Hd]\n"
     },
     {
@@ -116,8 +246,18 @@
       "service": "upper",
       "config": "<tdc><env count=\"3\" seed=\"s\"><sequence name=\"In\"><gen type=\"text\" value=\"a,b,c\" order=\"sequential\"/></sequence><sequence name=\"H\"><gen type=\"http\" src=\"{{SRC}}\" in=\"In\"/></sequence><sequence name=\"HH\"><gen type=\"http\" src=\"{{SRC}}\" in=\"H\"/></sequence></env><block><line><data>${{H}} ${{HH}}</data></line></block></tdc>",
       "requests": [
-        { "count": 3, "offset": 0, "total": 3, "input": 3 },
-        { "count": 3, "offset": 0, "total": 3, "input": 3 }
+        {
+          "count": 3,
+          "offset": 0,
+          "total": 3,
+          "input": 3
+        },
+        {
+          "count": 3,
+          "offset": 0,
+          "total": 3,
+          "input": 3
+        }
       ],
       "output": "Ha HHa\nHb HHb\nHc HHc\n"
     },
@@ -125,7 +265,8 @@
       "name": "row i reads answer i in a switch case, an if= branch and a field",
       "service": "upper",
       "config": "<tdc><env count=\"4\" seed=\"s\"><sequence name=\"In\"><gen type=\"text\" value=\"a,b,c,d\" order=\"sequential\"/></sequence><sequence name=\"Kind\"><gen type=\"text\" value=\"x,y,x,y\" order=\"sequential\"/></sequence><switch name=\"S\" on=\"Kind\"><case is=\"x\"><gen type=\"http\" src=\"{{SRC}}\" in=\"In\"/></case><default><gen type=\"text\" value=\"-\"/></default></switch><sequence name=\"C\"><gen type=\"http\" src=\"{{SRC}}\" in=\"In\" if=\"Kind == 'y'\"/><gen type=\"text\" value=\"-\"/></sequence><sequence name=\"F\"><gen name=\"a\" type=\"http\" src=\"{{SRC}}\" in=\"In\"/><gen name=\"b\" type=\"text\" value=\"z\"/></sequence></env><block><line><data>${{S}} ${{C}} ${{F.a}}</data></line></block></tdc>",
-      "output": "Ha - Ha\n- Hb Hb\nHc - Hc\n- Hd Hd\n"
+      "output": "Ha - Ha\n- Hb Hb\nHc - Hc\n- Hd Hd\n",
+      "seeds": ["55c33416", "a95dd1a1", "ba89be11"]
     },
     {
       "name": "a parent= child is blank where the parent does not hold",

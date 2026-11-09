@@ -694,6 +694,11 @@ function groupSettler(
   };
 }
 
+/** The column a stream belongs to: `Name#if0` → `Name`; `Pay.ref` stays as it is. */
+function columnOf(streamId: string | undefined): string {
+  return (streamId ?? '').split('#')[0] ?? '';
+}
+
 function materializeSimple(
   spec: SequenceSpec,
   gen: GenSpec,
@@ -1490,10 +1495,14 @@ function buildGenValuesRaw(
         );
       }
       const inName = gen.attrs['in'];
-      const column = ctx.http.column(gen, ctx.streamId ?? '', ctx.total ?? count, (row) =>
+      // Keyed by the COLUMN the reader wrote — `Name`, or `Name.field` — not by the stream a
+      // branch draws from (`Name#if0`): `X-TDC-Seed` is derived from it, and an internal stream
+      // name would change a service's answers whenever the engine renamed one.
+      const column = columnOf(ctx.streamId);
+      const answers = ctx.http.column(gen, column, ctx.total ?? count, (row) =>
         inName === undefined ? '' : (ctx.valueAt?.(inName, row) ?? ''),
       );
-      return column.valuesAt(ctx.rows ?? Array.from({ length: count }, (_, i) => i));
+      return answers.valuesAt(ctx.rows ?? Array.from({ length: count }, (_, i) => i));
     }
     case 'running':
     case 'stat':

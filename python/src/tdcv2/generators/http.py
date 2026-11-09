@@ -4,9 +4,11 @@ A pack cannot know every vocabulary. When the values have to come from somewhere
 a company's own service, a model, a licensed dataset — this is the seam: TDC POSTs a batch and
 reads back one value per line.
 
-Batch, never per row. One call carries a whole chunk, which is what keeps a billion rows to a
-thousand requests rather than a billion. The module knows the wire contract and the error model
-and nothing about sequences; the caller wraps a failure with the sequence name and a TDC code.
+Batch, never per row, and never the whole column at once: one call carries one batch, which keeps
+a billion rows to a hundred thousand requests rather than a billion, and keeps any one reply small
+enough to hold. The module knows the wire contract and the error model and nothing about
+sequences; ``http_column`` cuts a column into batches, and the caller wraps a failure with the
+sequence name.
 """
 
 from __future__ import annotations
@@ -25,6 +27,8 @@ DEFAULT_TIMEOUT_MS = 30_000
 
 # The most of a reply this client will hold; see the read below for why.
 _MAX_RESPONSE_BYTES = 64 * 1024 * 1024
+"""The most of ONE reply this client will hold. It bounds a batch, never the run: a column of any
+length is as many batches as it takes."""
 
 
 class FailureKind(Enum):
@@ -40,8 +44,10 @@ class FailureKind(Enum):
     NETWORK = "network"
 
     COUNT_MISMATCH = "count-mismatch"
-    TOO_LARGE = "too-large"
     """2xx, but not exactly ``count`` lines back."""
+    TOO_LARGE = "too-large"
+    OFFSET_IGNORED = "offset-ignored"
+    """A source that did not echo ``X-TDC-Offset`` — always fatal."""
 
 
 class ServiceError(Exception):
@@ -59,6 +65,16 @@ class Request:
     src: str
     count: int
     """How many values are wanted — travels as ``X-TDC-Count`` and bounds the reply."""
+
+    offset: int = 0
+    """The row of the column this batch starts at — travels as ``X-TDC-Offset``.
+
+    A service that invents values from ``(seed, row)`` needs it: without it every batch would
+    start counting at zero and hand back the first batch again, a column of silent repeats.
+    """
+
+    total: int | None = None
+    """Rows in the whole column — travels as ``X-TDC-Total``. Absent means ``count``."""
 
     inputs: list[str] | None = None
     """One line per input value, in row order. Absent for a pure source."""
@@ -91,17 +107,24 @@ class Request:
     """
 
 
-def sign_request(secret: str, timestamp: str, seed: str, count: int, body: str) -> str:
-    """``hex(HMAC-SHA256(secret, timestamp \n seed \n count \n body))``.
+def sign_request(
+    secret: str, timestamp: str, seed: str, count: int, offset: int, total: int, body: str
+) -> str:
+    """``hex(HMAC-SHA256(secret, timestamp \n seed \n count \n offset \n total \n body))``.
 
-    Everything that decides what comes back is inside: change the body, the count, the seed or
-    the minute, and the signature no longer matches. The secret is the key, so it is never sent.
+    Everything that decides what comes back is inside: change the body, the count, the place in
+    the column, the seed or the minute, and the signature no longer matches — so a captured batch
+    cannot be replayed as another one. The secret is the key, so it is never sent.
     """
     return hmac.new(
         secret.encode("utf-8"),
-        f"{timestamp}\n{seed}\n{count}\n{body}".encode(),
+        f"{timestamp}\n{seed}\n{count}\n{offset}\n{total}\n{body}".encode(),
         hashlib.sha256,
     ).hexdigest()
+
+
+def _total(request: Request) -> int:
+    return request.count if request.total is None else request.total
 
 
 def contract_headers(request: Request, body: str) -> dict[str, str]:
@@ -112,7 +135,12 @@ def contract_headers(request: Request, body: str) -> dict[str, str]:
     not tell "process this empty value" from "invent one". It carries the number of input lines, so
     zero-versus-absent is the whole answer, and a service that ignores it behaves as it always did.
     """
-    headers = {"Content-Type": "text/plain", "X-TDC-Count": str(request.count)}
+    headers = {
+        "Content-Type": "text/plain",
+        "X-TDC-Count": str(request.count),
+        "X-TDC-Offset": str(request.offset),
+        "X-TDC-Total": str(_total(request)),
+    }
     if request.seed is not None:
         headers["X-TDC-Seed"] = request.seed
     if request.inputs is not None:
@@ -122,7 +150,13 @@ def contract_headers(request: Request, body: str) -> dict[str, str]:
         timestamp = str(now_ms // 1000)
         headers["X-TDC-Timestamp"] = timestamp
         headers["X-TDC-Signature"] = sign_request(
-            request.secret, timestamp, request.seed or "", request.count, body
+            request.secret,
+            timestamp,
+            request.seed or "",
+            request.count,
+            request.offset,
+            _total(request),
+            body,
         )
     return headers
 
@@ -143,9 +177,9 @@ def seed_for(env_seed: str, sequence_name: str) -> str:
 def fetch(request: Request) -> list[str]:
     """One batch against the service, resolving to exactly ``count`` strings.
 
-    ``on_error="fail"`` raises; ``"empty"`` returns blanks instead — EXCEPT for 429, which is
-    fatal under both, because "slow down" and "stream the whole column" cannot be reconciled and
-    pretending otherwise yields quietly truncated data.
+    ``on_error="fail"`` raises; ``"empty"`` returns blanks instead — EXCEPT for 429 and an
+    ignored offset, which are fatal under both: "slow down" cannot be reconciled with "fill the
+    column", and a source repeating its first batch is a broken contract, not a bad moment.
     """
     if request.count <= 0:
         return []
@@ -179,6 +213,7 @@ def fetch(request: Request) -> list[str]:
                     ),
                 )
             text = raw.decode("utf-8")
+            echoed = response.headers.get("X-TDC-Offset")
     except urllib.error.HTTPError as e:
         status = e.code
         if status == 429:
@@ -211,6 +246,23 @@ def fetch(request: Request) -> list[str]:
             request,
             ServiceError(f"could not be reached ({reason})", FailureKind.NETWORK, request.src),
         )
+
+    # A source cut into batches: the service has to show it read the offset, or the second batch
+    # would be the first one again. A transform needs no echo — each answer is computed from its
+    # own input line, wherever the batch sits.
+    if request.inputs is None and _total(request) > request.count:
+        offset = str(request.offset)
+        if echoed != offset:
+            raise ServiceError(
+                f"answered the batch at row {offset} without echoing X-TDC-Offset — a service "
+                "with no in= column must read the offset and send it back, or every batch "
+                "would repeat the first"
+                if echoed is None
+                else f"answered the batch at row {offset} with X-TDC-Offset {echoed}",
+                FailureKind.OFFSET_IGNORED,
+                request.src,
+                status,
+            )
 
     lines = _split_lines(text)
     if len(lines) != request.count:

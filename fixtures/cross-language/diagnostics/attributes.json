@@ -58,6 +58,34 @@
       "expected": ["error TDC069 1:106"]
     },
     {
+      "name": "http-bad-batch",
+      "demonstrates": "TDC313",
+      "description": "batch= is rows per request, so a whole number above zero — 2.5 rows is no request at all",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"http\" src=\"http://127.0.0.1:5566/gen\" batch=\"2.5\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC313 1:104"]
+    },
+    {
+      "name": "http-zero-parallel",
+      "demonstrates": "TDC313",
+      "description": "parallel=\"0\" would put nothing on the wire and the column would never arrive",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"http\" src=\"http://127.0.0.1:5566/gen\" parallel=\"0\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC313 1:107"]
+    },
+    {
+      "name": "http-batch-past-exact-integers",
+      "demonstrates": "TDC313",
+      "description": "2^53: past the largest whole number the reference reads exactly, so every implementation refuses it rather than round it",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"http\" src=\"http://127.0.0.1:5566/gen\" batch=\"9007199254740992\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC313 1:104"]
+    },
+    {
+      "name": "http-batch-and-parallel-accepted",
+      "demonstrates": "",
+      "description": "A batch size and a parallel count written right are accepted by all five",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"http\" src=\"http://127.0.0.1:5566/gen\" batch=\"500\" parallel=\"4\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": []
+    },
+    {
       "name": "http-bad-on-error",
       "demonstrates": "TDC068",
       "description": "on_error outside the two allowed values",

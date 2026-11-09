@@ -469,7 +469,8 @@ GEN_ATTRS = frozenset(
         "column", "header",
         "delimiter", "row", "base", "trend", "period", "amplitude", "noise", "points", "upper",
         "lower", "y_range", "fit", "interp", "spread", "ink_threshold", "mode", "in", "on_error",
-        "timeout", "secret", "mean", "sd", "meanlog", "sdlog", "rate", "alpha", "xmin",
+        "timeout", "secret", "batch", "parallel",
+        "mean", "sd", "meanlog", "sdlog", "rate", "alpha", "xmin",
         "shape", "scale",
         "lambda", "n", "s", "beta", "min", "max", "filter", "peak_at", "noise_correlation",
         "expr", "lengths", "read", "sample",
@@ -579,6 +580,8 @@ ATTRIBUTE_OWNERS: dict[str, frozenset[str]] = {
     "on_error": frozenset({"http"}),
     "timeout": frozenset({"http"}),
     "secret": frozenset({"http"}),
+    "batch": frozenset({"http"}),
+    "parallel": frozenset({"http"}),
     # The drawn curve.
     "points": frozenset({"pattern"}),
     "upper": frozenset({"pattern"}),
@@ -3678,6 +3681,35 @@ class _Validator:
                 line,
                 column,
             )
+
+        # batch / parallel — how the column is cut into requests, and how many may be on the
+        # wire at once. Whole numbers above zero: a batch of 2.5 rows or of none is a config
+        # asking for something no request can be.
+        for name, hint in (
+            (
+                "batch",
+                'batch="10000" sends ten thousand rows per request. '
+                "Omit it for the default of 10000.",
+            ),
+            (
+                "parallel",
+                'parallel="4" lets four requests be on the wire at once. '
+                "Omit it for one at a time.",
+            ),
+        ):
+            raw_count = attrs.get(name)
+            if raw_count is None:
+                continue
+            text = raw_count.strip()
+            if re.fullmatch(r"[0-9]+", text) is None or not 0 < int(text) <= _MAX_SAFE_INTEGER:
+                line, column = _at(gen, name)
+                self._error(
+                    "TDC313",
+                    f'invalid {name} "{text}" — expected a whole number above zero',
+                    hint,
+                    line,
+                    column,
+                )
 
         # secret — the key a request is signed with. Three spellings, and only the literal is
         # worth saying anything about: a config travels into version control, and the secret would
@@ -7624,6 +7656,10 @@ def _clip(value: str) -> str:
         return value
     hidden = len(value) - _MESSAGE_ECHO_LIMIT
     return f"{value[:_MESSAGE_ECHO_LIMIT]}\u2026 ({hidden} more chars)"
+
+
+_MAX_SAFE_INTEGER = 2**53 - 1
+"""The largest whole number the reference reads exactly — past it, TypeScript refuses `batch=`."""
 
 
 def _positive_seconds(raw: str) -> bool:

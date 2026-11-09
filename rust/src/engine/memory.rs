@@ -33,8 +33,7 @@ use crate::generators::date_offset;
 use crate::generators::formula;
 use crate::generators::stat;
 use crate::generators::{
-    advanced_regex, counter, file, http, imperfections, number, quantile, rand, regex, repeat,
-    symbol,
+    advanced_regex, counter, file, imperfections, number, quantile, rand, regex, repeat, symbol,
 };
 use crate::model::{
     Branch, Case, CasePart, Config, Field, Gen, Item, Line, Mix, SequenceSpec, Source, Switch,
@@ -116,6 +115,10 @@ pub struct Env<'a> {
     /// inside a `<case>` or an `if=` branch reads, since the branch is built far from the
     /// registry that holds them.
     offset_instants: RefCell<BTreeMap<String, Vec<Option<i64>>>>,
+    /// The run's http columns. A `type="http"` generator asks it for its column
+    /// and waits for the batches it needs, right where the column is built — so a
+    /// column declared below reads the real answer.
+    pub http: crate::generators::http_column::HttpSession,
 }
 
 impl<'a> Env<'a> {
@@ -133,6 +136,7 @@ impl<'a> Env<'a> {
             row_links: RefCell::new(BTreeMap::new()),
             siblings: RefCell::new(BTreeMap::new()),
             offset_instants: RefCell::new(BTreeMap::new()),
+            http: crate::generators::http_column::HttpSession::default(),
         }
     }
 
@@ -269,8 +273,7 @@ pub fn run_in_watched(
 ) -> EngineResult<MaterializedRows> {
     let env = Env::new(config, packs, now_millis, base_dir);
     let tables = build_pool_tables(&env)?;
-    let mut columns = build_columns_with(&env, Some(&tables))?;
-    resolve_http(&env, &mut columns)?;
+    let columns = build_columns_with(&env, Some(&tables))?;
     // The run is finished; now the config gets to check its own output — before
     // a single line is written, because a file that exists is a file someone
     // will use.
@@ -2663,6 +2666,11 @@ fn expression_reads(config: &Config, name: &str) -> bool {
             .any(|word| word == name || word.split('.').next() == Some(name))
     }
     fn gen_reads(gen: &Gen, name: &str) -> bool {
+        // An http column sends its `in=` column up, a batch at a time, from wherever
+        // the generator sits.
+        if gen.gen_type == "http" && gen.attrs.get("in").map(|s| s.trim()) == Some(name) {
+            return true;
+        }
         if let Some(expr) = gen.attrs.get("expr") {
             if mentions(expr, name) {
                 return true;
@@ -3320,11 +3328,48 @@ pub(super) fn generate_in_column(
         "symbol" => symbol::generate(&gen.attrs, count, prng),
         "timeseries" => timeseries::generate(&gen.attrs, count, prng),
         "template" => template_values(gen, count, prng, env, column),
-        // Filled in a second pass, after every ordinary column exists: an http
-        // gen may read another sequence through in=, and that sequence has to
-        // be there first. It draws nothing here, which is also what keeps the
-        // columns after it on the same stream position they would have had.
-        "http" => Ok(vec![String::new(); count]),
+        // The build waits here for the service, exactly where the column is built,
+        // so everything declared below — an if= that reads the answer, a second
+        // http with in= on it, a case that prints it — sees the real value. Row i
+        // of the column is answer i of the RUN, wherever this generator sits; the
+        // scope names which rows this build is for. It draws nothing, which keeps
+        // the columns after it on the stream position they would have had.
+        "http" => {
+            let total = env.config.count.max(0) as usize;
+            // Keyed by the COLUMN the reader wrote — `Name`, or `Name.field` — not by the
+            // stream a branch draws from (`Name#if0`): X-TDC-Seed is derived from it, and an
+            // internal stream name would change a service's answers whenever one was renamed.
+            let sequence = column
+                .map_or("", |(_, id, _)| id)
+                .split('#')
+                .next()
+                .unwrap_or("");
+            let col = env.http.column(
+                std::ptr::from_ref(gen) as usize,
+                sequence,
+                &gen.attrs,
+                &env.config.seed,
+                env.base_dir.unwrap_or("."),
+                total,
+            )?;
+            let in_name = gen
+                .attr("in")
+                .map(str::trim)
+                .filter(|name| !name.is_empty());
+            let rows: Vec<usize> = scope.map_or_else(|| (0..count).collect(), |s| s.rows.to_vec());
+            let input_at = |row: usize| -> String {
+                let Some(name) = in_name else {
+                    return String::new();
+                };
+                match scope {
+                    Some(s) => s.siblings.at(name, row),
+                    None => Siblings::at(env, name, row),
+                }
+                .unwrap_or_default()
+            };
+            let values = col.borrow_mut().values_at(&rows, &input_at);
+            values
+        }
         "increment" => counter::generate(&gen.attrs, count, true),
         "decrement" => counter::generate(&gen.attrs, count, false),
         // Whole columns by nature. The validator keeps them out of every place that reaches
@@ -3334,92 +3379,6 @@ pub(super) fn generate_in_column(
         )),
         other => not_ported(&format!("<gen type=\"{other}\">")),
     }
-}
-
-/// The second pass: fill every http column now that the ordinary ones exist.
-///
-/// It cannot happen in declaration order, because `in=` may name a sequence and
-/// one batch carries the whole column — the input has to be complete before the
-/// call goes out. A batch rather than a call per row is the difference between a
-/// handful of requests and a million.
-fn resolve_http(
-    env: &Env,
-    columns: &mut BTreeMap<String, Vec<Option<String>>>,
-) -> EngineResult<()> {
-    let count = env.config.count.max(0) as usize;
-    for spec in &env.config.sequences {
-        let Some(gen) = spec.gen() else { continue };
-        if gen.gen_type != "http" {
-            continue;
-        }
-
-        let inputs = match gen
-            .attr("in")
-            .map(str::trim)
-            .filter(|name| !name.is_empty())
-        {
-            None => None,
-            Some(name) => {
-                let column = columns.get(name);
-                Some(
-                    (0..count)
-                        .map(|i| {
-                            column
-                                .and_then(|c| c.get(i))
-                                .and_then(Option::as_ref)
-                                .cloned()
-                                .unwrap_or_default()
-                        })
-                        .collect::<Vec<String>>(),
-                )
-            }
-        };
-
-        // Resolved per sequence and never cached: two sequences may sign with
-        // two different secrets, and a config naming an unset variable should
-        // say so in terms of the sequence the reader wrote.
-        let secret = match gen.attr("secret").map(str::trim).filter(|s| !s.is_empty()) {
-            None => None,
-            Some(spec_text) => Some(
-                http::resolve_secret(
-                    spec_text,
-                    std::path::Path::new(env.base_dir.as_deref().unwrap_or(".")),
-                )
-                .map_err(|why| {
-                    EngineError::Invalid(format!(
-                        "http service for sequence \"{}\": {why}",
-                        spec.name
-                    ))
-                })?,
-            ),
-        };
-
-        let values = http::fetch(
-            gen.attr_or("src", ""),
-            count,
-            inputs.as_deref(),
-            Some(&http::seed_for(&env.config.seed, &spec.name)),
-            http::on_error(&gen.attrs),
-            http::timeout_ms(gen.attr("timeout")),
-            secret.as_deref(),
-        )
-        .map_err(|e| {
-            EngineError::Invalid(format!(
-                "http service for sequence \"{}\" {}",
-                spec.name,
-                e.message()
-                    .strip_prefix("http service at ")
-                    .map_or_else(|| e.message().to_string(), |rest| format!("at {rest}"))
-            ))
-        })?;
-
-        if let Some(target) = columns.get_mut(&spec.name) {
-            for (i, value) in values.into_iter().take(count).enumerate() {
-                target[i] = Some(value);
-            }
-        }
-    }
-    Ok(())
 }
 
 /// Whether a composed body builds a value of its own.

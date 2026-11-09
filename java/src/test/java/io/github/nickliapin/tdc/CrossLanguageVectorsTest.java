@@ -193,6 +193,8 @@ class CrossLanguageVectorsTest {
               v.get("timestamp").asText(),
               v.get("seed").asText(),
               v.get("count").asInt(),
+              v.get("offset").asInt(),
+              v.get("total").asInt(),
               v.get("body").asText()),
           v.get("name").asText());
     }

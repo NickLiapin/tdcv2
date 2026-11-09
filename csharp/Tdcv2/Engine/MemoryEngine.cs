@@ -83,7 +83,11 @@ public static class MemoryEngine
         // depends on the other rows, but it CAN fail on one — `Y / X` where X is zero — and a
         // refusal on a row nobody keeps is one the streaming engine never raises. So those two
         // compute only these rows. Nothing else reads it.
-        IReadOnlySet<int>? Kept = null)
+        IReadOnlySet<int>? Kept = null,
+        // The run's http columns. A `type="http"` generator asks it for its column and waits for
+        // the batches it needs, right where the column is built — so a column declared below
+        // reads the real answer.
+        HttpColumn.Session? Http = null)
     {
         internal int RegexMax => Config.RegexMaxLength;
 
@@ -933,6 +937,7 @@ public static class MemoryEngine
                     ? column[row]
                     : null,
             Instants = instants,
+            Http = ctx.Http ?? new HttpColumn.Session(ctx.Config.Seed, ctx.BaseDir ?? "."),
         };
 
         // Built-ins first. They are positional, consume no randomness, and are therefore
@@ -1397,7 +1402,6 @@ public static class MemoryEngine
 
         // Whatever is left: a group whose last member is the last sequence.
         groups.Settle(config.Sequences.Count, ctx, columns, count, prng);
-        ResolveHttp(ctx, columns, count);
         return columns;
     }
 
@@ -1525,9 +1529,43 @@ public static class MemoryEngine
                 return SymbolGen.Generate(gen.Attrs, count, prng);
             case "http":
             {
-                // Filled in a second pass, after every ordinary column exists: an http gen may read
-                // another sequence through in=, and that sequence has to be there first.
-                return Enumerable.Repeat("", count).ToArray();
+                // The build waits here for the service, exactly where the column is built, so
+                // everything declared below — an if= that reads the answer, a second http with in=
+                // on it, a case that prints it — sees the real value. Row i of the column is
+                // answer i of the RUN, wherever this generator sits; `rowAt` names which rows this
+                // build is for.
+                HttpColumn.Session session = ctx.Http ?? throw new InvalidOperationException(
+                    "gen type \"http\" makes a network call, and this render was started without"
+                    + " an http session");
+                string? inName = gen.Attrs.GetValueOrDefault("in")?.Trim();
+                if (string.IsNullOrEmpty(inName))
+                {
+                    inName = null;
+                }
+
+                var rows = new int[count];
+                for (int i = 0; i < count; i++)
+                {
+                    rows[i] = rowAt is null ? i : rowAt(i);
+                }
+
+                Func<string, int, string?>? siblingAt = ctx.SiblingAt;
+                try
+                {
+                    // Keyed by the COLUMN the reader wrote — `Name`, or `Name.field` — not by the
+                    // stream a branch draws from (`Name#if0`): X-TDC-Seed is derived from it, and
+                    // an internal stream name would change a service's answers whenever one was
+                    // renamed.
+                    string sequence = (ctx.ColumnStreamId ?? "").Split('#')[0];
+                    HttpColumn column = session.Column(
+                        gen, gen.Attrs, sequence, ctx.Config.Count);
+                    return column.ValuesAt(
+                        rows, row => inName is null ? "" : siblingAt?.Invoke(inName, row) ?? "");
+                }
+                catch (HttpColumn.ColumnException e)
+                {
+                    throw new InvalidOperationException(e.Message, e);
+                }
             }
 
             case "template":
@@ -1776,83 +1814,6 @@ public static class MemoryEngine
         }
 
         return plan.Indexes.Select(index => FileGen.CellAt(source, index)).ToArray();
-    }
-
-    // ── http ─────────────────────────────────────────────────────────────────────────────────
-
-    /// <summary>
-    /// The second pass: fill every http column now that the ordinary ones exist.
-    /// </summary>
-    /// <remarks>
-    /// It cannot happen in declaration order, because <c>in=</c> may name a sequence and one batch
-    /// carries the whole column — the input has to be complete before the call goes out. A batch
-    /// rather than a call per row is the difference between a handful of requests and a million.
-    /// </remarks>
-    private static void ResolveHttp(
-        Ctx ctx, IReadOnlyDictionary<string, string[]> columns, int count)
-    {
-        foreach (SequenceSpec spec in ctx.Config.Sequences)
-        {
-            if (spec.Gen is null || spec.Gen.Type != "http")
-            {
-                continue;
-            }
-
-            IReadOnlyDictionary<string, string> attrs = spec.Gen.Attrs;
-            IReadOnlyList<string>? inputs = null;
-            string? inName = attrs.GetValueOrDefault("in");
-            if (!string.IsNullOrWhiteSpace(inName))
-            {
-                columns.TryGetValue(inName, out string[]? column);
-                inputs = Enumerable.Range(0, count)
-                    .Select(i => column is null ? "" : column[i] ?? "")
-                    .ToArray();
-            }
-
-            // Resolved per sequence and never cached: two sequences may sign with two different
-            // secrets, and a config naming an unset variable should say so in terms of the
-            // sequence the reader wrote.
-            string? secretSpec = attrs.GetValueOrDefault("secret");
-            string? secret = null;
-            if (!string.IsNullOrWhiteSpace(secretSpec))
-            {
-                try
-                {
-                    secret = HttpGen.ResolveSecret(secretSpec, ctx.BaseDir ?? ".");
-                }
-                catch (HttpGen.SecretException e)
-                {
-                    throw new InvalidOperationException(
-                        $"http service for sequence \"{spec.Name}\": {e.Message}", e);
-                }
-            }
-
-            IReadOnlyList<string> values;
-            try
-            {
-                values = HttpGen.Fetch(
-                    attrs.GetValueOrDefault("src", ""),
-                    count,
-                    inputs,
-                    HttpGen.SeedFor(ctx.Config.Seed, spec.Name),
-                    HttpGen.OnError(attrs),
-                    HttpGen.TimeoutMs(attrs.GetValueOrDefault("timeout")),
-                    secret);
-            }
-            catch (HttpGen.ServiceException e)
-            {
-                throw new InvalidOperationException(
-                    $"http service for sequence \"{spec.Name}\" at {e.Url} {e.Message}", e);
-            }
-
-            if (columns.TryGetValue(spec.Name, out string[]? target))
-            {
-                for (int i = 0; i < count && i < values.Count; i++)
-                {
-                    target[i] = values[i];
-                }
-            }
-        }
     }
 
     // ── parent= ──────────────────────────────────────────────────────────────────────────────

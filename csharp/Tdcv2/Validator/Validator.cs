@@ -214,6 +214,8 @@ public sealed class Validator
             ["in"] = Set("http"),
             ["on_error"] = Set("http"),
             ["timeout"] = Set("http"),
+            ["batch"] = Set("http"),
+            ["parallel"] = Set("http"),
             ["secret"] = Set("http"),
 
             // The drawn curve.
@@ -565,7 +567,8 @@ public sealed class Validator
         "header",
         "delimiter", "row", "base", "trend", "period", "amplitude", "noise", "noise_correlation", "points", "upper",
         "lower", "y_range", "fit", "interp", "spread", "ink_threshold", "mode", "in", "on_error",
-        "timeout", "secret", "mean", "sd", "meanlog", "sdlog", "rate", "alpha", "xmin",
+        "timeout", "secret", "batch", "parallel", "mean", "sd", "meanlog", "sdlog", "rate",
+        "alpha", "xmin",
         "shape", "scale",
         "lambda", "n", "s", "beta", "min", "max", "filter", "read", "sample", "expr", "lengths");
 
@@ -4285,6 +4288,44 @@ public sealed class Validator
                 $"invalid timeout \"{timeout.Trim()}\" — expected a positive number of seconds",
                 "timeout=\"30\" waits thirty seconds for one answer. Omit it for the default of 30.",
                 line, column);
+        }
+
+        // batch / parallel — how the column is cut into requests, and how many may be on the wire
+        // at once. Whole numbers above zero: a batch of 2.5 rows or of none is a config asking for
+        // something no request can be.
+        foreach ((string name, string hint) in new[]
+        {
+            ("batch",
+                "batch=\"10000\" sends ten thousand rows per request. Omit it for the default of"
+                + " 10000."),
+            ("parallel",
+                "parallel=\"4\" lets four requests be on the wire at once. Omit it for one at a"
+                + " time."),
+        })
+        {
+            string? raw = attrs.GetValueOrDefault(name);
+            if (raw is null)
+            {
+                continue;
+            }
+
+            string text = raw.Trim();
+            // 2^53 - 1: the largest whole number the reference reads exactly.
+            bool ok = text.Length > 0
+                && text.All(c => c is >= '0' and <= '9')
+                && System.Numerics.BigInteger.TryParse(
+                    text, NumberStyles.None, CultureInfo.InvariantCulture, out var n)
+                && n > 0
+                && n <= 9_007_199_254_740_991L;
+            if (!ok)
+            {
+                (int line, int column) = At(gen, name);
+                Error(
+                    "TDC313",
+                    $"invalid {name} \"{text}\" — expected a whole number above zero",
+                    hint,
+                    line, column);
+            }
         }
 
         // secret — the key a request is signed with. Three spellings, and only the literal is

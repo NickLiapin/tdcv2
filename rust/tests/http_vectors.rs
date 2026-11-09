@@ -32,6 +32,11 @@ fn signatures_match_every_implementation() {
             .expect("timestamp");
         let seed = vector.get("seed").and_then(|v| v.as_str()).expect("seed");
         let count = vector.get("count").and_then(|v| v.as_i64()).expect("count") as usize;
+        let offset = vector
+            .get("offset")
+            .and_then(|v| v.as_i64())
+            .expect("offset") as usize;
+        let total = vector.get("total").and_then(|v| v.as_i64()).expect("total") as usize;
         let body = vector.get("body").and_then(|v| v.as_str()).expect("body");
         let want = vector
             .get("signature")
@@ -39,7 +44,7 @@ fn signatures_match_every_implementation() {
             .expect("signature");
 
         assert_eq!(
-            http::sign_request(secret, timestamp, seed, count, body),
+            http::sign_request(secret, timestamp, seed, count, offset, total, body),
             want,
             "{name}"
         );

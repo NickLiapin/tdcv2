@@ -27,11 +27,19 @@ from ..format import interpolate
 from ..format.mask import apply_mask
 from ..format.transforms import apply_case, is_case_transform
 from ..generators import accumulate as accumulate_gen
-from ..generators import advanced_regex, counter, imperfections, number, quantile, regex, symbol
+from ..generators import (
+    advanced_regex,
+    counter,
+    http_column,
+    imperfections,
+    number,
+    quantile,
+    regex,
+    symbol,
+)
 from ..generators import date_offset as date_offset_gen
 from ..generators import file as file_gen
 from ..generators import formula as formula_gen
-from ..generators import http as http_gen
 from ..generators import repeat as repeat_gen
 from ..generators import stat as stat_gen
 from ..model.config import Config, Gen, Group, Item, Line, SequenceSpec
@@ -146,6 +154,10 @@ class _Run:
     #: refusal on a row nobody keeps is one the streaming engine never raises. So those two
     #: compute only these rows. Nothing else reads it.
     kept_rows: frozenset[int] | None = None
+    #: The run's http columns. A ``type="http"`` generator asks it for its column and waits for
+    #: the batches it needs, right where the column is built — so a column declared below reads
+    #: the real answer. Absent, an http generator refuses rather than emit silent placeholders.
+    http: http_column.HttpSession | None = None
 
 
 def render(config: Config, packs: DataPacks, now_millis: int, base_dir: Path | None = None) -> str:
@@ -654,6 +666,7 @@ def _build_columns(
         value_at=_column_value_at,
         has_column=lambda name: name in columns,
         instants_of=instants.get,
+        http=http_column.HttpSession(config.seed, str(base_dir) if base_dir else "."),
     )
 
     # Pools first, and off a DERIVED seed. A pool must be invisible to every column it does not
@@ -797,7 +810,6 @@ def _build_columns(
         )
 
     settle(len(config.sequences))
-    _resolve_http(config, columns, count, base_dir)
     return columns
 
 
@@ -2465,9 +2477,33 @@ def _generate(
     if gen.type == "pattern":
         return _pattern(attrs, count, run)
     if gen.type == "http":
-        # Filled in a second pass, after every ordinary column exists: an http gen may read
-        # another sequence through in=, and that sequence has to be there first.
-        return [""] * count
+        # The build waits here for the service, exactly where the column is built, so everything
+        # declared below — an if= that reads the answer, a second http with in= on it, a case that
+        # prints it — sees the real value. Row i of the column is answer i of the RUN, wherever
+        # this generator sits; `run.rows` names which rows this build is for.
+        if run.http is None:
+            raise EngineError(
+                'gen type "http" makes a network call, and this render was started without an '
+                "http session"
+            )
+        in_name = (attrs.get("in") or "").strip() or None
+        value_at = run.value_at
+
+        def input_at(row: int) -> str:
+            if in_name is None or value_at is None:
+                return ""
+            value = value_at(in_name, row)
+            return "" if value is None else value
+
+        try:
+            # Keyed by the COLUMN the reader wrote — `Name`, or `Name.field` — not by the stream a
+            # branch draws from (`Name#if0`): X-TDC-Seed is derived from it, and an internal stream
+            # name would change a service's answers whenever the engine renamed one.
+            sequence = (run.stream_id or "").split("#")[0]
+            column = run.http.column(attrs, gen, sequence, config.count, input_at)
+            return column.values_at(run.rows if run.rows is not None else list(range(count)))
+        except http_column.ColumnError as e:
+            raise EngineError(str(e)) from e
     if gen.type == "regex":
         return regex.generate(attrs, count, config.regex_max_length, prng)
     if gen.type == "advanced_regex":
@@ -3014,66 +3050,6 @@ def _enforce_valid(pack, local, count: int, run: _Run, overrides: dict[str, str]
             for spec in pack.sequences:
                 if spec.is_computed:
                     local[spec.name][row] = compute_evaluate(spec.compute, _row_lookup(local, row))
-
-
-# ── http, resolved after everything else ────────────────────────────────────────────────────
-
-
-def _resolve_http(config: Config, columns, count: int, base_dir: Path | None) -> None:
-    """Every ``type="http"`` column filled from its service, once the rest of the run exists.
-
-    A second pass rather than a generator branch, because an http gen may read another sequence
-    through ``in=``, and that sequence has to be finished first.
-
-    One call per column, carrying the whole batch — a million rows is a handful of requests, not a
-    million. The ``in=`` column travels as the request body, so a service can answer per input
-    rather than out of thin air.
-
-    The seed sent along is derived from the run's seed and the sequence name. The engine cannot
-    make an http column reproducible, since the service decides the values; what it can do is give
-    the service everything it needs to be reproducible on its own.
-    """
-    for spec in config.sequences:
-        if spec.gen is None or spec.gen.type != "http":
-            continue
-        attrs = spec.gen.attrs
-        in_name = attrs.get("in")
-        inputs = None
-        if in_name and in_name.strip():
-            column = columns.get(in_name)
-            inputs = [
-                "" if column is None or column[i] is None else column[i] for i in range(count)
-            ]
-
-        # Resolved per sequence and never cached: two sequences may sign with two different
-        # secrets, and a config naming an unset variable should say so in terms of the sequence
-        # the reader wrote.
-        secret_spec = attrs.get("secret")
-        secret = None
-        if secret_spec and secret_spec.strip():
-            try:
-                secret = http_gen.resolve_secret(secret_spec, str(base_dir) if base_dir else ".")
-            except http_gen.SecretError as e:
-                raise EngineError(f'http service for sequence "{spec.name}": {e}') from e
-
-        request = http_gen.Request(
-            src=attrs.get("src", ""),
-            count=count,
-            inputs=inputs,
-            seed=http_gen.seed_for(config.seed, spec.name or ""),
-            on_error=http_gen.parse_on_error(attrs.get("on_error")),
-            timeout_ms=http_gen.parse_timeout(attrs.get("timeout")),
-            secret=secret,
-        )
-        try:
-            values = http_gen.fetch(request)
-        except http_gen.ServiceError as e:
-            raise EngineError(f'http service for sequence "{spec.name}" at {e.url} {e}') from e
-
-        target = columns.get(spec.name or "")
-        if target is not None:
-            for i in range(min(count, len(values))):
-                target[i] = values[i]
 
 
 # ── rendering ───────────────────────────────────────────────────────────────────────────────

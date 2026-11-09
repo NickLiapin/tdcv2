@@ -15,7 +15,7 @@ import io.github.nickliapin.tdc.generators.Counter;
 import io.github.nickliapin.tdc.generators.FileGen;
 import io.github.nickliapin.tdc.generators.Formula;
 import io.github.nickliapin.tdc.generators.Quantile;
-import io.github.nickliapin.tdc.generators.HttpGen;
+import io.github.nickliapin.tdc.generators.HttpColumn;
 import io.github.nickliapin.tdc.generators.Accumulate;
 import io.github.nickliapin.tdc.generators.Stat;
 import io.github.nickliapin.tdc.generators.Imperfections;
@@ -784,12 +784,39 @@ public final class MemoryEngine {
       long nowMillis,
       Path baseDir,
       Map<String, Pool.Table> prebuilt) {
+    Map<String, String[]> columns = new LinkedHashMap<>();
+    // The run's http columns. A `type="http"` generator asks the session for its column and waits
+    // for the batches it needs, right where the column is built — so a column declared below
+    // reads the real answer, and its `in=` column is read back from these finished ones.
+    HttpColumn.Session session =
+        HttpColumn.Session.open(
+            config.seed(),
+            baseDir,
+            count,
+            (name, row) -> {
+              String[] column = columns.get(name);
+              return column != null && row < column.length ? column[row] : null;
+            });
+    try {
+      return buildColumnsInto(columns, config, count, packs, nowMillis, baseDir, prebuilt);
+    } finally {
+      session.close();
+    }
+  }
+
+  private static Map<String, String[]> buildColumnsInto(
+      Map<String, String[]> columns,
+      Config config,
+      int count,
+      DataPacks packs,
+      long nowMillis,
+      Path baseDir,
+      Map<String, Pool.Table> prebuilt) {
     // Before a single row exists: can the uniq groups cover `count` at all? The post-build check
     // asks the same question over the finished columns, which means reaching it costs the
     // allocation this refusal is meant to save.
     checkEnvUniqCapacity(config, count);
 
-    Map<String, String[]> columns = new LinkedHashMap<>();
     // A config-level group over pool references settles every one of its members at once, the
     // first time any of them is reached: a later member needs the picks of the ones before it,
     // and a pick is not a column to read back.
@@ -1287,7 +1314,6 @@ public final class MemoryEngine {
       }
     }
     groups.settle(specs.size(), config, columns, count, prng, packs, nowMillis, baseDir);
-    resolveHttp(config, columns, count, baseDir);
     return columns;
   }
 
@@ -4074,76 +4100,6 @@ public final class MemoryEngine {
   }
 
 
-  /**
-   * Fill every {@code type="http"} column from its service, once the rest of the run exists.
-   *
-   * <p>A second pass rather than a generator branch, because an http gen may read another
-   * sequence through {@code in=}, and that sequence has to be finished first.
-   *
-   * <p>One call per column, carrying the whole batch — a million rows is a handful of requests,
-   * not a million. The {@code in=} column travels as the request body, so a service can answer
-   * per input rather than out of thin air.
-   *
-   * <p>The seed sent along is derived from the run's seed and the sequence name. The engine
-   * cannot make an http column reproducible, since the service decides the values; what it can
-   * do is give the service everything it needs to be reproducible on its own.
-   */
-  private static void resolveHttp(
-      Config config, Map<String, String[]> columns, int count, Path baseDir) {
-    for (Config.SequenceSpec spec : config.sequences()) {
-      if (spec.gen() == null || !"http".equals(spec.gen().type())) {
-        continue;
-      }
-      Map<String, String> attrs = spec.gen().attrs();
-      String inName = attrs.get("in");
-      List<String> inputs = null;
-      if (inName != null && !inName.isBlank()) {
-        String[] column = columns.get(inName);
-        inputs = new ArrayList<>(count);
-        for (int i = 0; i < count; i++) {
-          inputs.add(column == null || column[i] == null ? "" : column[i]);
-        }
-      }
-
-      // Resolved per sequence and never cached: two sequences may sign with two different
-      // secrets, and a config naming an unset variable should say so in terms of the sequence the
-      // reader wrote.
-      String secretSpec = attrs.get("secret");
-      String secret = null;
-      if (secretSpec != null && !secretSpec.isBlank()) {
-        try {
-          secret = HttpGen.resolveSecret(secretSpec, baseDir);
-        } catch (HttpGen.SecretException e) {
-          throw new IllegalStateException(
-              "http service for sequence \"" + spec.name() + "\": " + e.getMessage(), e);
-        }
-      }
-
-      List<String> values;
-      try {
-        values =
-            HttpGen.fetch(
-                attrs.getOrDefault("src", ""),
-                count,
-                inputs,
-                HttpGen.seedFor(config.seed(), spec.name()),
-                HttpGen.onError(attrs),
-                HttpGen.timeoutMs(attrs.get("timeout")),
-                secret);
-      } catch (HttpGen.ServiceException e) {
-        throw new IllegalStateException(
-            "http service for sequence \"" + spec.name() + "\" at " + e.url + " " + e.getMessage(), e);
-      }
-
-      String[] target = columns.get(spec.name());
-      if (target != null) {
-        for (int i = 0; i < count && i < values.size(); i++) {
-          target[i] = values.get(i);
-        }
-      }
-    }
-  }
-
   /** Which rows a column applies to. */
   private static boolean[] parentMask(
       Config.SequenceSpec spec, Map<String, String[]> columns, int count) {
@@ -4490,13 +4446,43 @@ public final class MemoryEngine {
         return PatternGen.generate(gen.attrs(), count, baseDir, prng);
       }
       case "http" -> {
-        // Filled in a second pass, after every ordinary column exists: an http gen may read
-        // another sequence through in=, and that sequence has to be there first.
-        List<String> placeholder = new ArrayList<>(count);
-        for (int i = 0; i < count; i++) {
-          placeholder.add("");
+        // The build waits here for the service, exactly where the column is built, so everything
+        // declared below — an if= that reads the answer, a second http with in= on it, a case
+        // that prints it — sees the real value. Row i of the column is answer i of the RUN,
+        // wherever this generator sits; `rowAt` names which rows this build is for.
+        HttpColumn.Session session = HttpColumn.Session.current();
+        if (session == null) {
+          throw new IllegalStateException(
+              "gen type \"http\" makes a network call, and this render was started without an"
+                  + " http session");
         }
-        return placeholder;
+        String in = gen.attrs().get("in");
+        String inName = in == null || in.trim().isEmpty() ? null : in.trim();
+        int[] rows = new int[count];
+        for (int i = 0; i < count; i++) {
+          rows[i] = rowAt == null ? i : rowAt.applyAsInt(i);
+        }
+        try {
+          // Keyed by the COLUMN the reader wrote — `Name`, or `Name.field` — not by the stream a
+          // branch draws from (`Name#if0`): X-TDC-Seed is derived from it, and an internal stream
+          // name would change a service's answers whenever the engine renamed one.
+          String sequence = streamId == null ? "" : streamId.split("#", -1)[0];
+          HttpColumn column = session.column(gen, gen.attrs(), sequence, session.total());
+          return column.valuesAt(
+              rows,
+              row -> {
+                if (inName == null) {
+                  return "";
+                }
+                if (siblings != null) {
+                  String value = siblings.at().apply(inName, row);
+                  return value == null ? "" : value;
+                }
+                return session.read(inName, row);
+              });
+        } catch (HttpColumn.ColumnException e) {
+          throw new IllegalStateException(e.getMessage(), e);
+        }
       }
       case "regex" -> {
         return RegexGen.generate(gen.attrs(), count, config.regexMaxLength(), prng);

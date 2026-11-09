@@ -5,10 +5,11 @@
 //! the DSL until it can express every such thing, a config can point at a
 //! service and let it answer.
 //!
-//! One call carries a whole batch, never one row. That is what keeps a million
-//! rows to a handful of requests instead of a million, and it is why the wire
-//! format is line-based: the inputs go up one per line and the values come back
-//! one per line, in the same order.
+//! One call carries one batch — never one row, and never the whole column: that
+//! keeps a billion rows to a hundred thousand requests instead of a billion, and
+//! any one reply small enough to hold. `http_column` cuts a column into batches.
+//! The wire format is line-based: the inputs go up one per line and the values
+//! come back one per line, in the same order.
 //!
 //! An http column is **not reproducible** — the service decides the values, and
 //! the engine cannot promise what it does not control. What it can do is hand
@@ -23,7 +24,6 @@
 
 use std::collections::BTreeMap;
 
-use crate::engine::{invalid, EngineResult};
 use crate::prng;
 
 const DEFAULT_TIMEOUT_MS: i64 = 30_000;
@@ -35,43 +35,77 @@ pub enum OnError {
     Empty,
 }
 
+/// One batch of a column, fully described.
+pub struct Batch<'a> {
+    pub src: &'a str,
+    /// How many values are wanted — `X-TDC-Count`.
+    pub count: usize,
+    /// The row of the column the batch starts at — `X-TDC-Offset`. A service that
+    /// invents values from `(seed, row)` needs it, or every batch would repeat the
+    /// first.
+    pub offset: usize,
+    /// Rows in the whole column — `X-TDC-Total`.
+    pub total: usize,
+    /// One line per input value in row order, or `None` for a pure source.
+    pub inputs: Option<&'a [String]>,
+    pub seed: Option<&'a str>,
+    pub on_error: OnError,
+    pub timeout_ms: i64,
+    /// The already-resolved `secret=`, if the config carries one. Present means
+    /// the request is SIGNED — the secret itself never goes on the wire.
+    pub secret: Option<&'a str>,
+}
+
+/// Why a batch failed, in the words that follow the service's address.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct Failed {
+    pub why: String,
+}
+
 /// Run one batch and return exactly `count` values.
 ///
-/// `inputs` is one line per input value in row order, or `None` for a pure
-/// source.
-pub fn fetch(
-    src: &str,
-    count: usize,
-    inputs: Option<&[String]>,
-    seed: Option<&str>,
-    on_error: OnError,
-    timeout_ms: i64,
-    // The already-resolved `secret=`, if the config carries one. Present means
-    // the request is SIGNED — the secret itself never goes on the wire.
-    secret: Option<&str>,
-) -> EngineResult<Vec<String>> {
+/// `on_error="empty"` turns a failure into blanks — except 429 and an ignored
+/// offset, which fail under both: "slow down" cannot be reconciled with "fill
+/// the column", and a source repeating its first batch is a broken contract, not
+/// a bad moment.
+pub fn fetch(batch: &Batch) -> Result<Vec<String>, Failed> {
+    let count = batch.count;
     if count == 0 {
         return Ok(Vec::new());
     }
 
-    let body = inputs.map(|lines| lines.join("\n")).unwrap_or_default();
-    match post(
-        src,
-        &body,
-        count,
-        seed,
-        timeout_ms,
-        inputs.map(<[String]>::len),
-        secret,
-    ) {
-        Ok(text) => {
+    let body = batch
+        .inputs
+        .map(|lines| lines.join("\n"))
+        .unwrap_or_default();
+    match post(batch, &body) {
+        Ok((text, echoed)) => {
+            // A source cut into batches: the service has to show it read the
+            // offset, or the second batch would be the first one again. A
+            // transform needs no echo — each answer comes from its own input.
+            if batch.inputs.is_none() && batch.total > count {
+                let offset = batch.offset.to_string();
+                if echoed.as_deref() != Some(offset.as_str()) {
+                    return Err(Failed {
+                        why: match echoed {
+                            None => format!(
+                                "answered the batch at row {offset} without echoing X-TDC-Offset \
+                                 — a service with no in= column must read the offset and send it \
+                                 back, or every batch would repeat the first"
+                            ),
+                            Some(other) => format!(
+                                "answered the batch at row {offset} with X-TDC-Offset {other}"
+                            ),
+                        },
+                    });
+                }
+            }
             let lines = split_lines(&text);
             if lines.len() != count {
                 return failed(
-                    src,
                     &format!("returned {} line(s) for a batch of {count}", lines.len()),
                     count,
-                    on_error,
+                    batch.on_error,
                 );
             }
             Ok(lines)
@@ -79,22 +113,31 @@ pub fn fetch(
         // "Slow down" and "give me the whole column" cannot both be honoured,
         // and pretending otherwise yields quietly truncated data. This is the
         // one failure `on_error` cannot soften.
-        Err(Failure::RateLimited) => invalid(&format!(
-            "http service at {src} returned 429 (rate limited)"
-        )),
-        Err(Failure::Said(why)) => failed(src, &why, count, on_error),
+        Err(Failure::RateLimited) => Err(Failed {
+            why: "returned 429 (rate limited)".to_string(),
+        }),
+        Err(Failure::Said(why)) => failed(&why, count, batch.on_error),
     }
 }
 
-/// `hex(HMAC-SHA256(secret, timestamp \n seed \n count \n body))`.
+/// `hex(HMAC-SHA256(secret, timestamp \n seed \n count \n offset \n total \n body))`.
 ///
 /// Everything that decides what comes back is inside: change the body, the
-/// count, the seed or the minute, and the signature no longer matches. The
+/// count, the place in the column, the seed or the minute, and the signature no
+/// longer matches — so a captured batch cannot be replayed as another one. The
 /// secret is the key, so it is never sent — which is what makes this safe over
 /// plain http on a trusted network, and what makes a captured request useless
 /// tomorrow once the service checks the timestamp.
-pub fn sign_request(secret: &str, timestamp: &str, seed: &str, count: usize, body: &str) -> String {
-    let message = format!("{timestamp}\n{seed}\n{count}\n{body}");
+pub fn sign_request(
+    secret: &str,
+    timestamp: &str,
+    seed: &str,
+    count: usize,
+    offset: usize,
+    total: usize,
+    body: &str,
+) -> String {
+    let message = format!("{timestamp}\n{seed}\n{count}\n{offset}\n{total}\n{body}");
     crate::archive::sha256::hmac_hex(secret.as_bytes(), message.as_bytes())
 }
 
@@ -114,10 +157,12 @@ enum Failure {
     Said(String),
 }
 
-fn failed(src: &str, why: &str, count: usize, on_error: OnError) -> EngineResult<Vec<String>> {
+fn failed(why: &str, count: usize, on_error: OnError) -> Result<Vec<String>, Failed> {
     match on_error {
         OnError::Empty => Ok(vec![String::new(); count]),
-        OnError::Fail => invalid(&format!("http service at {src} {why}")),
+        OnError::Fail => Err(Failed {
+            why: why.to_string(),
+        }),
     }
 }
 
@@ -138,16 +183,20 @@ fn split_lines(text: &str) -> Vec<String> {
 /// The body goes on stdin rather than as an argument: an input column is the
 /// whole run, and a command line has a length limit that a million names would
 /// pass long before anything else went wrong.
-fn post(
-    src: &str,
-    body: &str,
-    count: usize,
-    seed: Option<&str>,
-    timeout_ms: i64,
-    input_lines: Option<usize>,
-    secret: Option<&str>,
-) -> Result<String, Failure> {
+fn post(batch: &Batch, body: &str) -> Result<(String, Option<String>), Failure> {
     use std::io::Write;
+
+    let Batch {
+        src,
+        count,
+        offset,
+        total,
+        seed,
+        timeout_ms,
+        secret,
+        ..
+    } = *batch;
+    let input_lines = batch.inputs.map(<[String]>::len);
 
     let seconds = format!("{:.3}", timeout_ms as f64 / 1000.0);
     let mut command = std::process::Command::new("curl");
@@ -155,9 +204,10 @@ fn post(
         .arg("--silent")
         .arg("--show-error")
         // The status is wanted even when it is a failure, so `--fail` is out:
-        // 429 has to be told apart from 500, and `--fail` collapses both.
+        // 429 has to be told apart from 500, and `--fail` collapses both. The
+        // echoed offset rides on the same last line, empty when not sent.
         .arg("--write-out")
-        .arg("\n%{http_code}")
+        .arg("\n%{http_code} %header{x-tdc-offset}")
         .arg("--max-time")
         .arg(&seconds)
         .arg("--request")
@@ -167,7 +217,11 @@ fn post(
         // service matching the header would have rejected the longer form.
         .arg("Content-Type: text/plain")
         .arg("--header")
-        .arg(format!("X-TDC-Count: {count}"));
+        .arg(format!("X-TDC-Count: {count}"))
+        .arg("--header")
+        .arg(format!("X-TDC-Offset: {offset}"))
+        .arg("--header")
+        .arg(format!("X-TDC-Total: {total}"));
     if let Some(seed) = seed {
         command.arg("--header").arg(format!("X-TDC-Seed: {seed}"));
     }
@@ -181,7 +235,15 @@ fn post(
     }
     if let Some(secret) = secret.filter(|s| !s.is_empty()) {
         let timestamp = now_seconds().to_string();
-        let signature = sign_request(secret, &timestamp, seed.unwrap_or(""), count, body);
+        let signature = sign_request(
+            secret,
+            &timestamp,
+            seed.unwrap_or(""),
+            count,
+            offset,
+            total,
+            body,
+        );
         command
             .arg("--header")
             .arg(format!("X-TDC-Timestamp: {timestamp}"))
@@ -260,12 +322,14 @@ fn post(
         }));
     }
 
-    // The status was appended after a newline by `--write-out`.
+    // The status and the echoed offset were appended after a newline by `--write-out`.
     let whole = String::from_utf8_lossy(&reply).into_owned();
     let Some(split) = whole.rfind('\n') else {
         return Err(Failure::Said("returned nothing".to_string()));
     };
-    let status: i32 = whole[split + 1..].trim().parse().unwrap_or(0);
+    let mut tail = whole[split + 1..].split_whitespace();
+    let status: i32 = tail.next().and_then(|s| s.parse().ok()).unwrap_or(0);
+    let echoed = tail.next().map(str::to_string);
     let text = whole[..split].to_string();
 
     if status == 429 {
@@ -274,7 +338,7 @@ fn post(
     if !(200..300).contains(&status) {
         return Err(Failure::Said(format!("returned {status}")));
     }
-    Ok(text)
+    Ok((text, echoed))
 }
 
 /// The value sent as `X-TDC-Seed`: eight hex digits from the run's seed and the

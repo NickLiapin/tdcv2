@@ -44,7 +44,9 @@ public final class HttpGen {
     TIMEOUT,
     NETWORK,
     COUNT_MISMATCH,
-    TOO_LARGE
+    TOO_LARGE,
+    /** A source that did not echo {@code X-TDC-Offset} — always fatal. */
+    OFFSET_IGNORED
   }
 
   /**
@@ -79,8 +81,15 @@ public final class HttpGen {
    * request useless tomorrow once the service checks the timestamp.
    */
   public static String signRequest(
-      String secret, String timestamp, String seed, int count, String body) {
-    String message = timestamp + "\n" + seed + "\n" + count + "\n" + body;
+      String secret,
+      String timestamp,
+      String seed,
+      int count,
+      int offset,
+      int total,
+      String body) {
+    String message =
+        timestamp + "\n" + seed + "\n" + count + "\n" + offset + "\n" + total + "\n" + body;
     try {
       javax.crypto.Mac mac = javax.crypto.Mac.getInstance("HmacSHA256");
       mac.init(
@@ -128,6 +137,27 @@ public final class HttpGen {
       OnError onError,
       long timeoutMs,
       String secret) {
+    return fetch(src, count, 0, count, inputs, seed, onError, timeoutMs, secret);
+  }
+
+  /**
+   * One batch of a column: {@code count} rows starting at row {@code offset} of a column of
+   * {@code total}. Returns exactly {@code count} values.
+   *
+   * <p>{@code on_error="empty"} turns a failure into blanks — except 429 and an ignored offset,
+   * which fail under both: "slow down" cannot be reconciled with "fill the column", and a source
+   * repeating its first batch is a broken contract, not a bad moment.
+   */
+  public static List<String> fetch(
+      String src,
+      int count,
+      int offset,
+      int total,
+      List<String> inputs,
+      String seed,
+      OnError onError,
+      long timeoutMs,
+      String secret) {
     if (count <= 0) {
       return List.of();
     }
@@ -138,6 +168,8 @@ public final class HttpGen {
             .timeout(Duration.ofMillis(timeoutMs))
             .header("Content-Type", "text/plain")
             .header("X-TDC-Count", String.valueOf(count))
+            .header("X-TDC-Offset", String.valueOf(offset))
+            .header("X-TDC-Total", String.valueOf(total))
             .POST(HttpRequest.BodyPublishers.ofString(body));
     if (seed != null) {
       request.header("X-TDC-Seed", seed);
@@ -157,7 +189,7 @@ public final class HttpGen {
       request.header("X-TDC-Timestamp", timestamp);
       request.header(
           "X-TDC-Signature",
-          signRequest(secret, timestamp, seed == null ? "" : seed, count, body));
+          signRequest(secret, timestamp, seed == null ? "" : seed, count, offset, total, body));
     }
 
     HttpResponse<java.io.InputStream> response;
@@ -200,6 +232,25 @@ public final class HttpGen {
               "answered with more than " + MAX_RESPONSE_BYTES + " bytes — not a per-line reply",
               FailureKind.TOO_LARGE, src, response.statusCode()),
           count, onError);
+    }
+
+    // A source cut into batches: the service has to show it read the offset, or the second batch
+    // would be the first one again. A transform needs no echo — each answer is computed from its
+    // own input line, wherever the batch sits.
+    if (inputs == null && total > count) {
+      String echoed = response.headers().firstValue("X-TDC-Offset").orElse(null);
+      String expected = String.valueOf(offset);
+      if (!expected.equals(echoed)) {
+        throw new ServiceException(
+            echoed == null
+                ? "answered the batch at row " + expected + " without echoing X-TDC-Offset — a"
+                    + " service with no in= column must read the offset and send it back, or every"
+                    + " batch would repeat the first"
+                : "answered the batch at row " + expected + " with X-TDC-Offset " + echoed,
+            FailureKind.OFFSET_IGNORED,
+            src,
+            response.statusCode());
+      }
     }
 
     List<String> lines = splitLines(new String(raw, java.nio.charset.StandardCharsets.UTF_8));

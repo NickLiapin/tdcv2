@@ -204,6 +204,8 @@ public final class Validator {
           Map.entry("on_error", java.util.Set.of("http")),
           Map.entry("timeout", java.util.Set.of("http")),
           Map.entry("secret", java.util.Set.of("http")),
+          Map.entry("batch", java.util.Set.of("http")),
+          Map.entry("parallel", java.util.Set.of("http")),
           // The drawn curve.
           Map.entry("points", java.util.Set.of("pattern")),
           Map.entry("upper", java.util.Set.of("pattern")),
@@ -572,7 +574,8 @@ public final class Validator {
           "header",
           "delimiter", "row", "base", "trend", "period", "amplitude", "noise", "noise_correlation", "points", "upper",
           "lower", "y_range", "fit", "interp", "spread", "ink_threshold", "mode", "in", "on_error",
-          "timeout", "secret", "mean", "sd", "meanlog", "sdlog", "rate", "alpha", "xmin",
+          "timeout", "secret", "batch", "parallel", "mean", "sd", "meanlog", "sdlog", "rate",
+          "alpha", "xmin",
           "shape", "scale",
           "lambda", "n", "s", "beta", "min", "max", "filter", "read", "sample", "expr",
           "lengths");
@@ -3770,6 +3773,35 @@ public final class Validator {
           "invalid timeout \"" + timeout.trim() + "\" — expected a positive number of seconds",
           "timeout=\"30\" waits thirty seconds for one answer. Omit it for the default of 30.",
           at(gen, "timeout")[0], at(gen, "timeout")[1]);
+    }
+
+    // batch / parallel — how the column is cut into requests, and how many may be on the wire at
+    // once. Whole numbers above zero: a batch of 2.5 rows or of none is a config asking for
+    // something no request can be.
+    String[][] counts = {
+      {"batch", "batch=\"10000\" sends ten thousand rows per request. Omit it for the default of"
+          + " 10000."},
+      {"parallel", "parallel=\"4\" lets four requests be on the wire at once. Omit it for one at a"
+          + " time."},
+    };
+    for (String[] knob : counts) {
+      String raw = attrs.get(knob[0]);
+      if (raw == null) {
+        continue;
+      }
+      String text = raw.trim();
+      boolean ok = !text.isEmpty() && text.chars().allMatch(c -> c >= '0' && c <= '9');
+      if (ok) {
+        // 2^53 - 1: the largest whole number the reference reads exactly.
+        java.math.BigInteger n = new java.math.BigInteger(text);
+        ok = n.signum() > 0 && n.compareTo(java.math.BigInteger.valueOf(9_007_199_254_740_991L)) <= 0;
+      }
+      if (!ok) {
+        error("TDC313",
+            "invalid " + knob[0] + " \"" + text + "\" — expected a whole number above zero",
+            knob[1],
+            at(gen, knob[0])[0], at(gen, knob[0])[1]);
+      }
     }
 
     // secret — the key a request is signed with. Three spellings, and only the literal is worth

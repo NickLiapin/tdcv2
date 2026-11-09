@@ -17,20 +17,22 @@ public class HttpSignatureTest
     public void AgreesWithTheOtherImplementations()
     {
         Assert.Equal(
-            "d0be9a276deb4802b0a2ec6d85050f7f90e1c44cf42c25773740b755f98803ce",
-            HttpGen.SignRequest("k7Fm2p-test-secret", "1786000000", "seed1", 4, "body"));
+            "2f76a55a7654af0fec395256315ea34c5d0656aec6a95bae24d0a64b50b59735",
+            HttpGen.SignRequest("k7Fm2p-test-secret", "1786000000", "seed1", 4, 0, 4, "body"));
     }
 
     /// <summary>Everything that decides the answer is inside the signature.</summary>
     [Fact]
     public void CoversEveryPartOfTheRequest()
     {
-        string baseline = HttpGen.SignRequest("s", "1786000000", "seed1", 4, "body");
-        Assert.NotEqual(baseline, HttpGen.SignRequest("s", "1786000001", "seed1", 4, "body"));
-        Assert.NotEqual(baseline, HttpGen.SignRequest("s", "1786000000", "seed2", 4, "body"));
-        Assert.NotEqual(baseline, HttpGen.SignRequest("s", "1786000000", "seed1", 5, "body"));
-        Assert.NotEqual(baseline, HttpGen.SignRequest("s", "1786000000", "seed1", 4, "other"));
-        Assert.Equal(baseline, HttpGen.SignRequest("s", "1786000000", "seed1", 4, "body"));
+        string baseline = HttpGen.SignRequest("s", "1786000000", "seed1", 4, 0, 4, "body");
+        Assert.NotEqual(baseline, HttpGen.SignRequest("s", "1786000001", "seed1", 4, 0, 4, "body"));
+        Assert.NotEqual(baseline, HttpGen.SignRequest("s", "1786000000", "seed2", 4, 0, 4, "body"));
+        Assert.NotEqual(baseline, HttpGen.SignRequest("s", "1786000000", "seed1", 5, 0, 4, "body"));
+        Assert.NotEqual(baseline, HttpGen.SignRequest("s", "1786000000", "seed1", 4, 4, 8, "body"));
+        Assert.NotEqual(baseline, HttpGen.SignRequest("s", "1786000000", "seed1", 4, 0, 8, "body"));
+        Assert.NotEqual(baseline, HttpGen.SignRequest("s", "1786000000", "seed1", 4, 0, 4, "other"));
+        Assert.Equal(baseline, HttpGen.SignRequest("s", "1786000000", "seed1", 4, 0, 4, "body"));
     }
 
     /// <summary>Three spellings, and an empty one is refused wherever it came from.</summary>

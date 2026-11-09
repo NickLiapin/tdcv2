@@ -8,6 +8,7 @@ pub mod date_offset;
 pub mod file;
 pub mod formula;
 pub mod http;
+pub mod http_column;
 pub mod imperfections;
 pub mod number;
 pub mod quantile;

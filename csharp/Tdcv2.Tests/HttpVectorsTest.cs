@@ -37,6 +37,8 @@ public class HttpVectorsTest
                     v.GetProperty("timestamp").GetString()!,
                     v.GetProperty("seed").GetString()!,
                     v.GetProperty("count").GetInt32(),
+                    v.GetProperty("offset").GetInt32(),
+                    v.GetProperty("total").GetInt32(),
                     v.GetProperty("body").GetString()!));
             checked_++;
         }

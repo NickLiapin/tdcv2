@@ -44,6 +44,9 @@ public static class HttpGen
         Network,
         CountMismatch,
         TooLarge,
+
+        /// <summary>A source that did not echo <c>X-TDC-Offset</c> — always fatal.</summary>
+        OffsetIgnored,
     }
 
     /// <summary>
@@ -94,9 +97,16 @@ public static class HttpGen
     /// captured request useless tomorrow once the service checks the timestamp.
     /// </remarks>
     public static string SignRequest(
-        string secret, string timestamp, string seed, int count, string body)
+        string secret, string timestamp, string seed, int count, int offset, int total, string body)
     {
-        string message = $"{timestamp}\n{seed}\n{count.ToString(CultureInfo.InvariantCulture)}\n{body}";
+        string message = string.Join(
+            "\n",
+            timestamp,
+            seed,
+            count.ToString(CultureInfo.InvariantCulture),
+            offset.ToString(CultureInfo.InvariantCulture),
+            total.ToString(CultureInfo.InvariantCulture),
+            body);
         using var mac = new System.Security.Cryptography.HMACSHA256(Encoding.UTF8.GetBytes(secret));
         return Convert.ToHexString(mac.ComputeHash(Encoding.UTF8.GetBytes(message))).ToLowerInvariant();
     }
@@ -118,6 +128,21 @@ public static class HttpGen
     public static IReadOnlyList<string> Fetch(
         string src, int count, IReadOnlyList<string>? inputs, string? seed, OnErrorMode onError,
         long timeoutMs, string? secret)
+        => Fetch(src, count, 0, count, inputs, seed, onError, timeoutMs, secret);
+
+    /// <summary>
+    /// One batch of a column: <paramref name="count"/> rows starting at row
+    /// <paramref name="offset"/> of a column of <paramref name="total"/>. Returns exactly
+    /// <paramref name="count"/> values.
+    /// </summary>
+    /// <remarks>
+    /// <c>on_error="empty"</c> turns a failure into blanks — except 429 and an ignored offset,
+    /// which fail under both: "slow down" cannot be reconciled with "fill the column", and a source
+    /// repeating its first batch is a broken contract, not a bad moment.
+    /// </remarks>
+    public static IReadOnlyList<string> Fetch(
+        string src, int count, int offset, int total, IReadOnlyList<string>? inputs, string? seed,
+        OnErrorMode onError, long timeoutMs, string? secret)
     {
         if (count <= 0)
         {
@@ -135,6 +160,10 @@ public static class HttpGen
         using var request = new HttpRequestMessage(HttpMethod.Post, src) { Content = content };
         request.Headers.TryAddWithoutValidation(
             "X-TDC-Count", count.ToString(CultureInfo.InvariantCulture));
+        request.Headers.TryAddWithoutValidation(
+            "X-TDC-Offset", offset.ToString(CultureInfo.InvariantCulture));
+        request.Headers.TryAddWithoutValidation(
+            "X-TDC-Total", total.ToString(CultureInfo.InvariantCulture));
         if (seed is not null)
         {
             request.Headers.TryAddWithoutValidation("X-TDC-Seed", seed);
@@ -159,7 +188,8 @@ public static class HttpGen
                 .ToString(CultureInfo.InvariantCulture);
             request.Headers.TryAddWithoutValidation("X-TDC-Timestamp", timestamp);
             request.Headers.TryAddWithoutValidation(
-                "X-TDC-Signature", SignRequest(secret, timestamp, seed ?? "", count, body));
+                "X-TDC-Signature",
+                SignRequest(secret, timestamp, seed ?? "", count, offset, total, body));
         }
 
         HttpResponseMessage response;
@@ -215,6 +245,27 @@ public static class HttpGen
                 return Fail(
                     new ServiceException($"returned {status}", FailureKind.Status, src, status),
                     count, onError);
+            }
+
+            // A source cut into batches: the service has to show it read the offset, or the
+            // second batch would be the first one again. A transform needs no echo — each answer
+            // is computed from its own input line, wherever the batch sits.
+            if (inputs is null && total > count)
+            {
+                string expected = offset.ToString(CultureInfo.InvariantCulture);
+                string? echoed = response.Headers.TryGetValues("X-TDC-Offset", out var said)
+                    ? said.FirstOrDefault()
+                    : null;
+                if (echoed != expected)
+                {
+                    throw new ServiceException(
+                        echoed is null
+                            ? $"answered the batch at row {expected} without echoing X-TDC-Offset"
+                                + " — a service with no in= column must read the offset and send it"
+                                + " back, or every batch would repeat the first"
+                            : $"answered the batch at row {expected} with X-TDC-Offset {echoed}",
+                        FailureKind.OffsetIgnored, src, status);
+                }
             }
 
             IReadOnlyList<string> lines = SplitLines(text);

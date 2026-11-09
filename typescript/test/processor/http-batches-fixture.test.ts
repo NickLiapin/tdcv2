@@ -28,6 +28,7 @@ interface Case {
   }[];
   readonly output?: string;
   readonly error?: string;
+  readonly seeds?: readonly string[];
 }
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -87,6 +88,9 @@ describe('http-batches.json', () => {
         }))
         .sort((a, b) => (a.offset ?? 0) - (b.offset ?? 0));
       expect(seen).toEqual(c.requests);
+    }
+    if (c.seeds !== undefined) {
+      expect([...svc.seeds()].sort()).toEqual(c.seeds);
     }
   });
 });
