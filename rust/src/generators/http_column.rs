@@ -54,7 +54,9 @@ pub struct HttpColumn {
     batches: usize,
     in_flight: BTreeMap<usize, InFlight>,
     /// Answered batches, oldest first; trimmed to `keep`.
-    answered: VecDeque<(usize, Vec<String>)>,
+    /// Shared rather than copied: a reader walking a batch row by row asks for it
+    /// once per row, and a copy each time made a 10,000-row batch cost 10,000 copies.
+    answered: VecDeque<(usize, Rc<Vec<String>>)>,
     keep: usize,
 }
 
@@ -93,7 +95,7 @@ impl HttpColumn {
         let mut needed: Vec<usize> = rows.iter().map(|row| row / size).collect();
         needed.sort_unstable();
         needed.dedup();
-        let mut by_batch: BTreeMap<usize, Vec<String>> = BTreeMap::new();
+        let mut by_batch: BTreeMap<usize, Rc<Vec<String>>> = BTreeMap::new();
         for (i, &k) in needed.iter().enumerate() {
             let next = needed.get(i + 1).copied();
             let end = (i + self.spec.parallel).min(needed.len());
@@ -120,9 +122,9 @@ impl HttpColumn {
         next: Option<usize>,
         ahead: &[usize],
         input_at: InputAt,
-    ) -> EngineResult<Vec<String>> {
+    ) -> EngineResult<Rc<Vec<String>>> {
         if let Some((_, values)) = self.answered.iter().find(|(at, _)| *at == k) {
-            return Ok(values.clone());
+            return Ok(Rc::clone(values));
         }
         // The batch being read always goes out — the limit governs what is sent
         // AHEAD, not what the reader is waiting for.
@@ -131,10 +133,10 @@ impl HttpColumn {
             self.send(j, false, input_at);
         }
         let Some(flight) = self.in_flight.remove(&k) else {
-            return Ok(Vec::new());
+            return Ok(Rc::new(Vec::new()));
         };
-        let values = self.answer(flight)?;
-        self.remember(k, values.clone());
+        let values = Rc::new(self.answer(flight)?);
+        self.remember(k, Rc::clone(&values));
         if let Some(next) = next.filter(|&n| n < self.batches) {
             self.send(next, false, input_at);
         }
@@ -214,7 +216,7 @@ impl HttpColumn {
         })
     }
 
-    fn remember(&mut self, k: usize, values: Vec<String>) {
+    fn remember(&mut self, k: usize, values: Rc<Vec<String>>) {
         self.answered.push_back((k, values));
         while self.answered.len() > self.keep {
             self.answered.pop_front();
