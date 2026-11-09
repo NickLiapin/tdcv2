@@ -555,17 +555,13 @@ class TDC:
         return router.explain(self._config, self._packs)
 
     def uses_http(self) -> bool:
-        """Whether this config calls a service — which makes the run non-reproducible."""
-        for spec in self._config.sequences:
-            if spec.gen is not None and spec.gen.type == "http":
-                return True
-            if (
-                spec.is_compound
-                and spec.fields
-                and any(f.gen is not None and f.gen.type == "http" for f in spec.fields)
-            ):
-                return True
-        return False
+        """Whether this config calls a service — which makes the run non-reproducible.
+
+        Anywhere counts: a sequence, a field, a part, an ``if=`` branch, a ``<mix>`` or
+        ``<switch>`` case. It used to look at sequences and fields only, so a service called from
+        a case went unnoticed.
+        """
+        return bool(http_column.batches_in(self._config))
 
     def preflight(self, materialized: bool = True) -> Diagnostic | None:
         """What this run is likely to cost in memory, or nothing when the answer is "not much".

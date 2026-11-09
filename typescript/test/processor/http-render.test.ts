@@ -146,6 +146,32 @@ describe('http generator', () => {
       expect(svc.concurrentPeak()).toBeGreaterThan(1);
     });
 
+    it('a --jobs worker reads ahead no further than its own rows', async () => {
+      // A worker renders a range; the batch after its last row belongs to the next
+      // worker, and asking for it here would send it twice.
+      svc = await startService({ transform: (_l, _i, row) => `r${String(row)}` });
+      const src = cfg(
+        `<sequence name="Out"><gen type="http" src="${svc.url}" batch="10"/></sequence>`,
+        40,
+      );
+      const first = render(parseStrict(src), { range: { start: 0, end: 20 } });
+      expect(first.trim().split('\n')).toEqual(
+        Array.from({ length: 20 }, (_, i) => `r${String(i)}`),
+      );
+      // A request sent ahead travels on the helper thread; give one the time to
+      // arrive, since what is checked is that none does.
+      await new Promise((resolve) => setTimeout(resolve, 500));
+      expect([...svc.offsets()].sort((a, b) => (a ?? 0) - (b ?? 0))).toEqual([0, 10]);
+      await svc.close();
+      svc = await startService({ transform: (_l, _i, row) => `r${String(row)}` });
+      const second = render(parseStrict(src.replace(/http:\/\/[^"]+/, svc.url)), {
+        range: { start: 20, end: 40 },
+      });
+      expect(second.trim().split('\n')[0]).toBe('r20');
+      await new Promise((resolve) => setTimeout(resolve, 500));
+      expect([...svc.offsets()].sort((a, b) => (a ?? 0) - (b ?? 0))).toEqual([20, 30]);
+    });
+
     it('by default one batch at a time, so a service unsafe to call concurrently is safe', async () => {
       svc = await startService({ mode: 'concurrent-unsafe' });
       const src = cfg(

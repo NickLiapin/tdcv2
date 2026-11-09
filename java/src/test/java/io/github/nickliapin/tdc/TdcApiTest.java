@@ -262,6 +262,16 @@ class TdcApiTest {
             + "<sequence name=\"A\"><gen type=\"http\" src=\"http://localhost:1/x\"/></sequence>"
             + "</env><block><line><data>${{A}}</data></line></block></tdc>";
     assertTrue(TDC.options().configString(served).build().usesHttp());
+
+    // Inside a case it counts too: it used to look at sequences and fields only.
+    String inCase =
+        "<tdc><env mode=\"memory\" count=\"2\" seed=\"h\" local=\"en\">"
+            + "<sequence name=\"K\"><gen type=\"text\" value=\"x,y\"/></sequence>"
+            + "<switch name=\"S\" on=\"K\"><case is=\"x\"><gen type=\"http\""
+            + " src=\"http://localhost:1/x\"/></case><default><gen type=\"text\" value=\"-\"/>"
+            + "</default></switch>"
+            + "</env><block><line><data>${{S}}</data></line></block></tdc>";
+    assertTrue(TDC.options().configString(inCase).build().usesHttp());
   }
 
   /**

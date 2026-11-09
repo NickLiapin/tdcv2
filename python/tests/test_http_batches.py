@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import json
 import threading
+import time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
@@ -156,3 +157,28 @@ def test_every_http_generator_is_found_wherever_it_sits() -> None:
     )
     config = config_builder.build(facade.parse(text).tree)
     assert sorted(http_column.batches_in(config)) == [4, 6, 10_000]
+
+
+def test_a_worker_reads_ahead_no_further_than_its_own_rows() -> None:
+    """A shard writes a range; the batch after its last row belongs to the next shard."""
+    from tdcv2 import TDC
+
+    for start, stop, want in ((0, 20, [0, 10]), (20, 40, [20, 30])):
+        service = _Service("row")
+        try:
+            text = (
+                '<tdc><env count="40" seed="s">'
+                f'<sequence name="Out"><gen type="http" src="{service.url}" batch="10"/></sequence>'
+                "</env><block><line><data>${{Out}}</data></line></block></tdc>"
+            )
+            written: list[str] = []
+            TDC(config_string=text, packs_dir=REPO / "data" / "packs")._run().write_rows(
+                written.append, start, stop
+            )
+            assert "".join(written).split("\n")[0] == f"r{start}"
+            # A request sent ahead travels on its own thread; give one the time to arrive,
+            # since what is checked is that none does.
+            time.sleep(0.5)
+            assert sorted(r["offset"] for r in service.seen) == want
+        finally:
+            service.close()

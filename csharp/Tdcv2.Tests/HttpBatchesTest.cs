@@ -150,6 +150,27 @@ public class HttpBatchesTest
     }
 
     [Fact]
+    public void AWorkerReadsAheadNoFurtherThanItsOwnRows()
+    {
+        // A worker renders a range; the batch after its last row belongs to the next worker.
+        foreach ((int from, int to, int[] want) in new[] { (0, 20, new[] { 0, 10 }), (20, 40, new[] { 20, 30 }) })
+        {
+            using var service = new Service("row");
+            string text = "<tdc><env count=\"40\" seed=\"s\"><sequence name=\"Out\"><gen type=\"http\" src=\""
+                + service.Url + "\" batch=\"10\"/></sequence></env><block><line><data>${{Out}}</data></line>"
+                + "</block></tdc>";
+            var config = ConfigBuilder.Build(TdcParserFacade.Parse(text).Tree);
+            var output = new StringWriter();
+            StreamEngine.RenderRows(config, Tdcv2.Packs.DataPacks.Discover(), 0L, null, output, from, to);
+            Assert.Equal("r" + from, output.ToString().Split('\n')[0]);
+            // A request sent ahead travels on its own thread; give one the time to arrive, since
+            // what is checked is that none does.
+            Thread.Sleep(500);
+            Assert.Equal(want, service.Seen.Select(s => s.Offset).OrderBy(o => o).ToArray());
+        }
+    }
+
+    [Fact]
     public void EveryHttpGeneratorIsFoundWhereverItSits()
     {
         const string text =

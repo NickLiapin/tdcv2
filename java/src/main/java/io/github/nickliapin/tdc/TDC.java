@@ -653,21 +653,15 @@ public final class TDC {
     return diagnostics;
   }
 
-  /** Whether this config calls a service — which makes the run non-reproducible. */
+  /**
+   * Whether this config calls a service — which makes the run non-reproducible.
+   *
+   * <p>Anywhere counts: a sequence, a field, a part, an {@code if=} branch, a {@code <mix>} or
+   * {@code <switch>} case. It used to look at sequences and fields only, so a service called from
+   * a case went unnoticed.
+   */
   public boolean usesHttp() {
-    for (Config.SequenceSpec spec : config.sequences()) {
-      if (spec.gen() != null && "http".equals(spec.gen().type())) {
-        return true;
-      }
-      if (spec.isCompound()) {
-        for (Config.Field field : spec.fields()) {
-          if (field.gen() != null && "http".equals(field.gen().type())) {
-            return true;
-          }
-        }
-      }
-    }
-    return false;
+    return !io.github.nickliapin.tdc.generators.HttpColumn.batchesIn(config).isEmpty();
   }
 
   /**

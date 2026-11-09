@@ -342,6 +342,33 @@
           "input": null
         }
       ]
+    },
+    {
+      "name": "an http column outside a uniq group reads the arranged inputs and asks once",
+      "service": "upper",
+      "note": "The way TDC314 points: the group arranges P and A, the service reads P after the arrangement, so each answer stays with its own input. The group's duplicate hunt never reads the http column, so each batch is requested once.",
+      "config": "<tdc><env count=\"6\" seed=\"s\"><uniq><sequence name=\"P\"><gen type=\"text\" value=\"a,b,c\"/></sequence><sequence name=\"A\"><gen type=\"text\" value=\"x,y\"/></sequence></uniq><sequence name=\"H\"><gen type=\"http\" src=\"{{SRC}}\" in=\"P\" batch=\"2\"/></sequence></env><block><line><data>${{P}}${{A}} ${{H}}</data></line></block></tdc>",
+      "output": "ay Ha\nby Hb\nax Ha\ncy Hc\nbx Hb\ncx Hc\n",
+      "requests": [
+        {
+          "count": 2,
+          "offset": 0,
+          "total": 6,
+          "input": 2
+        },
+        {
+          "count": 2,
+          "offset": 2,
+          "total": 6,
+          "input": 2
+        },
+        {
+          "count": 2,
+          "offset": 4,
+          "total": 6,
+          "input": 2
+        }
+      ]
     }
   ]
 }

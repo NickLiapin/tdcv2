@@ -172,6 +172,18 @@ def test_a_config_with_no_service_is_not_a_network_run() -> None:
     assert _tdc().uses_http() is False
 
 
+def test_a_service_called_from_a_case_is_a_network_run() -> None:
+    # It used to look at sequences and fields only, so a case went unnoticed.
+    config = (
+        '<tdc><env count="2" seed="h" local="en">'
+        '<sequence name="K"><gen type="text" value="x,y"/></sequence>'
+        '<switch name="S" on="K"><case is="x"><gen type="http" src="http://localhost:1/x"/>'
+        '</case><default><gen type="text" value="-"/></default></switch>'
+        "</env><block><line><data>${{S}}</data></line></block></tdc>"
+    )
+    assert TDC(config_string=config, packs_dir=PACKS).uses_http() is True
+
+
 def test_a_run_this_size_needs_no_warning() -> None:
     assert _tdc().preflight() is None
 

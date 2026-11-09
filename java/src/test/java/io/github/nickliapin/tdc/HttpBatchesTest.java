@@ -176,6 +176,41 @@ class HttpBatchesTest {
     assertEquals(12, io.github.nickliapin.tdc.generators.HttpColumn.alignment(config));
   }
 
+  @Test
+  void aWorkerReadsAheadNoFurtherThanItsOwnRows() throws Exception {
+    // A worker renders a range; the batch after its last row belongs to the next worker.
+    int[][] cases = {{0, 20, 0, 10}, {20, 40, 20, 30}};
+    for (int[] c : cases) {
+      try (Service service = new Service("row")) {
+        String text =
+            "<tdc><env count=\"40\" seed=\"s\"><sequence name=\"Out\"><gen type=\"http\" src=\""
+                + service.url
+                + "\" batch=\"10\"/></sequence></env><block><line><data>${{Out}}</data></line>"
+                + "</block></tdc>";
+        io.github.nickliapin.tdc.model.Config config =
+            io.github.nickliapin.tdc.parser.ConfigBuilder.build(
+                io.github.nickliapin.tdc.parser.TdcParserFacade.parse(text).tree());
+        StringBuilder out = new StringBuilder();
+        io.github.nickliapin.tdc.engine.StreamEngine.renderRows(
+            config,
+            io.github.nickliapin.tdc.packs.DataPacks.bundled(),
+            0L,
+            null,
+            out,
+            c[0],
+            c[1]);
+        assertEquals("r" + c[0], out.toString().split("\n")[0]);
+        // A request sent ahead travels on its own thread; give one the time to arrive, since
+        // what is checked is that none does.
+        Thread.sleep(500);
+        List<Integer> offsets = new ArrayList<>();
+        service.seen.forEach(s -> offsets.add(s.offset()));
+        Collections.sort(offsets);
+        assertEquals(List.of(c[2], c[3]), offsets);
+      }
+    }
+  }
+
   private static List<List<Integer>> spans(List<int[]> ranges) {
     return ranges.stream().map(r -> List.of(r[0], r[1])).toList();
   }
