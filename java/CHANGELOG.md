@@ -20,6 +20,11 @@ the next build, and nothing else is edited.
 
 ## [Unreleased]
 
+### Changed
+
+- **A run with `http` split across workers asks for each batch once.** The seams between workers
+  fall on batch boundaries and no worker reads ahead past its own rows. Without an explicit worker count, a config that calls a service runs on one thread: splitting it on its own would send the service several requests at once.
+
 ## [0.3.7] — 2026-11-04
 
 ### Changed

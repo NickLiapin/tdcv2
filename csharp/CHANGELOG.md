@@ -11,6 +11,11 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Changed
+
+- **A run with `http` split across workers asks for each batch once.** The seams between workers
+  fall on batch boundaries and no worker reads ahead past its own rows. Without an explicit worker count, a config that calls a service runs on one thread: splitting it on its own would send the service several requests at once.
+
 ## [0.3.7] — 2026-11-04
 
 ### Changed

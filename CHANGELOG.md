@@ -15,6 +15,61 @@ page — is tracked in that implementation's own changelog:
 
 ## [Unreleased]
 
+### Changed
+
+- **`http` sends a column in batches — in all five.** A column is cut into `batch=` rows (10,000
+  by default) and sent one request per batch, numbered by the run's row: `X-TDC-Count` is the
+  batch's size, and two new headers say where it sits — `X-TDC-Offset`, the row it starts at, and
+  `X-TDC-Total`, the run's length. The whole column used to go in one request, so the 64 MB reply
+  cap was the cap of the run: about a million hashes, measured by the article agent. `timeout`
+  and `on_error` now apply to one batch, an error names its rows (`(rows 10000–19999)`), and
+  `parallel=` lets several batches be on the wire at once (default 1). `batch=` and `parallel=`
+  must be whole numbers above zero (`TDC313`).
+- **A source service must send `X-TDC-Offset` back** once a run takes more than one batch. A
+  source decides each value from its row; one that ignores the offset would answer every batch
+  with rows 0, 1, 2… again, so a reply without the echo stops the run, even under
+  `on_error="empty"`. A handler (`in=`) needs no echo, and a run of one batch is unchanged.
+- **The `secret=` signature covers the batch's offset and the run's length:**
+  `HMAC-SHA256(secret, timestamp \n seed \n count \n offset \n total \n body)`. A service that
+  verifies signatures must add the two lines — this is the change that makes the release 0.4.0.
+  `fixtures/cross-language/http-vectors.json` holds the new canonical signature.
+- **A config with `http` streams.** It ran on the in-memory engine, which held the whole column;
+  the streaming engines now read it batch by batch, with the next batch requested while one is
+  written. 1,100,000 rows of hashes in all five: every hash on its row, 110 requests, memory
+  flat (3,300,000 rows on the reference: 913 MB against 890 MB at 1,100,000, which is the
+  engine's own floor). Without an explicit `--jobs` a config that calls a service runs as one
+  process; with one, the seams between workers fall on batch boundaries and no worker reads
+  ahead past its own rows, so the service is asked for each batch once.
+- **`uniq="true"` on an `http` sequence of its own is a check.** It was `TDC218`. The run reads
+  every answer before the first row is written — by an external sort, so memory holds a sort
+  buffer, not the column — and stops at the first repeat, naming both rows. A blank answer is
+  exempt. The answers are kept in a temporary file meanwhile, so the service is asked for each
+  batch once. `TDC218` still refuses `uniq` on a compound with an `http` field or on an `http`
+  part beside a literal: an answer can be neither drawn again nor moved.
+
+### Added
+
+- **`TDC314`: an `http` column cannot be a member of `<uniq>` or `<distinct>`**, directly or
+  inside a `<mix>`/`<switch>` case. See the two fixes below for why.
+
+### Fixed
+
+- **A column that reads an `http` answer reads it — in all five.** `if="Hash == ''"`, a
+  `<switch>` on the answer or a `<data>` printing it saw an empty string, because the answers
+  were filled in after every other column had been built. `check` called such a config valid and
+  the run exited 0. The build now waits for the service where the column is built.
+- **`http` inside a `<mix>` or `<switch>` case, an `if=` branch or a compound's field prints
+  its answer** instead of an empty cell, and **`parent=` on an `http` sequence blanks the rows
+  the parent does not hold** instead of being ignored. `X-TDC-Seed` for such a column is derived
+  from the name the reader wrote (`Name`, `Name.field`), never from an internal branch name.
+- **An `http` column in a `<uniq>` group no longer lands on other rows.** The group moved its
+  answers between rows like drawn values: 197 of 200 hashes beside their password column ended
+  up on another row, exit 0. It is `TDC314` now; put the group around the columns the service
+  reads and the `http` column follows them.
+- **An `http` column in a `<distinct>` group no longer repeats its request.** The repair asked
+  for another value up to a thousand times per row, and every attempt was the same request. It
+  is `TDC314` too.
+
 ## [0.3.7] — 2026-11-04
 
 ### Added

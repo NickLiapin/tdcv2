@@ -21,13 +21,20 @@ entregan valores para procesar.
 ## Qué debe hacer el servicio
 
 El contrato completo está en la [página del generador](../generators/http.mdx#el-contrato-que-implementa-su-servicio).
-Para escribir uno bastan cuatro líneas de él:
+Para escribir uno basta con esta parte:
 
-- llega un **`POST`** con `X-TDC-Count: N` y `X-TDC-Seed: <hex>`;
+- llega un **`POST`** con `X-TDC-Count: N`, `X-TDC-Offset: K` y `X-TDC-Seed: <hex>`;
 - el **cuerpo** son `N` valores, uno por línea — o está **vacío**, lo que significa «invéntelos»;
+- `K` es la fila de la corrida en la que empieza la petición. Una corrida más larga que un
+  [lote](../generators/http.mdx#lotes-una-petición-cada-diez-mil-filas) — diez mil filas por
+  omisión — llega en varias peticiones, y la línea _i_ de una petición es la fila `K + i`
+  de la corrida;
 - **`X-TDC-Input: N`** está presente exactamente cuando quien llama envió entradas, y dice
   cuántas líneas trae el cuerpo. Leerlo es opcional y vale la pena — vea abajo;
 - responda con exactamente **`N` líneas**, en el mismo orden;
+- una fuente responde con la cabecera **`X-TDC-Offset: K`**, el valor que recibió. Así
+  sabe TDC que el servicio leyó el desplazamiento; sin ella, una corrida de más de un lote
+  se detiene;
 - texto plano, no hace falta JSON en ninguna parte.
 
 **Compare los nombres de las cabeceras sin distinguir mayúsculas**, como exige HTTP. Las cinco
@@ -101,18 +108,20 @@ createServer((req, res) => {
   req.on('data', (c) => chunks.push(c));
   req.on('end', () => {
     const count = Number(req.headers['x-tdc-count'] ?? '0');
+    const offset = Number(req.headers['x-tdc-offset'] ?? '0');
     const seed = String(req.headers['x-tdc-seed'] ?? '');
     const body = Buffer.concat(chunks).toString('utf8');
 
     const out =
       body.length === 0
-        ? Array.from({ length: count }, (_, i) => accountFor(seed, i)) // source
+        ? Array.from({ length: count }, (_, i) => accountFor(seed, offset + i)) // source
         : body.split('\n').map((line) => line + luhn(line)); // handler
 
     const payload = out.join('\n');
     res.writeHead(200, {
       'Content-Type': 'text/plain',
       'Content-Length': Buffer.byteLength(payload),
+      'X-TDC-Offset': String(offset),
     });
     res.end(payload);
   });
@@ -164,10 +173,11 @@ class Handler(BaseHTTPRequestHandler):
         n = int(self.headers.get("Content-Length", 0))
         body = self.rfile.read(n).decode("utf-8") if n else ""
         count = int(self.headers.get("X-TDC-Count", "0"))
+        offset = int(self.headers.get("X-TDC-Offset", "0"))
         seed = self.headers.get("X-TDC-Seed", "")
 
         if body == "":
-            out = [account_for(seed, i) for i in range(count)]   # source
+            out = [account_for(seed, offset + i) for i in range(count)]   # source
         else:
             out = [line + luhn(line) for line in body.split("\n")]  # handler
 
@@ -175,6 +185,7 @@ class Handler(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header("Content-Type", "text/plain")
         self.send_header("Content-Length", str(len(payload)))
+        self.send_header("X-TDC-Offset", str(offset))
         self.end_headers()
         self.wfile.write(payload)
 
@@ -239,18 +250,21 @@ public class Service {
                                      StandardCharsets.UTF_8);
             String rawCount = exchange.getRequestHeaders().getFirst("X-TDC-Count");
             int count = Integer.parseInt(rawCount == null ? "0" : rawCount);
+            String rawOffset = exchange.getRequestHeaders().getFirst("X-TDC-Offset");
+            int offset = Integer.parseInt(rawOffset == null ? "0" : rawOffset);
             String seed = exchange.getRequestHeaders().getFirst("X-TDC-Seed");
             if (seed == null) seed = "";
 
             List<String> out = new ArrayList<>();
             if (body.isEmpty()) {
-                for (int i = 0; i < count; i++) out.add(accountFor(seed, i));  // source
+                for (int i = 0; i < count; i++) out.add(accountFor(seed, offset + i));  // source
             } else {
                 for (String line : body.split("\n", -1)) out.add(line + luhn(line));  // handler
             }
 
             byte[] payload = String.join("\n", out).getBytes(StandardCharsets.UTF_8);
             exchange.getResponseHeaders().set("Content-Type", "text/plain");
+            exchange.getResponseHeaders().set("X-TDC-Offset", String.valueOf(offset));
             exchange.sendResponseHeaders(200, payload.length);
             try (OutputStream os = exchange.getResponseBody()) {
                 os.write(payload);
@@ -318,14 +332,16 @@ while (true)
     using var reader = new StreamReader(ctx.Request.InputStream, Encoding.UTF8);
     string body = reader.ReadToEnd();
     int count = int.Parse(ctx.Request.Headers["X-TDC-Count"] ?? "0");
+    int offset = int.Parse(ctx.Request.Headers["X-TDC-Offset"] ?? "0");
     string seed = ctx.Request.Headers["X-TDC-Seed"] ?? "";
 
     IEnumerable<string> lines = body.Length == 0
-        ? Enumerable.Range(0, count).Select(i => AccountFor(seed, i))   // fuente
+        ? Enumerable.Range(0, count).Select(i => AccountFor(seed, offset + i))   // fuente
         : body.Split('\n').Select(line => line + Luhn(line));           // manejador
 
     byte[] payload = Encoding.UTF8.GetBytes(string.Join("\n", lines));
     ctx.Response.ContentType = "text/plain";
+    ctx.Response.AddHeader("X-TDC-Offset", offset.ToString());
     ctx.Response.ContentLength64 = payload.Length;
     ctx.Response.OutputStream.Write(payload);
     ctx.Response.Close();
@@ -380,7 +396,7 @@ fn main() -> std::io::Result<()> {
         let mut stream = stream?;
         let mut reader = BufReader::new(stream.try_clone()?);
 
-        let (mut length, mut count, mut seed) = (0usize, 0usize, String::new());
+        let (mut length, mut count, mut offset, mut seed) = (0usize, 0usize, 0usize, String::new());
         loop {
             let mut line = String::new();
             if reader.read_line(&mut line)? == 0 || line == "\r\n" {
@@ -390,6 +406,7 @@ fn main() -> std::io::Result<()> {
             match name.to_ascii_lowercase().as_str() {
                 "content-length" => length = value.trim().parse().unwrap_or(0),
                 "x-tdc-count" => count = value.trim().parse().unwrap_or(0),
+                "x-tdc-offset" => offset = value.trim().parse().unwrap_or(0),
                 "x-tdc-seed" => seed = value.trim().to_string(),
                 _ => {}
             }
@@ -400,7 +417,7 @@ fn main() -> std::io::Result<()> {
         let body = String::from_utf8_lossy(&body);
 
         let out: Vec<String> = if body.is_empty() {
-            (0..count).map(|i| account_for(&seed, i)).collect()  // source
+            (0..count).map(|i| account_for(&seed, offset + i)).collect()  // source
         } else {
             body.split('\n')
                 .map(|line| format!("{line}{}", luhn(line)))     // handler
@@ -410,7 +427,7 @@ fn main() -> std::io::Result<()> {
         let payload = out.join("\n");
         write!(
             stream,
-            "HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\nContent-Length: {}\r\n\r\n{payload}",
+            "HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\nX-TDC-Offset: {offset}\r\nContent-Length: {}\r\n\r\n{payload}",
             payload.len()
         )?;
     }
@@ -461,7 +478,7 @@ La regla cabe en una línea: **derive cada valor de la semilla, nunca de un relo
 generador de números aleatorios.**
 
 ```js
-accountFor(seed, i); // reproducible — same seed, same row, same answer
+accountFor(seed, offset + i); // reproducible — same seed, same row, same answer
 Math.random(); // not
 new Date(); // not
 ```
@@ -478,8 +495,11 @@ corrida 2:  71102997  54325378  37547759`}
 
 ### Calcule cada fila directamente, no itere
 
-Fíjese en la forma de `accountFor(seed, i)`: toma el **índice de fila** y devuelve el
-valor de esa fila, sin arrastrar estado entre llamadas. Es deliberado, y conviene copiarlo.
+Fíjese en la forma de `accountFor(seed, offset + i)`: toma la **fila de la corrida** — el
+desplazamiento de la petición más la línea — y devuelve el valor de esa fila, sin arrastrar
+estado entre llamadas. Es deliberado, y conviene copiarlo. El desplazamiento es lo que lo
+mantiene entre lotes: la fila 10 000 llega como línea 0 de la segunda petición, y tiene que
+salir como fila 10 000, no otra vez como fila 0.
 
 Un generador que recorre una secuencia — «llame a `next()` N veces» — tiene que llamarse
 en el orden correcto, desde el principio, exactamente una vez. Un servicio no está en
@@ -545,7 +565,7 @@ la petición lleva entonces dos cabeceras más, y el secreto no viaja nunca:
 
 ```
 X-TDC-Timestamp: 1786000000
-X-TDC-Signature: hex(HMAC-SHA256(secret, timestamp \n seed \n count \n body))
+X-TDC-Signature: hex(HMAC-SHA256(secret, timestamp \n seed \n count \n offset \n total \n body))
 ```
 
 Verificar son las mismas pocas líneas en cualquier lenguaje: recalcular y comparar.
@@ -553,7 +573,7 @@ Verificar son las mismas pocas líneas en cualquier lenguaje: recalcular y compa
 ```js
 const mine = crypto
   .createHmac('sha256', process.env.TDC_HTTP_SECRET)
-  .update(`${ts}\n${seed}\n${count}\n${body}`)
+  .update(`${ts}\n${seed}\n${count}\n${offset}\n${total}\n${body}`)
   .digest('hex');
 if (mine !== req.headers['x-tdc-signature']) return res.status(401).end();
 ```
@@ -581,12 +601,15 @@ Una lista corta, y cada punto sale de cómo falla este generador en la práctica
 - **Los valores no deben contener un salto de línea**, en ninguna dirección: el protocolo
   va por líneas, así que un salto incrustado rompe el conteo. Falla ruidosamente en vez de
   corromper, pero falla.
-- **Sea seguro ante llamadas concurrentes**, o corra la generación con `--jobs 1`. TDC no
-  coordina a sus workers por usted.
+- **Devuelva `X-TDC-Offset`** desde una fuente, con el valor que recibió. Una fuente que lo
+  olvida responde cada lote con las filas 0, 1, 2… — TDC rechaza esa corrida en vez de
+  escribir los mismos valores una y otra vez.
+- **Sea seguro ante llamadas concurrentes** antes de subir `parallel=` o pasar `--jobs`.
+  Por omisión TDC envía una petición cada vez.
 - **Atienda todo el lote en una petición.** No lo despliegue internamente en una llamada
   por valor; el lote es lo que mantiene esto rápido.
 
 ## Vea también
 
 - [El generador `http`](../generators/http.mdx) — los atributos, el contrato, los modos de fallo
-- [Códigos de error](../reference/errors.mdx) — `TDC065`–`TDC069` y `TDC284`
+- [Códigos de error](../reference/errors.mdx) — `TDC065`–`TDC069`, `TDC284` y `TDC313`

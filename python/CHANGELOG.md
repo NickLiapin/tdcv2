@@ -11,6 +11,11 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Changed
+
+- **A run with `http` split across workers asks for each batch once.** The seams between workers
+  fall on batch boundaries and no worker reads ahead past its own rows. Splitting stays opt-in: `workers=None` is one process.
+
 ## [0.3.7] — 2026-11-04
 
 ### Changed

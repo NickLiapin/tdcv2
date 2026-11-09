@@ -111,29 +111,22 @@ omisión — toda la corrida sostenida a la vez, lo que hace `toArray()`) o `"st
 | `getAt(index)`     | un objeto-fila por índice                    | acceso puntual                           |
 | `preflight(opts?)` | un diagnóstico de memoria, o `undefined`     | una revisión antes de una corrida grande |
 | `seedInfo()`       | `{ seed, generated }`                        | leer o registrar la semilla              |
-| `toStringAsync()`  | toda la salida, como promesa                 | una configuración con `type="http"`      |
-| `writeFileAsync(path)` | escribe la salida, como promesa          | una configuración con `type="http"`      |
-| `usesHttp()`       | `true` si la configuración llama a la red    | elegir entre los dos pares               |
+| `toStringAsync()`  | toda la salida, como promesa                 | código escrito para 0.3                  |
+| `writeFileAsync(path)` | escribe la salida, como promesa          | código escrito para 0.3                  |
+| `usesHttp()`       | `true` si la configuración llama a la red    | decidir si se reparte una corrida        |
 
 `toString`/`writeFile`/`toIterator`/`toStream` son salida de texto a través del disco,
 con memoria O(cantidad de campos). Vea
 **[Salidas grandes](../guides/large-outputs.md#top)** para las mediciones.
 
-Sobre el par asíncrono hay una regla: una configuración con
-[`<gen type="http">`](../generators/http.md#top) **tiene que** usarlo. Una llamada de red no
-se puede hacer desde una función síncrona, así que `toString()` sobre esa configuración
-lanza en vez de devolver medio dataset:
-
-```ts
-const tdc = new TDC({ configFile: "./enriched.tdc" });
-const text = tdc.usesHttp() ? await tdc.toStringAsync() : tdc.toString();
-```
-
-`usesHttp()` responde eso sin ejecutar nada, que es justo lo que hace la CLI. En todo lo
-demás los dos caminos se comportan igual: para una configuración sin generador `http`,
-`toStringAsync()` es `toString()` envuelto en una promesa. Lo que sí cambia es la
-reproducibilidad: una corrida que llama a un servicio es tan repetible como lo sea el
-servicio.
+Una configuración con [`<gen type="http">`](../generators/http.md#top) funciona con todos
+ellos. Hasta 0.3 tenía que pasar por el par asíncrono; desde 0.4 cada camino espera al
+servicio lote a lote, y `toStringAsync()` / `writeFileAsync()` son `toString()` /
+`writeFile()` envueltos en una promesa, conservados para que el código antiguo siga
+funcionando. Lo que un servicio sí cambia es la reproducibilidad: una corrida que llama a
+uno es tan repetible como lo sea el servicio. `usesHttp()` responde si una configuración
+llama a un servicio sin ejecutar nada — la CLI lo pregunta antes de repartir una corrida
+entre procesos.
 
 ## Salida en objetos
 

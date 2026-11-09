@@ -56,7 +56,8 @@ un servicio que usted ya tiene **termine** un valor que TDC empezó — validarl
 un dígito de control, buscarlo, traducirlo — en vez de reemplazar el generador entero.
 
 Su servicio distingue los modos por el cuerpo de la petición: **cuerpo vacío es modo
-fuente**, y la cabecera `X-TDC-Count` dice cuántos valores inventar.
+fuente**, la cabecera `X-TDC-Count` dice cuántos valores inventar, y `X-TDC-Offset`, para
+qué filas son.
 
 > [!TIP]
 > **Cómo escribir el servicio**
@@ -67,7 +68,7 @@ fuente**, y la cabecera `X-TDC-Count` dice cuántos valores inventar.
 
 ![](../../img/generators/http-flow.svg)
 
-*La columna de entradas se envía en una sola petición; la respuesta vuelve un valor por fila, en el mismo orden. Aquí el servicio pasa cada valor a mayúsculas (a → A).*
+*Cada lote de entradas se envía en una sola petición; la respuesta vuelve un valor por fila, en el mismo orden. Aquí el servicio pasa cada valor a mayúsculas (a → A).*
 
 - **A** — la columna de entrada — los valores que produjo su secuencia
 - **B** — su servicio: TDC solo habla con él, nunca lo ejecuta
@@ -80,7 +81,9 @@ fuente**, y la cabecera `X-TDC-Count` dice cuántos valores inventar.
 | `src`      | la URL del servicio — `http://127.0.0.1:5566/gen` (local, rápido) o un host público. `https` también sirve                                                                          |
 | `in`       | la secuencia cuyo valor se envía en cada fila — esto es lo que convierte al servicio en **manejador**. Omítalo y el servicio es una **fuente**: no recibe nada e inventa cada valor |
 | `on_error` | `fail` (por omisión) — detenerse con un mensaje claro; o `empty` — dejar la celda vacía y seguir                                                                                    |
-| `timeout`  | segundos a esperar por una respuesta antes de rendirse. Por omisión 30                                                                                                              |
+| `timeout`  | segundos a esperar la respuesta de un lote antes de rendirse. Por omisión 30                                                                                                        |
+| `batch`    | filas por petición. Por omisión 10000                                                                                                                                               |
+| `parallel` | cuántas peticiones pueden estar en curso a la vez. Por omisión 1 — de una en una, lo seguro para un servicio que no aguanta dos                                                      |
 | `secret`   | la clave con la que se **firma** cada petición, para que su servicio distinga a TDC de cualquier otro que alcance el puerto. Tres formas — vea [Probar que la petición viene de TDC](#probar-que-la-petición-viene-de-tdc) |
 
 `in` nombra una secuencia **anterior** — se envía el valor que produjo en cada fila.
@@ -89,7 +92,11 @@ fuente**, y la cabecera `X-TDC-Count` dice cuántos valores inventar.
 
 El motor habla un protocolo pequeño y no espera nada más de vuelta:
 
-- **`POST`** a `src`, con una cabecera **`X-TDC-Count: N`** — cuántos valores se quieren.
+- **`POST`** a `src`, con una cabecera **`X-TDC-Count: N`** — cuántos valores quiere esta
+  petición: las filas de un [lote](#lotes-una-petición-cada-diez-mil-filas).
+- **`X-TDC-Offset`** es la fila de la corrida en la que empieza el lote, contando desde 0, y
+  **`X-TDC-Total`** es el número de filas de toda la corrida. El tercer lote de una corrida de
+  25 000 filas lleva `X-TDC-Count: 5000`, `X-TDC-Offset: 20000` y `X-TDC-Total: 25000`.
 - **`Content-Type: text/plain`**, exactamente eso, sin parámetro charset. Las cinco
   implementaciones envían la misma cadena, así que un servicio puede compararla al pie de la letra.
 - El **cuerpo** son los `N` valores de entrada, **uno por línea**, en orden de fila. Sin
@@ -105,27 +112,48 @@ El motor habla un protocolo pequeño y no espera nada más de vuelta:
   [`secret`](#probar-que-la-petición-viene-de-tdc).
 - La **respuesta** debe ser exactamente **`N` líneas**, en el mismo orden — la línea _i_
   responde a la entrada _i_. Texto plano.
+- **Una fuente devuelve `X-TDC-Offset`** en su respuesta, con el valor que recibió. Una
+  fuente decide cada valor por su fila, así que tiene que saber a qué filas responde; una
+  que ignora el desplazamiento responde cada lote con las filas 0, 1, 2… otra vez. El eco
+  es cómo TDC sabe que no fue así: en cuanto la corrida ocupa más de un lote, una respuesta
+  de fuente sin él detiene la corrida. Un manejador no necesita eco: cada respuesta sale de
+  la línea que se le envió.
 
 Todo lo estructurado es trabajo de su servicio. Si por dentro trabaja con JSON, devuelve
 el único campo que usted quiere, como texto — TDC mantiene todo como cadenas por dentro.
 
-**Una petición por columna, no por fila.** El motor envía todo el lote de una vez, así
-que mil filas es una petición. Un servicio escrito «una línea entra, una línea sale»
-también funciona: solo recorre en bucle las líneas de la única petición que recibe.
+## Lotes: una petición cada diez mil filas
+
+TDC corta la columna en **lotes** de `batch` filas — diez mil si no se indica otra cosa — y
+envía una petición por lote. Mil filas son una petición; un millón, cien. Un servicio
+escrito «una línea entra, una línea sale» también funciona: recorre en bucle las líneas de
+la petición que recibe.
 
 ![](../../img/generators/http-batch.svg)
 
-*Por qué mil filas es una petición. La forma por fila (izquierda) serían mil viajes de ida y vuelta; TDC envía toda la columna en uno (derecha).*
+*Por qué diez mil filas son una petición. La forma por fila (izquierda) sería un viaje de ida y vuelta por valor; TDC envía un lote entero en uno (derecha).*
 
 - **A** — una petición por fila — lo que TDC NO hace; sería una llamada por valor
-- **B** — una petición para toda la columna — todo el lote, un viaje de ida y vuelta
+- **B** — una petición por lote — diez mil filas por omisión, un viaje de ida y vuelta
 
-Esto es lo que lo mantiene rápido: el costo es un viaje de ida y vuelta más el trabajo
-del propio servicio, no un viaje por valor. También por eso `http` corre en el motor en
-memoria ([una de las seis formas que lo
-hacen](../guides/large-outputs.md#qué-motor-corre-su-configuración)) y conviene reservarlo
-para un servicio en su propia máquina, o una corrida que usted dimensionó a propósito —
-no mil millones de filas contra un endpoint lejano.
+Las filas se escriben a medida que llegan las respuestas, y mientras se escribe un lote el
+siguiente ya está en camino. En memoria hay unos pocos lotes, nunca la columna, así que una
+corrida con `http` puede ser tan grande como cualquier otra. `parallel="4"` pone cuatro
+lotes en camino a la vez, para un servicio que los aguante; las filas siguen saliendo en
+orden.
+
+> [!WARNING]
+> **Una corrida con `http` va a la velocidad de su servicio**
+>
+> Todo lo demás en TDC lo limita su máquina. Un config con `http` espera la respuesta de cada
+> lote, así que un servicio que tarda un segundo por lote hace un millón de filas en unos cien
+> segundos, en cualquier máquina. Es el precio, no un fallo: la corrida termina, de cualquier
+> tamaño, al ritmo del servicio. Mida un lote antes de una corrida larga, y suba `parallel`
+> solo si el servicio puede responder varias peticiones a la vez.
+
+`--jobs` reparte una corrida así entre procesos solo cuando usted le da un número: cada
+proceso pide sus propios lotes, así que el servicio recibe esas peticiones a la vez. Sin
+`--jobs`, un config que llama a un servicio corre como un solo proceso, por grande que sea.
 
 ## Un servicio entero, en cinco lenguajes
 
@@ -142,15 +170,20 @@ createServer((req, res) => {
   req.on('data', (c) => chunks.push(c));
   req.on('end', () => {
     const count = Number(req.headers['x-tdc-count'] ?? '0');
+    const offset = Number(req.headers['x-tdc-offset'] ?? '0');
     const sent = Buffer.concat(chunks).toString('utf8');
 
     const out =
       sent === ''
-        ? Array.from({ length: count }, (_, i) => 'SRC-' + String(i).padStart(3, '0')) // source
+        ? Array.from({ length: count }, (_, i) => 'SRC-' + String(offset + i).padStart(3, '0')) // source
         : sent.split('\n').map((line) => '[' + line + ' ok]'); // handler
 
     const body = out.join('\n');
-    res.writeHead(200, { 'Content-Type': 'text/plain', 'Content-Length': Buffer.byteLength(body) });
+    res.writeHead(200, {
+      'Content-Type': 'text/plain',
+      'Content-Length': Buffer.byteLength(body),
+      'X-TDC-Offset': String(offset),
+    });
     res.end(body);
   });
 }).listen(5801, '127.0.0.1');
@@ -167,15 +200,17 @@ class H(BaseHTTPRequestHandler):
         n = int(self.headers.get("Content-Length", 0))
         sent = self.rfile.read(n).decode() if n else ""
         count = int(self.headers.get("X-TDC-Count", "0"))
+        offset = int(self.headers.get("X-TDC-Offset", "0"))
 
         if sent == "":
-            out = [f"SRC-{i:03d}" for i in range(count)]          # source
+            out = [f"SRC-{offset + i:03d}" for i in range(count)]          # source
         else:
             out = [f"[{line} ok]" for line in sent.split("\n")]   # handler
 
         body = "\n".join(out).encode()
         self.send_response(200)
         self.send_header("Content-Length", str(len(body)))
+        self.send_header("X-TDC-Offset", str(offset))
         self.end_headers()
         self.wfile.write(body)
 
@@ -201,15 +236,18 @@ public class S3 {
                                      StandardCharsets.UTF_8);
             String raw = exchange.getRequestHeaders().getFirst("X-TDC-Count");
             int count = Integer.parseInt(raw == null ? "0" : raw);
+            String rawOffset = exchange.getRequestHeaders().getFirst("X-TDC-Offset");
+            int offset = Integer.parseInt(rawOffset == null ? "0" : rawOffset);
 
             List<String> out = new ArrayList<>();
             if (sent.isEmpty()) {
-                for (int i = 0; i < count; i++) out.add(String.format("SRC-%03d", i));  // source
+                for (int i = 0; i < count; i++) out.add(String.format("SRC-%03d", offset + i));  // source
             } else {
                 for (String line : sent.split("\n", -1)) out.add("[" + line + " ok]");  // handler
             }
 
             byte[] body = String.join("\n", out).getBytes(StandardCharsets.UTF_8);
+            exchange.getResponseHeaders().set("X-TDC-Offset", String.valueOf(offset));
             exchange.sendResponseHeaders(200, body.length);
             try (OutputStream os = exchange.getResponseBody()) { os.write(body); }
         });
@@ -234,12 +272,14 @@ while (true)
     using var reader = new StreamReader(ctx.Request.InputStream, Encoding.UTF8);
     string sent = reader.ReadToEnd();
     int count = int.Parse(ctx.Request.Headers["X-TDC-Count"] ?? "0");
+    int offset = int.Parse(ctx.Request.Headers["X-TDC-Offset"] ?? "0");
 
     IEnumerable<string> lines = sent.Length == 0
-        ? Enumerable.Range(0, count).Select(i => $"SRC-{i:D3}")     // fuente
+        ? Enumerable.Range(0, count).Select(i => $"SRC-{offset + i:D3}")     // fuente
         : sent.Split('\n').Select(line => $"[{line} ok]");          // manejador
 
     byte[] body = Encoding.UTF8.GetBytes(string.Join("\n", lines));
+    ctx.Response.AddHeader("X-TDC-Offset", offset.ToString());
     ctx.Response.ContentLength64 = body.Length;
     ctx.Response.OutputStream.Write(body);
     ctx.Response.Close();
@@ -258,7 +298,7 @@ fn main() -> std::io::Result<()> {
         let mut stream = stream?;
         let mut reader = BufReader::new(stream.try_clone()?);
 
-        let (mut length, mut count) = (0usize, 0usize);
+        let (mut length, mut count, mut offset) = (0usize, 0usize, 0usize);
         loop {
             let mut line = String::new();
             if reader.read_line(&mut line)? == 0 || line == "\r\n" {
@@ -269,6 +309,8 @@ fn main() -> std::io::Result<()> {
                 length = v.trim().parse().unwrap_or(0);
             } else if let Some(v) = lower.strip_prefix("x-tdc-count:") {
                 count = v.trim().parse().unwrap_or(0);
+            } else if let Some(v) = lower.strip_prefix("x-tdc-offset:") {
+                offset = v.trim().parse().unwrap_or(0);
             }
         }
 
@@ -277,7 +319,7 @@ fn main() -> std::io::Result<()> {
         let sent = String::from_utf8_lossy(&sent);
 
         let out: Vec<String> = if sent.is_empty() {
-            (0..count).map(|i| format!("SRC-{i:03}")).collect()             // source
+            (0..count).map(|i| format!("SRC-{:03}", offset + i)).collect()             // source
         } else {
             sent.split('\n').map(|line| format!("[{line} ok]")).collect()   // handler
         };
@@ -285,7 +327,7 @@ fn main() -> std::io::Result<()> {
         let body = out.join("\n");
         write!(
             stream,
-            "HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\nContent-Length: {}\r\n\r\n{body}",
+            "HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\nX-TDC-Offset: {offset}\r\nContent-Length: {}\r\n\r\n{body}",
             body.len()
         )?;
     }
@@ -323,17 +365,20 @@ Arranque uno, apunte `src` a su puerto y corra el config de
 El servicio está fuera del control de TDC, así que los fallos se manejan, no se ocultan:
 
 - **`on_error="fail"`** (el valor por omisión) detiene la corrida con un mensaje que
-  nombra la secuencia y el servicio — `http service for sequence "Checked" at … returned
-500`. Una columna en blanco en un archivo terminado es peor sorpresa que una parada
-  clara.
-- **`on_error="empty"`** deja en blanco la columna afectada y termina, para cuando lo que
-  quiere es una salida de mejor esfuerzo. Los huecos los revisa usted.
-- **`429` (límite de tasa) siempre detiene**, incluso con `empty`. «Más despacio» y
-  «transmitir una columna entera» no se pueden reconciliar, y seguir truncaría los datos
-  en silencio.
-- Un servicio que **nunca responde** se corta por `timeout` en vez de colgar la corrida.
+  nombra la secuencia, el servicio y, cuando hay más de un lote, las filas —
+  `http service for sequence "Checked" at … (rows 10000–19999) returned 500`. Una columna
+  en blanco en un archivo terminado es peor sorpresa que una parada clara.
+- **`on_error="empty"`** deja en blanco las filas del lote que falló y termina, para cuando
+  lo que quiere es una salida de mejor esfuerzo. Los huecos los revisa usted.
+- **`429` (límite de tasa) siempre detiene**, incluso con `empty`. TDC no puede frenar a
+  petición del servicio, y seguir dejaría en blanco el resto de la columna en silencio.
+- Un servicio que **nunca responde** se corta por `timeout`, que se aplica a cada lote, en
+  vez de colgar la corrida.
 - Un servicio que **inunda** — respondiendo mucho más que un valor por línea — se corta
-  a los 64 MB con un error, en vez de leerse en memoria hasta el final.
+  a los 64 MB por lote con un error, en vez de leerse en memoria hasta el final.
+- Una **fuente que no devuelve `X-TDC-Offset`** detiene la corrida en cuanto ocupa dos
+  lotes, incluso con `empty`: `answered the batch at row 10000 without echoing
+  X-TDC-Offset`. Si no, cada lote después del primero repetiría el primero.
 - Un **`secret` que no se puede leer** — variable sin definir, archivo ausente — detiene la
   corrida antes de que salga ninguna petición, nombrando la secuencia. Enviar el lote sin
   firmar sería justo el desenlace que el atributo existe para evitar.
@@ -359,16 +404,16 @@ Con la petición viajan dos cabeceras más:
 
 ```
 X-TDC-Timestamp: 1786000000
-X-TDC-Signature: hex(HMAC-SHA256(secret, timestamp \n seed \n count \n body))
+X-TDC-Signature: hex(HMAC-SHA256(secret, timestamp \n seed \n count \n offset \n total \n body))
 ```
 
-Dentro de la firma está todo lo que decide la respuesta: cambie el cuerpo, la cuenta, la
-semilla o el minuto y deja de coincidir. Verificarla son unas pocas líneas:
+Dentro de la firma está todo lo que decide la respuesta: cambie el cuerpo, la cuenta, el
+desplazamiento del lote, la semilla o el minuto y deja de coincidir. Verificarla son unas pocas líneas:
 
 ```js
 const mine = crypto
   .createHmac('sha256', process.env.TDC_HTTP_SECRET)
-  .update(`${ts}\n${seed}\n${count}\n${body}`)
+  .update(`${ts}\n${seed}\n${count}\n${offset}\n${total}\n${body}`)
   .digest('hex');
 if (mine !== req.headers['x-tdc-signature']) return res.status(401).end();
 ```
@@ -412,20 +457,23 @@ sí mismo antes de recurrir a él:
   **volver a correr da datos distintos**. Un config que usa `http` nunca se trata como
   reproducible.
 - **El orden sigue al servicio**, no a la semilla.
-- **Local o volúmenes modestos.** Por internet, una corrida grande es una gran cantidad
-  de llamadas salientes; esto es para un servicio en su propia máquina, o una corrida que
-  usted dimensionó a propósito. No para mil millones de filas contra un endpoint público.
-- **Desde la biblioteca, solo el camino asíncrono.** Una llamada de red no puede salir de
-  una función síncrona, así que `toString()` y `writeFile()` **lanzan** sobre una
-  configuración con `http`. Use
-  [`toStringAsync()` / `writeFileAsync()`](../bindings/typescript.md#métodos-terminales)
-  — la CLI ya lo hace. Desde la línea de comandos no hay nada que hacer.
+- **El ritmo de su servicio.** La corrida va tan rápido como responde el servicio — vea el
+  [aviso de arriba](#lotes-una-petición-cada-diez-mil-filas). Contra un endpoint público, una corrida grande es además una gran
+  cantidad de llamadas salientes: cien por millón de filas.
+- **No se reordena.** Una columna `http` no puede ser miembro de `<uniq>` ni de `<distinct>`
+  ([`TDC314`](../reference/errors.md#top)): esos grupos mueven valores entre filas o piden
+  otro, y una respuesta pertenece a la fila por la que se preguntó. Ponga el grupo alrededor
+  de las columnas que lee el servicio y deje la columna `http` fuera.
+- **La unicidad se comprueba, no se fabrica.** `uniq="true"` en una secuencia `http` propia
+  no sortea nada — los valores los decide el servicio. La corrida lee todas las respuestas
+  antes de la primera fila y se detiene en la primera repetida, nombrando ambas filas. A
+  cada lote se le pregunta al servicio una sola vez.
 
 ## Vea también
 
 - [Escribir un generador de servicio](../guides/writing-a-service.md#top) — servicios funcionando en Node, Python y Java
 - [Visión general de generadores](../generators/overview.md#top)
-- [Códigos de error](../reference/errors.md#top) — `TDC065`–`TDC069`, `TDC284` y los fallos en corrida
+- [Códigos de error](../reference/errors.md#top) — `TDC065`–`TDC069`, `TDC284`, `TDC313`, `TDC314` y los fallos en corrida
 
 ---
 

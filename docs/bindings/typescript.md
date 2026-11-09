@@ -111,28 +111,21 @@ default — the whole run held at once, what `toArray()` does) or `"streaming"`.
 | `getAt(index)`     | one row object by index               | point access                   |
 | `preflight(opts?)` | a memory diagnostic, or `undefined`   | a check before a big run       |
 | `seedInfo()`       | `{ seed, generated }`                 | read / log the seed            |
-| `toStringAsync()`  | the whole output, as a promise        | a config with `type="http"`    |
-| `writeFileAsync(path)` | writes the output, as a promise   | a config with `type="http"`    |
-| `usesHttp()`       | `true` when the config makes a call   | choosing between the two pairs |
+| `toStringAsync()`  | the whole output, as a promise        | code written for 0.3           |
+| `writeFileAsync(path)` | writes the output, as a promise   | code written for 0.3           |
+| `usesHttp()`       | `true` when the config makes a call   | deciding whether to split a run |
 
 `toString`, `writeFile`, `toIterator`, and `toStream` all produce text through the
 disk-backed engine, and their memory use is O(number of fields). See **[Large
 outputs](../guides/large-outputs.md#top)** for measurements.
 
-One rule about the async pair: a config holding an
-[`<gen type="http">`](../generators/http.md#top) **must** use it. A network call cannot be
-made from a synchronous function, so `toString()` on such a config throws rather than
-returning half a dataset:
-
-```ts
-const tdc = new TDC({ configFile: "./enriched.tdc" });
-const text = tdc.usesHttp() ? await tdc.toStringAsync() : tdc.toString();
-```
-
-`usesHttp()` answers that question without running anything, which is exactly what the
-CLI does. Everything else behaves identically on both paths — for a config with no `http`
-generator, `toStringAsync()` is `toString()` wrapped in a promise. What does change is
-reproducibility: a run that calls a service is only as repeatable as the service is.
+A config holding a [`<gen type="http">`](../generators/http.md#top) works with every one
+of them. Up to 0.3 such a config had to go through the async pair; since 0.4 every path
+waits for the service batch by batch, and `toStringAsync()` / `writeFileAsync()` are
+`toString()` / `writeFile()` wrapped in a promise, kept so that older code still runs.
+What a service does change is reproducibility: a run that calls one is only as repeatable
+as the service is. `usesHttp()` answers whether a config calls one without running
+anything — the CLI asks it before splitting a run across processes.
 
 ## Object output
 

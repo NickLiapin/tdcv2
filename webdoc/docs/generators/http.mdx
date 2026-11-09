@@ -54,7 +54,8 @@ a service you already have **finish** a value TDC started rather than replace th
 generator outright: validate it, add a check digit, look it up, translate it.
 
 Your service tells the two apart by the request body: **an empty body means source
-mode**, and the `X-TDC-Count` header says how many values to invent.
+mode**, the `X-TDC-Count` header says how many values to invent, and `X-TDC-Offset` says
+which rows they are for.
 
 :::tip[Writing the service itself]
 A complete, working service in **Node, Python, and Java** — covering both modes, plus
@@ -65,7 +66,7 @@ how to make it reproducible from the seed — gets a page of its own:
 <Figure
   src="/img/generators/http-flow.svg"
   alt=""
-  caption="The column of inputs is sent in one request; the reply comes back one value per row, in the same order. Here the service upper-cases each value (a → A)."
+  caption="Each batch of inputs is sent in one request; the reply comes back one value per row, in the same order. Here the service upper-cases each value (a → A)."
 />
 
 <Legend items={[["A", "the input column — the values your sequence produced"], ["B", "your service: TDC only talks to it, never runs it"], ["C", "the reply — one value per row, in the order sent"]]} />
@@ -77,7 +78,9 @@ how to make it reproducible from the seed — gets a page of its own:
 | `src`      | the service URL — `http://127.0.0.1:5566/gen` (local, fast) or a public host. `https` works too                                                                                       |
 | `in`       | the sequence whose value is sent on each row — this is what turns the service into a **handler**. Omit it and the service is a **source**: it receives nothing and invents each value |
 | `on_error` | `fail` (default) — stop with a clear message; or `empty` — blank the cell and continue                                                                                                |
-| `timeout`  | seconds to wait for one answer before giving up. Default 30                                                                                                                           |
+| `timeout`  | seconds to wait for one batch's answer before giving up. Default 30                                                                                                                   |
+| `batch`    | rows per request. Default 10000                                                                                                                                                       |
+| `parallel` | how many requests may be on the wire at once. Default 1 — one at a time, which is safe for a service that cannot take two                                                             |
 | `secret`   | the key each request is **signed** with, so your service can tell TDC from anyone else who can reach the port. Three spellings — see [Proving the request came from TDC](#proving-the-request-came-from-tdc) |
 
 `in` names an **earlier** sequence — the value it produced on each row is what gets sent.
@@ -86,7 +89,11 @@ how to make it reproducible from the seed — gets a page of its own:
 
 The engine speaks one small protocol and expects nothing else back:
 
-- **`POST`** to `src`, with a header **`X-TDC-Count: N`** — how many values are wanted.
+- **`POST`** to `src`, with a header **`X-TDC-Count: N`** — how many values this request
+  wants: the rows of one [batch](#batches-one-request-per-ten-thousand-rows).
+- **`X-TDC-Offset`** is the row of the run the batch starts at, counting from 0, and
+  **`X-TDC-Total`** is the number of rows in the whole run. The third batch of a run of
+  25,000 carries `X-TDC-Count: 5000`, `X-TDC-Offset: 20000` and `X-TDC-Total: 25000`.
 - **`Content-Type: text/plain`**, exactly that, with no charset parameter. All five
   implementations send the same string, so a service may match it literally.
 - The **body** is the `N` input values, **one per line**, in row order. With no `in`,
@@ -102,28 +109,46 @@ The engine speaks one small protocol and expects nothing else back:
   [`secret`](#proving-the-request-came-from-tdc).
 - The **response** must be exactly **`N` lines**, in the same order — line _i_ answers
   input line _i_. Plain text.
+- **A source sends `X-TDC-Offset` back** in its response, with the value it received. A
+  source decides each value from its row, so it has to know which rows it is answering — one
+  that ignores the offset answers every batch with rows 0, 1, 2… again. The echo is how TDC
+  knows it did not: once a run takes more than one batch, a source reply without it stops
+  the run. A handler needs no echo — each answer comes from the line it was sent.
 
 Anything structured is your service's job. If it works with JSON internally, it
 returns the one field you want, as text — inside TDC every value is a string anyway.
 
-**One request per column, not per row.** The engine sends the whole batch at once, so a
-thousand rows is one request. A service written "one line in, one line out" still works
-— it just loops over the lines of the one request it receives.
+## Batches: one request per ten thousand rows
+
+TDC cuts the column into **batches** of `batch` rows — ten thousand unless you say
+otherwise — and sends one request per batch. A thousand rows is one request; a million is a
+hundred. A service written "one line in, one line out" still works: it loops over the lines
+of the request it receives.
 
 <Figure
   src="/img/generators/http-batch.svg"
   alt=""
-  caption="Why a thousand rows is one request. The per-row shape (left) would be a thousand round trips; TDC sends the whole column in one (right)."
+  caption="Why ten thousand rows are one request. The per-row shape (left) would be a round trip per value; TDC sends a whole batch in one (right)."
 />
 
-<Legend items={[["A", "one request per row — what TDC does NOT do; it would be a call per value"], ["B", "one request for the whole column — the whole batch, one round trip"]]} />
+<Legend items={[["A", "one request per row — what TDC does NOT do; it would be a call per value"], ["B", "one request per batch — ten thousand rows by default, one round trip"]]} />
 
-This is what keeps it fast: the cost is one round trip plus your service's own work,
-not a network round trip per value. It's also why `http` runs on the in-memory engine
-([one of six shapes that
-do](../guides/large-outputs.mdx#which-engine-runs-your-config)), and why it's best
-pointed at a service on your own machine, or at a run you have sized on purpose — not a
-billion rows against a distant endpoint.
+Rows are written as the answers arrive, and while one batch is written the next is already
+on the wire. Memory holds a few batches, never the column, so a run with `http` can be as
+large as any other. `parallel="4"` puts four batches on the wire at once, for a service
+that can take them; the rows still come out in order.
+
+:::warning[An `http` run goes at the speed of your service]
+Everything else in TDC is limited by your machine. A config with `http` waits for each
+batch's answer, so a service that takes a second per batch makes a million rows take about
+a hundred seconds, on any machine. That is the price, not a fault: the run finishes, at any
+size, at the service's pace. Time one batch before a long run, and raise `parallel` only if
+the service can answer several requests at once.
+:::
+
+`--jobs` splits such a run across processes only when you give it a number: each process
+asks for its own batches, so the service gets that many requests at once. Without `--jobs`
+a config that calls a service runs as one process, however large.
 
 ## A whole service, in five languages
 
@@ -141,15 +166,20 @@ createServer((req, res) => {
   req.on('data', (c) => chunks.push(c));
   req.on('end', () => {
     const count = Number(req.headers['x-tdc-count'] ?? '0');
+    const offset = Number(req.headers['x-tdc-offset'] ?? '0');
     const sent = Buffer.concat(chunks).toString('utf8');
 
     const out =
       sent === ''
-        ? Array.from({ length: count }, (_, i) => 'SRC-' + String(i).padStart(3, '0')) // source
+        ? Array.from({ length: count }, (_, i) => 'SRC-' + String(offset + i).padStart(3, '0')) // source
         : sent.split('\n').map((line) => '[' + line + ' ok]'); // handler
 
     const body = out.join('\n');
-    res.writeHead(200, { 'Content-Type': 'text/plain', 'Content-Length': Buffer.byteLength(body) });
+    res.writeHead(200, {
+      'Content-Type': 'text/plain',
+      'Content-Length': Buffer.byteLength(body),
+      'X-TDC-Offset': String(offset),
+    });
     res.end(body);
   });
 }).listen(5801, '127.0.0.1');
@@ -167,15 +197,17 @@ class H(BaseHTTPRequestHandler):
         n = int(self.headers.get("Content-Length", 0))
         sent = self.rfile.read(n).decode() if n else ""
         count = int(self.headers.get("X-TDC-Count", "0"))
+        offset = int(self.headers.get("X-TDC-Offset", "0"))
 
         if sent == "":
-            out = [f"SRC-{i:03d}" for i in range(count)]          # source
+            out = [f"SRC-{offset + i:03d}" for i in range(count)]          # source
         else:
             out = [f"[{line} ok]" for line in sent.split("\n")]   # handler
 
         body = "\n".join(out).encode()
         self.send_response(200)
         self.send_header("Content-Length", str(len(body)))
+        self.send_header("X-TDC-Offset", str(offset))
         self.end_headers()
         self.wfile.write(body)
 
@@ -202,15 +234,18 @@ public class S3 {
                                      StandardCharsets.UTF_8);
             String raw = exchange.getRequestHeaders().getFirst("X-TDC-Count");
             int count = Integer.parseInt(raw == null ? "0" : raw);
+            String rawOffset = exchange.getRequestHeaders().getFirst("X-TDC-Offset");
+            int offset = Integer.parseInt(rawOffset == null ? "0" : rawOffset);
 
             List<String> out = new ArrayList<>();
             if (sent.isEmpty()) {
-                for (int i = 0; i < count; i++) out.add(String.format("SRC-%03d", i));  // source
+                for (int i = 0; i < count; i++) out.add(String.format("SRC-%03d", offset + i));  // source
             } else {
                 for (String line : sent.split("\n", -1)) out.add("[" + line + " ok]");  // handler
             }
 
             byte[] body = String.join("\n", out).getBytes(StandardCharsets.UTF_8);
+            exchange.getResponseHeaders().set("X-TDC-Offset", String.valueOf(offset));
             exchange.sendResponseHeaders(200, body.length);
             try (OutputStream os = exchange.getResponseBody()) { os.write(body); }
         });
@@ -236,12 +271,14 @@ while (true)
     using var reader = new StreamReader(ctx.Request.InputStream, Encoding.UTF8);
     string sent = reader.ReadToEnd();
     int count = int.Parse(ctx.Request.Headers["X-TDC-Count"] ?? "0");
+    int offset = int.Parse(ctx.Request.Headers["X-TDC-Offset"] ?? "0");
 
     IEnumerable<string> lines = sent.Length == 0
-        ? Enumerable.Range(0, count).Select(i => $"SRC-{i:D3}")     // source
+        ? Enumerable.Range(0, count).Select(i => $"SRC-{offset + i:D3}")     // source
         : sent.Split('\n').Select(line => $"[{line} ok]");          // handler
 
     byte[] body = Encoding.UTF8.GetBytes(string.Join("\n", lines));
+    ctx.Response.AddHeader("X-TDC-Offset", offset.ToString());
     ctx.Response.ContentLength64 = body.Length;
     ctx.Response.OutputStream.Write(body);
     ctx.Response.Close();
@@ -261,7 +298,7 @@ fn main() -> std::io::Result<()> {
         let mut stream = stream?;
         let mut reader = BufReader::new(stream.try_clone()?);
 
-        let (mut length, mut count) = (0usize, 0usize);
+        let (mut length, mut count, mut offset) = (0usize, 0usize, 0usize);
         loop {
             let mut line = String::new();
             if reader.read_line(&mut line)? == 0 || line == "\r\n" {
@@ -272,6 +309,8 @@ fn main() -> std::io::Result<()> {
                 length = v.trim().parse().unwrap_or(0);
             } else if let Some(v) = lower.strip_prefix("x-tdc-count:") {
                 count = v.trim().parse().unwrap_or(0);
+            } else if let Some(v) = lower.strip_prefix("x-tdc-offset:") {
+                offset = v.trim().parse().unwrap_or(0);
             }
         }
 
@@ -280,7 +319,7 @@ fn main() -> std::io::Result<()> {
         let sent = String::from_utf8_lossy(&sent);
 
         let out: Vec<String> = if sent.is_empty() {
-            (0..count).map(|i| format!("SRC-{i:03}")).collect()             // source
+            (0..count).map(|i| format!("SRC-{:03}", offset + i)).collect()             // source
         } else {
             sent.split('\n').map(|line| format!("[{line} ok]")).collect()   // handler
         };
@@ -288,7 +327,7 @@ fn main() -> std::io::Result<()> {
         let body = out.join("\n");
         write!(
             stream,
-            "HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\nContent-Length: {}\r\n\r\n{body}",
+            "HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\nX-TDC-Offset: {offset}\r\nContent-Length: {}\r\n\r\n{body}",
             body.len()
         )?;
     }
@@ -327,16 +366,21 @@ kind of wrong.
 
 The service is outside TDC's control, so failures are handled, not hidden:
 
-- **`on_error="fail"`** (the default) stops the run with a message naming the sequence
-  and the service — `http service for sequence "Checked" at … returned 500`. A blank
+- **`on_error="fail"`** (the default) stops the run with a message naming the sequence,
+  the service and, when the run has more than one batch, the rows —
+  `http service for sequence "Checked" at … (rows 10000–19999) returned 500`. A blank
   column in a finished file is a worse surprise than a clear stop.
-- **`on_error="empty"`** blanks the affected column and finishes, for when a best-effort
-  output is what you want. Checking for the gaps is then on you.
-- **`429` (rate limited) always stops**, even under `empty`. "Slow down" and "stream a
-  whole column" cannot be reconciled, and continuing would quietly truncate the data.
-- A service that **never answers** is cut off by `timeout` rather than hanging the run.
+- **`on_error="empty"`** blanks the rows of the batch that failed and finishes, for when a
+  best-effort output is what you want. Checking for the gaps is then on you.
+- **`429` (rate limited) always stops**, even under `empty`. TDC cannot slow down on the
+  service's say-so, and going on would quietly blank the rest of the column.
+- A service that **never answers** is cut off by `timeout`, which applies to each batch,
+  rather than hanging the run.
 - A service that **floods** — answering with far more than one value per line — is cut
-  off at 64 MB with an error instead of being read into memory to the end.
+  off at 64 MB per batch with an error instead of being read into memory to the end.
+- A **source that does not send `X-TDC-Offset` back** stops the run once it takes two
+  batches, even under `empty`: `answered the batch at row 10000 without echoing
+  X-TDC-Offset`. Every batch after the first would otherwise repeat the first.
 - A **`secret` that cannot be read** — an unset variable, a missing file — stops the run
   before any request goes out, naming the sequence. Sending the batch unsigned instead
   would be the one outcome the attribute exists to prevent.
@@ -362,16 +406,17 @@ Two extra headers travel with the request:
 
 ```
 X-TDC-Timestamp: 1786000000
-X-TDC-Signature: hex(HMAC-SHA256(secret, timestamp \n seed \n count \n body))
+X-TDC-Signature: hex(HMAC-SHA256(secret, timestamp \n seed \n count \n offset \n total \n body))
 ```
 
 Everything that decides the answer is inside the signature — change the body, the count,
-the seed or the minute and it no longer matches. Verifying it is a few lines:
+the batch's offset, the seed or the minute and it no longer matches. Verifying it is a few
+lines:
 
 ```js
 const mine = crypto
   .createHmac('sha256', process.env.TDC_HTTP_SECRET)
-  .update(`${ts}\n${seed}\n${count}\n${body}`)
+  .update(`${ts}\n${seed}\n${count}\n${offset}\n${total}\n${body}`)
   .digest('hex');
 if (mine !== req.headers['x-tdc-signature']) return res.status(401).end();
 ```
@@ -415,16 +460,20 @@ to yourself before reaching for it:
   **re-running gives different data**. A config using `http` is never treated as
   reproducible.
 - **Order follows the service**, not the seed.
-- **Local or modest volumes.** Over the internet, a large run is a large number of
-  outbound calls — this is for a service on your own machine, or a run you have sized on
-  purpose. Not for a billion rows against a public endpoint.
-- **From the library, only the async path.** A network call cannot come out of a
-  synchronous function, so `toString()` and `writeFile()` **throw** on an `http` config.
-  Use [`toStringAsync()` / `writeFileAsync()`](../bindings/typescript.mdx#terminal-methods)
-  — the CLI already does. Nothing to do if you run it from the command line.
+- **Your service's pace.** The run is as fast as the service answers — see the
+  [warning above](#batches-one-request-per-ten-thousand-rows). Against a public endpoint, a
+  large run is also a large number of outbound calls: a hundred per million rows.
+- **Not rearranged.** An `http` column cannot be a member of `<uniq>` or `<distinct>`
+  ([`TDC314`](../reference/errors.mdx)): those groups move values between rows or ask for
+  another one, and an answer belongs to the row it was asked for. Put the group around the
+  columns the service reads, and leave the `http` column outside it.
+- **Checked, not made, unique.** `uniq="true"` on an `http` sequence of its own does not
+  draw anything — the service decides the values. The run reads every answer before the
+  first row is written and stops at the first repeat, naming both rows. The service is
+  still asked for each batch once.
 
 ## See also
 
 - [Writing a service generator](../guides/writing-a-service.mdx) — working services in Node, Python, and Java
 - [Generators overview](../generators/overview.mdx)
-- [Error codes](../reference/errors.mdx) — `TDC065`–`TDC069`, `TDC284`, and the run-time failures
+- [Error codes](../reference/errors.mdx) — `TDC065`–`TDC069`, `TDC284`, `TDC313`, `TDC314`, and the run-time failures

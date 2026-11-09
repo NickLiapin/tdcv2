@@ -22,13 +22,20 @@
 ## Что сервис обязан делать
 
 Полный контракт — на [странице генератора](../generators/http.md#контракт-который-реализует-ваш-сервис).
-Чтобы написать сервис, хватает четырёх строк из него:
+Чтобы написать сервис, хватает вот этой части:
 
-- приходит **`POST`** с заголовками `X-TDC-Count: N` и `X-TDC-Seed: <hex>`;
+- приходит **`POST`** с заголовками `X-TDC-Count: N`, `X-TDC-Offset: K` и `X-TDC-Seed: <hex>`;
 - **тело** — это `N` значений, по одному на строку, либо **пустое**, что значит «придумай их»;
+- `K` — строка прогона, с которой начинается запрос. Прогон длиннее одного
+  [пакета](../generators/http.md#пакеты-один-запрос-на-десять-тысяч-строк) — по умолчанию
+  десяти тысяч строк — приходит несколькими запросами, и строка _i_ запроса — это строка
+  `K + i` прогона;
 - **`X-TDC-Input: N`** присутствует ровно тогда, когда вызывающий прислал входные данные, и
   говорит, сколько строк в теле. Читать его необязательно, но стоит — см. ниже;
 - ответить нужно ровно **`N` строками**, в том же порядке;
+- источник отвечает с заголовком **`X-TDC-Offset: K`** — тем значением, что получил. По нему
+  TDC знает, что сервис прочитал смещение; прогон длиннее одного пакета без него
+  останавливается;
 - обычный текст, никакого JSON нигде не требуется.
 
 **Сравнивайте имена заголовков без учёта регистра**, как того требует HTTP. Пять реализаций
@@ -101,18 +108,20 @@ createServer((req, res) => {
   req.on('data', (c) => chunks.push(c));
   req.on('end', () => {
     const count = Number(req.headers['x-tdc-count'] ?? '0');
+    const offset = Number(req.headers['x-tdc-offset'] ?? '0');
     const seed = String(req.headers['x-tdc-seed'] ?? '');
     const body = Buffer.concat(chunks).toString('utf8');
 
     const out =
       body.length === 0
-        ? Array.from({ length: count }, (_, i) => accountFor(seed, i)) // source
+        ? Array.from({ length: count }, (_, i) => accountFor(seed, offset + i)) // source
         : body.split('\n').map((line) => line + luhn(line)); // handler
 
     const payload = out.join('\n');
     res.writeHead(200, {
       'Content-Type': 'text/plain',
       'Content-Length': Buffer.byteLength(payload),
+      'X-TDC-Offset': String(offset),
     });
     res.end(payload);
   });
@@ -163,10 +172,11 @@ class Handler(BaseHTTPRequestHandler):
         n = int(self.headers.get("Content-Length", 0))
         body = self.rfile.read(n).decode("utf-8") if n else ""
         count = int(self.headers.get("X-TDC-Count", "0"))
+        offset = int(self.headers.get("X-TDC-Offset", "0"))
         seed = self.headers.get("X-TDC-Seed", "")
 
         if body == "":
-            out = [account_for(seed, i) for i in range(count)]   # source
+            out = [account_for(seed, offset + i) for i in range(count)]   # source
         else:
             out = [line + luhn(line) for line in body.split("\n")]  # handler
 
@@ -174,6 +184,7 @@ class Handler(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header("Content-Type", "text/plain")
         self.send_header("Content-Length", str(len(payload)))
+        self.send_header("X-TDC-Offset", str(offset))
         self.end_headers()
         self.wfile.write(payload)
 
@@ -237,18 +248,21 @@ public class Service {
                                      StandardCharsets.UTF_8);
             String rawCount = exchange.getRequestHeaders().getFirst("X-TDC-Count");
             int count = Integer.parseInt(rawCount == null ? "0" : rawCount);
+            String rawOffset = exchange.getRequestHeaders().getFirst("X-TDC-Offset");
+            int offset = Integer.parseInt(rawOffset == null ? "0" : rawOffset);
             String seed = exchange.getRequestHeaders().getFirst("X-TDC-Seed");
             if (seed == null) seed = "";
 
             List<String> out = new ArrayList<>();
             if (body.isEmpty()) {
-                for (int i = 0; i < count; i++) out.add(accountFor(seed, i));  // source
+                for (int i = 0; i < count; i++) out.add(accountFor(seed, offset + i));  // source
             } else {
                 for (String line : body.split("\n", -1)) out.add(line + luhn(line));  // handler
             }
 
             byte[] payload = String.join("\n", out).getBytes(StandardCharsets.UTF_8);
             exchange.getResponseHeaders().set("Content-Type", "text/plain");
+            exchange.getResponseHeaders().set("X-TDC-Offset", String.valueOf(offset));
             exchange.sendResponseHeaders(200, payload.length);
             try (OutputStream os = exchange.getResponseBody()) {
                 os.write(payload);
@@ -315,14 +329,16 @@ while (true)
     using var reader = new StreamReader(ctx.Request.InputStream, Encoding.UTF8);
     string body = reader.ReadToEnd();
     int count = int.Parse(ctx.Request.Headers["X-TDC-Count"] ?? "0");
+    int offset = int.Parse(ctx.Request.Headers["X-TDC-Offset"] ?? "0");
     string seed = ctx.Request.Headers["X-TDC-Seed"] ?? "";
 
     IEnumerable<string> lines = body.Length == 0
-        ? Enumerable.Range(0, count).Select(i => AccountFor(seed, i))   // источник
+        ? Enumerable.Range(0, count).Select(i => AccountFor(seed, offset + i))   // источник
         : body.Split('\n').Select(line => line + Luhn(line));           // обработчик
 
     byte[] payload = Encoding.UTF8.GetBytes(string.Join("\n", lines));
     ctx.Response.ContentType = "text/plain";
+    ctx.Response.AddHeader("X-TDC-Offset", offset.ToString());
     ctx.Response.ContentLength64 = payload.Length;
     ctx.Response.OutputStream.Write(payload);
     ctx.Response.Close();
@@ -376,7 +392,7 @@ fn main() -> std::io::Result<()> {
         let mut stream = stream?;
         let mut reader = BufReader::new(stream.try_clone()?);
 
-        let (mut length, mut count, mut seed) = (0usize, 0usize, String::new());
+        let (mut length, mut count, mut offset, mut seed) = (0usize, 0usize, 0usize, String::new());
         loop {
             let mut line = String::new();
             if reader.read_line(&mut line)? == 0 || line == "\r\n" {
@@ -386,6 +402,7 @@ fn main() -> std::io::Result<()> {
             match name.to_ascii_lowercase().as_str() {
                 "content-length" => length = value.trim().parse().unwrap_or(0),
                 "x-tdc-count" => count = value.trim().parse().unwrap_or(0),
+                "x-tdc-offset" => offset = value.trim().parse().unwrap_or(0),
                 "x-tdc-seed" => seed = value.trim().to_string(),
                 _ => {}
             }
@@ -396,7 +413,7 @@ fn main() -> std::io::Result<()> {
         let body = String::from_utf8_lossy(&body);
 
         let out: Vec<String> = if body.is_empty() {
-            (0..count).map(|i| account_for(&seed, i)).collect()  // source
+            (0..count).map(|i| account_for(&seed, offset + i)).collect()  // source
         } else {
             body.split('\n')
                 .map(|line| format!("{line}{}", luhn(line)))     // handler
@@ -406,7 +423,7 @@ fn main() -> std::io::Result<()> {
         let payload = out.join("\n");
         write!(
             stream,
-            "HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\nContent-Length: {}\r\n\r\n{payload}",
+            "HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\nX-TDC-Offset: {offset}\r\nContent-Length: {}\r\n\r\n{payload}",
             payload.len()
         )?;
     }
@@ -456,7 +473,7 @@ fn main() -> std::io::Result<()> {
 генератора случайных чисел.**
 
 ```js
-accountFor(seed, i); // reproducible — same seed, same row, same answer
+accountFor(seed, offset + i); // reproducible — same seed, same row, same answer
 Math.random(); // not
 new Date(); // not
 ```
@@ -476,9 +493,11 @@ new Date(); // not
 
 ### Считайте строку напрямую, а не перебором
 
-Обратите внимание на форму `accountFor(seed, i)`: она принимает **номер строки** и
-возвращает значение этой строки, не таща состояние между вызовами. Это сделано нарочно, и
-это стоит перенять.
+Обратите внимание на форму `accountFor(seed, offset + i)`: она принимает **строку
+прогона** — смещение запроса плюс строку в нём — и возвращает значение этой строки, не таща
+состояние между вызовами. Это сделано нарочно, и это стоит перенять. Именно смещение держит
+это между пакетами: строка 10 000 приходит строкой 0 второго запроса, и выйти она должна
+строкой 10 000, а не снова строкой 0.
 
 Генератор, который идёт по последовательности — «вызови `next()` N раз», — обязан
 вызываться в правильном порядке, с начала и ровно один раз. Сервис не в том положении,
@@ -545,7 +564,7 @@ done
 
 ```
 X-TDC-Timestamp: 1786000000
-X-TDC-Signature: hex(HMAC-SHA256(secret, timestamp \n seed \n count \n body))
+X-TDC-Signature: hex(HMAC-SHA256(secret, timestamp \n seed \n count \n offset \n total \n body))
 ```
 
 Проверка — те же несколько строк на любом языке: пересчитать и сравнить.
@@ -553,7 +572,7 @@ X-TDC-Signature: hex(HMAC-SHA256(secret, timestamp \n seed \n count \n body))
 ```js
 const mine = crypto
   .createHmac('sha256', process.env.TDC_HTTP_SECRET)
-  .update(`${ts}\n${seed}\n${count}\n${body}`)
+  .update(`${ts}\n${seed}\n${count}\n${offset}\n${total}\n${body}`)
   .digest('hex');
 if (mine !== req.headers['x-tdc-signature']) return res.status(401).end();
 ```
@@ -581,15 +600,18 @@ if (mine !== req.headers['x-tdc-signature']) return res.status(401).end();
 - **В значениях не должно быть перевода строки**, ни туда, ни обратно: протокол
   построчный, и перенос внутри значения ломает счёт. Падает громко, а не портит, — но
   падает.
-- **Будьте безопасны при одновременных вызовах** либо запускайте генерацию с `--jobs 1`.
-  Своих воркеров TDC за вас не согласует.
+- **Возвращайте `X-TDC-Offset`** из источника — то значение, что получили. Источник, который
+  о нём забыл, отвечает на каждый пакет строками 0, 1, 2… — TDC такой прогон отклоняет,
+  а не пишет одни и те же значения раз за разом.
+- **Будьте безопасны при одновременных вызовах**, прежде чем поднимать `parallel=` или
+  передавать `--jobs`. По умолчанию TDC шлёт по одному запросу.
 - **Обрабатывайте всю пачку одним запросом.** Не разворачивайте её внутри в вызов на
   каждое значение — именно пачка держит скорость.
 
 ## См. также
 
 - [Генератор `http`](../generators/http.md#top) — атрибуты, контракт, режимы отказа
-- [Коды ошибок](../reference/errors.md#top) — `TDC065`–`TDC069` и `TDC284`
+- [Коды ошибок](../reference/errors.md#top) — `TDC065`–`TDC069`, `TDC284` и `TDC313`
 
 ---
 

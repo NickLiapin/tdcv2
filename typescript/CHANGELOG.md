@@ -11,6 +11,18 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Changed
+
+- **`toString()`, `writeFile()` and the other synchronous calls work on a config with `http`.**
+  They used to throw and send the caller to the async pair. The request runs on a helper thread
+  and the render waits for it, so every path — streaming, Parquet, `--jobs` — handles `http`.
+  `toStringAsync()` and `writeFileAsync()` stay, as the same calls wrapped in a promise.
+- **The CLI no longer builds an `http` run into one string before writing it.** It streams like
+  any other run.
+- **`usesHttp()` finds an `http` generator anywhere** — in a `<mix>` or `<switch>` case, an `if=`
+  branch, a field — and the CLI uses it to keep such a run in one process unless `--jobs` names
+  a number.
+
 ## [0.3.7] — 2026-11-04
 
 ### Changed

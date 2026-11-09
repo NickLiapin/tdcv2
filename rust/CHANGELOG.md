@@ -11,6 +11,12 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Fixed
+
+- **A streamed `http` column no longer copies its batch for every row.** Each row read handed
+  back a fresh copy of all 10,000 answers, so 1,100,000 rows crawled at five seconds a batch.
+  The batch is shared now, and the run takes 8 s.
+
 ## [0.3.7] — 2026-11-04
 
 ### Changed
