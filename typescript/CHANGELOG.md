@@ -11,8 +11,12 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [0.4.0] — 2026-11-09
+
 ### Changed
 
+- The engine changes shared by all five implementations — see the
+  [engine changelog](../CHANGELOG.md#040--2026-11-09).
 - **`toString()`, `writeFile()` and the other synchronous calls work on a config with `http`.**
   They used to throw and send the caller to the async pair. The request runs on a helper thread
   and the render waits for it, so every path — streaming, Parquet, `--jobs` — handles `http`.

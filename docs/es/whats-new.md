@@ -16,6 +16,43 @@ donde la documentación lo explica ahora. Los cambios dentro del motor que no al
 que usted escribe o lee quedan fuera; todos los cambios están en el
 [registro de cambios](https://github.com/NickLiapin/tdcv2/blob/main/CHANGELOG.md).
 
+## 9 de noviembre de 2026 — versión 0.4.0
+
+El generador `http` ahora funciona a cualquier escala. Si usted escribió un servicio para él, el
+segundo y el tercer punto de abajo piden un cambio en el servicio; por eso la versión es 0.4.0.
+
+- **`http` envía una columna por lotes.** Una petición lleva `batch=` filas, 10 000 por defecto,
+  y las filas se escriben a medida que llegan las respuestas. Antes la columna entera iba en una
+  sola petición, y una ejecución se detenía hacia el millón de filas. Un gigabyte de filas con
+  hashes ya funciona en todos los paquetes. `parallel=` pone varios lotes en la red a la vez. Un
+  valor de cualquiera de los dos que no sea un entero mayor que cero es `TDC313`. →
+  [Lotes](./generators/http.md#lotes-una-petición-cada-diez-mil-filas)
+- **Un servicio fuente devuelve `X-TDC-Offset`.** Cada petición dice ahora qué filas cubre:
+  `X-TDC-Offset` es la primera fila y `X-TDC-Total`, la longitud de la ejecución. Una fuente — un
+  servicio sin `in=` — devuelve el desplazamiento recibido en una cabecera del mismo nombre; si
+  no, una ejecución de más de un lote se detiene. Un procesador no necesita cambios. →
+  [El contrato](./generators/http.md#el-contrato-que-implementa-su-servicio)
+- **La firma de `secret=` incluye el desplazamiento y el total.** Un servicio que comprueba
+  firmas añade las dos líneas: `timestamp \n seed \n count \n offset \n total \n body`. →
+  [Probar que la petición viene de TDC](./generators/http.md#probar-que-la-petición-viene-de-tdc)
+- **Una columna que lee una respuesta de `http` recibe esa respuesta.** `if="Hash == ''"`, un
+  `<switch>` sobre la respuesta o una línea que la imprime veían una cadena vacía. Una llamada
+  dentro de un caso de `<mix>` o `<switch>`, una rama `if=` o un campo de una secuencia compuesta
+  imprime su respuesta, y `parent=` en una secuencia `http` deja vacías las filas que el padre
+  deja vacías. → [El generador `http`](./generators/http.md#top)
+- **Una columna `http` no puede ser miembro de `<uniq>` ni de `<distinct>`, `TDC314`.** Un grupo
+  `<uniq>` movía respuestas entre filas, y un hash podía acabar junto a la contraseña de otra
+  fila. Ponga el grupo alrededor de las columnas que lee el servicio; la columna `http` las sigue.
+  → [Lo que no promete](./generators/http.md#lo-que-no-promete)
+- **`uniq="true"` en una secuencia `http` comprueba las respuestas.** Antes se rechazaba con
+  `TDC218`. La ejecución lee todas las respuestas antes de escribir la primera fila y se detiene
+  en la primera repetición, nombrando las dos filas. →
+  [Lo que no promete](./generators/http.md#lo-que-no-promete)
+- **En TypeScript, `toString()` y `writeFile()` funcionan con `http`.** Antes lanzaban un error y
+  remitían a `toStringAsync()`, que se queda para el código antiguo. `usesHttp()` en TypeScript,
+  Python y Java encuentra ahora un servicio llamado desde un caso o una rama. →
+  [Métodos terminales](./bindings/typescript.md#métodos-terminales)
+
 ## 4 de noviembre de 2026 — versión 0.3.7
 
 - **Un valor puede ir entre comillas simples.** `value='say "hi"'` guarda un `"` tal como se

@@ -12,6 +12,42 @@ now works differently — newest first, each with a link to where the docs expla
 Changes inside the engine that alter nothing you write or read are left out; every change is
 in the [changelog](https://github.com/NickLiapin/tdcv2/blob/main/CHANGELOG.md).
 
+## 9 November 2026 — version 0.4.0
+
+The `http` generator now works at any size. If you wrote a service for it, the second and
+third items below need a change on the service's side, which is why the version is 0.4.0.
+
+- **`http` sends a column in batches.** One request carries `batch=` rows, 10,000 by default,
+  and rows are written as the answers arrive. The whole column used to go in one request, and
+  a run stopped at about a million rows. A gigabyte of hashed rows now runs in every package.
+  `parallel=` puts several batches on the wire at once. A value for either that is not a whole
+  number above zero is `TDC313`. →
+  [Batches](./generators/http.mdx#batches-one-request-per-ten-thousand-rows)
+- **A source service sends `X-TDC-Offset` back.** Each request now says which rows it covers:
+  `X-TDC-Offset` is the first row and `X-TDC-Total` is the length of the run. A source — a
+  service with no `in=` — returns the offset it received in a header of the same name, or a run
+  longer than one batch stops. A handler needs no change. →
+  [The contract](./generators/http.mdx#the-contract-your-service-implements)
+- **The `secret=` signature covers the offset and the total.** A service that checks signatures
+  adds the two lines: `timestamp \n seed \n count \n offset \n total \n body`. →
+  [Proving the request came from TDC](./generators/http.mdx#proving-the-request-came-from-tdc)
+- **A column that reads an `http` answer gets the answer.** `if="Hash == ''"`, a `<switch>` on
+  the answer, or a line that prints it used to see an empty string. A call inside a `<mix>` or
+  `<switch>` case, an `if=` branch, or a compound's field prints its answer, and `parent=` on an
+  `http` sequence blanks the rows the parent leaves empty. → [The `http` generator](./generators/http.mdx)
+- **An `http` column cannot be a member of `<uniq>` or `<distinct>`, `TDC314`.** A `<uniq>`
+  group moved answers between rows, so a hash could land beside another row's password. Put the
+  group around the columns the service reads, and the `http` column follows them. →
+  [What it does not promise](./generators/http.mdx#what-it-does-not-promise)
+- **`uniq="true"` on an `http` sequence checks the answers.** It used to be refused with
+  `TDC218`. The run reads every answer before it writes the first row, and stops at the first
+  repeat, naming both rows. →
+  [What it does not promise](./generators/http.mdx#what-it-does-not-promise)
+- **In TypeScript, `toString()` and `writeFile()` work with `http`.** They used to throw and
+  point you to `toStringAsync()`, which stays for older code. `usesHttp()` in TypeScript, Python,
+  and Java now finds a service called from a case or a branch. →
+  [Terminal methods](./bindings/typescript.mdx#terminal-methods)
+
 ## 4 November 2026 — version 0.3.7
 
 - **A value can be written in single quotes.** `value='say "hi"'` holds a `"` exactly as

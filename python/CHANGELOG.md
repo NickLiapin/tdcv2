@@ -11,10 +11,20 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [0.4.0] — 2026-11-09
+
 ### Changed
 
+- The engine changes shared by all five implementations — see the
+  [engine changelog](../CHANGELOG.md#040--2026-11-09).
 - **A run with `http` split across workers asks for each batch once.** The seams between workers
   fall on batch boundaries and no worker reads ahead past its own rows. Splitting stays opt-in: `workers=None` is one process.
+
+### Fixed
+
+- **`uses_http()` finds an `http` generator anywhere** — in a `<mix>` or `<switch>` case, an `if=`
+  branch, a part. It looked at sequences and fields only, so a config calling a service from a
+  case answered `false`.
 
 ## [0.3.7] — 2026-11-04
 

@@ -20,10 +20,20 @@ the next build, and nothing else is edited.
 
 ## [Unreleased]
 
+## [0.4.0] — not published
+
 ### Changed
 
+- The engine changes shared by all five implementations — see the
+  [engine changelog](../CHANGELOG.md#040--2026-11-09).
 - **A run with `http` split across workers asks for each batch once.** The seams between workers
   fall on batch boundaries and no worker reads ahead past its own rows. Without an explicit worker count, a config that calls a service runs on one thread: splitting it on its own would send the service several requests at once.
+
+### Fixed
+
+- **`usesHttp()` finds an `http` generator anywhere** — in a `<mix>` or `<switch>` case, an `if=`
+  branch, a part. It looked at sequences and fields only, so a config calling a service from a
+  case answered `false`.
 
 ## [0.3.7] — 2026-11-04
 

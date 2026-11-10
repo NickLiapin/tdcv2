@@ -15,6 +15,8 @@ page — is tracked in that implementation's own changelog:
 
 ## [Unreleased]
 
+## [0.4.0] — 2026-11-09
+
 ### Changed
 
 - **`http` sends a column in batches — in all five.** A column is cut into `batch=` rows (10,000
@@ -37,7 +39,8 @@ page — is tracked in that implementation's own changelog:
   the streaming engines now read it batch by batch, with the next batch requested while one is
   written. 1,100,000 rows of hashes in all five: every hash on its row, 110 requests, memory
   flat (3,300,000 rows on the reference: 913 MB against 890 MB at 1,100,000, which is the
-  engine's own floor). Without an explicit `--jobs` a config that calls a service runs as one
+  engine's own floor). A gigabyte — 13,600,000 rows, 1,360 requests — runs in all five, every
+  hash checked against its password. Without an explicit `--jobs` a config that calls a service runs as one
   process; with one, the seams between workers fall on batch boundaries and no worker reads
   ahead past its own rows, so the service is asked for each batch once.
 - **`uniq="true"` on an `http` sequence of its own is a check.** It was `TDC218`. The run reads
