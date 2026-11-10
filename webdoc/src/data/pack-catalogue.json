@@ -1,5 +1,5 @@
 {
-  "releasedTag": "v0.3.7",
+  "releasedTag": "v0.4.0",
   "generated": "node webdoc/scripts/build-pack-catalogue.mjs",
   "common": [
     {
