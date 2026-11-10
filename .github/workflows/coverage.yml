@@ -22,9 +22,14 @@ on:
     branches: [main]
   workflow_dispatch:
 
+# Only a pull request cancels its own older run. On main every commit keeps its verdict:
+# cancelling there left a permanent "cancelled" mark on the superseded commit, which reads
+# as a broken build (0.4.0, when the release mark replaced the commit before it). The group
+# carries the commit so main's runs never queue behind or replace each other, and the ref so
+# a run called by the publish workflow for a tag is its own group too.
 concurrency:
-  group: coverage-${{ github.ref }}
-  cancel-in-progress: true
+  group: ${{ github.event_name == 'pull_request' && format('coverage-{0}', github.ref) || format('coverage-{0}-{1}', github.ref, github.sha) }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 permissions:
   contents: read

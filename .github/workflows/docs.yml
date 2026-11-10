@@ -115,10 +115,16 @@ jobs:
     needs: build
     if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    # GitHub Pages sat in "syncing_files" for the whole ten minutes this job used to allow,
+    # and the deploy came back "cancelled" (0.4.0's catalogue commit). The wait is on
+    # GitHub's side, so the room is given generously: the job and the action's own timer,
+    # which also defaults to ten minutes.
+    timeout-minutes: 30
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
         uses: actions/deploy-pages@v5
+        with:
+          timeout: 1800000

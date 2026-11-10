@@ -44,10 +44,24 @@ permissions:
 
 jobs:
   # ───────────────────────────────────────────────────────────────────────────
+  # The full suites, on exactly the tagged commit, before anything is built for a
+  # registry. Until 0.4.0 the uploads waited only for the gate below, and the CI runs
+  # for the same commit were still going when npm already served the release: green
+  # in the end, but a release must not depend on a race it happens to win.
+  typescript:
+    name: Tests — TypeScript
+    uses: ./.github/workflows/typescript-ci.yml
+
+  ports:
+    name: Tests — Python, Rust, Java, C#
+    uses: ./.github/workflows/five-ways.yml
+
+  # ───────────────────────────────────────────────────────────────────────────
   # Nothing publishes until this passes. It is the stage 0.1.5 did not get: the
   # sources were green and the crate was empty.
   gate:
     name: Versions agree, artefacts run outside the repository
+    needs: [typescript, ports]
     runs-on: ubuntu-latest
     outputs:
       version: ${{ steps.version.outputs.value }}
