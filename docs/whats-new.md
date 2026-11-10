@@ -50,6 +50,9 @@ third items below need a change on the service's side, which is why the version 
   point you to `toStringAsync()`, which stays for older code. `usesHttp()` in TypeScript, Python,
   and Java now finds a service called from a case or a branch. →
   [Terminal methods](./bindings/typescript.md#terminal-methods)
+- **The plugin for AI agents is 0.4.0 too, and runs this engine.** From this release its first
+  two numbers follow the engine: plugin 0.4.x works with TDC 0.4.y. →
+  [Versions](./ai-agents/overview.md#versions)
 
 ## 4 November 2026 — version 0.3.7
 

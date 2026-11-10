@@ -52,6 +52,9 @@ segundo y el tercer punto de abajo piden un cambio en el servicio; por eso la ve
   remitían a `toStringAsync()`, que se queda para el código antiguo. `usesHttp()` en TypeScript,
   Python y Java encuentra ahora un servicio llamado desde un caso o una rama. →
   [Métodos terminales](./bindings/typescript.md#métodos-terminales)
+- **El plugin para agentes de IA también es 0.4.0 y usa este motor.** Desde esta versión sus
+  dos primeros números siguen al motor: el plugin 0.4.x funciona con TDC 0.4.y. →
+  [Versiones](./ai-agents/overview.md#versiones)
 
 ## 4 de noviembre de 2026 — versión 0.3.7
 

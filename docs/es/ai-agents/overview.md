@@ -27,7 +27,7 @@ Para eso el agente necesita dos cosas, y el proyecto
   resumir un archivo, leer esta documentación. MCP (Model Context Protocol) es la forma
   estándar en que un agente llama a las herramientas de otro programa.
 
-Las dos partes se publican juntas, con una sola versión: 0.1.7.
+Las dos partes se publican juntas, con una sola versión: 0.4.0.
 
 ## Cuál usar
 
@@ -55,12 +55,15 @@ Todo requiere Node.js 20 o posterior.
 
 ## Versiones
 
-La versión 0.1.7 está comprobada con TDC 0.3.7. La
+La versión 0.4.0 está comprobada con TDC 0.4.0. La
 referencia del skill se construye a partir de la documentación de ese motor, y el agente
-ejecuta ese mismo motor: `npx -y tdcv2@0.3.7`. El servidor usa el `tdcv2`
+ejecuta ese mismo motor: `npx -y tdcv2@0.4.0`. El servidor usa el `tdcv2`
 propio de su proyecto cuando el proyecto lo tiene y, si no, el motor que trae consigo. Con
 otra versión del motor, el agente lee las páginas de esa versión, y la última palabra la
 tiene el `check` del motor.
+
+Los dos primeros números de una versión siguen al motor: el plugin 0.4.x funciona con TDC
+0.4.y. El último número cuenta las versiones propias del plugin y no depende del motor.
 
 ## Privacidad
 
@@ -71,7 +74,7 @@ generados solo dentro de la carpeta en la que se inicia.
 La red se usa solo para cuatro cosas:
 
 - el primer inicio descarga `tdcv2-mcp` y el motor desde npm;
-- con una versión del motor distinta de 0.3.7, el agente puede leer la página
+- con una versión del motor distinta de 0.4.0, el agente puede leer la página
   de documentación de esa versión en GitHub;
 - los paquetes de datos se descargan cuando usted o el agente ejecutan `tdcv2 pack add`; a
   través del servidor es `tdc_pack_add`, y su cliente le pide permiso primero;

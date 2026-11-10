@@ -76,9 +76,9 @@ toma la actualización.
 El plugin es el camino sencillo. Si quiere una sola parte:
 
 ```bash
-npx -y tdcv2-mcp@0.1.7 install-skill            # el skill, para usted: ~/.claude/skills/tdcv2
-npx -y tdcv2-mcp@0.1.7 install-skill --project  # el skill, este proyecto: ./.claude/skills/tdcv2
-claude mcp add tdcv2 -- npx -y tdcv2-mcp@0.1.7  # el servidor, este proyecto
+npx -y tdcv2-mcp@0.4.0 install-skill            # el skill, para usted: ~/.claude/skills/tdcv2
+npx -y tdcv2-mcp@0.4.0 install-skill --project  # el skill, este proyecto: ./.claude/skills/tdcv2
+claude mcp add tdcv2 -- npx -y tdcv2-mcp@0.4.0  # el servidor, este proyecto
 ```
 
 `install-skill` reemplaza una copia anterior del skill en la misma carpeta. `claude mcp add`
