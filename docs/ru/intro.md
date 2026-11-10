@@ -342,7 +342,7 @@ for (const user of users) {
 | **[Python](bindings/python.md#top)**         | PyPI          | `pip install tdcv2`          | 0.4.0  |
 | **[Rust](bindings/rust.md#top)**             | crates.io     | `cargo add tdcv2`            | 0.4.0  |
 | **[C#](bindings/csharp.md#top)**             | NuGet         | `dotnet add package Tdcv2`   | 0.4.0  |
-| **[Java](bindings/java.md#top)**             | Maven Central | `io.github.nickliapin:tdcv2` | 0.3.7  |
+| **[Java](bindings/java.md#top)**             | Maven Central | `io.github.nickliapin:tdcv2` | 0.4.0  |
 
 Каждый опубликованный пакет несёт стартовый набор паков, поэтому работает без всего
 остального; остальные десять языков и девяносто с лишним пакетов стран —
