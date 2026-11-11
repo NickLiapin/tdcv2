@@ -12,6 +12,8 @@
  * Recipes). Hand-rolled — no dependency.
  */
 
+import * as TdcMath from '../math/tdc-math.js';
+
 const LANCZOS_G = 7;
 const LANCZOS_C = [
   0.99999999999980993, 676.5203681218851, -1259.1392167224028, 771.32342877765313,
@@ -23,13 +25,13 @@ const LANCZOS_C = [
 export function lgamma(z: number): number {
   if (z < 0.5) {
     // Reflection formula for the left half-plane.
-    return Math.log(Math.PI / Math.sin(Math.PI * z)) - lgamma(1 - z);
+    return TdcMath.log(Math.PI / TdcMath.sin(Math.PI * z)) - lgamma(1 - z);
   }
   const zz = z - 1;
   let x = LANCZOS_C[0] ?? 0;
   for (let i = 1; i < LANCZOS_G + 2; i++) x += (LANCZOS_C[i] ?? 0) / (zz + i);
   const t = zz + LANCZOS_G + 0.5;
-  return 0.5 * Math.log(2 * Math.PI) + (zz + 0.5) * Math.log(t) - t + Math.log(x);
+  return 0.5 * TdcMath.log(2 * Math.PI) + (zz + 0.5) * TdcMath.log(t) - t + TdcMath.log(x);
 }
 
 const MAX_ITER = 300;
@@ -54,7 +56,7 @@ function gammaSeries(a: number, x: number): number {
     sum += del;
     if (Math.abs(del) < Math.abs(sum) * EPS) break;
   }
-  return sum * Math.exp(-x + a * Math.log(x) - gln);
+  return sum * TdcMath.exp(-x + a * TdcMath.log(x) - gln);
 }
 
 /** Returns `Q(a,x) = 1 - P(a,x)` via its continued fraction. */
@@ -76,15 +78,15 @@ function gammaContinuedFraction(a: number, x: number): number {
     h *= del;
     if (Math.abs(del - 1) < EPS) break;
   }
-  return Math.exp(-x + a * Math.log(x) - gln) * h;
+  return TdcMath.exp(-x + a * TdcMath.log(x) - gln) * h;
 }
 
 /** Regularized incomplete beta `I_x(a,b)` — the CDF of beta(a,b) at x. */
 export function betaI(x: number, a: number, b: number): number {
   if (x <= 0) return 0;
   if (x >= 1) return 1;
-  const bt = Math.exp(
-    lgamma(a + b) - lgamma(a) - lgamma(b) + a * Math.log(x) + b * Math.log(1 - x),
+  const bt = TdcMath.exp(
+    lgamma(a + b) - lgamma(a) - lgamma(b) + a * TdcMath.log(x) + b * TdcMath.log(1 - x),
   );
   if (x < (a + 1) / (a + b + 2)) return (bt * betaContinuedFraction(a, b, x)) / a;
   return 1 - (bt * betaContinuedFraction(b, a, 1 - x)) / b;

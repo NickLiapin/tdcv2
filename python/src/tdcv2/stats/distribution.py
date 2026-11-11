@@ -16,6 +16,7 @@ import math
 from dataclasses import dataclass
 
 from ..lib import numbers
+from ..math import tdc_math
 from .special import beta_i_inv, gamma_p_inv
 
 # e^-lambda underflows to zero above about 745, which would break the recurrence the table is
@@ -62,13 +63,13 @@ def sample(spec: Spec, uniforms: list[float]) -> float:
     if spec.name == "normal":
         return p["mean"] + p["sd"] * _box_muller(u1, u2)
     if spec.name == "lognormal":
-        return math.exp(p["meanlog"] + p["sdlog"] * _box_muller(u1, u2))
+        return tdc_math.exp(p["meanlog"] + p["sdlog"] * _box_muller(u1, u2))
     if spec.name == "exponential":
-        return -math.log(u1) / p["rate"]
+        return -tdc_math.log(u1) / p["rate"]
     if spec.name == "pareto":
-        return p["xmin"] * (1 - u1) ** (-1 / p["alpha"])
+        return p["xmin"] * tdc_math.pow(1 - u1, -1 / p["alpha"])
     if spec.name == "weibull":
-        return p["scale"] * (-math.log(u1)) ** (1 / p["shape"])
+        return p["scale"] * tdc_math.pow(-tdc_math.log(u1), 1 / p["shape"])
     if spec.name == "poisson":
         return float(_lower_bound(spec.table or (), u1))
     if spec.name == "zipf":
@@ -158,7 +159,7 @@ def poisson_cdf(lam: float) -> tuple[float, ...]:
             f"(max {MAX_LAMBDA}); for large means use "
             f'distribution="normal" mean="{numbers.to_text(lam)}" sd="sqrt(lambda)".'
         )
-    p = math.exp(-lam)
+    p = tdc_math.exp(-lam)
     cumulative = p
     out = [cumulative]
     cap = lam + 40 * math.sqrt(lam) + 100
@@ -175,7 +176,7 @@ def zipf_cumulative(n: int, s: float) -> tuple[float, ...]:
     """``cum[k] = P(rank ≤ k+1)`` over the ranks 1..n."""
     if n > MAX_ZIPF_N:
         raise ValueError(f'distribution "zipf": n {n} is too large (max {MAX_ZIPF_N}).')
-    weights = [1 / k**s for k in range(1, n + 1)]
+    weights = [1 / tdc_math.pow(k, s) for k in range(1, n + 1)]
     total = sum(weights)
     out = []
     c = 0.0
@@ -190,7 +191,7 @@ def zipf_cumulative(n: int, s: float) -> tuple[float, ...]:
 
 def _box_muller(u1: float, u2: float) -> float:
     """A standard normal deviate from two uniforms in (0,1)."""
-    return math.sqrt(-2 * math.log(u1)) * math.cos(2 * math.pi * u2)
+    return math.sqrt(-2 * tdc_math.log(u1)) * tdc_math.cos(2 * math.pi * u2)
 
 
 def _lower_bound(cumulative: tuple[float, ...], u: float) -> int:

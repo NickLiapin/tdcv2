@@ -17,6 +17,8 @@ from __future__ import annotations
 import math
 import re
 
+from ..math import tdc_math
+
 Point = tuple[float, float]
 Matrix = tuple[float, float, float, float, float, float]
 
@@ -299,17 +301,17 @@ def _primitive(name: str, a: list[float]) -> Matrix:
         sx = at(0, 1)
         return (sx, 0, 0, at(1, sx), 0, 0)
     if name == "rotate":
-        radians = math.radians(at(0, 0))
-        c, s = math.cos(radians), math.sin(radians)
+        radians = tdc_math.radians(at(0, 0))
+        c, s = tdc_math.cos(radians), tdc_math.sin(radians)
         rotation: Matrix = (c, s, -s, c, 0, 0)
         if len(a) < 3:
             return rotation
         cx, cy = at(1, 0), at(2, 0)
         return multiply(multiply((1, 0, 0, 1, cx, cy), rotation), (1, 0, 0, 1, -cx, -cy))
     if name == "skewX":
-        return (1, 0, math.tan(math.radians(at(0, 0))), 1, 0, 0)
+        return (1, 0, tdc_math.tan(tdc_math.radians(at(0, 0))), 1, 0, 0)
     if name == "skewY":
-        return (1, math.tan(math.radians(at(0, 0))), 0, 1, 0, 0)
+        return (1, tdc_math.tan(tdc_math.radians(at(0, 0))), 0, 1, 0, 0)
     return IDENTITY
 
 
@@ -417,7 +419,7 @@ def _attr(tag: str, name: str) -> str | None:
 def _segments_for(*points: Point) -> int:
     """How finely a curve segment is split — deterministic, so all three ports agree."""
     length = sum(
-        math.hypot(points[i][0] - points[i - 1][0], points[i][1] - points[i - 1][1])
+        tdc_math.hypot(points[i][0] - points[i - 1][0], points[i][1] - points[i - 1][1])
         for i in range(1, len(points))
     )
     return min(64, max(4, math.ceil(length / 3)))
@@ -468,8 +470,8 @@ def _arc(
     if rx == 0 or ry == 0:
         return [p1]  # degenerate, so a straight line
 
-    phi = math.radians(rotation_deg)
-    cos_p, sin_p = math.cos(phi), math.sin(phi)
+    phi = tdc_math.radians(rotation_deg)
+    cos_p, sin_p = tdc_math.cos(phi), tdc_math.sin(phi)
     dx = (p0[0] - p1[0]) / 2
     dy = (p0[1] - p1[1]) / 2
     x1 = cos_p * dx + sin_p * dy
@@ -493,8 +495,8 @@ def _arc(
 
     def angle(ux: float, uy: float, vx: float, vy: float) -> float:
         dot = ux * vx + uy * vy
-        length = math.hypot(ux, uy) * math.hypot(vx, vy)
-        a = math.acos(min(1.0, max(-1.0, 1.0 if length == 0 else dot / length)))
+        length = tdc_math.hypot(ux, uy) * tdc_math.hypot(vx, vy)
+        a = tdc_math.acos(min(1.0, max(-1.0, 1.0 if length == 0 else dot / length)))
         return -a if ux * vy - uy * vx < 0 else a
 
     theta = angle(1, 0, (x1 - cx1) / rx, (y1 - cy1) / ry)
@@ -508,7 +510,7 @@ def _arc(
     out = []
     for i in range(1, n + 1):
         t = theta + delta * i / n
-        ex = rx * math.cos(t)
-        ey = ry * math.sin(t)
+        ex = rx * tdc_math.cos(t)
+        ey = ry * tdc_math.sin(t)
         out.append((cos_p * ex - sin_p * ey + cx, sin_p * ex + cos_p * ey + cy))
     return out

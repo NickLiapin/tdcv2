@@ -23,6 +23,7 @@
 
 import { betaIInv, gammaPInv } from './special.js';
 import { toFixedText } from '../lib/fixed.js';
+import * as TdcMath from '../math/tdc-math.js';
 
 interface Base {
   /** How many uniform draws in (0,1) `sampleDistribution` needs for this spec. */
@@ -60,7 +61,7 @@ export type DistributionName = DistributionSpec['name'];
 
 /** Standard normal deviate via Box–Muller from two uniforms in (0,1). */
 function boxMuller(u1: number, u2: number): number {
-  return Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
+  return Math.sqrt(-2 * TdcMath.log(u1)) * TdcMath.cos(2 * Math.PI * u2);
 }
 
 /**
@@ -74,13 +75,13 @@ export function sampleDistribution(spec: DistributionSpec, uniforms: readonly nu
     case 'normal':
       return spec.mean + spec.sd * boxMuller(u1, u2);
     case 'lognormal':
-      return Math.exp(spec.meanlog + spec.sdlog * boxMuller(u1, u2));
+      return TdcMath.exp(spec.meanlog + spec.sdlog * boxMuller(u1, u2));
     case 'exponential':
-      return -Math.log(u1) / spec.rate;
+      return -TdcMath.log(u1) / spec.rate;
     case 'pareto':
-      return spec.xmin * Math.pow(1 - u1, -1 / spec.alpha);
+      return spec.xmin * TdcMath.pow(1 - u1, -1 / spec.alpha);
     case 'weibull':
-      return spec.scale * Math.pow(-Math.log(u1), 1 / spec.shape);
+      return spec.scale * TdcMath.pow(-TdcMath.log(u1), 1 / spec.shape);
     case 'poisson':
       return lowerBound(spec.cdf, u1); // smallest count k with P(X ≤ k) ≥ u
     case 'zipf':
@@ -231,7 +232,7 @@ function poissonCdf(lambda: number): number[] {
     );
   }
   const cdf: number[] = [];
-  let p = Math.exp(-lambda); // P(0)
+  let p = TdcMath.exp(-lambda); // P(0)
   let cum = p;
   cdf.push(cum);
   const cap = lambda + 40 * Math.sqrt(lambda) + 100;
@@ -253,7 +254,7 @@ function zipfCumulative(n: number, s: number): number[] {
   let sum = 0;
   const weights = new Array<number>(n);
   for (let k = 1; k <= n; k++) {
-    const w = 1 / Math.pow(k, s);
+    const w = 1 / TdcMath.pow(k, s);
     weights[k - 1] = w;
     sum += w;
   }

@@ -1,5 +1,6 @@
 using System.Text;
 using System.Globalization;
+using Tdcv2.Maths;
 
 namespace Tdcv2.Stats;
 
@@ -128,10 +129,10 @@ public static class Distribution
         return spec.Name switch
         {
             "normal" => p["mean"] + (p["sd"] * BoxMuller(u1, u2)),
-            "lognormal" => Math.Exp(p["meanlog"] + (p["sdlog"] * BoxMuller(u1, u2))),
-            "exponential" => -Math.Log(u1) / p["rate"],
-            "pareto" => p["xmin"] * Math.Pow(1 - u1, -1 / p["alpha"]),
-            "weibull" => p["scale"] * Math.Pow(-Math.Log(u1), 1 / p["shape"]),
+            "lognormal" => TdcMath.Exp(p["meanlog"] + (p["sdlog"] * BoxMuller(u1, u2))),
+            "exponential" => -TdcMath.Log(u1) / p["rate"],
+            "pareto" => p["xmin"] * TdcMath.Pow(1 - u1, -1 / p["alpha"]),
+            "weibull" => p["scale"] * TdcMath.Pow(-TdcMath.Log(u1), 1 / p["shape"]),
             // The smallest count k where P(X <= k) >= u.
             "poisson" => LowerBound(spec.Table!, u1),
             // Ranks are 1-based.
@@ -309,7 +310,7 @@ public static class Distribution
 
     /// <summary>A standard normal deviate by Box–Muller, from two uniforms in (0,1).</summary>
     private static double BoxMuller(double u1, double u2) =>
-        Math.Sqrt(-2 * Math.Log(u1)) * Math.Cos(2 * Math.PI * u2);
+        Math.Sqrt(-2 * TdcMath.Log(u1)) * TdcMath.Cos(2 * Math.PI * u2);
 
     /// <summary>The smallest index where <c>cum[k] &gt;= u</c>, by binary search; clamped to the last.</summary>
     private static double LowerBound(double[] cum, double u)
@@ -344,7 +345,7 @@ public static class Distribution
         }
 
         var cdf = new List<double>();
-        double p = Math.Exp(-lambda);
+        double p = TdcMath.Exp(-lambda);
         double cum = p;
         cdf.Add(cum);
         double cap = lambda + (40 * Math.Sqrt(lambda)) + 100;
@@ -371,7 +372,7 @@ public static class Distribution
         var weights = new double[n];
         for (int k = 1; k <= n; k++)
         {
-            double w = 1 / Math.Pow(k, s);
+            double w = 1 / TdcMath.Pow(k, s);
             weights[k - 1] = w;
             sum += w;
         }

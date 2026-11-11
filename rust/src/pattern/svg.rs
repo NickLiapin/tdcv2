@@ -568,8 +568,9 @@ fn primitive(name: &str, a: &[f64]) -> Matrix {
             [sx, 0.0, 0.0, arg(a, 1, sx), 0.0, 0.0]
         }
         "rotate" => {
-            let rad = arg(a, 0, 0.0).to_radians();
-            let rot = [rad.cos(), rad.sin(), -rad.sin(), rad.cos(), 0.0, 0.0];
+            let rad = crate::math::radians(arg(a, 0, 0.0));
+            let (c, s) = (crate::math::cos(rad), crate::math::sin(rad));
+            let rot = [c, s, -s, c, 0.0, 0.0];
             if a.len() < 3 {
                 return rot;
             }
@@ -579,8 +580,22 @@ fn primitive(name: &str, a: &[f64]) -> Matrix {
                 [1.0, 0.0, 0.0, 1.0, -cx, -cy],
             )
         }
-        "skewX" => [1.0, 0.0, arg(a, 0, 0.0).to_radians().tan(), 1.0, 0.0, 0.0],
-        "skewY" => [1.0, arg(a, 0, 0.0).to_radians().tan(), 0.0, 1.0, 0.0, 0.0],
+        "skewX" => [
+            1.0,
+            0.0,
+            crate::math::tan(crate::math::radians(arg(a, 0, 0.0))),
+            1.0,
+            0.0,
+            0.0,
+        ],
+        "skewY" => [
+            1.0,
+            crate::math::tan(crate::math::radians(arg(a, 0, 0.0))),
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+        ],
         _ => IDENTITY,
     }
 }
@@ -757,7 +772,7 @@ fn num(tk: &[String], i: &mut usize) -> f64 {
 fn segments_for(pts: &[[f64; 2]]) -> usize {
     let mut len = 0.0;
     for pair in pts.windows(2) {
-        len += (pair[1][0] - pair[0][0]).hypot(pair[1][1] - pair[0][1]);
+        len += crate::math::hypot(pair[1][0] - pair[0][0], pair[1][1] - pair[0][1]);
     }
     (len / 3.0).ceil().clamp(4.0, 64.0) as usize
 }
@@ -810,8 +825,8 @@ fn arc(
         // Degenerate: the spec says treat it as a straight line.
         return vec![p1];
     }
-    let phi = rot_deg.to_radians();
-    let (cos_p, sin_p) = (phi.cos(), phi.sin());
+    let phi = crate::math::radians(rot_deg);
+    let (cos_p, sin_p) = (crate::math::cos(phi), crate::math::sin(phi));
     let dx = (p0[0] - p1[0]) / 2.0;
     let dy = (p0[1] - p1[1]) / 2.0;
     let x1 = cos_p * dx + sin_p * dy;
@@ -853,8 +868,8 @@ fn arc(
     (1..=n)
         .map(|i| {
             let t = theta + delta * i as f64 / n as f64;
-            let ex = rx * t.cos();
-            let ey = ry * t.sin();
+            let ex = rx * crate::math::cos(t);
+            let ey = ry * crate::math::sin(t);
             [cos_p * ex - sin_p * ey + cx, sin_p * ex + cos_p * ey + cy]
         })
         .collect()
@@ -862,10 +877,8 @@ fn arc(
 
 fn angle(ux: f64, uy: f64, vx: f64, vy: f64) -> f64 {
     let dot = ux * vx + uy * vy;
-    let len = ux.hypot(uy) * vx.hypot(vy);
-    let a = (if len == 0.0 { 1.0 } else { dot / len })
-        .clamp(-1.0, 1.0)
-        .acos();
+    let len = crate::math::hypot(ux, uy) * crate::math::hypot(vx, vy);
+    let a = crate::math::acos((if len == 0.0 { 1.0 } else { dot / len }).clamp(-1.0, 1.0));
     if ux * vy - uy * vx < 0.0 {
         -a
     } else {

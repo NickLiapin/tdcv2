@@ -1,3 +1,5 @@
+using Tdcv2.Maths;
+
 namespace Tdcv2.Stats;
 
 /// <summary>
@@ -52,7 +54,7 @@ public static class Special
         if (z < 0.5)
         {
             // Reflection, for the left half-plane.
-            return Math.Log(Math.PI / Math.Sin(Math.PI * z)) - LogGamma(1 - z);
+            return TdcMath.Log(Math.PI / TdcMath.Sin(Math.PI * z)) - LogGamma(1 - z);
         }
 
         double zz = z - 1;
@@ -63,7 +65,7 @@ public static class Special
         }
 
         double t = zz + LanczosG + 0.5;
-        return (0.5 * Math.Log(2 * Math.PI)) + ((zz + 0.5) * Math.Log(t)) - t + Math.Log(x);
+        return (0.5 * TdcMath.Log(2 * Math.PI)) + ((zz + 0.5) * TdcMath.Log(t)) - t + TdcMath.Log(x);
     }
 
     /// <summary>Regularized lower incomplete gamma <c>P(a,x)</c> — the CDF of gamma(a, 1) at x.</summary>
@@ -96,7 +98,7 @@ public static class Special
             }
         }
 
-        return sum * Math.Exp(-x + (a * Math.Log(x)) - gln);
+        return sum * TdcMath.Exp(-x + (a * TdcMath.Log(x)) - gln);
     }
 
     /// <summary><c>Q(a,x) = 1 - P(a,x)</c> by continued fraction.</summary>
@@ -132,7 +134,7 @@ public static class Special
             }
         }
 
-        return Math.Exp(-x + (a * Math.Log(x)) - gln) * h;
+        return TdcMath.Exp(-x + (a * TdcMath.Log(x)) - gln) * h;
     }
 
     /// <summary>Regularized incomplete beta <c>I_x(a,b)</c> — the CDF of beta(a,b) at x.</summary>
@@ -148,8 +150,8 @@ public static class Special
             return 1;
         }
 
-        double bt = Math.Exp(
-            LogGamma(a + b) - LogGamma(a) - LogGamma(b) + (a * Math.Log(x)) + (b * Math.Log(1 - x)));
+        double bt = TdcMath.Exp(
+            LogGamma(a + b) - LogGamma(a) - LogGamma(b) + (a * TdcMath.Log(x)) + (b * TdcMath.Log(1 - x)));
         if (x < (a + 1) / (a + b + 2))
         {
             return bt * BetaContinuedFraction(a, b, x) / a;

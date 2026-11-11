@@ -1,5 +1,6 @@
 using System.Globalization;
 using System.Text.RegularExpressions;
+using Tdcv2.Maths;
 
 namespace Tdcv2.Pattern;
 
@@ -433,8 +434,8 @@ public static class SvgPath
 
             case "rotate":
             {
-                double rad = At(a, 0, 0) * Math.PI / 180;
-                var rot = new Matrix(Math.Cos(rad), Math.Sin(rad), -Math.Sin(rad), Math.Cos(rad), 0, 0);
+                double rad = TdcMath.Radians(At(a, 0, 0));
+                var rot = new Matrix(TdcMath.Cos(rad), TdcMath.Sin(rad), -TdcMath.Sin(rad), TdcMath.Cos(rad), 0, 0);
                 if (a.Count < 3)
                 {
                     return rot;
@@ -448,9 +449,9 @@ public static class SvgPath
             }
 
             case "skewX":
-                return new Matrix(1, 0, Math.Tan(At(a, 0, 0) * Math.PI / 180), 1, 0, 0);
+                return new Matrix(1, 0, TdcMath.Tan(TdcMath.Radians(At(a, 0, 0))), 1, 0, 0);
             case "skewY":
-                return new Matrix(1, Math.Tan(At(a, 0, 0) * Math.PI / 180), 0, 1, 0, 0);
+                return new Matrix(1, TdcMath.Tan(TdcMath.Radians(At(a, 0, 0))), 0, 1, 0, 0);
             default:
                 return Identity;
         }
@@ -666,9 +667,8 @@ public static class SvgPath
         double len = 0;
         for (int i = 1; i < pts.Length; i++)
         {
-            len += Math.Sqrt(
-                ((pts[i][0] - pts[i - 1][0]) * (pts[i][0] - pts[i - 1][0]))
-                + ((pts[i][1] - pts[i - 1][1]) * (pts[i][1] - pts[i - 1][1])));
+            // TdcMath.Hypot, as the reference measures it: sqrt(dx² + dy²) rounds differently.
+            len += TdcMath.Hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]);
         }
 
         return Math.Min(64, Math.Max(4, (int)Math.Ceiling(len / 3)));
@@ -787,9 +787,9 @@ public static class SvgPath
             return new List<double[]> { p1 };
         }
 
-        double phi = rotDeg * Math.PI / 180;
-        double cosP = Math.Cos(phi);
-        double sinP = Math.Sin(phi);
+        double phi = TdcMath.Radians(rotDeg);
+        double cosP = TdcMath.Cos(phi);
+        double sinP = TdcMath.Sin(phi);
         double dx = (p0[0] - p1[0]) / 2;
         double dy = (p0[1] - p1[1]) / 2;
         double x1 = (cosP * dx) + (sinP * dy);
@@ -828,8 +828,8 @@ public static class SvgPath
         for (int i = 1; i <= n; i++)
         {
             double t = theta + (delta * i / n);
-            double ex = rx * Math.Cos(t);
-            double ey = ry * Math.Sin(t);
+            double ex = rx * TdcMath.Cos(t);
+            double ey = ry * TdcMath.Sin(t);
             output.Add(new[]
             {
                 (cosP * ex) - (sinP * ey) + cx,
@@ -843,8 +843,8 @@ public static class SvgPath
     private static double Angle(double ux, double uy, double vx, double vy)
     {
         double dot = (ux * vx) + (uy * vy);
-        double len = Math.Sqrt((ux * ux) + (uy * uy)) * Math.Sqrt((vx * vx) + (vy * vy));
-        double a = Math.Acos(Math.Min(1, Math.Max(-1, len == 0 ? 1 : dot / len)));
+        double len = TdcMath.Hypot(ux, uy) * TdcMath.Hypot(vx, vy);
+        double a = TdcMath.Acos(Math.Min(1, Math.Max(-1, len == 0 ? 1 : dot / len)));
         return (ux * vy) - (uy * vx) < 0 ? -a : a;
     }
 }

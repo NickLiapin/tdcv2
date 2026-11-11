@@ -18,6 +18,8 @@
  * the screen" must mean "a larger value".
  */
 
+import * as TdcMath from '../math/tdc-math.js';
+
 export type Pt = [number, number];
 
 /** An affine matrix `[a b c d e f]` as used by SVG's `transform`. */
@@ -57,7 +59,9 @@ export function parseTransform(raw: string): Matrix {
 }
 
 function primitive(name: string, a: readonly number[]): Matrix {
-  const rad = (deg: number): number => (deg * Math.PI) / 180;
+  // One rounding, the same in all five: Rust, Java and Python used deg × (π/180) and
+  // TypeScript and C# (deg × π) / 180, which round differently.
+  const rad = (deg: number): number => TdcMath.radians(deg);
   switch (name) {
     case 'matrix':
       return [a[0] ?? 1, a[1] ?? 0, a[2] ?? 0, a[3] ?? 1, a[4] ?? 0, a[5] ?? 0];
@@ -68,8 +72,8 @@ function primitive(name: string, a: readonly number[]): Matrix {
       return [sx, 0, 0, a[1] ?? sx, 0, 0];
     }
     case 'rotate': {
-      const c = Math.cos(rad(a[0] ?? 0));
-      const s = Math.sin(rad(a[0] ?? 0));
+      const c = TdcMath.cos(rad(a[0] ?? 0));
+      const s = TdcMath.sin(rad(a[0] ?? 0));
       const rot: Matrix = [c, s, -s, c, 0, 0];
       if (a.length < 3) return rot;
       const cx = a[1] ?? 0;
@@ -77,9 +81,9 @@ function primitive(name: string, a: readonly number[]): Matrix {
       return multiply(multiply([1, 0, 0, 1, cx, cy], rot), [1, 0, 0, 1, -cx, -cy]);
     }
     case 'skewX':
-      return [1, 0, Math.tan(rad(a[0] ?? 0)), 1, 0, 0];
+      return [1, 0, TdcMath.tan(rad(a[0] ?? 0)), 1, 0, 0];
     case 'skewY':
-      return [1, Math.tan(rad(a[0] ?? 0)), 0, 1, 0, 0];
+      return [1, TdcMath.tan(rad(a[0] ?? 0)), 0, 1, 0, 0];
     default:
       return IDENTITY;
   }
@@ -92,7 +96,7 @@ function segmentsFor(...pts: Pt[]): number {
     const a = pts[i - 1];
     const b = pts[i];
     if (!a || !b) continue;
-    len += Math.hypot(b[0] - a[0], b[1] - a[1]);
+    len += TdcMath.hypot(b[0] - a[0], b[1] - a[1]);
   }
   return Math.min(64, Math.max(4, Math.ceil(len / 3)));
 }
@@ -131,9 +135,9 @@ function arcPoints(
   let rx = Math.abs(rx0);
   let ry = Math.abs(ry0);
   if (rx === 0 || ry === 0) return [p1]; // degenerate → straight line
-  const phi = (rotDeg * Math.PI) / 180;
-  const cosP = Math.cos(phi);
-  const sinP = Math.sin(phi);
+  const phi = TdcMath.radians(rotDeg);
+  const cosP = TdcMath.cos(phi);
+  const sinP = TdcMath.sin(phi);
   const dx = (p0[0] - p1[0]) / 2;
   const dy = (p0[1] - p1[1]) / 2;
   const x1 = cosP * dx + sinP * dy;
@@ -153,8 +157,8 @@ function arcPoints(
   const cy = sinP * cx1 + cosP * cy1 + (p0[1] + p1[1]) / 2;
   const ang = (ux: number, uy: number, vx: number, vy: number): number => {
     const dot = ux * vx + uy * vy;
-    const len = Math.hypot(ux, uy) * Math.hypot(vx, vy);
-    const a = Math.acos(Math.min(1, Math.max(-1, len === 0 ? 1 : dot / len)));
+    const len = TdcMath.hypot(ux, uy) * TdcMath.hypot(vx, vy);
+    const a = TdcMath.acos(Math.min(1, Math.max(-1, len === 0 ? 1 : dot / len)));
     return ux * vy - uy * vx < 0 ? -a : a;
   };
   const theta = ang(1, 0, (x1 - cx1) / rx, (y1 - cy1) / ry);
@@ -165,8 +169,8 @@ function arcPoints(
   const out: Pt[] = [];
   for (let i = 1; i <= n; i++) {
     const t = theta + (delta * i) / n;
-    const ex = rx * Math.cos(t);
-    const ey = ry * Math.sin(t);
+    const ex = rx * TdcMath.cos(t);
+    const ey = ry * TdcMath.sin(t);
     out.push([cosP * ex - sinP * ey + cx, sinP * ex + cosP * ey + cy]);
   }
   return out;

@@ -52,7 +52,8 @@ const BISECTION_ITER: usize = 100;
 pub fn log_gamma(z: f64) -> f64 {
     if z < 0.5 {
         // Reflection, for the left half-plane.
-        return (std::f64::consts::PI / (std::f64::consts::PI * z).sin()).ln() - log_gamma(1.0 - z);
+        return crate::math::log(std::f64::consts::PI / crate::math::sin(std::f64::consts::PI * z))
+            - log_gamma(1.0 - z);
     }
 
     let zz = z - 1.0;
@@ -62,7 +63,8 @@ pub fn log_gamma(z: f64) -> f64 {
     }
 
     let t = zz + LANCZOS_G as f64 + 0.5;
-    0.5 * (2.0 * std::f64::consts::PI).ln() + (zz + 0.5) * t.ln() - t + x.ln()
+    0.5 * crate::math::log(2.0 * std::f64::consts::PI) + (zz + 0.5) * crate::math::log(t) - t
+        + crate::math::log(x)
 }
 
 /// Regularized lower incomplete gamma `P(a,x)` — the CDF of gamma(a, 1) at x.
@@ -92,7 +94,7 @@ fn gamma_series(a: f64, x: f64) -> f64 {
             break;
         }
     }
-    sum * (-x + a * x.ln() - gln).exp()
+    sum * crate::math::exp(-x + a * crate::math::log(x) - gln)
 }
 
 /// `Q(a,x) = 1 - P(a,x)` by continued fraction.
@@ -120,7 +122,7 @@ fn gamma_continued_fraction(a: f64, x: f64) -> f64 {
             break;
         }
     }
-    (-x + a * x.ln() - gln).exp() * h
+    crate::math::exp(-x + a * crate::math::log(x) - gln) * h
 }
 
 /// Regularized incomplete beta `I_x(a,b)` — the CDF of beta(a,b) at x.
@@ -132,8 +134,11 @@ pub fn beta_i(x: f64, a: f64, b: f64) -> f64 {
         return 1.0;
     }
 
-    let bt =
-        (log_gamma(a + b) - log_gamma(a) - log_gamma(b) + a * x.ln() + b * (1.0 - x).ln()).exp();
+    let bt = crate::math::exp(
+        log_gamma(a + b) - log_gamma(a) - log_gamma(b)
+            + a * crate::math::log(x)
+            + b * crate::math::log(1.0 - x),
+    );
     if x < (a + 1.0) / (a + b + 2.0) {
         bt * beta_continued_fraction(a, b, x) / a
     } else {

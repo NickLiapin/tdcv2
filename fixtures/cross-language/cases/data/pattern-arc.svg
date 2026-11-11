@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <g transform="rotate(7 50 50) skewX(3)">
+    <path d="M 0 80 A 40 30 15 0 1 100 70"/>
+  </g>
+</svg>

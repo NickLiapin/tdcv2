@@ -1,5 +1,6 @@
 using System.Globalization;
 using Tdcv2.Prng;
+using Tdcv2.Maths;
 
 namespace Tdcv2.Stats;
 
@@ -239,7 +240,7 @@ public static class Timeseries
 
     /// <summary>A standard normal deviate by Box–Muller, from two uniforms in (0,1).</summary>
     public static double StandardNormal(double u1, double u2) =>
-        Math.Sqrt(-2 * Math.Log(u1)) * Math.Cos(2 * Math.PI * u2);
+        Math.Sqrt(-2 * TdcMath.Log(u1)) * TdcMath.Cos(2 * Math.PI * u2);
 
     public static double ValueAt(Spec spec, int i, double e)
     {
@@ -256,7 +257,7 @@ public static class Timeseries
             // `sin(2π·i/period)` already peaked — so a config without `peak_at` produces the same
             // bytes it always did, without a second branch saying so.
             double peak = wave.PeakAt ?? wave.Period / 4;
-            v += wave.Amplitude * Math.Cos(2 * Math.PI * (i - peak) / wave.Period);
+            v += wave.Amplitude * TdcMath.Cos(2 * Math.PI * (i - peak) / wave.Period);
         }
 
         if (spec.NoiseSd != 0)

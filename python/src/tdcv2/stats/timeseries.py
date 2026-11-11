@@ -18,6 +18,7 @@ from collections.abc import Callable
 from dataclasses import dataclass
 
 from ..lib import numbers
+from ..math import tdc_math
 
 NOISE_WINDOW = 63
 """How many past rows the correlated noise remembers.
@@ -157,7 +158,7 @@ def parse(attrs: dict[str, str]) -> Spec:
 
 def standard_normal(u1: float, u2: float) -> float:
     """A standard normal deviate from two uniforms in (0,1), by Box–Muller."""
-    return math.sqrt(-2 * math.log(u1)) * math.cos(2 * math.pi * u2)
+    return math.sqrt(-2 * tdc_math.log(u1)) * tdc_math.cos(2 * math.pi * u2)
 
 
 def correlated_noise(spec: Spec, i: int, past: Callable[[int], float]) -> float:
@@ -235,7 +236,7 @@ def value_at(spec: Spec, i: int, e: float) -> float:
         # ``sin(2π·i/period)`` already peaked — so a config without ``peak_at`` produces the
         # same bytes it always did, without a second branch saying so.
         peak = wave.period / 4 if wave.peak_at is None else wave.peak_at
-        v += wave.amplitude * math.cos(2 * math.pi * (i - peak) / wave.period)
+        v += wave.amplitude * tdc_math.cos(2 * math.pi * (i - peak) / wave.period)
     if spec.noise_sd != 0:
         v += spec.noise_sd * e
     return v

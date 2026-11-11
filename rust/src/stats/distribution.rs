@@ -139,10 +139,10 @@ pub fn sample(spec: &Spec, uniforms: &[f64]) -> f64 {
 
     match spec.name.as_str() {
         "normal" => p("mean") + p("sd") * box_muller(u1, u2),
-        "lognormal" => (p("meanlog") + p("sdlog") * box_muller(u1, u2)).exp(),
-        "exponential" => -u1.ln() / p("rate"),
-        "pareto" => p("xmin") * (1.0 - u1).powf(-1.0 / p("alpha")),
-        "weibull" => p("scale") * (-u1.ln()).powf(1.0 / p("shape")),
+        "lognormal" => crate::math::exp(p("meanlog") + p("sdlog") * box_muller(u1, u2)),
+        "exponential" => -crate::math::log(u1) / p("rate"),
+        "pareto" => p("xmin") * crate::math::pow(1.0 - u1, -1.0 / p("alpha")),
+        "weibull" => p("scale") * crate::math::pow(-crate::math::log(u1), 1.0 / p("shape")),
         // The smallest count k where P(X <= k) >= u.
         "poisson" => lower_bound(spec.table.as_deref().unwrap_or(&[]), u1),
         // Ranks are 1-based.
@@ -167,7 +167,7 @@ pub fn format(x: f64, spec: &Spec) -> String {
 
 /// A standard normal deviate by Box–Muller, from two uniforms in (0,1).
 fn box_muller(u1: f64, u2: f64) -> f64 {
-    (-2.0 * u1.ln()).sqrt() * (2.0 * std::f64::consts::PI * u2).cos()
+    (-2.0 * crate::math::log(u1)).sqrt() * crate::math::cos(2.0 * std::f64::consts::PI * u2)
 }
 
 /// The smallest index where `cum[k] >= u`, by binary search; clamped to the last.
@@ -201,7 +201,7 @@ fn poisson_cdf(lambda: f64) -> EngineResult<Vec<f64>> {
     }
 
     let mut cdf = Vec::new();
-    let mut p = (-lambda).exp();
+    let mut p = crate::math::exp(-lambda);
     let mut cum = p;
     cdf.push(cum);
     let cap = lambda + 40.0 * lambda.sqrt() + 100.0;
@@ -229,7 +229,7 @@ fn zipf_cumulative(n: f64, s: f64) -> EngineResult<Vec<f64>> {
     let mut sum = 0.0;
     let mut weights = Vec::with_capacity(n);
     for k in 1..=n {
-        let w = 1.0 / (k as f64).powf(s);
+        let w = 1.0 / crate::math::pow(k as f64, s);
         weights.push(w);
         sum += w;
     }

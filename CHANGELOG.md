@@ -40,6 +40,14 @@ page — is tracked in that implementation's own changelog:
   refused the rest (`TDC035`, `TDC240`), so `parent="Bad.true"` checked clean in one language
   and failed in four. A `stat` count over the flag counts every row, since every row has one;
   the mix page shows how to count the anomalies instead. Found by the article agent.
+- **Distributions, timeseries and SVG patterns print the same digits in all five.** Their
+  generators sampled with the host's `exp`, `log`, `pow`, `cos` and friends, which differ in the
+  last bit between V8, the C library and the JVM: `lognormal` at `decimals="10"` gave three
+  different files across the five, and `pareto`, `weibull`, `gamma` and `timeseries` drifted the
+  same way. They compute through TdcMath now, as formulas already did, and degrees become radians
+  with one rounding everywhere. A shared case at magnitudes near 10^7, where the tenth decimal is
+  the double's binary tail, holds every family to the last printed digit. Values at the usual 2–4
+  decimals did not change in any fixture or documentation example. Found by the article agent.
 - **Hard Unicode pads and changes case the same in all five.** `<pad>` in TypeScript measured
   UTF-16 units, so `😀ab` padded to 8 got one star fewer than in the ports and than `<length>`
   beside it said; it counts characters now. C# lowercased a word-final `Σ` as `σ` instead of `ς`

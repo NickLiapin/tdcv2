@@ -1,5 +1,6 @@
 package io.github.nickliapin.tdc.stats;
 
+import io.github.nickliapin.tdc.mathx.TdcMath;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -126,10 +127,10 @@ public final class Distribution {
     Map<String, Double> p = spec.params();
     return switch (spec.name()) {
       case "normal" -> p.get("mean") + p.get("sd") * boxMuller(u1, u2);
-      case "lognormal" -> Math.exp(p.get("meanlog") + p.get("sdlog") * boxMuller(u1, u2));
-      case "exponential" -> -Math.log(u1) / p.get("rate");
-      case "pareto" -> p.get("xmin") * Math.pow(1 - u1, -1 / p.get("alpha"));
-      case "weibull" -> p.get("scale") * Math.pow(-Math.log(u1), 1 / p.get("shape"));
+      case "lognormal" -> TdcMath.exp(p.get("meanlog") + p.get("sdlog") * boxMuller(u1, u2));
+      case "exponential" -> -TdcMath.log(u1) / p.get("rate");
+      case "pareto" -> p.get("xmin") * TdcMath.pow(1 - u1, -1 / p.get("alpha"));
+      case "weibull" -> p.get("scale") * TdcMath.pow(-TdcMath.log(u1), 1 / p.get("shape"));
       // The smallest count k where P(X <= k) >= u.
       case "poisson" -> lowerBound(spec.table(), u1);
       // Ranks are 1-based.
@@ -153,7 +154,7 @@ public final class Distribution {
 
   /** A standard normal deviate by Box–Muller, from two uniforms in (0,1). */
   private static double boxMuller(double u1, double u2) {
-    return Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
+    return Math.sqrt(-2 * TdcMath.log(u1)) * TdcMath.cos(2 * Math.PI * u2);
   }
 
   /** The smallest index where {@code cum[k] >= u}, by binary search; clamped to the last. */
@@ -184,7 +185,7 @@ public final class Distribution {
               + "\" sd=\"sqrt(lambda)\".");
     }
     List<Double> cdf = new ArrayList<>();
-    double p = Math.exp(-lambda);
+    double p = TdcMath.exp(-lambda);
     double cum = p;
     cdf.add(cum);
     double cap = lambda + 40 * Math.sqrt(lambda) + 100;
@@ -209,7 +210,7 @@ public final class Distribution {
     double sum = 0;
     double[] weights = new double[n];
     for (int k = 1; k <= n; k++) {
-      double w = 1 / Math.pow(k, s);
+      double w = 1 / TdcMath.pow(k, s);
       weights[k - 1] = w;
       sum += w;
     }

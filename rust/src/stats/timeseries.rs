@@ -174,7 +174,7 @@ pub fn parse(attrs: &BTreeMap<String, String>) -> EngineResult<Spec> {
 
 /// A standard normal deviate by Box–Muller, from two uniforms in (0,1).
 pub fn standard_normal(u1: f64, u2: f64) -> f64 {
-    (-2.0 * u1.ln()).sqrt() * (2.0 * std::f64::consts::PI * u2).cos()
+    (-2.0 * crate::math::log(u1)).sqrt() * crate::math::cos(2.0 * std::f64::consts::PI * u2)
 }
 
 /// The correlated noise at row `i`, from the innovations of rows `i − k`.
@@ -270,7 +270,8 @@ pub fn value_at(spec: &Spec, i: i64, e: f64) -> f64 {
         // without `peak_at` produces the same bytes it always did, without a
         // second branch saying so.
         let peak = wave.peak_at.unwrap_or(wave.period / 4.0);
-        v += wave.amplitude * (2.0 * std::f64::consts::PI * (i as f64 - peak) / wave.period).cos();
+        v += wave.amplitude
+            * crate::math::cos(2.0 * std::f64::consts::PI * (i as f64 - peak) / wave.period);
     }
     if spec.noise_sd != 0.0 {
         v += spec.noise_sd * e;

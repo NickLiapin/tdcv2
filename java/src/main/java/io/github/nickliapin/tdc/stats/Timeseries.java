@@ -1,5 +1,6 @@
 package io.github.nickliapin.tdc.stats;
 
+import io.github.nickliapin.tdc.mathx.TdcMath;
 import io.github.nickliapin.tdc.prng.Prng;
 import java.util.ArrayList;
 import java.util.List;
@@ -234,7 +235,7 @@ public final class Timeseries {
 
   /** A standard normal deviate by Box–Muller, from two uniforms in (0,1). */
   public static double standardNormal(double u1, double u2) {
-    return Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
+    return Math.sqrt(-2 * TdcMath.log(u1)) * TdcMath.cos(2 * Math.PI * u2);
   }
 
   public static double valueAt(Spec spec, int i, double e) {
@@ -248,7 +249,7 @@ public final class Timeseries {
       // `sin(2π·i/period)` already peaked — so a config without `peak_at` produces the same
       // bytes it always did, without a second branch saying so.
       double peak = wave.peakAt() == null ? wave.period() / 4 : wave.peakAt();
-      v += wave.amplitude() * Math.cos(2 * Math.PI * (i - peak) / wave.period());
+      v += wave.amplitude() * TdcMath.cos(2 * Math.PI * (i - peak) / wave.period());
     }
     if (spec.noiseSd() != 0) {
       v += spec.noiseSd() * e;

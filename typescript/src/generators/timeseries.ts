@@ -14,6 +14,7 @@
  */
 
 import { toFixedText } from '../lib/fixed.js';
+import * as TdcMath from '../math/tdc-math.js';
 
 /** One seasonal wave: how long it is, how far it swings, and where it peaks. */
 export interface Wave {
@@ -146,7 +147,7 @@ export function parseTimeseries(attrs: Record<string, string | undefined>): Time
 
 /** Standard normal deviate via Box–Muller from two uniforms in (0,1). */
 export function standardNormal(u1: number, u2: number): number {
-  return Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
+  return Math.sqrt(-2 * TdcMath.log(u1)) * TdcMath.cos(2 * Math.PI * u2);
 }
 
 /**
@@ -192,7 +193,7 @@ export function timeseriesValueAt(spec: TimeseriesSpec, i: number, e: number): n
     // `peak_at` produces the same bytes it always did, without a second branch
     // saying so.
     const peak = wave.peakAt ?? wave.period / 4;
-    v += wave.amplitude * Math.cos((2 * Math.PI * (i - peak)) / wave.period);
+    v += wave.amplitude * TdcMath.cos((2 * Math.PI * (i - peak)) / wave.period);
   }
   if (spec.noiseSd !== 0) v += spec.noiseSd * e;
   return v;

@@ -1,5 +1,6 @@
 package io.github.nickliapin.tdc.pattern;
 
+import io.github.nickliapin.tdc.mathx.TdcMath;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -338,8 +339,8 @@ public final class SvgPath {
         yield new Matrix(sx, 0, 0, at(a, 1, sx), 0, 0);
       }
       case "rotate" -> {
-        double rad = Math.toRadians(at(a, 0, 0));
-        Matrix rot = new Matrix(Math.cos(rad), Math.sin(rad), -Math.sin(rad), Math.cos(rad), 0, 0);
+        double rad = TdcMath.radians(at(a, 0, 0));
+        Matrix rot = new Matrix(TdcMath.cos(rad), TdcMath.sin(rad), -TdcMath.sin(rad), TdcMath.cos(rad), 0, 0);
         if (a.size() < 3) {
           yield rot;
         }
@@ -347,8 +348,8 @@ public final class SvgPath {
         double cy = at(a, 2, 0);
         yield multiply(multiply(new Matrix(1, 0, 0, 1, cx, cy), rot), new Matrix(1, 0, 0, 1, -cx, -cy));
       }
-      case "skewX" -> new Matrix(1, 0, Math.tan(Math.toRadians(at(a, 0, 0))), 1, 0, 0);
-      case "skewY" -> new Matrix(1, Math.tan(Math.toRadians(at(a, 0, 0))), 0, 1, 0, 0);
+      case "skewX" -> new Matrix(1, 0, TdcMath.tan(TdcMath.radians(at(a, 0, 0))), 1, 0, 0);
+      case "skewY" -> new Matrix(1, TdcMath.tan(TdcMath.radians(at(a, 0, 0))), 0, 1, 0, 0);
       default -> IDENTITY;
     };
   }
@@ -501,7 +502,7 @@ public final class SvgPath {
   private static int segmentsFor(double[]... pts) {
     double len = 0;
     for (int i = 1; i < pts.length; i++) {
-      len += Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]);
+      len += TdcMath.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]);
     }
     return Math.min(64, Math.max(4, (int) Math.ceil(len / 3)));
   }
@@ -609,9 +610,9 @@ public final class SvgPath {
       // Degenerate: the spec says treat it as a straight line.
       return List.of(p1);
     }
-    double phi = Math.toRadians(rotDeg);
-    double cosP = Math.cos(phi);
-    double sinP = Math.sin(phi);
+    double phi = TdcMath.radians(rotDeg);
+    double cosP = TdcMath.cos(phi);
+    double sinP = TdcMath.sin(phi);
     double dx = (p0[0] - p1[0]) / 2;
     double dy = (p0[1] - p1[1]) / 2;
     double x1 = cosP * dx + sinP * dy;
@@ -643,8 +644,8 @@ public final class SvgPath {
     List<double[]> out = new ArrayList<>(n);
     for (int i = 1; i <= n; i++) {
       double t = theta + delta * i / n;
-      double ex = rx * Math.cos(t);
-      double ey = ry * Math.sin(t);
+      double ex = rx * TdcMath.cos(t);
+      double ey = ry * TdcMath.sin(t);
       out.add(new double[] {cosP * ex - sinP * ey + cx, sinP * ex + cosP * ey + cy});
     }
     return out;
@@ -652,8 +653,8 @@ public final class SvgPath {
 
   private static double angle(double ux, double uy, double vx, double vy) {
     double dot = ux * vx + uy * vy;
-    double len = Math.hypot(ux, uy) * Math.hypot(vx, vy);
-    double a = Math.acos(Math.min(1, Math.max(-1, len == 0 ? 1 : dot / len)));
+    double len = TdcMath.hypot(ux, uy) * TdcMath.hypot(vx, vy);
+    double a = TdcMath.acos(Math.min(1, Math.max(-1, len == 0 ? 1 : dot / len)));
     return ux * vy - uy * vx < 0 ? -a : a;
   }
 }

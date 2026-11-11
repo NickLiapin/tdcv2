@@ -17,6 +17,8 @@ from __future__ import annotations
 
 import math
 
+from ..math import tdc_math
+
 _LANCZOS_G = 7
 _LANCZOS_C = (
     0.99999999999980993,
@@ -42,13 +44,13 @@ def lgamma(z: float) -> float:
     """The natural log of the gamma function, by the Lanczos approximation."""
     if z < 0.5:
         # Reflection, for the left half-plane.
-        return math.log(math.pi / math.sin(math.pi * z)) - lgamma(1 - z)
+        return tdc_math.log(math.pi / tdc_math.sin(math.pi * z)) - lgamma(1 - z)
     zz = z - 1
     x = _LANCZOS_C[0]
     for i in range(1, _LANCZOS_G + 2):
         x += _LANCZOS_C[i] / (zz + i)
     t = zz + _LANCZOS_G + 0.5
-    return 0.5 * math.log(2 * math.pi) + (zz + 0.5) * math.log(t) - t + math.log(x)
+    return 0.5 * tdc_math.log(2 * math.pi) + (zz + 0.5) * tdc_math.log(t) - t + tdc_math.log(x)
 
 
 def gamma_p(a: float, x: float) -> float:
@@ -66,7 +68,9 @@ def beta_i(x: float, a: float, b: float) -> float:
         return 0.0
     if x >= 1:
         return 1.0
-    bt = math.exp(lgamma(a + b) - lgamma(a) - lgamma(b) + a * math.log(x) + b * math.log(1 - x))
+    bt = tdc_math.exp(
+        lgamma(a + b) - lgamma(a) - lgamma(b) + a * tdc_math.log(x) + b * tdc_math.log(1 - x)
+    )
     if x < (a + 1) / (a + b + 2):
         return bt * _beta_continued_fraction(a, b, x) / a
     return 1 - bt * _beta_continued_fraction(b, a, 1 - x) / b
@@ -111,7 +115,7 @@ def _gamma_series(a: float, x: float) -> float:
         total += delta
         if abs(delta) < abs(total) * _EPS:
             break
-    return total * math.exp(-x + a * math.log(x) - gln)
+    return total * tdc_math.exp(-x + a * tdc_math.log(x) - gln)
 
 
 def _gamma_continued_fraction(a: float, x: float) -> float:
@@ -135,7 +139,7 @@ def _gamma_continued_fraction(a: float, x: float) -> float:
         h *= delta
         if abs(delta - 1) < _EPS:
             break
-    return math.exp(-x + a * math.log(x) - gln) * h
+    return tdc_math.exp(-x + a * tdc_math.log(x) - gln) * h
 
 
 def _beta_continued_fraction(a: float, b: float, x: float) -> float:

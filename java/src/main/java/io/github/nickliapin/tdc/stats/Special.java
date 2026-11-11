@@ -1,5 +1,7 @@
 package io.github.nickliapin.tdc.stats;
 
+import io.github.nickliapin.tdc.mathx.TdcMath;
+
 /**
  * The special functions gamma and beta sampling need.
  *
@@ -44,7 +46,7 @@ public final class Special {
   public static double lgamma(double z) {
     if (z < 0.5) {
       // Reflection, for the left half-plane.
-      return Math.log(Math.PI / Math.sin(Math.PI * z)) - lgamma(1 - z);
+      return TdcMath.log(Math.PI / TdcMath.sin(Math.PI * z)) - lgamma(1 - z);
     }
     double zz = z - 1;
     double x = LANCZOS_C[0];
@@ -52,7 +54,7 @@ public final class Special {
       x += LANCZOS_C[i] / (zz + i);
     }
     double t = zz + LANCZOS_G + 0.5;
-    return 0.5 * Math.log(2 * Math.PI) + (zz + 0.5) * Math.log(t) - t + Math.log(x);
+    return 0.5 * TdcMath.log(2 * Math.PI) + (zz + 0.5) * TdcMath.log(t) - t + TdcMath.log(x);
   }
 
   /** Regularized lower incomplete gamma {@code P(a,x)} — the CDF of gamma(a, 1) at x. */
@@ -78,7 +80,7 @@ public final class Special {
         break;
       }
     }
-    return sum * Math.exp(-x + a * Math.log(x) - gln);
+    return sum * TdcMath.exp(-x + a * TdcMath.log(x) - gln);
   }
 
   /** {@code Q(a,x) = 1 - P(a,x)} by continued fraction. */
@@ -106,7 +108,7 @@ public final class Special {
         break;
       }
     }
-    return Math.exp(-x + a * Math.log(x) - gln) * h;
+    return TdcMath.exp(-x + a * TdcMath.log(x) - gln) * h;
   }
 
   /** Regularized incomplete beta {@code I_x(a,b)} — the CDF of beta(a,b) at x. */
@@ -118,7 +120,7 @@ public final class Special {
       return 1;
     }
     double bt =
-        Math.exp(lgamma(a + b) - lgamma(a) - lgamma(b) + a * Math.log(x) + b * Math.log(1 - x));
+        TdcMath.exp(lgamma(a + b) - lgamma(a) - lgamma(b) + a * TdcMath.log(x) + b * TdcMath.log(1 - x));
     if (x < (a + 1) / (a + b + 2)) {
       return bt * betaContinuedFraction(a, b, x) / a;
     }
