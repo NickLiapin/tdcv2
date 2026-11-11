@@ -128,6 +128,18 @@ The rows where `H` has no value leave `W` empty too. That is the same rule
 seen from the other side — and it is what makes a formula safe to put over a
 `missing=` column: the blanks stay blanks instead of turning into arithmetic.
 
+`parent=` on the formula's own sequence works the same way. The rows the parent did not pick
+are empty, and a `stat` with `op="count"` over the formula counts only the rows it picked:
+
+```xml
+<sequence name="Status"><gen type="text" value="paid,pending" percent="50,50"/></sequence>
+<sequence name="Fee" parent="Status.paid"><gen type="formula" expr="Amount * 0.03" decimals="2"/></sequence>
+```
+
+A formula that reads `prev()` cannot take `parent=` (`TDC315`): the row before may be one the
+parent did not pick. Write the condition into the expression instead, as in
+`Status == 'paid' ? prev(Total, 0) + Amount : prev(Total, 0)`.
+
 ## In a branch
 
 A formula reads only its own row, so it can also be one branch of a per-row choice: a
@@ -216,6 +228,8 @@ Everything a formula needs is knowable from the config, so none of it waits for 
 - **a formula where it cannot mean anything** — [`TDC295`](../reference/errors.mdx): one that
   reads `prev()` inside a `<case>` or an `if=` branch, and any formula as a part or a field of
   a composed `<sequence>`. See [In a branch](#in-a-branch).
+- **`parent=` on a formula that reads `prev()`** — [`TDC315`](../reference/errors.mdx). See
+  [An empty source makes an empty answer](#an-empty-source-makes-an-empty-answer).
 
 The run refuses two more, because they depend on the values rather than the config:
 arithmetic on a **text** column (which is where `NaN` would otherwise come from, and a

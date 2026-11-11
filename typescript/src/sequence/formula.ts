@@ -36,6 +36,7 @@
  */
 
 import { evaluateValueInScope } from '../expr/index.js';
+import { parentRowFilter } from './assemble.js';
 import { sequenceValueAt } from './types.js';
 import type { Sequence, SequenceSpec } from './types.js';
 
@@ -145,8 +146,15 @@ export function registerFormula(
   if (expr === '') return; // no expr= — the validator reports it
 
   const decimals = formulaDecimals(spec.gen?.attrs ?? {});
+  // `parent=` keeps a formula off the rows its parent did not pick, as it keeps any
+  // other column. It used to be skipped here, so the column came out on every row.
+  const keep = parentRowFilter(spec, registry);
   const values = new Array<string | undefined>(count);
   for (let i = 0; i < count; i++) {
+    if (keep && !keep(i)) {
+      values[i] = undefined;
+      continue;
+    }
     const read: ColumnsRead = {};
     /*
      * The previous row, for `prev()`. Two cases, and the first is the point:
@@ -258,11 +266,13 @@ export function columnScope(
 export function lazyFormula(spec: SequenceSpec, registry: Record<string, Sequence>): Sequence {
   const expr = formulaExpr(spec);
   const decimals = formulaDecimals(spec.gen?.attrs ?? {});
+  const keep = parentRowFilter(spec, registry);
   return {
     name: spec.name,
     values: [],
     resolve: (i: number) => {
       if (expr === '') return undefined; // no expr= — the validator reports it
+      if (keep && !keep(i)) return undefined;
       const read: ColumnsRead = {};
       const answer = evaluateValueInScope(expr, rowScope(registry, i, read));
       return read.empty === true ? undefined : renderFormulaValue(answer, decimals, read);

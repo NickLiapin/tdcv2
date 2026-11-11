@@ -720,7 +720,7 @@ def _build_columns(
         if spec.gen is not None and spec.gen.type == "formula":
             # `prev()` may look back one row only when the rows are computed in order,
             # which is what `mode="sequential"` promises and the streaming engines cannot.
-            _formula(spec, columns, count, config.mode == "sequential")
+            _formula(spec, columns, count, config.mode == "sequential", mask)
             continue
 
         # A statistic over the whole run. Resolved here for the same reason and by the same
@@ -746,9 +746,11 @@ def _build_columns(
                     name in wants_instant,
                     columns,
                 )
-                columns[name] = values
+                # `parent=` blanks the rows its parent did not pick — AFTER the build, so a ranged
+                # offset still draws on every row and the picked rows keep their dates.
+                columns[name] = [v if mask[i] else None for i, v in enumerate(values)]
                 if own is not None:
-                    instants[name] = own
+                    instants[name] = [t if mask[i] else None for i, t in enumerate(own)]
             continue
 
         if spec.is_composed:
@@ -2693,14 +2695,27 @@ def _pattern(attrs: dict[str, str], count: int, run: _Run) -> list[str]:
     ]
 
 
-def _formula(spec, columns: dict[str, list[str]], count: int, sequential: bool = False) -> None:
-    """One `<gen type="formula">` column, from the columns already in the registry."""
+def _formula(
+    spec,
+    columns: dict[str, list[str]],
+    count: int,
+    sequential: bool = False,
+    mask: list[bool] | None = None,
+) -> None:
+    """One `<gen type="formula">` column, from the columns already in the registry.
+
+    ``mask`` is the parent filter: a row the parent did not pick stays empty, as it does in any
+    other column. It used to be skipped here, so the formula came out on every row.
+    """
     gen = spec.gen
     source = formula_gen.expression_of(gen.attrs)
     decimals = formula_gen.decimals_of(gen.attrs)
     own = spec.name or ""
-    values: list[str] = []
+    values: list[str | None] = []
     for i in range(count):
+        if mask is not None and not mask[i]:
+            values.append(None)
+            continue
         # The previous row, for `prev()`. Two cases, and the first is the point:
         # THIS column reads `values[i - 1]`, the row just computed — a random walk
         # and a Markov chain are exactly that, and it works because this loop goes

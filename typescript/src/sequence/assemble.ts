@@ -12,6 +12,7 @@
 
 import type { ExactLayout } from './per-row.js';
 import type { Sequence, SequenceRegistry, SequenceSpec } from './types.js';
+import { sequenceValueAt } from './types.js';
 
 /**
  * The rows a sequence builds, in the order it builds them.
@@ -103,4 +104,36 @@ export function computeParentMask(
     return parentSeq.values.map((v) => v !== undefined);
   }
   return parentSeq.values.map((v) => v === parentValue);
+}
+
+/**
+ * `parent=` as a question about one row, for a column computed a row at a time.
+ *
+ * `computeParentMask` answers for the whole column at once and reads the parent's
+ * stored values, which a lazy column does not have. A formula — in memory or on the
+ * streaming path — and a date offset are computed row by row, so they ask here. The
+ * answer is the mask's, row for row: the parent produced exactly this value, or, for a
+ * bare `parent="Name"`, any value at all.
+ *
+ * Undefined when the sequence has no parent, so the caller pays nothing for the
+ * common case.
+ */
+export function parentRowFilter(
+  spec: SequenceSpec,
+  registry: SequenceRegistry,
+): ((i: number) => boolean) | undefined {
+  if (!spec.parent) return undefined;
+  const dotIdx = spec.parent.indexOf('.');
+  const parentName = dotIdx < 0 ? spec.parent : spec.parent.slice(0, dotIdx);
+  const parentValue = dotIdx < 0 ? undefined : spec.parent.slice(dotIdx + 1);
+  const parentSeq = registry[parentName];
+  if (!parentSeq) {
+    throw new Error(
+      `sequence "${spec.name}" references unknown parent "${parentName}". ` +
+        'Parent sequences must be declared before their children.',
+    );
+  }
+  return parentValue === undefined
+    ? (i) => sequenceValueAt(parentSeq, i) !== undefined
+    : (i) => sequenceValueAt(parentSeq, i) === parentValue;
 }

@@ -380,18 +380,26 @@ fn stat_column(
 /// Resolved here for the same reason `running` and `stat` are: it reads columns that
 /// already exist, so every name in `expr=` has to be declared above. Unlike them it needs
 /// only its OWN row, which is why it also streams.
+///
+/// `mask` is the parent filter: a row the parent did not pick stays empty, as in any
+/// other column. It used to be skipped here, so the formula came out on every row.
 fn formula_column(
     spec: &SequenceSpec,
     gen: &Gen,
     columns: &mut BTreeMap<String, Vec<Option<String>>>,
     count: usize,
     sequential: bool,
+    mask: &[bool],
 ) -> EngineResult<()> {
     let source = formula::expression_of(&gen.attrs)?;
     let decimals = formula::decimals_of(&gen.attrs)?;
     let own = spec.name.clone();
     let mut values: Vec<Option<String>> = Vec::with_capacity(count);
     for row in 0..count {
+        if !mask.get(row).copied().unwrap_or(true) {
+            values.push(None);
+            continue;
+        }
         // The previous row, for `prev()`. Two cases, and the first is the point: THIS
         // column reads `values[row - 1]`, the row just computed — a random walk and a
         // Markov chain are exactly that, and it works because this loop goes in order.
@@ -441,6 +449,7 @@ fn date_offset_column(
     count: usize,
     prng: &mut Sfc32,
     locale: Option<&str>,
+    mask: &[bool],
 ) -> EngineResult<()> {
     let of = date_offset::source_of(&gen.attrs).to_string();
     let Some(source) = columns.get(&of).cloned() else {
@@ -457,8 +466,21 @@ fn date_offset_column(
         wants_instant.contains(&spec.name),
         columns,
     )?;
+    // `parent=` blanks the rows its parent did not pick — AFTER the build, so a ranged
+    // offset still draws on every row and the picked rows keep their dates.
+    let kept_row = |row: usize| mask.get(row).copied().unwrap_or(true);
+    let values: Vec<Option<String>> = values
+        .into_iter()
+        .enumerate()
+        .map(|(row, v)| if kept_row(row) { v } else { None })
+        .collect();
     columns.insert(spec.name.clone(), values);
     if let Some(kept) = own {
+        let kept: Vec<Option<i64>> = kept
+            .into_iter()
+            .enumerate()
+            .map(|(row, t)| if kept_row(row) { t } else { None })
+            .collect();
         instants.insert(spec.name.clone(), kept);
     }
     Ok(())
@@ -1131,6 +1153,7 @@ fn build_columns_with(
                     &mut columns,
                     count,
                     env.config.mode.as_deref() == Some("sequential"),
+                    &mask,
                 )?;
                 continue;
             }
@@ -1153,6 +1176,7 @@ fn build_columns_with(
                     count,
                     &mut prng,
                     env.config.locale.as_deref(),
+                    &mask,
                 )?;
                 continue;
             }

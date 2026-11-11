@@ -1593,7 +1593,12 @@ public final class Validator {
           error("TDC035", "parent sequence \"" + parentName + "\" is not declared before this sequence",
               "Parent sequences must be declared earlier in the same <env>. Forward references and cycles are not supported.",
               at(open, "parent")[0], at(open, "parent")[1]);
-        } else if (valuelessNames.contains(parentName)) {
+        } else {
+          checkParentOnWholeColumn(open, parent);
+        }
+        if (!parentName.isEmpty()
+            && declared.contains(parentName)
+            && valuelessNames.contains(parentName)) {
           // A parent selects rows by the VALUE it produced. A compound is a group of fields and
           // produces none, so no row can ever match — the run used to discover that and report the
           // parent as unknown, sending the reader after a name that is declared right above.
@@ -2610,6 +2615,59 @@ public final class Validator {
   }
 
   /** The first {@code <gen type="http">} anywhere under {@code node}, or null. */
+  /**
+   * {@code parent=} on a column built for the whole run — {@code running}, {@code stat}, or a
+   * formula that reads {@code prev()} (TDC315).
+   *
+   * <p>The four derived columns used to skip the parent filter altogether: the column came out on
+   * every row and {@code check} called the config valid. A plain formula and a date offset read
+   * only their own row, so they now follow the parent. These three read the rows around this one,
+   * and "only the rows the parent picked" could mean two different columns — so it is refused
+   * rather than guessed, with the form that says which.
+   */
+  private void checkParentOnWholeColumn(TDCParser.OpenCloseElementContext open, String parent) {
+    List<Map<String, String>> gens = new ArrayList<>();
+    for (TDCParser.ElementContext child : open.content().element()) {
+      TDCParser.SelfClosingElementContext self = child.selfClosingElement();
+      if (self != null && "gen".equals(self.name.getText())) {
+        gens.add(attributes(self.attr()));
+      }
+      TDCParser.OpenCloseElementContext inner = child.openCloseElement();
+      if (inner != null && "gen".equals(inner.name.getText())) {
+        gens.add(attributes(inner.attr()));
+      }
+    }
+    // Only the whole-sequence form: a branch or a part already meets TDC295.
+    if (gens.size() != 1) {
+      return;
+    }
+    Map<String, String> gen = gens.get(0);
+    if (gen.containsKey("if") || gen.containsKey("name")) {
+      return;
+    }
+    String type = gen.getOrDefault("type", "");
+    boolean prev = "formula".equals(type) && callsPrev(gen.getOrDefault("expr", ""));
+    if (!"running".equals(type) && !"stat".equals(type) && !prev) {
+      return;
+    }
+    String what = prev ? "a formula that reads prev()" : "a type=\"" + type + "\" column";
+    String reads = "stat".equals(type) ? "every row of the run" : "the rows before this one";
+    String hint =
+        prev
+            ? "Write the condition into the expression instead: expr=\"Status == 'paid' ? "
+                + "prev(Total, 0) + Amount : prev(Total, 0)\" carries the total over the rows it "
+                + "skips."
+            : "Put parent=\"" + parent + "\" on the column it reads (of=) instead: a "
+                + ("stat".equals(type) ? "statistic" : "running total")
+                + " skips an empty cell, so it then covers exactly the rows the parent picked.";
+    error(
+        "TDC315",
+        "parent=\"" + parent + "\" cannot filter " + what + ": it reads " + reads + ", not one row",
+        hint,
+        at(open, "parent")[0],
+        at(open, "parent")[1]);
+  }
+
   private static org.antlr.v4.runtime.ParserRuleContext firstHttpGen(TDCParser.OpenCloseElementContext node) {
     for (TDCParser.ElementContext child : node.content().element()) {
       TDCParser.SelfClosingElementContext self = child.selfClosingElement();

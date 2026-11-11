@@ -19,8 +19,9 @@ import type {
   OpenCloseElementContext,
   SelfClosingElementContext,
 } from '../generated/TDCParser.js';
-import { extractAttrs } from '../processor/walk.js';
+import { contentElements, elementKind, elementName, extractAttrs } from '../processor/walk.js';
 
+import { callsPrev } from './formula.js';
 import { BUILTIN_SEQUENCES } from './known.js';
 
 export interface ParentRefContext {
@@ -97,6 +98,8 @@ export function checkParentRef(
     });
   }
 
+  checkParentOnWholeColumn(el, parentAttr, raw, ctx.diagnostics);
+
   if (ctx.valueless.includes(parentName)) {
     ctx.diagnostics.push({
       severity: 'error',
@@ -107,6 +110,58 @@ export function checkParentRef(
       code: 'TDC214',
     });
   }
+}
+
+/**
+ * `parent=` on a column built for the whole run — `running`, `stat`, or a formula that reads
+ * `prev()`.
+ *
+ * The four derived columns used to skip the parent filter altogether: the column came
+ * out on every row, `stat count` over it counted every row, and `check` called the config
+ * valid. A plain formula and a date offset read only their own row, so they now follow the
+ * parent like any other column. These three read the rows around this one, and "only the
+ * rows the parent picked" could mean two different columns — accumulate over every row and
+ * hide the others, or accumulate over the picked rows alone. Refused rather than guessed,
+ * with the form that says which: the filter goes on the column they READ, and both skip an
+ * empty cell.
+ */
+function checkParentOnWholeColumn(
+  el: OpenCloseElementContext | SelfClosingElementContext,
+  parentAttr: AttrContext,
+  raw: string,
+  diagnostics: Diagnostic[],
+): void {
+  if (!('content' in el)) return;
+  const gens: (OpenCloseElementContext | SelfClosingElementContext)[] = [];
+  for (const child of contentElements(el.content())) {
+    const k = elementKind(child);
+    if (k === null || k.kind === 'data') continue;
+    if (elementName(k.node) === 'gen') gens.push(k.node);
+  }
+  // Only the whole-sequence form: a branch or a part already meets TDC295.
+  if (gens.length !== 1) return;
+  const gen = gens[0];
+  if (gen === undefined) return;
+  const attrs = extractAttrs(gen.attr());
+  if (attrs['if'] !== undefined || attrs['name'] !== undefined) return;
+  const type = attrs['type'];
+  const prev = type === 'formula' && callsPrev(attrs['expr'] ?? '');
+  if (type !== 'running' && type !== 'stat' && !prev) return;
+
+  const what = prev ? 'a formula that reads prev()' : `a type="${type}" column`;
+  const reads = type === 'stat' ? 'every row of the run' : 'the rows before this one';
+  diagnostics.push({
+    severity: 'error',
+    source: 'validator',
+    ...attrValueRange(parentAttr),
+    message: `parent="${raw}" cannot filter ${what}: it reads ${reads}, not one row`,
+    hint: prev
+      ? "Write the condition into the expression instead: expr=\"Status == 'paid' ? " +
+        'prev(Total, 0) + Amount : prev(Total, 0)" carries the total over the rows it skips.'
+      : `Put parent="${raw}" on the column it reads (of=) instead: a ${type === 'stat' ? 'statistic' : 'running total'} ` +
+        'skips an empty cell, so it then covers exactly the rows the parent picked.',
+    code: 'TDC315',
+  });
 }
 
 function findAttr(attrs: readonly AttrContext[], name: string): AttrContext | undefined {

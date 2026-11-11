@@ -129,6 +129,18 @@ siguen [acumulado](running.mdx) y [estadística](stat.mdx) al saltarse una celda
 vaciada, vista desde el otro lado — y es lo que hace segura una fórmula sobre una
 columna con `missing=`: los vacíos siguen vacíos en vez de volverse aritmética.
 
+`parent=` en la secuencia de la propia fórmula funciona igual. Las filas que el padre no eligió
+quedan vacías, y un `stat` con `op="count"` sobre la fórmula cuenta solo las filas elegidas:
+
+```xml
+<sequence name="Status"><gen type="text" value="paid,pending" percent="50,50"/></sequence>
+<sequence name="Fee" parent="Status.paid"><gen type="formula" expr="Amount * 0.03" decimals="2"/></sequence>
+```
+
+Una fórmula que lee `prev()` no admite `parent=` (`TDC315`): la fila anterior puede ser una que
+el padre no eligió. Escriba la condición en la propia expresión, como en
+`Status == 'paid' ? prev(Total, 0) + Amount : prev(Total, 0)`.
+
 ## En una rama
 
 Una fórmula lee solo su propia fila, así que también puede ser una de las ramas de una
@@ -217,6 +229,8 @@ Todo lo que una fórmula necesita se sabe desde el config, así que nada espera 
 - **una fórmula donde no puede significar nada** — [`TDC295`](../reference/errors.mdx): una
   que lee `prev()` dentro de un `<case>` o de una rama `if=`, y cualquier fórmula como parte o
   campo de una `<sequence>` compuesta. Vea [En una rama](#en-una-rama).
+- **`parent=` en una fórmula que lee `prev()`** — [`TDC315`](../reference/errors.mdx). Vea
+  [Una fuente vacía da una respuesta vacía](#una-fuente-vacía-da-una-respuesta-vacía).
 
 La corrida rechaza dos más, porque dependen de los valores y no del config: aritmética
 sobre una columna de **texto** (de donde saldría el `NaN`, y un archivo lleno de `NaN` sin

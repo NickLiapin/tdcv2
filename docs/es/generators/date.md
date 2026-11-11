@@ -641,6 +641,9 @@ una que [`missing`](../guides/missing-data.md#top) vació — tampoco recibe fec
 hay desde dónde medir, e inventarla pondría un valor de aspecto convincente en
 una celda que la configuración dijo que debía estar vacía.
 
+`parent=` en el propio desplazamiento funciona igual: las filas que el padre no eligió quedan
+vacías, y las que eligió reciben las mismas fechas que tendrían sin el filtro.
+
 ### En una rama
 
 Un desplazamiento lee solo su propia fila, así que también puede ser una de las ramas de una

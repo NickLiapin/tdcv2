@@ -1997,6 +1997,94 @@
         "lines": ["F ", "F ", "M 6", "F ", "M 2", "F ", "M 4", "M 3"]
       }
     },
+    "derived-columns/a-formula-under-parent-leaves-the-other-rows-empty": {
+      "engine2": {
+        "refused": "a statistic (\"FC\") is computed over every row of the run, including the ones after this one, so it cannot be computed one row at a time; the in-memory engine handles it (run without a forced streaming engine)"
+      },
+      "engine3": {
+        "lines": [
+          "pending F= N= FC=5 NC=5",
+          "pending F= N= FC=5 NC=5",
+          "paid F=9 N=3 FC=5 NC=5",
+          "paid F=2 N=7 FC=5 NC=5",
+          "paid F=9 N=1 FC=5 NC=5",
+          "pending F= N= FC=5 NC=5",
+          "pending F= N= FC=5 NC=5",
+          "pending F= N= FC=5 NC=5",
+          "paid F=6 N=7 FC=5 NC=5",
+          "paid F=1 N=6 FC=5 NC=5"
+        ]
+      }
+    },
+    "derived-columns/a-formula-under-a-bare-parent-follows-the-parents-empty-rows": {
+      "engine2": {
+        "lines": [
+          "pending  ",
+          "paid 2 105",
+          "pending  ",
+          "paid 2 102",
+          "paid 3 109",
+          "pending  ",
+          "paid 2 105",
+          "pending  "
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "pending  ",
+          "paid 2 105",
+          "pending  ",
+          "paid 2 102",
+          "paid 3 109",
+          "pending  ",
+          "paid 2 105",
+          "pending  "
+        ]
+      }
+    },
+    "derived-columns/a-date-offset-under-parent-keeps-the-picked-rows-dates": {
+      "engine2": {
+        "refused": "a date measured from another column (\"Due\") reads that column as the row is built, and the streaming path has no way to do that yet; the in-memory engine handles it (run without a forced streaming engine)"
+      },
+      "engine3": {
+        "lines": [
+          "pending 2026-11-28  938",
+          "paid 2026-02-15 2026-02-24 622",
+          "pending 2026-03-27  785",
+          "paid 2026-04-09 2026-04-14 552",
+          "paid 2026-01-04 2026-01-12 582",
+          "pending 2026-11-30  200",
+          "paid 2026-01-07 2026-01-12 780",
+          "pending 2026-11-04  434"
+        ]
+      }
+    },
+    "derived-columns/a-formula-under-parent-streams-with-the-same-rows": {
+      "engine2": {
+        "lines": [
+          "pending 9 ",
+          "paid 5 10",
+          "pending 9 ",
+          "paid 2 4",
+          "paid 9 18",
+          "pending 9 ",
+          "paid 5 10",
+          "pending 4 "
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "pending 9 ",
+          "paid 5 10",
+          "pending 9 ",
+          "paid 2 4",
+          "paid 9 18",
+          "pending 9 ",
+          "paid 5 10",
+          "pending 4 "
+        ]
+      }
+    },
     "expressions-math-2/pow-and-log2-are-exact-where-they-can-be": {
       "engine2": {
         "lines": [

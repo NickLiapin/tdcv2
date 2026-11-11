@@ -84,6 +84,68 @@
       "description": "Nothing to draw from, so nothing is drawn: the row comes out empty, the way a formula answers the same input. The skipped row still spends the uniforms a drawn row would, so blanking a cell cannot slide the rest of the column.",
       "config": "<tdc><env count=\"8\" seed=\"pfilter\" local=\"en\"><sequence name=\"G\"><gen type=\"text\" value=\"M,F\"/></sequence><sequence name=\"H\" parent=\"G.M\"><gen type=\"number\" value=\"5..5\"/></sequence><sequence name=\"OUT\"><gen type=\"number\" distribution=\"poisson\" lambda=\"H\"/></sequence></env><block><line><data>${{G}} ${{OUT}}</data></line></block></tdc>",
       "expected": ["F ", "F ", "M 6", "F ", "M 2", "F ", "M 4", "M 3"]
+    },
+    {
+      "name": "a-formula-under-parent-leaves-the-other-rows-empty",
+      "description": "Reported by the article agent: parent=\"Status.paid\" on a formula was skipped, so the column came out on every row and stat count over it said 10 instead of 5, after a clean check. The formula now follows its parent like the number beside it: empty where Status is pending, and the count agrees with the number's.",
+      "config": "<tdc><env count=\"10\" seed=\"api\" local=\"en\"><sequence name=\"Status\"><gen type=\"text\" value=\"paid,pending\" percent=\"50,50\"/></sequence><sequence name=\"Amount\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"F\" parent=\"Status.paid\"><gen type=\"formula\" expr=\"Amount\"/></sequence><sequence name=\"N\" parent=\"Status.paid\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"FC\"><gen type=\"stat\" of=\"F\" op=\"count\"/></sequence><sequence name=\"NC\"><gen type=\"stat\" of=\"N\" op=\"count\"/></sequence></env><block><line><data>${{Status}} F=${{F}} N=${{N}} FC=${{FC}} NC=${{NC}}</data></line></block></tdc>",
+      "expected": [
+        "pending F= N= FC=5 NC=5",
+        "pending F= N= FC=5 NC=5",
+        "paid F=9 N=3 FC=5 NC=5",
+        "paid F=2 N=7 FC=5 NC=5",
+        "paid F=9 N=1 FC=5 NC=5",
+        "pending F= N= FC=5 NC=5",
+        "pending F= N= FC=5 NC=5",
+        "pending F= N= FC=5 NC=5",
+        "paid F=6 N=7 FC=5 NC=5",
+        "paid F=1 N=6 FC=5 NC=5"
+      ]
+    },
+    {
+      "name": "a-formula-under-a-bare-parent-follows-the-parents-empty-rows",
+      "description": "parent=\"Name\" with no value keeps the rows where the parent has any value. A formula under it is empty exactly where the parent is, which is where the parent's own parent left it empty.",
+      "config": "<tdc><env count=\"8\" seed=\"api\" local=\"en\"><sequence name=\"Status\"><gen type=\"text\" value=\"paid,pending\" percent=\"50,50\"/></sequence><sequence name=\"Amount\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"Tip\" parent=\"Status.paid\"><gen type=\"number\" value=\"1..3\"/></sequence><sequence name=\"G\" parent=\"Tip\"><gen type=\"formula\" expr=\"Amount + 100\"/></sequence></env><block><line><data>${{Status}} ${{Tip}} ${{G}}</data></line></block></tdc>",
+      "expected": [
+        "pending  ",
+        "paid 2 105",
+        "pending  ",
+        "paid 2 102",
+        "paid 3 109",
+        "pending  ",
+        "paid 2 105",
+        "pending  "
+      ]
+    },
+    {
+      "name": "a-date-offset-under-parent-keeps-the-picked-rows-dates",
+      "description": "A ranged date offset under parent= is empty on the rows the parent did not pick. It still draws on every row, so the picked rows' dates and the column after it are what they were before parent= was honoured.",
+      "config": "<tdc><env count=\"8\" seed=\"api\" local=\"en\"><sequence name=\"Status\"><gen type=\"text\" value=\"paid,pending\" percent=\"50,50\"/></sequence><sequence name=\"Amount\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"Day\"><gen type=\"date\" value=\"2026-01-01..2026-12-31\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"Due\" parent=\"Status.paid\"><gen type=\"date\" of=\"Day\" plus=\"3..10d\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"After\"><gen type=\"number\" value=\"100..999\"/></sequence></env><block><line><data>${{Status}} ${{Day}} ${{Due}} ${{After}}</data></line></block></tdc>",
+      "expected": [
+        "pending 2026-11-28  938",
+        "paid 2026-02-15 2026-02-24 622",
+        "pending 2026-03-27  785",
+        "paid 2026-04-09 2026-04-14 552",
+        "paid 2026-01-04 2026-01-12 582",
+        "pending 2026-11-30  200",
+        "paid 2026-01-07 2026-01-12 780",
+        "pending 2026-11-04  434"
+      ]
+    },
+    {
+      "name": "a-formula-under-parent-streams-with-the-same-rows",
+      "description": "The same filter on the streaming path, where a formula is computed a row at a time: the row asks its parent, and the answer matches the in-memory engine's row for row.",
+      "config": "<tdc><env count=\"8\" seed=\"api\" local=\"en\"><sequence name=\"Status\"><gen type=\"text\" value=\"paid,pending\" percent=\"50,50\"/></sequence><sequence name=\"Amount\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"F\" parent=\"Status.paid\"><gen type=\"formula\" expr=\"Amount * 2\"/></sequence></env><block><line><data>${{Status}} ${{Amount}} ${{F}}</data></line></block></tdc>",
+      "expected": [
+        "pending 9 ",
+        "paid 5 10",
+        "pending 9 ",
+        "paid 2 4",
+        "paid 9 18",
+        "pending 9 ",
+        "paid 5 10",
+        "pending 4 "
+      ]
     }
   ]
 }

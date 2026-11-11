@@ -320,7 +320,11 @@ public static class MemoryEngine
     /// then <paramref name="sequential"/> hands it the row before.
     /// </remarks>
     private static void FormulaColumn(
-        SequenceSpec spec, Dictionary<string, string?[]> columns, int count, bool sequential)
+        SequenceSpec spec,
+        Dictionary<string, string?[]> columns,
+        int count,
+        bool sequential,
+        bool[] mask)
     {
         IReadOnlyDictionary<string, string> attrs = spec.Gen!.Attrs;
         string source = Formula.ExpressionOf(attrs);
@@ -328,6 +332,14 @@ public static class MemoryEngine
         var values = new string?[count];
         for (int row = 0; row < count; row++)
         {
+            // `parent=`: a row the parent did not pick stays empty, as in any other column. It
+            // used to be skipped here, so the formula came out on every row.
+            if (row < mask.Length && !mask[row])
+            {
+                values[row] = null;
+                continue;
+            }
+
             int here = row;
             // The previous row, and only under the mode that promises there IS one. The column's
             // own earlier cells live in `values` — they are not in `columns` until the loop ends —
@@ -1024,7 +1036,7 @@ public static class MemoryEngine
             // streams.
             if (spec.Gen is not null && spec.Gen.Type == "formula")
             {
-                FormulaColumn(spec, columns, count, config.Mode?.Trim() == "sequential");
+                FormulaColumn(spec, columns, count, config.Mode?.Trim() == "sequential", mask);
                 continue;
             }
 
@@ -1053,6 +1065,26 @@ public static class MemoryEngine
                         ctx.Locale,
                         wantsInstant.Contains(spec.Name),
                         columns);
+                    // `parent=` blanks the rows its parent did not pick — AFTER the build, so a
+                    // ranged offset still draws on every row and the picked rows keep their dates.
+                    for (int row = 0; row < count && row < mask.Length; row++)
+                    {
+                        if (mask[row])
+                        {
+                            continue;
+                        }
+
+                        if (row < offsetValues.Length)
+                        {
+                            offsetValues[row] = null!;
+                        }
+
+                        if (own is not null && row < own.Length)
+                        {
+                            own[row] = null;
+                        }
+                    }
+
                     columns[spec.Name] = offsetValues;
                     if (own is not null)
                     {

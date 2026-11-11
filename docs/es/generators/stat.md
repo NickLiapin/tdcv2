@@ -143,6 +143,11 @@ que ser una `<sequence>` propia. Dentro de un `<case>`, como una de las ramas `<
 como parte o campo de una secuencia compuesta se rechaza con `TDC295`. Calcule la estadística
 como una secuencia propia más arriba y léala por su nombre donde la necesite.
 
+`parent=` en la propia estadística es `TDC315`: lee todas las filas de la corrida, así que un
+filtro sobre ella podría significar dos números distintos. Ponga `parent=` en la columna que lee.
+Una estadística se salta una celda vacía, así que `op="count"` cuenta entonces las filas que
+eligió el padre y `op="sum"` suma solo esas.
+
 `./run lab.tdc`
 
 ```

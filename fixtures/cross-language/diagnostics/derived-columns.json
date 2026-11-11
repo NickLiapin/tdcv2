@@ -147,6 +147,34 @@
       "config": "<tdc><env count=\"4\" seed=\"s\" local=\"en\"><uniq><sequence name=\"P\"><gen type=\"regex\" value=\"[a-z]{6}\"/></sequence><sequence name=\"A\"><gen type=\"text\" value=\"a,b,c\"/></sequence></uniq><sequence name=\"H\"><gen type=\"http\" src=\"http://127.0.0.1:9/\" in=\"P\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
       "demonstrates": "",
       "expected": []
+    },
+    {
+      "name": "parent-on-a-running-total-is-refused",
+      "demonstrates": "TDC315",
+      "description": "A running total reads the rows before this one, so \"only the paid rows\" could mean two different columns. Refused rather than guessed; the hint moves parent= to the column it reads.",
+      "config": "<tdc><env count=\"3\" seed=\"api\" local=\"en\"><sequence name=\"Status\"><gen type=\"text\" value=\"paid,pending\" percent=\"50,50\"/></sequence><sequence name=\"Amount\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"R\" parent=\"Status.paid\"><gen type=\"running\" of=\"Amount\" accumulate=\"sum\"/></sequence></env><block><line><data>${{R}}</data></line></block></tdc>",
+      "expected": ["error TDC315 1:227"]
+    },
+    {
+      "name": "parent-on-a-statistic-is-refused",
+      "demonstrates": "TDC315",
+      "description": "A statistic reads every row of the run. It used to ignore parent= and report a total over all of them after a clean check.",
+      "config": "<tdc><env count=\"3\" seed=\"api\" local=\"en\"><sequence name=\"Status\"><gen type=\"text\" value=\"paid,pending\" percent=\"50,50\"/></sequence><sequence name=\"Amount\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"S\" parent=\"Status.paid\"><gen type=\"stat\" of=\"Amount\" op=\"sum\"/></sequence></env><block><line><data>${{S}}</data></line></block></tdc>",
+      "expected": ["error TDC315 1:227"]
+    },
+    {
+      "name": "parent-on-a-formula-that-reads-prev-is-refused",
+      "demonstrates": "TDC315",
+      "description": "prev() reads the row before this one, which under a parent may be a row the parent did not pick. The condition belongs in the expression.",
+      "config": "<tdc><env count=\"3\" seed=\"api\" local=\"en\" mode=\"sequential\"><sequence name=\"Status\"><gen type=\"text\" value=\"paid,pending\" percent=\"50,50\"/></sequence><sequence name=\"Amount\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"W\" parent=\"Status.paid\"><gen type=\"formula\" expr=\"prev(W, 0) + Amount\"/></sequence></env><block><line><data>${{W}}</data></line></block></tdc>",
+      "expected": ["error TDC315 1:245"]
+    },
+    {
+      "name": "parent-on-a-plain-formula-or-date-offset-and-on-the-column-a-total-reads-is-accepted",
+      "demonstrates": "",
+      "description": "The forms that stay: a formula and a date offset read only their own row, and a running total or statistic over a parent-filtered column skips its empty cells.",
+      "config": "<tdc><env count=\"3\" seed=\"api\" local=\"en\"><sequence name=\"Status\"><gen type=\"text\" value=\"paid,pending\" percent=\"50,50\"/></sequence><sequence name=\"Amount\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"Day\"><gen type=\"date\" value=\"2026-01-01..2026-12-31\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"F\" parent=\"Status.paid\"><gen type=\"formula\" expr=\"Amount * 2\"/></sequence><sequence name=\"Due\" parent=\"Status.paid\"><gen type=\"date\" of=\"Day\" plus=\"7d\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"Paid\" parent=\"Status.paid\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"R\"><gen type=\"running\" of=\"Paid\" accumulate=\"sum\"/></sequence><sequence name=\"S\"><gen type=\"stat\" of=\"Paid\" op=\"sum\"/></sequence></env><block><line><data>${{F}} ${{Due}} ${{R}} ${{S}}</data></line></block></tdc>",
+      "expected": []
     }
   ]
 }

@@ -1793,7 +1793,14 @@ public sealed class Validator
                         "Parent sequences must be declared earlier in the same <env>. Forward references and cycles are not supported.",
                         line, column);
                 }
-                else if (_valuelessNames.Contains(parentName))
+                else
+                {
+                    CheckParentOnWholeColumn(open, parent);
+                }
+
+                if (parentName.Length > 0
+                    && declared.Contains(parentName)
+                    && _valuelessNames.Contains(parentName))
                 {
                     // A parent selects rows by the VALUE it produced. A compound is a group of
                     // fields and produces none, so no row can ever match — the run used to
@@ -3032,6 +3039,71 @@ public sealed class Validator
     }
 
     /// <summary>The first <c>&lt;gen type="http"&gt;</c> anywhere under <paramref name="node"/>.</summary>
+    /// <summary>
+    /// <c>parent=</c> on a column built for the whole run — <c>running</c>, <c>stat</c>, or a
+    /// formula that reads <c>prev()</c> (TDC315).
+    /// </summary>
+    /// <remarks>
+    /// The four derived columns used to skip the parent filter altogether: the column came out on
+    /// every row and <c>check</c> called the config valid. A plain formula and a date offset read
+    /// only their own row, so they now follow the parent. These three read the rows around this
+    /// one, and "only the rows the parent picked" could mean two different columns — so it is
+    /// refused rather than guessed, with the form that says which.
+    /// </remarks>
+    private void CheckParentOnWholeColumn(TDCParser.OpenCloseElementContext open, string parent)
+    {
+        var gens = new List<IReadOnlyDictionary<string, string>>();
+        foreach (TDCParser.ElementContext child in open.content().element())
+        {
+            TDCParser.SelfClosingElementContext? self = child.selfClosingElement();
+            if (self is not null && self.name.Text == "gen")
+            {
+                gens.Add(Attributes(self.attr()));
+            }
+
+            TDCParser.OpenCloseElementContext? inner = child.openCloseElement();
+            if (inner is not null && inner.name.Text == "gen")
+            {
+                gens.Add(Attributes(inner.attr()));
+            }
+        }
+
+        // Only the whole-sequence form: a branch or a part already meets TDC295.
+        if (gens.Count != 1)
+        {
+            return;
+        }
+
+        IReadOnlyDictionary<string, string> gen = gens[0];
+        if (gen.ContainsKey("if") || gen.ContainsKey("name"))
+        {
+            return;
+        }
+
+        string type = gen.GetValueOrDefault("type") ?? "";
+        bool prev = type == "formula" && CallsPrev(gen.GetValueOrDefault("expr") ?? "");
+        if (type != "running" && type != "stat" && !prev)
+        {
+            return;
+        }
+
+        string what = prev ? "a formula that reads prev()" : $"a type=\"{type}\" column";
+        string reads = type == "stat" ? "every row of the run" : "the rows before this one";
+        string hint = prev
+            ? "Write the condition into the expression instead: expr=\"Status == 'paid' ? "
+              + "prev(Total, 0) + Amount : prev(Total, 0)\" carries the total over the rows it skips."
+            : $"Put parent=\"{parent}\" on the column it reads (of=) instead: a "
+              + (type == "stat" ? "statistic" : "running total")
+              + " skips an empty cell, so it then covers exactly the rows the parent picked.";
+        (int line, int column) = At(open, "parent");
+        Error(
+            "TDC315",
+            $"parent=\"{parent}\" cannot filter {what}: it reads {reads}, not one row",
+            hint,
+            line,
+            column);
+    }
+
     private static Antlr4.Runtime.ParserRuleContext? FirstHttpGen(TDCParser.OpenCloseElementContext node)
     {
         foreach (TDCParser.ElementContext child in node.content().element())

@@ -132,6 +132,11 @@ or a field of a composed sequence it is refused with `TDC295`: a branch holds so
 others, and a total over "the rows this branch happened to get" is not a number anyone asked
 for. Build the total as its own sequence above, and use it by name where you need it.
 
+`parent=` on the total itself is `TDC315`, for the same reason. "Only the rows the parent
+picked" could mean a total over every row, shown on some of them, or a total over those rows
+alone. Put `parent=` on the column the total reads instead. A running total skips an empty
+cell, so it then adds up exactly the rows the parent picked.
+
 ## Which engine runs it
 
 The [streaming engines](../guides/large-outputs.md#top) refuse a running total, by name, and

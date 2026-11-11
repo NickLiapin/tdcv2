@@ -530,6 +530,17 @@ class StreamEngine:
             if spec.is_compound:
                 self._build_compound(spec)
                 continue
+            if spec.gen is not None and spec.gen.type == "formula" and spec.parent:
+                # A formula reads only its own row, so its parent is a question about that row,
+                # asked of the lazy registry as the reference does — not a quota of a finite
+                # parent, which a bare parent="Name" or a numeric parent does not have.
+                whole = Domain(self.count, lambda row: row)
+                base = self._build_gen(spec.name or "", spec.gen, whole).column
+                keep = self._parent_row_filter(spec)
+                self.columns[spec.name or ""] = lambda row, _b=base, _k=keep: (
+                    _b(row) if _k(row) else None
+                )
+                continue
             self._register(
                 spec.name or "",
                 self._build_gen(spec.name or "", spec.gen, self._domain_of(spec)),
@@ -634,6 +645,24 @@ class StreamEngine:
             self.columns[f"{spec.name}.{f.name}"] = built.column
             fields[f.name] = built.column
         self._apply_distinct(spec, fields)
+
+    def _parent_row_filter(self, spec: SequenceSpec) -> Callable[[int], bool]:
+        """``parent=`` as a question about one row: the parent produced exactly this value, or,
+        for a bare ``parent="Name"``, any value at all — the in-memory engine's mask, row by row.
+        """
+        reference = spec.parent or ""
+        dot = reference.find(".")
+        parent_name = reference if dot < 0 else reference[:dot]
+        wanted = None if dot < 0 else reference[dot + 1 :]
+        parent = self.columns.get(parent_name)
+        if parent is None:
+            raise StreamError(
+                f'sequence "{spec.name}" references unknown parent "{parent_name}". '
+                "Parent sequences must be declared before their children."
+            )
+        if wanted is None:
+            return lambda row: parent(row) is not None
+        return lambda row: parent(row) == wanted
 
     def _domain_of(self, spec: SequenceSpec) -> Domain:
         """The rows a sequence covers.

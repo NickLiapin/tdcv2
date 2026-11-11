@@ -631,14 +631,36 @@ public sealed class StreamEngine
             {
                 string formulaSource = Formula.ExpressionOf(spec.Gen.Attrs);
                 int? formulaDecimals = Formula.DecimalsOf(spec.Gen.Attrs);
+                // `parent=` as a question about the row, asked of the lazy registry as the
+                // reference does — not a quota of a finite parent, which a bare parent="Name"
+                // does not have.
+                string parentRef = spec.Parent?.Trim() ?? "";
+                int parentDot = parentRef.IndexOf('.');
+                string parentName = parentDot < 0 ? parentRef : parentRef[..parentDot];
+                string? parentWanted = parentDot < 0 ? null : parentRef[(parentDot + 1)..];
                 Put(
                     spec.Name,
-                    row => Formula.ValueAtRow(
-                        formulaSource,
-                        formulaDecimals,
-                        row,
-                        _columns.ContainsKey,
-                        name => ValueAt(name, row)));
+                    row =>
+                    {
+                        if (parentRef.Length > 0)
+                        {
+                            string? parentValue = ValueAt(parentName, row);
+                            bool kept = parentWanted is null
+                                ? parentValue is not null
+                                : parentWanted == parentValue;
+                            if (!kept)
+                            {
+                                return null;
+                            }
+                        }
+
+                        return Formula.ValueAtRow(
+                            formulaSource,
+                            formulaDecimals,
+                            row,
+                            _columns.ContainsKey,
+                            name => ValueAt(name, row));
+                    });
                 continue;
             }
 

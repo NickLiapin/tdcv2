@@ -299,12 +299,22 @@ public final class MemoryEngine {
    * then {@code sequential} hands it the row before.
    */
   private static void formulaColumn(
-      Config.SequenceSpec spec, Map<String, String[]> columns, int count, boolean sequential) {
+      Config.SequenceSpec spec,
+      Map<String, String[]> columns,
+      int count,
+      boolean sequential,
+      boolean[] mask) {
     Map<String, String> attrs = spec.gen().attrs();
     String source = Formula.expressionOf(attrs);
     Integer decimals = Formula.decimalsOf(attrs);
     String[] values = new String[count];
     for (int row = 0; row < count; row++) {
+      // `parent=`: a row the parent did not pick stays empty, as in any other column. It used to
+      // be skipped here, so the formula came out on every row.
+      if (row < mask.length && !mask[row]) {
+        values[row] = null;
+        continue;
+      }
       final int here = row;
       // The previous row, and only under the mode that promises there IS one. The column's own
       // earlier cells live in `values` — they are not in `columns` until the loop ends — so its
@@ -914,7 +924,8 @@ public final class MemoryEngine {
             spec,
             columns,
             count,
-            config.mode() != null && "sequential".equals(config.mode().trim()));
+            config.mode() != null && "sequential".equals(config.mode().trim()),
+            mask);
         continue;
       }
       if (spec.gen() != null && "stat".equals(spec.gen().type())) {
@@ -938,9 +949,23 @@ public final class MemoryEngine {
                   config.locale(),
                   wantsInstant.contains(spec.name()),
                   columns);
-          columns.put(spec.name(), built.values());
-          if (built.instants() != null) {
-            instants.put(spec.name(), built.instants());
+          // `parent=` blanks the rows its parent did not pick — AFTER the build, so a ranged
+          // offset still draws on every row and the picked rows keep their dates.
+          String[] kept = built.values();
+          Long[] keptInstants = built.instants();
+          for (int row = 0; row < count; row++) {
+            if (row < mask.length && !mask[row]) {
+              if (row < kept.length) {
+                kept[row] = null;
+              }
+              if (keptInstants != null && row < keptInstants.length) {
+                keptInstants[row] = null;
+              }
+            }
+          }
+          columns.put(spec.name(), kept);
+          if (keptInstants != null) {
+            instants.put(spec.name(), keptInstants);
           }
         }
         continue;

@@ -372,6 +372,9 @@ enum Column {
     Formula {
         expr: String,
         decimals: Option<usize>,
+        /// `parent=` as a question about the row: the parent's name, and the value it must
+        /// have produced (`None` for a bare `parent="Name"`, which asks for any value).
+        parent: Option<(String, Option<String>)>,
     },
     /// A composed sequence's own value: its parts, concatenated per row.
     Composed {
@@ -828,11 +831,19 @@ impl<'a> StreamEngine<'a> {
                 // a formula reads only its OWN row, so the streaming engine answers it
                 // lazily exactly as it answers a `<compute>`.
                 if gen.gen_type == "formula" {
+                    // A formula reads only its own row, so its parent is a question about
+                    // that row — asked of the lazy registry, as the reference does, not a
+                    // quota of a finite parent, which a bare parent= does not have.
+                    let parent = trim_to_none(spec.parent.as_deref()).map(|p| match p.find('.') {
+                        Some(dot) => (p[..dot].to_string(), Some(p[dot + 1..].to_string())),
+                        None => (p.to_string(), None),
+                    });
                     self.put(
                         &spec.name,
                         Column::Formula {
                             expr: formula::expression_of(&gen.attrs)?,
                             decimals: formula::decimals_of(&gen.attrs)?,
+                            parent,
                         },
                     );
                     continue;
@@ -1224,6 +1235,7 @@ impl StreamEngine<'_> {
             return Ok(Built::plain(Column::Formula {
                 expr: formula::expression_of(attrs)?,
                 decimals: formula::decimals_of(attrs)?,
+                parent: None,
             }));
         }
         if gen_type == "template" {
@@ -3175,7 +3187,11 @@ impl StreamEngine<'_> {
                 result
             }
 
-            Column::Formula { expr, decimals } => formula::value_at_row(
+            Column::Formula {
+                parent: Some((name, wanted)),
+                ..
+            } if !self.parent_keeps(name, wanted.as_deref(), row) => Ok(None),
+            Column::Formula { expr, decimals, .. } => formula::value_at_row(
                 expr,
                 *decimals,
                 row.max(0) as usize,
@@ -3192,6 +3208,22 @@ impl StreamEngine<'_> {
                 // is refused rather than answered from a row it never computed.
                 None,
             ),
+        }
+    }
+
+    /// Did the parent pick this row: produced exactly `wanted`, or, for a bare
+    /// `parent="Name"`, any value at all — the in-memory engine's mask, row by row.
+    fn parent_keeps(&self, name: &str, wanted: Option<&str>, row: i32) -> bool {
+        let value = match self.value_at(name, row) {
+            Ok(value) => value,
+            Err(e) => {
+                self.remember(e);
+                None
+            }
+        };
+        match wanted {
+            None => value.is_some(),
+            Some(want) => value.as_deref() == Some(want),
         }
     }
 

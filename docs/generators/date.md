@@ -631,6 +631,9 @@ A row whose source has no date — one that a `parent` filter left out, or one
 nothing to measure from, and inventing one would put a confident-looking value
 in a cell the config said should be empty.
 
+`parent=` on the offset itself works the same way: the rows the parent did not pick are
+empty, and the rows it picked get the same dates they would get without the filter.
+
 ### In a branch
 
 An offset reads only its own row, so it can be one branch of a per-row choice as well: a

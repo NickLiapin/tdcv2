@@ -1176,7 +1176,13 @@ impl Validator {
                         "Parent sequences must be declared earlier in the same <env>. Forward references and cycles are not supported.",
                         open.at("parent"),
                     );
-                } else if self.valueless_names.contains(parent_name) {
+                } else {
+                    self.check_parent_on_whole_column(open, &parent);
+                }
+                if !parent_name.is_empty()
+                    && declared.iter().any(|d| d == parent_name)
+                    && self.valueless_names.contains(parent_name)
+                {
                     // A parent selects rows by the VALUE it produced. A compound
                     // is a group of fields and produces none, so no row can ever
                     // match — the run used to discover that and report the parent
@@ -8214,6 +8220,64 @@ fn gen_place(shape: Option<&str>, gen: &Element) -> &'static str {
             }
         }
         _ => "sequence",
+    }
+}
+
+impl Validator {
+    /// `parent=` on a column built for the whole run — `running`, `stat`, or a formula
+    /// that reads `prev()` (TDC315).
+    ///
+    /// The four derived columns used to skip the parent filter altogether: the column came
+    /// out on every row and `check` called the config valid. A plain formula and a date
+    /// offset read only their own row, so they now follow the parent. These three read the
+    /// rows around this one, and "only the rows the parent picked" could mean two different
+    /// columns — so it is refused rather than guessed, with the form that says which.
+    fn check_parent_on_whole_column(&mut self, open: &Element, parent: &str) {
+        let gens: Vec<&Element> = open.children.iter().filter(|c| is_gen(c)).collect();
+        // Only the whole-sequence form: a branch or a part already meets TDC295.
+        let [gen] = gens.as_slice() else {
+            return;
+        };
+        if gen.attr_value("if").is_some() || gen.attr_value("name").is_some() {
+            return;
+        }
+        let gen_type = gen.attr_value("type").unwrap_or("");
+        let prev = gen_type == "formula"
+            && expr::parse(gen.attr_value("expr").unwrap_or("")).is_ok_and(|p| calls_prev(&p));
+        if gen_type != "running" && gen_type != "stat" && !prev {
+            return;
+        }
+        let what = if prev {
+            "a formula that reads prev()".to_string()
+        } else {
+            format!("a type=\"{gen_type}\" column")
+        };
+        let reads = if gen_type == "stat" {
+            "every row of the run"
+        } else {
+            "the rows before this one"
+        };
+        let hint = if prev {
+            "Write the condition into the expression instead: expr=\"Status == 'paid' ? \
+             prev(Total, 0) + Amount : prev(Total, 0)\" carries the total over the rows it skips."
+                .to_string()
+        } else {
+            let kind = if gen_type == "stat" {
+                "statistic"
+            } else {
+                "running total"
+            };
+            format!(
+                "Put parent=\"{parent}\" on the column it reads (of=) instead: a {kind} skips \
+                 an empty cell, so it then covers exactly the rows the parent picked."
+            )
+        };
+        self.error(
+            "TDC315",
+            format!("parent=\"{parent}\" cannot filter {what}: it reads {reads}, not one row"),
+            &hint,
+            open.at("parent"),
+        );
     }
 }
 

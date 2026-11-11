@@ -132,6 +132,11 @@ A statistic is a **whole column** — it reads every row of the run — so it ha
 a field of a composed sequence it is refused with `TDC295`. Take the statistic as its own
 sequence above, and read it by name where you need it.
 
+`parent=` on the statistic itself is `TDC315`: it reads every row of the run, so a filter on it
+could mean two different numbers. Put `parent=` on the column it reads instead. A statistic
+skips an empty cell, so `op="count"` then counts the rows the parent picked and `op="sum"` adds
+up only those.
+
 <Terminal title="./run lab.tdc">
 {`error[TDC262]: op="men" is not one of sum, mean, median, min, max, count, stddev
  --> lab.tdc:4:63

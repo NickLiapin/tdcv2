@@ -1771,7 +1771,9 @@ class _Validator:
                         line,
                         column,
                     )
-                elif parent_name in self.valueless_names:
+                else:
+                    _check_parent_on_whole_column(self, open_el, parent, line, column)
+                if parent_name and parent_name in declared and parent_name in self.valueless_names:
                     # A parent selects rows by the VALUE it produced. A compound is a group of
                     # fields and produces none, so no row can ever match — the run used to
                     # discover that and report the parent as unknown, sending the reader after a
@@ -7714,6 +7716,53 @@ def _positive_seconds(raw: str) -> bool:
         return float(raw.strip()) > 0
     except ValueError:
         return False
+
+
+def _check_parent_on_whole_column(v, open_el, parent: str, line: int, column: int) -> None:
+    """``parent=`` on a column built for the whole run — ``running``, ``stat``, or a formula
+    that reads ``prev()`` (TDC315).
+
+    The four derived columns used to skip the parent filter altogether: the column came out on
+    every row and ``check`` called the config valid. A plain formula and a date offset read only
+    their own row, so they now follow the parent. These three read the rows around this one, and
+    "only the rows the parent picked" could mean two different columns — so it is refused rather
+    than guessed, with the form that says which.
+    """
+    gens = []
+    for child in _elements(open_el):
+        for el in (child.selfClosingElement(), child.openCloseElement()):
+            if el is not None and el.name.text == "gen":
+                gens.append(el)
+    # Only the whole-sequence form: a branch or a part already meets TDC295.
+    if len(gens) != 1:
+        return
+    attrs = _attrs(gens[0].attr())
+    if "if" in attrs or "name" in attrs:
+        return
+    type_ = attrs.get("type")
+    prev = type_ == "formula" and _calls_prev(attrs.get("expr") or "")
+    if type_ not in ("running", "stat") and not prev:
+        return
+    what = "a formula that reads prev()" if prev else f'a type="{type_}" column'
+    reads = "every row of the run" if type_ == "stat" else "the rows before this one"
+    if prev:
+        hint = (
+            "Write the condition into the expression instead: expr=\"Status == 'paid' ? "
+            "prev(Total, 0) + Amount : prev(Total, 0)\" carries the total over the rows it skips."
+        )
+    else:
+        kind = "statistic" if type_ == "stat" else "running total"
+        hint = (
+            f'Put parent="{parent}" on the column it reads (of=) instead: a {kind} skips an '
+            "empty cell, so it then covers exactly the rows the parent picked."
+        )
+    v._error(
+        "TDC315",
+        f'parent="{parent}" cannot filter {what}: it reads {reads}, not one row',
+        hint,
+        line,
+        column,
+    )
 
 
 def _first_http_gen(node):

@@ -15,6 +15,23 @@ page — is tracked in that implementation's own changelog:
 
 ## [Unreleased]
 
+### Fixed
+
+- **`parent=` on a `formula` or a date offset filters the column — in all five, on every
+  engine.** The four columns computed from other columns skipped the parent filter, so
+  `<sequence name="F" parent="Status.paid"><gen type="formula" …/>` came out on every row,
+  `stat count` over it counted every row (1,000 instead of 700), and `check` called the config
+  valid. The rows the parent did not pick are now empty, as in any other column. A ranged date
+  offset still draws on every row, so the picked rows keep the dates they had. Found by the
+  article agent.
+
+### Added
+
+- **`TDC315`: `parent=` on a `running` total, a `stat`, or a formula that reads `prev()`.** They
+  read the rows around this one, so "only the rows the parent picked" could mean two different
+  columns; they used to ignore the filter in silence. Put `parent=` on the column they read —
+  both skip an empty cell — or, for `prev()`, write the condition into the expression.
+
 ## [0.4.0] — 2026-11-09
 
 ### Changed

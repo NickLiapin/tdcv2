@@ -39,6 +39,7 @@ import {
   toEpochMillis,
 } from '../date/calendar.js';
 import type { ColumnOffset, OffsetSpec } from '../date/calendar.js';
+import { parentRowFilter } from './assemble.js';
 import { sequenceInstantAt, sequenceValueAt } from './types.js';
 import type { Sequence, SequenceSpec } from './types.js';
 
@@ -122,6 +123,18 @@ export function registerDateOffset(
     } else continue;
     if (instants) instants[i] = toEpochMillis(landed);
     values[i] = formatDateTime(landed, format, locale);
+  }
+  // `parent=` blanks the rows its parent did not pick. Applied AFTER the loop rather
+  // than by skipping those rows: a ranged offset draws once per row, and drawing on
+  // every row keeps the picked rows' dates — and every column after this one —
+  // exactly where they were before the filter was honoured.
+  const keep = parentRowFilter(spec, registry);
+  if (keep) {
+    for (let i = 0; i < count; i++) {
+      if (keep(i)) continue;
+      values[i] = undefined;
+      if (instants) instants[i] = undefined;
+    }
   }
   registry[spec.name] = instants
     ? { name: spec.name, values, instants }

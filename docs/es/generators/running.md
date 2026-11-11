@@ -134,6 +134,11 @@ rama recibe unas filas y no otras, y un total sobre «las filas que le tocaron a
 un número que nadie haya pedido. Construya el total como una secuencia propia más arriba y
 úselo por su nombre donde lo necesite.
 
+`parent=` en el propio total es `TDC315`, por la misma razón. «Solo las filas que eligió el
+padre» puede significar un total sobre todas las filas, mostrado en algunas, o un total solo
+sobre esas filas. Ponga `parent=` en la columna que lee el total. Un total acumulado se salta
+una celda vacía, así que entonces suma exactamente las filas que eligió el padre.
+
 ## Qué motor lo ejecuta
 
 Los [motores de streaming](../guides/large-outputs.md#top) rechazan un total acumulado, y lo

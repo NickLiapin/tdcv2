@@ -391,15 +391,30 @@ public final class StreamEngine {
       if (spec.gen() != null && "formula".equals(spec.gen().type())) {
         String formulaSource = Formula.expressionOf(spec.gen().attrs());
         Integer formulaDecimals = Formula.decimalsOf(spec.gen().attrs());
+        // `parent=` as a question about the row, asked of the lazy registry as the reference
+        // does — not a quota of a finite parent, which a bare parent="Name" does not have.
+        String parentRef = spec.parent() == null ? "" : spec.parent().trim();
+        int parentDot = parentRef.indexOf('.');
+        String parentName = parentDot < 0 ? parentRef : parentRef.substring(0, parentDot);
+        String parentWanted = parentDot < 0 ? null : parentRef.substring(parentDot + 1);
         columns.put(
             spec.name(),
-            row ->
-                Formula.valueAtRow(
-                    formulaSource,
-                    formulaDecimals,
-                    row,
-                    columns::containsKey,
-                    name -> valueAt(name, row)));
+            row -> {
+              if (!parentRef.isEmpty()) {
+                String parentValue = valueAt(parentName, row);
+                boolean kept =
+                    parentWanted == null ? parentValue != null : parentWanted.equals(parentValue);
+                if (!kept) {
+                  return null;
+                }
+              }
+              return Formula.valueAtRow(
+                  formulaSource,
+                  formulaDecimals,
+                  row,
+                  columns::containsKey,
+                  name -> valueAt(name, row));
+            });
         continue;
       }
 
