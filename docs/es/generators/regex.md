@@ -113,6 +113,7 @@ Si se necesitan **porciones exactas** de variantes dentro del string (digamos, e
 | :------------------- | :--------------------------- | :----------------------------------------------- |
 | Literales            | `ABC-42`                     | Exactamente esos caracteres                      |
 | Caracteres escapados | `\.\+\(\)\\`                 | Punto, más, paréntesis, barra invertida          |
+| Carácter por código  | `\x41`, `\u0410`             | `A`, `А` — el carácter con ese código            |
 | Clase de caracteres  | `[ABC]`, `[a-z]`, `[A-Z0-9]` | Un carácter del conjunto                         |
 | Rango Unicode BMP    | `[а-я]`, `[א-ת]`, `[ぁ-ゖ]`  | Un carácter del rango                            |
 | Alfabeto con nombre  | `\a{kana.hiragana}`          | Un carácter de un alfabeto incorporado           |
@@ -352,6 +353,23 @@ BCAC-B-C     C-B-ACA-
 ```
 
 El conjunto aquí son cuatro caracteres: `A`, `B`, `C` y `-`.
+
+Un carácter también puede escribirse por su código: `\xHH` toma dos dígitos hexadecimales y
+`\uHHHH`, cuatro. Ambos funcionan también dentro de una clase, así que `[\x30-\x39]` son los
+dígitos:
+
+```xml
+<gen type="regex" value="\x41\u0410-[\x30-\x39]{2}"/>
+```
+
+`./run demo.tdc`
+
+```
+AА-29
+```
+
+Una barra invertida ante cualquier otra letra se rechaza en vez de leerse como la letra: `\q` es
+`TDC097`, así que una errata en un patrón se detiene en `check` en lugar de llegar al archivo.
 
 ## Alfabetos Unicode
 
@@ -626,6 +644,8 @@ resultado ya finito sea más largo.
 | Lookahead / lookbehind | Inspeccionan texto existente, no lo construyen | Mueva la condición al DSL        |
 | `\p{...}` / `\P{...}`  | Las propiedades Unicode aún no son portables   | `\a{name}` o una clase explícita |
 | `\n` / `\r`            | La generación multilínea vive en otro lado     | Use `<line>`s separados          |
+| `\b` `\B` `\A` `\Z` `\z` `\G` | Ancho cero: un valor generado no tiene nada alrededor | Quítelo — `\bINV-\d{6}\b` es `INV-\d{6}` |
+| Cualquier otra letra, p. ej. `\q` | Un escape desconocido es una errata, nunca la letra | La letra misma, o `\xHH` / `\uHHHH` |
 
 Por ejemplo, `+` se rechaza de inmediato:
 

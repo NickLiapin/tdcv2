@@ -656,6 +656,18 @@
         "50|54 63",
         "1|0 1"
       ]
+    },
+    {
+      "name": "regex-hex-and-unicode-escapes-are-characters",
+      "description": "\\xHH and \\uHHHH are the character with that code, in a pattern and inside a class. They used to print their own letters: \\x41 came out as x41.",
+      "config": "<tdc><env count=\"3\" seed=\"rx\" local=\"en\"><sequence name=\"V\"><gen type=\"regex\" value=\"ID-\\x41\\u0410[\\x41-\\x43]{2}\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["ID-AАAC", "ID-AАCA", "ID-AАAC"]
+    },
+    {
+      "name": "advanced-regex-hex-and-unicode-escapes-are-characters",
+      "description": "The same two escapes in advanced_regex, which has a parser of its own.",
+      "config": "<tdc><env count=\"3\" seed=\"rx\" local=\"en\"><sequence name=\"V\"><gen type=\"advanced_regex\" value=\"(?<k>\\x41)\\u0410\\k<k>[\\x41-\\x43]\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["AАAB", "AАAB", "AАAB"]
     }
   ]
 }

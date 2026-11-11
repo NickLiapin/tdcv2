@@ -708,8 +708,17 @@ public final class RegexGen {
         case "p":
         case "P":
           throw error("Unicode property classes are not supported");
+        case "x":
+        case "u":
+          {
+            String code = RegexEscape.hexEscape(ch, this::nextRaw, this::error);
+            return new ClassAtom(List.of(code), code);
+          }
         default:
-          return new ClassAtom(List.of(ch), ch);
+          {
+            String literal = RegexEscape.escapedLiteral(ch, this::error);
+            return new ClassAtom(List.of(literal), literal);
+          }
       }
     }
 
@@ -754,8 +763,11 @@ public final class RegexGen {
         case "p":
         case "P":
           throw error("Unicode property classes are not supported");
+        case "x":
+        case "u":
+          return new Literal(RegexEscape.hexEscape(ch, this::nextRaw, this::error));
         default:
-          return new Literal(ch);
+          return new Literal(RegexEscape.escapedLiteral(ch, this::error));
       }
     }
 
@@ -779,6 +791,15 @@ public final class RegexGen {
         throw error("unknown alphabet \"" + name + "\"");
       }
       return resolved;
+    }
+
+    /** One character of the pattern, consumed — null at the end. */
+    private String nextRaw() {
+      String ch = peek();
+      if (ch != null) {
+        pos++;
+      }
+      return ch;
     }
 
     private String escapedChar() {

@@ -137,15 +137,13 @@ public final class Stat {
 
     if ("sum".equals(op) || "min".equals(op) || "max".equals(op)) {
       // The last value of the running column IS the total over every row, and reusing it is what
-      // keeps the exact-decimal arithmetic from drifting.
-      String[] running = Accumulate.applyColumn(values, op, null, null);
-      String last = "";
-      for (int i = running.length - 1; i >= 0; i--) {
-        if (running[i] != null) {
-          last = running[i];
-          break;
-        }
-      }
+      // keeps the exact-decimal arithmetic from drifting. It runs over the PRESENT cells: a cell
+      // `missing=` blanked holds "" rather than nothing, and when it was the last one the total
+      // came out empty on every row while `count` beside it was right.
+      String[] running = Accumulate.applyColumn(present.toArray(new String[0]), op, null, null);
+      String last = running.length == 0 || running[running.length - 1] == null
+          ? ""
+          : running[running.length - 1];
       return decimals == null ? last : fixed(asNumber(last), decimals);
     }
 

@@ -80,9 +80,11 @@ def statistic(values: list[str | None], op: str, decimals: int | None) -> str:
 
     if op in ("sum", "min", "max"):
         # The last value of the running column IS the total over every row, and reusing it is
-        # what keeps the exact-decimal arithmetic from drifting.
-        running = accumulate_gen.apply_column(values, op, None, None)
-        last = next((v for v in reversed(running) if v is not None), "")
+        # what keeps the exact-decimal arithmetic from drifting. It runs over the PRESENT cells: a
+        # cell ``missing=`` blanked holds "" rather than nothing, and when it was the last one the
+        # total came out empty on every row while ``count`` beside it was right.
+        running = accumulate_gen.apply_column(present, op, None, None)
+        last = running[-1] if running and running[-1] is not None else ""
         return last if decimals is None else _fixed(float(last), decimals)
 
     figures = [float(v) for v in present]

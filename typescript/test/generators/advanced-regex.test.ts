@@ -436,7 +436,7 @@ describe('named groups', () => {
 /*
  * `\k<name>` — the escape this generator used to SWALLOW.
  *
- * It reached no branch of its own and fell to the rule that an unknown escape is the
+ * It reached no branch of its own and fell to the rule, since removed, that an unknown escape was the
  * character itself, so `(?<a>[A-Z]{2})-\k<a>` produced `RI-k<a>` while the plain `regex`
  * generator produced `RI-RI` from the same pattern and seed. Not an unsupported feature but
  * a silent wrong answer: the value looked plausible, passed every format check and reached
@@ -473,10 +473,13 @@ describe('named backreferences', () => {
     expect(() => parseAdvancedRegexProgram('(?<a>[XY])\\ka')).toThrow(/written "\\k<area>"/);
   });
 
-  it('leaves an unknown escape alone, which is why this one slipped through', () => {
-    // "An unknown escape is the character itself" is a deliberate rule shared with `regex`.
-    // `\k` inherited it instead of reaching a branch of its own; the rule itself is right.
-    expect(generate('A\\qB', 3)).toEqual(['AqB', 'AqB', 'AqB']);
+  it('refuses an unknown escape instead of reading it as the letter', () => {
+    // "An unknown escape is the character itself" was the rule `\k` slipped through, and the
+    // article agent found where else it led: `\x41` printed `x41` and `\bINV-\b` printed
+    // `bINV-b`, after a clean check. An unknown letter escape is refused now, in both parsers.
+    expect(() => parseAdvancedRegexProgram('A\\qB')).toThrow(/unknown escape "\\q"/);
+    expect(() => parseAdvancedRegexProgram('\\bcat')).toThrow(/zero-width assertion/);
+    expect(generate('\\x41\\u0410', 1)).toEqual(['AА']);
   });
 });
 

@@ -14,6 +14,7 @@ pub mod number;
 pub mod quantile;
 pub mod rand;
 pub mod regex;
+pub mod regex_escape;
 pub mod repeat;
 pub mod scan;
 pub mod stat;

@@ -22,6 +22,7 @@ from dataclasses import dataclass
 from ..prng import rand
 from ..prng.prng import Sfc32
 from ..unicode import alphabets
+from .regex_escape import escaped_literal, hex_escape
 
 DEFAULT_MAX_LENGTH = 32
 
@@ -559,7 +560,11 @@ class _Parser:
             return _ClassAtom(["\t"], "\t")
         if ch in ("p", "P"):
             raise self._error("Unicode property classes are not supported")
-        return _ClassAtom([ch], ch)
+        if ch in ("x", "u"):
+            char = hex_escape(ch, self._next_raw, self._error)
+            return _ClassAtom([char], char)
+        char = escaped_literal(ch, self._error)
+        return _ClassAtom([char], char)
 
     def _escape(self) -> Node:
         self._expect("\\")
@@ -596,7 +601,9 @@ class _Parser:
             return Literal("\t")
         if ch in ("p", "P"):
             raise self._error("Unicode property classes are not supported")
-        return Literal(ch)
+        if ch in ("x", "u"):
+            return Literal(hex_escape(ch, self._next_raw, self._error))
+        return Literal(escaped_literal(ch, self._error))
 
     def _named_backref(self) -> Node:
         r"""``\k<area>`` — the ``\k`` is already consumed."""
@@ -632,6 +639,13 @@ class _Parser:
         if resolved is None:
             raise self._error(f'unknown alphabet "{text}"')
         return resolved
+
+    def _next_raw(self) -> str | None:
+        """One character of the pattern, consumed — None at the end."""
+        ch = self._peek()
+        if ch is not None:
+            self.pos += 1
+        return ch
 
     def _escaped_char(self) -> str:
         ch = self._peek()

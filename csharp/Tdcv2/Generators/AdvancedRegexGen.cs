@@ -1331,8 +1331,18 @@ public static class AdvancedRegexGen
                 case "p":
                 case "P":
                     throw Error("Unicode property classes are not supported");
+                case "x":
+                case "u":
+                {
+                    string code = RegexEscape.HexEscape(ch, NextRaw, Error);
+                    return new ClassAtom(new[] { code }, code);
+                }
+
                 default:
-                    return new ClassAtom(new[] { ch }, ch);
+                {
+                    string literal = RegexEscape.EscapedLiteral(ch, Error);
+                    return new ClassAtom(new[] { literal }, literal);
+                }
             }
         }
 
@@ -1379,8 +1389,11 @@ public static class AdvancedRegexGen
                 case "p":
                 case "P":
                     throw Error("Unicode property classes are not supported");
+                case "x":
+                case "u":
+                    return new Node.Literal(RegexEscape.HexEscape(ch, NextRaw, Error));
                 default:
-                    return new Node.Literal(ch);
+                    return new Node.Literal(RegexEscape.EscapedLiteral(ch, Error));
             }
         }
 
@@ -1457,6 +1470,18 @@ public static class AdvancedRegexGen
             }
 
             return resolved;
+        }
+
+        /// <summary>One character of the pattern, consumed — null at the end.</summary>
+        private string? NextRaw()
+        {
+            string? ch = Peek;
+            if (ch is not null)
+            {
+                _pos++;
+            }
+
+            return ch;
         }
 
         private string EscapedChar()

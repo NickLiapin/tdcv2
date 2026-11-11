@@ -105,6 +105,7 @@ one prefix), plain `regex` won't do it — reach for
 | :------------------ | :--------------------------- | :---------------------------------------- |
 | Literals            | `ABC-42`                     | Exactly those characters                  |
 | Escaped characters  | `\.\+\(\)\\`                 | Dot, plus, parens, backslash              |
+| Character by code   | `\x41`, `\u0410`             | `A`, `А` — the character with that code   |
 | Character class     | `[ABC]`, `[a-z]`, `[A-Z0-9]` | One character from the set                |
 | Unicode BMP range   | `[а-я]`, `[א-ת]`, `[ぁ-ゖ]`  | One character from the range              |
 | Named alphabet      | `\a{kana.hiragana}`          | One character from a built-in alphabet    |
@@ -319,6 +320,21 @@ BCAC-B-C     C-B-ACA-
 </Terminal>
 
 The set here is four characters: `A`, `B`, `C`, and `-`.
+
+
+A character can also be written by its code: `\xHH` takes two hex digits and `\uHHHH`
+takes four. Both work inside a class too, so `[\x30-\x39]` is the digits:
+
+```xml
+<gen type="regex" value="\x41\u0410-[\x30-\x39]{2}"/>
+```
+
+<Terminal title="./run demo.tdc">
+{`AА-29`}
+</Terminal>
+
+A backslash before any other letter is refused rather than read as the letter: `\q` is
+`TDC097`, so a typo in a pattern stops at `check` instead of reaching the file.
 
 ## Unicode alphabets
 
@@ -566,6 +582,8 @@ already-finite result to be longer.
 | Lookahead / lookbehind | Inspects existing text, doesn't build  | Move the condition into the DSL |
 | `\p{...}` / `\P{...}`  | Unicode properties aren't portable yet | `\a{name}` or an explicit class |
 | `\n` / `\r`            | Multi-line generation lives elsewhere  | Use separate `<line>`s          |
+| `\b` `\B` `\A` `\Z` `\z` `\G` | Zero-width: a generated value has nothing around it to assert | Remove it — `\bINV-\d{6}\b` is `INV-\d{6}` |
+| Any other letter, e.g. `\q` | An unknown escape is a typo, never the letter | The letter itself, or `\xHH` / `\uHHHH` |
 
 For example, `+` is rejected immediately:
 

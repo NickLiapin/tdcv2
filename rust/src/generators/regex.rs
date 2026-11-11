@@ -678,10 +678,20 @@ impl Parser {
                 single: Some('\t'),
             }),
             'p' | 'P' => self.error("Unicode property classes are not supported"),
-            _ => Ok(ClassAtom {
-                values: vec![ch],
-                single: Some(ch),
-            }),
+            'x' | 'u' => {
+                let char = self.hex_escape(ch)?;
+                Ok(ClassAtom {
+                    values: vec![char],
+                    single: Some(char),
+                })
+            }
+            _ => match super::regex_escape::escaped_literal(ch) {
+                Ok(char) => Ok(ClassAtom {
+                    values: vec![char],
+                    single: Some(char),
+                }),
+                Err(message) => self.error(&message),
+            },
         }
     }
 
@@ -718,7 +728,11 @@ impl Parser {
             'n' | 'r' => self.error("multiline escapes are not supported"),
             't' => Ok(Node::Literal('\t')),
             'p' | 'P' => self.error("Unicode property classes are not supported"),
-            _ => Ok(Node::Literal(ch)),
+            'x' | 'u' => Ok(Node::Literal(self.hex_escape(ch)?)),
+            _ => match super::regex_escape::escaped_literal(ch) {
+                Ok(char) => Ok(Node::Literal(char)),
+                Err(message) => self.error(&message),
+            },
         }
     }
 
@@ -748,6 +762,24 @@ impl Parser {
         match unicode::chars(&name) {
             Some(resolved) => Ok(resolved.to_vec()),
             None => self.error(&format!("unknown alphabet \"{name}\"")),
+        }
+    }
+
+    /// `\xHH` or `\uHHHH`, the `x` or `u` already read.
+    fn hex_escape(&mut self, kind: char) -> EngineResult<char> {
+        let mut hex = String::new();
+        for _ in 0..super::regex_escape::hex_digits(kind) {
+            match self.peek() {
+                Some(c) if c.is_ascii_hexdigit() => {
+                    self.pos += 1;
+                    hex.push(c);
+                }
+                _ => break,
+            }
+        }
+        match super::regex_escape::decode_hex(kind, &hex) {
+            Ok(char) => Ok(char),
+            Err(message) => self.error(&message),
         }
     }
 

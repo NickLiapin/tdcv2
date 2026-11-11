@@ -3599,6 +3599,22 @@
         ]
       }
     },
+    "generators/regex-hex-and-unicode-escapes-are-characters": {
+      "engine2": {
+        "lines": ["ID-AАAC", "ID-AАCA", "ID-AАAC"]
+      },
+      "engine3": {
+        "lines": ["ID-AАAC", "ID-AАCA", "ID-AАAC"]
+      }
+    },
+    "generators/advanced-regex-hex-and-unicode-escapes-are-characters": {
+      "engine2": {
+        "lines": ["AАAB", "AАAB", "AАAB"]
+      },
+      "engine3": {
+        "lines": ["AАAB", "AАAB", "AАAB"]
+      }
+    },
     "group-readers/a-pool-lookup-reads-the-rearranged-uniq-member": {
       "engine2": {
         "lines": [
@@ -6455,6 +6471,29 @@
       },
       "engine3": {
         "lines": ["blue 4", "red 4", "green 4", "red 4"]
+      }
+    },
+    "stat/sum-min-max-skip-a-missing-last-cell": {
+      "engine2": {
+        "refused": "a statistic (\"Sum\") is computed over every row of the run, including the ones after this one, so it cannot be computed one row at a time; the in-memory engine handles it (run without a forced streaming engine)"
+      },
+      "engine3": {
+        "lines": [
+          "[8] 12 4 8 2",
+          "[4] 12 4 8 2",
+          "[] 12 4 8 2",
+          "[] 12 4 8 2",
+          "[] 12 4 8 2",
+          "[] 12 4 8 2"
+        ]
+      }
+    },
+    "stat/sum-skips-an-empty-literal-at-the-end": {
+      "engine2": {
+        "refused": "a statistic (\"Sum\") is computed over every row of the run, including the ones after this one, so it cannot be computed one row at a time; the in-memory engine handles it (run without a forced streaming engine)"
+      },
+      "engine3": {
+        "lines": ["[5] 15 7", "[7] 15 7", "[3] 15 7", "[] 15 7"]
       }
     },
     "statistics/distribution-normal": {

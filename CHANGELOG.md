@@ -24,6 +24,17 @@ page — is tracked in that implementation's own changelog:
   valid. The rows the parent did not pick are now empty, as in any other column. A ranged date
   offset still draws on every row, so the picked rows keep the dates they had. Found by the
   article agent.
+- **`stat` with `op="sum"`, `min` or `max` no longer comes out empty when the last cell is
+  blank — in all five.** The three are read off the running total, and a cell `missing=`
+  blanked holds an empty string: when it was the column's last cell, the total was empty on
+  every row while `count` beside it was right, exit 0. They now run over the present cells
+  only. Found by the article agent.
+- **An escape `regex` and `advanced_regex` do not know is refused instead of becoming its
+  letter — in all five.** `\x41` printed `x41`, and `\bINV-\d{6}\b` copied from a validator
+  printed `bINV-123456b` on every row after a clean `check`. `\xHH` and `\uHHHH` are now the
+  character with that code, in a pattern and inside a class. `\b`, `\B`, `\A`, `\Z`, `\z` and
+  `\G` are `TDC097` (`TDC130` in `advanced_regex`): a generated value has nothing around it to
+  assert. Any other backslash-letter is `TDC097` too. Found by the article agent.
 
 ### Added
 

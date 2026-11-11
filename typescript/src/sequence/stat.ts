@@ -119,9 +119,13 @@ export function statisticOf(
 
   if (op === 'sum' || op === 'min' || op === 'max') {
     // The last value of the running column IS the total over every row, and
-    // reusing it is what keeps the exact-decimal arithmetic from drifting.
-    const running = accumulateColumn(values, op, undefined, undefined);
-    const last = [...running].reverse().find((v) => v !== undefined) ?? '';
+    // reusing it is what keeps the exact-decimal arithmetic from drifting. It runs
+    // over the PRESENT cells only: a cell `missing=` blanked holds '' rather than
+    // nothing, the running column is '' there too, and when that cell was the last
+    // one the total came out empty — `sum`, `min` and `max` blank on every row,
+    // exit 0, while `count` beside them was right.
+    const running = accumulateColumn(present, op, undefined, undefined);
+    const last = running[running.length - 1] ?? '';
     return decimals === undefined ? last : fixed(Number(last), decimals);
   }
 

@@ -568,6 +568,34 @@
       "description": "A typed column holds one cell per card, and a line walking a pool prints one line per record — the column would keep only the last.",
       "config": "<tdc><env count=\"1\" seed=\"s\" local=\"en\"><pool name=\"Depts\" count=\"2\"><sequence name=\"id\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"name\"><gen type=\"text\" value=\"Cardiology,Neurology\"/></sequence></pool></env><block><line each=\"Depts\"><data name=\"dept\" type=\"string\">${{Depts.name}}</data></line></block></tdc>",
       "expected": ["error TDC209 1:245"]
+    },
+    {
+      "name": "a-word-boundary-in-a-regex-is-refused",
+      "demonstrates": "TDC097",
+      "description": "\\bINV-\\d{6}\\b copied from a validator generated bINV-123456b on every row, after a clean check. A zero-width assertion has nothing around a generated value to assert, so it is refused.",
+      "config": "<tdc><env count=\"1\" seed=\"rx\" local=\"en\"><sequence name=\"V\"><gen type=\"regex\" value=\"\\bINV-\\d{6}\\b\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["error TDC097 1:85"]
+    },
+    {
+      "name": "an-unknown-letter-escape-in-a-regex-is-refused",
+      "demonstrates": "TDC097",
+      "description": "An escape TDC does not know is a typo or a missing feature, never the letter itself.",
+      "config": "<tdc><env count=\"1\" seed=\"rx\" local=\"en\"><sequence name=\"V\"><gen type=\"regex\" value=\"A\\qB\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["error TDC097 1:85"]
+    },
+    {
+      "name": "a-short-hex-escape-in-a-regex-is-refused",
+      "demonstrates": "TDC097",
+      "description": "\\u takes exactly four hex digits.",
+      "config": "<tdc><env count=\"1\" seed=\"rx\" local=\"en\"><sequence name=\"V\"><gen type=\"regex\" value=\"\\u41\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["error TDC097 1:85"]
+    },
+    {
+      "name": "a-word-boundary-in-an-advanced-regex-is-refused",
+      "demonstrates": "TDC130",
+      "description": "advanced_regex refuses the same escapes, under its own code.",
+      "config": "<tdc><env count=\"1\" seed=\"rx\" local=\"en\"><sequence name=\"V\"><gen type=\"advanced_regex\" value=\"\\bcat\\b\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["error TDC130 1:94"]
     }
   ]
 }

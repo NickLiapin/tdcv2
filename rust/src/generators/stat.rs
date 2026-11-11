@@ -127,13 +127,12 @@ pub fn statistic(
 
     if op == "sum" || op == "min" || op == "max" {
         // The last value of the running column IS the total over every row, and
-        // reusing it is what keeps the exact-decimal arithmetic from drifting.
-        let running = accumulate::apply_column(values, op, None, None)?;
-        let last = running
-            .iter()
-            .rev()
-            .find_map(|v| v.clone())
-            .unwrap_or_default();
+        // reusing it is what keeps the exact-decimal arithmetic from drifting. It runs
+        // over the PRESENT cells: a cell `missing=` blanked holds "" rather than
+        // nothing, and when it was the last one the total came out empty on every row.
+        let kept: Vec<Option<String>> = present.iter().map(|v| Some((*v).clone())).collect();
+        let running = accumulate::apply_column(&kept, op, None, None)?;
+        let last = running.last().cloned().flatten().unwrap_or_default();
         return Ok(match decimals {
             None => last,
             Some(places) => fixed(as_number(&last), places),

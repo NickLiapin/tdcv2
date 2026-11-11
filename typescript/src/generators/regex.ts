@@ -10,6 +10,7 @@ import { randomInt, randomPick } from '../prng/random.js';
 import { resolveAlphabetChars } from '../unicode/alphabets.js';
 
 import type { Generator } from './generator.js';
+import { escapedLiteral, hexEscape } from './regex-escape.js';
 
 export const DEFAULT_REGEX_MAX_LENGTH = 32;
 
@@ -541,8 +542,19 @@ class RegexParser {
       case 'p':
       case 'P':
         throw this.error('Unicode property classes are not supported');
-      default:
-        return { chars: [ch], single: ch };
+      case 'x':
+      case 'u': {
+        const char = hexEscape(
+          ch,
+          () => this.nextRaw(),
+          (m) => this.error(m),
+        );
+        return { chars: [char], single: char };
+      }
+      default: {
+        const char = escapedLiteral(ch, (m) => this.error(m));
+        return { chars: [char], single: char };
+      }
     }
   }
 
@@ -588,8 +600,18 @@ class RegexParser {
       case 'p':
       case 'P':
         throw this.error('Unicode property classes are not supported');
+      case 'x':
+      case 'u':
+        return {
+          kind: 'literal',
+          value: hexEscape(
+            ch,
+            () => this.nextRaw(),
+            (m) => this.error(m),
+          ),
+        };
       default:
-        return { kind: 'literal', value: ch };
+        return { kind: 'literal', value: escapedLiteral(ch, (m) => this.error(m)) };
     }
   }
 
@@ -633,6 +655,13 @@ class RegexParser {
       throw this.error(`unknown alphabet "${name}"`);
     }
     return chars;
+  }
+
+  /** One character of the pattern, consumed — undefined at the end. */
+  private nextRaw(): string | undefined {
+    const ch = this.peek();
+    if (ch !== undefined) this.pos += 1;
+    return ch;
   }
 
   private consumeEscapedChar(): string {

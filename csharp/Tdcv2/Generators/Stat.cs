@@ -139,9 +139,11 @@ internal static class Stat
         if (op is "sum" or "min" or "max")
         {
             // The last value of the running column IS the total over every row, and reusing it
-            // is what keeps the exact-decimal arithmetic from drifting.
-            string?[] running = Accumulate.ApplyColumn(values, op, null, null);
-            string last = running.LastOrDefault(v => v is not null) ?? string.Empty;
+            // is what keeps the exact-decimal arithmetic from drifting. It runs over the PRESENT
+            // cells: a cell `missing=` blanked holds "" rather than nothing, and when it was the
+            // last one the total came out empty on every row while `count` beside it was right.
+            string?[] running = Accumulate.ApplyColumn(present.ToArray(), op, null, null);
+            string last = running.Length == 0 ? string.Empty : running[^1] ?? string.Empty;
             return decimals is null ? last : Fixed(AsNumber(last), decimals.Value);
         }
 
