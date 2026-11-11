@@ -35,6 +35,11 @@ page — is tracked in that implementation's own changelog:
   character with that code, in a pattern and inside a class. `\b`, `\B`, `\A`, `\Z`, `\z` and
   `\G` are `TDC097` (`TDC130` in `advanced_regex`): a generated value has nothing around it to
   assert. Any other backslash-letter is `TDC097` too. Found by the article agent.
+- **A value that rounds to zero prints as `0.00`, never `-0.00` — in all five.** `-0.001` with
+  `decimals="2"` printed `-0.00` in four of the five (JavaScript's `toFixed` keeps the input's
+  sign) and `0.00` in Java, so the five disagreed; `-0.00` also compared unequal to `0.00` and
+  sorted apart from it. A negative value that does not round to zero keeps its sign. Found by
+  the article agent.
 
 ### Added
 
@@ -42,6 +47,9 @@ page — is tracked in that implementation's own changelog:
   read the rows around this one, so "only the rows the parent picked" could mean two different
   columns; they used to ignore the filter in silence. Put `parent=` on the column they read —
   both skip an empty cell — or, for `prev()`, write the condition into the expression.
+- **`TDC316`: `decimals=` on a `number` range or a `timeseries` must be a whole number from 0 to 10.** A range's `decimals="17"` stopped the run in three implementations and printed in Rust
+  and C# — two different binary tails of a double; a timeseries took any count. A distribution
+  holds the same limit under `TDC089`. Found by the article agent.
 
 ## [0.4.0] — 2026-11-09
 

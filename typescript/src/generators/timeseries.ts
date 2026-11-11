@@ -13,6 +13,8 @@
  * like flat uniform noise.
  */
 
+import { toFixedText } from '../lib/fixed.js';
+
 /** One seasonal wave: how long it is, how far it swings, and where it peaks. */
 export interface Wave {
   readonly period: number;
@@ -128,8 +130,8 @@ export function parseTimeseries(attrs: Record<string, string | undefined>): Time
 
   const decimalsRaw = attrs['decimals'];
   const decimals = decimalsRaw === undefined || decimalsRaw.trim() === '' ? 0 : Number(decimalsRaw);
-  if (!Number.isInteger(decimals) || decimals < 0) {
-    throw new Error('timeseries: "decimals" must be a non-negative integer');
+  if (!Number.isInteger(decimals) || decimals < 0 || decimals > 10) {
+    throw new Error('timeseries: "decimals" must be a whole number from 0 to 10');
   }
 
   return {
@@ -197,7 +199,7 @@ export function timeseriesValueAt(spec: TimeseriesSpec, i: number, e: number): n
 }
 
 export function formatTimeseries(v: number, decimals: number): string {
-  return v.toFixed(decimals);
+  return toFixedText(v, decimals);
 }
 
 /**

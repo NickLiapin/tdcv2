@@ -39,6 +39,7 @@ import { evaluateValueInScope } from '../expr/index.js';
 import { parentRowFilter } from './assemble.js';
 import { sequenceValueAt } from './types.js';
 import type { Sequence, SequenceSpec } from './types.js';
+import { toFixedText } from '../lib/fixed.js';
 
 /** A value that reads as a number: the expression language's own idea of one. */
 /** A cell that reads as a number. Shared with the distribution parameters. */
@@ -85,7 +86,7 @@ export function renderFormulaValue(
   read?: ColumnsRead,
 ): string {
   if (typeof value === 'bigint') {
-    return decimals === undefined ? value.toString() : Number(value).toFixed(decimals);
+    return decimals === undefined ? value.toString() : toFixedText(Number(value), decimals);
   }
   if (typeof value === 'boolean') return value ? 'true' : 'false';
   if (typeof value === 'number') {
@@ -114,7 +115,7 @@ export function renderFormulaValue(
           'or a value past the range a number can hold',
       );
     }
-    return decimals === undefined ? String(value) : value.toFixed(decimals);
+    return decimals === undefined ? String(value) : toFixedText(value, decimals);
   }
   // Text. A formula is allowed to produce it — `expr="Age > 65 ? senior : adult"`
   // is a label, and labels are half of what a data-science config builds.

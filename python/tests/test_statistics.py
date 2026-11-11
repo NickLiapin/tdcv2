@@ -35,7 +35,8 @@ def _draw(attrs: dict[str, str], count: int) -> list[str]:
         (2.5, 0, "3"),
         (-2.5, 0, "-3"),
         (1.45, 1, "1.4"),
-        (-0.004, 2, "-0.00"),
+        # A value that rounds to zero prints as zero — not JavaScript's "-0.00".
+        (-0.004, 2, "0.00"),
         (-0.0, 2, "0.00"),
         (1234.5678, 3, "1234.568"),
     ],

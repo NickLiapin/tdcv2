@@ -45,6 +45,7 @@ import { accumulateColumn } from './accumulate.js';
 import * as TdcMath from '../math/tdc-math.js';
 import { sequenceValueAt } from './types.js';
 import type { Sequence, SequenceSpec } from './types.js';
+import { toFixedText } from '../lib/fixed.js';
 
 /** What a statistic can be. */
 export type StatOp = 'sum' | 'mean' | 'median' | 'min' | 'max' | 'count' | 'stddev';
@@ -167,7 +168,7 @@ function stddev(values: readonly number[]): number {
  */
 function fixed(value: number, decimals: number): string {
   if (!Number.isFinite(value)) return String(value);
-  return value.toFixed(decimals);
+  return toFixedText(value, decimals);
 }
 
 /**

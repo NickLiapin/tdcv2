@@ -39,6 +39,7 @@
  */
 
 import { permute } from '../prng/permute.js';
+import { toFixedText } from '../lib/fixed.js';
 
 /** A source read as a quantile function: sorted values, and how they were written. */
 export interface QuantileSource {
@@ -133,7 +134,7 @@ export function quantileAt(sorted: readonly number[], u: number): number {
 
 /** The finished cell: the interpolated value, written like the source unless told otherwise. */
 export function renderQuantile(value: number, decimals: number): string {
-  return value.toFixed(decimals);
+  return toFixedText(value, decimals);
 }
 
 /**

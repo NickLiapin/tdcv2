@@ -4992,6 +4992,10 @@ public final class Validator {
       return;
     }
 
+    if (attrs.containsKey("value")) {
+      checkDecimalsAttr(gen, attrs);
+    }
+
     // A blank value= is a written attribute, not an absent one. Skipping it here let the
     // generator fall back to its default range and invent numbers for a config that had named
     // none: value="" produced 4 2 8 while the reference refused the same file.
@@ -5520,6 +5524,30 @@ public final class Validator {
    * yearly one 400 tall. Lengths that disagree describe no wave anybody can draw, so they are
    * refused rather than half-honoured.
    */
+  /**
+   * {@code decimals=} on a {@code number} range or a {@code timeseries}: a whole number from 0 to
+   * 10 (TDC316). Until this check a range's {@code decimals="17"} printed the binary tail of a
+   * double in two implementations, and a timeseries took any count. {@code formula} (TDC294),
+   * {@code stat} (TDC262) and a distribution (TDC089) already refused it.
+   */
+  private void checkDecimalsAttr(TDCParser.SelfClosingElementContext gen, Map<String, String> attrs) {
+    String raw = attrs.get("decimals");
+    if (raw == null || raw.trim().isEmpty()) {
+      return;
+    }
+    String text = raw.trim();
+    if (text.matches("[0-9]+") && text.length() <= 3 && Integer.parseInt(text) <= 10) {
+      return;
+    }
+    error(
+        "TDC316",
+        "decimals=\"" + text + "\" is not a whole number from 0 to 10",
+        "decimals= is how many digits follow the point. Past ten they are the binary tail of a "
+            + "double, not data — and two implementations print that tail differently.",
+        at(gen, "decimals")[0],
+        at(gen, "decimals")[1]);
+  }
+
   private void checkTimeseries(
       TDCParser.SelfClosingElementContext gen, Map<String, String> attrs, String type) {
     if (!"timeseries".equals(type)) {
@@ -5529,6 +5557,7 @@ public final class Validator {
     List<String> amplitudes = waveEntries(attrs.get("amplitude"));
     List<String> peaks = waveEntries(attrs.get("peak_at"));
 
+    checkDecimalsAttr(gen, attrs);
     checkNoiseCorrelation(gen, attrs);
     checkWaveLists(gen, periods, amplitudes, peaks);
 

@@ -596,6 +596,34 @@
       "description": "advanced_regex refuses the same escapes, under its own code.",
       "config": "<tdc><env count=\"1\" seed=\"rx\" local=\"en\"><sequence name=\"V\"><gen type=\"advanced_regex\" value=\"\\bcat\\b\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
       "expected": ["error TDC130 1:94"]
+    },
+    {
+      "name": "decimals-past-ten-on-a-number-range-is-refused",
+      "demonstrates": "TDC316",
+      "description": "Found by the article agent: decimals=\"17\" on a range stopped the run in three implementations and printed in two — and the two printed different digits, the binary tail of a double. It is refused where the config is read now.",
+      "config": "<tdc><env count=\"2\" seed=\"d\" local=\"en\"><sequence name=\"V\"><gen type=\"number\" value=\"1..9\" decimals=\"17\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["error TDC316 1:101"]
+    },
+    {
+      "name": "decimals-past-ten-on-a-timeseries-is-refused",
+      "demonstrates": "TDC316",
+      "description": "A timeseries took any count of decimals and printed the double's binary tail as data.",
+      "config": "<tdc><env count=\"2\" seed=\"d\" local=\"en\"><sequence name=\"V\"><gen type=\"timeseries\" base=\"10\" noise=\"1\" decimals=\"25\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["error TDC316 1:112"]
+    },
+    {
+      "name": "decimals-past-ten-on-a-distribution-is-refused",
+      "demonstrates": "TDC089",
+      "description": "A distribution checked decimals= for a whole number and nothing more; it is held to 0..10 now, under the code it already used.",
+      "config": "<tdc><env count=\"2\" seed=\"d\" local=\"en\"><sequence name=\"V\"><gen type=\"number\" distribution=\"lognormal\" meanlog=\"1\" sdlog=\"0.5\" decimals=\"17\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["error TDC089 1:92"]
+    },
+    {
+      "name": "decimals-of-ten-is-accepted-everywhere",
+      "demonstrates": "",
+      "description": "The edge of the rule: ten digits after the point is allowed on a range, a distribution and a timeseries.",
+      "config": "<tdc><env count=\"2\" seed=\"d\" local=\"en\"><sequence name=\"A\"><gen type=\"number\" value=\"1..9\" decimals=\"10\"/></sequence><sequence name=\"B\"><gen type=\"number\" distribution=\"normal\" mean=\"0\" sd=\"1\" decimals=\"10\"/></sequence><sequence name=\"C\"><gen type=\"timeseries\" base=\"10\" noise=\"1\" decimals=\"10\"/></sequence></env><block><line><data>${{A}} ${{B}} ${{C}}</data></line></block></tdc>",
+      "expected": []
     }
   ]
 }

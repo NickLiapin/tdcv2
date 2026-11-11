@@ -4402,6 +4402,9 @@ class _Validator:
                 )
             return
 
+        if attrs.get("value") is not None:
+            self._check_decimals_attr(gen, attrs)
+
         # A blank value= is a written attribute, not an absent one. Skipping it here let the
         # generator fall back to its default range and invent numbers for a config that had
         # named none: value="" produced 4 2 8 while the reference refused the same file.
@@ -4699,6 +4702,29 @@ class _Validator:
                 column,
             )
 
+    def _check_decimals_attr(self, gen, attrs: dict[str, str]) -> None:
+        """``decimals=`` on a ``number`` range or a ``timeseries``: a whole number from 0 to 10.
+
+        Until this check a range's ``decimals="17"`` stopped the run in three implementations and
+        printed in two, each a different binary tail of a double; a timeseries took any count.
+        ``formula`` (TDC294), ``stat`` (TDC262) and a distribution (TDC089) already refused it.
+        """
+        raw = attrs.get("decimals")
+        if raw is None or not raw.strip():
+            return
+        text = raw.strip()
+        if text.isascii() and text.isdigit() and int(text) <= 10:
+            return
+        line, column = _at(gen, "decimals")
+        self._error(
+            "TDC316",
+            f'decimals="{text}" is not a whole number from 0 to 10',
+            "decimals= is how many digits follow the point. Past ten they are the binary tail of "
+            "a double, not data — and two implementations print that tail differently.",
+            line,
+            column,
+        )
+
     def _check_timeseries(self, gen, attrs: dict[str, str], type_: str | None) -> None:
         """The seasonal attributes on a ``<gen type="timeseries">``.
 
@@ -4720,6 +4746,7 @@ class _Validator:
         amplitudes = _wave_entries(attrs.get("amplitude"))
         peaks = _wave_entries(attrs.get("peak_at"))
 
+        self._check_decimals_attr(gen, attrs)
         self._check_noise_correlation(gen, attrs)
         self._check_wave_lists(gen, periods, amplitudes, peaks)
 

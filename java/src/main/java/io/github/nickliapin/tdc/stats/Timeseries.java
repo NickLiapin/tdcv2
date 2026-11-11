@@ -157,10 +157,10 @@ public final class Timeseries {
       try {
         decimals = Integer.parseInt(decimalsRaw.trim());
       } catch (NumberFormatException e) {
-        throw new IllegalArgumentException("timeseries: \"decimals\" must be a non-negative integer");
+        throw new IllegalArgumentException("timeseries: \"decimals\" must be a whole number from 0 to 10");
       }
-      if (decimals < 0) {
-        throw new IllegalArgumentException("timeseries: \"decimals\" must be a non-negative integer");
+      if (decimals < 0 || decimals > 10) {
+        throw new IllegalArgumentException("timeseries: \"decimals\" must be a whole number from 0 to 10");
       }
     }
 

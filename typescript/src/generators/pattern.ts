@@ -19,6 +19,7 @@
 
 import { luminance } from './png.js';
 import { svgGraphPoints } from './svg-path.js';
+import { toFixedText } from '../lib/fixed.js';
 
 /**
  * How the drawing is read BETWEEN two points.
@@ -395,7 +396,7 @@ export function signalValueAt(curve: SignalCurve, t: number): number {
 }
 
 export function formatSignal(v: number, curve: SignalCurve): string {
-  return v.toFixed(curve.decimals);
+  return toFixedText(v, curve.decimals);
 }
 
 /**
@@ -564,7 +565,7 @@ export function patternGenValue(pg: PatternGen, t: number, u: number): string {
   if (pg.kind === 'density') {
     // Position in the run means nothing here — the drawing is a distribution, so
     // the card's own uniform draw picks the value and the order is random.
-    return densityValueAt(pg.density, u).toFixed(pg.density.decimals);
+    return toFixedText(densityValueAt(pg.density, u), pg.density.decimals);
   }
   if (pg.kind === 'signal') {
     const v = signalValueAt(pg.curve, t);
@@ -576,7 +577,7 @@ export function patternGenValue(pg: PatternGen, t: number, u: number): string {
   const b = signalValueAt(c.upper, t);
   const lo = Math.min(a, b) - pg.spread;
   const hi = Math.max(a, b) + pg.spread;
-  return (lo + u * (hi - lo)).toFixed(c.decimals);
+  return toFixedText(lo + u * (hi - lo), c.decimals);
 }
 
 /** Whether the gen consumes a uniform draw per card (a band, a spread, a density). */

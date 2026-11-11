@@ -142,8 +142,8 @@ def parse(attrs: dict[str, str]) -> Spec:
     raw_decimals = attrs.get("decimals")
     blank = raw_decimals is None or not raw_decimals.strip()
     decimals = 0.0 if blank else numbers.parse(raw_decimals)
-    if decimals != decimals or decimals != int(decimals) or decimals < 0:
-        raise ValueError('timeseries: "decimals" must be a non-negative integer')
+    if decimals != decimals or decimals != int(decimals) or decimals < 0 or decimals > 10:
+        raise ValueError('timeseries: "decimals" must be a whole number from 0 to 10')
 
     return Spec(
         base=num("base", 0),

@@ -28,6 +28,7 @@ import { distributeByPercent, expandPercentMask } from '../distribution/index.js
 import { randomInt } from '../prng/random.js';
 
 import type { Generator } from './generator.js';
+import { toFixedText } from '../lib/fixed.js';
 
 export interface NumberGenAttrs {
   readonly range?: string | undefined; // "bit", "MIN..MAX" or "[MIN..MAX],[MIN..MAX]"
@@ -306,11 +307,11 @@ function randomDecimalFromRanges(
   const total = spans.reduce((sum, s) => sum + s.size, 0);
   let pick = Math.floor(prng() * total);
   for (const span of spans) {
-    if (pick < span.size) return ((span.lo + pick) / scale).toFixed(decimals);
+    if (pick < span.size) return toFixedText((span.lo + pick) / scale, decimals);
     pick -= span.size;
   }
   const last = spans[spans.length - 1] ?? { lo: 0, size: 1 };
-  return ((last.lo + last.size - 1) / scale).toFixed(decimals);
+  return toFixedText((last.lo + last.size - 1) / scale, decimals);
 }
 
 export function numberGenerator(attrs: NumberGenAttrs): Generator {

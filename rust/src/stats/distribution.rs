@@ -254,9 +254,9 @@ fn read_decimals(raw: Option<&str>) -> EngineResult<usize> {
         return Ok(0);
     }
     match raw.trim().parse::<i32>() {
-        Ok(n) if n >= 0 => Ok(n as usize),
+        Ok(n) if (0..=10).contains(&n) => Ok(n as usize),
         _ => invalid(&format!(
-            "distribution: \"decimals\" must be a non-negative integer (got \"{raw}\")"
+            "distribution: \"decimals\" must be a whole number from 0 to 10 (got \"{raw}\")"
         )),
     }
 }

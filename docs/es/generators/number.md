@@ -220,13 +220,18 @@ alcanzar el ancho).
 843.99
 ```
 
-`decimals` toma un entero de **0 a 10**. Cualquier otra cosa detiene la corrida:
+`decimals` toma un entero de **0 a 10**, en un rango, en una distribución y en un
+[`timeseries`](timeseries.md#top) por igual. Cualquier otra cosa la rechaza `check`, antes de la
+corrida:
 
-`./run price.tdc (decimals="11")`
+`tdcv2 check price.tdc (decimals="11")`
 
 ```
-tdcv2: number decimals must be an integer 0..10, got "11"
+error[TDC316]: decimals="11" is not a whole number from 0 to 10
 ```
+
+Un valor que se redondea a cero se imprime como cero: `-0.001` con `decimals="2"` es `0.00`, no
+`-0.00`. Un valor negativo que no se redondea a cero conserva su signo.
 
 **Reemplaza** a `length` en vez de sumarse a él — un valor fraccionario no tiene ancho
 entero que rellenar, así que el par es `TDC278`:

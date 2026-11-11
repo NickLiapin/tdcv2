@@ -34,8 +34,8 @@ fn to_fixed_matches_javascript_on_the_cases_the_two_languages_disagree_about() {
         (2.675, 1, "2.7"),
         // Carrying all the way into a new digit.
         (99.995, 2, "100.00"),
-        // A negative that rounds to zero is not written "-0".
-        (-0.0001, 2, "-0.00"),
+        // A negative that rounds to zero prints as zero.
+        (-0.0001, 2, "0.00"),
         (0.0, 2, "0.00"),
         (1e-7, 0, "0"),
         (0.000001, 2, "0.00"),
@@ -60,11 +60,13 @@ fn to_fixed_matches_javascript_on_the_cases_the_two_languages_disagree_about() {
 }
 
 #[test]
-fn the_negative_zero_case_is_the_one_a_port_gets_backwards() {
-    // JavaScript keeps the sign of the INPUT, not of the result — so a small
-    // negative that rounds to nothing still prints "-0.00", while a value that
-    // is genuinely zero prints "0.00".
-    assert_eq!(to_fixed(-0.0001, 2), "-0.00");
+fn a_value_that_rounds_to_zero_prints_without_a_sign() {
+    // JavaScript's toFixed keeps the sign of the INPUT and prints "-0.00" for a
+    // small negative; TDC prints zero as zero in all five, because "-0.00" compared
+    // unequal to "0.00" and read as a bug in a report. A negative that does not
+    // round to zero keeps its sign.
+    assert_eq!(to_fixed(-0.0001, 2), "0.00");
+    assert_eq!(to_fixed(-0.006, 2), "-0.01");
     assert_eq!(to_fixed(-0.0, 2), "0.00");
     assert_eq!(to_fixed(0.0, 2), "0.00");
 }

@@ -5393,6 +5393,11 @@ public sealed class Validator
             return;
         }
 
+        if (attrs.ContainsKey("value"))
+        {
+            this.CheckDecimalsAttr(gen, attrs);
+        }
+
         // A blank value= is a written attribute, not an absent one. Skipping it here let the
         // generator fall back to its default range and invent numbers for a config that had
         // named none: value="" produced 4 2 8 while the reference refused the same file.
@@ -5895,6 +5900,40 @@ public sealed class Validator
     /// Lengths that disagree describe no wave anybody can draw, so they are refused rather than
     /// half-honoured.
     /// </remarks>
+    /// <summary>
+    /// <c>decimals=</c> on a <c>number</c> range or a <c>timeseries</c>: a whole number from 0 to 10
+    /// (TDC316).
+    /// </summary>
+    /// <remarks>
+    /// Until this check a range's <c>decimals="17"</c> printed the binary tail of a double here —
+    /// <c>6.93276863731443882</c> — and a timeseries took any count. <c>formula</c> (TDC294),
+    /// <c>stat</c> (TDC262) and a distribution (TDC089) already refused it.
+    /// </remarks>
+    private void CheckDecimalsAttr(
+        TDCParser.SelfClosingElementContext gen, IReadOnlyDictionary<string, string> attrs)
+    {
+        string? raw = attrs.GetValueOrDefault("decimals");
+        if (string.IsNullOrWhiteSpace(raw))
+        {
+            return;
+        }
+
+        string text = raw.Trim();
+        if (text.Length <= 3 && text.All(c => c is >= '0' and <= '9') && int.Parse(text, CultureInfo.InvariantCulture) <= 10)
+        {
+            return;
+        }
+
+        (int line, int column) = At(gen, "decimals");
+        Error(
+            "TDC316",
+            $"decimals=\"{text}\" is not a whole number from 0 to 10",
+            "decimals= is how many digits follow the point. Past ten they are the binary tail of a "
+            + "double, not data — and two implementations print that tail differently.",
+            line,
+            column);
+    }
+
     private void CheckTimeseries(
         TDCParser.SelfClosingElementContext gen, IReadOnlyDictionary<string, string> attrs,
         string? type)
@@ -5908,6 +5947,7 @@ public sealed class Validator
         IReadOnlyList<string> amplitudes = WaveEntries(attrs.GetValueOrDefault("amplitude"));
         IReadOnlyList<string> peaks = WaveEntries(attrs.GetValueOrDefault("peak_at"));
 
+        this.CheckDecimalsAttr(gen, attrs);
         this.CheckNoiseCorrelation(gen, attrs);
         this.CheckWaveLists(gen, periods, amplitudes, peaks);
 

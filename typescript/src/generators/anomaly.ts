@@ -11,6 +11,8 @@
  * companion `_anomaly` flag stays consistent across both engines.
  */
 
+import { toFixedText } from '../lib/fixed.js';
+
 export interface AnomalySpec {
   /** Probability in [0, 1] a value becomes an outlier. */
   readonly p: number;
@@ -109,7 +111,7 @@ export function keepShape(original: string, spiked: number): string {
   const scale = 10 ** places;
   const scaled = spiked * scale;
   const rounded = scaled < 0 ? -Math.floor(-scaled + 0.5) : Math.floor(scaled + 0.5);
-  const text = (rounded / scale).toFixed(places);
+  const text = toFixedText(rounded / scale, places);
 
   // Only a value that was ZERO-PADDED has a width to preserve. `12.89` is five
   // characters wide because the number is, not because the column asked for

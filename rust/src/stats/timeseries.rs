@@ -157,8 +157,8 @@ pub fn parse(attrs: &BTreeMap<String, String>) -> EngineResult<Spec> {
         None => 0,
         Some(raw) if raw.trim().is_empty() => 0,
         Some(raw) => match raw.trim().parse::<i32>() {
-            Ok(d) if d >= 0 => d as usize,
-            _ => return invalid("timeseries: \"decimals\" must be a non-negative integer"),
+            Ok(d) if (0..=10).contains(&d) => d as usize,
+            _ => return invalid("timeseries: \"decimals\" must be a whole number from 0 to 10"),
         },
     };
 

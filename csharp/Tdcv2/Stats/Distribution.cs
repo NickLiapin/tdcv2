@@ -178,9 +178,9 @@ public static class Distribution
             return value.ToString("R", CultureInfo.InvariantCulture);
         }
 
-        // The sign comes from the INPUT, not from the result: `(-0.0001).toFixed(2)` is
-        // `"-0.00"`, a signed zero that says the value was below it. `-0` itself gets none, and
-        // that falls out of `value < 0` being false for negative zero — in C# as in JavaScript.
+        // A value that rounds to zero prints as zero, below. JavaScript's toFixed keeps the input's
+        // sign there ("-0.00"), which compared unequal to 0.00 and read as a bug in a report; the
+        // Java port printed 0.00 all along. One rule in all five now.
         bool negative = value < 0;
         List<byte> digits = ExactDigits(Math.Abs(value), out int point);
         RoundHalfUp(digits, point, decimals);
@@ -190,7 +190,7 @@ public static class Distribution
         point = digits.Count - decimals;
         string whole = string.Concat(digits.Take(point).Select(d => (char)('0' + d))).TrimStart('0');
         var text = new StringBuilder();
-        if (negative)
+        if (negative && digits.Any(d => d != 0))
         {
             text.Append('-');
         }
@@ -398,10 +398,10 @@ public static class Distribution
         }
 
         if (!int.TryParse(raw.Trim(), NumberStyles.Integer, CultureInfo.InvariantCulture, out int n)
-            || n < 0)
+            || n < 0 || n > 10)
         {
             throw new ArgumentException(
-                $"distribution: \"decimals\" must be a non-negative integer (got \"{raw}\")");
+                $"distribution: \"decimals\" must be a whole number from 0 to 10 (got \"{raw}\")");
         }
 
         return n;

@@ -105,6 +105,18 @@
         "{\"name\": \"O'Brien\", \"quote\": \"say \\\"hi\\\" \\\\ end\", \"allergies\": [\"Milk\"]}",
         "{\"name\": \"tab\\there\", \"quote\": \"say \\\"hi\\\" \\\\ end\", \"allergies\": [\"Soy\", \"Milk\", \"Eggs\"]}"
       ]
+    },
+    {
+      "name": "a-value-that-rounds-to-zero-prints-without-a-sign",
+      "description": "Found by the article agent: decimals=\"2\" printed -0.00 for -0.001 in four of the five, and 0.00 in Java. -0.00 compared unequal to 0.00 and sorted apart from it; a value that rounds to zero prints as zero now, through a formula and a statistic alike, while a negative that does not round to zero keeps its sign.",
+      "config": "<tdc><env count=\"5\" seed=\"z\" local=\"en\"><sequence name=\"V\"><gen type=\"text\" value=\"-0.001,-0.004,0.004,-0,-0.006\" order=\"sequential\"/></sequence><sequence name=\"R\"><gen type=\"formula\" expr=\"V * 1\" decimals=\"2\"/></sequence><sequence name=\"M\"><gen type=\"stat\" of=\"V\" op=\"mean\" decimals=\"2\"/></sequence></env><block><line><data>${{V}} ${{R}} ${{M}}</data></line></block></tdc>",
+      "expected": [
+        "-0.001 0.00 0.00",
+        "-0.004 0.00 0.00",
+        "0.004 0.00 0.00",
+        "-0 0.00 0.00",
+        "-0.006 -0.01 0.00"
+      ]
     }
   ]
 }

@@ -28,6 +28,7 @@ import type {
   SelfClosingElementContext,
 } from '../generated/TDCParser.js';
 import { extractAttrs } from '../processor/walk.js';
+import { checkDecimalsAttr } from './decimals.js';
 
 export function checkGenNumber(
   gen: OpenCloseElementContext | SelfClosingElementContext,
@@ -48,6 +49,8 @@ export function checkGenNumber(
 
   const valueAttr = findAttr(attrs, 'value');
   const lengthAttr = findAttr(attrs, 'length');
+
+  if (valueAttr) checkDecimalsAttr(attrs, attrMap, diagnostics);
 
   if (valueAttr) {
     const raw = attrMap['value'] ?? '';

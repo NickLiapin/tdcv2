@@ -234,11 +234,11 @@ public final class Distribution {
       n = Integer.parseInt(raw.trim());
     } catch (NumberFormatException e) {
       throw new IllegalArgumentException(
-          "distribution: \"decimals\" must be a non-negative integer (got \"" + raw + "\")");
+          "distribution: \"decimals\" must be a whole number from 0 to 10 (got \"" + raw + "\")");
     }
-    if (n < 0) {
+    if (n < 0 || n > 10) {
       throw new IllegalArgumentException(
-          "distribution: \"decimals\" must be a non-negative integer (got \"" + raw + "\")");
+          "distribution: \"decimals\" must be a whole number from 0 to 10 (got \"" + raw + "\")");
     }
     return n;
   }

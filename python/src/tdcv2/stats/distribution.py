@@ -209,8 +209,10 @@ def _decimals(raw: str | None) -> int:
     if raw is None or not raw.strip():
         return 0
     n = numbers.parse(raw)
-    if n != n or n != int(n) or n < 0:
-        raise ValueError(f'distribution: "decimals" must be a non-negative integer (got "{raw}")')
+    if n != n or n != int(n) or n < 0 or n > 10:
+        raise ValueError(
+            f'distribution: "decimals" must be a whole number from 0 to 10 (got "{raw}")'
+        )
     return int(n)
 
 

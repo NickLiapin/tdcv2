@@ -4661,6 +4661,10 @@ impl Validator {
             return;
         }
 
+        if attrs.contains_key("value") {
+            self.check_decimals_attr(gen, attrs);
+        }
+
         // A blank value= is a written attribute, not an absent one. Skipping it here let the
         // generator fall back to its default range and invent numbers for a config that had
         // named none: value="" produced 4 2 8 while the reference refused the same file.
@@ -5151,6 +5155,32 @@ impl Validator {
         }
     }
 
+    /// `decimals=` on a `number` range or a `timeseries`: a whole number from 0 to 10.
+    ///
+    /// Until this check a range's `decimals="17"` stopped the run in three
+    /// implementations and printed here — `6.93276863731443840`, the binary tail of a
+    /// double — and a timeseries took any count. `formula` (TDC294), `stat` (TDC262) and
+    /// a distribution (TDC089) already refused it.
+    fn check_decimals_attr(&mut self, gen: &Element, attrs: &Attrs) {
+        let Some(raw) = attrs.get("decimals").map(|v| v.trim().to_string()) else {
+            return;
+        };
+        if raw.is_empty() {
+            return;
+        }
+        let whole = !raw.is_empty() && raw.chars().all(|c| c.is_ascii_digit());
+        if whole && raw.parse::<u32>().is_ok_and(|n| n <= 10) {
+            return;
+        }
+        self.error(
+            "TDC316",
+            format!("decimals=\"{raw}\" is not a whole number from 0 to 10"),
+            "decimals= is how many digits follow the point. Past ten they are the binary tail of \
+             a double, not data — and two implementations print that tail differently.",
+            gen.at("decimals"),
+        );
+    }
+
     fn check_timeseries(&mut self, gen: &Element, attrs: &Attrs, gen_type: Option<&str>) {
         if gen_type != Some("timeseries") {
             return;
@@ -5159,6 +5189,7 @@ impl Validator {
         let amplitudes = wave_entries(attrs.get("amplitude"));
         let peaks = wave_entries(attrs.get("peak_at"));
 
+        self.check_decimals_attr(gen, attrs);
         self.check_noise_correlation(gen, attrs);
         self.check_wave_lists(gen, &periods, &amplitudes, &peaks);
 

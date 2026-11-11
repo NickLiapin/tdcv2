@@ -66,11 +66,11 @@ pub fn to_fixed(value: f64, decimals: usize) -> String {
     let whole = if whole.is_empty() { "0" } else { whole };
 
     let mut out = String::new();
-    // The sign comes from the INPUT, not from the result: `(-0.0001).toFixed(2)`
-    // is `"-0.00"`, a signed zero that says the value was below it. What does
-    // NOT get a sign is `-0` itself, and that falls out of `negative` being
-    // `value < 0.0` — which is false for `-0.0`, in Rust as in JavaScript.
-    if negative {
+    // A value that rounds to zero prints as zero. JavaScript's `toFixed` keeps the
+    // input's sign there (`"-0.00"`), which compared unequal to `0.00` and read as a
+    // bug in a report; the Java port printed `0.00` all along. One rule in all five.
+    let all_zero = digits.iter().all(|d| *d == 0);
+    if negative && !all_zero {
         out.push('-');
     }
     out.push_str(whole);

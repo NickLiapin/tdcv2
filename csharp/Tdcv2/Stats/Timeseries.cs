@@ -143,10 +143,10 @@ public static class Timeseries
         string? decimalsRaw = attrs.GetValueOrDefault("decimals");
         int decimals = 0;
         if (!string.IsNullOrWhiteSpace(decimalsRaw)
-            && (!int.TryParse(decimalsRaw.Trim(), out decimals) || decimals < 0))
+            && (!int.TryParse(decimalsRaw.Trim(), out decimals) || decimals < 0 || decimals > 10))
         {
             throw new ArgumentException(
-                "timeseries: \"decimals\" must be a non-negative integer");
+                "timeseries: \"decimals\" must be a whole number from 0 to 10");
         }
 
         return new Spec(

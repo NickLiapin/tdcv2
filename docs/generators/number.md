@@ -217,13 +217,17 @@ mode a leading zero is allowed by default (so a short value can reach the width)
 843.99
 ```
 
-`decimals` takes an integer **0 to 10**. Anything else stops the run:
+`decimals` takes an integer **0 to 10**, on a range, a distribution and a
+[`timeseries`](timeseries.md#top) alike. Anything else is refused by `check`, before the run:
 
-`./run price.tdc (decimals="11")`
+`tdcv2 check price.tdc (decimals="11")`
 
 ```
-tdcv2: number decimals must be an integer 0..10, got "11"
+error[TDC316]: decimals="11" is not a whole number from 0 to 10
 ```
+
+A value that rounds to zero prints as zero: `-0.001` with `decimals="2"` is `0.00`, not
+`-0.00`. A negative value that does not round to zero keeps its sign.
 
 It **replaces** `length` rather than joining it — a fractional value has no integer
 width to pad, so the pair is `TDC278`:

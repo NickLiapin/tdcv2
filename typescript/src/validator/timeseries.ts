@@ -23,6 +23,7 @@ import type {
   SelfClosingElementContext,
 } from '../generated/TDCParser.js';
 import { extractAttrs } from '../processor/walk.js';
+import { checkDecimalsAttr } from './decimals.js';
 
 function findAttr(attrs: readonly AttrContext[], name: string): AttrContext | undefined {
   for (const attr of attrs) {
@@ -51,6 +52,7 @@ export function checkGenTimeseries(
   const amplitudes = entries(attrMap['amplitude']);
   const peaks = entries(attrMap['peak_at']);
 
+  checkDecimalsAttr(attrs, attrMap, diagnostics);
   checkNoiseCorrelation(attrs, attrMap, diagnostics);
   checkWaveLists(attrs, periods, amplitudes, peaks, diagnostics);
 

@@ -46,8 +46,10 @@ def to_fixed(value: float, decimals: int) -> str:
     quantum = Decimal(1).scaleb(-decimals)
     rounded = Decimal(value).quantize(quantum, rounding=ROUND_HALF_UP)
     if rounded == 0:
-        # JavaScript takes the sign from the input, and -0 is not negative there.
-        return format(abs(rounded), "f") if value >= 0 else format(rounded, "f")
+        # A value that rounds to zero prints as zero, without the sign JavaScript's toFixed keeps
+        # ("-0.00"): it compared unequal to 0.00 and read as a bug in a report, and the Java port
+        # printed 0.00 all along. One rule in all five now.
+        return format(abs(rounded), "f")
     return format(rounded, "f")
 
 

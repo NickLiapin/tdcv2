@@ -22,6 +22,7 @@
  */
 
 import { betaIInv, gammaPInv } from './special.js';
+import { toFixedText } from '../lib/fixed.js';
 
 interface Base {
   /** How many uniform draws in (0,1) `sampleDistribution` needs for this spec. */
@@ -108,7 +109,7 @@ export function formatSample(x: number, spec: DistributionSpec): string {
   let v = x;
   if (spec.min !== undefined) v = Math.max(spec.min, v);
   if (spec.max !== undefined) v = Math.min(spec.max, v);
-  return v.toFixed(spec.decimals);
+  return toFixedText(v, spec.decimals);
 }
 
 /**
@@ -269,8 +270,8 @@ function zipfCumulative(n: number, s: number): number[] {
 function parseDecimals(raw: string | undefined): number {
   if (raw === undefined || raw.trim() === '') return 0;
   const n = Number(raw);
-  if (!Number.isInteger(n) || n < 0) {
-    throw new Error(`distribution: "decimals" must be a non-negative integer (got "${raw}")`);
+  if (!Number.isInteger(n) || n < 0 || n > 10) {
+    throw new Error(`distribution: "decimals" must be a whole number from 0 to 10 (got "${raw}")`);
   }
   return n;
 }

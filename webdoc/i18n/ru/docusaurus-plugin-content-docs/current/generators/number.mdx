@@ -194,11 +194,15 @@ import Terminal from '@site/src/components/Terminal';
 843.99`}
 </Terminal>
 
-`decimals` принимает целое от **0 до 10**. Всё остальное останавливает прогон:
+`decimals` принимает целое от **0 до 10** — у диапазона, у распределения и у
+[`timeseries`](timeseries.mdx) одинаково. Всё остальное отвергает `check`, ещё до прогона:
 
-<Terminal title="./run price.tdc (decimals=&quot;11&quot;)">
-{`tdcv2: number decimals must be an integer 0..10, got "11"`}
+<Terminal title="tdcv2 check price.tdc (decimals=&quot;11&quot;)">
+{`error[TDC316]: decimals="11" is not a whole number from 0 to 10`}
 </Terminal>
+
+Значение, которое округляется до нуля, печатается как ноль: `-0.001` при `decimals="2"` — это
+`0.00`, а не `-0.00`. Отрицательное значение, которое до нуля не округляется, сохраняет знак.
 
 Он **заменяет** `length`, а не дополняет его: у дробного значения нет целой ширины,
 которую можно добить, поэтому пара — это `TDC278`:
