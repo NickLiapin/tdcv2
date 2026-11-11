@@ -277,6 +277,25 @@
         "2024-02-29 2024-02-28 2024-03-01 | 2024-02-29 2024-02-28",
         "2024-03-01 2024-02-29 2024-03-02 | 2024-02-29 2024-02-28"
       ]
+    },
+    {
+      "name": "russian-short-months-take-the-in-date-form-after-a-day",
+      "description": "Found by the article agent: D MMM in Russian mixed two forms — \"15 янв. 26\" beside \"15 май 26\" and \"15 июнь 26\", the standalone abbreviations of four months. After a day number MMM now takes CLDR's format abbreviations (мар., мая, июн., июл.), the way MMMM already took the genitive; MMM with no day before it keeps the standalone forms.",
+      "config": "<tdc><env count=\"12\" seed=\"ru\" local=\"ru\"><sequence name=\"E\"><gen type=\"date\" from=\"2026-01-15\" order=\"sequential\" step=\"1mo\" format=\"D MMM YY\"/></sequence><sequence name=\"F\"><gen type=\"date\" from=\"2026-01-15\" order=\"sequential\" step=\"1mo\" format=\"MMM YYYY\"/></sequence></env><block><line><data>${{E}} | ${{F}}</data></line></block></tdc>",
+      "expected": [
+        "15 янв. 26 | янв. 2026",
+        "15 февр. 26 | февр. 2026",
+        "15 мар. 26 | март 2026",
+        "15 апр. 26 | апр. 2026",
+        "15 мая 26 | май 2026",
+        "15 июн. 26 | июнь 2026",
+        "15 июл. 26 | июль 2026",
+        "15 авг. 26 | авг. 2026",
+        "15 сент. 26 | сент. 2026",
+        "15 окт. 26 | окт. 2026",
+        "15 нояб. 26 | нояб. 2026",
+        "15 дек. 26 | дек. 2026"
+      ]
     }
   ]
 }

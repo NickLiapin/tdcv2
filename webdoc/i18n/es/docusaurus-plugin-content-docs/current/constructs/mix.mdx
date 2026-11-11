@@ -514,6 +514,16 @@ generador de esa rama, y por eso usted conserva el control total sobre cómo se 
 Este es apenas un rincón de un tema más amplio — la inyección de valores atípicos y
 la columna `flag` reciben su tratamiento completo en la guía de anomalías.
 
+
+La marca es una columna como cualquier otra: `parent="Bad.true"` construye una secuencia solo en
+las filas atípicas, y una fórmula o un `stat` pueden leerla. Pero un `stat` con `op="count"` sobre
+la marca cuenta todas las filas: cada fila tiene marca, `true` o `false`. Para contar las
+anomalías, convierta primero la marca en un número:
+
+```xml
+<sequence name="IsBad"><gen type="formula" expr="Bad == 'true' ? 1 : 0"/></sequence>
+<sequence name="Anomalies"><gen type="stat" of="IsBad" op="sum"/></sequence>
+```
 ## Siguiente paso
 
 - **[Generador text](../generators/text.mdx)** — proporciones `percent` exactas para

@@ -265,7 +265,13 @@ def _render(token: str, v: PlainDateTime, locale: DateLocale, after_day: bool = 
         months = locale.months_in_date if after_day and locale.months_in_date else locale.months
         return months[v.month - 1]
     if token == "MMM":
-        return locale.months_short[v.month - 1]
+        # The same rule one size down: Russian writes ``март`` alone and ``15 мар.`` in a date.
+        short = (
+            locale.months_short_in_date
+            if after_day and locale.months_short_in_date
+            else locale.months_short
+        )
+        return short[v.month - 1]
     if token == "MM":
         return _pad(v.month, 2)
     if token == "M":

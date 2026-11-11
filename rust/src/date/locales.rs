@@ -28,6 +28,10 @@ pub struct DateLocale {
     /// two, in which case `months` serves for both.
     pub months_in_date: Option<[&'static str; 12]>,
     pub months_short: [&'static str; 12],
+    /// The SHORT month beside a day number — the same split as `months_in_date`, one
+    /// size down. Russian abbreviates `март` alone but `15 мар.` in a date. `None`
+    /// when the short forms do not change, which is every built-in but Russian.
+    pub months_short_in_date: Option<[&'static str; 12]>,
     /// Sunday first, matching the weekday index the calendar produces.
     pub weekdays: [&'static str; 7],
     pub weekdays_short: [&'static str; 7],
@@ -50,6 +54,7 @@ static AR: DateLocale = DateLocale {
         "ديسمبر",
     ],
     months_in_date: None,
+    months_short_in_date: None,
     months_short: [
         "يناير",
         "فبراير",
@@ -98,6 +103,7 @@ static DE: DateLocale = DateLocale {
         "Dezember",
     ],
     months_in_date: None,
+    months_short_in_date: None,
     months_short: [
         "Jan.", "Feb.", "März", "Apr.", "Mai", "Juni", "Juli", "Aug.", "Sept.", "Okt.", "Nov.",
         "Dez.",
@@ -149,6 +155,7 @@ static EL: DateLocale = DateLocale {
         "Νοεμβρίου",
         "Δεκεμβρίου",
     ]),
+    months_short_in_date: None,
     months_short: [
         "Ιαν", "Φεβ", "Μαρ", "Απρ", "Μαΐ", "Ιουν", "Ιουλ", "Αυγ", "Σεπ", "Οκτ", "Νοε", "Δεκ",
     ],
@@ -186,6 +193,7 @@ static EN: DateLocale = DateLocale {
         "December",
     ],
     months_in_date: None,
+    months_short_in_date: None,
     months_short: [
         "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
     ],
@@ -223,6 +231,7 @@ static ES: DateLocale = DateLocale {
         "diciembre",
     ],
     months_in_date: None,
+    months_short_in_date: None,
     months_short: [
         "ene.", "feb.", "mar.", "abr.", "may.", "jun.", "jul.", "ago.", "sept.", "oct.", "nov.",
         "dic.",
@@ -261,6 +270,7 @@ static FR: DateLocale = DateLocale {
         "décembre",
     ],
     months_in_date: None,
+    months_short_in_date: None,
     months_short: [
         "janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.",
         "déc.",
@@ -293,6 +303,7 @@ static IT: DateLocale = DateLocale {
         "dicembre",
     ],
     months_in_date: None,
+    months_short_in_date: None,
     months_short: [
         "gen", "feb", "mar", "apr", "mag", "giu", "lug", "ago", "set", "ott", "nov", "dic",
     ],
@@ -343,6 +354,7 @@ static PL: DateLocale = DateLocale {
         "listopada",
         "grudnia",
     ]),
+    months_short_in_date: None,
     months_short: [
         "sty", "lut", "mar", "kwi", "maj", "cze", "lip", "sie", "wrz", "paź", "lis", "gru",
     ],
@@ -380,6 +392,7 @@ static PT: DateLocale = DateLocale {
         "dezembro",
     ],
     months_in_date: None,
+    months_short_in_date: None,
     months_short: [
         "jan.", "fev.", "mar.", "abr.", "mai.", "jun.", "jul.", "ago.", "set.", "out.", "nov.",
         "dez.",
@@ -431,6 +444,22 @@ static RU: DateLocale = DateLocale {
         "ноября",
         "декабря",
     ]),
+    // CLDR's "format" abbreviations, what Intl.DateTimeFormat("ru") prints: after a
+    // day number MMM wrote "15 май 26" from the standalone list. Found by the article agent.
+    months_short_in_date: Some([
+        "янв.",
+        "февр.",
+        "мар.",
+        "апр.",
+        "мая",
+        "июн.",
+        "июл.",
+        "авг.",
+        "сент.",
+        "окт.",
+        "нояб.",
+        "дек.",
+    ]),
     months_short: [
         "янв.",
         "февр.",
@@ -479,6 +508,7 @@ static ZH_CN: DateLocale = DateLocale {
         "十二月",
     ],
     months_in_date: None,
+    months_short_in_date: None,
     months_short: [
         "1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月",
     ],
@@ -524,6 +554,7 @@ static ZH_TW: DateLocale = DateLocale {
         "十二月",
     ],
     months_in_date: None,
+    months_short_in_date: None,
     months_short: [
         "1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月",
     ],
@@ -579,6 +610,7 @@ static UK: DateLocale = DateLocale {
         "листопада",
         "грудня",
     ]),
+    months_short_in_date: None,
     months_short: [
         "січ", "лют", "бер", "квіт", "трав", "черв", "лип", "серп", "вер", "жовт", "лист", "груд",
     ],
@@ -607,6 +639,7 @@ static TR: DateLocale = DateLocale {
         "Kasım", "Aralık",
     ],
     months_in_date: None,
+    months_short_in_date: None,
     months_short: [
         "Oca", "Şub", "Mar", "Nis", "May", "Haz", "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara",
     ],
@@ -645,6 +678,7 @@ static ID: DateLocale = DateLocale {
         "Desember",
     ],
     months_in_date: None,
+    months_short_in_date: None,
     months_short: [
         "Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des",
     ],
@@ -678,6 +712,7 @@ static VI: DateLocale = DateLocale {
         "tháng 12",
     ],
     months_in_date: None,
+    months_short_in_date: None,
     months_short: [
         "Th1", "Th2", "Th3", "Th4", "Th5", "Th6", "Th7", "Th8", "Th9", "Th10", "Th11", "Th12",
     ],
@@ -705,6 +740,7 @@ static JA: DateLocale = DateLocale {
         "1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月",
     ],
     months_in_date: None,
+    months_short_in_date: None,
     months_short: [
         "1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月",
     ],
@@ -732,6 +768,7 @@ static KO: DateLocale = DateLocale {
         "1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월",
     ],
     months_in_date: None,
+    months_short_in_date: None,
     months_short: [
         "1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월",
     ],
@@ -770,6 +807,7 @@ static NL: DateLocale = DateLocale {
         "december",
     ],
     months_in_date: None,
+    months_short_in_date: None,
     months_short: [
         "jan", "feb", "mrt", "apr", "mei", "jun", "jul", "aug", "sep", "okt", "nov", "dec",
     ],
@@ -808,6 +846,7 @@ static SV: DateLocale = DateLocale {
         "december",
     ],
     months_in_date: None,
+    months_short_in_date: None,
     months_short: [
         "jan", "feb", "mar", "apr", "maj", "jun", "jul", "aug", "sep", "okt", "nov", "dec",
     ],
@@ -840,6 +879,7 @@ static HI: DateLocale = DateLocale {
         "दिसंबर",
     ],
     months_in_date: None,
+    months_short_in_date: None,
     months_short: [
         "जन.",
         "फ़र.",
@@ -889,6 +929,7 @@ static TH: DateLocale = DateLocale {
         "ธันวาคม",
     ],
     months_in_date: None,
+    months_short_in_date: None,
     months_short: [
         "ม.ค.",
         "ก.พ.",
@@ -951,6 +992,7 @@ static CS: DateLocale = DateLocale {
         "listopadu",
         "prosince",
     ]),
+    months_short_in_date: None,
     months_short: [
         "led", "úno", "bře", "dub", "kvě", "čvn", "čvc", "srp", "zář", "říj", "lis", "pro",
     ],
@@ -992,6 +1034,7 @@ static HU: DateLocale = DateLocale {
         "december",
     ],
     months_in_date: None,
+    months_short_in_date: None,
     months_short: [
         "jan.", "febr.", "márc.", "ápr.", "máj.", "jún.", "júl.", "aug.", "szept.", "okt.", "nov.",
         "dec.",
@@ -1048,6 +1091,7 @@ static FI: DateLocale = DateLocale {
         "marraskuuta",
         "joulukuuta",
     ]),
+    months_short_in_date: None,
     months_short: [
         "tammi", "helmi", "maalis", "huhti", "touko", "kesä", "heinä", "elo", "syys", "loka",
         "marras", "joulu",
@@ -1181,6 +1225,7 @@ pub fn register_pack_locale(name: &str, content_hash: u64, parsed: PackDateLocal
         months: leak12(parsed.months),
         months_in_date: parsed.months_in_date.map(leak12),
         months_short: leak12(parsed.months_short),
+        months_short_in_date: None,
         weekdays: leak7(parsed.weekdays),
         weekdays_short: leak7(parsed.weekdays_short),
         formats: parsed.formats.map(leak),

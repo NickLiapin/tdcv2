@@ -1861,6 +1861,40 @@
         ]
       }
     },
+    "dates/russian-short-months-take-the-in-date-form-after-a-day": {
+      "engine2": {
+        "lines": [
+          "15 янв. 26 | янв. 2026",
+          "15 февр. 26 | февр. 2026",
+          "15 мар. 26 | март 2026",
+          "15 апр. 26 | апр. 2026",
+          "15 мая 26 | май 2026",
+          "15 июн. 26 | июнь 2026",
+          "15 июл. 26 | июль 2026",
+          "15 авг. 26 | авг. 2026",
+          "15 сент. 26 | сент. 2026",
+          "15 окт. 26 | окт. 2026",
+          "15 нояб. 26 | нояб. 2026",
+          "15 дек. 26 | дек. 2026"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "15 янв. 26 | янв. 2026",
+          "15 февр. 26 | февр. 2026",
+          "15 мар. 26 | март 2026",
+          "15 апр. 26 | апр. 2026",
+          "15 мая 26 | май 2026",
+          "15 июн. 26 | июнь 2026",
+          "15 июл. 26 | июль 2026",
+          "15 авг. 26 | авг. 2026",
+          "15 сент. 26 | сент. 2026",
+          "15 окт. 26 | окт. 2026",
+          "15 нояб. 26 | нояб. 2026",
+          "15 дек. 26 | дек. 2026"
+        ]
+      }
+    },
     "derived-columns/a-formula-over-two-columns": {
       "engine2": {
         "lines": [
@@ -4662,6 +4696,25 @@
           "10,88.0,0,true,a,-6,90",
           "11,89.6,0,true,a,-5,100",
           "12,94.0,94.0,false,a,-3,110"
+        ]
+      }
+    },
+    "mix-switch/a-mix-flag-is-a-column-a-later-sequence-can-filter-on": {
+      "engine2": {
+        "refused": "stream mode: parent \"Bad\" (the parent must be a finite-value <sequence> declared earlier) (\"Note\") is not supported yet — use mode=\"disk\" instead (the router then picks an engine that can), or remove it."
+      },
+      "engine3": {
+        "lines": [
+          "25 false [] 2 10",
+          "22 false [] 2 10",
+          "88 true [check] 2 10",
+          "22 false [] 2 10",
+          "24 false [] 2 10",
+          "85 true [check] 2 10",
+          "24 false [] 2 10",
+          "23 false [] 2 10",
+          "22 false [] 2 10",
+          "23 false [] 2 10"
         ]
       }
     },

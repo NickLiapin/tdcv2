@@ -255,7 +255,12 @@ function renderToken(
         (afterDay ? (locale.monthsInDate ?? locale.months) : locale.months)[value.month - 1] ?? ''
       );
     case 'MMM':
-      return locale.monthsShort[value.month - 1] ?? '';
+      // The same rule one size down: Russian writes `март` alone and `15 мар.` in a date.
+      return (
+        (afterDay ? (locale.monthsShortInDate ?? locale.monthsShort) : locale.monthsShort)[
+          value.month - 1
+        ] ?? ''
+      );
     case 'MM':
       return pad(value.month, 2);
     case 'M':

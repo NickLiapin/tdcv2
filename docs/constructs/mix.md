@@ -532,6 +532,16 @@ generator produces, which is why you keep full control over how it looks. This i
 one corner of a larger topic — outlier injection and the `flag` column get their
 own full treatment in the anomalies guide.
 
+The flag is a column like any other: `parent="Bad.true"` builds a sequence only on the
+anomalous rows, and a formula or a `stat` may read it. A `stat` with `op="count"` over the
+flag counts every row, though — every row has a flag, `true` or `false`. To count the
+anomalies, turn the flag into a number first:
+
+```xml
+<sequence name="IsBad"><gen type="formula" expr="Bad == 'true' ? 1 : 0"/></sequence>
+<sequence name="Anomalies"><gen type="stat" of="IsBad" op="sum"/></sequence>
+```
+
 ## Next
 
 - **[Text generator](../generators/text.md#top)** — exact `percent` shares for a plain

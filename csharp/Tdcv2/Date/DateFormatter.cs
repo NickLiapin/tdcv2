@@ -16,7 +16,13 @@ public sealed record DateLocale(
     /// <c>15. tammikuuta</c>. <c>null</c> when the language does not distinguish the two, in
     /// which case <c>Months</c> serves for both.
     /// </remarks>
-    IReadOnlyList<string>? MonthsInDate = null);
+    IReadOnlyList<string>? MonthsInDate = null,
+    /// <summary>The SHORT month beside a day number — the same split one size down.</summary>
+    /// <remarks>
+    /// Russian abbreviates <c>март</c> alone but <c>15 мар.</c> in a date. <c>null</c> when the
+    /// short forms do not change, which is every built-in language but Russian.
+    /// </remarks>
+    IReadOnlyList<string>? MonthsShortInDate = null);
 
 /// <summary>
 /// The Moment-style formatting subset TDC uses.
@@ -339,7 +345,8 @@ public static class DateFormatter
         "YYYY" => Pad(v.Year, 4),
         "YY" => Pad(v.Year % 100, 2),
         "MMMM" => (afterDay && locale.MonthsInDate is not null ? locale.MonthsInDate : locale.Months)[v.Month - 1],
-        "MMM" => locale.MonthsShort[v.Month - 1],
+        // The same rule one size down: Russian writes `март` alone and `15 мар.` in a date.
+        "MMM" => (afterDay && locale.MonthsShortInDate is not null ? locale.MonthsShortInDate : locale.MonthsShort)[v.Month - 1],
         "MM" => Pad(v.Month, 2),
         "M" => v.Month.ToString(CultureInfo.InvariantCulture),
         "DD" => Pad(v.Day, 2),

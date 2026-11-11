@@ -33,7 +33,13 @@ public final class DateFormatter {
        * {@code 15 января}. {@code null} when the language does not distinguish the two, in which
        * case {@code months} serves for both.
        */
-      List<String> monthsInDate) {
+      List<String> monthsInDate,
+      /**
+       * The SHORT month beside a day number — the same split one size down. Russian abbreviates
+       * {@code март} alone but {@code 15 мар.} in a date. {@code null} when the short forms do
+       * not change, which is every built-in language but Russian.
+       */
+      List<String> monthsShortInDate) {
 
     /** The eighteen languages whose month has a single form. */
     public DateLocale(
@@ -42,7 +48,18 @@ public final class DateFormatter {
         List<String> weekdays,
         List<String> weekdaysShort,
         Map<String, String> formats) {
-      this(months, monthsShort, weekdays, weekdaysShort, formats, null);
+      this(months, monthsShort, weekdays, weekdaysShort, formats, null, null);
+    }
+
+    /** A language whose full month changes beside a day number, and whose short one does not. */
+    public DateLocale(
+        List<String> months,
+        List<String> monthsShort,
+        List<String> weekdays,
+        List<String> weekdaysShort,
+        Map<String, String> formats,
+        List<String> monthsInDate) {
+      this(months, monthsShort, weekdays, weekdaysShort, formats, monthsInDate, null);
     }
   }
 
@@ -290,7 +307,12 @@ public final class DateFormatter {
       case "MMMM" ->
           (afterDay && locale.monthsInDate() != null ? locale.monthsInDate() : locale.months())
               .get(v.month() - 1);
-      case "MMM" -> locale.monthsShort().get(v.month() - 1);
+      // The same rule one size down: Russian writes `март` alone and `15 мар.` in a date.
+      case "MMM" ->
+          (afterDay && locale.monthsShortInDate() != null
+                  ? locale.monthsShortInDate()
+                  : locale.monthsShort())
+              .get(v.month() - 1);
       case "MM" -> pad(v.month(), 2);
       case "M" -> String.valueOf(v.month());
       case "DD" -> pad(v.day(), 2);

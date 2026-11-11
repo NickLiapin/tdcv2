@@ -1274,6 +1274,13 @@ impl Validator {
                         .filter(|v| !v.trim().is_empty())
                         .map(str::to_string)
                     {
+                        // A <mix>'s flag is a sequence in its own right, as in the
+                        // reference: parent=, of= and a formula may name it. It used
+                        // to be visible to an if= alone (TDC035 / TDC240 here).
+                        if key == "flag" && tag == "mix" && !declared.contains(&extra) {
+                            declared.push(extra.clone());
+                            self.declared_order.push(extra.clone());
+                        }
                         self.declared_names.insert(extra);
                     }
                 }

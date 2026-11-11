@@ -35,6 +35,16 @@ page — is tracked in that implementation's own changelog:
   character with that code, in a pattern and inside a class. `\b`, `\B`, `\A`, `\Z`, `\z` and
   `\G` are `TDC097` (`TDC130` in `advanced_regex`): a generated value has nothing around it to
   assert. Any other backslash-letter is `TDC097` too. Found by the article agent.
+- **A `<mix>`'s `flag=` column can be named by `parent=`, `of=` and a formula — in all five.**
+  The reference treated it as a sequence of its own; the four ports let an `if=` read it and
+  refused the rest (`TDC035`, `TDC240`), so `parent="Bad.true"` checked clean in one language
+  and failed in four. A `stat` count over the flag counts every row, since every row has one;
+  the mix page shows how to count the anomalies instead. Found by the article agent.
+- **Russian short months after a day number take the in-date form — in all five.** `D MMM`
+  wrote `15 май 26` and `15 июнь 26` beside `15 янв. 26`: four months used the standalone
+  abbreviation. After a day `MMM` now takes CLDR's format abbreviations (`мар.`, `мая`, `июн.`,
+  `июл.`), the way `MMMM` already took `15 марта`; `MMM` with no day before it is unchanged.
+  Found by the article agent.
 - **A value that rounds to zero prints as `0.00`, never `-0.00` — in all five.** `-0.001` with
   `decimals="2"` printed `-0.00` in four of the five (JavaScript's `toFixed` keeps the input's
   sign) and `0.00` in Java, so the five disagreed; `-0.00` also compared unequal to `0.00` and

@@ -28,6 +28,13 @@
       "description": "A branch is chosen by its share, and a share that is not a number chooses nothing.",
       "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><mix name=\"M\" percent=\"abc,50\"><case><gen type=\"text\" value=\"a\"/></case><case><gen type=\"text\" value=\"b\"/></case></mix></env><block><line><data>${{M}}</data></line></block></tdc>",
       "expected": ["error TDC122 1:63"]
+    },
+    {
+      "name": "a-mix-flag-is-declared-for-parent-and-stat",
+      "demonstrates": "",
+      "description": "parent=, of= and an expression may all name a <mix>'s flag= column; the ports used to answer TDC035 and TDC240.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><mix name=\"T\" percent=\"80,20\" flag=\"Bad\"><case><gen type=\"number\" value=\"20..25\"/></case><case anomaly=\"true\"><gen type=\"number\" value=\"80..90\"/></case></mix><sequence name=\"Note\" parent=\"Bad.true\"><gen type=\"text\" value=\"x\"/></sequence><sequence name=\"R\"><gen type=\"stat\" of=\"Bad\" op=\"count\"/></sequence></env><block><line><data>${{Note}} ${{R}}</data></line></block></tdc>",
+      "expected": ["warning TDC251 1:40"]
     }
   ]
 }

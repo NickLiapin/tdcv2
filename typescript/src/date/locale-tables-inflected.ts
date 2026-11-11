@@ -54,6 +54,23 @@ export const RU: DateLocale = {
     'нояб.',
     'дек.',
   ],
+  // CLDR's "format" abbreviations, which is also what Intl.DateTimeFormat("ru") prints.
+  // Without them `D MMM` took the standalone forms above and wrote "15 май 26" — four
+  // months in the wrong case beside eight in the right one. Found by the article agent.
+  monthsShortInDate: [
+    'янв.',
+    'февр.',
+    'мар.',
+    'апр.',
+    'мая',
+    'июн.',
+    'июл.',
+    'авг.',
+    'сент.',
+    'окт.',
+    'нояб.',
+    'дек.',
+  ],
   weekdays: ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'],
   weekdaysShort: ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'],
   formats: {

@@ -260,7 +260,11 @@ fn render(token: &str, v: PlainDateTime, locale: &DateLocale, after_day: bool) -
             Some(in_date) if after_day => in_date[month].to_string(),
             _ => locale.months[month].to_string(),
         },
-        "MMM" => locale.months_short[month].to_string(),
+        // The same rule one size down: Russian writes `март` alone and `15 мар.` in a date.
+        "MMM" => match locale.months_short_in_date {
+            Some(in_date) if after_day => in_date[month].to_string(),
+            _ => locale.months_short[month].to_string(),
+        },
         "MM" => pad(v.month, 2),
         "M" => v.month.to_string(),
         "DD" => pad(v.day, 2),

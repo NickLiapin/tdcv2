@@ -505,6 +505,23 @@
         "11,89.6,0,true,a,-5,100",
         "12,94.0,94.0,false,a,-3,110"
       ]
+    },
+    {
+      "name": "a-mix-flag-is-a-column-a-later-sequence-can-filter-on",
+      "description": "Found by the article agent: the reference let parent=, stat and running read a <mix>'s flag= column, and the four ports refused it (TDC035, TDC240) while letting an expression read it. The flag is a column in its own right in all five now. To count the anomalous rows, turn the flag into a number and add it up: a stat count over the flag counts every row, because every row has a flag.",
+      "config": "<tdc><env count=\"10\" seed=\"hunt\" local=\"en\"><mix name=\"T\" percent=\"80,20\" flag=\"Bad\"><case><gen type=\"number\" value=\"20..25\"/></case><case anomaly=\"true\"><gen type=\"number\" value=\"80..90\"/></case></mix><sequence name=\"Note\" parent=\"Bad.true\"><gen type=\"text\" value=\"check\"/></sequence><sequence name=\"One\"><gen type=\"formula\" expr=\"Bad == 'true' ? 1 : 0\"/></sequence><sequence name=\"Anomalies\"><gen type=\"stat\" of=\"One\" op=\"sum\"/></sequence><sequence name=\"Rows\"><gen type=\"stat\" of=\"Bad\" op=\"count\"/></sequence></env><block><line><data>${{T}} ${{Bad}} [${{Note}}] ${{Anomalies}} ${{Rows}}</data></line></block></tdc>",
+      "expected": [
+        "25 false [] 2 10",
+        "22 false [] 2 10",
+        "88 true [check] 2 10",
+        "22 false [] 2 10",
+        "24 false [] 2 10",
+        "85 true [check] 2 10",
+        "24 false [] 2 10",
+        "23 false [] 2 10",
+        "22 false [] 2 10",
+        "23 false [] 2 10"
+      ]
     }
   ]
 }

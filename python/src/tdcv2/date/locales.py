@@ -42,6 +42,13 @@ class DateLocale:
     keeps the nominative — in which case ``months`` is used for both.
     """
 
+    months_short_in_date: tuple[str, ...] | None = None
+    """The SHORT month beside a day number — the same split one size down.
+
+    Russian abbreviates ``март`` alone but ``15 мар.`` in a date. ``None`` when the short forms
+    do not change, which is every built-in language but Russian.
+    """
+
 
 EN = DateLocale(
     "en",
@@ -121,6 +128,22 @@ RU = DateLocale(
         "октября",
         "ноября",
         "декабря",
+    ),
+    # CLDR's "format" abbreviations, what Intl.DateTimeFormat("ru") prints: after a day number
+    # MMM wrote "15 май 26" from the standalone list above. Found by the article agent.
+    months_short_in_date=(
+        "янв.",
+        "февр.",
+        "мар.",
+        "апр.",
+        "мая",
+        "июн.",
+        "июл.",
+        "авг.",
+        "сент.",
+        "окт.",
+        "нояб.",
+        "дек.",
     ),
 )
 

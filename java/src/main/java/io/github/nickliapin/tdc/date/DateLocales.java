@@ -132,7 +132,22 @@ public final class DateLocales {
               "сентября",
               "октября",
               "ноября",
-              "декабря")
+              "декабря"),
+          // CLDR's "format" abbreviations, what Intl.DateTimeFormat("ru") prints: after a day
+          // number MMM wrote "15 май 26" from the standalone list. Found by the article agent.
+          List.of(
+              "янв.",
+              "февр.",
+              "мар.",
+              "апр.",
+              "мая",
+              "июн.",
+              "июл.",
+              "авг.",
+              "сент.",
+              "окт.",
+              "нояб.",
+              "дек.")
           );
 
   static final DateFormatter.DateLocale ES =

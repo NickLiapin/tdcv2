@@ -1833,6 +1833,11 @@ class _Validator:
                     value = attrs.get(key)
                     if value is not None and value.strip():
                         self.declared_names.add(value)
+                        # A <mix>'s flag is a sequence in its own right, as in the reference:
+                        # parent=, of= and a formula may name it. It used to be visible to an
+                        # if= alone, so parent="Bad.true" was TDC035 here and fine there.
+                        if key == "flag" and tag == "mix" and value not in declared:
+                            declared.append(value)
         # Once, at the end: a row= link is free to span sequences, so its members are only all in
         # view now.
         self._row_link_source()

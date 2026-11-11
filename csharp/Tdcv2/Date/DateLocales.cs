@@ -150,6 +150,23 @@ public static class DateLocales
             "октября",
             "ноября",
             "декабря",
+        },
+        // CLDR's "format" abbreviations, what Intl.DateTimeFormat("ru") prints: after a day number
+        // MMM wrote "15 май 26" from the standalone list above. Found by the article agent.
+        MonthsShortInDate: new[]
+        {
+            "янв.",
+            "февр.",
+            "мар.",
+            "апр.",
+            "мая",
+            "июн.",
+            "июл.",
+            "авг.",
+            "сент.",
+            "окт.",
+            "нояб.",
+            "дек.",
         });
 
     internal static readonly DateLocale ES = new(

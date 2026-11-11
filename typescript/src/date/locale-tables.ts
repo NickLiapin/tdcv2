@@ -21,6 +21,13 @@ export interface DateLocale {
    */
   readonly monthsInDate?: readonly string[] | undefined;
   readonly monthsShort: readonly string[];
+  /**
+   * The SHORT month as it is written with a day number beside it — the same split as
+   * `monthsInDate`, one size down. Russian abbreviates `март` alone but `15 мар.` in a
+   * date, and `май` alone but `15 мая`. Absent when the short forms do not change, which
+   * is every language but Russian among the built-ins.
+   */
+  readonly monthsShortInDate?: readonly string[] | undefined;
   readonly weekdays: readonly string[];
   readonly weekdaysShort: readonly string[];
   readonly formats: Readonly<Record<'L' | 'LL' | 'LLL' | 'LLLL', string>>;

@@ -534,6 +534,15 @@ Male,Cholecystitis
 широкой темы — инъекция выбросов и колонка `flag` получают полный разбор в
 руководстве по аномалиям.
 
+Метка — такая же колонка, как остальные: `parent="Bad.true"` строит последовательность только в
+строках-выбросах, а формула или `stat` могут её читать. Но `stat` с `op="count"` по метке
+считает все строки — метка есть в каждой, `true` или `false`. Чтобы посчитать выбросы, сначала
+превратите метку в число:
+
+```xml
+<sequence name="IsBad"><gen type="formula" expr="Bad == 'true' ? 1 : 0"/></sequence>
+<sequence name="Anomalies"><gen type="stat" of="IsBad" op="sum"/></sequence>
+```
 ## Дальше
 
 - **[Генератор text](../generators/text.md#top)** — точные доли `percent` для простого

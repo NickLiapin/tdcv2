@@ -1894,6 +1894,13 @@ public sealed class Validator
                     if (!string.IsNullOrWhiteSpace(extra))
                     {
                         _declaredNames.Add(extra);
+                        // A <mix>'s flag is a sequence in its own right, as in the reference:
+                        // parent=, of= and a formula may name it. It used to be visible to an if=
+                        // alone (TDC035 / TDC240 here).
+                        if (key == "flag" && tag == "mix" && !declared.Contains(extra))
+                        {
+                            declared.Add(extra);
+                        }
                     }
                 }
             }

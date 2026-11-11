@@ -835,6 +835,10 @@ local="ru"     15 марта 2024 г.
 
 `L` shifts the same way: `03/15/2024` in `en`, `15.03.2024` in `ru`.
 
+A month written **after a day number** takes the form the language uses there, and the short
+name follows the same rule as the full one. In Russian `D MMMM` is `15 марта` and `D MMM` is
+`15 мар.`; with no day before it, `MMMM YYYY` and `MMM YYYY` are both `март 2024`.
+
 ## Gotchas, in one place
 
 - Input dates are parsed **strictly** — use `YYYY-MM-DD` (or `.` / `/`), not free text.

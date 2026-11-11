@@ -1668,6 +1668,11 @@ public final class Validator {
         String flag = attrs.get("flag");
         if (flag != null && !flag.isBlank()) {
           declaredNames.add(flag);
+          // A <mix>'s flag is a sequence in its own right, as in the reference: parent=, of= and
+          // a formula may name it. It used to be visible to an if= alone (TDC035 / TDC240 here).
+          if ("mix".equals(tag) && !declared.contains(flag)) {
+            declared.add(flag);
+          }
         }
         String anomalyFlag = attrs.get("anomaly_flag");
         if (anomalyFlag != null && !anomalyFlag.isBlank()) {
