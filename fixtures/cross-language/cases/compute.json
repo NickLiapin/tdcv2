@@ -106,6 +106,18 @@
       "description": "comment= is a note on every compute tag, <compute> included: accepted, read by nothing, and the value is unchanged",
       "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"Q\"><gen type=\"text\" value=\"a|b|c\"/></sequence><sequence name=\"X\"><compute comment=\"the code\"><let name=\"p\" comment=\"parts\"><split sep=\"|\" comment=\"on bars\"><field name=\"Q\" comment=\"the source\"/></split></let><result comment=\"the answer\"><join sep=\"-\" comment=\"with dashes\"><use name=\"p\" comment=\"the parts\"/></join></result></compute></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
       "expected": ["a-b-c", "a-b-c"]
+    },
+    {
+      "name": "hard-unicode-pads-and-changes-case-the-same-in-all-five",
+      "description": "Found by the article agent: <pad> in TypeScript measured UTF-16 units, so an emoji took two places and got one star fewer; C# lowercased a word-final capital sigma as σ instead of ς and left İ alone; C# <capitalize> did not take the full mapping, so ﬁne stayed ﬁne where the others wrote FIne. All three routes to a case change are covered: the compute tag, the | lower filter and case= on a generator.",
+      "config": "<tdc><env count=\"5\" seed=\"u\" local=\"en\"><sequence name=\"W\"><gen type=\"text\" value=\"😀ab,👨‍👩‍👧x,ΟΔΟΣ ΑΘΗΝΑΣ,ﬁne,İi\" order=\"sequential\"/></sequence><sequence name=\"pad\"><compute><result><pad width=\"8\" fill=\"*\"><field name=\"W\"/></pad></result></compute></sequence><sequence name=\"low\"><compute><result><lower><field name=\"W\"/></lower></result></compute></sequence><sequence name=\"cap\"><compute><result><capitalize><field name=\"W\"/></capitalize></result></compute></sequence><sequence name=\"tit\"><compute><result><title><field name=\"W\"/></title></result></compute></sequence><sequence name=\"G\"><gen type=\"text\" value=\"ΟΔΟΣ ΑΘΗΝΑΣ\" case=\"lower\"/></sequence></env><block><line><data>[${{pad}}] ${{low}} | ${{W | lower}} | ${{cap}} | ${{tit}} | ${{G}}</data></line></block></tdc>",
+      "expected": [
+        "[*****😀ab] 😀ab | 😀ab | 😀ab | 😀ab | οδος αθηνας",
+        "[**👨‍👩‍👧x] 👨‍👩‍👧x | 👨‍👩‍👧x | 👨‍👩‍👧x | 👨‍👩‍👧x | οδος αθηνας",
+        "[ΟΔΟΣ ΑΘΗΝΑΣ] οδος αθηνας | οδος αθηνας | ΟΔΟΣ ΑΘΗΝΑΣ | ΟΔΟΣ ΑΘΗΝΑΣ | οδος αθηνας",
+        "[*****ﬁne] ﬁne | ﬁne | FIne | FIne | οδος αθηνας",
+        "[******İi] i̇i | i̇i | İi | İi | οδος αθηνας"
+      ]
     }
   ]
 }

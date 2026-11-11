@@ -422,6 +422,7 @@ desde la **izquierda** o por posición, use [`<mask>`](#reestructuración).
 `<pad width="…" fill="…">` convierte su hijo a string y le antepone `fill` por la
 **izquierda** hasta que el string alcanza `width`. Se comporta como `padStart`: si el
 string **ya mide al menos** `width`, se devuelve sin cambios — **no** hay truncamiento.
+`width` cuenta caracteres, como [`<length>`](lists.md#length--medir-un-string-o-una-lista): un emoji es uno, no dos.
 
 | Atributo | Por omisión | Define                                       |
 | :------- | :---------- | :------------------------------------------- |

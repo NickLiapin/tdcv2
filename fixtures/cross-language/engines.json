@@ -1237,6 +1237,26 @@
         "lines": ["a-b-c", "a-b-c"]
       }
     },
+    "compute/hard-unicode-pads-and-changes-case-the-same-in-all-five": {
+      "engine2": {
+        "lines": [
+          "[*****😀ab] 😀ab | 😀ab | 😀ab | 😀ab | οδος αθηνας",
+          "[**👨‍👩‍👧x] 👨‍👩‍👧x | 👨‍👩‍👧x | 👨‍👩‍👧x | 👨‍👩‍👧x | οδος αθηνας",
+          "[ΟΔΟΣ ΑΘΗΝΑΣ] οδος αθηνας | οδος αθηνας | ΟΔΟΣ ΑΘΗΝΑΣ | ΟΔΟΣ ΑΘΗΝΑΣ | οδος αθηνας",
+          "[*****ﬁne] ﬁne | ﬁne | FIne | FIne | οδος αθηνας",
+          "[******İi] i̇i | i̇i | İi | İi | οδος αθηνας"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "[*****😀ab] 😀ab | 😀ab | 😀ab | 😀ab | οδος αθηνας",
+          "[**👨‍👩‍👧x] 👨‍👩‍👧x | 👨‍👩‍👧x | 👨‍👩‍👧x | 👨‍👩‍👧x | οδος αθηνας",
+          "[ΟΔΟΣ ΑΘΗΝΑΣ] οδος αθηνας | οδος αθηνας | ΟΔΟΣ ΑΘΗΝΑΣ | ΟΔΟΣ ΑΘΗΝΑΣ | οδος αθηνας",
+          "[*****ﬁne] ﬁne | ﬁne | FIne | FIne | οδος αθηνας",
+          "[******İi] i̇i | i̇i | İi | İi | οδος αθηνας"
+        ]
+      }
+    },
     "containers/a-tag-inside-data-is-text-not-a-mistake": {
       "engine2": {
         "lines": ["x<bogus_tag/>y", "x<bogus_tag/>y"]

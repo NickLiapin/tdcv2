@@ -274,7 +274,7 @@ public static class Transforms
     public static string ApplyCase(string name, string s) => name switch
     {
         "upper" => Upper(s),
-        "lower" => s.ToLowerInvariant(),
+        "lower" => Lower(s),
         "capitalize" => UpperFirst(s),
         // Only the first letter of each word moves; the rest is left as written, so an
         // already-correct "McDonald" is not flattened to "Mcdonald".
@@ -316,6 +316,103 @@ public static class Transforms
 
         return result.ToString();
     }
+
+    /// <summary>
+    /// Lowercase the way JavaScript, Java and Python do it.
+    /// </summary>
+    /// <remarks>
+    /// <c>ToLowerInvariant</c> maps one character to one character and knows no context, so two
+    /// rules the other four follow were missing here: a capital sigma at the END of a word is the
+    /// final form <c>ς</c> (<c>ΣΑΣ</c> → <c>σας</c>, not <c>σασ</c>), and <c>İ</c> lowercases to
+    /// <c>i</c> plus a combining dot. Everything else is still the invariant one-to-one mapping.
+    /// Found by the article agent.
+    /// </remarks>
+    public static string Lower(string s)
+    {
+        var result = new StringBuilder(s.Length);
+        for (int i = 0; i < s.Length; i++)
+        {
+            int cp = char.ConvertToUtf32(s, i);
+            bool pair = char.IsHighSurrogate(s[i]);
+            if (cp == 0x0130)
+            {
+                result.Append("i\u0307");
+            }
+            else if (cp == 0x03A3)
+            {
+                result.Append(IsFinalSigma(s, i) ? '\u03C2' : '\u03C3');
+            }
+            else
+            {
+                result.Append(char.ConvertFromUtf32(cp).ToLowerInvariant());
+            }
+
+            if (pair)
+            {
+                i++;
+            }
+        }
+
+        return result.ToString();
+    }
+
+    /// <summary>
+    /// Unicode's Final_Sigma: a cased letter before it (past any case-ignorable characters), and
+    /// no cased letter after it (past the same).
+    /// </summary>
+    private static bool IsFinalSigma(string s, int at)
+    {
+        int i = at - 1;
+        bool casedBefore = false;
+        while (i >= 0)
+        {
+            int start = char.IsLowSurrogate(s[i]) && i > 0 && char.IsHighSurrogate(s[i - 1]) ? i - 1 : i;
+            int cp = char.ConvertToUtf32(s, start);
+            if (IsCaseIgnorable(cp))
+            {
+                i = start - 1;
+                continue;
+            }
+
+            casedBefore = IsCased(cp);
+            break;
+        }
+
+        if (!casedBefore)
+        {
+            return false;
+        }
+
+        int j = at + 1;
+        while (j < s.Length)
+        {
+            int cp = char.ConvertToUtf32(s, j);
+            if (IsCaseIgnorable(cp))
+            {
+                j += char.IsHighSurrogate(s[j]) ? 2 : 1;
+                continue;
+            }
+
+            return !IsCased(cp);
+        }
+
+        return true;
+    }
+
+    private static bool IsCased(int cp) => System.Globalization.CharUnicodeInfo.GetUnicodeCategory(cp)
+        is System.Globalization.UnicodeCategory.UppercaseLetter
+        or System.Globalization.UnicodeCategory.LowercaseLetter
+        or System.Globalization.UnicodeCategory.TitlecaseLetter;
+
+    private static bool IsCaseIgnorable(int cp) =>
+        System.Globalization.CharUnicodeInfo.GetUnicodeCategory(cp)
+            is System.Globalization.UnicodeCategory.NonSpacingMark
+            or System.Globalization.UnicodeCategory.EnclosingMark
+            or System.Globalization.UnicodeCategory.Format
+            or System.Globalization.UnicodeCategory.ModifierLetter
+            or System.Globalization.UnicodeCategory.ModifierSymbol
+        || cp is 0x0027 or 0x002E or 0x003A or 0x00B7 or 0x0387 or 0x05F4 or 0x2018 or 0x2019
+            or 0x2024 or 0x2027 or 0xFE13 or 0xFE52 or 0xFE55 or 0xFF07 or 0xFF0E or 0xFF1A;
 
     /// <summary>Code points whose uppercase is more than one character.</summary>
     private static readonly IReadOnlyDictionary<int, string> MultiCharUpper =
@@ -471,6 +568,9 @@ public static class Transforms
         }
 
         int width = char.IsHighSurrogate(word[0]) && word.Length > 1 ? 2 : 1;
-        return word[..width].ToUpperInvariant() + word[width..];
+        // Through Upper, not ToUpperInvariant: the first letter takes the FULL mapping as it does
+        // in the other four, so "ﬁne" capitalizes to "FIne". It stayed "ﬁne" here while <upper>
+        // already gave "FINE". Found by the article agent.
+        return Upper(word[..width]) + word[width..];
     }
 }

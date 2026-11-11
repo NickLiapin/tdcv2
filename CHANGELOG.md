@@ -40,6 +40,12 @@ page — is tracked in that implementation's own changelog:
   refused the rest (`TDC035`, `TDC240`), so `parent="Bad.true"` checked clean in one language
   and failed in four. A `stat` count over the flag counts every row, since every row has one;
   the mix page shows how to count the anomalies instead. Found by the article agent.
+- **Hard Unicode pads and changes case the same in all five.** `<pad>` in TypeScript measured
+  UTF-16 units, so `😀ab` padded to 8 got one star fewer than in the ports and than `<length>`
+  beside it said; it counts characters now. C# lowercased a word-final `Σ` as `σ` instead of `ς`
+  and left `İ` alone, and its `<capitalize>`/`<title>` did not take the full mapping (`ﬁne`
+  stayed `ﬁne`, not `FIne`); all three follow the other four now, through every route to a case
+  change. Found by the article agent.
 - **Russian short months after a day number take the in-date form — in all five.** `D MMM`
   wrote `15 май 26` and `15 июнь 26` beside `15 янв. 26`: four months used the standalone
   abbreviation. After a day `MMM` now takes CLDR's format abbreviations (`мар.`, `мая`, `июн.`,

@@ -415,6 +415,7 @@ separator), `sep="-"` sets your own separator, and `size="4"` reads like card bl
 `<pad width="…" fill="…">` coerces its child to a string and prepends `fill` on the
 **left** until the string reaches `width`. It behaves like `padStart`: if the string is
 **already at least** `width` long, it comes back unchanged — there's **no** truncation.
+`width` counts characters, as [`<length>`](lists.md#length--measure-a-string-or-list) does: an emoji is one, not two.
 
 | Attribute | Default | Sets                                 |
 | :-------- | :------ | :----------------------------------- |

@@ -336,7 +336,7 @@ function evalElement(el: ElementContext, scope: EvalScope): Value {
     case 'pad': {
       const width = Number(attrOf(n.attrs, 'pad', 'width') ?? '0');
       const fill = attrOf(n.attrs, 'pad', 'fill') ?? '0';
-      return str(coerceStr(evalSlot(n.children, scope)).padStart(width, fill));
+      return str(padStartByCodePoint(coerceStr(evalSlot(n.children, scope)), width, fill));
     }
     case 'concat':
       return str(n.children.map((c) => coerceStr(evalElement(c, scope))).join(''));
@@ -478,4 +478,21 @@ export function evaluateComputePredicate(
   const pred = contentElements(validEl.content()).find((c) => nodeName(c) !== '');
   if (pred === undefined) throw new ComputeError('<valid> requires a predicate child');
   return evalPredicate(pred, { fields, vars: new Map() });
+}
+
+/**
+ * `padStart` measured in characters (code points), the unit `<length>` already counts in.
+ *
+ * `String.padStart` measures UTF-16 units, so `😀ab` was four long to `<pad>` and three long
+ * to `<length>` beside it, and got one star fewer than in the four ports. The filler still
+ * repeats and is cut, as `padStart` does — only the ruler changed. Found by the article agent.
+ */
+function padStartByCodePoint(value: string, width: number, fill: string): string {
+  const length = Array.from(value).length;
+  const filler = Array.from(fill);
+  if (filler.length === 0 || length >= width) return value;
+  const needed = width - length;
+  let out = '';
+  for (let i = 0; i < needed; i++) out += filler[i % filler.length] ?? '';
+  return out + value;
 }
