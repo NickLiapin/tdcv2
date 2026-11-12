@@ -27,7 +27,7 @@
 //! not. Those configs belong to another engine, and the router sends them there.
 
 use std::cell::RefCell;
-use std::collections::BTreeMap;
+use std::collections::{BTreeMap, HashMap};
 
 use super::memory::{self, Env};
 use super::{invalid, unsupported, EngineError, EngineResult, RowSource};
@@ -490,6 +490,14 @@ pub struct StreamEngine<'a> {
     /// gives — the body seed reached nothing. A stack rather than one slot, because a pack body
     /// may draw from a pack whose body is one too.
     body_seeds: std::cell::RefCell<Vec<std::rc::Rc<str>>>,
+    /// The row each column last answered by name, and what it answered.
+    ///
+    /// A row asks for one column more than once — `if="Hash == ''"` and the line both read
+    /// `Hash` — and each read drew it from scratch. Every column is a function of the row alone,
+    /// so the second read on the same row takes the kept answer. Only while no pack body is
+    /// being evaluated: inside one the same name is drawn under the body's seed, and that is
+    /// not the answer the run itself would give.
+    last_read: std::cell::RefCell<HashMap<String, (i32, Option<String>)>>,
     count: i32,
     columns: BTreeMap<String, Column>,
     order: Vec<String>,
@@ -717,6 +725,7 @@ impl<'a> StreamEngine<'a> {
             on_progress,
             seed: std::rc::Rc::from(config.seed.as_str()),
             body_seeds: std::cell::RefCell::new(Vec::new()),
+            last_read: std::cell::RefCell::new(HashMap::new()),
             count: config.count,
             columns: BTreeMap::new(),
             order: Vec::new(),
@@ -2453,10 +2462,28 @@ impl StreamEngine<'_> {
     }
 
     fn value_at(&self, name: &str, row: i32) -> EngineResult<Option<String>> {
-        match self.columns.get(name) {
-            Some(column) => self.value_of(column, row),
-            None => Ok(None),
+        let Some(column) = self.columns.get(name) else {
+            return Ok(None);
+        };
+        let outer = self.body_seeds.borrow().is_empty();
+        if outer {
+            if let Some((seen, value)) = self.last_read.borrow().get(name) {
+                if *seen == row {
+                    return Ok(value.clone());
+                }
+            }
         }
+        let value = self.value_of(column, row)?;
+        if outer {
+            let mut kept = self.last_read.borrow_mut();
+            match kept.get_mut(name) {
+                Some(slot) => *slot = (row, value.clone()),
+                None => {
+                    kept.insert(name.to_owned(), (row, value.clone()));
+                }
+            }
+        }
+        Ok(value)
     }
 
     /// Which member of the table this row draws, honouring `filter=`.

@@ -33,7 +33,7 @@ result, not the exact bytes.
 Two engines run under "disk", and TDC picks between them **from your config**:
 
 - **The fast streaming engine** — used for almost everything. Lazy, multi-threaded (see
-  [`--jobs`](../reference/cli.mdx)), memory O(number of fields). Exact percentages,
+  [`--jobs`](../reference/cli.mdx); Rust runs it on one thread), memory O(number of fields). Exact percentages,
   [`parent`](hierarchical-dependencies.mdx) dependencies, [`<mix>`](../reference/tags.mdx),
   [`<distinct>`](../constructs/unique-values.mdx) — all on the fly.
 - **The exact on-disk engine** — for a promise about the **finished** column rather than
@@ -52,7 +52,7 @@ Two engines run under "disk", and TDC picks between them **from your config**:
   tell a duplicate outside that range from a value it has never seen — so nobody asks it to.
   The arrangement is worked out ONCE, before any worker starts, and handed down; the workers
   only lay out the rows they were given. An env-level `<uniq>` group therefore splits across
-  `--jobs` like anything else, in all five implementations.
+  `--jobs` like anything else, in every implementation that splits a run.
 
   `uniq="true"` on a sequence does not, and cannot: it rearranges the generators inside one
   compound column, which a worker resolving a row on its own has no way to reproduce. That
@@ -458,6 +458,16 @@ this not faster?". Each worker is charged 120 MB plus **50×** the on-disk size 
 config reading a large CSV gets far fewer workers than there are cores. The reduction is
 announced only when `--jobs` was passed explicitly; an automatic run makes it in
 silence.
+
+**Rust is the exception: it always runs on one thread.** It accepts `--jobs`, so the same
+command works in all five, and ignores the number. Its memory stays at a few megabytes
+however long the run.
+
+**In TypeScript every worker is a JavaScript engine of its own**, with its own heap, so the
+memory a run shows grows with the number of workers, not with the rows. Measured on one
+config: about 0.7 GB with one worker and 2.7 GB with four. Most of that is not data the run
+needs: the engine keeps garbage for a while when it has memory to spare. If memory matters
+more than time, cap the count with `--jobs`.
 
 A benchmark — 1,000,000 rows, six fields (a counter, two template names, a `percent`
 column, a normal distribution, a date), a 74 MB file, on a 12-core machine:

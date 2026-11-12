@@ -41,7 +41,7 @@ public static class NumberGen
         string rangeSpec = (attrs.GetValueOrDefault("value") ?? "").Trim();
         IReadOnlyList<Range> ranges = rangeSpec.Length == 0
             ? Array.Empty<Range>()
-            : ParseRanges(rangeSpec);
+            : Ranges.Get(rangeSpec);
 
         bool hasExplicitLength = attrs.ContainsKey("length");
         IReadOnlyList<LengthChoice> lengthChoices = hasExplicitLength
@@ -157,6 +157,11 @@ public static class NumberGen
             : $"{group.Min}-{group.Max}";
         return result;
     }
+
+    // The streaming engine reads `value=` again on every row; see TextMemo. An array behind a
+    // read-only list, so no row can change the copy the next one gets.
+    private static readonly TextMemo<IReadOnlyList<Range>> Ranges =
+        new(source => Array.AsReadOnly(ParseRanges(source).ToArray()));
 
     public static IReadOnlyList<Range> ParseRanges(string source)
     {

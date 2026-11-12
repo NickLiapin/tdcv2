@@ -119,7 +119,7 @@ public final class AdvancedRegexGen {
         attrs.get("regex_max_length") != null
             ? RegexGen.parseMaxLength(attrs.get("regex_max_length"))
             : documentMaxLength;
-    Node root = compile(attrs.getOrDefault("value", ""), limit);
+    Node root = compiled(attrs.getOrDefault("value", ""), limit);
 
     List<RowState> rows = new ArrayList<>(count);
     for (int i = 0; i < count; i++) {
@@ -132,6 +132,19 @@ public final class AdvancedRegexGen {
       out.add(row.out.toString());
     }
     return out;
+  }
+
+  // Keyed the way RegexGen keys its own parse: limit, colon, pattern. Only for drawing; a planned
+  // column compiles its own tree, because it tells weighted choices apart by identity.
+  private static final io.github.nickliapin.tdc.lib.TextMemo<Node> COMPILED =
+      new io.github.nickliapin.tdc.lib.TextMemo<>(
+          key -> {
+            int colon = key.indexOf(':');
+            return compile(key.substring(colon + 1), Integer.parseInt(key.substring(0, colon)));
+          });
+
+  private static Node compiled(String pattern, int regexMaxLength) {
+    return COMPILED.get(regexMaxLength + ":" + pattern);
   }
 
   public static Node compile(String pattern, int regexMaxLength) {

@@ -34,7 +34,8 @@ Bajo «disco» corren dos motores, y TDC elige entre ellos **a partir de su
 configuración**:
 
 - **El motor rápido de streaming** — se usa para casi todo. Es perezoso, multihilo (vea
-  [`--jobs`](../reference/cli.md#top)), con memoria O(cantidad de campos). Porcentajes
+  [`--jobs`](../reference/cli.md#top); Rust lo ejecuta en un solo hilo), con memoria O(cantidad de
+  campos). Porcentajes
   exactos, dependencias [`parent`](hierarchical-dependencies.md#top),
   [`<mix>`](../reference/tags.md#top), [`<distinct>`](../constructs/unique-values.md#top) — todo al vuelo.
 - **El motor exacto en disco** — para una promesa sobre la columna **terminada** y no sobre
@@ -57,7 +58,8 @@ configuración**:
   duplicado fuera de ese rango de un valor que nunca ha visto — así que no se le pregunta. La
   disposición se calcula UNA vez, antes de que arranque ningún worker, y se les entrega hecha;
   los workers sólo colocan las filas que les tocaron. Por eso un grupo `<uniq>` a nivel de
-  `<env>` se reparte con `--jobs` como cualquier otra cosa, en las cinco implementaciones.
+  `<env>` se reparte con `--jobs` como cualquier otra cosa, en toda implementación que divide la
+  corrida.
 
   `uniq="true"` sobre una secuencia no, y no puede: reordena los generadores dentro de una
   columna compuesta, algo que un worker que resuelve una fila por su cuenta no puede
@@ -501,6 +503,16 @@ tamaño en disco de cada archivo `src=` que vaya a analizar, y el total no puede
 la mitad de la RAM física — así que una configuración que lee un CSV grande recibe muchos
 menos workers que núcleos hay. El recorte se anuncia solo cuando `--jobs` se pasó de forma
 explícita; una corrida automática lo hace en silencio.
+
+**Rust es la excepción: siempre corre en un solo hilo.** Acepta `--jobs`, para que el mismo
+comando funcione en las cinco, e ignora el número. Su memoria se queda en unos pocos megabytes
+por larga que sea la corrida.
+
+**En TypeScript cada worker es un motor de JavaScript propio**, con su propio heap, así que la
+memoria de una corrida crece con la cantidad de workers, no con las filas. Medido en una
+configuración: unos 0,7 GB con un worker y 2,7 GB con cuatro. La mayor parte no son datos que la
+corrida necesite: el motor conserva basura un tiempo cuando le sobra memoria. Si la memoria
+importa más que el tiempo, limite la cantidad con `--jobs`.
 
 Una medición — 1 000 000 de filas, seis campos (un contador, dos nombres de plantilla, una
 columna con `percent`, una distribución normal y una fecha), un archivo de 74 MB, en una

@@ -16,11 +16,14 @@
 //! classes, no lookaround. What is accepted produces the same string from the
 //! same seed in every implementation of TDC.
 
+use std::cell::RefCell;
 use std::collections::{BTreeMap, BTreeSet};
+use std::rc::Rc;
 use std::sync::OnceLock;
 
 use super::rand;
 use crate::engine::{invalid, EngineResult};
+use crate::memo::TextMemo;
 use crate::prng::Sfc32;
 use crate::unicode;
 
@@ -90,7 +93,7 @@ pub fn generate(
         Some(own) => parse_max_length(Some(own))?,
         None => document_max_length,
     };
-    let root = compile(attrs.get("value").map(String::as_str).unwrap_or(""), limit)?;
+    let root = compiled(attrs.get("value").map(String::as_str).unwrap_or(""), limit)?;
 
     let mut result = Vec::with_capacity(count);
     for _ in 0..count {
@@ -173,6 +176,19 @@ fn space(node: &Node) -> u64 {
             total
         }
     }
+}
+
+thread_local! {
+    static COMPILED: RefCell<TextMemo<Node>> = RefCell::new(TextMemo::default());
+}
+
+/// [`compile`], once per pattern and limit — see [`crate::memo`].
+fn compiled(pattern: &str, regex_max_length: i32) -> EngineResult<Rc<Node>> {
+    if let Some(hit) = COMPILED.with(|m| m.borrow().get(regex_max_length, pattern)) {
+        return Ok(hit);
+    }
+    let root = compile(pattern, regex_max_length)?;
+    Ok(COMPILED.with(|m| m.borrow_mut().keep(regex_max_length, pattern, root)))
 }
 
 pub fn compile(pattern: &str, regex_max_length: i32) -> EngineResult<Node> {

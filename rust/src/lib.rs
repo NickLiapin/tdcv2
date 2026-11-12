@@ -23,6 +23,7 @@ pub mod generators;
 pub mod human_bytes;
 pub mod json;
 pub mod math;
+pub mod memo;
 pub mod model;
 pub mod numbers;
 pub mod output;

@@ -17,6 +17,7 @@ draw order follows from that shape, so it is part of the contract, not an implem
 
 from __future__ import annotations
 
+import functools
 import re
 from dataclasses import dataclass
 
@@ -112,6 +113,10 @@ def generate(attrs: dict[str, str], count: int, document_max_length: int, prng: 
     return _generate_rows(program.root, count, prng)
 
 
+# Memoised: the streaming engine draws one value at a time and asks for the pattern on every
+# row. A pattern is a config constant and the tree is never changed after parsing, so parsing it
+# once per pattern gives the same values.
+@functools.lru_cache(maxsize=256)
 def compile_pattern(pattern: str, regex_max_length: int) -> Program:
     parser = _Parser(pattern)
     root = parser.parse()

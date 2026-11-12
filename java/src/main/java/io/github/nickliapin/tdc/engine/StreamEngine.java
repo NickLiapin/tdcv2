@@ -502,6 +502,11 @@ public final class StreamEngine {
       applyEnvUniq(group, byName);
     }
 
+    // A row asks for one column more than once: `if="Hash == ''"` and the line both read Hash,
+    // and each read drew it from scratch. Every column is a function of the row alone, so the
+    // last answer is kept and a second read on the same row is free.
+    columns.replaceAll((name, column) -> rememberLastRow(column));
+
     // A service's answers marked uniq="true" are checked first, before a row is written.
     for (String name : HttpUniq.sequences(config)) {
       if (columns.containsKey(name)) {
@@ -2556,6 +2561,26 @@ public final class StreamEngine {
   }
 
   // ── row access ───────────────────────────────────────────────────────────────────────────
+
+  /** One row's answer, kept whole so a reader never sees one row's number beside another's value. */
+  private record LastRow(int row, String value) {}
+
+  private static Column rememberLastRow(Column column) {
+    return new Column() {
+      private volatile LastRow last = new LastRow(-1, null);
+
+      @Override
+      public String valueAt(int row) {
+        LastRow seen = last;
+        if (seen.row() == row) {
+          return seen.value();
+        }
+        String value = column.valueAt(row);
+        last = new LastRow(row, value);
+        return value;
+      }
+    };
+  }
 
   private String valueAt(String name, int row) {
     Column column = columns.get(name);

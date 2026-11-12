@@ -11,12 +11,15 @@
 //! billion numbers to drop one. `percent=` apportions rows between length groups
 //! exactly, over the whole column.
 
+use std::cell::RefCell;
 use std::collections::BTreeMap;
+use std::rc::Rc;
 
 use super::rand;
 use super::scan;
 use crate::distribution::percent_mask;
 use crate::engine::{invalid, EngineError, EngineResult};
+use crate::memo::TextMemo;
 use crate::prng::Sfc32;
 use crate::stats::hamilton;
 
@@ -46,7 +49,7 @@ pub fn generate(
     let ranges: Vec<Range> = if range_spec.is_empty() {
         Vec::new()
     } else {
-        parse_ranges(&range_spec)?
+        ranges_of(&range_spec)?.as_ref().clone()
     };
 
     let has_explicit_length = attrs.contains_key("length");
@@ -119,6 +122,20 @@ pub fn generate(
     }
 
     Ok(result)
+}
+
+thread_local! {
+    static RANGES: RefCell<TextMemo<Vec<Range>>> = RefCell::new(TextMemo::default());
+}
+
+/// [`parse_ranges`], once per `value=` — the streaming engine reads it again on every row; see
+/// [`crate::memo`].
+fn ranges_of(source: &str) -> EngineResult<Rc<Vec<Range>>> {
+    if let Some(hit) = RANGES.with(|m| m.borrow().get(0, source)) {
+        return Ok(hit);
+    }
+    let ranges = parse_ranges(source)?;
+    Ok(RANGES.with(|m| m.borrow_mut().keep(0, source, ranges)))
 }
 
 pub fn parse_ranges(source: &str) -> EngineResult<Vec<Range>> {

@@ -142,6 +142,25 @@ def _draw_pool_member(
     return candidates[slot] if slot < len(candidates) else 0
 
 
+
+def _remember_last_row(column: Column) -> Column:
+    """The column, answering a repeat read of the row it last answered without drawing again.
+
+    The row and its value live in ONE tuple, swapped in a single assignment, so a reader on
+    another thread (the http prefetch) can never see one row's number beside another's value.
+    """
+    last: list[tuple[int, str | None]] = [(-1, None)]
+
+    def remembered(row: int) -> str | None:
+        seen, value = last[0]
+        if seen == row:
+            return value
+        value = column(row)
+        last[0] = (row, value)
+        return value
+
+    return remembered
+
 class StreamEngine:
     __slots__ = (
         "base_dir",
@@ -195,6 +214,11 @@ class StreamEngine:
         # bounded-memory promise is untouched and no other column moves.
         self.pool_tables = memory.build_pool_tables(config, packs, now_millis, base_dir)
         self._build_columns()
+        # A row asks for the same column more than once: `if="Hash == ''"` and the line both read
+        # Hash, and each read drew it again from scratch. Every column is a function of the row
+        # alone, so the last answer is kept and a second read on the same row is free.
+        for name, column in self.columns.items():
+            self.columns[name] = _remember_last_row(column)
         for name in http_uniq.sequences(config):
             if name in self.columns:
                 http_uniq.check(name, self.columns[name], self.count)

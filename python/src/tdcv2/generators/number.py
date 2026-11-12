@@ -12,6 +12,7 @@ config knows which one is meant.
 
 from __future__ import annotations
 
+import functools
 import math
 import re
 from dataclasses import dataclass
@@ -160,7 +161,15 @@ def parse_ranges(source: str) -> list[Range]:
     # them: ``value="["`` followed by four thousand spaces took a minute. A
     # generator that hangs on its own config is not a slow path, it is a stopped
     # program. Splitting on a comma is linear.
-    return [_parse_range_item(piece, source) for piece in spec.split(",")]
+    return list(_parse_ranges_once(spec, source))
+
+
+# Memoised for the same reason as a regex pattern: the streaming engine reads ``value=`` again on
+# every row, and the answer depends on the text alone. A tuple, so no caller can change the copy
+# the next row gets.
+@functools.lru_cache(maxsize=256)
+def _parse_ranges_once(spec: str, source: str) -> tuple[Range, ...]:
+    return tuple(_parse_range_item(piece, source) for piece in spec.split(","))
 
 
 def _parse_range_item(piece: str, source: str) -> Range:

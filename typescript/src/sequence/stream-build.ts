@@ -53,7 +53,7 @@ import { seekableUniforms } from '../prng/seekable.js';
 import { atRow, exactQuantileSweep, rowLinkedFileValue } from './stream-quantile.js';
 import { anomalyFlagSequence, missingAnomalyMod, type RawAt } from './stream-anomaly.js';
 import { buildMixSeq } from './stream-mix.js';
-import { lazy } from './stream-lazy.js';
+import { lazy, rememberLastRow } from './stream-lazy.js';
 import { lazyFormula } from './formula.js';
 import { redrawUntilFresh, redrawUntilFreshAt } from './repeat-distinct.js';
 import { poolRefName } from './pool.js';
@@ -349,6 +349,7 @@ export function buildLazyRegistry(
   for (const group of envGroups.uniq) {
     applyEnvUniq(group, specByName, registry, count, options);
   }
+  for (const [name, seq] of Object.entries(registry)) registry[name] = rememberLastRow(seq);
   return registry;
 }
 

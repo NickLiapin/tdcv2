@@ -51,9 +51,14 @@ public final class NumberGen {
 
   private NumberGen() {}
 
+  // The streaming engine reads `value=` again on every row; see TextMemo. Kept unmodifiable, so
+  // no row can change the copy the next one gets.
+  private static final io.github.nickliapin.tdc.lib.TextMemo<List<Range>> RANGES =
+      new io.github.nickliapin.tdc.lib.TextMemo<>(source -> List.copyOf(parseRanges(source)));
+
   public static List<String> generate(Map<String, String> attrs, int count, Prng.Sfc32 prng) {
     String rangeSpec = attrs.getOrDefault("value", "").trim();
-    List<Range> ranges = rangeSpec.isEmpty() ? List.of() : parseRanges(rangeSpec);
+    List<Range> ranges = rangeSpec.isEmpty() ? List.of() : RANGES.get(rangeSpec);
 
     boolean hasExplicitLength = attrs.get("length") != null;
     List<LengthChoice> lengthChoices =

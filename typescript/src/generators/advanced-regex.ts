@@ -14,6 +14,7 @@
  */
 
 import { distributeByPercent } from '../distribution/hamilton.js';
+import { memoByText } from '../lib/memo.js';
 import { randomInt, randomPick } from '../prng/random.js';
 import { resolveAlphabetChars } from '../unicode/alphabets.js';
 
@@ -198,7 +199,20 @@ export function advancedRegexGenerator(attrs: AdvancedRegexGenAttrs): Generator 
   return (count, prng) => generateRows(program.root, count, prng);
 }
 
+// Keyed the way regex.ts keys its own parse: limit, colon, pattern.
+const parseAdvancedRegexOnce = memoByText((key) => {
+  const colon = key.indexOf(':');
+  return parseAdvancedRegexText(key.slice(colon + 1), Number(key.slice(0, colon)));
+});
+
 export function parseAdvancedRegex(
+  pattern: string,
+  regexMaxLength: number,
+): ParsedAdvancedRegexProgram {
+  return parseAdvancedRegexOnce(`${String(regexMaxLength)}:${pattern}`);
+}
+
+function parseAdvancedRegexText(
   pattern: string,
   regexMaxLength: number,
 ): ParsedAdvancedRegexProgram {

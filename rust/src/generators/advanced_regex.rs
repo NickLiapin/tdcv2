@@ -19,10 +19,12 @@
 
 use std::cell::RefCell;
 use std::collections::{BTreeMap, BTreeSet, HashMap};
+use std::rc::Rc;
 
 use super::rand;
 use super::regex::{self, distinct, inverse, printable_ascii, SPACES};
 use crate::engine::{invalid, EngineResult};
+use crate::memo::TextMemo;
 use crate::numbers;
 use crate::prng::Sfc32;
 use crate::stats::hamilton;
@@ -94,12 +96,25 @@ pub fn generate(
         Some(own) => regex::parse_max_length(Some(own))?,
         None => document_max_length,
     };
-    let root = compile(attrs.get("value").map(String::as_str).unwrap_or(""), limit)?;
+    let root = compiled(attrs.get("value").map(String::as_str).unwrap_or(""), limit)?;
 
     let mut rows: Vec<RowState> = (0..count).map(|_| RowState::default()).collect();
     let all: Vec<usize> = (0..count).collect();
     generate_into(&root, &mut rows, &all, prng);
     Ok(rows.into_iter().map(|r| r.out).collect())
+}
+
+thread_local! {
+    static COMPILED: RefCell<TextMemo<Node>> = RefCell::new(TextMemo::default());
+}
+
+/// [`compile`], once per pattern and limit — see [`crate::memo`].
+fn compiled(pattern: &str, regex_max_length: i32) -> EngineResult<Rc<Node>> {
+    if let Some(hit) = COMPILED.with(|m| m.borrow().get(regex_max_length, pattern)) {
+        return Ok(hit);
+    }
+    let root = compile(pattern, regex_max_length)?;
+    Ok(COMPILED.with(|m| m.borrow_mut().keep(regex_max_length, pattern, root)))
 }
 
 pub fn compile(pattern: &str, regex_max_length: i32) -> EngineResult<Node> {

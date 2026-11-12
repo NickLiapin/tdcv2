@@ -101,7 +101,7 @@ public static class AdvancedRegexGen
         int limit = attrs.TryGetValue("regex_max_length", out string? own)
             ? RegexGen.ParseMaxLength(own)
             : documentMaxLength;
-        Node root = Compile(attrs.GetValueOrDefault("value", ""), limit);
+        Node root = CompiledFor(attrs.GetValueOrDefault("value", ""), limit);
 
         var rows = new List<RowState>(count);
         for (int i = 0; i < count; i++)
@@ -112,6 +112,19 @@ public static class AdvancedRegexGen
         GenerateInto(root, rows, prng);
         return rows.Select(r => r.Out.ToString()).ToArray();
     }
+
+    // Keyed by the limit, a colon, then the pattern: the limit is digits only, so the first colon
+    // always ends it, whatever the pattern holds. See TextMemo for why a parse is kept.
+    // Only for drawing; a planned column compiles its own tree, because it tells weighted choices
+    // apart by identity.
+    private static readonly TextMemo<Node> Compiled = new(key =>
+    {
+        int colon = key.IndexOf(':');
+        return Compile(key[(colon + 1)..], int.Parse(key[..colon], System.Globalization.CultureInfo.InvariantCulture));
+    });
+
+    private static Node CompiledFor(string pattern, int regexMaxLength) =>
+        Compiled.Get($"{regexMaxLength}:{pattern}");
 
     public static Node Compile(string pattern, int regexMaxLength)
     {

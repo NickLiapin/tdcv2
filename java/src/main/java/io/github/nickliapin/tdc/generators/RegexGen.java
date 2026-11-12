@@ -85,7 +85,7 @@ public final class RegexGen {
         attrs.get("regex_max_length") != null
             ? parseMaxLength(attrs.get("regex_max_length"))
             : documentMaxLength;
-    Node root = compile(attrs.getOrDefault("value", ""), limit);
+    Node root = compiled(attrs.getOrDefault("value", ""), limit);
     List<String> out = new ArrayList<>(count);
     for (int i = 0; i < count; i++) {
       out.add(render(root, new HashMap<>(), prng));
@@ -178,6 +178,19 @@ public final class RegexGen {
       term = times(term, inner);
     }
     return total;
+  }
+
+  // Keyed by the limit, a colon, then the pattern: the limit is digits only, so the first colon
+  // always ends it, whatever the pattern holds. See TextMemo for why a parse is kept.
+  private static final io.github.nickliapin.tdc.lib.TextMemo<Node> COMPILED =
+      new io.github.nickliapin.tdc.lib.TextMemo<>(
+          key -> {
+            int colon = key.indexOf(':');
+            return compile(key.substring(colon + 1), Integer.parseInt(key.substring(0, colon)));
+          });
+
+  private static Node compiled(String pattern, int regexMaxLength) {
+    return COMPILED.get(regexMaxLength + ":" + pattern);
   }
 
   public static Node compile(String pattern, int regexMaxLength) {

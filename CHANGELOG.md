@@ -75,6 +75,23 @@ page — is tracked in that implementation's own changelog:
   and C# — two different binary tails of a double; a timeseries took any count. A distribution
   holds the same limit under `TDC089`. Found by the article agent.
 
+### Changed
+
+- **The streaming engine stops redoing work on every row — in all five, same bytes.** It drew
+  one value at a time and, for each, parsed the `regex` or `advanced_regex` pattern and the
+  `number` range again; and a column read twice on one row (by the line and by an `if=`) was
+  drawn twice. A pattern is now parsed once and a column keeps its last row's answer. Measured
+  on 500,000 rows of two regex columns and an `if=` reading one, in one thread: Python 107 s →
+  49 s, TypeScript 11.1 s → 6.7 s, C# 5.9 s → 1.8 s, Rust 4.8 s → 2.1 s, Java 3.5 s → 1.6 s.
+  Every file came out byte-identical. Found from the article agent's parallelism questions.
+
+### Documentation
+
+- **`--jobs` in Rust and memory per worker in TypeScript.** The large-outputs guide said the
+  streaming engine splits across `--jobs` in all five; Rust runs on one thread and ignores the
+  number, as its `--help` says. The guide now says so, and explains why a parallel TypeScript
+  run shows about 0.7 GB per worker: each worker is a JavaScript engine with its own heap.
+
 ## [0.4.0] — 2026-11-09
 
 ### Changed

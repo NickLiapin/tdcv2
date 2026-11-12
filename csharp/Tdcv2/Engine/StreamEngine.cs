@@ -770,6 +770,14 @@ public sealed class StreamEngine
             ApplyEnvUniq(group, byName);
         }
 
+        // A row asks for one column more than once: `if="Hash == ''"` and the line both read Hash,
+        // and each read drew it from scratch. Every column is a function of the row alone, so the
+        // last answer is kept and a second read on the same row is free.
+        foreach (string name in _columns.Keys.ToList())
+        {
+            _columns[name] = RememberLastRow(_columns[name]);
+        }
+
         // A service's answers marked uniq="true" are checked first, before a row is written.
         foreach (string name in HttpUniq.Sequences(_config))
         {
@@ -2815,6 +2823,25 @@ public sealed class StreamEngine
     }
 
     // ── row access ───────────────────────────────────────────────────────────────────────────
+
+    /// <summary>One row's answer, kept whole so a reader never sees one row's number beside another's value.</summary>
+    private sealed record LastRow(int Row, string? Value);
+
+    private static Column RememberLastRow(Column column)
+    {
+        LastRow last = new(-1, null);
+        return row =>
+        {
+            LastRow seen = Volatile.Read(ref last);
+            if (seen.Row == row)
+            {
+                return seen.Value;
+            }
+            string? value = column(row);
+            Volatile.Write(ref last, new LastRow(row, value));
+            return value;
+        };
+    }
 
     private string? ValueAt(string name, int row) =>
         _columns.TryGetValue(name, out Column? column) ? column(row) : null;

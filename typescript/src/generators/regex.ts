@@ -6,6 +6,7 @@
  * construction and rejects patterns with unbounded output length.
  */
 
+import { memoByText } from '../lib/memo.js';
 import { randomInt, randomPick } from '../prng/random.js';
 import { resolveAlphabetChars } from '../unicode/alphabets.js';
 
@@ -214,7 +215,18 @@ function spaceOf(node: RegexNode): number {
   }
 }
 
+// Keyed by the limit, a colon, then the pattern: the limit is digits only, so the first colon
+// always ends it, whatever the pattern holds. See lib/memo.ts for why a parse is kept.
+const parseRegexOnce = memoByText((key) => {
+  const colon = key.indexOf(':');
+  return parseRegexText(key.slice(colon + 1), Number(key.slice(0, colon)));
+});
+
 function parseRegex(pattern: string, regexMaxLength: number): ParsedRegexProgram {
+  return parseRegexOnce(`${String(regexMaxLength)}:${pattern}`);
+}
+
+function parseRegexText(pattern: string, regexMaxLength: number): ParsedRegexProgram {
   const parser = new RegexParser(pattern);
   const root = parser.parse();
   const maxLength = computeMaxLength(root, parser.captureMaxLengths);

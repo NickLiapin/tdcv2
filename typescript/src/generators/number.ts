@@ -29,6 +29,7 @@ import { randomInt } from '../prng/random.js';
 
 import type { Generator } from './generator.js';
 import { toFixedText } from '../lib/fixed.js';
+import { memoByText } from '../lib/memo.js';
 
 export interface NumberGenAttrs {
   readonly range?: string | undefined; // "bit", "MIN..MAX" or "[MIN..MAX],[MIN..MAX]"
@@ -170,6 +171,13 @@ export interface NumberLengthChoice {
  * exists now.
  */
 export function parseNumberRanges(source: string): readonly NumberRange[] {
+  return parseNumberRangesOnce(source);
+}
+
+// The streaming engine reads `value=` again on every row; see lib/memo.ts.
+const parseNumberRangesOnce = memoByText(parseNumberRangesText);
+
+function parseNumberRangesText(source: string): readonly NumberRange[] {
   const spec = source.trim();
   if (spec.length === 0) {
     throw new Error('number generator: range is empty');
