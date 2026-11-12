@@ -230,12 +230,17 @@ class Layered:
         return source.read_lines(relative_path)
 
     def list_files(self) -> list[str]:
-        seen: list[str] = []
+        # In order, each path once. The membership test is a set: against the list itself it
+        # compared every path with every earlier one, and over the bundled store's 33,000 files
+        # that was five seconds of a run with one `--data-path`.
+        out: list[str] = []
+        seen: set[str] = set()
         for source in self.sources:
             for path in source.list_files():
                 if path not in seen:
-                    seen.append(path)
-        return seen
+                    seen.add(path)
+                    out.append(path)
+        return out
 
     def has_top_level(self, name: str) -> bool:
         return any(source.has_top_level(name) for source in self.sources)

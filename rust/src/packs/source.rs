@@ -360,10 +360,14 @@ impl PackSource for LayeredSource {
     }
 
     fn list_files(&self) -> Vec<String> {
+        // In order, each path once. The membership test is a set: against the list itself it
+        // compared every path with every earlier one, and over the bundled store's 33,000 files
+        // that was seconds of a run with one `--data-path`.
         let mut out: Vec<String> = Vec::new();
+        let mut seen: std::collections::HashSet<String> = std::collections::HashSet::new();
         for source in &self.sources {
             for path in source.list_files() {
-                if !out.contains(&path) {
+                if seen.insert(path.clone()) {
                     out.push(path);
                 }
             }

@@ -75,6 +75,12 @@ page — is tracked in that implementation's own changelog:
   and C# — two different binary tails of a double; a timeseries took any count. A distribution
   holds the same limit under `TDC089`. Found by the article agent.
 
+- **A project with its own packs no longer pays seconds to list the bundled ones — Python and
+  Rust.** With one `--data-path` or a `pack add`, the list of pack files was merged by checking
+  each path against everything listed before it: over the store's 33,000 files that was five
+  seconds of CPU in Python before a template typo could be reported. It is a set now; Java, C#
+  and TypeScript already did this.
+
 ### Changed
 
 - **The streaming engine stops redoing work on every row — in all five, same bytes.** It drew

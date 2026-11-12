@@ -5,6 +5,7 @@ from __future__ import annotations
 import hashlib
 import io
 import json
+import time
 import zipfile
 from pathlib import Path
 
@@ -301,6 +302,32 @@ def test_layers_are_searched_from_the_top_down(tmp_path: Path) -> None:
     )
     assert layered.read_lines("xx/a.txt")[0] == "high"
     assert layered.read_lines("xx/b.txt")[0] == "only-low"
+
+
+class _Listing:
+    """A source that only lists files — all a layered listing reads."""
+
+    def __init__(self, paths: list[str]) -> None:
+        self._paths = paths
+
+    def list_files(self) -> list[str]:
+        return list(self._paths)
+
+
+def test_a_layered_listing_keeps_order_and_names_each_path_once() -> None:
+    layered = source.Layered([_Listing(["a", "b", "c"]), _Listing(["b", "d", "a"])])  # type: ignore[list-item]
+    assert layered.list_files() == ["a", "b", "c", "d"]
+
+
+def test_a_layered_listing_of_the_whole_store_is_linear() -> None:
+    """The bundled store holds 33,000 files. Checking each path against the list built so far
+    compared every path with every earlier one: five seconds for a run with one ``--data-path``,
+    spent before a template typo could even be reported."""
+    paths = [f"xx/f{i}.txt" for i in range(40_000)]
+    layered = source.Layered([_Listing(paths), _Listing(paths[:10])])  # type: ignore[list-item]
+    started = time.perf_counter()
+    assert len(layered.list_files()) == 40_000
+    assert time.perf_counter() - started < 1.0
 
 
 def test_source_checkout_packs_finds_this_repository() -> None:

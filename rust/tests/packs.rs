@@ -369,3 +369,56 @@ mod discovery {
         let _ = fs::remove_dir_all(&root);
     }
 }
+
+mod layered_listing {
+    use tdcv2::packs::source::{LayeredSource, PackSource};
+
+    /// A source that only lists files — all a layered listing reads.
+    #[derive(Debug)]
+    struct Listing(Vec<String>);
+
+    impl PackSource for Listing {
+        fn has(&self, relative_path: &str) -> bool {
+            self.0.iter().any(|p| p == relative_path)
+        }
+        fn read_lines(&self, _relative_path: &str) -> Option<Vec<String>> {
+            None
+        }
+        fn list_files(&self) -> Vec<String> {
+            self.0.clone()
+        }
+        fn has_top_level(&self, _name: &str) -> bool {
+            false
+        }
+        fn has_country(&self, _name: &str) -> bool {
+            false
+        }
+        fn describe(&self) -> String {
+            "listing".to_owned()
+        }
+    }
+
+    fn listing(paths: &[&str]) -> Box<dyn PackSource + Send + Sync> {
+        Box::new(Listing(paths.iter().map(|p| (*p).to_owned()).collect()))
+    }
+
+    #[test]
+    fn keeps_order_and_names_each_path_once() {
+        let layered =
+            LayeredSource::new(vec![listing(&["a", "b", "c"]), listing(&["b", "d", "a"])]);
+        assert_eq!(layered.list_files(), vec!["a", "b", "c", "d"]);
+    }
+
+    /// The bundled store holds 33,000 files. Checking each path against the list built so far
+    /// compared every path with every earlier one — seconds for a run with one `--data-path`,
+    /// spent before a template typo could even be reported.
+    #[test]
+    fn the_whole_store_lists_in_linear_time() {
+        let paths: Vec<String> = (0..100_000).map(|i| format!("xx/f{i}.txt")).collect();
+        let first: Vec<&str> = paths.iter().map(String::as_str).collect();
+        let layered = LayeredSource::new(vec![listing(&first), listing(&first[..10])]);
+        let started = std::time::Instant::now();
+        assert_eq!(layered.list_files().len(), 100_000);
+        assert!(started.elapsed().as_secs_f64() < 1.0);
+    }
+}
