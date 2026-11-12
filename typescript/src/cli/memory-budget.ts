@@ -23,11 +23,16 @@ import { totalmem } from 'node:os';
 import { resolveExistingDataSourcePath, type DataSourceOptions } from '../data-source/index.js';
 
 /**
- * Resident cost of one worker before any data: a fresh isolate plus the loaded
- * packs and engine. Measured at ~107 MB; rounded up because a too-low guess is
- * the dangerous direction.
+ * Resident cost of one worker before any data, over a run long enough to be
+ * split. A fresh isolate with the packs and engine loaded is ~107 MB, and this
+ * once charged 120 — but V8 grows each heap with the garbage a run produces and
+ * keeps it while memory is free, so a worker that has drawn a few hundred
+ * thousand rows sits near 600 MB. Measured on 1,360,000 rows of two regex
+ * columns: 2.7 GB at four workers; on 4,080,000 rows at eleven: 6.7 GB. Charged
+ * at 120, the plan thought eleven workers needed 1.3 GB and promised half the
+ * machine while taking five times that.
  */
-const BYTES_PER_WORKER_BASE = 120 * 1024 * 1024;
+const BYTES_PER_WORKER_BASE = 600 * 1024 * 1024;
 
 /**
  * How much a byte of CSV on disk costs once parsed into JS strings and arrays.

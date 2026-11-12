@@ -72,7 +72,10 @@ Options:
                            Without it the run reads the real clock, so a config
                            using today / now / b_day cannot be reproduced later
   --data-path <dir>        Add a data folder for @data/... sources (repeatable)
-  --jobs <n>               Split the run across n processes. The output is
+  --jobs <n>               Split the run across n processes. By default TDC
+                           uses one per core bar one for a splittable run of
+                           100,000 rows or more, and one process otherwise or
+                           when the config calls a service. The output is
                            identical either way, but the COST is not: each
                            process keeps its own heap, so memory grows with the
                            job count. Use --jobs 1 when memory matters more than
@@ -380,13 +383,34 @@ def _produce(data: TDC, options: Options) -> int:
             return 1
 
     if options.output is not None:
-        data.write_file(options.output, workers=options.jobs)
+        data.write_file(options.output, workers=_workers(options, data))
     else:
         # Straight to stdout in one write per record batch rather than per record: a syscall a
         # row is most of the cost of a large run that is not being written to a file.
         sys.stdout.write(str(data))
 
     return 0
+
+
+def _workers(options: Options, data: TDC) -> int | str:
+    """How many processes the run asks for: ``--jobs`` as typed, otherwise automatic.
+
+    Automatic used to mean one, while the other four implementations took the cores — so Python,
+    the slowest of the five a row at a time, was also the only one that never split a run without
+    being told. A config that calls a service still runs as ONE process unless told otherwise:
+    splitting it on its own would hand the service several requests at once, which ``parallel=``
+    is the place to allow, not the size of this machine.
+    """
+    if options.jobs is None:
+        return 1 if data.uses_http() else "auto"
+    if options.jobs > 1:
+        fitted = data.fit_workers_to_memory(options.jobs)
+        if fitted < options.jobs:
+            sys.stderr.write(
+                f"tdcv2: --jobs {options.jobs} would not fit in memory with this data; "
+                f"using {fitted}.\n"
+            )
+    return options.jobs
 
 
 def _check(argv: list[str]) -> int:

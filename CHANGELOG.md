@@ -81,6 +81,21 @@ page — is tracked in that implementation's own changelog:
   seconds of CPU in Python before a template typo could be reported. It is a set now; Java, C#
   and TypeScript already did this.
 
+- **Python's command line splits a large run across processes without being told.** Without
+  `--jobs` it ran one process, while the other four took the cores and the guide said "you set
+  nothing" — so the slowest of the five a row at a time was the only one that never split a run
+  by itself. It now uses one process per core bar one for a splittable run of 100,000 rows or
+  more: 500,000 rows of two regex columns went from 49 s to 7.5 s, same bytes. A config that
+  calls a service still runs as one process unless `--jobs` says otherwise, as in the reference.
+  The count is cut to fit half the machine's memory, charging each process for the `src=` files
+  it parses again — the reference's rule — and an explicit `--jobs` that had to be cut says so.
+- **TypeScript budgets a worker at what a long run holds, not what it starts with.** The plan that
+  keeps a parallel run inside half the machine charged each worker 120 MB, measured at start-up;
+  a worker that has drawn a few hundred thousand rows sits near 600 MB, because V8 keeps a heap's
+  garbage while memory is free. Eleven workers measured 6.7 GB while the plan counted 1.3 GB. It
+  charges 600 MB now, so a machine with less memory gets fewer workers instead of a run that
+  swaps. Found from the article agent's parallelism questions.
+
 ### Changed
 
 - **The streaming engine stops redoing work on every row — in all five, same bytes.** It drew

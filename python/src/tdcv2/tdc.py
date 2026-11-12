@@ -23,6 +23,7 @@ from __future__ import annotations
 import math
 import os
 import random
+import re
 import time
 from array import array
 from collections.abc import Iterator
@@ -32,6 +33,7 @@ from pathlib import Path
 from . import engine
 from .engine import parallel, router
 from .errors import Diagnostic, TdcError, has_errors, summarize
+from .generators import file as file_gen
 from .generators import http_column
 from .human_bytes import human_bytes
 from .model.config import Config
@@ -69,6 +71,15 @@ _PARSE_FAILED_HINT = (
 
 WARN_RATIO = 0.5
 ERROR_RATIO = 0.9
+
+# What a split run may spend, the way the reference budgets its worker threads: every process
+# parses the config's data files again, so memory grows with the process count, and the plan may
+# take half the machine. One process before any data is ~55 MB, charged higher because a low guess
+# is the dangerous direction; a byte of CSV parsed into strings and lists is charged the
+# reference's measured 50.
+BYTES_PER_WORKER_BASE = 100 * 1024 * 1024
+PARSED_INFLATION = 50
+SAFE_SHARE = 0.5
 
 
 @dataclass(frozen=True, slots=True)
@@ -409,7 +420,36 @@ class TDC:
         if any(spec.each for spec in self._config.asserts):
             return 1
         # A worker that generates a handful of rows spends longer starting up than working.
-        return max(1, min(asked, self.count // parallel.MIN_ROWS_PER_WORKER))
+        return self.fit_workers_to_memory(
+            max(1, min(asked, self.count // parallel.MIN_ROWS_PER_WORKER))
+        )
+
+    def fit_workers_to_memory(self, asked: int) -> int:
+        """``asked`` processes, fewer if the data files they would each parse do not fit.
+
+        Never zero: one process always runs, because slow beats refused. The command line says so
+        when it cut a number the user typed; an automatic count is cut in silence.
+        """
+        total = _total_memory()
+        if asked <= 1 or total <= 0:
+            return max(1, asked)
+        per_worker = BYTES_PER_WORKER_BASE + self._data_file_bytes() * PARSED_INFLATION
+        return max(1, min(asked, int(total * SAFE_SHARE) // per_worker))
+
+    def _data_file_bytes(self) -> int:
+        """On-disk size of every ``src=`` file the config names — what each process parses again."""
+        total = 0
+        for src in re.findall(r'\bsrc\s*=\s*"([^"]*)"', self._source or ""):
+            if not src.strip():
+                continue
+            try:
+                found = file_gen.resolve(src, self._base_dir, self._packs.data_roots)
+                total += found.stat().st_size
+            except (ValueError, OSError):
+                # Missing or unreadable: the validator reports it properly, and this must never be
+                # the thing that fails a run.
+                continue
+        return total
 
     def to_list(self) -> list[Row]:
         """Every record, as rows."""

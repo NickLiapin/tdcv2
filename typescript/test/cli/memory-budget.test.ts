@@ -49,6 +49,14 @@ describe('fitJobsToMemory', () => {
     expect(small.jobs).toBeLessThan(large.jobs);
   });
 
+  it('charges a worker what a long run really holds, not what it starts with', () => {
+    // No data file at all. Eleven workers measured 6.7 GB on a 4,080,000-row run;
+    // charged at the 120 MB they start with, eleven "fitted" in half of 8 GB.
+    const out = fitJobsToMemory({ jobs: 11, dataBytes: 0, totalBytes: 8 * GB });
+    expect(out.jobs).toBeLessThan(11);
+    expect(out.reduced).toBe(true);
+  });
+
   it('never touches a single-threaded run', () => {
     const out = fitJobsToMemory({ jobs: 1, dataBytes: 5000 * MB, totalBytes: 1 * GB });
     expect(out.jobs).toBe(1);

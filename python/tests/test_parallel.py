@@ -7,6 +7,7 @@ what one process writes, and a fallback to one process wherever splitting would 
 
 from __future__ import annotations
 
+import importlib
 from itertools import pairwise
 from pathlib import Path
 
@@ -203,3 +204,54 @@ class TestWorkerCount:
     def test_rejects_a_workers_value_that_is_neither(self, tmp_path: Path) -> None:
         with pytest.raises(ValueError, match="int"):
             TDC(write_config(tmp_path, 100), now=NOW)._worker_count("many")
+
+
+# ── what the command line asks for when --jobs is not given ─────────────────────────────────
+
+
+def _config(tmp_path: Path, body: str, count: int = 200_000) -> TDC:
+    path = tmp_path / "c.tdc"
+    path.write_text(
+        f'<tdc><env count="{count}" seed="s">{body}</env>'
+        "<block><line><data>${{A}}</data></line></block></tdc>\n",
+        encoding="utf-8",
+    )
+    return TDC(path)
+
+
+def test_the_command_line_splits_a_large_run_without_being_told(tmp_path: Path) -> None:
+    """It used to run one process unless given --jobs, while the other four took the cores — so
+    the slowest of the five a row at a time was the only one that never split a run by itself:
+    49 s against 7.5 s on 500,000 rows of two regex columns."""
+    from tdcv2.cli.args import Options
+    from tdcv2.cli.main import _workers
+
+    data = _config(tmp_path, '<sequence name="A"><gen type="regex" value="[a-z]{8}"/></sequence>')
+    assert _workers(Options(output="o.csv"), data) == "auto"
+    assert _workers(Options(output="o.csv", jobs=3), data) == 3
+
+
+def test_a_config_that_calls_a_service_stays_one_process_unless_told(tmp_path: Path) -> None:
+    from tdcv2.cli.args import Options
+    from tdcv2.cli.main import _workers
+
+    data = _config(
+        tmp_path, '<sequence name="A"><gen type="http" src="http://127.0.0.1:9/"/></sequence>'
+    )
+    assert _workers(Options(output="o.csv"), data) == 1
+
+
+def test_workers_are_cut_to_what_the_data_files_leave_room_for(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """Every process parses the data files again. 4 MB of CSV is charged 200 MB a process; half
+    of a 2 GB machine holds four of those, not eleven."""
+    # By module path: the package's own `tdc` attribute is the quick API, not this module.
+    tdc_module = importlib.import_module("tdcv2.tdc")
+
+    (tmp_path / "big.csv").write_text("v\n" + "x" * (4 * 1024 * 1024) + "\n", encoding="utf-8")
+    data = _config(tmp_path, '<sequence name="A"><gen type="file" src="big.csv"/></sequence>')
+    monkeypatch.setattr(tdc_module, "_total_memory", lambda: 2 * 1024**3)
+    assert data.fit_workers_to_memory(11) == 3
+    monkeypatch.setattr(tdc_module, "_total_memory", lambda: 64 * 1024**3)
+    assert data.fit_workers_to_memory(11) == 11
