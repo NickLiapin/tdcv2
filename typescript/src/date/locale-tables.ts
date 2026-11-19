@@ -707,6 +707,9 @@ export const TH: DateLocale = {
     'พ.ย.',
     'ธ.ค.',
   ],
+  // Thai combining marks: prettier 3.9 measures this line as too wide and 3.10 as fitting, so
+  // each version rewrites the other's layout. Left as it is, both accept it.
+  // prettier-ignore
   weekdays: [
     'วันอาทิตย์',
     'วันจันทร์',
