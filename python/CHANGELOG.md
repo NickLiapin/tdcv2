@@ -11,6 +11,19 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [0.4.1] — 2026-11-19
+
+### Changed
+
+- The engine changes shared by all five implementations — see the
+  [engine changelog](../CHANGELOG.md#041--2026-11-19).
+- **The command line splits a large run across processes without `--jobs`.** One process per
+  core bar one for a splittable run of 100,000 rows or more, cut to half the machine's memory;
+  a config that calls a service stays on one process. The library's `write_file()` keeps its
+  default of one process. 500,000 rows of two regex columns: 49 s → 7.5 s, same bytes.
+- **Listing the pack files of a project with its own packs is linear.** It compared every path
+  with every earlier one: five seconds of CPU with one `--data-path`.
+
 ## [0.4.0] — 2026-11-09
 
 ### Changed

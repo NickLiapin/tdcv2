@@ -15,6 +15,8 @@ page — is tracked in that implementation's own changelog:
 
 ## [Unreleased]
 
+## [0.4.1] — 2026-11-19
+
 ### Fixed
 
 - **`parent=` on a `formula` or a date offset filters the column — in all five, on every
@@ -65,16 +67,6 @@ page — is tracked in that implementation's own changelog:
   sorted apart from it. A negative value that does not round to zero keeps its sign. Found by
   the article agent.
 
-### Added
-
-- **`TDC315`: `parent=` on a `running` total, a `stat`, or a formula that reads `prev()`.** They
-  read the rows around this one, so "only the rows the parent picked" could mean two different
-  columns; they used to ignore the filter in silence. Put `parent=` on the column they read —
-  both skip an empty cell — or, for `prev()`, write the condition into the expression.
-- **`TDC316`: `decimals=` on a `number` range or a `timeseries` must be a whole number from 0 to 10.** A range's `decimals="17"` stopped the run in three implementations and printed in Rust
-  and C# — two different binary tails of a double; a timeseries took any count. A distribution
-  holds the same limit under `TDC089`. Found by the article agent.
-
 - **A project with its own packs no longer pays seconds to list the bundled ones — Python and
   Rust.** With one `--data-path` or a `pack add`, the list of pack files was merged by checking
   each path against everything listed before it: over the store's 33,000 files that was five
@@ -95,6 +87,16 @@ page — is tracked in that implementation's own changelog:
   garbage while memory is free. Eleven workers measured 6.7 GB while the plan counted 1.3 GB. It
   charges 600 MB now, so a machine with less memory gets fewer workers instead of a run that
   swaps. Found from the article agent's parallelism questions.
+
+### Added
+
+- **`TDC315`: `parent=` on a `running` total, a `stat`, or a formula that reads `prev()`.** They
+  read the rows around this one, so "only the rows the parent picked" could mean two different
+  columns; they used to ignore the filter in silence. Put `parent=` on the column they read —
+  both skip an empty cell — or, for `prev()`, write the condition into the expression.
+- **`TDC316`: `decimals=` on a `number` range or a `timeseries` must be a whole number from 0 to 10.** A range's `decimals="17"` stopped the run in three implementations and printed in Rust
+  and C# — two different binary tails of a double; a timeseries took any count. A distribution
+  holds the same limit under `TDC089`. Found by the article agent.
 
 ### Changed
 

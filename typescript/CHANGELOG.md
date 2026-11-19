@@ -11,6 +11,16 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [0.4.1] — 2026-11-19
+
+### Changed
+
+- The engine changes shared by all five implementations — see the
+  [engine changelog](../CHANGELOG.md#041--2026-11-19).
+- **A parallel run budgets each worker at ~600 MB, what a long run really holds.** The plan that
+  keeps a run inside half the machine charged 120 MB, the start-up size, so eleven workers that
+  measured 6.7 GB were planned at 1.3 GB. A machine with less memory now gets fewer workers.
+
 ## [0.4.0] — 2026-11-09
 
 ### Changed

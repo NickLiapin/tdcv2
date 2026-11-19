@@ -11,6 +11,16 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [0.4.1] — 2026-11-19
+
+### Changed
+
+- The engine changes shared by all five implementations — see the
+  [engine changelog](../CHANGELOG.md#041--2026-11-19).
+- **Listing the pack files of a project with its own packs is linear.** It compared every path
+  with every earlier one. `--jobs` is still accepted and ignored — this build runs on one
+  thread — and the guides now say so.
+
 ## [0.4.0] — 2026-11-09
 
 ### Changed

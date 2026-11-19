@@ -16,6 +16,39 @@ donde la documentación lo explica ahora. Los cambios dentro del motor que no al
 que usted escribe o lee quedan fuera; todos los cambios están en el
 [registro de cambios](https://github.com/NickLiapin/tdcv2/blob/main/CHANGELOG.md).
 
+## 19 de noviembre de 2026 — versión 0.4.1
+
+Correcciones —la mayoría encontradas mientras se escribía un artículo sobre el generador
+`http`— y un motor de streaming más rápido. Una configuración que estaba bien no necesita
+cambios; algunas que daban un resultado incorrecto en silencio ahora lo dicen.
+
+- **`parent=` filtra un `formula` y un desplazamiento de fecha.** Antes se ignoraba en ambos: una
+  fórmula bajo `parent="Status.paid"` llenaba todas las filas y un `stat` count sobre ella daba
+  mal. En un total `running`, un `stat` o una fórmula que lee `prev()` ahora es `TDC315`: póngalo
+  en la columna que leen. → [Una fuente vacía da una respuesta vacía](./generators/formula.md#una-fuente-vacía-da-una-respuesta-vacía)
+- **`stat` con `sum`, `min` o `max` cuenta solo las celdas presentes.** Una última celda vacía
+  dejaba vacía toda la columna. → [`stat`](./generators/stat.md#top)
+- **Un escape que `regex` no conoce es un error.** `\b`, `\B`, `\A`, `\Z`, `\z`, `\G` y cualquier otra
+  letra desconocida tras la barra invertida son `TDC097` (`TDC130` en `advanced_regex`); antes se
+  imprimía la letra. `\xHH` y `\uHHHH` son el carácter con ese código. → [Escapado](./generators/regex.md#escapado)
+- **La columna `flag=` de un `<mix>` se puede leer con `parent=`, `of=` y una fórmula.** →
+  [Marcar valores atípicos con `flag`](./constructs/mix.md#marcar-valores-atípicos-con-flag)
+- **Las distribuciones y `timeseries` imprimen los mismos dígitos en todos los paquetes**, hasta
+  el último decimal. → [Distribuciones estadísticas](./guides/statistical-distributions.md#top)
+- **Un valor que se redondea a cero se imprime `0.00`, nunca `-0.00`.** → [`decimals`](./generators/number.md#decimals--una-columna-fraccionaria)
+- **`decimals=` en un rango `number` o un `timeseries` es un entero de 0 a 10, `TDC316`.**
+  → [`decimals`](./generators/number.md#decimals--una-columna-fraccionaria)
+- **El `MMM` ruso después de un día toma la forma dentro de la fecha:** `15 мая`, `15 июн.`, no
+  `15 май`. → [Formato de la salida](./generators/date.md#formato-de-la-salida)
+- **`<pad>` cuenta caracteres, y los cambios de mayúsculas coinciden** en letras como `ς` y `ﬁ` en
+  todos los paquetes. → [`<pad>`](./compute/strings.md#pad--rellenar-a-la-izquierda-hasta-un-ancho-fijo)
+- **El motor de streaming es dos o tres veces más rápido** en columnas `regex`, `advanced_regex` y
+  `number`, y en una columna que la fila lee dos veces. Los mismos bytes. → [Rendimiento](./guides/performance.md#top)
+- **La línea de comandos de Python usa todos los núcleos en una corrida grande sin `--jobs`**,
+  como las otras cuatro; una configuración que llama a un servicio sigue en un solo proceso. Rust
+  siempre corre en un hilo e ignora `--jobs`; un worker de TypeScript ahora se presupuesta en los
+  ~600 MB que de verdad ocupa en una corrida larga. → [Paralelismo — automático](./guides/large-outputs.md#paralelismo--automático)
+
 ## 9 de noviembre de 2026 — versión 0.4.0
 
 El generador `http` ahora funciona a cualquier escala. Si usted escribió un servicio para él, el

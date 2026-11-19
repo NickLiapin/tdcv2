@@ -12,6 +12,39 @@ now works differently — newest first, each with a link to where the docs expla
 Changes inside the engine that alter nothing you write or read are left out; every change is
 in the [changelog](https://github.com/NickLiapin/tdcv2/blob/main/CHANGELOG.md).
 
+## 19 November 2026 — version 0.4.1
+
+Fixes, most of them found while writing an article on the `http` generator, and a faster
+streaming engine. Nothing to change in a config that was right; a few that were silently wrong
+now say so.
+
+- **`parent=` filters a `formula` and a date offset.** It used to be ignored on both, so a
+  formula under `parent="Status.paid"` filled every row and a `stat` count over it was wrong.
+  On a `running` total, a `stat` or a formula that reads `prev()` it is now `TDC315`: put it on
+  the column they read. → [An empty source makes an empty answer](./generators/formula.mdx#an-empty-source-makes-an-empty-answer)
+- **`stat` with `sum`, `min` or `max` counts only the cells that are there.** A blank last cell
+  used to make the whole column empty. → [`stat`](./generators/stat.mdx)
+- **An escape `regex` does not know is an error.** `\b`, `\B`, `\A`, `\Z`, `\z`, `\G` and any other
+  unknown backslash-letter are `TDC097` (`TDC130` in `advanced_regex`); they used to print the
+  letter. `\xHH` and `\uHHHH` are the character with that code. → [Escaping](./generators/regex.mdx#escaping)
+- **A `<mix>` `flag=` column can be read by `parent=`, `of=` and a formula.** →
+  [Marking outliers with `flag`](./constructs/mix.mdx#marking-outliers-with-flag)
+- **Distributions and `timeseries` print the same digits in every package**, to the last decimal.
+  → [Statistical distributions](./guides/statistical-distributions.mdx)
+- **A value that rounds to zero prints `0.00`, never `-0.00`.** → [`decimals`](./generators/number.mdx#decimals--a-fractional-column)
+- **`decimals=` on a `number` range or a `timeseries` is a whole number from 0 to 10, `TDC316`.**
+  → [`decimals`](./generators/number.mdx#decimals--a-fractional-column)
+- **Russian `MMM` after a day takes the in-date form:** `15 мая`, `15 июн.`, not `15 май`. →
+  [Formatting the output](./generators/date.mdx#formatting-the-output)
+- **`<pad>` counts characters, and case changes agree** on letters such as `ς` and `ﬁ` in every
+  package. → [`<pad>`](./compute/strings.mdx#pad--pad-on-the-left-to-a-fixed-width)
+- **The streaming engine is two to three times faster** on `regex`, `advanced_regex` and `number`
+  columns, and on a column read twice in one row. Same bytes. → [Performance](./guides/performance.mdx)
+- **Python's command line uses every core on a large run without `--jobs`**, like the other
+  four; a config that calls a service still runs as one process. Rust always runs on one thread
+  and ignores `--jobs`; a TypeScript worker is now budgeted at the ~600 MB a long run really
+  holds. → [Parallelism — automatic](./guides/large-outputs.mdx#parallelism--automatic)
+
 ## 9 November 2026 — version 0.4.0
 
 The `http` generator now works at any size. If you wrote a service for it, the second and
