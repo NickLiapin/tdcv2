@@ -142,6 +142,26 @@ def _draw_pool_member(
     return candidates[slot] if slot < len(candidates) else 0
 
 
+def _remember_rows(column: Column, window: int) -> Column:
+    """The column, keeping its last ``window`` rows — for a column an ``http`` sends as ``in=``.
+
+    Row ``i`` lives in slot ``i % window`` until a row ``window`` away takes it; a batch and the
+    ones read ahead of it are consecutive rows inside the window, so none pushes out another. Each
+    slot holds one ``(row, value)`` tuple swapped in a single assignment, safe beside the http
+    prefetch. See :func:`http_column.input_windows`.
+    """
+    slots: list[tuple[int, str | None]] = [(-1, None)] * window
+
+    def remembered(row: int) -> str | None:
+        seen, value = slots[row % window]
+        if seen == row:
+            return value
+        value = column(row)
+        slots[row % window] = (row, value)
+        return value
+
+    return remembered
+
 
 def _remember_last_row(column: Column) -> Column:
     """The column, answering a repeat read of the row it last answered without drawing again.
@@ -160,6 +180,7 @@ def _remember_last_row(column: Column) -> Column:
         return value
 
     return remembered
+
 
 class StreamEngine:
     __slots__ = (
@@ -219,6 +240,9 @@ class StreamEngine:
         # alone, so the last answer is kept and a second read on the same row is free.
         for name, column in self.columns.items():
             self.columns[name] = _remember_last_row(column)
+        for name, window in http_column.input_windows(config).items():
+            if name in self.columns:
+                self.columns[name] = _remember_rows(self.columns[name], window)
         for name in http_uniq.sequences(config):
             if name in self.columns:
                 http_uniq.check(name, self.columns[name], self.count)
@@ -800,9 +824,7 @@ class StreamEngine:
                     r = domain.pop_index_at(row)
                     if r is None:
                         return None
-                    return repeat_gen.join(
-                        memory.sequential_row(values, r, spec.max, cycle), spec
-                    )
+                    return repeat_gen.join(memory.sequential_row(values, r, spec.max, cycle), spec)
 
                 return self._inline_built(mod, sequential_repeated, stream_id, gen, domain)
 

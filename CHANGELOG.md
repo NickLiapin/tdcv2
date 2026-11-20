@@ -15,6 +15,14 @@ page — is tracked in that implementation's own changelog:
 
 ## [Unreleased]
 
+### Changed
+
+- **A column an `http` sends as `in=` is drawn once per row — in all five, same bytes.** A batch
+  reads its input for `batch=` rows ahead of the line that prints them, and the column drew each
+  of those rows again when the line got there: the password a service hashed was generated twice.
+  The input column now keeps the rows of the batch being written and of the ones on the wire.
+  200,000 hashed rows: Python 12.2 s → 7.5 s, TypeScript about 3.7 s → 3.1 s.
+
 ## [0.4.1] — 2026-11-19
 
 ### Fixed

@@ -321,62 +321,93 @@ public sealed class HttpColumn
     /// sequence, a field, a part, an <c>if=</c> branch, a <c>&lt;mix&gt;</c> or
     /// <c>&lt;switch&gt;</c> case.
     /// </summary>
-    public static List<int> BatchesIn(Tdcv2.Model.Config config)
+    public static List<int> BatchesIn(Tdcv2.Model.Config config) =>
+        HttpGens(config).Select(gen => BatchOf(gen.Attrs)).ToList();
+
+    /// <summary>
+    /// Each column an <c>http</c> sends as <c>in=</c>, and how many of its rows to keep.
+    /// </summary>
+    /// <remarks>
+    /// A batch reads <c>batch=</c> rows of its input before the line that prints them gets there,
+    /// and the input column used to draw each of those rows again when it did: the password a
+    /// service hashed was generated twice. Keeping the batch being written, the ones on the wire
+    /// and one more is enough for every row to be drawn once.
+    /// </remarks>
+    public static Dictionary<string, int> InputWindows(Tdcv2.Model.Config config)
     {
-        var sizes = new List<int>();
+        var windows = new Dictionary<string, int>(StringComparer.Ordinal);
+        foreach (Tdcv2.Model.Gen gen in HttpGens(config))
+        {
+            string name = (gen.Attrs.GetValueOrDefault("in") ?? "").Trim();
+            if (name.Length == 0)
+            {
+                continue;
+            }
+
+            int window = BatchOf(gen.Attrs) * (ParseCount(gen.Attrs.GetValueOrDefault("parallel"), 1) + 2);
+            windows[name] = Math.Max(windows.GetValueOrDefault(name), window);
+        }
+
+        return windows;
+    }
+
+    /// <summary>Every <c>&lt;gen type="http"&gt;</c> in the run, wherever it sits.</summary>
+    private static List<Tdcv2.Model.Gen> HttpGens(Tdcv2.Model.Config config)
+    {
+        var gens = new List<Tdcv2.Model.Gen>();
         foreach (Tdcv2.Model.SequenceSpec spec in config.Sequences)
         {
-            CollectGen(spec.Gen, sizes);
+            CollectGen(spec.Gen, gens);
             foreach (Tdcv2.Model.Field field in spec.Fields ?? Array.Empty<Tdcv2.Model.Field>())
             {
-                CollectGen(field.Gen, sizes);
+                CollectGen(field.Gen, gens);
             }
 
             foreach (Tdcv2.Model.Item item in spec.Items ?? Array.Empty<Tdcv2.Model.Item>())
             {
-                CollectGen(item.Gen, sizes);
-                CollectGen(item.Field?.Gen, sizes);
+                CollectGen(item.Gen, gens);
+                CollectGen(item.Field?.Gen, gens);
             }
 
             foreach (Tdcv2.Model.Branch branch in spec.Branches ?? Array.Empty<Tdcv2.Model.Branch>())
             {
-                CollectGen(branch.Gen, sizes);
+                CollectGen(branch.Gen, gens);
             }
 
-            CollectMix(spec.Mix, sizes);
-            CollectSwitch(spec.SwitchSpec, sizes);
+            CollectMix(spec.Mix, gens);
+            CollectSwitch(spec.SwitchSpec, gens);
         }
 
-        return sizes;
+        return gens;
     }
 
-    private static void CollectGen(Tdcv2.Model.Gen? gen, List<int> sizes)
+    private static void CollectGen(Tdcv2.Model.Gen? gen, List<Tdcv2.Model.Gen> gens)
     {
         if (gen is { Type: "http" } http)
         {
-            sizes.Add(BatchOf(http.Attrs));
+            gens.Add(http);
         }
     }
 
-    private static void CollectCase(Tdcv2.Model.Case? c, List<int> sizes)
+    private static void CollectCase(Tdcv2.Model.Case? c, List<Tdcv2.Model.Gen> gens)
     {
         foreach (Tdcv2.Model.CasePart part in c?.Parts ?? Array.Empty<Tdcv2.Model.CasePart>())
         {
-            CollectGen(part.Gen, sizes);
-            CollectMix(part.Mix, sizes);
-            CollectSwitch(part.SwitchSpec, sizes);
+            CollectGen(part.Gen, gens);
+            CollectMix(part.Mix, gens);
+            CollectSwitch(part.SwitchSpec, gens);
         }
     }
 
-    private static void CollectMix(Tdcv2.Model.Mix? mix, List<int> sizes)
+    private static void CollectMix(Tdcv2.Model.Mix? mix, List<Tdcv2.Model.Gen> gens)
     {
         foreach (Tdcv2.Model.Case c in mix?.Cases ?? Array.Empty<Tdcv2.Model.Case>())
         {
-            CollectCase(c, sizes);
+            CollectCase(c, gens);
         }
     }
 
-    private static void CollectSwitch(Tdcv2.Model.Switch? sw, List<int> sizes)
+    private static void CollectSwitch(Tdcv2.Model.Switch? sw, List<Tdcv2.Model.Gen> gens)
     {
         if (sw is null)
         {
@@ -385,10 +416,10 @@ public sealed class HttpColumn
 
         foreach (Tdcv2.Model.SwitchEntry entry in sw.Entries)
         {
-            CollectCase(entry.Value, sizes);
+            CollectCase(entry.Value, gens);
         }
 
-        CollectCase(sw.Fallback, sizes);
+        CollectCase(sw.Fallback, gens);
     }
 
     /// <summary>

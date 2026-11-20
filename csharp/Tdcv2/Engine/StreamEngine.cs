@@ -778,6 +778,14 @@ public sealed class StreamEngine
             _columns[name] = RememberLastRow(_columns[name]);
         }
 
+        foreach ((string name, int window) in HttpColumn.InputWindows(_config))
+        {
+            if (_columns.TryGetValue(name, out Column? input))
+            {
+                _columns[name] = RememberRows(input, window);
+            }
+        }
+
         // A service's answers marked uniq="true" are checked first, before a row is written.
         foreach (string name in HttpUniq.Sequences(_config))
         {
@@ -2839,6 +2847,34 @@ public sealed class StreamEngine
             }
             string? value = column(row);
             Volatile.Write(ref last, new LastRow(row, value));
+            return value;
+        };
+    }
+
+    /// <summary>
+    /// The column, keeping its last <paramref name="window"/> rows — for a column an <c>http</c>
+    /// sends as <c>in=</c>.
+    /// </summary>
+    /// <remarks>
+    /// Row <c>i</c> lives in slot <c>i % window</c> until a row <c>window</c> away takes it; a
+    /// batch and the ones read ahead of it are consecutive rows inside the window, so none pushes
+    /// out another. Each slot holds one immutable record, so a reader on another thread sees a
+    /// whole answer or misses.
+    /// </remarks>
+    private static Column RememberRows(Column column, int window)
+    {
+        var slots = new LastRow?[window];
+        return row =>
+        {
+            int slot = row % window;
+            LastRow? seen = Volatile.Read(ref slots[slot]);
+            if (seen is not null && seen.Row == row)
+            {
+                return seen.Value;
+            }
+
+            string? value = column(row);
+            Volatile.Write(ref slots[slot], new LastRow(row, value));
             return value;
         };
     }

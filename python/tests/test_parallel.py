@@ -255,3 +255,47 @@ def test_workers_are_cut_to_what_the_data_files_leave_room_for(
     assert data.fit_workers_to_memory(11) == 3
     monkeypatch.setattr(tdc_module, "_total_memory", lambda: 64 * 1024**3)
     assert data.fit_workers_to_memory(11) == 11
+
+
+# ── the input column of an http batch is drawn once per row ─────────────────────────────────
+
+
+def test_an_http_input_column_keeps_the_rows_its_batches_read_ahead() -> None:
+    """A batch reads its in= column for batch= rows before the line gets there; the column used to
+    draw each of those rows again when it did — 12 s against 7.5 s on 200,000 hashed rows."""
+    from tdcv2.engine.stream import _remember_rows
+
+    draws: dict[int, int] = {}
+
+    def column(row: int) -> str:
+        draws[row] = draws.get(row, 0) + 1
+        return f"v{row}"
+
+    kept = _remember_rows(column, 10 * 3)
+    for batch in range(5):
+        for row in range(batch * 10, batch * 10 + 10):
+            kept(row)
+        for row in range(batch * 10, batch * 10 + 10):
+            assert kept(row) == f"v{row}"
+    assert set(draws.values()) == {1}
+    # A row never answers for another that shares its slot.
+    small = _remember_rows(column, 4)
+    assert small(101) == "v101" and small(105) == "v105" and small(101) == "v101"
+
+
+def test_input_windows_finds_every_http_in_and_keeps_the_widest(tmp_path: Path) -> None:
+    from tdcv2.generators import http_column
+
+    path = tmp_path / "c.tdc"
+    path.write_text(
+        '<tdc><env count="3" seed="s">'
+        '<sequence name="Pass"><gen type="regex" value="[a-z]{8}"/></sequence>'
+        '<sequence name="Hash"><gen type="http" src="http://127.0.0.1:9/" in="Pass"/></sequence>'
+        '<sequence name="Sig"><gen if="Pass == \'\'" type="http" src="http://127.0.0.1:9/" '
+        'in="Pass" batch="500" parallel="4"/><gen type="text" value="x"/></sequence>'
+        "</env><block><line><data>${{Pass}}</data></line></block></tdc>\n",
+        encoding="utf-8",
+    )
+    config = TDC(path)._config
+    # 10,000 × (1 + 2) against 500 × (4 + 2): the default batch wins.
+    assert http_column.input_windows(config) == {"Pass": 30_000}

@@ -359,49 +359,87 @@ public final class HttpColumn {
   /** {@code batch=} of every {@code <gen type="http">} in the run, wherever it sits. */
   public static List<Integer> batchesIn(io.github.nickliapin.tdc.model.Config config) {
     List<Integer> sizes = new ArrayList<>();
-    for (io.github.nickliapin.tdc.model.Config.SequenceSpec spec : config.sequences()) {
-      collect(spec.gen(), sizes);
-      if (spec.fields() != null) {
-        spec.fields().forEach(f -> collect(f.gen(), sizes));
-      }
-      if (spec.items() != null) {
-        for (io.github.nickliapin.tdc.model.Config.Item item : spec.items()) {
-          collect(item.gen(), sizes);
-          if (item.field() != null) {
-            collect(item.field().gen(), sizes);
-          }
-        }
-      }
-      if (spec.branches() != null) {
-        spec.branches().forEach(b -> collect(b.gen(), sizes));
-      }
-      collect(spec.mix(), sizes);
-      collect(spec.switchSpec(), sizes);
+    for (io.github.nickliapin.tdc.model.Config.Gen gen : httpGens(config)) {
+      sizes.add(batchOf(gen.attrs()));
     }
     return sizes;
   }
 
-  private static void collect(io.github.nickliapin.tdc.model.Config.Gen gen, List<Integer> out) {
+  /**
+   * Each column an {@code http} sends as {@code in=}, and how many of its rows to keep.
+   *
+   * <p>A batch reads {@code batch=} rows of its input before the line that prints them gets
+   * there, and the input column used to draw each of those rows again when it did: the password
+   * a service hashed was generated twice. Keeping the batch being written, the ones on the wire
+   * and one more is enough for every row to be drawn once.
+   */
+  public static Map<String, Integer> inputWindows(io.github.nickliapin.tdc.model.Config config) {
+    Map<String, Integer> out = new LinkedHashMap<>();
+    for (io.github.nickliapin.tdc.model.Config.Gen gen : httpGens(config)) {
+      String name = gen.attrs().get("in");
+      if (name == null || name.trim().isEmpty()) {
+        continue;
+      }
+      int window = batchOf(gen.attrs()) * (parseCount(gen.attrs().get("parallel"), 1) + 2);
+      out.merge(name.trim(), window, Math::max);
+    }
+    return out;
+  }
+
+  /** Every {@code <gen type="http">} in the run, wherever it sits. */
+  private static List<io.github.nickliapin.tdc.model.Config.Gen> httpGens(
+      io.github.nickliapin.tdc.model.Config config) {
+    List<io.github.nickliapin.tdc.model.Config.Gen> gens = new ArrayList<>();
+    for (io.github.nickliapin.tdc.model.Config.SequenceSpec spec : config.sequences()) {
+      collect(spec.gen(), gens);
+      if (spec.fields() != null) {
+        spec.fields().forEach(f -> collect(f.gen(), gens));
+      }
+      if (spec.items() != null) {
+        for (io.github.nickliapin.tdc.model.Config.Item item : spec.items()) {
+          collect(item.gen(), gens);
+          if (item.field() != null) {
+            collect(item.field().gen(), gens);
+          }
+        }
+      }
+      if (spec.branches() != null) {
+        spec.branches().forEach(b -> collect(b.gen(), gens));
+      }
+      collect(spec.mix(), gens);
+      collect(spec.switchSpec(), gens);
+    }
+    return gens;
+  }
+
+  private static void collect(
+      io.github.nickliapin.tdc.model.Config.Gen gen,
+      List<io.github.nickliapin.tdc.model.Config.Gen> out) {
     if (gen != null && "http".equals(gen.type())) {
-      out.add(batchOf(gen.attrs()));
+      out.add(gen);
     }
   }
 
-  private static void collect(io.github.nickliapin.tdc.model.Config.Mix mix, List<Integer> out) {
+  private static void collect(
+      io.github.nickliapin.tdc.model.Config.Mix mix,
+      List<io.github.nickliapin.tdc.model.Config.Gen> out) {
     if (mix != null) {
       mix.cases().forEach(c -> collect(c, out));
     }
   }
 
   private static void collect(
-      io.github.nickliapin.tdc.model.Config.Switch sw, List<Integer> out) {
+      io.github.nickliapin.tdc.model.Config.Switch sw,
+      List<io.github.nickliapin.tdc.model.Config.Gen> out) {
     if (sw != null) {
       sw.entries().forEach(e -> collect(e.value(), out));
       collect(sw.fallback(), out);
     }
   }
 
-  private static void collect(io.github.nickliapin.tdc.model.Config.Case c, List<Integer> out) {
+  private static void collect(
+      io.github.nickliapin.tdc.model.Config.Case c,
+      List<io.github.nickliapin.tdc.model.Config.Gen> out) {
     if (c == null) {
       return;
     }

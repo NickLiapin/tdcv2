@@ -394,3 +394,83 @@ impl Drop for AnswerFile {
         }
     }
 }
+
+/// Each column an `http` sends as `in=`, and how many of its rows to keep.
+///
+/// A batch reads `batch=` rows of its input before the line that prints them gets there, and the
+/// input column used to draw each of those rows again when it did: the password a service hashed
+/// was generated twice. Keeping the batch being written, the ones on the wire and one more is
+/// enough for every row to be drawn once.
+pub fn input_windows(config: &crate::model::config::Config) -> BTreeMap<String, usize> {
+    let mut out: BTreeMap<String, usize> = BTreeMap::new();
+    for gen in http_gens(config) {
+        let Some(name) = gen
+            .attrs
+            .get("in")
+            .map(|s| s.trim())
+            .filter(|s| !s.is_empty())
+        else {
+            continue;
+        };
+        let window = parse_count(gen.attrs.get("batch"), DEFAULT_BATCH)
+            * (parse_count(gen.attrs.get("parallel"), 1) + 2);
+        let kept = out.entry(name.to_owned()).or_insert(0);
+        *kept = (*kept).max(window);
+    }
+    out
+}
+
+/// Every `<gen type="http">` in the run, wherever it sits — a sequence, a field, a part, an `if=`
+/// branch, a `<mix>` or `<switch>` case.
+fn http_gens(config: &crate::model::config::Config) -> Vec<&crate::model::config::Gen> {
+    use crate::model::config::{Case, CasePart, Gen, Item, Mix, Source, Switch};
+    fn gen<'a>(g: &'a Gen, out: &mut Vec<&'a Gen>) {
+        if g.gen_type == "http" {
+            out.push(g);
+        }
+    }
+    fn case<'a>(c: &'a Case, out: &mut Vec<&'a Gen>) {
+        for part in &c.parts {
+            match part {
+                CasePart::Gen(g) => gen(g, out),
+                CasePart::Mix(m) => mix(m, out),
+                CasePart::Switch(s) => switch(s, out),
+                _ => {}
+            }
+        }
+    }
+    fn mix<'a>(m: &'a Mix, out: &mut Vec<&'a Gen>) {
+        for c in &m.cases {
+            case(c, out);
+        }
+    }
+    fn switch<'a>(s: &'a Switch, out: &mut Vec<&'a Gen>) {
+        for entry in &s.entries {
+            case(&entry.value, out);
+        }
+        if let Some(fallback) = &s.fallback {
+            case(fallback, out);
+        }
+    }
+    let mut out = Vec::new();
+    for spec in &config.sequences {
+        match &spec.source {
+            Source::Gen(g) => gen(g, &mut out),
+            Source::Fields(fields) => fields.iter().for_each(|f| gen(&f.gen, &mut out)),
+            Source::Items(items) => {
+                for item in items {
+                    match item {
+                        Item::Field(f) => gen(&f.gen, &mut out),
+                        Item::Gen(g) => gen(g, &mut out),
+                        _ => {}
+                    }
+                }
+            }
+            Source::Branches(branches) => branches.iter().for_each(|b| gen(&b.gen, &mut out)),
+            Source::Mix(m) => mix(m, &mut out),
+            Source::Switch(s) => switch(s, &mut out),
+            Source::Compute(_) => {}
+        }
+    }
+    out
+}

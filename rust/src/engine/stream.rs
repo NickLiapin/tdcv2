@@ -498,6 +498,10 @@ pub struct StreamEngine<'a> {
     /// being evaluated: inside one the same name is drawn under the body's seed, and that is
     /// not the answer the run itself would give.
     last_read: std::cell::RefCell<HashMap<String, (i32, Option<String>)>>,
+    /// For each column an `http` sends as `in=`, its recent rows: row `i` in slot `i % len`. A
+    /// batch reads its input rows ahead of the line, and without this each was drawn again when
+    /// the line reached it. See [`http_column::input_windows`].
+    input_rings: HashMap<String, std::cell::RefCell<Vec<(i32, Option<String>)>>>,
     count: i32,
     columns: BTreeMap<String, Column>,
     order: Vec<String>,
@@ -726,6 +730,10 @@ impl<'a> StreamEngine<'a> {
             seed: std::rc::Rc::from(config.seed.as_str()),
             body_seeds: std::cell::RefCell::new(Vec::new()),
             last_read: std::cell::RefCell::new(HashMap::new()),
+            input_rings: crate::generators::http_column::input_windows(config)
+                .into_iter()
+                .map(|(name, window)| (name, std::cell::RefCell::new(vec![(-1, None); window])))
+                .collect(),
             count: config.count,
             columns: BTreeMap::new(),
             order: Vec::new(),
@@ -2466,6 +2474,18 @@ impl StreamEngine<'_> {
             return Ok(None);
         };
         let outer = self.body_seeds.borrow().is_empty();
+        let ring = if outer {
+            self.input_rings.get(name)
+        } else {
+            None
+        };
+        if let Some(ring) = ring {
+            let kept = ring.borrow();
+            let (seen, value) = &kept[row as usize % kept.len()];
+            if *seen == row {
+                return Ok(value.clone());
+            }
+        }
         if outer {
             if let Some((seen, value)) = self.last_read.borrow().get(name) {
                 if *seen == row {
@@ -2474,6 +2494,11 @@ impl StreamEngine<'_> {
             }
         }
         let value = self.value_of(column, row)?;
+        if let Some(ring) = ring {
+            let mut kept = ring.borrow_mut();
+            let slot = row as usize % kept.len();
+            kept[slot] = (row, value.clone());
+        }
         if outer {
             let mut kept = self.last_read.borrow_mut();
             match kept.get_mut(name) {

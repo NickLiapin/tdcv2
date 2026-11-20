@@ -305,6 +305,18 @@ export function httpBatchOf(attrs: Readonly<Record<string, string | undefined>>)
   return parseCount(attrs['batch'], HTTP_DEFAULT_BATCH);
 }
 
+/**
+ * How many rows of its `in=` column one `<gen type="http">` reads ahead of the line.
+ *
+ * A batch reads `batch=` rows of the input before the line that prints them gets there, and the
+ * input column used to draw each of those rows again when it did: the password a service hashed
+ * was generated twice. Keeping the batch being written, the ones on the wire and one more is
+ * enough for every row to be drawn once. See `rememberRows` in `sequence/stream-lazy.ts`.
+ */
+export function httpInputWindowOf(attrs: Readonly<Record<string, string | undefined>>): number {
+  return httpBatchOf(attrs) * (parseCount(attrs['parallel'], 1) + 2);
+}
+
 /** A positive whole number from `batch=`/`parallel=`, or the default. */
 function parseCount(raw: string | undefined, fallback: number): number {
   if (raw === undefined) return fallback;

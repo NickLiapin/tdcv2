@@ -506,6 +506,8 @@ public final class StreamEngine {
     // and each read drew it from scratch. Every column is a function of the row alone, so the
     // last answer is kept and a second read on the same row is free.
     columns.replaceAll((name, column) -> rememberLastRow(column));
+    io.github.nickliapin.tdc.generators.HttpColumn.inputWindows(config)
+        .forEach((name, window) -> columns.computeIfPresent(name, (n, c) -> rememberRows(c, window)));
 
     // A service's answers marked uniq="true" are checked first, before a row is written.
     for (String name : HttpUniq.sequences(config)) {
@@ -2579,6 +2581,28 @@ public final class StreamEngine {
         last = new LastRow(row, value);
         return value;
       }
+    };
+  }
+
+  /**
+   * The column, keeping its last {@code window} rows — for a column an {@code http} sends as
+   * {@code in=}. Row {@code i} lives in slot {@code i % window} until a row {@code window} away
+   * takes it; a batch and the ones read ahead of it are consecutive rows inside the window, so
+   * none pushes out another. Each slot holds one immutable record, so a reader on another thread
+   * sees a whole answer or misses.
+   */
+  private static Column rememberRows(Column column, int window) {
+    java.util.concurrent.atomic.AtomicReferenceArray<LastRow> slots =
+        new java.util.concurrent.atomic.AtomicReferenceArray<>(window);
+    return row -> {
+      int slot = row % window;
+      LastRow seen = slots.get(slot);
+      if (seen != null && seen.row() == row) {
+        return seen.value();
+      }
+      String value = column.valueAt(row);
+      slots.set(slot, new LastRow(row, value));
+      return value;
     };
   }
 

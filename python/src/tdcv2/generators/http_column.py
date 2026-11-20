@@ -259,11 +259,33 @@ def batch_of(attrs: dict[str, str]) -> int:
 def batches_in(config) -> list[int]:
     """``batch=`` of every ``<gen type="http">`` in the run, wherever it sits — a sequence, a
     field, a part, an ``if=`` branch, a ``<mix>`` or ``<switch>`` case."""
-    out: list[int] = []
+    return [batch_of(g.attrs) for g in _http_gens(config)]
+
+
+def input_windows(config) -> dict[str, int]:
+    """Each column an ``http`` sends as ``in=``, and how many of its rows to keep.
+
+    A batch reads its ``in=`` column for ``batch=`` rows ahead of the line that prints them, and
+    the column used to draw each of those rows again when the line got there: the password a
+    service hashed was generated twice. Keeping the rows of the batch being written, the ones on
+    the wire and one more is enough for every row to be drawn once.
+    """
+    out: dict[str, int] = {}
+    for g in _http_gens(config):
+        name = (g.attrs.get("in") or "").strip()
+        if name:
+            window = batch_of(g.attrs) * (_parse_count(g.attrs.get("parallel"), 1) + 2)
+            out[name] = max(out.get(name, 0), window)
+    return out
+
+
+def _http_gens(config) -> list:
+    """Every ``<gen type="http">`` in the run, wherever it sits."""
+    out: list = []
 
     def gen(g) -> None:
         if g is not None and g.type == "http":
-            out.append(batch_of(g.attrs))
+            out.append(g)
 
     def case(c) -> None:
         if c is None:
