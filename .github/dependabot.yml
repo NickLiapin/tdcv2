@@ -52,6 +52,10 @@ updates:
       - dependency-name: "antlr4ng"
       - dependency-name: "jsep"
       - dependency-name: "fflate"
+      # 8.8 declares Node ^22.22.2 || ^24.15 || >=26, and tdcv2 still promises Node 20: PR 42
+      # crashed a test worker on every Node 20 run in CI. Held on 8.7 until Node 20 is dropped.
+      - dependency-name: "@inquirer/prompts"
+        versions: [">=8.8.0"]
       - dependency-name: "*"
         update-types: ["version-update:semver-major"]
     groups:

@@ -11,6 +11,13 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Fixed
+
+- **`@inquirer/prompts` is held on 8.7, so `tdcv2` keeps working on Node 20.** The range was
+  `^8.7.5`, and 8.8 declares Node `^22.22.2 || ^24.15 || >=26`: a fresh install on Node 20 took
+  it anyway (npm only warns about engines), and on Node 20 in CI it crashed a test worker every
+  run. The range is `~8.7.5` until Node 20 is dropped.
+
 ## [0.4.1] — 2026-11-19
 
 ### Changed
