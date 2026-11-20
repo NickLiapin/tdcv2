@@ -156,7 +156,10 @@ const OTHER_SPELLINGS: Readonly<Record<string, string>> = {
  */
 function checkAttributeNames(children: readonly ElementContext[], diags: Diagnostic[]): void {
   for (const el of children) {
-    const raw = el.dataElement() ?? el.mapElement();
+    // The common base, not the union: the two contexts are structurally identical, so TypeScript
+    // collapses `DataElementContext | MapElementContext` to the first and a map would then pass
+    // for a data element.
+    const raw: ParserRuleContext | null = el.dataElement() ?? el.mapElement();
     if (raw) {
       reportRawText(raw, el.dataElement() ? 'data' : 'map', diags);
       continue;

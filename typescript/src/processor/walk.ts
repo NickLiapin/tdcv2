@@ -19,6 +19,7 @@ import type {
   SelfClosingElementContext,
 } from '../generated/TDCParser.js';
 import {
+  DataSelfClosedContext as DataSelfClosedCtor,
   DataWithBodyContext as DataWithBodyCtor,
   MapWithBodyContext as MapWithBodyCtor,
 } from '../generated/TDCParser.js';
@@ -139,11 +140,10 @@ export function asDataWithBody(data: DataElementContext): DataWithBodyContext | 
 }
 
 export function asDataSelfClosed(data: DataElementContext): DataSelfClosedContext | undefined {
-  // Using name-based duck-typing here to avoid importing a second ctor
-  // just for a rare alt; the runtime class is DataSelfClosedContext.
-  return data.constructor.name === 'DataSelfClosedContext'
-    ? (data as DataSelfClosedContext)
-    : undefined;
+  // By constructor, like `asDataWithBody`. It used to compare the class NAME and cast, which
+  // typescript-eslint 8.72.2 refuses: the generated contexts are structurally identical, so a
+  // cast proves nothing about which one the object really is.
+  return data instanceof DataSelfClosedCtor ? data : undefined;
 }
 
 export function contentElements(content: ContentContext | null): ElementContext[] {
