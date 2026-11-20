@@ -40,7 +40,7 @@ own.
 
 #### Node.js — npm
 
-**Requirements:** Node.js **20.0.0** or newer.
+**Requirements:** Node.js **22.22.2** or newer in the 22 line, or **24.15** or newer.
 
 ```bash
 npm install -D tdcv2

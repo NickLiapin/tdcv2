@@ -11,12 +11,13 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
-### Fixed
+### Changed
 
-- **`@inquirer/prompts` is held on 8.7, so `tdcv2` keeps working on Node 20.** The range was
-  `^8.7.5`, and 8.8 declares Node `^22.22.2 || ^24.15 || >=26`: a fresh install on Node 20 took
-  it anyway (npm only warns about engines), and on Node 20 in CI it crashed a test worker every
-  run. The range is `~8.7.5` until Node 20 is dropped.
+- **Node.js 20 is no longer supported: `tdcv2` needs Node 22.22.2 or newer, or 24.15 or newer.**
+  Node 20 reached its end of life on 30 April 2026, and the prompts behind `tdcv2 init`
+  (`@inquirer/prompts` 8.8) already require the newer lines — a fresh install on Node 20 took
+  that version anyway, since npm only warns about engines, and it crashed a test worker on every
+  Node 20 run in CI. CI now tests Node 22 and 24.
 
 ## [0.4.1] — 2026-11-19
 

@@ -50,7 +50,7 @@
 | Официальный реестр MCP       | `io.github.NickLiapin/tdcv2`                                            |
 | npm                          | [`tdcv2-mcp`](https://www.npmjs.com/package/tdcv2-mcp) — сервер и скилл |
 
-Для всего нужен Node.js 20 или новее.
+Для всего нужен Node.js 22.22.2 или новее (либо 24.15 или новее).
 
 ## Версии
 

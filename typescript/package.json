@@ -138,13 +138,13 @@
     "vscode-languageserver-textdocument": "^1.0.16"
   },
   "engines": {
-    "node": ">=20.0.0"
+    "node": "^22.22.2 || ^24.15.0 || >=26.0.0"
   },
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@inquirer/prompts": "~8.7.5",
+    "@inquirer/prompts": "^8.7.5",
     "antlr4ng": "^3.0.16",
     "fflate": "^0.8.3",
     "jsep": "^1.4.0"

@@ -62,7 +62,7 @@ jobs:
       # runs on Node — `five-ways.mjs` invokes it before the suite.
       - uses: actions/setup-node@v7
         with:
-          node-version: "20"
+          node-version: "22"
       - uses: actions/setup-python@v7
         with:
           python-version: "3.10"
@@ -96,7 +96,7 @@ jobs:
       # As with Python: the parser is generated, and the generator runs on Node.
       - uses: actions/setup-node@v7
         with:
-          node-version: "20"
+          node-version: "22"
       # Both, and 6.0 is the one that matters: the projects target net6.0 — a
       # deliberate promise, since that is the oldest runtime still in support when a
       # consumer picks the package up — and the runner ships no .NET 6 at all. With

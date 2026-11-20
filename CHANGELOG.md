@@ -17,6 +17,10 @@ page — is tracked in that implementation's own changelog:
 
 ### Changed
 
+- **The npm package needs Node.js 22.22.2 or newer, or 24.15 or newer; Node 20 is dropped.** Node
+  20 reached its end of life on 30 April 2026 and a dependency of `tdcv2 init` already requires
+  the newer lines. The other four packages are unaffected. CI tests Node 22 and 24.
+
 - **A column an `http` sends as `in=` is drawn once per row — in all five, same bytes.** A batch
   reads its input for `batch=` rows ahead of the line that prints them, and the column drew each
   of those rows again when the line got there: the password a service hashed was generated twice.

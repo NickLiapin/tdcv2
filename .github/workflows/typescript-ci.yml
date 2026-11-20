@@ -60,7 +60,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node-version: ["20.x", "22.x"]
+        node-version: ["22.x", "24.x"]
 
     steps:
       - name: Checkout
@@ -78,7 +78,7 @@ jobs:
       # ONE suite run per leg — the two legs divide the work rather than
       # repeating it.
       #
-      # 20.x used to run the tests twice: once here with coverage, and again
+      # The gate leg (20.x then; 24.x since Node 20 was dropped) used to run the tests twice: once here with coverage, and again
       # inside `npm run check`, which contains its own `test` along with a
       # second typecheck, lint and format pass. That is what took the leg from
       # 16m08s in August to past the 20-minute ceiling, where GitHub cancels the
@@ -122,7 +122,7 @@ jobs:
       # It opens with lint, typecheck, format and the suite, which is why this
       # leg does not run those separately — see the note above them.
       - name: The whole gate (same command as local `npm run check`)
-        if: matrix.node-version == '20.x'
+        if: matrix.node-version == '24.x'
         run: npm run check --workspace=typescript
 
       # The root `npm run check` has four steps the workspace one does not, and
@@ -132,19 +132,19 @@ jobs:
       # its last shared case, or a generated pack could drift from its source,
       # and every workflow stayed green. Together they take under a second.
       - name: Every engine name still has a shared case
-        if: matrix.node-version == '20.x'
+        if: matrix.node-version == '24.x'
         run: npm run audit:fixtures
 
       - name: Generated packs still match their sources
-        if: matrix.node-version == '20.x'
+        if: matrix.node-version == '24.x'
         run: npm run packs:generated
 
       - name: Docs cover the engine
-        if: matrix.node-version == '20.x'
+        if: matrix.node-version == '24.x'
         run: node webdoc/scripts/audit-doc-coverage.mjs
 
       - name: Docs examples are self-consistent
-        if: matrix.node-version == '20.x'
+        if: matrix.node-version == '24.x'
         run: node webdoc/scripts/audit-example-consistency.mjs
 
       # Coverage is measured on the 22.x leg, so the report is there to upload.

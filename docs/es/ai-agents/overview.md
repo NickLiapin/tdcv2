@@ -51,7 +51,7 @@ no causa ningún problema: enseñan lo mismo.
 | Registro oficial de MCP        | `io.github.NickLiapin/tdcv2`                                              |
 | npm                            | [`tdcv2-mcp`](https://www.npmjs.com/package/tdcv2-mcp): el servidor y el skill |
 
-Todo requiere Node.js 20 o posterior.
+Todo requiere Node.js 22.22.2 o posterior (o 24.15 o posterior).
 
 ## Versiones
 

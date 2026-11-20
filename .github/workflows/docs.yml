@@ -67,7 +67,7 @@ jobs:
 
       - uses: actions/setup-node@v7
         with:
-          node-version: "20.x"
+          node-version: "22.x"
           cache: "npm"
 
       # Two installs on purpose: webdoc/ is NOT an npm workspace of the root — it

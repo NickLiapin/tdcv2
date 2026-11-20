@@ -313,7 +313,7 @@ shared fixtures, the documented examples, and a coverage floor.
 `node ../scripts/five-ways.mjs` runs all five implementations against the shared
 fixtures at once, which is the check that matters when the engine changes.
 
-**Built on:** Node.js 20+, TypeScript 5.6 in strict mode, ANTLR4 (`antlr-ng` to
+**Built on:** Node.js 22.22+ or 24.15+, TypeScript 5.6 in strict mode, ANTLR4 (`antlr-ng` to
 generate, `antlr4ng` at runtime) over
 [`grammar/`](https://github.com/NickLiapin/tdcv2/tree/main/grammar), Vitest,
 ESLint 9 and Prettier. The PRNG, the Parquet writer, the Snappy encoder and the

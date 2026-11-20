@@ -35,7 +35,7 @@ necesita nada de código.
 
 #### Node.js — npm
 
-**Requisitos:** Node.js **20.0.0** o más reciente.
+**Requisitos:** Node.js **22.22.2** o más reciente en la línea 22, o **24.15** o más reciente.
 
 ```bash
 npm install -D tdcv2

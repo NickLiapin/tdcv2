@@ -50,7 +50,7 @@ no harm: they teach the same thing.
 | Official MCP Registry    | `io.github.NickLiapin/tdcv2`                                            |
 | npm                      | [`tdcv2-mcp`](https://www.npmjs.com/package/tdcv2-mcp) — the server and the skill |
 
-Everything needs Node.js 20 or newer.
+Everything needs Node.js 22.22.2 or newer (or 24.15 or newer).
 
 ## Versions
 
