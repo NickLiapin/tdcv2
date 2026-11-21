@@ -116,7 +116,7 @@ async function handle(req, res) {
       const timestamp = String(req.headers['x-tdc-timestamp'] ?? '');
       const mine = createHmac('sha256', opts.secret)
         .update(
-          `${timestamp}\n${seed}\n${String(count)}\n${offsetHeader ?? ''}\n${totalHeader ?? ''}\n${body}`,
+          `${req.method}\n${req.url}\n${timestamp}\n${seed}\n${String(count)}\n${offsetHeader ?? ''}\n${totalHeader ?? ''}\n${body}`,
         )
         .digest('hex');
       if (signature === '' || signature !== mine) {

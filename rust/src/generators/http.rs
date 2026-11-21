@@ -26,6 +26,8 @@ use std::collections::BTreeMap;
 
 use crate::prng;
 
+use super::http_target::{http_target, HTTP_METHOD};
+
 const DEFAULT_TIMEOUT_MS: i64 = 30_000;
 
 /// What `on_error` may say.
@@ -120,16 +122,23 @@ pub fn fetch(batch: &Batch) -> Result<Vec<String>, Failed> {
     }
 }
 
-/// `hex(HMAC-SHA256(secret, timestamp \n seed \n count \n offset \n total \n body))`.
+/// `hex(HMAC-SHA256(secret, method \n target \n timestamp \n seed \n count \n offset \n total \n body))`.
 ///
-/// Everything that decides what comes back is inside: change the body, the
-/// count, the place in the column, the seed or the minute, and the signature no
-/// longer matches — so a captured batch cannot be replayed as another one. The
-/// secret is the key, so it is never sent — which is what makes this safe over
-/// plain http on a trusted network, and what makes a captured request useless
-/// tomorrow once the service checks the timestamp.
+/// Everything that decides what comes back is inside: change the address, the
+/// body, the count, the place in the column, the seed or the minute, and the
+/// signature no longer matches — so a captured batch cannot be replayed as
+/// another one, nor sent to another address of the same service. `target` is the
+/// path and query exactly as they went on the request line (see
+/// `http_target.rs`); the host and port are not in it, because proxies and port
+/// forwarding change them on the way. The secret is the key, so it is never sent
+/// — which is what makes this safe over plain http on a trusted network, and what
+/// makes a captured request useless tomorrow once the service checks the
+/// timestamp.
+#[allow(clippy::too_many_arguments)]
 pub fn sign_request(
     secret: &str,
+    method: &str,
+    target: &str,
     timestamp: &str,
     seed: &str,
     count: usize,
@@ -137,8 +146,58 @@ pub fn sign_request(
     total: usize,
     body: &str,
 ) -> String {
-    let message = format!("{timestamp}\n{seed}\n{count}\n{offset}\n{total}\n{body}");
+    let message =
+        format!("{method}\n{target}\n{timestamp}\n{seed}\n{count}\n{offset}\n{total}\n{body}");
     crate::archive::sha256::hmac_hex(secret.as_bytes(), message.as_bytes())
+}
+
+/// The headers that say what this request IS, beyond its body, in the order
+/// they go out.
+///
+/// `X-TDC-Input` closes an ambiguity the body alone cannot: `in=` naming a
+/// column of one empty value sends an empty body, byte for byte what a pure
+/// source sends, and the service invented a value where it had been asked to
+/// process one. Absent keeps the old reading, so a service written before this
+/// header is unaffected.
+///
+/// `now_seconds` is stamped into the signature; [`fetch`] passes the real clock,
+/// and a test can pin it.
+pub fn contract_headers(
+    batch: &Batch,
+    body: &str,
+    now_seconds: u64,
+) -> Vec<(&'static str, String)> {
+    let mut headers = vec![
+        // Bare, without a charset: the four other implementations send exactly this, and a
+        // service matching the header would have rejected the longer form.
+        ("Content-Type", "text/plain".to_string()),
+        ("X-TDC-Count", batch.count.to_string()),
+        ("X-TDC-Offset", batch.offset.to_string()),
+        ("X-TDC-Total", batch.total.to_string()),
+    ];
+    if let Some(seed) = batch.seed {
+        headers.push(("X-TDC-Seed", seed.to_string()));
+    }
+    if let Some(lines) = batch.inputs {
+        headers.push(("X-TDC-Input", lines.len().to_string()));
+    }
+    if let Some(secret) = batch.secret.filter(|s| !s.is_empty()) {
+        let timestamp = now_seconds.to_string();
+        let signature = sign_request(
+            secret,
+            HTTP_METHOD,
+            &http_target(batch.src).target,
+            &timestamp,
+            batch.seed.unwrap_or(""),
+            batch.count,
+            batch.offset,
+            batch.total,
+            body,
+        );
+        headers.push(("X-TDC-Timestamp", timestamp));
+        headers.push(("X-TDC-Signature", signature));
+    }
+    headers
 }
 
 /// The REAL clock, not the run's pinned `now`: the timestamp exists so a service
@@ -178,27 +237,14 @@ fn split_lines(text: &str) -> Vec<String> {
         .collect()
 }
 
-/// One POST, through curl.
+/// The curl invocation for one batch, everything but the body.
 ///
-/// The body goes on stdin rather than as an argument: an input column is the
-/// whole run, and a command line has a length limit that a million names would
-/// pass long before anything else went wrong.
-fn post(batch: &Batch, body: &str) -> Result<(String, Option<String>), Failure> {
-    use std::io::Write;
-
-    let Batch {
-        src,
-        count,
-        offset,
-        total,
-        seed,
-        timeout_ms,
-        secret,
-        ..
-    } = *batch;
-    let input_lines = batch.inputs.map(<[String]>::len);
-
-    let seconds = format!("{:.3}", timeout_ms as f64 / 1000.0);
+/// The URL is the one rebuilt around the signed target, never `src` as written:
+/// curl sends a target already in that form untouched, while `src` itself could
+/// reach the service as another path — and then fail a signature the service
+/// checks against the path it actually received.
+fn curl_command(batch: &Batch, body: &str, now_seconds: u64) -> std::process::Command {
+    let seconds = format!("{:.3}", batch.timeout_ms as f64 / 1000.0);
     let mut command = std::process::Command::new("curl");
     command
         .arg("--silent")
@@ -211,50 +257,29 @@ fn post(batch: &Batch, body: &str) -> Result<(String, Option<String>), Failure> 
         .arg("--max-time")
         .arg(&seconds)
         .arg("--request")
-        .arg("POST")
-        .arg("--header")
-        // Bare, without a charset: the four other implementations send exactly this, and a
-        // service matching the header would have rejected the longer form.
-        .arg("Content-Type: text/plain")
-        .arg("--header")
-        .arg(format!("X-TDC-Count: {count}"))
-        .arg("--header")
-        .arg(format!("X-TDC-Offset: {offset}"))
-        .arg("--header")
-        .arg(format!("X-TDC-Total: {total}"));
-    if let Some(seed) = seed {
-        command.arg("--header").arg(format!("X-TDC-Seed: {seed}"));
-    }
-    // `X-TDC-Input` closes an ambiguity the body alone cannot: `in=` naming a
-    // column of one empty value sends an empty body, byte for byte what a pure
-    // source sends, and the service invented a value where it had been asked to
-    // process one. Absent keeps the old reading, so a service written before
-    // this header is unaffected.
-    if let Some(lines) = input_lines {
-        command.arg("--header").arg(format!("X-TDC-Input: {lines}"));
-    }
-    if let Some(secret) = secret.filter(|s| !s.is_empty()) {
-        let timestamp = now_seconds().to_string();
-        let signature = sign_request(
-            secret,
-            &timestamp,
-            seed.unwrap_or(""),
-            count,
-            offset,
-            total,
-            body,
-        );
-        command
-            .arg("--header")
-            .arg(format!("X-TDC-Timestamp: {timestamp}"))
-            .arg("--header")
-            .arg(format!("X-TDC-Signature: {signature}"));
+        .arg(HTTP_METHOD);
+    for (name, value) in contract_headers(batch, body, now_seconds) {
+        command.arg("--header").arg(format!("{name}: {value}"));
     }
     command
         .arg("--data-binary")
         .arg("@-")
         .arg("--")
-        .arg(src)
+        .arg(http_target(batch.src).url);
+    command
+}
+
+/// One POST, through curl.
+///
+/// The body goes on stdin rather than as an argument: an input column is the
+/// whole run, and a command line has a length limit that a million names would
+/// pass long before anything else went wrong.
+fn post(batch: &Batch, body: &str) -> Result<(String, Option<String>), Failure> {
+    use std::io::Write;
+
+    let timeout_ms = batch.timeout_ms;
+    let mut command = curl_command(batch, body, now_seconds());
+    command
         .stdin(std::process::Stdio::piped())
         .stdout(std::process::Stdio::piped())
         .stderr(std::process::Stdio::piped());
@@ -432,5 +457,43 @@ fn expand_home(path: &str) -> std::path::PathBuf {
     match path.strip_prefix("~/") {
         Some(rest) if !home.is_empty() => std::path::PathBuf::from(home).join(rest),
         _ => std::path::PathBuf::from(path),
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn curl_is_handed_the_rebuilt_url_not_the_src() {
+        // The signed target is computed from `src`; curl must be handed the URL
+        // rebuilt around it, or it sends a request line the signature does not
+        // cover. Checked on the arguments, so it holds without a socket.
+        let batch = Batch {
+            src: " http://127.0.0.1:1/%7eme/%d0%bf a?k=it's#top ",
+            count: 1,
+            offset: 0,
+            total: 1,
+            inputs: None,
+            seed: None,
+            on_error: OnError::Fail,
+            timeout_ms: 1000,
+            secret: None,
+        };
+        let command = curl_command(&batch, "", 0);
+        let args: Vec<String> = command
+            .get_args()
+            .map(|a| a.to_string_lossy().into_owned())
+            .collect();
+        assert_eq!(
+            args.last().map(String::as_str),
+            Some("http://127.0.0.1:1/~me/%D0%BF%20a?k=it%27s")
+        );
+        // The method the signature names is the one curl sends.
+        let method = args
+            .iter()
+            .position(|a| a == "--request")
+            .and_then(|i| args.get(i + 1));
+        assert_eq!(method.map(String::as_str), Some(HTTP_METHOD));
     }
 }

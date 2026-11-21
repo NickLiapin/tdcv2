@@ -44,6 +44,41 @@
       "expected": ["error TDC066 1:70"]
     },
     {
+      "name": "http-src-dot-segment",
+      "demonstrates": "TDC066",
+      "description": "A path with a .. segment. The path is signed, and two of the five HTTP clients resolve /a/../gen to /gen on the way while three send it as written — the service would check a different path than the one signed",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"http\" src=\"http://127.0.0.1:5566/a/../gen\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC066 1:70"]
+    },
+    {
+      "name": "http-src-escaped-dot-segment",
+      "demonstrates": "TDC066",
+      "description": "The same .. spelled as %2E%2e — an escape of a plain character is that character, so it is a dot segment too",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"http\" src=\"http://127.0.0.1:5566/a/%2E%2e/gen\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC066 1:70"]
+    },
+    {
+      "name": "http-src-dots-inside-segments",
+      "demonstrates": "",
+      "description": "Dots inside a segment, and .. in the query, are not dot segments and stay silent",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"http\" src=\"http://127.0.0.1:5566/a..b/.gen?x=/../\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "http-src-backslash-before-path",
+      "demonstrates": "TDC066",
+      "description": "A backslash between the host and the path. The reference's URL parser reads it as / (host 127.0.0.1:5566, path /gen) while the other four read it as part of the host, so the path TDC signs would not be the one sent. Before this case TS and C# accepted it and failed every request with 401, Java refused it",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"http\" src=\"http://127.0.0.1:5566\\gen\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC066 1:70"]
+    },
+    {
+      "name": "http-src-path-to-encode",
+      "demonstrates": "",
+      "description": "A space, a | and a % that starts no escape in the path are encoded on the way (%20, %7C, %25), so the src is a sendable address. Java used to refuse it because java.net.URI cannot parse it as written",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"http\" src=\"http://127.0.0.1:5566/a b|c%zz\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": []
+    },
+    {
       "name": "http-in-names-nothing",
       "demonstrates": "TDC067",
       "description": "in= pointing at a sequence nobody declared",

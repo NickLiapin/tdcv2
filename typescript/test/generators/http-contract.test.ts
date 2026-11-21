@@ -17,6 +17,7 @@
 import { afterEach, describe, expect, it } from 'vitest';
 
 import {
+  buildHttpRequest,
   contractHeaders,
   fetchHttpBatch,
   signRequest,
@@ -109,6 +110,49 @@ describe('a signed request', () => {
     ).rejects.toThrow(/returned 401/);
   });
 
+  it('is accepted at an address the five HTTP clients would each have sent differently', async () => {
+    // The service checks against the request line it actually received. A path
+    // and query in the shapes that differ between clients (an escape of a plain
+    // letter, a quote in the query, a space, an empty ? at the end of another
+    // address) only pass if what was signed is what went on the wire.
+    service = await startService({ secret: SECRET, transform: (line) => `ok-${line}` });
+    const values = await fetchHttpValues({
+      src: `${service.url}/%7eme/%d0%bf a?k=it's&v=%41`,
+      count: 1,
+      inputs: ['x'],
+      seed: 'abc123',
+      secret: SECRET,
+      onError: 'fail',
+      timeoutMs: 2000,
+    });
+    expect(values).toEqual(['ok-x']);
+  });
+
+  it('is refused at another address of the same service', async () => {
+    // The replay found while writing the article on http (2026-11-19): one
+    // service, two addresses, one secret. A request signed for the first one,
+    // sent unchanged to the second, must not be answered.
+    service = await startService({ secret: SECRET, transform: (line) => `ok-${line}` });
+    const signedFor = buildHttpRequest({
+      src: `${service.url}/hash`,
+      count: 1,
+      inputs: ['qwerty'],
+      seed: 'abc123',
+      secret: SECRET,
+      onError: 'fail',
+      timeoutMs: 2000,
+    });
+    const replay = (url: string): Promise<number> =>
+      fetch(url, { method: 'POST', headers: signedFor.headers, body: signedFor.body }).then(
+        async (r) => {
+          await r.text();
+          return r.status;
+        },
+      );
+    expect(await replay(`${service.url}/hash`)).toBe(200);
+    expect(await replay(`${service.url}/invite`)).toBe(401);
+  });
+
   it('is refused when it carries no signature at all', async () => {
     service = await startService({ secret: SECRET });
     await expect(
@@ -133,19 +177,77 @@ describe('a signed request', () => {
     expect(headers['X-TDC-Timestamp']).toBe('1786000000');
   });
 
-  it('covers the timestamp, the seed, the count, the place in the column and the body', () => {
-    const base = signRequest(SECRET, '1786000000', 'seed1', 4, 0, 4, 'body');
-    expect(signRequest(SECRET, '1786000001', 'seed1', 4, 0, 4, 'body')).not.toBe(base);
-    expect(signRequest(SECRET, '1786000000', 'seed2', 4, 0, 4, 'body')).not.toBe(base);
-    expect(signRequest(SECRET, '1786000000', 'seed1', 5, 0, 4, 'body')).not.toBe(base);
-    expect(signRequest(SECRET, '1786000000', 'seed1', 4, 0, 4, 'other')).not.toBe(base);
+  it('covers the address, the timestamp, the seed, the count, the place in the column and the body', () => {
+    const sign = (
+      over: Partial<{
+        method: string;
+        target: string;
+        timestamp: string;
+        seed: string;
+        count: number;
+        offset: number;
+        total: number;
+        body: string;
+      }> = {},
+    ): string => {
+      const v = {
+        method: 'POST',
+        target: '/gen',
+        timestamp: '1786000000',
+        seed: 'seed1',
+        count: 4,
+        offset: 0,
+        total: 4,
+        body: 'body',
+        ...over,
+      };
+      return signRequest(
+        SECRET,
+        v.method,
+        v.target,
+        v.timestamp,
+        v.seed,
+        v.count,
+        v.offset,
+        v.total,
+        v.body,
+      );
+    };
+    const base = sign();
+    expect(sign({ timestamp: '1786000001' })).not.toBe(base);
+    expect(sign({ seed: 'seed2' })).not.toBe(base);
+    expect(sign({ count: 5 })).not.toBe(base);
+    expect(sign({ body: 'other' })).not.toBe(base);
+    // A request signed for one address is not a request for another one of the
+    // same service — the replay the article on http found, 2026-11-19.
+    expect(sign({ target: '/invite' })).not.toBe(base);
+    expect(sign({ target: '/gen?model=small' })).not.toBe(base);
+    expect(sign({ method: 'PUT' })).not.toBe(base);
     // A captured batch cannot be replayed as another one of the same column.
-    expect(signRequest(SECRET, '1786000000', 'seed1', 4, 4, 8, 'body')).not.toBe(
-      signRequest(SECRET, '1786000000', 'seed1', 4, 0, 8, 'body'),
-    );
-    expect(signRequest(SECRET, '1786000000', 'seed1', 4, 0, 8, 'body')).not.toBe(base);
+    expect(sign({ offset: 4, total: 8 })).not.toBe(sign({ total: 8 }));
+    expect(sign({ total: 8 })).not.toBe(base);
     // …and it is a function of those alone.
-    expect(signRequest(SECRET, '1786000000', 'seed1', 4, 0, 4, 'body')).toBe(base);
+    expect(sign()).toBe(base);
+  });
+
+  it('signs the target that goes on the wire, not the src as written', () => {
+    const headers = contractHeaders(
+      {
+        src: 'http://127.0.0.1:1/gen?',
+        count: 4,
+        offset: 0,
+        total: 4,
+        seed: 'seed1',
+        secret: SECRET,
+        onError: 'fail',
+        timeoutMs: 1000,
+        nowMs: 1_786_000_000_000,
+      },
+      'body',
+    );
+    expect(headers['X-TDC-Signature']).toBe(
+      signRequest(SECRET, 'POST', '/gen', '1786000000', 'seed1', 4, 0, 4, 'body'),
+    );
   });
 
   it('is absent when the config declares no secret', () => {

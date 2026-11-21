@@ -406,20 +406,30 @@ Two extra headers travel with the request:
 
 ```
 X-TDC-Timestamp: 1786000000
-X-TDC-Signature: hex(HMAC-SHA256(secret, timestamp \n seed \n count \n offset \n total \n body))
+X-TDC-Signature: hex(HMAC-SHA256(secret, method \n path \n timestamp \n seed \n count \n offset \n total \n body))
 ```
 
-Everything that decides the answer is inside the signature — change the body, the count,
-the batch's offset, the seed or the minute and it no longer matches. Verifying it is a few
-lines:
+Everything that decides the answer is inside the signature. Change the path, the body, the
+count, the batch's offset, the seed or the minute, and it no longer matches. Verifying it is
+a few lines:
 
 ```js
 const mine = crypto
   .createHmac('sha256', process.env.TDC_HTTP_SECRET)
-  .update(`${ts}\n${seed}\n${count}\n${offset}\n${total}\n${body}`)
+  .update(`${req.method}\n${req.url}\n${ts}\n${seed}\n${count}\n${offset}\n${total}\n${body}`)
   .digest('hex');
 if (mine !== req.headers['x-tdc-signature']) return res.status(401).end();
 ```
+
+`method` is always `POST`. `path` is the path and query **exactly as they arrived on the
+request line**: `/hash`, `/v1/score?model=small`. In Node that is `req.url`. Read it from the
+request, never from your own copy of `src=`: before sending, TDC writes every path in one
+form (`%7e` becomes `~`, `'` becomes `%27`, a space becomes `%20`, an empty `?` is dropped),
+because the five HTTP clients would each have changed it differently. A `src` with a `.` or
+`..` segment is refused ([`TDC066`](../reference/errors.mdx)) for the same reason.
+
+The host and port are not signed. A proxy or port forwarding changes them on the way, and
+the signature would break for no reason.
 
 All five implementations produce the **same** signature for the same request, so one
 service accepts requests from any of them.
@@ -443,6 +453,16 @@ signature anyone could forge.
 - The timestamp is what makes a captured request useless tomorrow — **how strict that
   window is, is your service's decision.** TDC sends its real clock, not the run's
   `--now`, so a config pinned to a past date still works.
+- **The window does not make a request single-use.** Inside it, a captured request can be
+  sent again as often as anyone likes, and every copy makes your service do the work again.
+  If that work is expensive, remember the signatures you have already seen for the length
+  of the window, or limit the request rate.
+- The path is signed, the host is not. One secret can serve every path of one service, but
+  **two services that share a secret accept each other's requests** for the same path. Give
+  each service its own.
+- **Behind a proxy that rewrites the path** (TDC calls `/tdc/hash`, the service sees
+  `/hash`), check the signature against the outside path: your service has to know its
+  prefix.
 - The secret has **no expiry**. A test that runs once a quarter signs correctly with a key
   set months ago, which is why this is a signature and not an expiring token.
 - It does **not hide the contents.** Over plain `http://` the body and reply are visible to

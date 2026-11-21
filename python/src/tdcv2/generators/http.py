@@ -22,6 +22,8 @@ import urllib.request
 from dataclasses import dataclass
 from enum import Enum
 
+from .http_target import HTTP_METHOD, http_target
+
 DEFAULT_TIMEOUT_MS = 30_000
 
 
@@ -108,17 +110,29 @@ class Request:
 
 
 def sign_request(
-    secret: str, timestamp: str, seed: str, count: int, offset: int, total: int, body: str
+    secret: str,
+    method: str,
+    target: str,
+    timestamp: str,
+    seed: str,
+    count: int,
+    offset: int,
+    total: int,
+    body: str,
 ) -> str:
-    """``hex(HMAC-SHA256(secret, timestamp \n seed \n count \n offset \n total \n body))``.
+    """``hex(HMAC-SHA256(secret, method \n target \n timestamp \n seed \n count \n offset \n
+    total \n body))``.
 
-    Everything that decides what comes back is inside: change the body, the count, the place in
-    the column, the seed or the minute, and the signature no longer matches — so a captured batch
-    cannot be replayed as another one. The secret is the key, so it is never sent.
+    Everything that decides what comes back is inside: change the address, the body, the count,
+    the place in the column, the seed or the minute, and the signature no longer matches — so a
+    captured batch cannot be replayed as another one, nor sent to another address of the same
+    service. ``target`` is the path and query exactly as they went on the request line (see
+    ``http_target``); the host and port are not in it, because proxies and port forwarding change
+    them on the way. The secret is the key, so it is never sent.
     """
     return hmac.new(
         secret.encode("utf-8"),
-        f"{timestamp}\n{seed}\n{count}\n{offset}\n{total}\n{body}".encode(),
+        f"{method}\n{target}\n{timestamp}\n{seed}\n{count}\n{offset}\n{total}\n{body}".encode(),
         hashlib.sha256,
     ).hexdigest()
 
@@ -151,6 +165,8 @@ def contract_headers(request: Request, body: str) -> dict[str, str]:
         headers["X-TDC-Timestamp"] = timestamp
         headers["X-TDC-Signature"] = sign_request(
             request.secret,
+            HTTP_METHOD,
+            http_target(request.src).target,
             timestamp,
             request.seed or "",
             request.count,
@@ -187,9 +203,13 @@ def fetch(request: Request) -> list[str]:
     body = "" if request.inputs is None else "\n".join(request.inputs)
     headers = contract_headers(request, body)
 
-    # The URL is the config author's own service, named in their own config.
+    # The URL is the config author's own service, named in their own config — rebuilt around the
+    # target that was signed, so urllib sends that target untouched (see http_target).
     post = urllib.request.Request(
-        request.src, data=body.encode("utf-8"), headers=headers, method="POST"
+        http_target(request.src).url,
+        data=body.encode("utf-8"),
+        headers=headers,
+        method=HTTP_METHOD,
     )
 
     try:

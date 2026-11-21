@@ -17,6 +17,7 @@ import { createHmac } from 'node:crypto';
 
 import { cyrb128 } from '../prng/prng.js';
 
+import { HTTP_METHOD, httpTarget } from './http-target.js';
 import {
   syncHttpTransport,
   type RawRequest,
@@ -124,6 +125,8 @@ export function contractHeaders(opts: HttpFetchOptions, body: string): Record<st
     headers['X-TDC-Timestamp'] = timestamp;
     headers['X-TDC-Signature'] = signRequest(
       opts.secret,
+      HTTP_METHOD,
+      httpTarget(opts.src).target,
       timestamp,
       opts.seed ?? '',
       opts.count,
@@ -146,17 +149,23 @@ function totalOf(opts: HttpFetchOptions): number {
 }
 
 /**
- * `hex(HMAC-SHA256(secret, timestamp \n seed \n count \n offset \n total \n body))`.
+ * `hex(HMAC-SHA256(secret, method \n target \n timestamp \n seed \n count \n offset \n total \n body))`.
  *
- * Everything that decides what comes back is inside: change the body, the count,
- * the place in the column, the seed or the minute, and the signature no longer
- * matches — so a captured batch cannot be replayed as another one. The secret is the
- * key, so it is never sent — which is what makes this safe over plain http on a
- * trusted network, and what makes a captured request useless tomorrow once the
- * service checks the timestamp.
+ * Everything that decides what comes back is inside: change the address, the
+ * body, the count, the place in the column, the seed or the minute, and the
+ * signature no longer matches — so a captured batch cannot be replayed as
+ * another one, nor sent to another address of the same service. `target` is the
+ * path and query exactly as they went on the request line (see
+ * `http-target.ts`); the host and port are not in it, because proxies and port
+ * forwarding change them on the way. The secret is the key, so it is never sent
+ * — which is what makes this safe over plain http on a trusted network, and what
+ * makes a captured request useless tomorrow once the service checks the
+ * timestamp.
  */
 export function signRequest(
   secret: string,
+  method: string,
+  target: string,
   timestamp: string,
   seed: string,
   count: number,
@@ -165,7 +174,9 @@ export function signRequest(
   body: string,
 ): string {
   return createHmac('sha256', secret)
-    .update(`${timestamp}\n${seed}\n${String(count)}\n${String(offset)}\n${String(total)}\n${body}`)
+    .update(
+      `${method}\n${target}\n${timestamp}\n${seed}\n${String(count)}\n${String(offset)}\n${String(total)}\n${body}`,
+    )
     .digest('hex');
 }
 
@@ -188,7 +199,7 @@ export function httpSeedFor(envSeed: string, sequenceName: string): string {
 export function buildHttpRequest(opts: HttpFetchOptions): RawRequest {
   const body = opts.inputs === undefined ? '' : opts.inputs.join('\n');
   return {
-    url: opts.src,
+    url: httpTarget(opts.src).url,
     headers: contractHeaders(opts, body),
     body,
     timeoutMs: opts.timeoutMs,

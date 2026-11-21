@@ -3613,7 +3613,22 @@ impl Validator {
                 "e.g. src=\"http://127.0.0.1:5566/gen\" or src=\"https://svc.example.com/gen\".",
                 gen.at("src"),
             ),
-            Some(_) => {}
+            // The path is signed, so it must reach the service exactly as TDC
+            // signed it — and a `.` or `..` segment does not: some HTTP clients
+            // resolve it on the way, others send it as written. See
+            // generators/http_target.rs.
+            Some(src) => {
+                if let Some(dot) = crate::generators::http_target::dot_segment_of(src) {
+                    self.error(
+                        "TDC066",
+                        format!("invalid http src \"{src}\" — the path has a \"{dot}\" segment"),
+                        "Write the path the service sees: \"http://host/a/../b\" is \
+                         \"http://host/b\". The path is signed exactly as written, so it cannot \
+                         be left to the HTTP client to resolve.",
+                        gen.at("src"),
+                    );
+                }
+            }
         }
 
         if let Some(name) = attrs.get("in").map(|v| v.trim().to_string()) {
@@ -8107,7 +8122,9 @@ fn is_http_url(value: &str) -> bool {
     };
     // A host, and something that is not another scheme separator.
     let host = rest.split(['/', '?', '#']).next().unwrap_or("");
-    !host.is_empty()
+    // A backslash before the path: the reference's URL parser reads it as `/`,
+    // so the signed path would not be the one sent. Refused in all five.
+    !host.is_empty() && !host.contains('\\')
 }
 
 /// The first date attribute a complaint should point at, in the order the

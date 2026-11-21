@@ -59,6 +59,7 @@ from ..generators import number as number_gen
 from ..generators import regex
 from ..generators import repeat as repeat_gen
 from ..generators import stat as stat_gen
+from ..generators.http_target import dot_segment_of
 from ..lib import numbers
 from ..output import column_type
 from ..packs import DataPacks
@@ -3701,6 +3702,21 @@ class _Validator:
                 line,
                 column,
             )
+        else:
+            # The path is signed, so it must reach the service exactly as TDC signed it — and a
+            # `.` or `..` segment does not: some HTTP clients resolve it on the way, others send
+            # it as written. See generators/http_target.py.
+            dot = dot_segment_of(src.strip())
+            if dot is not None:
+                self._error(
+                    "TDC066",
+                    f'invalid http src "{src.strip()}" — the path has a "{dot}" segment',
+                    'Write the path the service sees: "http://host/a/../b" is "http://host/b". '
+                    "The path is signed exactly as written, so it cannot be left to the HTTP "
+                    "client to resolve.",
+                    line,
+                    column,
+                )
 
         in_name = attrs.get("in")
         if in_name is not None and in_name.strip() not in self.declared_names:
@@ -7408,7 +7424,13 @@ def _is_http_url(value: str) -> bool:
         parsed = urlparse(value)
     except ValueError:
         return False
-    return parsed.scheme in ("http", "https") and bool(parsed.hostname)
+    # A backslash before the path: the reference's URL parser reads it as `/`, so the
+    # signed path would not be the one sent. Refused in all five.
+    return (
+        parsed.scheme in ("http", "https")
+        and bool(parsed.hostname)
+        and "\\" not in parsed.netloc
+    )
 
 
 def _primary_date_attr(attrs: dict[str, str]) -> str:

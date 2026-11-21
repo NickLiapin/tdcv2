@@ -1,12 +1,14 @@
 package io.github.nickliapin.tdc;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.nickliapin.tdc.distribution.Hamilton;
 import io.github.nickliapin.tdc.generators.HttpGen;
+import io.github.nickliapin.tdc.generators.HttpTarget;
 import io.github.nickliapin.tdc.prng.Prng;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -190,6 +192,8 @@ class CrossLanguageVectorsTest {
           v.get("signature").asText(),
           HttpGen.signRequest(
               v.get("secret").asText(),
+              v.get("method").asText(),
+              v.get("target").asText(),
               v.get("timestamp").asText(),
               v.get("seed").asText(),
               v.get("count").asInt(),
@@ -217,6 +221,51 @@ class CrossLanguageVectorsTest {
         signatures.size(),
         signatures.stream().distinct().count(),
         "two vectors share a signature");
+  }
+
+  /**
+   * What is signed must be what the service reads off the request line, and the five HTTP
+   * clients do not send one URL the same way — so the target is computed by one rule and the URL
+   * actually sent is rebuilt from it. A port that computed another target would sign bytes its
+   * own request line does not carry.
+   */
+  @Test
+  @DisplayName("every signed target in http-vectors.json")
+  void httpTargetVectors() throws IOException {
+    JsonNode vectors = read("http-vectors.json").get("target").get("vectors");
+    assertTrue(vectors.size() > 0, "an empty fixture would pass anything");
+    for (JsonNode v : vectors) {
+      String name = v.get("name").asText();
+      HttpTarget got = HttpTarget.of(v.get("src").asText());
+      assertEquals(v.get("target").asText(), got.target(), name + ": target");
+      assertEquals(v.get("url").asText(), got.url(), name + ": url");
+    }
+  }
+
+  /**
+   * The property the rebuilt URL relies on: what the rule produced, it produces again — so a
+   * client handed it has nothing left to change.
+   */
+  @Test
+  @DisplayName("a target already in its form is left untouched")
+  void httpTargetIsIdempotent() throws IOException {
+    JsonNode vectors = read("http-vectors.json").get("target").get("vectors");
+    for (JsonNode v : vectors) {
+      String name = v.get("name").asText();
+      HttpTarget again = HttpTarget.of(v.get("url").asText());
+      assertEquals(v.get("target").asText(), again.target(), name + ": target");
+      assertEquals(v.get("url").asText(), again.url(), name + ": url");
+    }
+  }
+
+  @Test
+  @DisplayName("a dot segment is found however it is spelled")
+  void httpDotSegment() {
+    assertEquals("..", HttpTarget.dotSegmentOf("http://h/a/../b"));
+    assertEquals(".", HttpTarget.dotSegmentOf("http://h/./b"));
+    assertEquals("..", HttpTarget.dotSegmentOf("http://h/a/%2e%2E"));
+    assertEquals("..", HttpTarget.dotSegmentOf("http://h/a/.%2e/b?x=.."));
+    assertNull(HttpTarget.dotSegmentOf("http://h/a..b/.x/x.?q=/../"));
   }
 
   @Test

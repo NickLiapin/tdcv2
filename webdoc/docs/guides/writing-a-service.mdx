@@ -560,7 +560,7 @@ request then carries two more headers, and the secret itself never travels:
 
 ```
 X-TDC-Timestamp: 1786000000
-X-TDC-Signature: hex(HMAC-SHA256(secret, timestamp \n seed \n count \n offset \n total \n body))
+X-TDC-Signature: hex(HMAC-SHA256(secret, method \n path \n timestamp \n seed \n count \n offset \n total \n body))
 ```
 
 Verifying is the same few lines in any language — recompute and compare:
@@ -568,12 +568,18 @@ Verifying is the same few lines in any language — recompute and compare:
 ```js
 const mine = crypto
   .createHmac('sha256', process.env.TDC_HTTP_SECRET)
-  .update(`${ts}\n${seed}\n${count}\n${offset}\n${total}\n${body}`)
+  .update(`${req.method}\n${req.url}\n${ts}\n${seed}\n${count}\n${offset}\n${total}\n${body}`)
   .digest('hex');
 if (mine !== req.headers['x-tdc-signature']) return res.status(401).end();
 ```
 
-Three things worth knowing before you write that check:
+`req.url` is the path and query as they arrived on the request line, `/hash?v=2`, not
+parsed and not decoded. Other servers have the same value under another name: `self.path`
+in Python's `http.server`, `getRawPath()` plus `getRawQuery()` in Java, `RawUrl` in .NET.
+Because the path is signed, one secret can cover every path of your service: a request
+signed for `/hash` is refused at `/invite`.
+
+Four things worth knowing before you write that check:
 
 - **The window is yours to choose.** TDC stamps its real clock and nothing else; how old a
   request may be before you refuse it is your policy. A few minutes is a sensible default,
@@ -582,6 +588,9 @@ Three things worth knowing before you write that check:
   correctly. That is the reason for a signature rather than a token.
 - **Signing is not encryption.** Over plain `http://` the body is still readable by anyone
   on the path. Use `https://` as well when the values themselves are sensitive.
+- **A signed request is not single-use.** Inside the window it can be sent again as often
+  as anyone likes. If the work is expensive, remember the signatures you have seen for the
+  length of the window, or limit the request rate.
 
 ## Before you point TDC at it
 

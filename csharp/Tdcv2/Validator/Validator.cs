@@ -4399,6 +4399,20 @@ public sealed class Validator
                 "e.g. src=\"http://127.0.0.1:5566/gen\" or src=\"https://svc.example.com/gen\".",
                 line, column);
         }
+        else if (HttpTarget.DotSegmentOf(src.Trim()) is { } dot)
+        {
+            // The path is signed, so it must reach the service exactly as TDC signed it — and a
+            // `.` or `..` segment does not: some HTTP clients resolve it on the way, others send
+            // it as written. See Generators/HttpTarget.cs.
+            (int line, int column) = At(gen, "src");
+            Error(
+                "TDC066",
+                $"invalid http src \"{src.Trim()}\" — the path has a \"{dot}\" segment",
+                "Write the path the service sees: \"http://host/a/../b\" is \"http://host/b\". "
+                + "The path is signed exactly as written, so it cannot be left to the HTTP client "
+                + "to resolve.",
+                line, column);
+        }
 
         string? inAttr = attrs.GetValueOrDefault("in");
         if (inAttr is not null && !_declaredNames.Contains(inAttr.Trim()))
@@ -4511,10 +4525,27 @@ public sealed class Validator
         double.TryParse(raw.Trim(), System.Globalization.NumberStyles.Float,
             System.Globalization.CultureInfo.InvariantCulture, out double v) && v > 0;
 
+    // A backslash before the path: the reference's URL parser reads it as `/`, and
+    // System.Uri does the same, so the signed path would not be the one sent.
+    // Refused in all five.
     private static bool IsHttpUrl(string value) =>
-        Uri.TryCreate(value, UriKind.Absolute, out Uri? uri)
+        !HostHasBackslash(value)
+        && Uri.TryCreate(value, UriKind.Absolute, out Uri? uri)
         && (uri.Scheme == "http" || uri.Scheme == "https")
         && !string.IsNullOrEmpty(uri.Host);
+
+    private static bool HostHasBackslash(string value)
+    {
+        int scheme = value.IndexOf("://", StringComparison.Ordinal);
+        if (scheme < 0) return false;
+        for (int i = scheme + 3; i < value.Length; i++)
+        {
+            char c = value[i];
+            if (c == '/' || c == '?' || c == '#') return false;
+            if (c == '\\') return true;
+        }
+        return false;
+    }
 
     /// <summary>A <c>mask=</c> that does not parse. Caught here rather than on the first row.</summary>
     private void CheckMask(

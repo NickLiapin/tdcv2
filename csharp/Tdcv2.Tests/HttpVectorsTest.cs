@@ -34,6 +34,8 @@ public class HttpVectorsTest
                 v.GetProperty("signature").GetString(),
                 HttpGen.SignRequest(
                     v.GetProperty("secret").GetString()!,
+                    v.GetProperty("method").GetString()!,
+                    v.GetProperty("target").GetString()!,
                     v.GetProperty("timestamp").GetString()!,
                     v.GetProperty("seed").GetString()!,
                     v.GetProperty("count").GetInt32(),
@@ -60,6 +62,51 @@ public class HttpVectorsTest
             .ToList();
         Assert.Equal(signatures.Count, signatures.Distinct().Count());
     }
+
+    [Fact]
+    public void TargetsMatchEveryImplementation()
+    {
+        JsonElement vectors = Vectors("target");
+        int checked_ = 0;
+        foreach (JsonElement v in vectors.EnumerateArray())
+        {
+            string name = v.GetProperty("name").GetString()!;
+            HttpTarget got = HttpTarget.Of(v.GetProperty("src").GetString()!);
+            Assert.Equal(
+                (name, v.GetProperty("target").GetString()!, v.GetProperty("url").GetString()!),
+                (name, got.Target, got.Url));
+            checked_++;
+        }
+
+        Assert.True(checked_ > 0, "an empty fixture would pass anything");
+    }
+
+    /// <summary>
+    /// The property the rebuilt URL relies on: what the rule produced, it produces again — so a
+    /// client handed it has nothing left to change.
+    /// </summary>
+    [Fact]
+    public void ATargetAlreadyInItsFormIsLeftUntouched()
+    {
+        foreach (JsonElement v in Vectors("target").EnumerateArray())
+        {
+            string name = v.GetProperty("name").GetString()!;
+            string url = v.GetProperty("url").GetString()!;
+            HttpTarget again = HttpTarget.Of(url);
+            Assert.Equal(
+                (name, v.GetProperty("target").GetString()!, url),
+                (name, again.Target, again.Url));
+        }
+    }
+
+    [Theory]
+    [InlineData("http://h/a/../b", "..")]
+    [InlineData("http://h/./b", ".")]
+    [InlineData("http://h/a/%2e%2E", "..")]
+    [InlineData("http://h/a/.%2e/b?x=..", "..")]
+    [InlineData("http://h/a..b/.x/x.?q=/../", null)]
+    public void FindsADotSegmentHoweverItIsSpelled(string src, string? expected) =>
+        Assert.Equal(expected, HttpTarget.DotSegmentOf(src));
 
     [Fact]
     public void DerivedSeedsMatchEveryImplementation()

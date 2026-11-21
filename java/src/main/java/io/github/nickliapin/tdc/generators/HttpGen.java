@@ -73,15 +73,22 @@ public final class HttpGen {
   }
 
   /**
-   * {@code hex(HMAC-SHA256(secret, timestamp \n seed \n count \n body))}.
+   * {@code hex(HMAC-SHA256(secret, method \n target \n timestamp \n seed \n count \n offset \n
+   * total \n body))}.
    *
-   * <p>Everything that decides what comes back is inside: change the body, the count, the seed or
-   * the minute, and the signature no longer matches. The secret is the key, so it is never sent —
-   * which is what makes this safe over plain http on a trusted network, and what makes a captured
-   * request useless tomorrow once the service checks the timestamp.
+   * <p>Everything that decides what comes back is inside: change the address, the body, the count,
+   * the place in the column, the seed or the minute, and the signature no longer matches — so a
+   * captured batch cannot be replayed as another one, nor sent to another address of the same
+   * service. {@code target} is the path and query exactly as they went on the request line (see
+   * {@link HttpTarget}); the host and port are not in it, because proxies and port forwarding
+   * change them on the way. The secret is the key, so it is never sent — which is what makes this
+   * safe over plain http on a trusted network, and what makes a captured request useless tomorrow
+   * once the service checks the timestamp.
    */
   public static String signRequest(
       String secret,
+      String method,
+      String target,
       String timestamp,
       String seed,
       int count,
@@ -89,7 +96,8 @@ public final class HttpGen {
       int total,
       String body) {
     String message =
-        timestamp + "\n" + seed + "\n" + count + "\n" + offset + "\n" + total + "\n" + body;
+        method + "\n" + target + "\n" + timestamp + "\n" + seed + "\n" + count + "\n" + offset
+            + "\n" + total + "\n" + body;
     try {
       javax.crypto.Mac mac = javax.crypto.Mac.getInstance("HmacSHA256");
       mac.init(
@@ -163,14 +171,18 @@ public final class HttpGen {
     }
     String body = inputs == null ? "" : String.join("\n", inputs);
 
+    // The URL rebuilt around the target that is signed, never `src` as written: handed a target
+    // already in that form, the client sends it untouched, so the service reads off the request
+    // line exactly the bytes the signature covers. See HttpTarget.
+    HttpTarget wire = HttpTarget.of(src);
     HttpRequest.Builder request =
-        HttpRequest.newBuilder(URI.create(src))
+        HttpRequest.newBuilder(URI.create(wire.url()))
             .timeout(Duration.ofMillis(timeoutMs))
             .header("Content-Type", "text/plain")
             .header("X-TDC-Count", String.valueOf(count))
             .header("X-TDC-Offset", String.valueOf(offset))
             .header("X-TDC-Total", String.valueOf(total))
-            .POST(HttpRequest.BodyPublishers.ofString(body));
+            .method(HttpTarget.METHOD, HttpRequest.BodyPublishers.ofString(body));
     if (seed != null) {
       request.header("X-TDC-Seed", seed);
     }
@@ -189,7 +201,16 @@ public final class HttpGen {
       request.header("X-TDC-Timestamp", timestamp);
       request.header(
           "X-TDC-Signature",
-          signRequest(secret, timestamp, seed == null ? "" : seed, count, offset, total, body));
+          signRequest(
+              secret,
+              HttpTarget.METHOD,
+              wire.target(),
+              timestamp,
+              seed == null ? "" : seed,
+              count,
+              offset,
+              total,
+              body));
     }
 
     HttpResponse<java.io.InputStream> response;

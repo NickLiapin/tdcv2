@@ -5,15 +5,24 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
+import io.github.nickliapin.tdc.generators.HttpGen;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.InetSocketAddress;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -227,5 +236,166 @@ class HttpGenTest {
         assertThrows(
             IllegalStateException.class, () -> tdc(endpoint, 1, " timeout=\"0.2\"").toString());
     assertTrue(e.getMessage().contains("did not answer"), e.getMessage());
+  }
+
+  // ------------------------------------------------------------------ a service that checks
+
+  private static final String SECRET = "k7Fm2p-test-secret";
+
+  /** The request target the signing service last read off its request line. */
+  private final AtomicReference<String> lastTarget = new AtomicReference<>();
+
+  /** The headers and body of the last request the signing service accepted. */
+  private final AtomicReference<Headers> lastHeaders = new AtomicReference<>();
+  private final AtomicReference<String> lastBody = new AtomicReference<>();
+
+  /**
+   * A service that checks {@code X-TDC-Signature} the way a real one would: against the method
+   * and the target it actually received on the request line, never against what the client meant
+   * to send. Signs on its own, so it does not trust the code under test to compute the HMAC.
+   */
+  private void signingService() {
+    server.createContext(
+        "/",
+        exchange -> {
+          String body;
+          try (InputStream in = exchange.getRequestBody()) {
+            body = new String(in.readAllBytes(), StandardCharsets.UTF_8);
+          }
+          Headers h = exchange.getRequestHeaders();
+          // The raw request target: com.sun.net.httpserver builds the URI with new URI(String)
+          // from the request line, and the raw accessors return it as it came — escapes intact.
+          String rawQuery = exchange.getRequestURI().getRawQuery();
+          String target =
+              exchange.getRequestURI().getRawPath() + (rawQuery == null ? "" : "?" + rawQuery);
+          lastTarget.set(target);
+          String message =
+              exchange.getRequestMethod() + "\n" + target + "\n"
+                  + orEmpty(h.getFirst("X-TDC-Timestamp")) + "\n"
+                  + orEmpty(h.getFirst("X-TDC-Seed")) + "\n"
+                  + orEmpty(h.getFirst("X-TDC-Count")) + "\n"
+                  + orEmpty(h.getFirst("X-TDC-Offset")) + "\n"
+                  + orEmpty(h.getFirst("X-TDC-Total")) + "\n"
+                  + body;
+          String signature = orEmpty(h.getFirst("X-TDC-Signature"));
+          if (signature.isEmpty() || !signature.equals(hmacHex(SECRET, message))) {
+            reply(exchange, 401, "bad signature\n");
+            return;
+          }
+          lastHeaders.set(h);
+          lastBody.set(body);
+          StringBuilder out = new StringBuilder();
+          for (String line : body.split("\n", -1)) {
+            out.append("ok-").append(line).append('\n');
+          }
+          reply(exchange, 200, out.toString());
+        });
+  }
+
+  private static String orEmpty(String value) {
+    return value == null ? "" : value;
+  }
+
+  private static String hmacHex(String secret, String message) {
+    try {
+      Mac mac = Mac.getInstance("HmacSHA256");
+      mac.init(new SecretKeySpec(secret.getBytes(StandardCharsets.UTF_8), "HmacSHA256"));
+      StringBuilder out = new StringBuilder();
+      for (byte b : mac.doFinal(message.getBytes(StandardCharsets.UTF_8))) {
+        out.append(String.format("%02x", b));
+      }
+      return out.toString();
+    } catch (java.security.GeneralSecurityException e) {
+      throw new IllegalStateException(e);
+    }
+  }
+
+  @Test
+  @DisplayName("a signed request is accepted at an address the five clients would each send differently")
+  void signedAtAnAwkwardAddress() {
+    // The service checks against the request line it actually received. A path and query in the
+    // shapes that differ between clients (an escape of a plain letter, a non-ASCII escape in lower
+    // case, a quote in the query, a space) only pass if what was signed is what went on the wire.
+    signingService();
+    assertEquals(
+        List.of("ok-x"),
+        HttpGen.fetch(
+            url + "/%7eme/%d0%bf a?k=it's&v=%41",
+            1,
+            List.of("x"),
+            "abc123",
+            HttpGen.OnError.FAIL,
+            2000,
+            SECRET));
+    // And the request line carried the rebuilt URL's target, not src as written.
+    assertEquals("/~me/%D0%BF%20a?k=it%27s&v=A", lastTarget.get());
+
+    // An empty ? is no query: signed without it, and sent without it.
+    assertEquals(
+        List.of("ok-y"),
+        HttpGen.fetch(
+            url + "/gen?", 1, List.of("y"), "abc123", HttpGen.OnError.FAIL, 2000, SECRET));
+    assertEquals("/gen", lastTarget.get());
+  }
+
+  @Test
+  @DisplayName("a src the client has to encode passes the validator and reaches the service signed")
+  void awkwardSrcThroughTheWholeRun() {
+    // java.net.URI refuses a raw space in a path, and the validator once checked src with it, so
+    // this config was a TDC066 here while the reference ran it. What is checked now is the URL
+    // actually sent, rebuilt around the encoded target.
+    signingService();
+    TDC tdc =
+        TDC.options()
+            .configString(
+                ("<tdc><env mode=\"memory\" count=\"2\" seed=\"http-demo\" local=\"en\">"
+                        + "<sequence name=\"Word\"><gen type=\"text\" value=\"one,two\" order=\"sequential\"/></sequence>"
+                        + "<sequence name=\"V\"><gen type=\"http\" src=\"%s\" in=\"Word\" secret=\"%s\"/></sequence>"
+                        + "</env><block><line><data>${{V}}</data></line></block></tdc>")
+                    .formatted(url + "/%7eme/%d0%bf a|b?k=it's&v=%41", SECRET))
+            .build();
+    assertEquals(List.of("ok-one", "ok-two"), tdc.toString().lines().toList());
+    assertEquals("/~me/%D0%BF%20a%7Cb?k=it%27s&v=A", lastTarget.get());
+  }
+
+  @Test
+  @DisplayName("a request signed for one address is refused at another address of the same service")
+  void signedForOneAddressOnly() throws IOException, InterruptedException {
+    // The replay found while writing the article on http (2026-11-19): one service, two
+    // addresses, one secret. A request signed for the first one, sent unchanged to the second,
+    // must not be answered.
+    signingService();
+    assertEquals(
+        List.of("ok-qwerty"),
+        HttpGen.fetch(
+            url + "/hash",
+            1,
+            List.of("qwerty"),
+            "abc123",
+            HttpGen.OnError.FAIL,
+            2000,
+            SECRET));
+    Headers signedFor = lastHeaders.get();
+    String body = lastBody.get();
+
+    assertEquals(200, replay(url + "/hash", signedFor, body));
+    assertEquals(401, replay(url + "/invite", signedFor, body));
+  }
+
+  /** Send captured contract headers and body, unchanged, to {@code target}. */
+  private static int replay(String target, Headers headers, String body)
+      throws IOException, InterruptedException {
+    HttpRequest.Builder request =
+        HttpRequest.newBuilder(URI.create(target))
+            .POST(HttpRequest.BodyPublishers.ofString(body));
+    for (String name : headers.keySet()) {
+      String lower = name.toLowerCase(java.util.Locale.ROOT);
+      if (lower.startsWith("x-tdc-") || lower.equals("content-type")) {
+        request.header(name, headers.getFirst(name));
+      }
+    }
+    return HttpClient.newHttpClient()
+        .send(request.build(), HttpResponse.BodyHandlers.discarding())
+        .statusCode();
   }
 }

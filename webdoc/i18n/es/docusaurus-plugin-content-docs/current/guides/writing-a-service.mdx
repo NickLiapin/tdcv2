@@ -565,7 +565,7 @@ la petición lleva entonces dos cabeceras más, y el secreto no viaja nunca:
 
 ```
 X-TDC-Timestamp: 1786000000
-X-TDC-Signature: hex(HMAC-SHA256(secret, timestamp \n seed \n count \n offset \n total \n body))
+X-TDC-Signature: hex(HMAC-SHA256(secret, method \n path \n timestamp \n seed \n count \n offset \n total \n body))
 ```
 
 Verificar son las mismas pocas líneas en cualquier lenguaje: recalcular y comparar.
@@ -573,12 +573,18 @@ Verificar son las mismas pocas líneas en cualquier lenguaje: recalcular y compa
 ```js
 const mine = crypto
   .createHmac('sha256', process.env.TDC_HTTP_SECRET)
-  .update(`${ts}\n${seed}\n${count}\n${offset}\n${total}\n${body}`)
+  .update(`${req.method}\n${req.url}\n${ts}\n${seed}\n${count}\n${offset}\n${total}\n${body}`)
   .digest('hex');
 if (mine !== req.headers['x-tdc-signature']) return res.status(401).end();
 ```
 
-Tres cosas que conviene saber antes de escribir esa comprobación:
+`req.url` es la ruta y la consulta tal como llegaron en la línea de petición, `/hash?v=2`,
+sin analizar ni decodificar. Otros servidores tienen el mismo valor con otro nombre:
+`self.path` en `http.server` de Python, `getRawPath()` más `getRawQuery()` en Java, `RawUrl`
+en .NET. Como la ruta va firmada, un secreto puede cubrir todas las rutas de su servicio:
+una petición firmada para `/hash` se rechaza en `/invite`.
+
+Cuatro cosas que conviene saber antes de escribir esa comprobación:
 
 - **La ventana la elige usted.** TDC estampa su reloj real y nada más; cuán vieja puede ser
   una petición antes de que la rechace es su política. Unos minutos es un valor por omisión
@@ -587,6 +593,9 @@ Tres cosas que conviene saber antes de escribir esa comprobación:
   bien. Esa es la razón de una firma y no de un token.
 - **Firmar no es cifrar.** Por `http://` simple el cuerpo sigue siendo legible para quien
   esté en el camino. Use también `https://` cuando los valores mismos sean sensibles.
+- **Una petición firmada no es de un solo uso.** Dentro de la ventana puede enviarse otra
+  vez tantas veces como se quiera. Si el trabajo es caro, recuerde las firmas ya vistas
+  durante la ventana o limite la frecuencia de peticiones.
 
 ## Antes de apuntarle TDC
 

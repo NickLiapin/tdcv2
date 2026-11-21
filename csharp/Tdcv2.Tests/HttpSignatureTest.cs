@@ -8,8 +8,8 @@ namespace Tdcv2.Tests;
 /// </summary>
 /// <remarks>
 /// A service checks one signature and does not know which runtime sent the request, so this value
-/// is the contract. Measured from Node's <c>crypto.createHmac</c>, Python's <c>hmac</c>, Java's
-/// <c>Mac</c> and the hand-written HMAC in the Rust crate — all four give these 64 hex digits.
+/// is the contract — the canonical request of <c>fixtures/cross-language/http-vectors.json</c>,
+/// which all five answer to.
 /// </remarks>
 public class HttpSignatureTest
 {
@@ -17,22 +17,35 @@ public class HttpSignatureTest
     public void AgreesWithTheOtherImplementations()
     {
         Assert.Equal(
-            "2f76a55a7654af0fec395256315ea34c5d0656aec6a95bae24d0a64b50b59735",
-            HttpGen.SignRequest("k7Fm2p-test-secret", "1786000000", "seed1", 4, 0, 4, "body"));
+            "1c133c68bac0c7f954628513ab4eae62a11d4da5f2b65a46955c53bfdb6744a2",
+            HttpGen.SignRequest(
+                "k7Fm2p-test-secret", "POST", "/gen", "1786000000", "seed1", 4, 0, 4, "body"));
     }
+
+    private static string Sign(
+        string method = "POST", string target = "/gen", string timestamp = "1786000000",
+        string seed = "seed1", int count = 4, int offset = 0, int total = 4, string body = "body") =>
+        HttpGen.SignRequest("s", method, target, timestamp, seed, count, offset, total, body);
 
     /// <summary>Everything that decides the answer is inside the signature.</summary>
     [Fact]
     public void CoversEveryPartOfTheRequest()
     {
-        string baseline = HttpGen.SignRequest("s", "1786000000", "seed1", 4, 0, 4, "body");
-        Assert.NotEqual(baseline, HttpGen.SignRequest("s", "1786000001", "seed1", 4, 0, 4, "body"));
-        Assert.NotEqual(baseline, HttpGen.SignRequest("s", "1786000000", "seed2", 4, 0, 4, "body"));
-        Assert.NotEqual(baseline, HttpGen.SignRequest("s", "1786000000", "seed1", 5, 0, 4, "body"));
-        Assert.NotEqual(baseline, HttpGen.SignRequest("s", "1786000000", "seed1", 4, 4, 8, "body"));
-        Assert.NotEqual(baseline, HttpGen.SignRequest("s", "1786000000", "seed1", 4, 0, 8, "body"));
-        Assert.NotEqual(baseline, HttpGen.SignRequest("s", "1786000000", "seed1", 4, 0, 4, "other"));
-        Assert.Equal(baseline, HttpGen.SignRequest("s", "1786000000", "seed1", 4, 0, 4, "body"));
+        string baseline = Sign();
+        Assert.NotEqual(baseline, Sign(timestamp: "1786000001"));
+        Assert.NotEqual(baseline, Sign(seed: "seed2"));
+        Assert.NotEqual(baseline, Sign(count: 5));
+        Assert.NotEqual(baseline, Sign(body: "other"));
+        // A request signed for one address is not a request for another one of the same service —
+        // the replay the article on http found, 2026-11-19.
+        Assert.NotEqual(baseline, Sign(target: "/invite"));
+        Assert.NotEqual(baseline, Sign(target: "/gen?model=small"));
+        Assert.NotEqual(baseline, Sign(method: "PUT"));
+        // A captured batch cannot be replayed as another one of the same column.
+        Assert.NotEqual(Sign(total: 8), Sign(offset: 4, total: 8));
+        Assert.NotEqual(baseline, Sign(total: 8));
+        // ...and it is a function of those alone.
+        Assert.Equal(baseline, Sign());
     }
 
     /// <summary>Three spellings, and an empty one is refused wherever it came from.</summary>

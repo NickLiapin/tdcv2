@@ -564,7 +564,7 @@ done
 
 ```
 X-TDC-Timestamp: 1786000000
-X-TDC-Signature: hex(HMAC-SHA256(secret, timestamp \n seed \n count \n offset \n total \n body))
+X-TDC-Signature: hex(HMAC-SHA256(secret, method \n path \n timestamp \n seed \n count \n offset \n total \n body))
 ```
 
 Проверка — те же несколько строк на любом языке: пересчитать и сравнить.
@@ -572,12 +572,18 @@ X-TDC-Signature: hex(HMAC-SHA256(secret, timestamp \n seed \n count \n offset \n
 ```js
 const mine = crypto
   .createHmac('sha256', process.env.TDC_HTTP_SECRET)
-  .update(`${ts}\n${seed}\n${count}\n${offset}\n${total}\n${body}`)
+  .update(`${req.method}\n${req.url}\n${ts}\n${seed}\n${count}\n${offset}\n${total}\n${body}`)
   .digest('hex');
 if (mine !== req.headers['x-tdc-signature']) return res.status(401).end();
 ```
 
-Три вещи, которые стоит знать до того, как писать эту проверку:
+`req.url` — путь и строка запроса так, как они пришли в строке запроса HTTP, `/hash?v=2`,
+без разбора и раскодирования. В других серверах то же значение называется иначе:
+`self.path` в `http.server` Python, `getRawPath()` плюс `getRawQuery()` в Java, `RawUrl` в
+.NET. Раз путь подписан, один секрет может закрывать все пути сервиса: запрос, подписанный
+для `/hash`, на `/invite` будет отклонён.
+
+Четыре вещи, которые стоит знать до того, как писать эту проверку:
 
 - **Окно выбираете вы.** TDC ставит свои настоящие часы и ничего больше; насколько старым
   может быть запрос, прежде чем вы его отклоните, — ваша политика. Несколько минут —
@@ -587,6 +593,9 @@ if (mine !== req.headers['x-tdc-signature']) return res.status(401).end();
   верно. Ради этого здесь подпись, а не токен.
 - **Подпись — не шифрование.** По обычному `http://` тело всё ещё читается тем, кто сидит
   на канале. Если сами значения чувствительные, добавьте `https://`.
+- **Подписанный запрос не одноразовый.** Внутри окна его можно отправить сколько угодно
+  раз. Если работа дорогая, запоминайте уже виденные подписи на время окна или ограничьте
+  частоту запросов.
 
 ## Прежде чем направлять на него TDC
 

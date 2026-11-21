@@ -17,6 +17,21 @@ page — is tracked in that implementation's own changelog:
 
 ### Changed
 
+- **The `secret=` signature covers the method and the path:**
+  `HMAC-SHA256(secret, method \n path \n timestamp \n seed \n count \n offset \n total \n body)`.
+  Without them a request signed for one path of a service was accepted at another path of the
+  same service holding the same secret: a `/hash` request replayed unchanged to `/invite` got an
+  invitation code back. `method` is `POST`; `path` is the path and query as they go on the
+  request line — what Node calls `req.url`. The host and port stay out, since proxies change
+  them. A service that verifies signatures must add the two lines and answers every old-format
+  request with 401, so this is a format change, as in 0.4.0. Found by the article agent.
+
+  TDC now writes the path in one form before sending (`%7e` → `~`, `'` → `%27`, a space →
+  `%20`, an empty `?` dropped) and sends that, because the five HTTP clients each changed it
+  differently on the way: .NET decoded `%41`, fetch encoded `'` in a query, curl resolved
+  `/../`. A `src` with a `.` or `..` segment is refused (`TDC066`). The new form and the new
+  signature are pinned in `fixtures/cross-language/http-vectors.json`.
+
 - **The npm package needs Node.js 22.22.2 or newer, or 24.15 or newer; Node 20 is dropped.** Node
   20 reached its end of life on 30 April 2026 and a dependency of `tdcv2 init` already requires
   the newer lines. The other four packages are unaffected. CI tests Node 22 and 24.

@@ -7,6 +7,7 @@ import io.github.nickliapin.tdc.errors.Diagnostic;
 import io.github.nickliapin.tdc.distribution.PercentMask;
 import io.github.nickliapin.tdc.generators.Imperfections;
 import io.github.nickliapin.tdc.generators.Accumulate;
+import io.github.nickliapin.tdc.generators.HttpTarget;
 import io.github.nickliapin.tdc.generators.RegexGen;
 import io.github.nickliapin.tdc.generators.Stat;
 import io.github.nickliapin.tdc.generators.Repeat;
@@ -3870,6 +3871,19 @@ public final class Validator {
       error("TDC066", "invalid http src \"" + src.trim() + "\" — must be an http:// or https:// URL",
           "e.g. src=\"http://127.0.0.1:5566/gen\" or src=\"https://svc.example.com/gen\".",
           at(gen, "src")[0], at(gen, "src")[1]);
+    } else {
+      // The path is signed, so it must reach the service exactly as TDC signed it — and a `.` or
+      // `..` segment does not: some HTTP clients resolve it on the way, others send it as written.
+      // See generators/HttpTarget.
+      String dot = HttpTarget.dotSegmentOf(src.trim());
+      if (dot != null) {
+        error("TDC066",
+            "invalid http src \"" + src.trim() + "\" — the path has a \"" + dot + "\" segment",
+            "Write the path the service sees: \"http://host/a/../b\" is \"http://host/b\". The path"
+                + " is signed exactly as written, so it cannot be left to the HTTP client to"
+                + " resolve.",
+            at(gen, "src")[0], at(gen, "src")[1]);
+      }
     }
 
     String in = attrs.get("in");
@@ -3959,9 +3973,15 @@ public final class Validator {
     }
   }
 
+  /**
+   * Whether {@code src=} names an http(s) service. Checked on the URL that is actually sent — the
+   * path and query rebuilt by {@link HttpTarget} — not on {@code src} as written: a space, a
+   * {@code |} or a stray {@code %} in the path is encoded on the way, so it is a sendable address
+   * (and the reference accepts it), where {@code java.net.URI} alone would refuse it.
+   */
   private static boolean isHttpUrl(String value) {
     try {
-      java.net.URI uri = java.net.URI.create(value);
+      java.net.URI uri = java.net.URI.create(HttpTarget.of(value).url());
       String scheme = uri.getScheme();
       return uri.isAbsolute()
           && ("http".equals(scheme) || "https".equals(scheme))

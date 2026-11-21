@@ -18,6 +18,7 @@ import { fileURLToPath } from 'node:url';
 
 import { describe, expect, it } from 'vitest';
 
+import { dotSegmentOf, httpTarget } from '../../src/generators/http-target.js';
 import { httpSeedFor, signRequest } from '../../src/generators/http.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -31,6 +32,8 @@ const VECTORS = JSON.parse(
     vectors: {
       name: string;
       secret: string;
+      method: string;
+      target: string;
       timestamp: string;
       seed: string;
       count: number;
@@ -40,24 +43,57 @@ const VECTORS = JSON.parse(
       signature: string;
     }[];
   };
+  target: { vectors: { name: string; src: string; target: string; url: string }[] };
   derivedSeed: { vectors: { envSeed: string; sequence: string; derived: string }[] };
 };
 
 describe('X-TDC-Signature', () => {
   it.each(VECTORS.signature.vectors.map((v) => [v.name, v] as const))('%s', (_name, v) => {
-    expect(signRequest(v.secret, v.timestamp, v.seed, v.count, v.offset, v.total, v.body)).toBe(
-      v.signature,
-    );
+    expect(
+      signRequest(
+        v.secret,
+        v.method,
+        v.target,
+        v.timestamp,
+        v.seed,
+        v.count,
+        v.offset,
+        v.total,
+        v.body,
+      ),
+    ).toBe(v.signature);
   });
 
   it('has a vector for every part of the message', () => {
     // A vector file that pins one request pins nothing: the point is that each
-    // field reaches the hash. These four differ from the canonical request in
+    // field reaches the hash. The others differ from the canonical request in
     // exactly one field each, so a port that dropped a field from the message
     // would match the first vector and fail one of these.
     const signatures = new Set(VECTORS.signature.vectors.map((v) => v.signature));
     expect(signatures.size).toBe(VECTORS.signature.vectors.length);
     expect(VECTORS.signature.vectors.length).toBeGreaterThanOrEqual(6);
+  });
+});
+
+describe('the signed target', () => {
+  it.each(VECTORS.target.vectors.map((v) => [v.name, v] as const))('%s', (_name, v) => {
+    expect(httpTarget(v.src)).toEqual({ url: v.url, target: v.target });
+  });
+
+  it('leaves a target already in its form untouched', () => {
+    // The property the rebuilt URL relies on: what the rule produced, it
+    // produces again — so a client handed it has nothing left to change.
+    for (const v of VECTORS.target.vectors) {
+      expect(httpTarget(v.url)).toEqual({ url: v.url, target: v.target });
+    }
+  });
+
+  it('finds a dot segment however it is spelled', () => {
+    expect(dotSegmentOf('http://h/a/../b')).toBe('..');
+    expect(dotSegmentOf('http://h/./b')).toBe('.');
+    expect(dotSegmentOf('http://h/a/%2e%2E')).toBe('..');
+    expect(dotSegmentOf('http://h/a/.%2e/b?x=..')).toBe('..');
+    expect(dotSegmentOf('http://h/a..b/.x/x.?q=/../')).toBeUndefined();
   });
 });
 

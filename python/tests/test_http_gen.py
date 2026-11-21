@@ -12,8 +12,12 @@ contract, the failure policy, and ``resolve_secret``.
 
 from __future__ import annotations
 
+import hashlib
+import hmac
 import json
 import threading
+import urllib.error
+import urllib.request
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from pathlib import Path
 
@@ -29,13 +33,21 @@ from tdcv2.generators.http import (
     parse_timeout,
     resolve_secret,
     seed_for,
+    sign_request,
 )
+
+SECRET = "k7Fm2p-test-secret"
 
 
 class _Service:
-    """A real HTTP server on a real port, answering however the test tells it to."""
+    """A real HTTP server on a real port, answering however the test tells it to.
 
-    def __init__(self, reply):
+    Given a ``secret``, it checks ``X-TDC-Signature`` the way a real service would — against the
+    method and the request target it actually received, read off the request line — and answers
+    401 to a request that does not match.
+    """
+
+    def __init__(self, reply, secret: str | None = None):
         self.seen: list[dict] = []
         outer = self
 
@@ -49,8 +61,14 @@ class _Service:
                 # literal. Both are legal, every conformant service handles both, and a test
                 # that pinned one spelling would be testing urllib rather than the contract.
                 headers = {k.lower(): v for k, v in self.headers.items()}
-                outer.seen.append({"body": body, "headers": headers})
-                status, text = reply(len(outer.seen), body, dict(self.headers))
+                # `path` is the request target exactly as it arrived on the request line.
+                outer.seen.append({"body": body, "headers": headers, "target": self.path})
+                if secret is not None and not _signed_by(
+                    secret, self.command, self.path, headers, body
+                ):
+                    status, text = 401, "bad signature"
+                else:
+                    status, text = reply(len(outer.seen), body, dict(self.headers))
                 payload = text.encode("utf-8")
                 self.send_response(status)
                 self.send_header("Content-Type", "text/plain")
@@ -66,20 +84,42 @@ class _Service:
         self.thread.start()
 
     @property
+    def origin(self) -> str:
+        return f"http://127.0.0.1:{self.server.server_port}"
+
+    @property
     def url(self) -> str:
-        return f"http://127.0.0.1:{self.server.server_port}/values"
+        return f"{self.origin}/values"
 
     def close(self) -> None:
         self.server.shutdown()
         self.server.server_close()
 
 
+def _signed_by(secret: str, method: str, target: str, headers: dict[str, str], body: str) -> bool:
+    """What a service recomputes, from what reached it — never from what the client meant."""
+    message = "\n".join(
+        [
+            method,
+            target,
+            headers.get("x-tdc-timestamp", ""),
+            headers.get("x-tdc-seed", ""),
+            headers.get("x-tdc-count", ""),
+            headers.get("x-tdc-offset", ""),
+            headers.get("x-tdc-total", ""),
+            body,
+        ]
+    )
+    mine = hmac.new(secret.encode("utf-8"), message.encode("utf-8"), hashlib.sha256).hexdigest()
+    return hmac.compare_digest(mine, headers.get("x-tdc-signature", ""))
+
+
 @pytest.fixture
 def service():
     made: list[_Service] = []
 
-    def start(reply):
-        s = _Service(reply)
+    def start(reply, secret: str | None = None):
+        s = _Service(reply, secret)
         made.append(s)
         return s
 
@@ -169,6 +209,63 @@ def test_a_signed_request_carries_a_signature_and_never_the_secret(service):
     assert headers["x-tdc-timestamp"] == "1786000000"
     assert len(headers["x-tdc-signature"]) == 64
     assert "k7Fm2p" not in json.dumps(headers), "the secret itself never goes on the wire"
+
+
+def test_a_signed_request_is_accepted_where_five_clients_would_each_send_another_line(service):
+    # The service checks against the request line it actually received. A path and query in the
+    # shapes that differ between clients (an escape of a plain letter, a quote in the query, a
+    # space, a lower-case escape) only pass if what was signed is what went on the wire.
+    s = service(lambda call, body, headers: (200, f"ok-{body}"), secret=SECRET)
+    values = fetch(
+        Request(
+            src=f"{s.origin}/%7eme/%d0%bf a?k=it's&v=%41",
+            count=1,
+            inputs=["x"],
+            seed="abc123",
+            secret=SECRET,
+        )
+    )
+    assert values == ["ok-x"]
+    assert s.seen[0]["target"] == "/~me/%D0%BF%20a?k=it%27s&v=A"
+
+
+def test_a_signed_request_is_refused_at_another_address_of_the_same_service(service):
+    # The replay found while writing the article on http (2026-11-19): one service, two
+    # addresses, one secret. A request signed for the first one, sent unchanged to the second,
+    # must not be answered.
+    s = service(lambda call, body, headers: (200, f"ok-{body}"), secret=SECRET)
+    signed_for = Request(
+        src=f"{s.origin}/hash", count=1, inputs=["qwerty"], seed="abc123", secret=SECRET
+    )
+    headers = contract_headers(signed_for, "qwerty")
+
+    def replay(url: str) -> int:
+        post = urllib.request.Request(url, data=b"qwerty", headers=headers, method="POST")
+        try:
+            with urllib.request.urlopen(post, timeout=2) as response:
+                response.read()
+                return response.status
+        except urllib.error.HTTPError as e:
+            return e.code
+
+    assert replay(f"{s.origin}/hash") == 200
+    assert replay(f"{s.origin}/invite") == 401
+
+
+def test_the_target_signed_is_the_one_on_the_wire_not_the_src_as_written():
+    headers = contract_headers(
+        Request(
+            src="http://127.0.0.1:1/gen?",
+            count=4,
+            seed="seed1",
+            secret=SECRET,
+            now_ms=1_786_000_000_000,
+        ),
+        "body",
+    )
+    assert headers["X-TDC-Signature"] == sign_request(
+        SECRET, "POST", "/gen", "1786000000", "seed1", 4, 0, 4, "body"
+    )
 
 
 def test_the_headers_are_the_contract():

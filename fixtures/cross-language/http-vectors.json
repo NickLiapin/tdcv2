@@ -1,129 +1,298 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "signature": {
-    "algorithm": "hex(HMAC-SHA256(secret, timestamp \\n seed \\n count \\n offset \\n total \\n body))",
-    "note": "A service checks ONE signature and cannot tell which runtime sent the request, so these 64 hex digits are the contract rather than an implementation detail. Before this file the value was pinned in two of the five and the derived seed in one: a port could have computed something else entirely and four suites would still have been green, with the failure surfacing only as 401s in a user's service. Since 0.4.0 the message also carries the batch's place in its column — offset (X-TDC-Offset) and total (X-TDC-Total) — so a captured batch cannot be replayed as another one.",
+    "algorithm": "hex(HMAC-SHA256(secret, method \\n target \\n timestamp \\n seed \\n count \\n offset \\n total \\n body))",
+    "note": "A service checks ONE signature and cannot tell which runtime sent the request, so these 64 hex digits are the contract rather than an implementation detail. Before this file the value was pinned in two of the five and the derived seed in one: a port could have computed something else entirely and four suites would still have been green, with the failure surfacing only as 401s in a user's service. Since 0.4.0 the message also carries the batch's place in its column — offset (X-TDC-Offset) and total (X-TDC-Total) — so a captured batch cannot be replayed as another one. Since 0.5.0 it also carries the method and the target — the path and query exactly as they went on the request line (see `target` below) — so a request signed for one address of a service is refused at another address of the same service.",
     "vectors": [
       {
         "name": "the canonical request",
         "secret": "k7Fm2p-test-secret",
+        "method": "POST",
+        "target": "/gen",
         "timestamp": "1786000000",
         "seed": "seed1",
         "count": 4,
         "offset": 0,
         "total": 4,
         "body": "body",
-        "signature": "2f76a55a7654af0fec395256315ea34c5d0656aec6a95bae24d0a64b50b59735"
+        "signature": "1c133c68bac0c7f954628513ab4eae62a11d4da5f2b65a46955c53bfdb6744a2"
+      },
+      {
+        "name": "another address of the same service — the target reaches the hash",
+        "secret": "k7Fm2p-test-secret",
+        "method": "POST",
+        "target": "/invite",
+        "timestamp": "1786000000",
+        "seed": "seed1",
+        "count": 4,
+        "offset": 0,
+        "total": 4,
+        "body": "body",
+        "signature": "3b2b4d8b2eb0b020c3e8558eb3d46948ce2aaf8e5b249d73e5cc164f26eef125"
+      },
+      {
+        "name": "the query string is part of the address",
+        "secret": "k7Fm2p-test-secret",
+        "method": "POST",
+        "target": "/gen?model=small",
+        "timestamp": "1786000000",
+        "seed": "seed1",
+        "count": 4,
+        "offset": 0,
+        "total": 4,
+        "body": "body",
+        "signature": "8c3d2319c7547f4614ceb7a5fea6491281012367c33d1d84b798e7d8c6dc49aa"
+      },
+      {
+        "name": "the method reaches the hash — always POST today, signed so a configurable method never needs another format change",
+        "secret": "k7Fm2p-test-secret",
+        "method": "PUT",
+        "target": "/gen",
+        "timestamp": "1786000000",
+        "seed": "seed1",
+        "count": 4,
+        "offset": 0,
+        "total": 4,
+        "body": "body",
+        "signature": "2d107c359a0ca11c69f8ffcfc212f5c6b189fbdeb64bb1a8997bc21ae61844dc"
       },
       {
         "name": "a pure source sends no body",
         "secret": "k7Fm2p-test-secret",
+        "method": "POST",
+        "target": "/gen",
         "timestamp": "1786000000",
         "seed": "seed1",
         "count": 4,
         "offset": 0,
         "total": 4,
         "body": "",
-        "signature": "5bc0f6f3db995a4fd647841a01b49bcef607a456b835c64db1eb1477ba116dc8"
+        "signature": "7d6b1248d5b8a5b4d608b7f6ec1ab6d10aa695e7678eda152473ff40f8a554b7"
       },
       {
         "name": "one second later",
         "secret": "k7Fm2p-test-secret",
+        "method": "POST",
+        "target": "/gen",
         "timestamp": "1786000001",
         "seed": "seed1",
         "count": 4,
         "offset": 0,
         "total": 4,
         "body": "body",
-        "signature": "3fc9073702107d5619f3d4539bc2985523d1a3fa19f3629cbd04b73c14c1a817"
+        "signature": "8c0815a4db56e986becb81bd118832ea31b8985a5b4604f8744c6a009ed2069f"
       },
       {
         "name": "another sequence, same run",
         "secret": "k7Fm2p-test-secret",
+        "method": "POST",
+        "target": "/gen",
         "timestamp": "1786000000",
         "seed": "seed2",
         "count": 4,
         "offset": 0,
         "total": 4,
         "body": "body",
-        "signature": "4dbe54870327ff3f4e57d7b444312ad8bd5410860e4b15711458b148c902db14"
+        "signature": "78a3c0cb756f365d6bdaf235f71b28f422a75846754de54e9869228ba6805d76"
       },
       {
         "name": "one more row wanted",
         "secret": "k7Fm2p-test-secret",
+        "method": "POST",
+        "target": "/gen",
         "timestamp": "1786000000",
         "seed": "seed1",
         "count": 5,
         "offset": 0,
         "total": 5,
         "body": "body",
-        "signature": "57425462dc5bec6da0288958af402dd9a11e4ca3429a1e8510648a49b54f1621"
+        "signature": "5211788b9a703017d485c63a8bca3307f49e367eac401aa6f20543fd0abdabfa"
       },
       {
         "name": "a two-line body and no seed — the newline is part of the message, not a separator to normalise",
         "secret": "k7Fm2p-test-secret",
+        "method": "POST",
+        "target": "/gen",
         "timestamp": "1786000000",
         "seed": "",
         "count": 1,
         "offset": 0,
         "total": 1,
         "body": "a\nb",
-        "signature": "d028aa296ceb73c786c2b76391e8e4bb641399427d88bfa2c0ab281babfe1c5b"
+        "signature": "4217c30f9482f7772a007b13da0796350f97dfdc19cae29f6bca885b408ab531"
       },
       {
         "name": "a non-ASCII key and body — the key is UTF-8 bytes, not code points",
         "secret": "ключ-в-юникоде",
+        "method": "POST",
+        "target": "/gen",
         "timestamp": "1786000000",
         "seed": "seed1",
         "count": 4,
         "offset": 0,
         "total": 4,
         "body": "körper",
-        "signature": "32f4c73ea4c24459fc1f527160852a525285c6f67f474842db8e6b67535a1242"
+        "signature": "3d987d52235e7074c4e1645d49019534cfe0a8fefd90434da7843ee158eb46a6"
       },
       {
         "name": "everything at its smallest",
         "secret": "x",
+        "method": "POST",
+        "target": "/",
         "timestamp": "0",
         "seed": "",
         "count": 0,
         "offset": 0,
         "total": 0,
         "body": "",
-        "signature": "5bc694e139f2212237ea28f5e36fcde70a49f1d25819ce24252c6f1cd02019b9"
+        "signature": "febc3dc149024eeaa00194fd9022fc2cd0e6eb8c23b4717f8db1b41935ed5c36"
       },
       {
         "name": "the second batch of a column — the offset reaches the hash",
         "secret": "k7Fm2p-test-secret",
+        "method": "POST",
+        "target": "/gen",
         "timestamp": "1786000000",
         "seed": "seed1",
         "count": 4,
         "offset": 4,
         "total": 8,
         "body": "body",
-        "signature": "2347642f8bf381cecc7b50aa194f8aa15a5c2a3a81d807054bc55356a5deabae"
+        "signature": "3d86e1ffd5ab3f8e29fc5b5f8e4b880d599e6980c395108a10107175d7ad1bb2"
       },
       {
         "name": "the first batch of that same column — only the total differs from the canonical request",
         "secret": "k7Fm2p-test-secret",
+        "method": "POST",
+        "target": "/gen",
         "timestamp": "1786000000",
         "seed": "seed1",
         "count": 4,
         "offset": 0,
         "total": 8,
         "body": "body",
-        "signature": "020de909b3788511a4f262cafab74869245386453c8ec37c5362a846b8c452ed"
+        "signature": "e9eb53e04b2ebe0e5f2dff3ae479ef54909e20bbc1370363ff2aaf0c3b112db6"
       },
       {
         "name": "a short last batch of a long column",
         "secret": "k7Fm2p-test-secret",
+        "method": "POST",
+        "target": "/gen",
         "timestamp": "1786000000",
         "seed": "seed1",
         "count": 1,
         "offset": 20000,
         "total": 20001,
         "body": "",
-        "signature": "3acf6a041dbd20450db2f215546e3e8d8c2728ba64c2bb4355127d7eee0bfbe7"
+        "signature": "8b7ee3fe04dd195357eb088ddba614f32616c1d2c70a3ef0a605b5052569212d"
+      }
+    ]
+  },
+  "target": {
+    "algorithm": "everything after the host, #fragment dropped; an empty query is no query; / when empty and before a bare ?query; %XX of an unreserved character (A-Z a-z 0-9 - . _ ~) decoded, every other escape kept with upper-case hex; a % that starts no escape is %25; any other character outside A-Z a-z 0-9 - . _ ~ ! $ & ( ) * + , ; = : @ / ? percent-encoded as UTF-8 bytes (' included). url = scheme and host as written + target.",
+    "note": "What is signed must be what the service reads off the request line, and the five HTTP clients do not send one URL the same way (measured 2026-11-21: .NET decodes %41 and upper-cases %d0, fetch encodes ' in a query and drops an empty ?, curl and fetch resolve /../). So each implementation computes the target by this rule and hands its client the rebuilt url, which all five send untouched. A . or .. segment cannot be settled by any rule — the validator refuses it (TDC066).",
+    "vectors": [
+      {
+        "name": "the plain case",
+        "src": "http://127.0.0.1:5711/hash",
+        "target": "/hash",
+        "url": "http://127.0.0.1:5711/hash"
+      },
+      {
+        "name": "no path at all is /",
+        "src": "http://127.0.0.1:5711",
+        "target": "/",
+        "url": "http://127.0.0.1:5711/"
+      },
+      {
+        "name": "a bare query gets its /",
+        "src": "http://127.0.0.1:5711?x=1",
+        "target": "/?x=1",
+        "url": "http://127.0.0.1:5711/?x=1"
+      },
+      {
+        "name": "an empty query is no query — fetch drops it, three others send it",
+        "src": "http://h/a?",
+        "target": "/a",
+        "url": "http://h/a"
+      },
+      {
+        "name": "the fragment never leaves the machine",
+        "src": "http://h/a?b=1#top",
+        "target": "/a?b=1",
+        "url": "http://h/a?b=1"
+      },
+      {
+        "name": "a second ? belongs to the query",
+        "src": "http://h/a?b?c",
+        "target": "/a?b?c",
+        "url": "http://h/a?b?c"
+      },
+      {
+        "name": "an escape of an unreserved character is the character — .NET decodes it on the way",
+        "src": "http://h/a/%41%7e%2d?x=%41",
+        "target": "/a/A~-?x=A",
+        "url": "http://h/a/A~-?x=A"
+      },
+      {
+        "name": "every other escape is kept, its hex upper-cased — .NET upper-cases it on the way",
+        "src": "http://h/%d0%bf/%2f?k=%3d",
+        "target": "/%D0%BF/%2F?k=%3D",
+        "url": "http://h/%D0%BF/%2F?k=%3D"
+      },
+      {
+        "name": "a quote is encoded — fetch encodes it in a query and nothing else does",
+        "src": "http://h/q?it's",
+        "target": "/q?it%27s",
+        "url": "http://h/q?it%27s"
+      },
+      {
+        "name": "what a URL can carry as it is stays as it is",
+        "src": "http://h/!$&()*+,;=:@~_.-?a=!$&()*+,;=:@/?~",
+        "target": "/!$&()*+,;=:@~_.-?a=!$&()*+,;=:@/?~",
+        "url": "http://h/!$&()*+,;=:@~_.-?a=!$&()*+,;=:@/?~"
+      },
+      {
+        "name": "non-ASCII is its UTF-8 bytes, a space is %20",
+        "src": "http://h/путь с пробелом",
+        "target": "/%D0%BF%D1%83%D1%82%D1%8C%20%D1%81%20%D0%BF%D1%80%D0%BE%D0%B1%D0%B5%D0%BB%D0%BE%D0%BC",
+        "url": "http://h/%D0%BF%D1%83%D1%82%D1%8C%20%D1%81%20%D0%BF%D1%80%D0%BE%D0%B1%D0%B5%D0%BB%D0%BE%D0%BC"
+      },
+      {
+        "name": "a character outside the BMP is one character, four bytes — not two UTF-16 halves",
+        "src": "http://h/😀",
+        "target": "/%F0%9F%98%80",
+        "url": "http://h/%F0%9F%98%80"
+      },
+      {
+        "name": "the characters no URL may carry raw",
+        "src": "http://h/a|b^c`d{e}f[g]h\\i\"j<k>l",
+        "target": "/a%7Cb%5Ec%60d%7Be%7Df%5Bg%5Dh%5Ci%22j%3Ck%3El",
+        "url": "http://h/a%7Cb%5Ec%60d%7Be%7Df%5Bg%5Dh%5Ci%22j%3Ck%3El"
+      },
+      {
+        "name": "a % that starts no escape is %25",
+        "src": "http://h/100%?p=%zz",
+        "target": "/100%25?p=%25zz",
+        "url": "http://h/100%25?p=%25zz"
+      },
+      {
+        "name": "dots inside a segment are not dot segments",
+        "src": "http://h/a..b/.x/x.",
+        "target": "/a..b/.x/x.",
+        "url": "http://h/a..b/.x/x."
+      },
+      {
+        "name": "surrounding whitespace is not part of the address",
+        "src": "  http://h/x\t",
+        "target": "/x",
+        "url": "http://h/x"
+      },
+      {
+        "name": "the host is sent as written and never signed",
+        "src": "https://[::1]:8443/x?y",
+        "target": "/x?y",
+        "url": "https://[::1]:8443/x?y"
       }
     ]
   },

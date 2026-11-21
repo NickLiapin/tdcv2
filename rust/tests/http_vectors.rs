@@ -1,14 +1,18 @@
-//! The two numbers a service recomputes, against the shared vector file.
+//! The two numbers a service recomputes, and the target it reads them against,
+//! from the shared vector file.
 //!
 //! A service checks ONE signature and reads ONE seed, and cannot tell which of
 //! the five runtimes sent the request — so both are the wire contract rather
-//! than an implementation detail. This crate held the only pinned value for the
-//! derived seed and one of two for the signature; the file it now reads is the
-//! same one the other four answer to, so a drift anywhere fails everywhere.
+//! than an implementation detail. The signature covers the request target, so
+//! the target is part of that contract too. This crate held the only pinned
+//! value for the derived seed and one of two for the signature; the file it now
+//! reads is the same one the other four answer to, so a drift anywhere fails
+//! everywhere.
 
 mod common;
 
 use tdcv2::generators::http;
+use tdcv2::generators::http_target::{dot_segment_of, http_target};
 
 #[test]
 fn signatures_match_every_implementation() {
@@ -26,6 +30,14 @@ fn signatures_match_every_implementation() {
             .get("secret")
             .and_then(|v| v.as_str())
             .expect("secret");
+        let method = vector
+            .get("method")
+            .and_then(|v| v.as_str())
+            .expect("method");
+        let target = vector
+            .get("target")
+            .and_then(|v| v.as_str())
+            .expect("target");
         let timestamp = vector
             .get("timestamp")
             .and_then(|v| v.as_str())
@@ -44,7 +56,7 @@ fn signatures_match_every_implementation() {
             .expect("signature");
 
         assert_eq!(
-            http::sign_request(secret, timestamp, seed, count, offset, total, body),
+            http::sign_request(secret, method, target, timestamp, seed, count, offset, total, body),
             want,
             "{name}"
         );
@@ -70,6 +82,60 @@ fn every_part_of_the_message_reaches_the_hash() {
     seen.sort_unstable();
     seen.dedup();
     assert_eq!(seen.len(), total, "two vectors share a signature");
+}
+
+fn target_vectors() -> Vec<(String, String, String, String)> {
+    let fixture = common::read_fixture("http-vectors.json");
+    let vectors = fixture
+        .get("target")
+        .and_then(|v| v.get("vectors"))
+        .and_then(|v| v.as_array())
+        .expect("target.vectors");
+    assert!(!vectors.is_empty(), "an empty fixture would pass anything");
+    vectors
+        .iter()
+        .map(|vector| {
+            let field = |key: &str| {
+                vector
+                    .get(key)
+                    .and_then(|v| v.as_str())
+                    .unwrap_or_else(|| panic!("{key}"))
+                    .to_string()
+            };
+            (field("name"), field("src"), field("target"), field("url"))
+        })
+        .collect()
+}
+
+/// What is signed must be what curl puts on the request line, and the five
+/// implementations must agree on it, or one service accepts four of them.
+#[test]
+fn targets_match_every_implementation() {
+    for (name, src, target, url) in target_vectors() {
+        let got = http_target(&src);
+        assert_eq!(got.target, target, "{name}: target");
+        assert_eq!(got.url, url, "{name}: url");
+    }
+}
+
+/// The property the rebuilt URL relies on: what the rule produced, it produces
+/// again — so a client handed it has nothing left to change.
+#[test]
+fn a_target_already_in_its_form_is_left_untouched() {
+    for (name, _, target, url) in target_vectors() {
+        let again = http_target(&url);
+        assert_eq!(again.target, target, "{name}: target");
+        assert_eq!(again.url, url, "{name}: url");
+    }
+}
+
+#[test]
+fn a_dot_segment_is_found_however_it_is_spelled() {
+    assert_eq!(dot_segment_of("http://h/a/../b"), Some(".."));
+    assert_eq!(dot_segment_of("http://h/./b"), Some("."));
+    assert_eq!(dot_segment_of("http://h/a/%2e%2E"), Some(".."));
+    assert_eq!(dot_segment_of("http://h/a/.%2e/b?x=.."), Some(".."));
+    assert_eq!(dot_segment_of("http://h/a..b/.x/x.?q=/../"), None);
 }
 
 #[test]

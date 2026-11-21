@@ -88,19 +88,26 @@ public static class HttpGen
     };
 
     /// <summary>
-    /// <c>hex(HMAC-SHA256(secret, timestamp \n seed \n count \n body))</c>.
+    /// <c>hex(HMAC-SHA256(secret, method \n target \n timestamp \n seed \n count \n offset \n total \n body))</c>.
     /// </summary>
     /// <remarks>
-    /// Everything that decides what comes back is inside: change the body, the count, the seed or
-    /// the minute, and the signature no longer matches. The secret is the key, so it is never
-    /// sent — which is what makes this safe over plain http on a trusted network, and what makes a
-    /// captured request useless tomorrow once the service checks the timestamp.
+    /// Everything that decides what comes back is inside: change the address, the body, the count,
+    /// the place in the column, the seed or the minute, and the signature no longer matches — so a
+    /// captured batch cannot be replayed as another one, nor sent to another address of the same
+    /// service. <paramref name="target"/> is the path and query exactly as they went on the request
+    /// line (see <see cref="HttpTarget"/>); the host and port are not in it, because proxies and port
+    /// forwarding change them on the way. The secret is the key, so it is never sent — which is what
+    /// makes this safe over plain http on a trusted network, and what makes a captured request
+    /// useless tomorrow once the service checks the timestamp.
     /// </remarks>
     public static string SignRequest(
-        string secret, string timestamp, string seed, int count, int offset, int total, string body)
+        string secret, string method, string target, string timestamp, string seed, int count,
+        int offset, int total, string body)
     {
         string message = string.Join(
             "\n",
+            method,
+            target,
             timestamp,
             seed,
             count.ToString(CultureInfo.InvariantCulture),
@@ -151,13 +158,18 @@ public static class HttpGen
 
         string body = inputs is null ? "" : string.Join("\n", inputs);
 
+        // The URL is rebuilt from the target before System.Uri sees it: handed `src` as written,
+        // .NET would decode `%41` and upper-case `%d0` on the way, and the service would read a
+        // request line other than the one signed. A target already in this form it sends untouched.
+        HttpTarget address = HttpTarget.Of(src);
+
         // The header is set after the fact, not through StringContent's mediaType: that
         // overload appends "; charset=utf-8", and the four other implementations send a bare
         // "text/plain". A service matching the header exactly would have rejected this one.
         var content = new StringContent(body, Encoding.UTF8, "text/plain");
         content.Headers.ContentType =
             new System.Net.Http.Headers.MediaTypeHeaderValue("text/plain");
-        using var request = new HttpRequestMessage(HttpMethod.Post, src) { Content = content };
+        using var request = new HttpRequestMessage(HttpMethod.Post, address.Url) { Content = content };
         request.Headers.TryAddWithoutValidation(
             "X-TDC-Count", count.ToString(CultureInfo.InvariantCulture));
         request.Headers.TryAddWithoutValidation(
@@ -189,7 +201,9 @@ public static class HttpGen
             request.Headers.TryAddWithoutValidation("X-TDC-Timestamp", timestamp);
             request.Headers.TryAddWithoutValidation(
                 "X-TDC-Signature",
-                SignRequest(secret, timestamp, seed ?? "", count, offset, total, body));
+                SignRequest(
+                    secret, HttpTarget.Method, address.Target, timestamp, seed ?? "", count, offset,
+                    total, body));
         }
 
         HttpResponseMessage response;

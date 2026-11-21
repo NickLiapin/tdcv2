@@ -409,19 +409,30 @@ Con la petición viajan dos cabeceras más:
 
 ```
 X-TDC-Timestamp: 1786000000
-X-TDC-Signature: hex(HMAC-SHA256(secret, timestamp \n seed \n count \n offset \n total \n body))
+X-TDC-Signature: hex(HMAC-SHA256(secret, method \n path \n timestamp \n seed \n count \n offset \n total \n body))
 ```
 
-Dentro de la firma está todo lo que decide la respuesta: cambie el cuerpo, la cuenta, el
-desplazamiento del lote, la semilla o el minuto y deja de coincidir. Verificarla son unas pocas líneas:
+Dentro de la firma está todo lo que decide la respuesta: cambie la ruta, el cuerpo, la
+cuenta, el desplazamiento del lote, la semilla o el minuto y deja de coincidir. Verificarla
+son unas pocas líneas:
 
 ```js
 const mine = crypto
   .createHmac('sha256', process.env.TDC_HTTP_SECRET)
-  .update(`${ts}\n${seed}\n${count}\n${offset}\n${total}\n${body}`)
+  .update(`${req.method}\n${req.url}\n${ts}\n${seed}\n${count}\n${offset}\n${total}\n${body}`)
   .digest('hex');
 if (mine !== req.headers['x-tdc-signature']) return res.status(401).end();
 ```
+
+`method` es siempre `POST`. `path` es la ruta y la consulta **exactamente como llegaron en la
+línea de petición**: `/hash`, `/v1/score?model=small`. En Node es `req.url`. Tómela de la
+petición, nunca de su propia copia de `src=`: antes de enviar, TDC escribe toda ruta en una
+sola forma (`%7e` pasa a `~`, `'` a `%27`, un espacio a `%20`, un `?` vacío se descarta),
+porque los cinco clientes HTTP la habrían cambiado cada uno a su manera. Por la misma razón
+se rechaza un `src` con un segmento `.` o `..` ([`TDC066`](../reference/errors.mdx)).
+
+El host y el puerto no se firman. Un proxy o una redirección de puertos los cambia por el
+camino, y la firma se rompería sin motivo.
 
 Las cinco implementaciones producen la **misma** firma para la misma petición, así que un
 solo servicio acepta peticiones de cualquiera de ellas.
@@ -445,6 +456,16 @@ que cualquiera puede falsificar.
 - La marca de tiempo es lo que vuelve inútil mañana una petición capturada. **Qué tan
   estrecha es esa ventana lo decide su servicio.** TDC envía su reloj real, no el `--now` de
   la corrida, así que una configuración fijada a una fecha pasada sigue funcionando.
+- **La ventana no vuelve la petición de un solo uso.** Dentro de ella, una petición
+  capturada puede enviarse otra vez tantas veces como se quiera, y cada copia hace trabajar
+  de nuevo a su servicio. Si ese trabajo es caro, recuerde las firmas ya vistas durante la
+  ventana o limite la frecuencia de peticiones.
+- La ruta se firma, el host no. Un secreto puede servir a todas las rutas de un servicio,
+  pero **dos servicios que comparten secreto aceptan las peticiones del otro** para la misma
+  ruta. Dé a cada servicio el suyo.
+- **Detrás de un proxy que reescribe la ruta** (TDC llama a `/tdc/hash`, el servicio ve
+  `/hash`), compruebe la firma contra la ruta de fuera: su servicio tiene que conocer su
+  prefijo.
 - El secreto **no caduca**. Una prueba que corre una vez por trimestre firma bien con una
   clave puesta meses atrás — por eso aquí hay una firma y no un token que expira.
 - **No oculta el contenido.** Por `http://` simple, el cuerpo y la respuesta son visibles

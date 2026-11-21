@@ -9,6 +9,7 @@ pub mod file;
 pub mod formula;
 pub mod http;
 pub mod http_column;
+pub mod http_target;
 pub mod imperfections;
 pub mod number;
 pub mod quantile;

@@ -15,6 +15,7 @@ import type {
   OpenCloseElementContext,
   SelfClosingElementContext,
 } from '../generated/TDCParser.js';
+import { dotSegmentOf } from '../generators/http-target.js';
 import { contentElements, elementKind, elementName, extractAttrs } from '../processor/walk.js';
 
 function findAttr(attrs: readonly AttrContext[], name: string): AttrContext | undefined {
@@ -58,6 +59,21 @@ export function checkGenHttp(
       hint: 'e.g. src="http://127.0.0.1:5566/gen" or src="https://svc.example.com/gen".',
       code: 'TDC066',
     });
+  } else {
+    // The path is signed, so it must reach the service exactly as TDC signed
+    // it — and a `.` or `..` segment does not: some HTTP clients resolve it on
+    // the way, others send it as written. See generators/http-target.ts.
+    const dot = dotSegmentOf(src);
+    if (dot !== undefined) {
+      ctx.diagnostics.push({
+        severity: 'error',
+        source: 'validator',
+        ...attrValueRange(srcAttr),
+        message: `invalid http src "${src}" — the path has a "${dot}" segment`,
+        hint: 'Write the path the service sees: "http://host/a/../b" is "http://host/b". The path is signed exactly as written, so it cannot be left to the HTTP client to resolve.',
+        code: 'TDC066',
+      });
+    }
   }
 
   // in — optional, but if present must name an earlier-declared sequence.
@@ -179,6 +195,9 @@ function isHttpUrl(value: string): boolean {
   } catch {
     return false;
   }
+  // A backslash before the path: Node's URL parser reads it as `/`, the other
+  // four as part of the host — and the signed path would not be the one sent.
+  if (/^[^:]*:\/\/[^/?#]*\\/.test(value)) return false;
   return url.protocol === 'http:' || url.protocol === 'https:';
 }
 
