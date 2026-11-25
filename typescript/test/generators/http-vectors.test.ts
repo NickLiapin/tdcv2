@@ -95,6 +95,17 @@ describe('the signed target', () => {
     expect(dotSegmentOf('http://h/a/.%2e/b?x=..')).toBe('..');
     expect(dotSegmentOf('http://h/a..b/.x/x.?q=/../')).toBeUndefined();
   });
+
+  it('takes linear time on a long run of whitespace inside src', () => {
+    // A trimming regex with an end-anchored alternative retried the run from
+    // every position inside it: 40 000 tabs took ~1 s, 200 000 took ~25 s
+    // (CodeQL js/polynomial-redos). Linear, it is a few milliseconds.
+    const run = '\t'.repeat(200_000);
+    const started = performance.now();
+    const { target } = httpTarget(` http://h/a${run}b\t`);
+    expect(performance.now() - started).toBeLessThan(2000);
+    expect(target).toBe(`/a${'%09'.repeat(200_000)}b`);
+  });
 });
 
 describe('X-TDC-Seed', () => {

@@ -53,9 +53,26 @@ export interface HttpTarget {
   readonly target: string;
 }
 
+function isAsciiWhitespace(c: string | undefined): boolean {
+  return c === ' ' || c === '\t' || c === '\r' || c === '\n';
+}
+
+/**
+ * `src` without leading and trailing ASCII whitespace. A loop, not a regex:
+ * `/^\s+|\s+$/g` retries a whitespace run from every position inside it, so a
+ * long run in the middle of `src` costs quadratic time.
+ */
+function trimAsciiWhitespace(src: string): string {
+  let start = 0;
+  let end = src.length;
+  while (start < end && isAsciiWhitespace(src[start])) start++;
+  while (end > start && isAsciiWhitespace(src[end - 1])) end--;
+  return src.slice(start, end);
+}
+
 /** `src=` cut into what is sent as written (scheme, host, port) and what is not. */
 function splitSrc(src: string): { origin: string; rest: string } {
-  const trimmed = src.replace(/^[ \t\r\n]+|[ \t\r\n]+$/g, '');
+  const trimmed = trimAsciiWhitespace(src);
   const scheme = trimmed.indexOf('://');
   const hostStart = scheme < 0 ? 0 : scheme + 3;
   for (let i = hostStart; i < trimmed.length; i++) {
