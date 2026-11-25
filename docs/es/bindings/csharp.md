@@ -19,7 +19,7 @@ Dos paquetes: la biblioteca y la línea de comandos como `dotnet tool`.
 ## Cómo obtenerlo
 
 > [!TIP]
-> **En NuGet — versión 0.4.1**
+> **En NuGet — versión 0.5.0**
 >
 >
 > ```bash

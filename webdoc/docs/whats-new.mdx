@@ -12,6 +12,26 @@ now works differently — newest first, each with a link to where the docs expla
 Changes inside the engine that alter nothing you write or read are left out; every change is
 in the [changelog](https://github.com/NickLiapin/tdcv2/blob/main/CHANGELOG.md).
 
+## 25 November 2026 — version 0.5.0
+
+If your service checks the `secret=` signature, it needs two more lines, which is why the version
+is 0.5.0. Nothing else changes in a config that was right.
+
+- **The `secret=` signature covers the method and the path.** A request signed for `/hash` used
+  to be accepted at `/invite` of the same service with the same secret. A service that checks
+  signatures adds two lines at the front: `method \n path \n timestamp \n seed \n count \n offset \n total \n body`,
+  where `path` is the request line as it arrived (`req.url` in Node). Until it does, it answers
+  every request with 401. → [Proving the request came from TDC](./generators/http.mdx#proving-the-request-came-from-tdc)
+- **A `src` with a `.` or `..` segment, or a backslash before the path, is `TDC066`.** The path is
+  signed, and HTTP clients resolve those shapes differently on the way, so the service would
+  check another path than the one signed. → [Proving the request came from TDC](./generators/http.mdx#proving-the-request-came-from-tdc)
+- **The npm package needs Node.js 22.22.2 or newer, or 24.15 or newer.** Node 20 reached its end
+  of life in April. The Python, Java, C# and Rust packages are unaffected. →
+  [Installation](./getting-started/installation.mdx)
+- **The column an `http` sends as `in=` is generated once per row.** It used to be generated
+  twice, once for the batch and once for the line. Same bytes, faster: 200,000 hashed rows take
+  7.5 s instead of 12.2 s in Python. → [The `http` generator](./generators/http.mdx)
+
 ## 19 November 2026 — version 0.4.1
 
 Fixes, most of them found while writing an article on the `http` generator, and a faster

@@ -11,8 +11,12 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [0.5.0] — 2026-11-25
+
 ### Changed
 
+- The engine changes shared by all five implementations — see the
+  [engine changelog](../CHANGELOG.md#050--2026-11-25).
 - **Node.js 20 is no longer supported: `tdcv2` needs Node 22.22.2 or newer, or 24.15 or newer.**
   Node 20 reached its end of life on 30 April 2026, and the prompts behind `tdcv2 init`
   (`@inquirer/prompts` 8.8) already require the newer lines — a fresh install on Node 20 took

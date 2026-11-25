@@ -15,6 +15,8 @@ page — is tracked in that implementation's own changelog:
 
 ## [Unreleased]
 
+## [0.5.0] — 2026-11-25
+
 ### Changed
 
 - **The `secret=` signature covers the method and the path:**

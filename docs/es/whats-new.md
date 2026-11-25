@@ -16,6 +16,26 @@ donde la documentación lo explica ahora. Los cambios dentro del motor que no al
 que usted escribe o lee quedan fuera; todos los cambios están en el
 [registro de cambios](https://github.com/NickLiapin/tdcv2/blob/main/CHANGELOG.md).
 
+## 25 de noviembre de 2026 — versión 0.5.0
+
+Si su servicio comprueba la firma de `secret=`, necesita dos líneas más; por eso la versión es la
+0.5.0. Nada más cambia en una configuración que estaba bien.
+
+- **La firma de `secret=` cubre el método y la ruta.** Una petición firmada para `/hash` se
+  aceptaba en `/invite` del mismo servicio con el mismo secreto. Un servicio que comprueba firmas
+  añade dos líneas al principio: `method \n path \n timestamp \n seed \n count \n offset \n total \n body`,
+  donde `path` es la línea de petición tal como llegó (`req.url` en Node). Hasta que lo haga,
+  responde 401 a cada petición. → [Probar que la petición viene de TDC](./generators/http.md#probar-que-la-petición-viene-de-tdc)
+- **Un `src` con un segmento `.` o `..`, o con una barra invertida antes de la ruta, es `TDC066`.**
+  La ruta va firmada, y los clientes HTTP tratan esas formas de manera distinta por el camino, así
+  que el servicio comprobaría otra ruta que la firmada. → [Probar que la petición viene de TDC](./generators/http.md#probar-que-la-petición-viene-de-tdc)
+- **El paquete de npm necesita Node.js 22.22.2 o posterior, o 24.15 o posterior.** Node 20 llegó
+  al fin de su soporte en abril. Los paquetes de Python, Java, C# y Rust no cambian. →
+  [Instalación](./getting-started/installation.md#top)
+- **La columna que `http` envía con `in=` se genera una vez por fila.** Antes se generaba dos
+  veces, para el lote y para la línea. Los mismos bytes, más rápido: 200 000 filas con hash tardan
+  7,5 s en lugar de 12,2 s en Python. → [El generador `http`](./generators/http.md#top)
+
 ## 19 de noviembre de 2026 — versión 0.4.1
 
 Correcciones —la mayoría encontradas mientras se escribía un artículo sobre el generador
