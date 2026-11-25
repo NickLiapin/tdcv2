@@ -18,56 +18,104 @@ que usted escribe o lee quedan fuera; todos los cambios están en el
 
 ## 25 de noviembre de 2026 — versión 0.5.0
 
-Si su servicio comprueba la firma de `secret=`, necesita dos líneas más; por eso la versión es la
-0.5.0. Nada más cambia en una configuración que estaba bien.
+Un cambio requiere trabajo de su parte: un servicio que comprueba la firma de `secret=` tiene
+que firmar dos valores más. Por eso la versión es la 0.5.0. Las configuraciones funcionan sin
+cambios, salvo que un `src=` contenga `..` (vea abajo).
 
-- **La firma de `secret=` cubre el método y la ruta.** Una petición firmada para `/hash` se
-  aceptaba en `/invite` del mismo servicio con el mismo secreto. Un servicio que comprueba firmas
-  añade dos líneas al principio: `method \n path \n timestamp \n seed \n count \n offset \n total \n body`,
-  donde `path` es la línea de petición tal como llegó (`req.url` en Node). Hasta que lo haga,
-  responde 401 a cada petición. → [Probar que la petición viene de TDC](./generators/http.md#probar-que-la-petición-viene-de-tdc)
-- **Un `src` con un segmento `.` o `..`, o con una barra invertida antes de la ruta, es `TDC066`.**
-  La ruta va firmada, y los clientes HTTP tratan esas formas de manera distinta por el camino, así
-  que el servicio comprobaría otra ruta que la firmada. → [Probar que la petición viene de TDC](./generators/http.md#probar-que-la-petición-viene-de-tdc)
-- **El paquete de npm necesita Node.js 22.22.2 o posterior, o 24.15 o posterior.** Node 20 llegó
-  al fin de su soporte en abril. Los paquetes de Python, Java, C# y Rust no cambian. →
+- **La firma de `secret=` incluye ahora el método y la ruta de la petición.** Antes cubría la
+  hora, la semilla, los números de fila y el cuerpo, pero no la dirección a la que iba la
+  petición. Si varias rutas de un mismo servicio compartían un secreto, una petición firmada
+  para `/a` también pasaba la comprobación en `/b`. Ahora el método y la ruta van al principio
+  del texto firmado, así que una firma solo vale en la ruta para la que se hizo. **Qué cambiar:**
+  en su servicio, firme `method \n path \n timestamp \n seed \n count \n offset \n total \n body`.
+  El método es siempre `POST`. La ruta es la ruta y la consulta exactamente como llegaron
+  (`req.url` en Node). Hasta que lo cambie, el servicio responde 401 a cada petición de TDC 0.5.
+  → [Probar que la petición viene de TDC](./generators/http.md#probar-que-la-petición-viene-de-tdc)
+- **La ruta llega al servicio en la misma forma desde cualquier paquete.** Antes, la biblioteca
+  HTTP de cada paquete reescribía la ruta a su manera. El paquete de C# convertía `%7e` en `~`,
+  y el de npm convertía `'` en `%27` y quitaba un `?` vacío. Así, un mismo `src=` podía llegar
+  de formas distintas. Ahora TDC escribe la ruta en una sola forma antes de enviarla: un espacio
+  pasa a `%20`, `%7e` pasa a `~`, `'` pasa a `%27` y un `?` vacío se quita. →
+  [Probar que la petición viene de TDC](./generators/http.md#probar-que-la-petición-viene-de-tdc)
+- **Un `src=` con un segmento `.` o `..`, o con una barra invertida antes de la ruta, es un
+  error, `TDC066`.** Antes, `src="https://svc.example.com/a/../b"` llegaba al servicio como
+  `/a/../b` desde unos paquetes y como `/b` desde otros, y algunas bibliotecas leen `\` como
+  `/`. Ahora la ruta va firmada, así que tiene que llegar exactamente como TDC la firmó, y TDC
+  rechaza esas formas en lugar de adivinar. Escriba la ruta que atiende el servicio:
+  `https://svc.example.com/b`. →
+  [Probar que la petición viene de TDC](./generators/http.md#probar-que-la-petición-viene-de-tdc)
+- **El paquete de npm necesita Node.js 22.22.2 o posterior, o 24.15 o posterior.** Antes
+  también se admitía Node 20. Node 20 dejó de recibir correcciones de seguridad el 30 de abril
+  de 2026, y una biblioteca que usa `tdcv2 init` ya exige las versiones nuevas. Actualice Node
+  antes de actualizar TDC. Los paquetes de Python, Java, C# y Rust no cambian. →
   [Instalación](./getting-started/installation.md#top)
-- **La columna que `http` envía con `in=` se genera una vez por fila.** Antes se generaba dos
-  veces, para el lote y para la línea. Los mismos bytes, más rápido: 200 000 filas con hash tardan
-  7,5 s en lugar de 12,2 s en Python. → [El generador `http`](./generators/http.md#top)
+- **La columna que `http` envía al servicio con `in=` se genera una vez por fila.** Antes, cada
+  uno de sus valores se generaba dos veces: una para la petición y otra para la fila que lo
+  imprime. Las dos veces salía el mismo valor, así que el resultado no cambia. Cambia la
+  velocidad: 200 000 filas con hash tardan 7,5 s en lugar de 12,2 s en Python. →
+  [El generador `http`](./generators/http.md#top)
 
 ## 19 de noviembre de 2026 — versión 0.4.1
 
-Correcciones —la mayoría encontradas mientras se escribía un artículo sobre el generador
-`http`— y un motor de streaming más rápido. Una configuración que estaba bien no necesita
-cambios; algunas que daban un resultado incorrecto en silencio ahora lo dicen.
+Correcciones de errores y un motor de streaming más rápido. Una configuración que funcionaba no
+necesita cambios. Algunas configuraciones que antes daban datos incorrectos sin decir nada ahora
+se detienen con un error que dice qué corregir.
 
-- **`parent=` filtra un `formula` y un desplazamiento de fecha.** Antes se ignoraba en ambos: una
-  fórmula bajo `parent="Status.paid"` llenaba todas las filas y un `stat` count sobre ella daba
-  mal. En un total `running`, un `stat` o una fórmula que lee `prev()` ahora es `TDC315`: póngalo
-  en la columna que leen. → [Una fuente vacía da una respuesta vacía](./generators/formula.md#una-fuente-vacía-da-una-respuesta-vacía)
-- **`stat` con `sum`, `min` o `max` cuenta solo las celdas presentes.** Una última celda vacía
-  dejaba vacía toda la columna. → [`stat`](./generators/stat.md#top)
-- **Un escape que `regex` no conoce es un error.** `\b`, `\B`, `\A`, `\Z`, `\z`, `\G` y cualquier otra
-  letra desconocida tras la barra invertida son `TDC097` (`TDC130` en `advanced_regex`); antes se
-  imprimía la letra. `\xHH` y `\uHHHH` son el carácter con ese código. → [Escapado](./generators/regex.md#escapado)
-- **La columna `flag=` de un `<mix>` se puede leer con `parent=`, `of=` y una fórmula.** →
+- **`parent=` funciona en un `formula` y en una fecha medida desde otra fecha.** Antes se
+  ignoraba en los dos. Una fórmula bajo `parent="Status.paid"` llenaba todas las filas, no solo
+  las pagadas, y un `stat` count sobre ella contaba todas las filas. Ahora las filas que el padre
+  omite quedan vacías, como en cualquier otra columna. En un total `running`, un `stat` o una
+  fórmula que lee `prev()`, `parent=` es ahora un error, `TDC315`. Estos leen las filas vecinas,
+  así que no está claro qué filas debería quitar el filtro. Ponga `parent=` en la columna que
+  leen. →
+  [Una fuente vacía da una respuesta vacía](./generators/formula.md#una-fuente-vacía-da-una-respuesta-vacía)
+- **`stat` con `sum`, `min` o `max` omite las celdas vacías.** Antes, si la última celda de la
+  columna estaba vacía, por ejemplo vaciada por `missing=`, el resultado salía vacío en todas las
+  filas. Ahora las celdas vacías se omiten y el resultado se calcula con las demás. →
+  [`stat`](./generators/stat.md#top)
+- **Un escape desconocido en `regex` es un error.** Antes TDC quitaba la barra invertida e
+  imprimía la letra: `\bINV-\d{6}\b`, copiado de un validador, imprimía `bINV-123456b`. Ahora
+  `\b`, `\B`, `\A`, `\Z`, `\z`, `\G` y cualquier otra letra desconocida tras la barra invertida
+  son `TDC097` (`TDC130` en `advanced_regex`). Los seis primeros comprueban lo que rodea una
+  coincidencia, y alrededor de un valor generado no hay nada. `\xHH` y `\uHHHH` dan ahora el
+  carácter con ese código; antes, `\x41` imprimía `x41`. → [Escapado](./generators/regex.md#escapado)
+- **`parent=`, `of=` y una fórmula pueden leer la columna `flag=` de un `<mix>`.** Antes el
+  paquete de npm lo permitía y los otros cuatro lo rechazaban con `TDC035` o `TDC240`, así que
+  una misma configuración pasaba `check` en un lenguaje y fallaba en los demás. Ahora los cinco
+  lo permiten. →
   [Marcar valores atípicos con `flag`](./constructs/mix.md#marcar-valores-atípicos-con-flag)
-- **Las distribuciones y `timeseries` imprimen los mismos dígitos en todos los paquetes**, hasta
-  el último decimal. → [Distribuciones estadísticas](./guides/statistical-distributions.md#top)
-- **Un valor que se redondea a cero se imprime `0.00`, nunca `-0.00`.** → [`decimals`](./generators/number.md#decimals--una-columna-fraccionaria)
-- **`decimals=` en un rango `number` o un `timeseries` es un entero de 0 a 10, `TDC316`.**
-  → [`decimals`](./generators/number.md#decimals--una-columna-fraccionaria)
-- **El `MMM` ruso después de un día toma la forma dentro de la fecha:** `15 мая`, `15 июн.`, no
-  `15 май`. → [Formato de la salida](./generators/date.md#formato-de-la-salida)
-- **`<pad>` cuenta caracteres, y los cambios de mayúsculas coinciden** en letras como `ς` y `ﬁ` en
-  todos los paquetes. → [`<pad>`](./compute/strings.md#pad--rellenar-a-la-izquierda-hasta-un-ancho-fijo)
-- **El motor de streaming es dos o tres veces más rápido** en columnas `regex`, `advanced_regex` y
-  `number`, y en una columna que la fila lee dos veces. Los mismos bytes. → [Rendimiento](./guides/performance.md#top)
-- **La línea de comandos de Python usa todos los núcleos en una corrida grande sin `--jobs`**,
-  como las otras cuatro; una configuración que llama a un servicio sigue en un solo proceso. Rust
-  siempre corre en un hilo e ignora `--jobs`; un worker de TypeScript ahora se presupuesta en los
-  ~600 MB que de verdad ocupa en una corrida larga. → [Paralelismo — automático](./guides/large-outputs.md#paralelismo--automático)
+- **Las distribuciones y `timeseries` imprimen los mismos dígitos en todos los paquetes.** Antes,
+  con muchos decimales, como `lognormal` con `decimals="10"`, los paquetes podían diferir en los
+  últimos dígitos, porque cada uno usaba las funciones matemáticas de su plataforma. Ahora los
+  cinco calculan igual. Con los 2–4 decimales habituales no cambió nada. →
+  [Distribuciones estadísticas](./guides/statistical-distributions.md#top)
+- **Un valor que se redondea a cero se imprime `0.00`, no `-0.00`.** Antes, `-0.001` con
+  `decimals="2"` se imprimía `-0.00` en cuatro paquetes y `0.00` en Java. →
+  [`decimals`](./generators/number.md#decimals--una-columna-fraccionaria)
+- **`decimals=` en un rango `number` o un `timeseries` debe ser un entero de 0 a 10, `TDC316`.**
+  Antes, un valor mayor como `decimals="17"` detenía la ejecución en tres paquetes e imprimía
+  dígitos finales sin sentido en los otros dos. →
+  [`decimals`](./generators/number.md#decimals--una-columna-fraccionaria)
+- **El `MMM` ruso después de un día usa la forma para fechas:** `15 мая`, `15 июн.`. Antes,
+  cuatro meses usaban la forma independiente, y `15 май` aparecía junto a `15 янв.`. →
+  [Formato de la salida](./generators/date.md#formato-de-la-salida)
+- **`<pad>` cuenta caracteres, y los cambios de mayúsculas coinciden en todos los paquetes.**
+  Antes, en el paquete de npm `<pad>` contaba un emoji como dos caracteres, así que `😀ab`
+  rellenado hasta 8 recibía un carácter de relleno menos. El paquete de C# cambiaba algunas
+  letras de forma distinta que los otros cuatro: una `Σ` final pasaba a `σ` en lugar de `ς`. →
+  [`<pad>`](./compute/strings.md#pad--rellenar-a-la-izquierda-hasta-un-ancho-fijo)
+- **El motor de streaming es dos o tres veces más rápido** en columnas `regex`,
+  `advanced_regex` y `number`. Antes volvía a analizar el patrón o el rango en cada fila, y una
+  columna que la fila lee dos veces se generaba dos veces. El resultado es el mismo, byte a
+  byte. → [Rendimiento](./guides/performance.md#top)
+- **La línea de comandos de Python usa todos los núcleos del procesador en una ejecución
+  grande, sin `--jobs`.** Antes, sin `--jobs`, usaba un solo núcleo, mientras los otros cuatro
+  paquetes repartían una ejecución grande por sí mismos. Una configuración que llama a un
+  servicio sigue en un solo proceso. El paquete de npm ahora arranca menos procesos en una
+  máquina con poca memoria: antes contaba unos 120 MB por proceso, pero en una ejecución larga
+  un proceso ocupa unos 600 MB, y una ejecución grande podía agotar la memoria. El paquete de
+  Rust siempre usa un solo hilo e ignora `--jobs`; antes la documentación decía otra cosa. →
+  [Paralelismo — automático](./guides/large-outputs.md#paralelismo--automático)
 
 ## 9 de noviembre de 2026 — versión 0.4.0
 
@@ -80,19 +128,24 @@ segundo y el tercer punto de abajo piden un cambio en el servicio; por eso la ve
   hashes ya funciona en todos los paquetes. `parallel=` pone varios lotes en la red a la vez. Un
   valor de cualquiera de los dos que no sea un entero mayor que cero es `TDC313`. →
   [Lotes](./generators/http.md#lotes-una-petición-cada-diez-mil-filas)
-- **Un servicio fuente devuelve `X-TDC-Offset`.** Cada petición dice ahora qué filas cubre:
-  `X-TDC-Offset` es la primera fila y `X-TDC-Total`, la longitud de la ejecución. Una fuente — un
-  servicio sin `in=` — devuelve el desplazamiento recibido en una cabecera del mismo nombre; si
-  no, una ejecución de más de un lote se detiene. Un procesador no necesita cambios. →
+- **Un servicio al que se llama sin `in=` debe devolver `X-TDC-Offset`.** Antes una ejecución
+  enviaba una sola petición, así que no había nada que numerar. Ahora cada petición dice qué
+  filas cubre: `X-TDC-Offset` es la primera fila del lote y `X-TDC-Total`, el número de filas de
+  la ejecución. Un servicio sin `in=` crea cada valor a partir del número de fila, así que tiene
+  que devolver el desplazamiento recibido en una cabecera de respuesta del mismo nombre. Sin ella,
+  una ejecución de más de un lote se detiene, porque el servicio respondería a cada lote con las
+  filas 0, 1, 2… otra vez. Un servicio que recibe una columna con `in=` no necesita cambios. →
   [El contrato](./generators/http.md#el-contrato-que-implementa-su-servicio)
-- **La firma de `secret=` incluye el desplazamiento y el total.** Un servicio que comprueba
-  firmas añade las dos líneas: `timestamp \n seed \n count \n offset \n total \n body`. →
+- **La firma de `secret=` incluye el desplazamiento y el total.** Antes cubría la hora, la
+  semilla, el número de filas y el cuerpo. Ahora cubre también para qué filas es la petición,
+  así que nadie puede cambiar los números de fila de una petición firmada. **Qué cambiar:** un
+  servicio que comprueba firmas firma `timestamp \n seed \n count \n offset \n total \n body`. →
   [Probar que la petición viene de TDC](./generators/http.md#probar-que-la-petición-viene-de-tdc)
 - **Una columna que lee una respuesta de `http` recibe esa respuesta.** `if="Hash == ''"`, un
   `<switch>` sobre la respuesta o una línea que la imprime veían una cadena vacía. Una llamada
   dentro de un caso de `<mix>` o `<switch>`, una rama `if=` o un campo de una secuencia compuesta
-  imprime su respuesta, y `parent=` en una secuencia `http` deja vacías las filas que el padre
-  deja vacías. → [El generador `http`](./generators/http.md#top)
+  imprimía una celda vacía; ahora imprime su respuesta. `parent=` en una secuencia `http` se
+  ignoraba; ahora deja vacías las filas que el padre deja vacías. → [El generador `http`](./generators/http.md#top)
 - **Una columna `http` no puede ser miembro de `<uniq>` ni de `<distinct>`, `TDC314`.** Un grupo
   `<uniq>` movía respuestas entre filas, y un hash podía acabar junto a la contraseña de otra
   fila. Ponga el grupo alrededor de las columnas que lee el servicio; la columna `http` las sigue.
@@ -127,12 +180,15 @@ segundo y el tercer punto de abajo piden un cambio en el servicio; por eso la ve
   guarda la celda. →
   [Tres casos donde la inferencia se omite](./guides/typed-output-parquet.md#tres-casos-donde-la-inferencia-se-omite-a-propósito)
 - **Un `timeseries` o un `pattern` dentro de un caso de `<mix>` o bajo `parent=` conserva el eje
-  temporal de la ejecución.** La fila 7 lee la serie en 7, sea cual sea la rama que la produjo,
-  así que una rama rara de "sensor atascado" abre huecos en la onda sin desordenarla. →
+  temporal de la ejecución.** Antes la serie se leía en una posición barajada, así que una onda
+  suave dentro de `<mix percent="99,1">` salía desordenada, incluso en las filas donde tocaba el
+  primer caso. Ahora la fila 7 lee la serie en la posición 7, sea cual sea el caso que la
+  produjo. Un segundo caso poco frecuente solo deja huecos en la onda. →
   [Detalles de `timeseries`](./generators/timeseries.md#detalles)
-- **`uniq` dentro de un `<pool>` se mide por el pool.** El aviso de memoria `TDC299` leía el
-  `count` de la ejecución, así que mil médicos con un número de consulta único avisaban de 48 MB
-  en una ejecución larga. Ahora decide el `count` del propio pool. →
+- **El aviso de memoria para `uniq` dentro de un `<pool>` cuenta los registros del pool.** Antes
+  `TDC299` usaba el `count` de la ejecución. Un pool de 1000 registros con un campo `uniq`
+  avisaba de 48 MB en una ejecución de 200 000 filas, aunque el pool solo guarda sus 1000
+  registros. Ahora decide el `count` del propio pool. →
   [`TDC299`](./reference/errors.md#formato-y-modificadores)
 - **`if=` o `default=` en un `<case>` es un error en todos los paquetes**, `TDC128`. Ninguno se
   leía nunca —un `<mix>` reparte las ramas por cuotas y un `<switch>` por la clave `is=`—, y los
@@ -180,8 +236,10 @@ segundo y el tercer punto de abajo piden un cambio en el servicio; por eso la ve
   y `tdcv2 pack list` nombra los países como nombres: United States, no "Usa". →
   [`pack list`](./data-packs/installing-packs.md#pack-list--ver-el-catálogo)
 - **Rust y C#:** un paquete cuya comprobación `<valid>` rechaza un valor ahora lo vuelve a sacar
-  como lo hacen los otros tres. Once paquetes incluidos, entre ellos el código de contenedor ISO
-  6346 y los códigos postales de Eslovenia, daban allí valores distintos. →
+  como lo hacen los otros tres. Antes estos dos paquetes podían sacar el mismo valor rechazado
+  en cada intento, así que el paquete fallaba o daba valores distintos de los otros tres. Afectaba
+  a once paquetes incluidos, entre ellos el código de contenedor ISO 6346 y los códigos postales
+  de Eslovenia. →
   [`<valid>`](./compute/conditionals.md#valid--rechazar-y-reintentar)
 - **Agentes de IA.** Claude Code, Codex, Cursor, VS Code y Gemini CLI pueden escribir y ejecutar
   configuraciones de TDC por usted, mediante un skill y un servidor MCP. →
@@ -192,12 +250,14 @@ segundo y el tercer punto de abajo piden un cambio en el servicio; por eso la ve
 - **`check` dice qué motor ejecutará la configuración y por qué.** Una segunda línea después de
   «is valid», como `runs on engine 1 (in memory): uniq="true" on "Code"`: de eso depende cuánta
   memoria gasta. `--brief` la omite. → [`tdcv2 check`](./reference/cli.md#tdcv2-check)
-- **`--engine 3` avisa cuando la configuración la ejecuta el motor 1.** Con un total acumulado,
-  una estadística o una columna `uniq="true"` siempre pasaba la ejecución al motor en memoria;
-  ahora imprime una nota, y una medición de memoria ya no es en silencio una del motor 1. →
+- **`--engine 3` avisa cuando la configuración la ejecuta el motor 1.** El motor 3 no sabe
+  construir un total acumulado, una estadística ni una columna `uniq="true"`. Antes, con una
+  configuración así, pasaba la ejecución al motor 1 en memoria sin decir nada, así que si usted
+  medía la memoria, medía el motor 1 sin saberlo. Ahora imprime una nota. →
   [Qué motor corre su configuración](./guides/large-outputs.md#qué-motor-corre-su-configuración)
-- **Corregido: una búsqueda o una fórmula que leía un miembro de `<uniq>` veía el valor de antes
-  de reordenar el grupo** — el día impreso y el día buscado no coincidían en casi ninguna fila. →
+- **Corregido: una búsqueda o una fórmula que lee una columna de un grupo `<uniq>` recibe su
+  valor final.** Antes recibía el valor de antes de que el grupo reordenara sus columnas, así que
+  el día impreso y el día buscado a partir de él no coincidían en casi ninguna fila. →
   [`<uniq>` — entre secuencias separadas](./constructs/unique-values.md#uniq--entre-secuencias-separadas)
 - **Corregido: `<assert>` e `if=` leen un campo a dos o más pools de profundidad**, como
   `D.room.dept.dep_id`. → [Hasta qué profundidad llega](./pools/linking.md#hasta-qué-profundidad-llega)

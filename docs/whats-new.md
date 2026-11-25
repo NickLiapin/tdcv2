@@ -17,56 +17,99 @@ in the [changelog](https://github.com/NickLiapin/tdcv2/blob/main/CHANGELOG.md).
 
 ## 25 November 2026 — version 0.5.0
 
-If your service checks the `secret=` signature, it needs two more lines, which is why the version
-is 0.5.0. Nothing else changes in a config that was right.
+One change needs work on your side: a service that checks the `secret=` signature has to sign
+two more values. That is why the version is 0.5.0. Configs run unchanged, unless a `src=`
+contains `..` (see below).
 
-- **The `secret=` signature covers the method and the path.** A request signed for `/hash` used
-  to be accepted at `/invite` of the same service with the same secret. A service that checks
-  signatures adds two lines at the front: `method \n path \n timestamp \n seed \n count \n offset \n total \n body`,
-  where `path` is the request line as it arrived (`req.url` in Node). Until it does, it answers
-  every request with 401. → [Proving the request came from TDC](./generators/http.md#proving-the-request-came-from-tdc)
-- **A `src` with a `.` or `..` segment, or a backslash before the path, is `TDC066`.** The path is
-  signed, and HTTP clients resolve those shapes differently on the way, so the service would
-  check another path than the one signed. → [Proving the request came from TDC](./generators/http.md#proving-the-request-came-from-tdc)
-- **The npm package needs Node.js 22.22.2 or newer, or 24.15 or newer.** Node 20 reached its end
-  of life in April. The Python, Java, C# and Rust packages are unaffected. →
+- **The `secret=` signature now includes the request's method and path.** Before, it covered
+  the timestamp, the seed, the row numbers and the body, but not the address the request was
+  sent to. If several endpoints of one service shared a secret, a request signed for `/a`
+  also passed the check at `/b`. Now the method and the path come first in the signed text, so
+  a signature is valid only at the path it was made for. **What to change:** in your service,
+  sign `method \n path \n timestamp \n seed \n count \n offset \n total \n body`. The method
+  is always `POST`. The path is the path and query exactly as they arrived (`req.url` in
+  Node). Until you change it, the service answers every request from TDC 0.5 with 401. →
+  [Proving the request came from TDC](./generators/http.md#proving-the-request-came-from-tdc)
+- **The path reaches the service in the same form from every package.** Before, each
+  package's HTTP library rewrote the path in its own way. The C# package turned `%7e` into `~`,
+  and the npm package turned `'` into `%27` and dropped an empty `?`. So one `src=` could
+  arrive in different forms. Now TDC writes the path in one form before sending it: a space
+  becomes `%20`, `%7e` becomes `~`, `'` becomes `%27`, and an empty `?` is dropped. →
+  [Proving the request came from TDC](./generators/http.md#proving-the-request-came-from-tdc)
+- **A `src=` with a `.` or `..` segment, or with a backslash before the path, is an error,
+  `TDC066`.** Before, `src="https://svc.example.com/a/../b"` reached the service as `/a/../b`
+  from some packages and as `/b` from others, and some libraries read a `\` as `/`. Now the
+  path is signed, so it has to arrive exactly as TDC signed it, and TDC refuses these forms
+  rather than guess. Write the path the service serves: `https://svc.example.com/b`. →
+  [Proving the request came from TDC](./generators/http.md#proving-the-request-came-from-tdc)
+- **The npm package needs Node.js 22.22.2 or newer, or 24.15 or newer.** Before, Node 20 was
+  supported too. Node 20 stopped getting security fixes on April 30, 2026, and a library that
+  `tdcv2 init` uses already requires the newer versions. Upgrade Node before you upgrade
+  TDC. The Python, Java, C# and Rust packages are not affected. →
   [Installation](./getting-started/installation.md#top)
-- **The column an `http` sends as `in=` is generated once per row.** It used to be generated
-  twice, once for the batch and once for the line. Same bytes, faster: 200,000 hashed rows take
-  7.5 s instead of 12.2 s in Python. → [The `http` generator](./generators/http.md#top)
+- **A column that `http` sends to the service through `in=` is generated once per row.**
+  Before, each of its values was generated twice: once for the request and once for the row
+  that prints it. Both times gave the same value, so the output does not change. The run is
+  faster: 200,000 hashed rows take 7.5 s instead of 12.2 s in Python. →
+  [The `http` generator](./generators/http.md#top)
 
 ## 19 November 2026 — version 0.4.1
 
-Fixes, most of them found while writing an article on the `http` generator, and a faster
-streaming engine. Nothing to change in a config that was right; a few that were silently wrong
-now say so.
+Bug fixes and a faster streaming engine. A config that worked needs no change. A few configs
+that used to produce wrong data without a word now stop with an error that says what to fix.
 
-- **`parent=` filters a `formula` and a date offset.** It used to be ignored on both, so a
-  formula under `parent="Status.paid"` filled every row and a `stat` count over it was wrong.
-  On a `running` total, a `stat` or a formula that reads `prev()` it is now `TDC315`: put it on
-  the column they read. → [An empty source makes an empty answer](./generators/formula.md#an-empty-source-makes-an-empty-answer)
-- **`stat` with `sum`, `min` or `max` counts only the cells that are there.** A blank last cell
-  used to make the whole column empty. → [`stat`](./generators/stat.md#top)
-- **An escape `regex` does not know is an error.** `\b`, `\B`, `\A`, `\Z`, `\z`, `\G` and any other
-  unknown backslash-letter are `TDC097` (`TDC130` in `advanced_regex`); they used to print the
-  letter. `\xHH` and `\uHHHH` are the character with that code. → [Escaping](./generators/regex.md#escaping)
-- **A `<mix>` `flag=` column can be read by `parent=`, `of=` and a formula.** →
+- **`parent=` works on a `formula` and on a date measured from another date.** Before, it was
+  ignored on both. A formula under `parent="Status.paid"` filled every row, not only the paid
+  ones, and a `stat` count over it counted every row. Now the rows the parent skips are empty,
+  as in any other column. On a `running` total, a `stat` or a formula that reads `prev()`,
+  `parent=` is now an error, `TDC315`. These read the rows around the current one, so it is
+  unclear which rows the filter should drop. Put `parent=` on the column they read instead. →
+  [An empty source makes an empty answer](./generators/formula.md#an-empty-source-makes-an-empty-answer)
+- **`stat` with `sum`, `min` or `max` skips empty cells.** Before, if the last cell of the
+  column was empty, for example blanked by `missing=`, the result was empty on every row. Now
+  the empty cells are skipped, and the result is computed over the others. →
+  [`stat`](./generators/stat.md#top)
+- **An unknown escape in `regex` is an error.** Before, TDC dropped the backslash and printed
+  the letter: `\bINV-\d{6}\b`, copied from a validator, printed `bINV-123456b`. Now `\b`,
+  `\B`, `\A`, `\Z`, `\z`, `\G` and any other unknown backslash-letter are `TDC097` (`TDC130` in
+  `advanced_regex`). The first six check what surrounds a match, and a generated value has
+  nothing around it. `\xHH` and `\uHHHH` now give the character with that code; before,
+  `\x41` printed `x41`. → [Escaping](./generators/regex.md#escaping)
+- **`parent=`, `of=` and a formula can read the `flag=` column of a `<mix>`.** Before, the
+  npm package allowed it and the other four packages refused it with `TDC035` or `TDC240`, so
+  one config passed `check` in one language and failed in the rest. Now all five allow it. →
   [Marking outliers with `flag`](./constructs/mix.md#marking-outliers-with-flag)
-- **Distributions and `timeseries` print the same digits in every package**, to the last decimal.
-  → [Statistical distributions](./guides/statistical-distributions.md#top)
-- **A value that rounds to zero prints `0.00`, never `-0.00`.** → [`decimals`](./generators/number.md#decimals--a-fractional-column)
-- **`decimals=` on a `number` range or a `timeseries` is a whole number from 0 to 10, `TDC316`.**
-  → [`decimals`](./generators/number.md#decimals--a-fractional-column)
-- **Russian `MMM` after a day takes the in-date form:** `15 мая`, `15 июн.`, not `15 май`. →
+- **Distributions and `timeseries` print the same digits in every package.** Before, with many
+  decimals, such as `lognormal` with `decimals="10"`, the packages could differ in the last
+  digits, because each one used its own platform's math functions. Now all five compute the
+  same way. At the usual 2–4 decimals nothing changed. →
+  [Statistical distributions](./guides/statistical-distributions.md#top)
+- **A value that rounds to zero prints `0.00`, not `-0.00`.** Before, `-0.001` with
+  `decimals="2"` printed `-0.00` in four packages and `0.00` in Java. →
+  [`decimals`](./generators/number.md#decimals--a-fractional-column)
+- **`decimals=` on a `number` range or a `timeseries` must be a whole number from 0 to 10,
+  `TDC316`.** Before, a larger value such as `decimals="17"` stopped the run in three packages
+  and printed meaningless trailing digits in the other two. →
+  [`decimals`](./generators/number.md#decimals--a-fractional-column)
+- **Russian `MMM` after a day uses the form for dates:** `15 мая`, `15 июн.`. Before, four
+  months used the standalone form, so `15 май` stood beside `15 янв.`. →
   [Formatting the output](./generators/date.md#formatting-the-output)
-- **`<pad>` counts characters, and case changes agree** on letters such as `ς` and `ﬁ` in every
-  package. → [`<pad>`](./compute/strings.md#pad--pad-on-the-left-to-a-fixed-width)
-- **The streaming engine is two to three times faster** on `regex`, `advanced_regex` and `number`
-  columns, and on a column read twice in one row. Same bytes. → [Performance](./guides/performance.md#top)
-- **Python's command line uses every core on a large run without `--jobs`**, like the other
-  four; a config that calls a service still runs as one process. Rust always runs on one thread
-  and ignores `--jobs`; a TypeScript worker is now budgeted at the ~600 MB a long run really
-  holds. → [Parallelism — automatic](./guides/large-outputs.md#parallelism--automatic)
+- **`<pad>` counts characters, and case changes agree in every package.** Before, in the npm
+  package `<pad>` counted an emoji as two characters, so `😀ab` padded to 8 got one fill
+  character too few. The C# package changed the case of some letters differently from the
+  other four: a final `Σ` became `σ` instead of `ς`. →
+  [`<pad>`](./compute/strings.md#pad--pad-on-the-left-to-a-fixed-width)
+- **The streaming engine is two to three times faster** on `regex`, `advanced_regex` and
+  `number` columns. Before, it parsed the pattern or the range again for every row, and a
+  column read twice in one row was generated twice. The output is the same, byte for byte. →
+  [Performance](./guides/performance.md#top)
+- **Python's command line uses every processor core on a large run, without `--jobs`.**
+  Before, it ran on one core unless you passed `--jobs`, while the other four packages split a
+  large run by themselves. A config that calls a service still runs as one process. The npm
+  package now starts fewer workers on a machine with little memory: it used to count about
+  120 MB per worker, but a worker on a long run holds about 600 MB, so a large run could use up
+  the memory. The Rust package always runs on one thread and ignores `--jobs`; the docs used to
+  say otherwise. → [Parallelism — automatic](./guides/large-outputs.md#parallelism--automatic)
 
 ## 9 November 2026 — version 0.4.0
 
@@ -79,18 +122,24 @@ third items below need a change on the service's side, which is why the version 
   `parallel=` puts several batches on the wire at once. A value for either that is not a whole
   number above zero is `TDC313`. →
   [Batches](./generators/http.md#batches-one-request-per-ten-thousand-rows)
-- **A source service sends `X-TDC-Offset` back.** Each request now says which rows it covers:
-  `X-TDC-Offset` is the first row and `X-TDC-Total` is the length of the run. A source — a
-  service with no `in=` — returns the offset it received in a header of the same name, or a run
-  longer than one batch stops. A handler needs no change. →
+- **A service called without `in=` must send `X-TDC-Offset` back.** Before, a run sent one
+  request, so there was nothing to number. Now each request says which rows it covers:
+  `X-TDC-Offset` is the first row of the batch, and `X-TDC-Total` is the number of rows in the
+  run. A service called without `in=` makes each value from its row number, so it has to
+  return the offset it received in a response header of the same name. Without it, a run
+  longer than one batch stops, because the service would answer every batch with rows 0, 1,
+  2… again. A service that receives an `in=` column needs no change. →
   [The contract](./generators/http.md#the-contract-your-service-implements)
-- **The `secret=` signature covers the offset and the total.** A service that checks signatures
-  adds the two lines: `timestamp \n seed \n count \n offset \n total \n body`. →
+- **The `secret=` signature includes the offset and the total.** Before, it covered the
+  timestamp, the seed, the row count and the body. Now it also covers which rows a request is
+  for, so nobody can change the row numbers of a signed request. **What to change:** a service
+  that checks signatures signs `timestamp \n seed \n count \n offset \n total \n body`. →
   [Proving the request came from TDC](./generators/http.md#proving-the-request-came-from-tdc)
 - **A column that reads an `http` answer gets the answer.** `if="Hash == ''"`, a `<switch>` on
   the answer, or a line that prints it used to see an empty string. A call inside a `<mix>` or
-  `<switch>` case, an `if=` branch, or a compound's field prints its answer, and `parent=` on an
-  `http` sequence blanks the rows the parent leaves empty. → [The `http` generator](./generators/http.md#top)
+  `<switch>` case, an `if=` branch, or a compound's field used to print an empty cell; it prints
+  the answer now. `parent=` on an `http` sequence used to be ignored; it now blanks the rows the
+  parent leaves empty. → [The `http` generator](./generators/http.md#top)
 - **An `http` column cannot be a member of `<uniq>` or `<distinct>`, `TDC314`.** A `<uniq>`
   group moved answers between rows, so a hash could land beside another row's password. Put the
   group around the columns the service reads, and the `http` column follows them. →
@@ -124,12 +173,15 @@ third items below need a change on the service's side, which is why the version 
   holds. →
   [Three cases where inference is skipped](./guides/typed-output-parquet.md#three-cases-where-inference-is-deliberately-skipped)
 - **A `timeseries` or `pattern` inside a `<mix>` case or under `parent=` keeps the run's time
-  axis.** Row 7 reads the series at 7, whichever branch produced it, so a rare "sensor stuck"
-  branch punches holes in a wave without scrambling it. →
+  axis.** Before, the series was read at a shuffled position, so a smooth wave inside
+  `<mix percent="99,1">` came out scrambled, even on the rows where the first case was chosen.
+  Now row 7 reads the series at position 7, whichever case produced it. A rare second case
+  only leaves gaps in the wave. →
   [`timeseries` details](./generators/timeseries.md#details)
-- **`uniq` inside a `<pool>` is measured by the pool.** The memory warning `TDC299` read the
-  run's `count`, so a thousand doctors with a unique room number warned about 48 MB on a long
-  run. The pool's own `count` decides now. →
+- **The memory warning for `uniq` inside a `<pool>` counts the pool's records.** Before,
+  `TDC299` used the run's `count`. A pool of 1,000 records with a `uniq` field warned about
+  48 MB on a 200,000-row run, although the pool holds only its 1,000 records. Now the pool's own
+  `count` decides. →
   [`TDC299`](./reference/errors.md#formatting-and-modifiers)
 - **`if=` or `default=` on a `<case>` is an error in every package**, `TDC128`. Neither was ever
   read — a `<mix>` deals cases by share, a `<switch>` by the `is=` key — and the Python, Rust,
@@ -172,8 +224,10 @@ third items below need a change on the service's side, which is why the version 
   Breton, Sindhi, four more languages and 46 countries can be downloaded now, and `tdcv2 pack list` names countries as
   names: United States, not "Usa". → [`pack list`](./data-packs/installing-packs.md#pack-list--see-the-catalog)
 - **Rust and C#:** a pack whose `<valid>` check rejects a value now redraws it the way the other
-  three do. Eleven shipped packs, the ISO 6346 container code and Slovenian postal codes among
-  them, gave different values there. → [`<valid>`](./compute/conditionals.md#valid--reject-and-retry)
+  three do. Before, these two packages could draw the same rejected value again on every retry,
+  so the pack either failed or produced different values than in the other three. Eleven
+  shipped packs were affected, the ISO 6346 container code and Slovenian postal codes among
+  them. → [`<valid>`](./compute/conditionals.md#valid--reject-and-retry)
 - **AI agents.** Claude Code, Codex, Cursor, VS Code and Gemini CLI can write and run TDC configs
   for you, through a skill and an MCP server. → [AI Agents](./ai-agents/overview.md#top)
 
@@ -182,12 +236,14 @@ third items below need a change on the service's side, which is why the version 
 - **`check` says which engine will run the config, and why.** A second line after "is valid",
   such as `runs on engine 1 (in memory): uniq="true" on "Code"` — that is where the run's memory
   goes. `--brief` leaves it out. → [`tdcv2 check`](./reference/cli.md#tdcv2-check)
-- **`--engine 3` says when engine 1 runs the config instead.** On a running total, a statistic or
-  a `uniq="true"` column it always handed the run to the in-memory engine; it now prints a note,
-  so a memory reading is not quietly one of engine 1. →
+- **`--engine 3` says when engine 1 runs the config instead.** Engine 3 cannot build a running
+  total, a statistic or a `uniq="true"` column. Before, on such a config it handed the run to
+  the in-memory engine 1 without a word, so if you measured memory, you measured engine 1
+  without knowing it. Now it prints a note. →
   [Which engine runs your config](./guides/large-outputs.md#which-engine-runs-your-config)
-- **Fixed: a lookup or a formula reading a `<uniq>` member saw the value from before the group
-  was settled** — the day printed and the day looked up disagreed on almost every row. →
+- **Fixed: a lookup or a formula that reads a column of a `<uniq>` group gets its final
+  value.** Before, it got the value from before the group rearranged its columns, so a printed
+  day and the day looked up from it disagreed on almost every row. →
   [`<uniq>` — across separate sequences](./constructs/unique-values.md#uniq--across-separate-sequences)
 - **Fixed: `<assert>` and `if=` read a field two or more pools deep**, such as
   `D.room.dept.dep_id`. → [How deep can it go](./pools/linking.md#how-deep-can-it-go)

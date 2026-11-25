@@ -20,7 +20,7 @@ the next build, and nothing else is edited.
 
 ## [Unreleased]
 
-## [0.5.0] — not published
+## [0.5.0] — 2026-11-25
 
 ### Changed
 

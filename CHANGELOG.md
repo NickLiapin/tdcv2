@@ -21,12 +21,11 @@ page — is tracked in that implementation's own changelog:
 
 - **The `secret=` signature covers the method and the path:**
   `HMAC-SHA256(secret, method \n path \n timestamp \n seed \n count \n offset \n total \n body)`.
-  Without them a request signed for one path of a service was accepted at another path of the
-  same service holding the same secret: a `/hash` request replayed unchanged to `/invite` got an
-  invitation code back. `method` is `POST`; `path` is the path and query as they go on the
-  request line — what Node calls `req.url`. The host and port stay out, since proxies change
-  them. A service that verifies signatures must add the two lines and answers every old-format
-  request with 401, so this is a format change, as in 0.4.0. Found by the article agent.
+  Without them a request signed for one path of a service was accepted, unchanged, at any
+  other path of the same service holding the same secret. `method` is `POST`; `path` is the
+  path and query as they go on the request line — what Node calls `req.url`. The host and port
+  stay out, since proxies change them. A service that verifies signatures must add the two
+  lines and answers every old-format request with 401, so this is a format change, as in 0.4.0.
 
   TDC now writes the path in one form before sending (`%7e` → `~`, `'` → `%27`, a space →
   `%20`, an empty `?` dropped) and sends that, because the five HTTP clients each changed it
@@ -53,24 +52,23 @@ page — is tracked in that implementation's own changelog:
   `<sequence name="F" parent="Status.paid"><gen type="formula" …/>` came out on every row,
   `stat count` over it counted every row (1,000 instead of 700), and `check` called the config
   valid. The rows the parent did not pick are now empty, as in any other column. A ranged date
-  offset still draws on every row, so the picked rows keep the dates they had. Found by the
-  article agent.
+  offset still draws on every row, so the picked rows keep the dates they had.
 - **`stat` with `op="sum"`, `min` or `max` no longer comes out empty when the last cell is
   blank — in all five.** The three are read off the running total, and a cell `missing=`
   blanked holds an empty string: when it was the column's last cell, the total was empty on
   every row while `count` beside it was right, exit 0. They now run over the present cells
-  only. Found by the article agent.
+  only.
 - **An escape `regex` and `advanced_regex` do not know is refused instead of becoming its
   letter — in all five.** `\x41` printed `x41`, and `\bINV-\d{6}\b` copied from a validator
   printed `bINV-123456b` on every row after a clean `check`. `\xHH` and `\uHHHH` are now the
   character with that code, in a pattern and inside a class. `\b`, `\B`, `\A`, `\Z`, `\z` and
   `\G` are `TDC097` (`TDC130` in `advanced_regex`): a generated value has nothing around it to
-  assert. Any other backslash-letter is `TDC097` too. Found by the article agent.
+  assert. Any other backslash-letter is `TDC097` too.
 - **A `<mix>`'s `flag=` column can be named by `parent=`, `of=` and a formula — in all five.**
   The reference treated it as a sequence of its own; the four ports let an `if=` read it and
   refused the rest (`TDC035`, `TDC240`), so `parent="Bad.true"` checked clean in one language
   and failed in four. A `stat` count over the flag counts every row, since every row has one;
-  the mix page shows how to count the anomalies instead. Found by the article agent.
+  the mix page shows how to count the anomalies instead.
 - **Distributions, timeseries and SVG patterns print the same digits in all five.** Their
   generators sampled with the host's `exp`, `log`, `pow`, `cos` and friends, which differ in the
   last bit between V8, the C library and the JVM: `lognormal` at `decimals="10"` gave three
@@ -78,23 +76,21 @@ page — is tracked in that implementation's own changelog:
   same way. They compute through TdcMath now, as formulas already did, and degrees become radians
   with one rounding everywhere. A shared case at magnitudes near 10^7, where the tenth decimal is
   the double's binary tail, holds every family to the last printed digit. Values at the usual 2–4
-  decimals did not change in any fixture or documentation example. Found by the article agent.
+  decimals did not change in any fixture or documentation example.
 - **Hard Unicode pads and changes case the same in all five.** `<pad>` in TypeScript measured
   UTF-16 units, so `😀ab` padded to 8 got one star fewer than in the ports and than `<length>`
   beside it said; it counts characters now. C# lowercased a word-final `Σ` as `σ` instead of `ς`
   and left `İ` alone, and its `<capitalize>`/`<title>` did not take the full mapping (`ﬁne`
   stayed `ﬁne`, not `FIne`); all three follow the other four now, through every route to a case
-  change. Found by the article agent.
+  change.
 - **Russian short months after a day number take the in-date form — in all five.** `D MMM`
   wrote `15 май 26` and `15 июнь 26` beside `15 янв. 26`: four months used the standalone
   abbreviation. After a day `MMM` now takes CLDR's format abbreviations (`мар.`, `мая`, `июн.`,
   `июл.`), the way `MMMM` already took `15 марта`; `MMM` with no day before it is unchanged.
-  Found by the article agent.
 - **A value that rounds to zero prints as `0.00`, never `-0.00` — in all five.** `-0.001` with
   `decimals="2"` printed `-0.00` in four of the five (JavaScript's `toFixed` keeps the input's
   sign) and `0.00` in Java, so the five disagreed; `-0.00` also compared unequal to `0.00` and
-  sorted apart from it. A negative value that does not round to zero keeps its sign. Found by
-  the article agent.
+  sorted apart from it. A negative value that does not round to zero keeps its sign.
 
 - **A project with its own packs no longer pays seconds to list the bundled ones — Python and
   Rust.** With one `--data-path` or a `pack add`, the list of pack files was merged by checking
@@ -115,7 +111,7 @@ page — is tracked in that implementation's own changelog:
   a worker that has drawn a few hundred thousand rows sits near 600 MB, because V8 keeps a heap's
   garbage while memory is free. Eleven workers measured 6.7 GB while the plan counted 1.3 GB. It
   charges 600 MB now, so a machine with less memory gets fewer workers instead of a run that
-  swaps. Found from the article agent's parallelism questions.
+  swaps.
 
 ### Added
 
@@ -125,7 +121,7 @@ page — is tracked in that implementation's own changelog:
   both skip an empty cell — or, for `prev()`, write the condition into the expression.
 - **`TDC316`: `decimals=` on a `number` range or a `timeseries` must be a whole number from 0 to 10.** A range's `decimals="17"` stopped the run in three implementations and printed in Rust
   and C# — two different binary tails of a double; a timeseries took any count. A distribution
-  holds the same limit under `TDC089`. Found by the article agent.
+  holds the same limit under `TDC089`.
 
 ### Changed
 
@@ -135,7 +131,7 @@ page — is tracked in that implementation's own changelog:
   drawn twice. A pattern is now parsed once and a column keeps its last row's answer. Measured
   on 500,000 rows of two regex columns and an `if=` reading one, in one thread: Python 107 s →
   49 s, TypeScript 11.1 s → 6.7 s, C# 5.9 s → 1.8 s, Rust 4.8 s → 2.1 s, Java 3.5 s → 1.6 s.
-  Every file came out byte-identical. Found from the article agent's parallelism questions.
+  Every file came out byte-identical.
 
 ### Documentation
 
@@ -152,7 +148,7 @@ page — is tracked in that implementation's own changelog:
   by default) and sent one request per batch, numbered by the run's row: `X-TDC-Count` is the
   batch's size, and two new headers say where it sits — `X-TDC-Offset`, the row it starts at, and
   `X-TDC-Total`, the run's length. The whole column used to go in one request, so the 64 MB reply
-  cap was the cap of the run: about a million hashes, measured by the article agent. `timeout`
+  cap was the cap of the run: about a million hashes. `timeout`
   and `on_error` now apply to one batch, an error names its rows (`(rows 10000–19999)`), and
   `parallel=` lets several batches be on the wire at once (default 1). `batch=` and `parallel=`
   must be whole numbers above zero (`TDC313`).
@@ -223,7 +219,7 @@ page — is tracked in that implementation's own changelog:
   `Dept` is a pool reference and `id` an `increment`, came out as a `string` column: the writer
   looked the dotted name up as a sequence and found none. It now steps through the pool into its
   members, through any number of links (`${{Dept.region.code}}`), and into a compound sequence's
-  named field (`${{Address.zip}}`). Found by the article agent.
+  named field (`${{Address.zip}}`).
 - **A Parquet column the config can leave empty is nullable instead of fatal.** `parent=` on a
   number, or a `<gen if>` with no fallback branch, was typed `REQUIRED`, and the run stopped on
   the first empty row with "empty value in a required column" — on a config that prints
@@ -236,13 +232,12 @@ page — is tracked in that implementation's own changelog:
   the rows where only the first case fired. Row 7 now reads the series at 7 whichever branch
   produced it, and a drawn curve is stretched over the whole run. Both engines erred the same way,
   which is why no fixture noticed; one does now. Counters are unchanged on purpose: inside a
-  subset they number `1..N` in the order the seed picks, as `counters.mdx` explains. Found by the
-  article agent building a stuck-sensor example.
+  subset they number `1..N` in the order the seed picks, as `counters.mdx` explains.
 - **`missing_as` keeps a Parquet column as text.** `missing="0.5" missing_as="NULL"` on a number
   was typed `int64`, and the first missing row stopped the run on `"NULL" is not an integer`. The
   word is what the cell holds, so the column is `string`, as with `mask` and `case`.
 - **`uniq` inside a `<pool>` is sized by the pool — in all five.** `TDC299` read the run's
-  `count`, so a thousand doctors with a `uniq` room number warned about 48 MB on a 200,000-row
+  `count`, so a pool of 1,000 records with a `uniq` field warned about 48 MB on a 200,000-row
   run. The pool is built once, before the first row, so its own `count` is what the column holds:
   no warning there, and a 200,000-member pool warns even on a ten-row run. Found by the article
   agent.
@@ -251,11 +246,10 @@ page — is tracked in that implementation's own changelog:
   `<case if="Age < 18">` handed out cases at random while looking like if/elif/else. The
   TypeScript reference has refused both since the trap was found; Python, Rust, Java and C#
   accepted them in silence, so a config checked there failed `check` in TypeScript. Four shared
-  cases, checked to fail on the old ports. Found by the article agent.
+  cases, checked to fail on the old ports.
 - **`tdcv2 big.tdc | head` ends quietly in TypeScript and Python.** `head` closes the pipe after
   its lines; the next write failed with EPIPE, and both printed the error and exited 1, as if the
-  run had broken. They now stop at once and exit 0, as Rust, Java and C# already did. Found by the
-  article agent.
+  run had broken. They now stop at once and exit 0, as Rust, Java and C# already did.
 
 ### Changed
 
@@ -271,7 +265,7 @@ page — is tracked in that implementation's own changelog:
   one level down (`${{Doctors.dept.name}}`). A lookup table now comes out of the same config as
   the rows whose foreign keys point at it, and a JSON document with several tables is several
   pools and several `each` lines — no new tag. A pool printed only this way counts as read, so
-  it raises no `TDC231`. Asked for by the plugin agent's hospital report (C6).
+  it raises no `TDC231`.
 - **The walked name carries the line's positions: `Orders._item`, `Orders._first`,
   `Orders._last` — on a list and on a pool.** They count the lines actually PRINTED, after the
   line's `if=` has dropped what it drops, so `<data if="!Orders._last">,</data>` puts a comma
@@ -288,8 +282,8 @@ page — is tracked in that implementation's own changelog:
 plus="Length m">` ends each appointment its own length after its start: the name is read row
   by row, in the unit after it (`s`, `m`, `h`, `d`, `w`, `mo`, `y`; a bare name means days, as a
   bare number does), a leading minus measures backwards, and a pool reference's field works
-  (`Room.turnover m`). It replaces the three formulas and a `<switch>` the hospital report needed
-  for the end of an appointment (C9). The column must be declared above and hold one number per
+  (`Room.turnover m`). It replaces the three formulas and a `<switch>` that computing the end of an
+  appointment used to take. The column must be declared above and hold one number per
   row (`TDC240`); an empty cell leaves the date empty; a cell that is not a whole number stops
   the run with the row named, since rounding `1.5` hours would put a wrong time in a cell that
   looks right. Nothing is drawn, so no other column moves.
@@ -320,7 +314,7 @@ plus="Length m">` ends each appointment its own length after its start: the name
   Health mod-11 digit). Each was checked against numbers from its own source — the CMS worked
   example and 400 real NPPES records, the KVNR guideline example, the KBV pseudo numbers, the
   ANS examples and a real hospital's FINESS, ANVISA's CNS examples — and 20,000 of each passed an
-  independent validator. Asked for by the plugin agent's hospital report (C12).
+  independent validator.
 - **`usa.phoneAreaCode` and `canada.phoneAreaCode`: every geographic area code in service**, 372
   in the 50 states and DC and 55 in Canada, from the NANPA database of 17 October 2026.
 
@@ -405,8 +399,7 @@ b">` held on the line printing `b` there and never in the ports, which compared 
 
 - **`tdcv2 check` says which engine will run the config, and why — in all five.** A second line
   after "is valid", or after the warnings, such as
-  `tdcv2: runs on engine 1 (in memory): uniq="true" on "Code"`. Asked for by a plugin agent that
-  spent an hour finding it out by running `--engine 1`, `2` and `3` in turn. `--brief` leaves
+  `tdcv2: runs on engine 1 (in memory): uniq="true" on "Code"`. `--brief` leaves
   the line out, since other programs read that format line by line.
 - **A run asked to use engine 3 says when engine 1 runs it instead.** On a config the lazy path
   cannot build — a running total, a statistic, a simple `uniq`, a `parent` with no value — a forced
@@ -1232,9 +1225,6 @@ amplitude="120,400" peak_at="5,182"` is a weekly season and a yearly one on one 
   are fixed together. `\k<name>` now repeats the named group and refuses a name whose group
   has not closed, exactly as in `regex`. The rule it fell through is deliberate and is left
   alone — `\q` is still `q` in both generators.
-
-  Reported by Nick from the article series, with the reproduction, the line numbers and the
-  five-way survey already done.
 
 <!-- covers: a build condition naming a column declared below it -->
 

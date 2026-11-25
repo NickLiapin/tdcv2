@@ -444,7 +444,7 @@ cambia cómo se mueve el ruido, no cuán grande es.
   [`date`](date.md#top) al lado, para que cada valor cargue una fecha real.
 - **Dentro de un caso de [`<mix>`](../constructs/mix.md#top) o bajo `parent=`** el eje
   sigue siendo el de la corrida: la fila 7 lee la serie en 7, sea cual sea la rama que
-  la produjo. Una rama rara de «sensor atascado» abre huecos en la onda sin desplazarla.
+  la produjo. Un segundo caso poco frecuente solo deja huecos en la onda, sin desplazarla.
 
 ## Vea también
 

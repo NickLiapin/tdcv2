@@ -576,8 +576,8 @@ if (mine !== req.headers['x-tdc-signature']) return res.status(401).end();
 `req.url` is the path and query as they arrived on the request line, `/hash?v=2`, not
 parsed and not decoded. Other servers have the same value under another name: `self.path`
 in Python's `http.server`, `getRawPath()` plus `getRawQuery()` in Java, `RawUrl` in .NET.
-Because the path is signed, one secret can cover every path of your service: a request
-signed for `/hash` is refused at `/invite`.
+Because the path is signed, one secret can cover every endpoint of your service: a request
+signed for one path gets 401 at any other.
 
 Four things worth knowing before you write that check:
 

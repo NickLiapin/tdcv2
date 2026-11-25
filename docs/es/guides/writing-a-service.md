@@ -581,7 +581,7 @@ if (mine !== req.headers['x-tdc-signature']) return res.status(401).end();
 sin analizar ni decodificar. Otros servidores tienen el mismo valor con otro nombre:
 `self.path` en `http.server` de Python, `getRawPath()` más `getRawQuery()` en Java, `RawUrl`
 en .NET. Como la ruta va firmada, un secreto puede cubrir todas las rutas de su servicio:
-una petición firmada para `/hash` se rechaza en `/invite`.
+una petición firmada para una ruta recibe 401 en cualquier otra.
 
 Cuatro cosas que conviene saber antes de escribir esa comprobación:
 

@@ -56,6 +56,21 @@ American first reads it as a street. The pack file format has a field literally 
 `address:`, so renaming the idea in prose would put the docs at odds with the format.
 Where both senses meet on one page, say **street address** for the other one.
 
+## What's new and the changelog
+
+**Write for a reader who knows TDC's previous version and nothing else.** Not the report a
+fix came from, not the article or experiment that found it, not the example the reporter was
+building. Each entry says three things:
+
+1. what TDC did before;
+2. what it does now;
+3. what that fixes — or what the reader has to change, if anything.
+
+Use a neutral example (`/a` and `/b`, "a column", "a pool of 1,000 records"), or the linked
+page's own running example. Never the reporter's endpoints, data or scenario: a `/invite`
+endpoint or a "stuck sensor" nobody has seen turns the entry into a riddle. No provenance —
+"found by", "asked for by", "reported from" — in any public text.
+
 ## The translations
 
 The Russian and Spanish trees hold the same standard, in their own voice. Two rulings are
